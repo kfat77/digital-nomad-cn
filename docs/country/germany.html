@@ -8,8 +8,13 @@
     <meta name="keywords" content="德国数字游民, 德国数字游民签证, 德国远程工作, 德国生活成本, 德国签证, 德国数字游民指南">
     <meta property="og:title" content="德国数字游民指南">
     <meta property="og:description" content="德国数字游民完整攻略：签证、生活成本、安全、网络">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kfat77.github.io/digital-nomad-cn/country/germany">
+    <meta property="og:image" content="https://kfat77.github.io/digital-nomad-cn/images/og/germany.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="德国数字游民指南 - 德国 Digital Nomad Guide for Chinese">
+    <meta name="twitter:description" content="德国数字游民完整攻略：签证、生活成本、安全、网络">
+    <meta name="twitter:image" content="https://kfat77.github.io/digital-nomad-cn/images/og/germany.png">
     <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/country/germany">
     <link rel="stylesheet" href="../style.css">
     <style>
@@ -320,7 +325,30 @@
         <h2>准备好开启 德国 的数字游民之旅了吗？</h2>
         <p>加入我们的社区，获取最新签证政策、生活攻略和数字游民经验分享。</p>
         <a href="https://github.com/kfat77/digital-nomad-cn" class="btn" target="_blank">⭐ 在 GitHub 上支持我们</a>
+        <div style="margin-top:1.5rem;display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
+            <button class="btn btn-share" onclick="sharePage()" style="background:rgba(255,255,255,0.2);color:#fff;font-size:0.9rem;padding:0.6rem 1.5rem;cursor:pointer;border:none;">🔗 分享本页</button>
+            <button class="btn btn-share" onclick="copyLink()" style="background:rgba(255,255,255,0.2);color:#fff;font-size:0.9rem;padding:0.6rem 1.5rem;cursor:pointer;border:none;">📋 复制链接</button>
+        </div>
     </div>
+
+    <script>
+    function sharePage() {
+        if (navigator.share) {
+            navigator.share({
+                title: '德国数字游民指南',
+                text: '德国数字游民完整攻略：签证、生活成本、安全、网络',
+                url: window.location.href
+            });
+        } else {
+            copyLink();
+        }
+    }
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('链接已复制到剪贴板');
+        });
+    }
+    </script>
 
     <footer style="background:#1e293b;color:#94a3b8;padding:40px 20px;text-align:center;">
         <p>© 2026 数字游民指南 | 面向中国用户的全球流动基础设施</p>
