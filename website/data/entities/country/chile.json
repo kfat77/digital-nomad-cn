@@ -1,0 +1,55 @@
+{
+  "id": "chile",
+  "name": "智利",
+  "name_en": "Chile",
+  "name_local": "Chile",
+  "code_iso_3166_1": "CL",
+  "code_iso_3166_3": "CHL",
+  "region": "americas_south",
+  "sub_region": "南美",
+  "is_special_admin_region": false,
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": true,
+  "coordinates": {
+    "lat": -35.6751,
+    "lon": -71.543
+  },
+  "timezone": [
+    "America/Santiago"
+  ],
+  "currency": [
+    {
+      "code": "CLP",
+      "name": "智利比索",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "es",
+      "name": "西班牙语",
+      "is_official": true
+    }
+  ],
+  "population": 19000000,
+  "area_km2": 756102,
+  "gdp_per_capita_usd": 15000,
+  "hdi": 0.855,
+  "safety_index": 55,
+  "internet_speed_avg_mbps": 80,
+  "cost_of_living_index": 45,
+  "rent_index": 20,
+  "china_passport_visa_status": "visa_required",
+  "china_passport_visa_note": "需提前申请签证，智利提供数字游民签证（Visa de Transitoria para Trabajadores Remotos）",
+  "digital_nomad_score": 72,
+  "tags": [
+    "南美",
+    "数字游民签证",
+    "葡萄酒",
+    "安第斯山脉",
+    "滑雪"
+  ],
+  "status": "published",
+  "updated_at": "2026-01-15",
+  "source": "Numbeo, World Bank"
+}

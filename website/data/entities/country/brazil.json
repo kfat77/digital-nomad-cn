@@ -1,0 +1,55 @@
+{
+  "id": "brazil",
+  "name": "巴西",
+  "name_en": "Brazil",
+  "name_local": "Brasil",
+  "code_iso_3166_1": "BR",
+  "code_iso_3166_3": "BRA",
+  "region": "americas_south",
+  "sub_region": "南美",
+  "is_special_admin_region": false,
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": true,
+  "coordinates": {
+    "lat": -14.235,
+    "lon": -51.9253
+  },
+  "timezone": [
+    "America/Sao_Paulo"
+  ],
+  "currency": [
+    {
+      "code": "BRL",
+      "name": "巴西雷亚尔",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "pt",
+      "name": "葡萄牙语",
+      "is_official": true
+    }
+  ],
+  "population": 215000000,
+  "area_km2": 8515767,
+  "gdp_per_capita_usd": 7500,
+  "hdi": 0.754,
+  "safety_index": 42,
+  "internet_speed_avg_mbps": 55,
+  "cost_of_living_index": 40,
+  "rent_index": 18,
+  "china_passport_visa_status": "visa_required",
+  "china_passport_visa_note": "需提前申请签证，可申请数字游民签证（临时签证VITEM XIV）",
+  "digital_nomad_score": 70,
+  "tags": [
+    "南美",
+    "数字游民签证",
+    "海滩",
+    "桑巴",
+    "足球"
+  ],
+  "status": "published",
+  "updated_at": "2026-01-15",
+  "source": "Numbeo, World Bank"
+}
