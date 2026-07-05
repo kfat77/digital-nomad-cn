@@ -1,59 +1,28 @@
-## Summary
+## 描述
 
-<!-- Briefly describe what this PR does -->
+简要描述本次 PR 的目的。
 
-## Type of Change
+## 变更类型
 
-<!-- Mark the relevant option(s) with [x] -->
+- [ ] 🐛 Bug 修复
+- [ ] 📊 数据更新
+- [ ] 🌍 新国家/城市
+- [ ] ✨ 新功能
+- [ ] 🎨 UI/设计改进
+- [ ] ♻️ 代码重构
+- [ ] 📚 文档更新
 
-- [ ] 🐛 Bug fix (data correction, broken link)
-- [ ] 📊 Data update (new or updated data)
-- [ ] 📝 Content (new article, updated content)
-- [ ] ✨ New feature
-- [ ] 🎨 UI/UX improvement
-- [ ] 🔧 Code refactor
-- [ ] 📚 Documentation update
-- [ ] 🧪 Test addition or update
-- [ ] ⚡ Performance improvement
-- [ ] 🏗️ Build or CI/CD change
+## 检查清单
 
-## Related Issues
+- [ ] 已验证数据 JSON 符合 Schema
+- [ ] 已运行生成器重新生成页面
+- [ ] 已在本地预览确认效果
+- [ ] 已同步 docs/ 目录
 
-<!-- Link related issues. Example: Closes #123 -->
+## 相关 Issue
 
 Closes #
 
-## Changes Made
+## 截图（如适用）
 
-<!-- Describe what you changed and why -->
-
-### Data Changes (if applicable)
-- Entity: <!-- e.g., Japan Tourist Visa -->
-- Field(s) changed: <!-- e.g., fee, processing_time -->
-- Source: <!-- Link to official source -->
-
-### Code Changes (if applicable)
-- Files modified:
-- New dependencies (if any):
-- Breaking changes (if any):
-
-## Screenshots / Evidence
-
-<!-- For UI changes or data updates, include screenshots or evidence -->
-
-## Checklist
-
-<!-- Mark completed items with [x] -->
-
-- [ ] I have read the [Contributing Guide](CONTRIBUTING.md)
-- [ ] I have verified the data from an official source (for data changes)
-- [ ] I have run `npm run validate` and all checks pass
-- [ ] I have run `npm run build` successfully
-- [ ] I have tested my changes locally
-- [ ] My commits follow the [commit convention](CONTRIBUTING.md#提交规范)
-- [ ] I have added/updated tests if applicable
-- [ ] I have updated documentation if applicable
-
-## Additional Notes
-
-<!-- Anything else reviewers should know -->
+---

@@ -1,73 +1,27 @@
-name: 📊 Data Update Request
-description: Request an update to country, visa, city, or other data
+---
+name: 📊 Data Update
+about: 提交数据更新或修正
 title: "[Data] "
-labels: ["data", "triage"]
+labels: ["data"]
 body:
-  - type: dropdown
+  - type: input
     id: entity
     attributes:
-      label: Data Type
-      options:
-        - Country Information
-        - Visa Information
-        - City Information
-        - Cost of Living
-        - Tax Information
-        - Internet/Cybersecurity
-        - Healthcare
-        - Education
-        - Remote Job
-        - Other
-    validations:
-      required: true
-
+      label: 数据类型
+      placeholder: 国家 / 城市 / 签证
   - type: input
-    id: target
+    id: entity_id
     attributes:
-      label: Target Entry
-      description: Which specific entry needs updating?
-      placeholder: "e.g., Japan / Thailand Tourist Visa / Tokyo"
-    validations:
-      required: true
-
+      label: 实体 ID
+      placeholder: 如 thailand, bangkok
   - type: textarea
-    id: changes
+    id: description
     attributes:
-      label: Proposed Changes
-      description: What needs to be updated and what is the new value?
-      placeholder: |
-        Field: visa_fee
-        Current: ¥200
-        Proposed: ¥400
-        
-        Field: processing_time
-        Current: 5 days
-        Proposed: 7-10 days
-    validations:
-      required: true
-
-  - type: textarea
+      label: 更新内容描述
+      placeholder: 描述需要更新的具体数据项和修正值
+  - type: input
     id: source
     attributes:
-      label: Source
-      description: Official source or evidence for the change
-      placeholder: "https://www.mofa.go.jp/... (Japan Ministry of Foreign Affairs)"
-    validations:
-      required: true
-
-  - type: input
-    id: date
-    attributes:
-      label: Effective Date
-      description: When did this change take effect?
-      placeholder: "2026-01-15"
-
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Confirmation
-      options:
-        - label: I have verified this information from an official source
-          required: true
-        - label: I am willing to submit a PR with this update
-          required: false
+      label: 数据来源
+      placeholder: 如 Numbeo 2026, 官方签证网站
+---
