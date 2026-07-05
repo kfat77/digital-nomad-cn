@@ -49,6 +49,40 @@
         </div>
     </section>
 
+    <!-- 3D 交互地球 -->
+    <section class="globe-section" id="globe">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">全球探索</span>
+                <h2 class="section-title">点击标记，探索全球数字游民基础设施</h2>
+                <p class="section-desc">旋转的地球上标注了项目覆盖的国家和地区，鼠标悬停高亮，点击查看该地的银行卡、签证、电话卡、证券账户等完整攻略</p>
+            </div>
+            <div class="globe-container">
+                <div id="globe-canvas-wrapper"></div>
+                <div class="globe-overlay">
+                    <div class="globe-hint">
+                        <span class="globe-hint-icon">🖱️</span>
+                        <span>拖拽旋转 · 滚轮缩放 · 点击标记查看详情</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 国家信息弹窗 -->
+    <div class="country-modal" id="countryModal">
+        <div class="country-modal-backdrop"></div>
+        <div class="country-modal-content">
+            <button class="country-modal-close" aria-label="关闭">&times;</button>
+            <div class="country-modal-header">
+                <span class="country-modal-flag" id="modalFlag"></span>
+                <h3 id="modalTitle"></h3>
+                <span class="country-modal-subtitle" id="modalSubtitle"></span>
+            </div>
+            <div class="country-modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
     <!-- Stats Bar -->
     <section class="stats-bar">
         <div class="stats-grid">
@@ -320,6 +354,18 @@
         </div>
     </section>
 
+    <!-- 签证官网直达 -->
+    <section class="visa-official" id="visa-official">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">官方渠道</span>
+                <h2 class="section-title">各国签证申请官网直达</h2>
+                <p class="section-desc">点击下方链接，直接进入各国/地区官方签证申请页面，避免中介陷阱</p>
+            </div>
+            <div class="visa-official-grid" id="visaOfficialGrid"></div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-main">
@@ -352,6 +398,8 @@
         </div>
     </footer>
 
+    <script src="countries-data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
