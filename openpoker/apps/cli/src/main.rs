@@ -3,12 +3,13 @@
 //! Command-line interface for poker analysis tools.
 //!
 //! ```bash
-//! openpoker equity --hero AsKh --villain JJ+ --board Ts9d2h
+//! openpoker equity --hero AsKh --villain QdQc --board Ts9d2h
 //! openpoker range parse "AA,AKs,AQo+"
-//! openpoker solve --position BTN --board Ts9d2h
 //! ```
 
 use clap::{Parser, Subcommand};
+use poker_types::Card;
+use poker_equity::{calculate_equity_heads_up, EquityConfig, CalculationMethod};
 
 #[derive(Parser)]
 #[command(name = "openpoker")]
@@ -21,130 +22,96 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Commands {
-    /// Calculate equity for a hand against opponent ranges
+    /// Calculate equity for a hand against opponent hand(s)
     Equity {
-        /// Hero's hand (e.g., AsKh or AKs)
-        #[arg(short, long)]
+        /// Hero's hand (e.g., AsKh)
+        #[arg(long)]
         hero: String,
-        /// Opponent ranges (e.g., JJ+,AQs+,KQs)
-        #[arg(short, long)]
-        villain: Vec<String>,
+        /// Villain's hand (e.g., QdQc)
+        #[arg(long)]
+        villain: String,
         /// Community cards (e.g., Ts9d2h)
-        #[arg(short, long)]
+        #[arg(long)]
         board: Option<String>,
-        /// Number of Monte Carlo iterations
-        #[arg(short, long, default_value = "100000")]
-        iterations: u32,
+        /// Force exact enumeration
+        #[arg(long)]
+        exact: bool,
     },
-    /// Range operations
-    Range {
-        #[command(subcommand)]
-        command: RangeCommands,
+    /// Evaluate a poker hand
+    Eval {
+        /// Cards to evaluate (e.g., AsKhTsJsQs)
+        cards: String,
     },
-    /// Solve a spot with GTO strategy
-    Solve {
-        #[arg(short, long)]
-        position: String,
-        #[arg(short, long)]
-        board: Option<String>,
-        #[arg(short, long)]
-        pot: Option<f64>,
-    },
-    /// Parse hand history files
-    Parse {
-        /// Path to hand history file
-        file: String,
-        /// Site format (auto-detect if not specified)
-        #[arg(short, long)]
-        site: Option<String>,
-    },
-    /// Run training drills
-    Train {
-        #[arg(short, long, default_value = "preflop")]
-        category: String,
-        #[arg(short, long, default_value = "intermediate")]
-        difficulty: String,
-    },
-    /// Run benchmark suite
-    Benchmark,
 }
 
-#[derive(Subcommand)]
-enum RangeCommands {
-    /// Parse a range string
-    Parse {
-        range: String,
-    },
-    /// Analyze a range
-    Analyze {
-        range: String,
-        #[arg(short, long)]
-        board: Option<String>,
-    },
-    /// Union of two ranges
-    Union {
-        a: String,
-        b: String,
-    },
-    /// Intersection of two ranges
-    Intersection {
-        a: String,
-        b: String,
-    },
+fn parse_cards(s: &str) -> Result<Vec<Card>, String> {
+    Card::parse_many(s).map_err(|e| format!("Failed to parse '{}': {}", s, e))
 }
 
 fn main() {
     let cli = Cli::parse();
 
     match cli.command {
-        Commands::Equity { hero, villain, board, iterations } => {
-            println!("Calculating equity...");
-            println!("Hero: {}", hero);
-            println!("Villains: {:?}", villain);
-            println!("Board: {:?}", board);
-            println!("Iterations: {}", iterations);
-            // TODO: Implement equity calculation
-        }
-        Commands::Range { command } => match command {
-            RangeCommands::Parse { range } => {
-                println!("Parsing range: {}", range);
-                // TODO: Implement range parsing
+        Commands::Equity { hero, villain, board, exact } => {
+            let hero_cards = match parse_cards(&hero) {
+                Ok(c) if c.len() == 2 => c,
+                Ok(c) => { eprintln!("Hero must have exactly 2 cards, got {}", c.len()); std::process::exit(1); }
+                Err(e) => { eprintln!("{}", e); std::process::exit(1); }
+            };
+            let villain_cards = match parse_cards(&villain) {
+                Ok(c) if c.len() == 2 => c,
+                Ok(c) => { eprintln!("Villain must have exactly 2 cards, got {}", c.len()); std::process::exit(1); }
+                Err(e) => { eprintln!("{}", e); std::process::exit(1); }
+            };
+            let board_cards = match board {
+                Some(ref b) => match parse_cards(b) {
+                    Ok(c) if c.len() <= 5 => c,
+                    Ok(c) => { eprintln!("Board cannot exceed 5 cards, got {}", c.len()); std::process::exit(1); }
+                    Err(e) => { eprintln!("{}", e); std::process::exit(1); }
+                },
+                None => Vec::new(),
+            };
+
+            let config = EquityConfig {
+                method: if exact { CalculationMethod::Exact } else { CalculationMethod::Auto },
+                ..Default::default()
+            };
+
+            let result = calculate_equity_heads_up(&hero_cards, &villain_cards, &board_cards, &config);
+
+            println!("┌─────────────────────────────────────────┐");
+            println!("│         Equity Calculation Result       │");
+            println!("├─────────────────────────────────────────┤");
+            println!("│  Hero:    {:>30} │", format_cards(&hero_cards));
+            println!("│  Villain: {:>30} │", format_cards(&villain_cards));
+            if !board_cards.is_empty() {
+                println!("│  Board:   {:>30} │", format_cards(&board_cards));
             }
-            RangeCommands::Analyze { range, board } => {
-                println!("Analyzing range: {}", range);
-                println!("Board: {:?}", board);
-                // TODO: Implement range analysis
-            }
-            RangeCommands::Union { a, b } => {
-                println!("Union: {} + {}", a, b);
-                // TODO: Implement range union
-            }
-            RangeCommands::Intersection { a, b } => {
-                println!("Intersection: {} & {}", a, b);
-                // TODO: Implement range intersection
-            }
-        },
-        Commands::Solve { position, board, pot } => {
-            println!("Solving...");
-            println!("Position: {}", position);
-            println!("Board: {:?}", board);
-            println!("Pot: {:?}", pot);
-            // TODO: Implement solver
+            println!("├─────────────────────────────────────────┤");
+            println!("│  Hero Equity:    {:>22.2}% │", result.equities[0] * 100.0);
+            println!("│  Villain Equity: {:>22.2}% │", result.equities[1] * 100.0);
+            println!("│  Method:         {:>22} │", if result.is_exact { "Exact" } else { "Monte Carlo" });
+            println!("│  Sample Size:    {:>22} │", result.sample_size);
+            println!("└─────────────────────────────────────────┘");
         }
-        Commands::Parse { file, site } => {
-            println!("Parsing file: {}", file);
-            println!("Site: {:?}", site);
-            // TODO: Implement parser
-        }
-        Commands::Train { category, difficulty } => {
-            println!("Training...");
-            println!("Category: {}", category);
-            println!("Difficulty: {}", difficulty);
-            // TODO: Implement trainer
-        }
-        Commands::Benchmark => {
-            println!("Running benchmarks...");
-            // TODO: Implement benchmark
+        Commands::Eval { cards } => {
+            let cards = match parse_cards(&cards) {
+                Ok(c) => c,
+                Err(e) => { eprintln!("{}", e); std::process::exit(1); }
+            };
+            let rank = match cards.len() {
+                5 => poker_eval::evaluate_5card(&cards),
+                6 => poker_eval::evaluate_6card(&cards),
+                7 => poker_eval::evaluate_7card(&cards),
+                _ => { eprintln!("Expected 5, 6, or 7 cards, got {}", cards.len()); std::process::exit(1); }
+            };
+            let cat = poker_eval::category_from_rank(rank);
+            println!("Hand: {}", format_cards(&cards));
+            println!("Category: {}", cat.as_str());
         }
     }
+}
+
+fn format_cards(cards: &[Card]) -> String {
+    cards.iter().map(|c| c.to_string()).collect::<Vec<_>>().join(" ")
 }
