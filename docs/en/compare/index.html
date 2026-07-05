@@ -9,6 +9,10 @@
     <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/compare/">
     <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/compare/">
     <link rel="stylesheet" href="../../style.css">
+    <link rel="manifest" href="../../manifest.json">
+    <link rel="icon" type="image/svg+xml" href="../../icons/favicon.svg">
+    <link rel="apple-touch-icon" href="../../icons/icon-192.png">
+    <meta name="theme-color" content="#3b82f6">
     <style>
         .compare-hero { background: var(--bg-hero); border-bottom: 1px solid var(--border); padding: 120px 0 60px; text-align: center; }
         .compare-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.03em; }
@@ -1195,6 +1199,13 @@ const countryData = {
     });
     initSelectors();
 
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('../../sw.js').catch(() => {});
+        });
+    }
     </script>
 </body>
 </html>

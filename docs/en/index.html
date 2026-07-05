@@ -14,6 +14,10 @@
     <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/">
     <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/">
     <link rel="stylesheet" href="../style.css">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <meta name="theme-color" content="#3b82f6">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
@@ -441,5 +445,12 @@
     <script src="../countries-data.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
     <script src="app-en.js"></script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('../sw.js').catch(() => {});
+        });
+    }
+    </script>
 </body>
 </html>

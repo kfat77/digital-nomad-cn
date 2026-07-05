@@ -6,6 +6,10 @@
     <title>国家数据库 — 42国数字游民目的地</title>
     <meta name="description" content="42个国家的数字游民结构化数据：签证政策、生活成本、安全指数、网速评分。按数字游民评分排序，支持地区与签证筛选。">
     <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/country/">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <meta name="theme-color" content="#3b82f6">
     <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/country/">
     <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/countries/">
     <link rel="stylesheet" href="../style.css">
@@ -78,5 +82,12 @@
     </footer>
 
     <script src="../app.js"></script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('../sw.js').catch(() => {});
+        });
+    }
+    </script>
 </body>
 </html>

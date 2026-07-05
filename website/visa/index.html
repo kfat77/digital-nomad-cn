@@ -6,6 +6,10 @@
     <title>签证数据库 — 42国数字游民签证完全指南</title>
     <meta name="description" content="面向中国护照的数字游民签证数据库：42个国家签证类型、数字游民签证、申请条件、费用、材料清单全覆盖。">
     <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/visa/">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <meta name="theme-color" content="#3b82f6">
     <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/visa/">
     <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/visas/">
     <link rel="stylesheet" href="../style.css">
@@ -91,6 +95,13 @@
             });
         });
     });
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('../sw.js').catch(() => {});
+        });
+    }
     </script>
 </body>
 </html>

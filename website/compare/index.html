@@ -6,6 +6,10 @@
     <title>国家对比工具 — 42国数字游民数据横向对比</title>
     <meta name="description" content="数字游民国家对比工具：选择2-4个国家，一键对比生活成本、签证政策、网速、安全指数等关键指标，找到最适合你的目的地。">
     <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/compare/">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <meta name="theme-color" content="#3b82f6">
     <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/compare/">
     <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/compare/">
     <link rel="stylesheet" href="../style.css">
@@ -1164,6 +1168,13 @@
         });
     });
     initSelectors();
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('../sw.js').catch(() => {});
+        });
+    }
     </script>
 </body>
 </html>
