@@ -1,0 +1,32 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+Lib/
+Scripts/
+pyvenv.cfg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node
+node_modules/
+package-lock.json
+
+# Temp
+*.tmp
+.tmp-repo
+*.bat
+
+# PDFs and docs not in docs/
+/*.pdf
