@@ -1,0 +1,55 @@
+{
+  "id": "czech",
+  "name": "捷克",
+  "name_en": "Czech Republic",
+  "name_local": "Česká republika",
+  "code_iso_3166_1": "CZ",
+  "code_iso_3166_3": "CZE",
+  "region": "europe",
+  "sub_region": "central_europe",
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": false,
+  "coordinates": {
+    "lat": 50.0755,
+    "lon": 14.4378
+  },
+  "timezone": [
+    "Europe/Prague"
+  ],
+  "currency": [
+    {
+      "code": "CZK",
+      "name": "捷克克朗",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "cs",
+      "name": "捷克语",
+      "is_official": true
+    }
+  ],
+  "population": 10700000,
+  "area_km2": 78865,
+  "gdp_per_capita_usd": 29000,
+  "hdi": 0.895,
+  "safety_index": 75.0,
+  "internet_speed_avg_mbps": 120,
+  "cost_of_living_index": 55.0,
+  "rent_index": 25.0,
+  "china_passport_visa_status": "visa_required",
+  "china_passport_visa_note": "申根签证，可申请旅游/商务签证",
+  "digital_nomad_score": 78,
+  "tags": [
+    "cheap",
+    "eu",
+    "culture",
+    "history",
+    "beer",
+    "europe"
+  ],
+  "status": "published",
+  "updated_at": "2026-01-15T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025"
+}

@@ -63,7 +63,7 @@
 
     <section class="en-hero">
         <div class="hero-content">
-            <div class="hero-tag"><span class="hero-tag-dot"></span>42 Countries · Structured Data</div>
+            <div class="hero-tag"><span class="hero-tag-dot"></span>60 Countries · Structured Data</div>
             <h1>Digital Nomad<br><span class="hero-title-accent">Country Database</span></h1>
             <p>Sorted by digital nomad score. Filter by region and visa type. Click a card to see full details (Chinese).</p>
         </div>
@@ -101,7 +101,7 @@
             <div class="footer-brand">
                 <span class="logo-icon">◈</span>
                 <span class="logo-text">Digital Nomad Guide</span>
-                <p>42 countries, 20+ visas, 34 cities — all open source.</p>
+                <p>60 countries, 20+ visas, 34 cities — all open source.</p>
             </div>
             <div class="footer-links">
                 <div class="footer-col"><h4>Core</h4><a href="./">Countries</a><a href="../visas/">Visas</a><a href="../cities/">Cities</a><a href="../compare/">Compare</a></div>
@@ -113,6 +113,69 @@
 
     <script src="../../countries-data.js"></script>
     <script>
+const COUNTRIES = [
+  {id: 'denmark', name: '丹麦', nameEn: 'Denmark', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 82, internet_speed: 150, digital_nomad_score: 77},
+  {id: 'croatia', name: '克罗地亚', nameEn: 'Croatia', flag: '🏳️', region: 'europe', visa_type: 'evisa', cost_of_living: 48, internet_speed: 55, digital_nomad_score: 75},
+  {id: 'iceland', name: '冰岛', nameEn: 'Iceland', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 85, internet_speed: 200, digital_nomad_score: 78},
+  {id: 'canada', name: '加拿大', nameEn: 'Canada', flag: '🏳️', region: 'americas_north', visa_type: 'visa_required', cost_of_living: 75.0, internet_speed: 170, digital_nomad_score: 77},
+  {id: 'indonesia', name: '印度尼西亚', nameEn: 'Indonesia', flag: '🏳️', region: 'asia', visa_type: 'evisa', cost_of_living: 32, internet_speed: 25, digital_nomad_score: 76},
+  {id: 'kazakhstan', name: '哈萨克斯坦', nameEn: 'Kazakhstan', flag: '🏳️', region: 'asia', visa_type: 'visa_free', cost_of_living: 30, internet_speed: 40, digital_nomad_score: 75},
+  {id: 'turkey', name: '土耳其', nameEn: 'Turkey', flag: '🏳️', region: 'europe', visa_type: 'evisa', cost_of_living: 32, internet_speed: 35, digital_nomad_score: 74},
+  {id: 'cyprus', name: '塞浦路斯', nameEn: 'Cyprus', flag: '🏳️', region: 'europe', visa_type: 'evisa', cost_of_living: 55, internet_speed: 50, digital_nomad_score: 80},
+  {id: 'mexico', name: '墨西哥', nameEn: 'Mexico', flag: '🏳️', region: 'americas_north', visa_type: 'evisa', cost_of_living: 38, internet_speed: 40, digital_nomad_score: 72},
+  {id: 'austria', name: '奥地利', nameEn: 'Austria', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 70, internet_speed: 80, digital_nomad_score: 76},
+  {id: 'nepal', name: '尼泊尔', nameEn: 'Nepal', flag: '🏳️', region: 'asia', visa_type: 'visa_free', cost_of_living: 22, internet_speed: 15, digital_nomad_score: 71},
+  {id: 'brazil', name: '巴西', nameEn: 'Brazil', flag: '🏳️', region: 'americas_south', visa_type: 'visa_required', cost_of_living: 40, internet_speed: 55, digital_nomad_score: 70},
+  {id: 'greece', name: '希腊', nameEn: 'Greece', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 52, internet_speed: 45, digital_nomad_score: 78},
+  {id: 'germany', name: '德国', nameEn: 'Germany', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 72.0, internet_speed: 120, digital_nomad_score: 78},
+  {id: 'norway', name: '挪威', nameEn: 'Norway', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 88, internet_speed: 180, digital_nomad_score: 80},
+  {id: 'morocco', name: '摩洛哥', nameEn: 'Morocco', flag: '🏳️', region: 'africa', visa_type: 'visa_free', cost_of_living: 30, internet_speed: 25, digital_nomad_score: 76},
+  {id: 'srilanka', name: '斯里兰卡', nameEn: 'Sri Lanka', flag: '🏳️', region: 'asia', visa_type: 'evisa', cost_of_living: 25, internet_speed: 20, digital_nomad_score: 73},
+  {id: 'singapore', name: '新加坡', nameEn: 'Singapore', flag: '🏳️', region: 'asia', visa_type: 'visa_required', cost_of_living: 95.0, internet_speed: 280, digital_nomad_score: 88},
+  {id: 'newzealand', name: '新西兰', nameEn: 'New Zealand', flag: '🏳️', region: 'oceania', visa_type: 'visa_required', cost_of_living: 78.0, internet_speed: 150, digital_nomad_score: 76},
+  {id: 'japan', name: '日本', nameEn: 'Japan', flag: '🏳️', region: 'asia', visa_type: 'visa_required', cost_of_living: 85.0, internet_speed: 185, digital_nomad_score: 87},
+  {id: 'chile', name: '智利', nameEn: 'Chile', flag: '🏳️', region: 'americas_south', visa_type: 'visa_required', cost_of_living: 45, internet_speed: 80, digital_nomad_score: 72},
+  {id: 'georgia', name: '格鲁吉亚', nameEn: 'Georgia', flag: '🏳️', region: 'asia', visa_type: 'visa_free', cost_of_living: 28, internet_speed: 35, digital_nomad_score: 82},
+  {id: 'france', name: '法国', nameEn: 'France', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 75.0, internet_speed: 130, digital_nomad_score: 77},
+  {id: 'thailand', name: '泰国', nameEn: 'Thailand', flag: '🏳️', region: 'asia', visa_type: 'visa_free', cost_of_living: 45.0, internet_speed: 200, digital_nomad_score: 85},
+  {id: 'australia', name: '澳大利亚', nameEn: 'Australia', flag: '🏳️', region: 'oceania', visa_type: 'visa_required', cost_of_living: 82.0, internet_speed: 80, digital_nomad_score: 78},
+  {id: 'macao', name: '澳门', nameEn: 'Macao', flag: '🏳️', region: 'asia', visa_type: 'visa_required', cost_of_living: 70.0, internet_speed: 180, digital_nomad_score: 65},
+  {id: 'ireland', name: '爱尔兰', nameEn: 'Ireland', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 78, internet_speed: 120, digital_nomad_score: 76},
+  {id: 'estonia', name: '爱沙尼亚', nameEn: 'Estonia', flag: '🏳️', region: 'europe', visa_type: 'evisa', cost_of_living: 60.0, internet_speed: 100, digital_nomad_score: 80},
+  {id: 'switzerland', name: '瑞士', nameEn: 'Switzerland', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 95, internet_speed: 170, digital_nomad_score: 75},
+  {id: 'usa', name: '美国', nameEn: 'United States', flag: '🏳️', region: 'americas_north', visa_type: 'visa_required', cost_of_living: 88.0, internet_speed: 250, digital_nomad_score: 72},
+  {id: 'uk', name: '英国', nameEn: 'United Kingdom', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 80.0, internet_speed: 110, digital_nomad_score: 75},
+  {id: 'netherlands', name: '荷兰', nameEn: 'Netherlands', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 78.0, internet_speed: 180, digital_nomad_score: 82},
+  {id: 'philippines', name: '菲律宾', nameEn: 'Philippines', flag: '🏳️', region: 'asia', visa_type: 'visa_required', cost_of_living: 35, internet_speed: 30, digital_nomad_score: 74},
+  {id: 'portugal', name: '葡萄牙', nameEn: 'Portugal', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 55.0, internet_speed: 150, digital_nomad_score: 88},
+  {id: 'mongolia', name: '蒙古', nameEn: 'Mongolia', flag: '🏳️', region: 'asia', visa_type: 'visa_free', cost_of_living: 28, internet_speed: 20, digital_nomad_score: 72},
+  {id: 'spain', name: '西班牙', nameEn: 'Spain', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 58.0, internet_speed: 170, digital_nomad_score: 86},
+  {id: 'vietnam', name: '越南', nameEn: 'Vietnam', flag: '🏳️', region: 'asia', visa_type: 'evisa', cost_of_living: 35.0, internet_speed: 120, digital_nomad_score: 75},
+  {id: 'argentina', name: '阿根廷', nameEn: 'Argentina', flag: '🏳️', region: 'americas_south', visa_type: 'evisa', cost_of_living: 35, internet_speed: 30, digital_nomad_score: 68},
+  {id: 'uae', name: '阿联酋', nameEn: 'United Arab Emirates', flag: '🏳️', region: 'middle_east', visa_type: 'visa_free', cost_of_living: 70.0, internet_speed: 300, digital_nomad_score: 85},
+  {id: 'southkorea', name: '韩国', nameEn: 'South Korea', flag: '🏳️', region: 'asia', visa_type: 'visa_required', cost_of_living: 78.0, internet_speed: 220, digital_nomad_score: 80},
+  {id: 'hongkong', name: '香港', nameEn: 'Hong Kong', flag: '🏳️', region: 'asia', visa_type: 'visa_required', cost_of_living: 85.0, internet_speed: 250, digital_nomad_score: 82},
+  {id: 'malaysia', name: '马来西亚', nameEn: 'Malaysia', flag: '🏳️', region: 'asia', visa_type: 'visa_free', cost_of_living: 40.0, internet_speed: 150, digital_nomad_score: 78},
+  {id: 'armenia', name: '亚美尼亚', nameEn: 'Armenia', flag: '🏳️', region: 'asia', visa_type: 'visa_free', cost_of_living: 38.0, internet_speed: 60, digital_nomad_score: 71},
+  {id: 'azerbaijan', name: '阿塞拜疆', nameEn: 'Azerbaijan', flag: '🏳️', region: 'asia', visa_type: 'evisa', cost_of_living: 42.0, internet_speed: 55, digital_nomad_score: 69},
+  {id: 'bulgaria', name: '保加利亚', nameEn: 'Bulgaria', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 40.0, internet_speed: 90, digital_nomad_score: 73},
+  {id: 'colombia', name: '哥伦比亚', nameEn: 'Colombia', flag: '🏳️', region: 'americas_south', visa_type: 'visa_required', cost_of_living: 40.0, internet_speed: 65, digital_nomad_score: 70},
+  {id: 'czech', name: '捷克', nameEn: 'Czech Republic', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 55.0, internet_speed: 120, digital_nomad_score: 78},
+  {id: 'egypt', name: '埃及', nameEn: 'Egypt', flag: '🏳️', region: 'africa', visa_type: 'evisa', cost_of_living: 30.0, internet_speed: 45, digital_nomad_score: 63},
+  {id: 'ghana', name: '加纳', nameEn: 'Ghana', flag: '🏳️', region: 'africa', visa_type: 'visa_required', cost_of_living: 38.0, internet_speed: 35, digital_nomad_score: 62},
+  {id: 'hungary', name: '匈牙利', nameEn: 'Hungary', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 48.0, internet_speed: 110, digital_nomad_score: 80},
+  {id: 'india', name: '印度', nameEn: 'India', flag: '🏳️', region: 'asia', visa_type: 'evisa', cost_of_living: 28.0, internet_speed: 50, digital_nomad_score: 64},
+  {id: 'israel', name: '以色列', nameEn: 'Israel', flag: '🏳️', region: 'middle_east', visa_type: 'visa_required', cost_of_living: 80.0, internet_speed: 130, digital_nomad_score: 75},
+  {id: 'kenya', name: '肯尼亚', nameEn: 'Kenya', flag: '🏳️', region: 'africa', visa_type: 'evisa', cost_of_living: 35.0, internet_speed: 40, digital_nomad_score: 65},
+  {id: 'peru', name: '秘鲁', nameEn: 'Peru', flag: '🏳️', region: 'americas_south', visa_type: 'visa_required', cost_of_living: 38.0, internet_speed: 55, digital_nomad_score: 68},
+  {id: 'poland', name: '波兰', nameEn: 'Poland', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 45.0, internet_speed: 100, digital_nomad_score: 76},
+  {id: 'qatar', name: '卡塔尔', nameEn: 'Qatar', flag: '🏳️', region: 'middle_east', visa_type: 'visa_free', cost_of_living: 78.0, internet_speed: 120, digital_nomad_score: 72},
+  {id: 'romania', name: '罗马尼亚', nameEn: 'Romania', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 42.0, internet_speed: 95, digital_nomad_score: 74},
+  {id: 'south_africa', name: '南非', nameEn: 'South Africa', flag: '🏳️', region: 'africa', visa_type: 'visa_required', cost_of_living: 45.0, internet_speed: 50, digital_nomad_score: 68},
+  {id: 'sweden', name: '瑞典', nameEn: 'Sweden', flag: '🏳️', region: 'europe', visa_type: 'visa_required', cost_of_living: 85.0, internet_speed: 140, digital_nomad_score: 79},
+  {id: 'uzbekistan', name: '乌兹别克斯坦', nameEn: 'Uzbekistan', flag: '🏳️', region: 'asia', visa_type: 'visa_free', cost_of_living: 32.0, internet_speed: 45, digital_nomad_score: 66}
+];
+
     (function(){
         const grid = document.getElementById('countryGrid');
         const visaFilters = document.getElementById('visaFilters');

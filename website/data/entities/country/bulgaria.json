@@ -1,0 +1,55 @@
+{
+  "id": "bulgaria",
+  "name": "保加利亚",
+  "name_en": "Bulgaria",
+  "name_local": "България",
+  "code_iso_3166_1": "BG",
+  "code_iso_3166_3": "BGR",
+  "region": "europe",
+  "sub_region": "eastern_europe",
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": false,
+  "coordinates": {
+    "lat": 42.6977,
+    "lon": 23.3219
+  },
+  "timezone": [
+    "Europe/Sofia"
+  ],
+  "currency": [
+    {
+      "code": "BGN",
+      "name": "保加利亚列弗",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "bg",
+      "name": "保加利亚语",
+      "is_official": true
+    }
+  ],
+  "population": 6900000,
+  "area_km2": 110879,
+  "gdp_per_capita_usd": 15000,
+  "hdi": 0.799,
+  "safety_index": 65.0,
+  "internet_speed_avg_mbps": 90,
+  "cost_of_living_index": 40.0,
+  "rent_index": 15.0,
+  "china_passport_visa_status": "visa_required",
+  "china_passport_visa_note": "申根签证",
+  "digital_nomad_score": 73,
+  "tags": [
+    "cheap",
+    "eu",
+    "nature",
+    "history",
+    "mountains",
+    "europe"
+  ],
+  "status": "published",
+  "updated_at": "2026-01-15T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025"
+}

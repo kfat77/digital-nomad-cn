@@ -1,0 +1,59 @@
+{
+  "id": "kenya",
+  "name": "肯尼亚",
+  "name_en": "Kenya",
+  "name_local": "Kenya",
+  "code_iso_3166_1": "KE",
+  "code_iso_3166_3": "KEN",
+  "region": "africa",
+  "sub_region": "east_africa",
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": false,
+  "coordinates": {
+    "lat": -1.2921,
+    "lon": 36.8219
+  },
+  "timezone": [
+    "Africa/Nairobi"
+  ],
+  "currency": [
+    {
+      "code": "KES",
+      "name": "肯尼亚先令",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "sw",
+      "name": "斯瓦希里语",
+      "is_official": true
+    },
+    {
+      "code": "en",
+      "name": "英语",
+      "is_official": true
+    }
+  ],
+  "population": 54000000,
+  "area_km2": 580367,
+  "gdp_per_capita_usd": 2200,
+  "hdi": 0.575,
+  "safety_index": 50.0,
+  "internet_speed_avg_mbps": 40,
+  "cost_of_living_index": 35.0,
+  "rent_index": 12.0,
+  "china_passport_visa_status": "evisa",
+  "china_passport_visa_note": "电子签ETA，可在线申请",
+  "digital_nomad_score": 65,
+  "tags": [
+    "africa",
+    "nature",
+    "safari",
+    "wildlife",
+    "adventure"
+  ],
+  "status": "published",
+  "updated_at": "2026-01-15T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025"
+}
