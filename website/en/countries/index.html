@@ -65,7 +65,7 @@
         <div class="hero-content">
             <div class="hero-tag"><span class="hero-tag-dot"></span>60 Countries · Structured Data</div>
             <h1>Digital Nomad<br><span class="hero-title-accent">Country Database</span></h1>
-            <p>Sorted by digital nomad score. Filter by region and visa type. Click a card to see full details (Chinese).</p>
+            <p>Sorted by digital nomad score. Filter by region and visa type. Click a card to see full details.</p>
         </div>
     </section>
 
@@ -92,11 +92,7 @@
         </div>
     </section>
 
-    <div class="note-en">
-        <p>🔗 Full country details are currently available in Chinese. <a href="../../country/" style="color:var(--accent);">View Chinese version →</a></p>
-    </div>
 
-    <footer class="footer" style="margin-top:0;">
         <div class="footer-main">
             <div class="footer-brand">
                 <span class="logo-icon">◈</span>
@@ -221,7 +217,7 @@ const COUNTRIES = [
                 const regionLabel = REGION_LABELS[c.region] || c.region;
                 const el = document.createElement('a');
                 el.className = 'country-card';
-                el.href = '../../country/' + c.id + '/index.html';
+                el.href = './country/' + c.id + '/';
                 el.innerHTML = `
                     <div class="country-card-header">
                         <span class="flag">${c.flag}</span>
