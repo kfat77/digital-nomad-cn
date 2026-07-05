@@ -1,29 +1,25 @@
 {
   "countries": {
-    "total": 42,
+    "total": 60,
     "by_region": {
-      "europe": 17,
+      "europe": 23,
       "americas_north": 3,
-      "asia": 15,
-      "americas_south": 3,
-      "africa": 1,
+      "asia": 19,
+      "americas_south": 5,
+      "africa": 5,
       "oceania": 2,
-      "middle_east": 1
+      "middle_east": 3
     },
     "by_visa_status": {
-      "visa_required": 25,
-      "evisa": 9,
-      "visa_free": 8
+      "visa_required": 36,
+      "evisa": 13,
+      "visa_free": 11
     },
-    "avg_digital_nomad_score": 77.2,
-    "avg_cost_of_living": 59.0,
-    "avg_safety": 70.2,
-    "avg_internet": 118.9
+    "avg_digital_nomad_score": 75.3,
+    "avg_cost_of_living": 55.3,
+    "avg_safety": 68.5,
+    "avg_internet": 106.7,
+    "digital_nomad_visa_count": 21
   },
-  "cities": {
-    "total": 34,
-    "avg_digital_nomad_score": 82.5,
-    "avg_cost_of_living": 70.4
-  },
-  "updated_at": "2026-07-05T00:00:00Z"
+  "updated_at": "2026-07-06T00:00:00Z"
 }

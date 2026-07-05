@@ -1,0 +1,54 @@
+{
+  "id": "colombia",
+  "name": "哥伦比亚",
+  "name_en": "Colombia",
+  "name_local": "Colombia",
+  "code_iso_3166_1": "CO",
+  "code_iso_3166_3": "COL",
+  "region": "americas_south",
+  "sub_region": "south_america",
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": false,
+  "coordinates": {
+    "lat": 6.2442,
+    "lon": -75.5812
+  },
+  "timezone": [
+    "America/Bogota"
+  ],
+  "currency": [
+    {
+      "code": "COP",
+      "name": "哥伦比亚比索",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "es",
+      "name": "西班牙语",
+      "is_official": true
+    }
+  ],
+  "population": 51000000,
+  "area_km2": 1141748,
+  "gdp_per_capita_usd": 6600,
+  "hdi": 0.752,
+  "safety_index": 50.0,
+  "internet_speed_avg_mbps": 65,
+  "cost_of_living_index": 40.0,
+  "rent_index": 15.0,
+  "china_passport_visa_status": "visa_required",
+  "china_passport_visa_note": "需提前申请签证",
+  "digital_nomad_score": 70,
+  "tags": [
+    "americas",
+    "cheap",
+    "coffee",
+    "nature",
+    "nomad_hub"
+  ],
+  "status": "published",
+  "updated_at": "2026-01-15T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025"
+}
