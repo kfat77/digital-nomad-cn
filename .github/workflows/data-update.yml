@@ -45,6 +45,12 @@ jobs:
           python website/scripts/data-monitor.py
         continue-on-error: true
 
+      - name: Sync website/ to docs/ for GitHub Pages deployment
+        run: |
+          # Ensure docs/ is an exact mirror of website/ (GitHub Pages source)
+          rsync -a --delete website/ docs/
+          echo "Synced website/ to docs/"
+
       - name: Check for changes
         id: check_changes
         run: |
@@ -63,9 +69,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "data: automated exchange rate update [$(date -u +%Y-%m-%d)]
+          git commit -m "data: automated exchange rate update & docs sync [$(date -u +%Y-%m-%d)]
 
           - Updated exchange rates from exchangerate-api.com
+          - Synced website/ to docs/ for GitHub Pages deployment
           - Refreshed data freshness metadata
           - See DATA_UPDATE_REPORT.md for details"
           git push origin main
