@@ -820,3 +820,90 @@ function generateVisaLinks() {
         grid.appendChild(card);
     });
 }
+
+
+// ============================================
+// Homepage v2 — Country Grid Filters & Tabs
+// ============================================
+
+function initCountryGridFilters() {
+    const visaFilters = document.querySelectorAll('.visa-filter');
+    const regionTabs = document.querySelectorAll('.region-tab');
+    const countryCards = document.querySelectorAll('.country-card');
+    const regionSections = document.querySelectorAll('.region-section');
+
+    let activeVisa = 'all';
+    let activeRegion = 'all';
+
+    // Visa filter click
+    visaFilters.forEach(btn => {
+        btn.addEventListener('click', function() {
+            visaFilters.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            activeVisa = this.dataset.filter;
+            applyFilters();
+        });
+    });
+
+    // Region tab click
+    regionTabs.forEach(btn => {
+        btn.addEventListener('click', function() {
+            regionTabs.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            activeRegion = this.dataset.region;
+            applyFilters();
+        });
+    });
+
+    function applyFilters() {
+        // Show/hide region sections
+        regionSections.forEach(section => {
+            const regionId = section.id.replace('region-', '');
+            if (activeRegion === 'all' || activeRegion === regionId) {
+                section.style.display = '';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+
+        // Show/hide country cards based on both filters
+        let visibleCount = 0;
+        countryCards.forEach(card => {
+            const cardRegion = card.dataset.region;
+            const cardVisa = card.dataset.visa;
+            const hasNomadVisa = card.dataset.hasNomadVisa === 'true';
+
+            const regionMatch = activeRegion === 'all' || activeRegion === cardRegion;
+            let visaMatch = activeVisa === 'all';
+            if (!visaMatch) {
+                if (activeVisa === 'nomad') {
+                    visaMatch = hasNomadVisa;
+                } else {
+                    visaMatch = cardVisa === activeVisa;
+                }
+            }
+
+            if (regionMatch && visaMatch) {
+                card.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        // If no cards visible in a region, hide the section
+        regionSections.forEach(section => {
+            if (section.style.display === 'none') return;
+            const visibleCards = section.querySelectorAll('.country-card:not(.hidden)');
+            if (visibleCards.length === 0) {
+                section.style.display = 'none';
+            }
+        });
+    }
+}
+
+// Initialize new v2 features on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    initCountryGridFilters();
+});
+
