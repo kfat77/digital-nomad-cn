@@ -1,0 +1,29 @@
+{
+  "countries": {
+    "total": 42,
+    "by_region": {
+      "europe": 17,
+      "americas_north": 3,
+      "asia": 15,
+      "americas_south": 3,
+      "africa": 1,
+      "oceania": 2,
+      "middle_east": 1
+    },
+    "by_visa_status": {
+      "visa_required": 25,
+      "evisa": 9,
+      "visa_free": 8
+    },
+    "avg_digital_nomad_score": 77.2,
+    "avg_cost_of_living": 59.0,
+    "avg_safety": 70.2,
+    "avg_internet": 118.9
+  },
+  "cities": {
+    "total": 34,
+    "avg_digital_nomad_score": 82.5,
+    "avg_cost_of_living": 70.4
+  },
+  "updated_at": "2026-07-05T00:00:00Z"
+}
