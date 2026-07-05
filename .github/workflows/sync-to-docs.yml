@@ -1,0 +1,48 @@
+name: Sync Website to Docs
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'website/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Sync website/ to docs/
+        run: |
+          rsync -a --delete website/ docs/
+          echo "Synced website/ to docs/"
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No sync changes needed."
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Sync changes detected."
+            git diff --stat
+          fi
+
+      - name: Commit and push sync
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "ci: sync website/ to docs/ for GitHub Pages deployment
+
+          - Automated sync to keep docs/ directory in sync with website/
+          - Prevents deployment drift between source and GitHub Pages source"
+          git push origin main
