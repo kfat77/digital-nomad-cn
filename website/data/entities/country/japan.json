@@ -34,10 +34,10 @@
   "area_km2": 377975,
   "gdp_per_capita_usd": 39285,
   "hdi": 0.92,
-  "safety_index": 92.0,
+  "safety_index": 92,
   "internet_speed_avg_mbps": 185,
-  "cost_of_living_index": 85.0,
-  "rent_index": 45.0,
+  "cost_of_living_index": 85,
+  "rent_index": 45,
   "china_passport_visa_status": "visa_required",
   "china_passport_visa_note": "旅游签证需通过指定旅行社申请，单次/多次可选",
   "digital_nomad_score": 87,
@@ -50,5 +50,6 @@
   ],
   "status": "published",
   "updated_at": "2026-01-15T00:00:00Z",
-  "source": "Numbeo 2026, World Bank 2025, Japan MOFA"
+  "source": "Numbeo 2026, World Bank 2025, Japan MOFA",
+  "flag_emoji": "🇯🇵"
 }

@@ -42,8 +42,8 @@
   "hdi": 0.952,
   "safety_index": 78.3,
   "internet_speed_avg_mbps": 250,
-  "cost_of_living_index": 85.0,
-  "rent_index": 80.0,
+  "cost_of_living_index": 85,
+  "rent_index": 80,
   "china_passport_visa_status": "visa_required",
   "china_passport_visa_note": "港澳通行证 + 签注",
   "digital_nomad_score": 82,
@@ -55,5 +55,6 @@
   ],
   "status": "published",
   "updated_at": "2026-01-15T00:00:00Z",
-  "source": "Numbeo 2026, World Bank 2025, GovHK"
+  "source": "Numbeo 2026, World Bank 2025, GovHK",
+  "flag_emoji": "🇭🇰"
 }

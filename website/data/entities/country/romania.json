@@ -34,10 +34,10 @@
   "area_km2": 238397,
   "gdp_per_capita_usd": 17000,
   "hdi": 0.827,
-  "safety_index": 68.0,
+  "safety_index": 68,
   "internet_speed_avg_mbps": 95,
-  "cost_of_living_index": 42.0,
-  "rent_index": 18.0,
+  "cost_of_living_index": 42,
+  "rent_index": 18,
   "china_passport_visa_status": "visa_required",
   "china_passport_visa_note": "申根签证",
   "digital_nomad_score": 74,
@@ -51,5 +51,6 @@
   ],
   "status": "published",
   "updated_at": "2026-01-15T00:00:00Z",
-  "source": "Numbeo 2026, World Bank 2025"
+  "source": "Numbeo 2026, World Bank 2025",
+  "flag_emoji": "🇷🇴"
 }
