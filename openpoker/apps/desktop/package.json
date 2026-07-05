@@ -1,0 +1,26 @@
+{
+  "name": "@openpoker/desktop",
+  "version": "0.0.1",
+  "private": true,
+  "description": "OpenPoker Desktop App — Tauri v2",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@openpoker/core": "workspace:*",
+    "@openpoker/sdk": "workspace:*",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "typescript": "^5.4.0",
+    "vite": "^6.0.0"
+  }
+}

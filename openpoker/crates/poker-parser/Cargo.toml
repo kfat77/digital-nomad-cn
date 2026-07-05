@@ -1,0 +1,18 @@
+[package]
+name = "poker-parser"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+rust-version.workspace = true
+description = "Poker hand history parser for major sites"
+
+[dependencies]
+poker-types = { workspace = true }
+serde = { workspace = true }
+
+[dev-dependencies]
