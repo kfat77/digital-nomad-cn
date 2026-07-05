@@ -34,10 +34,10 @@
   "area_km2": 45228,
   "gdp_per_capita_usd": 30000,
   "hdi": 0.89,
-  "safety_index": 78.0,
+  "safety_index": 78,
   "internet_speed_avg_mbps": 100,
-  "cost_of_living_index": 60.0,
-  "rent_index": 25.0,
+  "cost_of_living_index": 60,
+  "rent_index": 25,
   "china_passport_visa_status": "evisa",
   "china_passport_visa_note": "电子签申根入境；e-Residency数字公民；数字游民签证",
   "digital_nomad_score": 80,
@@ -51,5 +51,6 @@
   ],
   "status": "published",
   "updated_at": "2026-01-15T00:00:00Z",
-  "source": "Numbeo 2026, World Bank 2025, Estonia e-Residency"
+  "source": "Numbeo 2026, World Bank 2025, Estonia e-Residency",
+  "flag_emoji": "🇪🇪"
 }

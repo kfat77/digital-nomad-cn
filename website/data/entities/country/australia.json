@@ -36,10 +36,10 @@
   "area_km2": 7692024,
   "gdp_per_capita_usd": 63000,
   "hdi": 0.946,
-  "safety_index": 75.0,
+  "safety_index": 75,
   "internet_speed_avg_mbps": 80,
-  "cost_of_living_index": 82.0,
-  "rent_index": 50.0,
+  "cost_of_living_index": 82,
+  "rent_index": 50,
   "china_passport_visa_status": "visa_required",
   "china_passport_visa_note": "旅游签证600类别，可在线申请；WHV 462 抽签制",
   "digital_nomad_score": 78,
@@ -52,5 +52,6 @@
   ],
   "status": "published",
   "updated_at": "2026-01-15T00:00:00Z",
-  "source": "Numbeo 2026, World Bank 2025, Home Affairs Australia"
+  "source": "Numbeo 2026, World Bank 2025, Home Affairs Australia",
+  "flag_emoji": "🇦🇺"
 }

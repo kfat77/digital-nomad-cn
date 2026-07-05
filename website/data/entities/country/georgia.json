@@ -10,10 +10,37 @@
   "is_special_admin_region": false,
   "is_digital_nomad_friendly": true,
   "has_digital_nomad_visa": false,
-  "coordinates": {"lat": 42.3154, "lon": 43.3569},
-  "timezone": ["Asia/Tbilisi"],
-  "currency": [{"code": "GEL", "name": "格鲁吉亚拉里", "is_primary": true}],
-  "languages": [{"code": "ka", "name": "格鲁吉亚语", "is_official": true}, {"code": "en", "name": "英语", "is_official": false}, {"code": "ru", "name": "俄语", "is_official": false}],
+  "coordinates": {
+    "lat": 42.3154,
+    "lon": 43.3569
+  },
+  "timezone": [
+    "Asia/Tbilisi"
+  ],
+  "currency": [
+    {
+      "code": "GEL",
+      "name": "格鲁吉亚拉里",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "ka",
+      "name": "格鲁吉亚语",
+      "is_official": true
+    },
+    {
+      "code": "en",
+      "name": "英语",
+      "is_official": false
+    },
+    {
+      "code": "ru",
+      "name": "俄语",
+      "is_official": false
+    }
+  ],
   "population": 3700000,
   "area_km2": 69700,
   "gdp_per_capita_usd": 7000,
@@ -25,8 +52,15 @@
   "china_passport_visa_status": "visa_free",
   "china_passport_visa_note": "中国公民免签入境，可停留30天",
   "digital_nomad_score": 82,
-  "tags": ["免签", "低成本", "欧洲风情", "高加索", "葡萄酒"],
+  "tags": [
+    "免签",
+    "低成本",
+    "欧洲风情",
+    "高加索",
+    "葡萄酒"
+  ],
   "status": "published",
   "updated_at": "2026-01-15",
-  "source": "Numbeo, World Bank, 格鲁吉亚外交部"
+  "source": "Numbeo, World Bank, 格鲁吉亚外交部",
+  "flag_emoji": "🇬🇪"
 }

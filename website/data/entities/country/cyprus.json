@@ -10,10 +10,37 @@
   "is_special_admin_region": false,
   "is_digital_nomad_friendly": true,
   "has_digital_nomad_visa": true,
-  "coordinates": {"lat": 35.1264, "lon": 33.4299},
-  "timezone": ["Asia/Nicosia"],
-  "currency": [{"code": "EUR", "name": "欧元", "is_primary": true}],
-  "languages": [{"code": "el", "name": "希腊语", "is_official": true}, {"code": "tr", "name": "土耳其语", "is_official": true}, {"code": "en", "name": "英语", "is_official": false}],
+  "coordinates": {
+    "lat": 35.1264,
+    "lon": 33.4299
+  },
+  "timezone": [
+    "Asia/Nicosia"
+  ],
+  "currency": [
+    {
+      "code": "EUR",
+      "name": "欧元",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "el",
+      "name": "希腊语",
+      "is_official": true
+    },
+    {
+      "code": "tr",
+      "name": "土耳其语",
+      "is_official": true
+    },
+    {
+      "code": "en",
+      "name": "英语",
+      "is_official": false
+    }
+  ],
   "population": 1250000,
   "area_km2": 9251,
   "gdp_per_capita_usd": 31000,
@@ -25,8 +52,15 @@
   "china_passport_visa_status": "evisa",
   "china_passport_visa_note": "需提前申请签证，可在塞浦路斯外交部官网申请电子签证",
   "digital_nomad_score": 80,
-  "tags": ["欧盟", "地中海", "数字游民签证", "税务优惠", "海岛"],
+  "tags": [
+    "欧盟",
+    "地中海",
+    "数字游民签证",
+    "税务优惠",
+    "海岛"
+  ],
   "status": "published",
   "updated_at": "2026-01-15",
-  "source": "Numbeo, World Bank, 塞浦路斯数字游民签证官网"
+  "source": "Numbeo, World Bank, 塞浦路斯数字游民签证官网",
+  "flag_emoji": "🇨🇾"
 }

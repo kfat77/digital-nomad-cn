@@ -34,10 +34,10 @@
   "area_km2": 357022,
   "gdp_per_capita_usd": 51000,
   "hdi": 0.95,
-  "safety_index": 75.0,
+  "safety_index": 75,
   "internet_speed_avg_mbps": 120,
-  "cost_of_living_index": 72.0,
-  "rent_index": 40.0,
+  "cost_of_living_index": 72,
+  "rent_index": 40,
   "china_passport_visa_status": "visa_required",
   "china_passport_visa_note": "申根签证C类；工作签证/蓝卡需雇主担保",
   "digital_nomad_score": 78,
@@ -50,5 +50,6 @@
   ],
   "status": "published",
   "updated_at": "2026-01-15T00:00:00Z",
-  "source": "Numbeo 2026, World Bank 2025, German Immigration"
+  "source": "Numbeo 2026, World Bank 2025, German Immigration",
+  "flag_emoji": "🇩🇪"
 }

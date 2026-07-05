@@ -39,10 +39,10 @@
   "area_km2": 11586,
   "gdp_per_capita_usd": 88000,
   "hdi": 0.855,
-  "safety_index": 82.0,
+  "safety_index": 82,
   "internet_speed_avg_mbps": 120,
-  "cost_of_living_index": 78.0,
-  "rent_index": 55.0,
+  "cost_of_living_index": 78,
+  "rent_index": 55,
   "china_passport_visa_status": "visa_free",
   "china_passport_visa_note": "中国公民免签入境30天",
   "digital_nomad_score": 72,
@@ -55,5 +55,6 @@
   ],
   "status": "published",
   "updated_at": "2026-01-15T00:00:00Z",
-  "source": "Numbeo 2026, World Bank 2025"
+  "source": "Numbeo 2026, World Bank 2025",
+  "flag_emoji": "🇶🇦"
 }

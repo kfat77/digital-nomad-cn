@@ -10,10 +10,32 @@
   "is_special_admin_region": false,
   "is_digital_nomad_friendly": true,
   "has_digital_nomad_visa": true,
-  "coordinates": {"lat": 39.0742, "lon": 21.8243},
-  "timezone": ["Europe/Athens"],
-  "currency": [{"code": "EUR", "name": "欧元", "is_primary": true}],
-  "languages": [{"code": "el", "name": "希腊语", "is_official": true}, {"code": "en", "name": "英语", "is_official": false}],
+  "coordinates": {
+    "lat": 39.0742,
+    "lon": 21.8243
+  },
+  "timezone": [
+    "Europe/Athens"
+  ],
+  "currency": [
+    {
+      "code": "EUR",
+      "name": "欧元",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "el",
+      "name": "希腊语",
+      "is_official": true
+    },
+    {
+      "code": "en",
+      "name": "英语",
+      "is_official": false
+    }
+  ],
   "population": 10700000,
   "area_km2": 131957,
   "gdp_per_capita_usd": 21000,
@@ -25,8 +47,15 @@
   "china_passport_visa_status": "visa_required",
   "china_passport_visa_note": "需提前申请申根签证，可停留90天",
   "digital_nomad_score": 78,
-  "tags": ["申根区", "地中海", "数字游民签证", "欧盟", "海岛"],
+  "tags": [
+    "申根区",
+    "地中海",
+    "数字游民签证",
+    "欧盟",
+    "海岛"
+  ],
   "status": "published",
   "updated_at": "2026-01-15",
-  "source": "Numbeo, World Bank, 希腊数字游民签证官网"
+  "source": "Numbeo, World Bank, 希腊数字游民签证官网",
+  "flag_emoji": "🇬🇷"
 }
