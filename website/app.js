@@ -386,7 +386,7 @@ function initGlobe() {
         mouse.y = -10;
     });
 
-    // Click to open modal
+    // Click to navigate to country page
     wrapper.addEventListener('click', (e) => {
         if (!isDragging) {
             const rect = wrapper.getBoundingClientRect();
@@ -398,8 +398,8 @@ function initGlobe() {
             const intersects = raycaster.intersectObjects(markers);
             if (intersects.length > 0) {
                 const marker = intersects[0].object;
-                if (marker.userData && marker.userData.data) {
-                    openCountryModal(marker.userData.data);
+                if (marker.userData && marker.userData.country) {
+                    window.location.href = `country/${marker.userData.country}.html`;
                 }
             }
         }
@@ -637,9 +637,8 @@ function generateGlobeSidebar(markerMap, countryData) {
     sidebar.querySelectorAll('.globe-sidebar-item').forEach(item => {
         item.addEventListener('click', () => {
             const key = item.dataset.country;
-            const country = countryData[key];
-            if (country) {
-                openCountryModal(country);
+            if (key) {
+                window.location.href = `country/${key}.html`;
             }
         });
         item.addEventListener('mouseenter', () => {
