@@ -1,0 +1,70 @@
+{
+  "id": "switzerland",
+  "name": "瑞士",
+  "name_en": "Switzerland",
+  "name_local": "Schweiz / Suisse / Svizzera",
+  "code_iso_3166_1": "CH",
+  "code_iso_3166_3": "CHE",
+  "region": "europe",
+  "sub_region": "中欧",
+  "is_special_admin_region": false,
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": false,
+  "coordinates": {
+    "lat": 46.8182,
+    "lon": 8.2275
+  },
+  "timezone": [
+    "Europe/Zurich"
+  ],
+  "currency": [
+    {
+      "code": "CHF",
+      "name": "瑞士法郎",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "de",
+      "name": "德语",
+      "is_official": true
+    },
+    {
+      "code": "fr",
+      "name": "法语",
+      "is_official": true
+    },
+    {
+      "code": "it",
+      "name": "意大利语",
+      "is_official": true
+    },
+    {
+      "code": "rm",
+      "name": "罗曼什语",
+      "is_official": true
+    }
+  ],
+  "population": 8700000,
+  "area_km2": 41284,
+  "gdp_per_capita_usd": 92000,
+  "hdi": 0.967,
+  "safety_index": 88,
+  "internet_speed_avg_mbps": 170,
+  "cost_of_living_index": 95,
+  "rent_index": 60,
+  "china_passport_visa_status": "visa_required",
+  "china_passport_visa_note": "需提前申请申根签证。瑞士不提供专门的数字游民签证，但可申请L类短期居留许可",
+  "digital_nomad_score": 75,
+  "tags": [
+    "欧洲",
+    "申根",
+    "阿尔卑斯",
+    "滑雪",
+    "高福利"
+  ],
+  "status": "published",
+  "updated_at": "2026-01-15",
+  "source": "Numbeo, World Bank"
+}

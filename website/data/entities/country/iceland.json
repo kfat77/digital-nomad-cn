@@ -1,0 +1,60 @@
+{
+  "id": "iceland",
+  "name": "冰岛",
+  "name_en": "Iceland",
+  "name_local": "Ísland",
+  "code_iso_3166_1": "IS",
+  "code_iso_3166_3": "ISL",
+  "region": "europe",
+  "sub_region": "北欧",
+  "is_special_admin_region": false,
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": true,
+  "coordinates": {
+    "lat": 64.9631,
+    "lon": -19.0208
+  },
+  "timezone": [
+    "Atlantic/Reykjavik"
+  ],
+  "currency": [
+    {
+      "code": "ISK",
+      "name": "冰岛克朗",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "is",
+      "name": "冰岛语",
+      "is_official": true
+    },
+    {
+      "code": "en",
+      "name": "英语",
+      "is_official": false
+    }
+  ],
+  "population": 370000,
+  "area_km2": 103000,
+  "gdp_per_capita_usd": 68000,
+  "hdi": 0.959,
+  "safety_index": 88,
+  "internet_speed_avg_mbps": 200,
+  "cost_of_living_index": 85,
+  "rent_index": 55,
+  "china_passport_visa_status": "visa_required",
+  "china_passport_visa_note": "需提前申请申根签证。冰岛提供数字游民签证（长期远程工作者签证）",
+  "digital_nomad_score": 78,
+  "tags": [
+    "北欧",
+    "数字游民签证",
+    "极光",
+    "火山",
+    "温泉"
+  ],
+  "status": "published",
+  "updated_at": "2026-01-15",
+  "source": "Numbeo, World Bank"
+}
