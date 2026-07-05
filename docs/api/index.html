@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开放数据 API — 数字游民指南</title>
+    <meta name="description" content="Digital Nomad CN 开放数据 API：42个国家、34个城市、签证政策的结构化 JSON 数据，供 AI Agent 和开发者直接调用。">
+    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/api/">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .api-hero { background: var(--bg-hero); border-bottom: 1px solid var(--border); padding: 120px 0 60px; text-align: center; }
+        .api-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.03em; }
+        .api-hero p { color: var(--muted); max-width: 640px; margin: 0 auto 32px; font-size: 18px; line-height: 1.7; }
+        .api-section { padding: 60px 0; max-width: var(--max-width); margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+        .api-section h2 { font-size: 24px; font-weight: 700; margin-bottom: 20px; }
+        .api-section p { color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
+        .endpoint-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; transition: var(--transition); }
+        .endpoint-card:hover { box-shadow: var(--shadow-card-hover); border-color: var(--accent); }
+        .endpoint-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+        .endpoint-card .url { font-family: var(--font-mono); font-size: 14px; background: var(--bg-card); padding: 8px 12px; border-radius: var(--radius-sm); color: var(--accent); margin-bottom: 12px; display: inline-block; }
+        .endpoint-card p { font-size: 14px; margin-bottom: 12px; }
+        .endpoint-card .fields { font-size: 13px; color: var(--muted); }
+        .endpoint-card .fields strong { color: var(--foreground); }
+        .code-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; overflow-x: auto; font-family: var(--font-mono); font-size: 13px; line-height: 1.6; color: var(--foreground); }
+        .code-block .comment { color: var(--muted); }
+        .code-block .string { color: #16a34a; }
+        .code-block .key { color: #2563eb; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 32px 0; }
+        .stats-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; text-align: center; }
+        .stats-card .value { font-size: 32px; font-weight: 800; color: var(--accent); margin-bottom: 4px; }
+        .stats-card .label { font-size: 13px; color: var(--muted); }
+        @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../" class="logo"><span class="logo-icon">◈</span><span>数字游民指南</span></a>
+            <nav class="main-nav">
+                <a href="../">首页</a><a href="../country/">国家</a><a href="../visa/">签证</a><a href="../city/">城市</a>
+                <a href="../compare/">对比</a><a href="../routes/">路线</a><a href="../search/">搜索</a>
+            </nav>
+            <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
+        </div>
+    </header>
+
+    <section class="api-hero">
+        <div class="hero-content">
+            <div class="hero-tag"><span class="hero-tag-dot"></span>AI Agent · 开发者 · 数据基础设施</div>
+            <h1 class="hero-title">🤖 开放数据<br><span class="hero-title-accent">API</span></h1>
+            <p class="hero-desc">42 个国家、34 个城市、签证政策的结构化 JSON 数据。无需认证，无需 API Key，GitHub Pages 直接托管，AI Agent 和开发者可直接调用。</p>
+        </div>
+    </section>
+
+    <section class="api-section">
+        <div class="stats-grid">
+            <div class="stats-card"><div class="value">42</div><div class="label">国家</div></div>
+            <div class="stats-card"><div class="value">34</div><div class="label">城市</div></div>
+            <div class="stats-card"><div class="value">20</div><div class="label">签证档案</div></div>
+            <div class="stats-card"><div class="value">0</div><div class="label">认证门槛</div></div>
+        </div>
+
+        <h2>数据端点</h2>
+        <p>所有数据端点均为静态 JSON 文件，由 GitHub Actions 在每次提交时自动生成。可直接通过 HTTP GET 获取。</p>
+
+        <div class="endpoint-card">
+            <h3>📊 国家数据</h3>
+            <div class="url">GET https://kfat77.github.io/digital-nomad-cn/api/countries.json</div>
+            <p>获取 42 个国家的完整结构化数据，包括生活成本、安全指数、网速、签证政策、评分等 20+ 字段。</p>
+            <div class="fields"><strong>关键字段：</strong>id, name, name_en, region, digital_nomad_score, cost_of_living_index, safety_index, internet_speed_avg_mbps, rent_index, hdi, gdp_per_capita_usd, china_passport_visa_status, has_digital_nomad_visa, coordinates, currency, languages, timezone, population, area_km2, tags</div>
+        </div>
+
+        <div class="endpoint-card">
+            <h3>🏙️ 城市数据</h3>
+            <div class="url">GET https://kfat77.github.io/digital-nomad-cn/api/cities.json</div>
+            <p>获取 34 个数字游民城市的完整数据，包括联合办公、气候、英语普及率、社区规模等。</p>
+            <div class="fields"><strong>关键字段：</strong>id, name, name_en, country_id, country_name, digital_nomad_score, cost_of_living_index, rent_index, safety_index, internet_speed_avg_mbps, coworking_spaces, coworking_score, climate, avg_temp_c, rainy_season, english_level, chinese_community_size, neighborhoods, food_scene, nightlife, transportation, walkability, bike_friendly, description</div>
+        </div>
+
+        <div class="endpoint-card">
+            <h3>🛂 签证数据</h3>
+            <div class="url">GET https://kfat77.github.io/digital-nomad-cn/api/visas.json</div>
+            <p>获取 20 个国家的签证类型详情，包括数字游民签证、旅游签证、工作签证等。</p>
+            <div class="fields"><strong>关键字段：</strong>id, country_id, country_name, visa_types (array), updated_at, source</div>
+        </div>
+
+        <div class="endpoint-card">
+            <h3>📈 统计摘要</h3>
+            <div class="url">GET https://kfat77.github.io/digital-nomad-cn/api/stats.json</div>
+            <p>快速获取数据集统计摘要，包括平均值、按地区分布、按签证状态分布等。</p>
+        </div>
+
+        <div class="endpoint-card">
+            <h3>📋 数据清单</h3>
+            <div class="url">GET https://kfat77.github.io/digital-nomad-cn/api/manifest.json</div>
+            <p>AI Agent 发现接口。包含所有端点描述、字段列表、Schema 链接和示例请求。</p>
+        </div>
+    </section>
+
+    <section class="api-section" style="background: var(--bg-hero); padding: 60px 24px; margin-top: 0;">
+        <h2>AI Agent 使用示例</h2>
+        <p>以下是一个 AI Agent 调用本数据 API 的示例。不需要 API Key，不需要认证，直接 GET 即可。</p>
+        <div class="code-block">
+<span class="comment"># 示例：获取所有国家数据并筛选高评分目的地</span>
+<span class="key">fetch</span>(<span class="string">'https://kfat77.github.io/digital-nomad-cn/api/countries.json'</span>)
+  .then(r => r.json())
+  .then(data => {
+    <span class="comment">// 筛选数字游民评分 >= 80 的国家</span>
+    <span class="key">const</span> topCountries = data.data
+      .filter(c => c.digital_nomad_score >= 80)
+      .sort((a, b) => b.digital_nomad_score - a.digital_nomad_score);
+    console.log(topCountries.map(c => `${c.name}: ${c.digital_nomad_score}分`));
+  });
+        </div>
+        <div class="code-block" style="margin-top: 16px;">
+<span class="comment"># 示例：获取统计摘要</span>
+<span class="key">fetch</span>(<span class="string">'https://kfat77.github.io/digital-nomad-cn/api/stats.json'</span>)
+  .then(r => r.json())
+  .then(stats => {
+    console.log(`平均数字游民评分: ${stats.countries.avg_digital_nomad_score}`);
+    console.log(`免签国家数: ${stats.countries.by_visa_status.visa_free || 0}`);
+  });
+        </div>
+    </section>
+
+    <section class="api-section">
+        <h2>数据 Schema</h2>
+        <p>所有数据均遵循 JSON Schema 规范，Schema 文件位于 <code>website/data/schemas/</code> 目录下。</p>
+        <div class="endpoint-card">
+            <h3>国家 Schema</h3>
+            <div class="url">https://raw.githubusercontent.com/kfat77/digital-nomad-cn/main/website/data/schemas/country-detail.json</div>
+        </div>
+        <div class="endpoint-card">
+            <h3>城市 Schema</h3>
+            <div class="url">https://raw.githubusercontent.com/kfat77/digital-nomad-cn/main/website/data/schemas/city-detail.json</div>
+        </div>
+        <div class="endpoint-card">
+            <h3>签证 Schema</h3>
+            <div class="url">https://raw.githubusercontent.com/kfat77/digital-nomad-cn/main/website/data/schemas/visa-detail.json</div>
+        </div>
+    </section>
+
+    <section class="api-section" style="background: var(--bg-hero); padding: 60px 24px; margin-top: 0;">
+        <h2>使用条款</h2>
+        <p>本数据 API 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议共享。</p>
+        <ul style="color: var(--muted); line-height: 1.8; padding-left: 20px;">
+            <li>✅ 允许个人学习、研究、非商业项目使用</li>
+            <li>✅ 允许 AI Agent 和自动化工具调用</li>
+            <li>✅ 允许衍生创作和数据可视化</li>
+            <li>❌ 禁止用于商业数据产品或付费服务</li>
+            <li>❌ 禁止未署名的二次传播</li>
+        </ul>
+        <p style="margin-top: 16px;">引用时请注明来源：<code>数据来源：数字游民指南 https://github.com/kfat77/digital-nomad-cn</code></p>
+    </section>
+
+    <footer class="footer" style="margin-top: 0;">
+        <div class="footer-main">
+            <div class="footer-brand"><span class="logo-icon">◈</span><span class="logo-text">数字游民指南</span><p>42 国数据、50+ 签证、34 城市，全部开源。</p></div>
+            <div class="footer-links">
+                <div class="footer-col"><h4>核心内容</h4><a href="../country/">国家数据库</a><a href="../visa/">签证数据库</a><a href="../city/">城市数据库</a><a href="../compare/">国家对比</a></div>
+                <div class="footer-col"><h4>数据</h4><a href="./">开放 API</a><a href="countries.json">countries.json</a><a href="cities.json">cities.json</a><a href="manifest.json">manifest.json</a></div>
+                <div class="footer-col"><h4>社区</h4><a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>CC BY-NC-SA 4.0 | 内容仅供学习交流</p></div>
+    </footer>
+</body>
+</html>
