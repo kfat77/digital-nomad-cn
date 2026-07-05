@@ -1,7 +1,7 @@
 {
-  "api_version": "1.0",
+  "api_version": "1.1",
   "total": 60,
-  "updated_at": "2026-07-06T00:00:00Z",
+  "updated_at": "2026-07-05T21:44:22Z",
   "source": "https://github.com/kfat77/digital-nomad-cn",
   "license": "CC BY-NC-SA 4.0",
   "data": [
@@ -17,7 +17,11 @@
       "safety_index": 72,
       "internet_speed_avg_mbps": 150,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "地中海",
+      "timezone": "UTC+0",
+      "dn_community_size": "大",
+      "median_stay_months": 6
     },
     {
       "id": "singapore",
@@ -31,7 +35,11 @@
       "safety_index": 91,
       "internet_speed_avg_mbps": 280,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "热带",
+      "timezone": "UTC+8",
+      "dn_community_size": "中",
+      "median_stay_months": 3
     },
     {
       "id": "japan",
@@ -45,7 +53,11 @@
       "safety_index": 92,
       "internet_speed_avg_mbps": 185,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "温带",
+      "timezone": "UTC+9",
+      "dn_community_size": "大",
+      "median_stay_months": 3
     },
     {
       "id": "spain",
@@ -59,7 +71,11 @@
       "safety_index": 70,
       "internet_speed_avg_mbps": 170,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "地中海",
+      "timezone": "UTC+1~+2",
+      "dn_community_size": "大",
+      "median_stay_months": 6
     },
     {
       "id": "thailand",
@@ -73,7 +89,11 @@
       "safety_index": 65,
       "internet_speed_avg_mbps": 200,
       "china_passport_visa_status": "visa_free",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "热带",
+      "timezone": "UTC+7",
+      "dn_community_size": "大",
+      "median_stay_months": 3
     },
     {
       "id": "uae",
@@ -87,7 +107,11 @@
       "safety_index": 88,
       "internet_speed_avg_mbps": 300,
       "china_passport_visa_status": "visa_free",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "沙漠",
+      "timezone": "UTC+4",
+      "dn_community_size": "中",
+      "median_stay_months": 3
     },
     {
       "id": "georgia",
@@ -101,7 +125,11 @@
       "safety_index": 72,
       "internet_speed_avg_mbps": 35,
       "china_passport_visa_status": "visa_free",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "亚热带",
+      "timezone": "UTC+4",
+      "dn_community_size": "中",
+      "median_stay_months": 6
     },
     {
       "id": "hongkong",
@@ -115,7 +143,11 @@
       "safety_index": 78.3,
       "internet_speed_avg_mbps": 250,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "亚热带",
+      "timezone": "UTC+8",
+      "dn_community_size": "大",
+      "median_stay_months": 3
     },
     {
       "id": "netherlands",
@@ -129,7 +161,11 @@
       "safety_index": 72,
       "internet_speed_avg_mbps": 180,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带海洋",
+      "timezone": "UTC+1~+2",
+      "dn_community_size": "中",
+      "median_stay_months": 3
     },
     {
       "id": "cyprus",
@@ -143,7 +179,11 @@
       "safety_index": 82,
       "internet_speed_avg_mbps": 50,
       "china_passport_visa_status": "evisa",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "地中海",
+      "timezone": "UTC+2~+3",
+      "dn_community_size": "中",
+      "median_stay_months": 6
     },
     {
       "id": "estonia",
@@ -157,7 +197,11 @@
       "safety_index": 78,
       "internet_speed_avg_mbps": 100,
       "china_passport_visa_status": "evisa",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "温带",
+      "timezone": "UTC+2~+3",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "hungary",
@@ -171,7 +215,11 @@
       "safety_index": 70,
       "internet_speed_avg_mbps": 110,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "温带大陆",
+      "timezone": "UTC+1~+2",
+      "dn_community_size": "中",
+      "median_stay_months": 3
     },
     {
       "id": "norway",
@@ -185,7 +233,11 @@
       "safety_index": 85,
       "internet_speed_avg_mbps": 180,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "寒带",
+      "timezone": "UTC+1~+2",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "southkorea",
@@ -199,7 +251,11 @@
       "safety_index": 88,
       "internet_speed_avg_mbps": 220,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "温带",
+      "timezone": "UTC+9",
+      "dn_community_size": "中",
+      "median_stay_months": 3
     },
     {
       "id": "sweden",
@@ -213,7 +269,11 @@
       "safety_index": 80,
       "internet_speed_avg_mbps": 140,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "寒带",
+      "timezone": "UTC+1~+2",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "australia",
@@ -227,7 +287,11 @@
       "safety_index": 75,
       "internet_speed_avg_mbps": 80,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带",
+      "timezone": "UTC+8~+11",
+      "dn_community_size": "中",
+      "median_stay_months": 6
     },
     {
       "id": "czech",
@@ -241,7 +305,11 @@
       "safety_index": 75,
       "internet_speed_avg_mbps": 120,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带大陆",
+      "timezone": "UTC+1~+2",
+      "dn_community_size": "中",
+      "median_stay_months": 3
     },
     {
       "id": "germany",
@@ -255,7 +323,11 @@
       "safety_index": 75,
       "internet_speed_avg_mbps": 120,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带",
+      "timezone": "UTC+1~+2",
+      "dn_community_size": "大",
+      "median_stay_months": 3
     },
     {
       "id": "greece",
@@ -269,7 +341,11 @@
       "safety_index": 76,
       "internet_speed_avg_mbps": 45,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "地中海",
+      "timezone": "UTC+2~+3",
+      "dn_community_size": "中",
+      "median_stay_months": 6
     },
     {
       "id": "iceland",
@@ -283,7 +359,11 @@
       "safety_index": 88,
       "internet_speed_avg_mbps": 200,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "寒带",
+      "timezone": "UTC+0",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "malaysia",
@@ -297,7 +377,11 @@
       "safety_index": 55,
       "internet_speed_avg_mbps": 150,
       "china_passport_visa_status": "visa_free",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "热带",
+      "timezone": "UTC+8",
+      "dn_community_size": "中",
+      "median_stay_months": 3
     },
     {
       "id": "canada",
@@ -311,7 +395,11 @@
       "safety_index": 65,
       "internet_speed_avg_mbps": 170,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带",
+      "timezone": "UTC-8~UTC-3.5",
+      "dn_community_size": "中",
+      "median_stay_months": 3
     },
     {
       "id": "denmark",
@@ -325,7 +413,11 @@
       "safety_index": 84,
       "internet_speed_avg_mbps": 150,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带海洋",
+      "timezone": "UTC+1~+2",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "france",
@@ -339,7 +431,11 @@
       "safety_index": 65,
       "internet_speed_avg_mbps": 130,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带",
+      "timezone": "UTC+1~+2",
+      "dn_community_size": "大",
+      "median_stay_months": 3
     },
     {
       "id": "austria",
@@ -353,7 +449,11 @@
       "safety_index": 83,
       "internet_speed_avg_mbps": 80,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "温带大陆",
+      "timezone": "UTC+1~+2",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "indonesia",
@@ -367,7 +467,11 @@
       "safety_index": 58,
       "internet_speed_avg_mbps": 25,
       "china_passport_visa_status": "evisa",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "热带",
+      "timezone": "UTC+7~+9",
+      "dn_community_size": "大",
+      "median_stay_months": 6
     },
     {
       "id": "ireland",
@@ -381,7 +485,11 @@
       "safety_index": 82,
       "internet_speed_avg_mbps": 120,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "温带海洋",
+      "timezone": "UTC+0~+1",
+      "dn_community_size": "中",
+      "median_stay_months": 3
     },
     {
       "id": "morocco",
@@ -395,7 +503,11 @@
       "safety_index": 58,
       "internet_speed_avg_mbps": 25,
       "china_passport_visa_status": "visa_free",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "地中海",
+      "timezone": "UTC+0~+1",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "newzealand",
@@ -409,7 +521,11 @@
       "safety_index": 70,
       "internet_speed_avg_mbps": 150,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带海洋",
+      "timezone": "UTC+12~+13",
+      "dn_community_size": "小",
+      "median_stay_months": 6
     },
     {
       "id": "poland",
@@ -423,7 +539,11 @@
       "safety_index": 72,
       "internet_speed_avg_mbps": 100,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带大陆",
+      "timezone": "UTC+1~+2",
+      "dn_community_size": "中",
+      "median_stay_months": 3
     },
     {
       "id": "croatia",
@@ -437,7 +557,11 @@
       "safety_index": 78,
       "internet_speed_avg_mbps": 55,
       "china_passport_visa_status": "evisa",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "地中海",
+      "timezone": "UTC+1~+2",
+      "dn_community_size": "小",
+      "median_stay_months": 6
     },
     {
       "id": "israel",
@@ -451,7 +575,11 @@
       "safety_index": 65,
       "internet_speed_avg_mbps": 130,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "地中海",
+      "timezone": "UTC+2~+3",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "kazakhstan",
@@ -465,7 +593,11 @@
       "safety_index": 72,
       "internet_speed_avg_mbps": 40,
       "china_passport_visa_status": "visa_free",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带大陆",
+      "timezone": "UTC+5~+6",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "switzerland",
@@ -479,7 +611,11 @@
       "safety_index": 88,
       "internet_speed_avg_mbps": 170,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带",
+      "timezone": "UTC+1~+2",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "uk",
@@ -493,7 +629,11 @@
       "safety_index": 60,
       "internet_speed_avg_mbps": 110,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带海洋",
+      "timezone": "UTC+0~+1",
+      "dn_community_size": "大",
+      "median_stay_months": 3
     },
     {
       "id": "vietnam",
@@ -507,7 +647,11 @@
       "safety_index": 60,
       "internet_speed_avg_mbps": 120,
       "china_passport_visa_status": "evisa",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "热带",
+      "timezone": "UTC+7",
+      "dn_community_size": "大",
+      "median_stay_months": 3
     },
     {
       "id": "philippines",
@@ -521,7 +665,11 @@
       "safety_index": 55,
       "internet_speed_avg_mbps": 30,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "热带",
+      "timezone": "UTC+8",
+      "dn_community_size": "中",
+      "median_stay_months": 6
     },
     {
       "id": "romania",
@@ -535,7 +683,11 @@
       "safety_index": 68,
       "internet_speed_avg_mbps": 95,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带大陆",
+      "timezone": "UTC+2~+3",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "turkey",
@@ -549,7 +701,11 @@
       "safety_index": 50,
       "internet_speed_avg_mbps": 35,
       "china_passport_visa_status": "evisa",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "地中海",
+      "timezone": "UTC+3",
+      "dn_community_size": "中",
+      "median_stay_months": 3
     },
     {
       "id": "bulgaria",
@@ -563,7 +719,11 @@
       "safety_index": 65,
       "internet_speed_avg_mbps": 90,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带大陆",
+      "timezone": "UTC+2~+3",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "srilanka",
@@ -577,7 +737,11 @@
       "safety_index": 60,
       "internet_speed_avg_mbps": 20,
       "china_passport_visa_status": "evisa",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "热带",
+      "timezone": "UTC+5.5",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "chile",
@@ -591,7 +755,11 @@
       "safety_index": 55,
       "internet_speed_avg_mbps": 80,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "温带",
+      "timezone": "UTC-4~UTC-3",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "mexico",
@@ -605,7 +773,11 @@
       "safety_index": 45,
       "internet_speed_avg_mbps": 40,
       "china_passport_visa_status": "evisa",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "热带",
+      "timezone": "UTC-8~UTC-5",
+      "dn_community_size": "中",
+      "median_stay_months": 3
     },
     {
       "id": "mongolia",
@@ -619,7 +791,11 @@
       "safety_index": 70,
       "internet_speed_avg_mbps": 20,
       "china_passport_visa_status": "visa_free",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "寒带",
+      "timezone": "UTC+7~+8",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "qatar",
@@ -633,7 +809,11 @@
       "safety_index": 82,
       "internet_speed_avg_mbps": 120,
       "china_passport_visa_status": "visa_free",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "沙漠",
+      "timezone": "UTC+3",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "usa",
@@ -647,7 +827,11 @@
       "safety_index": 50,
       "internet_speed_avg_mbps": 250,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带",
+      "timezone": "UTC-11~UTC-4",
+      "dn_community_size": "大",
+      "median_stay_months": 3
     },
     {
       "id": "armenia",
@@ -661,7 +845,11 @@
       "safety_index": 70,
       "internet_speed_avg_mbps": 60,
       "china_passport_visa_status": "visa_free",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带大陆",
+      "timezone": "UTC+4",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "nepal",
@@ -675,7 +863,11 @@
       "safety_index": 65,
       "internet_speed_avg_mbps": 15,
       "china_passport_visa_status": "visa_free",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "亚热带",
+      "timezone": "UTC+5.45",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "brazil",
@@ -689,7 +881,11 @@
       "safety_index": 42,
       "internet_speed_avg_mbps": 55,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": true
+      "has_digital_nomad_visa": true,
+      "climate_zone": "热带",
+      "timezone": "UTC-5~UTC-2",
+      "dn_community_size": "中",
+      "median_stay_months": 6
     },
     {
       "id": "colombia",
@@ -703,7 +899,11 @@
       "safety_index": 50,
       "internet_speed_avg_mbps": 65,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "热带",
+      "timezone": "UTC-5",
+      "dn_community_size": "中",
+      "median_stay_months": 3
     },
     {
       "id": "azerbaijan",
@@ -717,7 +917,11 @@
       "safety_index": 68,
       "internet_speed_avg_mbps": 55,
       "china_passport_visa_status": "evisa",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带大陆",
+      "timezone": "UTC+4",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "argentina",
@@ -731,7 +935,11 @@
       "safety_index": 45,
       "internet_speed_avg_mbps": 30,
       "china_passport_visa_status": "evisa",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带",
+      "timezone": "UTC-3",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "peru",
@@ -745,7 +953,11 @@
       "safety_index": 55,
       "internet_speed_avg_mbps": 55,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "热带",
+      "timezone": "UTC-5",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "south_africa",
@@ -759,7 +971,11 @@
       "safety_index": 55,
       "internet_speed_avg_mbps": 50,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带",
+      "timezone": "UTC+2",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "uzbekistan",
@@ -773,7 +989,11 @@
       "safety_index": 72,
       "internet_speed_avg_mbps": 45,
       "china_passport_visa_status": "visa_free",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "温带大陆",
+      "timezone": "UTC+5",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "kenya",
@@ -787,7 +1007,11 @@
       "safety_index": 50,
       "internet_speed_avg_mbps": 40,
       "china_passport_visa_status": "evisa",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "热带",
+      "timezone": "UTC+3",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "macao",
@@ -801,7 +1025,11 @@
       "safety_index": 85,
       "internet_speed_avg_mbps": 180,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "亚热带",
+      "timezone": "UTC+8",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "india",
@@ -815,7 +1043,11 @@
       "safety_index": 55,
       "internet_speed_avg_mbps": 50,
       "china_passport_visa_status": "evisa",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "热带",
+      "timezone": "UTC+5.5",
+      "dn_community_size": "中",
+      "median_stay_months": 3
     },
     {
       "id": "egypt",
@@ -829,7 +1061,11 @@
       "safety_index": 52,
       "internet_speed_avg_mbps": 45,
       "china_passport_visa_status": "evisa",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "沙漠",
+      "timezone": "UTC+2",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     },
     {
       "id": "ghana",
@@ -843,7 +1079,11 @@
       "safety_index": 60,
       "internet_speed_avg_mbps": 35,
       "china_passport_visa_status": "visa_required",
-      "has_digital_nomad_visa": false
+      "has_digital_nomad_visa": false,
+      "climate_zone": "热带",
+      "timezone": "UTC+0",
+      "dn_community_size": "小",
+      "median_stay_months": 3
     }
   ]
 }
