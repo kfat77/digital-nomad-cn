@@ -51,7 +51,8 @@
     "oceania"
   ],
   "status": "published",
-  "updated_at": "2026-01-15T00:00:00Z",
+  "updated_at": "2026-07-05T00:00:00Z",
   "source": "Numbeo 2026, World Bank 2025, Home Affairs Australia",
-  "flag_emoji": "🇦🇺"
+  "flag_emoji": "🇦🇺",
+  "chinese_passport_visa_status": "需签证（eVisitor）"
 }
