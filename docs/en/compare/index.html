@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>国家对比工具 — 42国数字游民数据横向对比</title>
-    <meta name="description" content="数字游民国家对比工具：选择2-4个国家，一键对比生活成本、签证政策、网速、安全指数等关键指标，找到最适合你的目的地。">
-    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/compare/">
+    <title>Country Comparison Tool — 42-Country Digital Nomad Data</title>
+    <meta name="description" content="Digital nomad country comparison tool: select 2-4 countries and compare cost of living, visa policies, internet speed, safety index, and more.">
+    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/en/compare/">
     <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/compare/">
     <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/compare/">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../../style.css">
     <style>
         .compare-hero { background: var(--bg-hero); border-bottom: 1px solid var(--border); padding: 120px 0 60px; text-align: center; }
         .compare-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.03em; }
@@ -57,62 +57,87 @@
         .bar-fill { height: 100%; border-radius: 10px; transition: width 0.8s ease-out; }
         .bar-value { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 11px; font-weight: 600; }
         @media (max-width: 768px) { .hero h1 { font-size: 32px; } .comparison-table { font-size: 12px; } .comparison-table th, .comparison-table td { padding: 10px 8px; } .selector-row { flex-direction: column; align-items: center; } }
+    .lang-switch { margin-left: 12px; font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border-light); transition: all 0.2s; }
+    .lang-switch:hover { color: var(--foreground); background: var(--background-elevated); }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="header-inner">
-            <a href="../" class="logo"><span class="logo-icon">◈</span><span>数字游民指南</span></a>
+            <a href="../" class="logo"><span class="logo-icon">◈</span><span>Digital Nomad Guide</span></a>
             <nav class="main-nav">
-                <a href="../">首页</a><a href="../country/">国家</a><a href="../visa/">签证</a><a href="../city/">城市</a>
-                <a href="./">对比</a><a href="../routes/">路线</a><a href="../search/">搜索</a>
+                <a href="../">Home</a>
+                <a href="../countries/">Countries</a>
+                <a href="../visas/">Visas</a>
+                <a href="../cities/">Cities</a>
+                <a href="./">Compare</a>
+                <a href="../routes/">Routes</a>
+                <a href="../search/">Search</a>
             </nav>
-            <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
-            <a href="../en/compare/" class="github-btn" style="margin-left:8px;background:rgba(59,130,246,0.15);color:#3b82f6;">English</a>
+            <div class="header-actions">
+                <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
+                <a href="../../compare/" class="lang-switch" title="Switch to Chinese">中文</a>
+            </div>
         </div>
     </header>
 
     <section class="compare-hero">
         <div class="hero-content">
-            <div class="hero-tag"><span class="hero-tag-dot"></span>数据驱动决策</div>
-            <h1 class="hero-title">⚖️ 国家<br><span class="hero-title-accent">对比工具</span></h1>
-            <p class="hero-desc">选择 2-4 个国家，一键对比生活成本、签证政策、数字游民友好度等关键指标</p>
+            <div class="hero-tag"><span class="hero-tag-dot"></span>Data-Driven Decisions</div>
+            <h1 class="hero-title">⚖️ Country<br><span class="hero-title-accent">Comparison Tool</span></h1>
+            <p class="hero-desc">Select 2–4 countries and compare cost of living, visa policies, digital nomad friendliness, and other key metrics</p>
         </div>
     </section>
 
     <section class="compare-section">
         <div class="top-controls">
             <div class="preselect-btns">
-                <button data-set="seasia">东南亚</button>
-                <button data-set="europe">欧洲</button>
-                <button data-set="nomad">数字游民友好</button>
-                <button data-set="visa-free">中国免签</button>
+                <button data-set="seasia">Southeast Asia</button>
+                <button data-set="europe">Europe</button>
+                <button data-set="nomad">Digital Nomad Friendly</button>
+                <button data-set="visa-free">Visa Free for China</button>
             </div>
-            <button class="reset-btn" onclick="resetAll()">重置选择</button>
+            <button class="reset-btn" onclick="resetAll()">Reset</button>
         </div>
         <div class="selector-row" id="selectorRow">
-            <div class="country-selector"><label>国家 1</label><select id="sel0"><option value="">选择国家</option></select></div>
-            <div class="country-selector"><label>国家 2</label><select id="sel1"><option value="">选择国家</option></select></div>
-            <div class="country-selector"><label>国家 3</label><select id="sel2"><option value="">选择国家</option></select></div>
-            <div class="country-selector"><label>国家 4</label><select id="sel3"><option value="">选择国家</option></select></div>
-            <button class="compare-btn" onclick="compare()">开始对比</button>
+            <div class="country-selector"><label>Country 1</label><select id="sel0"><option value="">Select country</option></select></div>
+            <div class="country-selector"><label>Country 2</label><select id="sel1"><option value="">Select country</option></select></div>
+            <div class="country-selector"><label>Country 3</label><select id="sel2"><option value="">Select country</option></select></div>
+            <div class="country-selector"><label>Country 4</label><select id="sel3"><option value="">Select country</option></select></div>
+            <button class="compare-btn" onclick="compare()">Compare</button>
         </div>
         <div id="results"></div>
     </section>
 
     <footer class="footer" style="margin-top: 0;">
         <div class="footer-main">
-            <div class="footer-brand"><span class="logo-icon">◈</span><span class="logo-text">数字游民指南</span><p>42 国数据、50+ 签证、34 城市，全部开源。</p></div>
+            <div class="footer-brand">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Digital Nomad Guide</span>
+                <p>42 countries, 50+ visas, 34 cities — all open source.</p>
+            </div>
             <div class="footer-links">
-                <div class="footer-col"><h4>核心内容</h4><a href="../country/">国家数据库</a><a href="../visa/">签证数据库</a><a href="../city/">城市数据库</a><a href="./">国家对比</a></div>
-                <div class="footer-col"><h4>社区</h4><a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a></div>
+                <div class="footer-col">
+                    <h4>Core</h4>
+                    <a href="../countries/">Countries</a>
+                    <a href="../visas/">Visas</a>
+                    <a href="../cities/">Cities</a>
+                    <a href="./">Compare</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Community</h4>
+                    <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a>
+                    <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom"><p>CC BY-NC-SA 4.0 | 内容仅供学习交流</p></div>
+        <div class="footer-bottom">
+            <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> | For educational purposes only</p>
+        </div>
     </footer>
 
     <script>
-    const countryData = {
+const countryData = {
   "argentina": {
     "id": "argentina",
     "name": "阿根廷",
@@ -1057,25 +1082,29 @@
     const flagMap = {"argentina": "🇦🇷", "australia": "🇦🇺", "austria": "🇦🇹", "brazil": "🇧🇷", "canada": "🇨🇦", "chile": "🇨🇱", "croatia": "🇭🇷", "cyprus": "🇨🇾", "denmark": "🇩🇰", "estonia": "🇪🇪", "france": "🇫🇷", "georgia": "🇬🇪", "germany": "🇩🇪", "greece": "🇬🇷", "hongkong": "🇭🇰", "iceland": "🇮🇸", "indonesia": "🇮🇩", "ireland": "🇮🇪", "japan": "🇯🇵", "kazakhstan": "🇰🇿", "macao": "🇲🇴", "malaysia": "🇲🇾", "mexico": "🇲🇽", "mongolia": "🇲🇳", "morocco": "🇲🇦", "nepal": "🇳🇵", "netherlands": "🇳🇱", "newzealand": "🇳🇿", "norway": "🇳🇴", "philippines": "🇵🇭", "portugal": "🇵🇹", "singapore": "🇸🇬", "southkorea": "🇰🇷", "spain": "🇪🇸", "srilanka": "🇱🇰", "switzerland": "🇨🇭", "thailand": "🇹🇭", "turkey": "🇹🇷", "uae": "🇦🇪", "uk": "🇬🇧", "usa": "🇺🇸", "vietnam": "🇻🇳"};
     
     function initSelectors(){
-        const opts = Object.values(countryData).sort((a,b)=>a.name.localeCompare(b.name,'zh'));
+        const opts = Object.values(countryData).sort((a,b)=>a.name_en.localeCompare(b.name_en));
         [0,1,2,3].forEach(i=>{
             const sel = document.getElementById('sel'+i);
-            opts.forEach(c=>{ const o=document.createElement('option');o.value=c.id;o.textContent=c.name;sel.appendChild(o); });
+            opts.forEach(c=>{ const o=document.createElement('option');o.value=c.id;o.textContent=c.name_en;sel.appendChild(o); });
         });
     }
     function getFlag(id){ return flagMap[id]||'🏳️'; }
     function getColor(i){ return ['#2563eb','#10b981','#f59e0b','#ef4444','#8b5cf6','#ec4899'][i%6]; }
-    function getVisaBadge(status){
-        if(status==='免签') return '<span class="badge badge-visa-free">免签</span>';
-        if(status==='落地签') return '<span class="badge badge-visa-on-arrival">落地签</span>';
-        if(status==='电子签'||status==='ETA') return '<span class="badge badge-visa-on-arrival">'+status+'</span>';
-        return '<span class="badge badge-visa-required">需签证</span>';
+    function getRegionLabel(region){
+        const map = {'亚洲':'Asia','欧洲':'Europe','北美':'North America','南美':'South America','大洋洲':'Oceania','非洲':'Africa','中东':'Middle East'};
+        return map[region] || region;
     }
-    function getDNVBadge(has){ return has?'<span class="badge badge-dnv-yes">✓ 有</span>':'<span class="badge badge-dnv-no">—</span>'; }
+    function getVisaBadge(status){
+        if(status==='免签') return '<span class="badge badge-visa-free">Visa Free</span>';
+        if(status==='落地签') return '<span class="badge badge-visa-on-arrival">Visa on Arrival</span>';
+        if(status==='电子签'||status==='ETA') return '<span class="badge badge-visa-on-arrival">'+status+'</span>';
+        return '<span class="badge badge-visa-required">Visa Required</span>';
+    }
+    function getDNVBadge(has){ return has?'<span class="badge badge-dnv-yes">✓ Yes</span>':'<span class="badge badge-dnv-no">—</span>'; }
     
     function compare(){
         const selected = [0,1,2,3].map(i=>document.getElementById('sel'+i).value).filter(v=>v);
-        if(selected.length<2){ alert('请至少选择2个国家'); return; }
+        if(selected.length<2){ alert('Please select at least 2 countries'); return; }
         const results = selected.map(id=>countryData[id]);
         const maxCost = Math.max(...results.map(c=>c.cost_of_living_index||0));
         const maxRent = Math.max(...results.map(c=>c.rent_index||0));
@@ -1085,23 +1114,23 @@
         const maxScore = Math.max(...results.map(c=>c.digital_nomad_score||0));
         const maxSafety = Math.max(...results.map(c=>c.safety_index||0));
         
-        let html = '<table class="comparison-table"><thead><tr><th>指标</th>';
-        results.forEach(c=>{ html+=`<th><div class="country-name"><span class="flag">${getFlag(c.id)}</span>${c.name}</div></th>`; });
+        let html = '<table class="comparison-table"><thead><tr><th>Metric</th>';
+        results.forEach(c=>{ html+=`<th><div class="country-name"><span class="flag">${getFlag(c.id)}</span>${c.name_en}</div></th>`; });
         html += '</tr></thead><tbody>';
         
         const rows = [
-            {label:'数字游民评分',key:'digital_nomad_score',max:maxScore,type:'score'},
-            {label:'生活成本指数',key:'cost_of_living_index',max:maxCost,type:'cost'},
-            {label:'租金指数',key:'rent_index',max:maxRent,type:'cost'},
-            {label:'安全指数',key:'safety_index',max:maxSafety,type:'score'},
-            {label:'平均网速 (Mbps)',key:'internet_speed_avg_mbps',max:maxNet,type:'net'},
-            {label:'人均GDP (USD)',key:'gdp_per_capita_usd',max:maxGDP,type:'money'},
+            {label:'Digital Nomad Score',key:'digital_nomad_score',max:maxScore,type:'score'},
+            {label:'Cost of Living Index',key:'cost_of_living_index',max:maxCost,type:'cost'},
+            {label:'Rent Index',key:'rent_index',max:maxRent,type:'cost'},
+            {label:'Safety Index',key:'safety_index',max:maxSafety,type:'score'},
+            {label:'Internet Speed (Mbps)',key:'internet_speed_avg_mbps',max:maxNet,type:'net'},
+            {label:'GDP Per Capita (USD)',key:'gdp_per_capita_usd',max:maxGDP,type:'money'},
             {label:'HDI',key:'hdi',max:maxHDI,type:'score'},
-            {label:'中国护照签证',key:'china_passport_visa_status',type:'visa'},
-            {label:'数字游民签证',key:'has_digital_nomad_visa',type:'dnv'},
-            {label:'货币',key:'currency',type:'text'},
-            {label:'官方语言',key:'languages',type:'text'},
-            {label:'地区',key:'region',type:'region'},
+            {label:'China Passport Visa',key:'china_passport_visa_status',type:'visa'},
+            {label:'Digital Nomad Visa',key:'has_digital_nomad_visa',type:'dnv'},
+            {label:'Currency',key:'currency',type:'text'},
+            {label:'Languages',key:'languages',type:'text'},
+            {label:'Region',key:'region',type:'region'},
         ];
         
         rows.forEach(row=>{
@@ -1124,7 +1153,7 @@
                 }else if(row.type==='dnv'){
                     html += `<td>${getDNVBadge(val)}</td>`;
                 }else if(row.type==='region'){
-                    html += `<td><span class="region-tag">${val}</span></td>`;
+                    html += `<td><span class="region-tag">${getRegionLabel(val)}</span></td>`;
                 }else{
                     html += `<td>${Array.isArray(val)?val.join(', '):val}</td>`;
                 }
@@ -1135,7 +1164,7 @@
         
         html += '<div class="charts-row">';
         ['digital_nomad_score','cost_of_living_index','internet_speed_avg_mbps','safety_index'].forEach((key,idx)=>{
-            const titles = ['数字游民友好度','生活成本对比','网速对比 (Mbps)','安全指数'];
+            const titles = ['Digital Nomad Score','Cost of Living','Internet Speed (Mbps)','Safety Index'];
             const maxMap = {digital_nomad_score:maxScore,cost_of_living_index:maxCost,internet_speed_avg_mbps:maxNet,safety_index:maxSafety};
             const maxV = maxMap[key];
             const sorted = [...results].sort((a,b)=>(b[key]||0)-(a[key]||0));
@@ -1143,7 +1172,7 @@
             sorted.forEach(c=>{
                 const pct = maxV?((c[key]||0)/maxV*100):0;
                 const bg = key==='cost_of_living_index'?(pct>80?'#ef4444':pct>50?'#f59e0b':'#10b981'):getColor(results.indexOf(c));
-                html += `<div class="bar-item"><span class="bar-label">${getFlag(c.id)} ${c.name}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${bg}"></div><span class="bar-value">${c[key]||'—'}</span></div></div>`;
+                html += `<div class="bar-item"><span class="bar-label">${getFlag(c.id)} ${c.name_en}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${bg}"></div><span class="bar-value">${c[key]||'—'}</span></div></div>`;
             });
             html += '</div></div>';
         });
@@ -1164,6 +1193,7 @@
         });
     });
     initSelectors();
+
     </script>
 </body>
 </html>

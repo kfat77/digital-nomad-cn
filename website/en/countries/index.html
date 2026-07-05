@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Database — 42 Digital Nomad Destinations</title>
+    <meta name="description" content="Structured data for 42 digital nomad destinations: visa policies, cost of living, safety index, internet speed. Filter by region and visa type.">
+    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/en/countries/">
+    <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/country/">
+    <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/countries/">
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .en-hero { padding: 120px 0 60px; background: var(--bg-hero); border-bottom: 1px solid var(--border); }
+        .en-hero .hero-content { text-align: center; }
+        .en-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.03em; }
+        .en-hero p { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: 18px; }
+        .country-count { color: var(--accent); font-weight: 700; }
+        .region-tabs-en { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 32px 0; }
+        .region-tabs-en button { padding: 8px 16px; border-radius: var(--radius-full); border: 1px solid var(--border); background: var(--bg); color: var(--muted); cursor: pointer; font-size: 14px; transition: var(--transition); }
+        .region-tabs-en button.active { background: var(--accent); color: white; border-color: var(--accent); }
+        .visa-filters-en { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 24px; }
+        .visa-filters-en button { padding: 8px 16px; border-radius: var(--radius-full); border: 1px solid var(--border); background: var(--bg); color: var(--muted); cursor: pointer; font-size: 14px; transition: var(--transition); }
+        .visa-filters-en button.active { background: var(--accent); color: white; border-color: var(--accent); }
+        #countryGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 32px; }
+        .country-card { display: block; padding: 20px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; color: var(--foreground); transition: var(--transition); }
+        .country-card:hover { box-shadow: var(--shadow-card-hover); border-color: var(--accent); transform: translateY(-2px); }
+        .country-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .country-card-header .flag { font-size: 28px; }
+        .country-card-header h4 { font-size: 16px; font-weight: 700; margin: 0; }
+        .country-card-header .score { margin-left: auto; font-size: 20px; font-weight: 800; color: var(--accent); }
+        .country-card-body { display: flex; flex-wrap: wrap; gap: 6px; }
+        .country-card-body .tag { padding: 3px 10px; background: var(--bg-card); border-radius: var(--radius-full); font-size: 12px; color: var(--muted); }
+        .country-card-body .tag.visa-free { background: #dcfce7; color: #166534; }
+        .country-card-body .tag.evisa { background: #dbeafe; color: #1e40af; }
+        .country-card-body .tag.voa { background: #fef3c7; color: #92400e; }
+        .country-card-body .tag.visa-req { background: #fee2e2; color: #991b1b; }
+        .note-en { text-align: center; padding: 40px 20px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--border); margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../" class="logo"><span class="logo-icon">◈</span><span>Digital Nomad Guide</span></a>
+            <nav class="main-nav">
+                <a href="../">Home</a>
+                <a href="./">Countries</a>
+                <a href="../visas/">Visas</a>
+                <a href="../cities/">Cities</a>
+                <a href="../compare/">Compare</a>
+                <a href="../routes/">Routes</a>
+                <a href="../search/">Search</a>
+            </nav>
+            <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
+            <a href="../../country/" class="github-btn" style="margin-left:8px;background:rgba(59,130,246,0.15);color:#3b82f6;">中文</a>
+        </div>
+    </header>
+
+    <section class="en-hero">
+        <div class="hero-content">
+            <div class="hero-tag"><span class="hero-tag-dot"></span>42 Countries · Structured Data</div>
+            <h1>Digital Nomad<br><span class="hero-title-accent">Country Database</span></h1>
+            <p>Sorted by digital nomad score. Filter by region and visa type. Click a card to see full details (Chinese).</p>
+        </div>
+    </section>
+
+    <section class="country-grid-section" style="padding-top:0;">
+        <div class="container">
+            <div class="visa-filters-en" id="visaFilters">
+                <button class="active" data-filter="all">All</button>
+                <button data-filter="visa_free">🛂 Visa Free</button>
+                <button data-filter="evisa">📋 eVisa</button>
+                <button data-filter="visa_on_arrival">🛬 Visa on Arrival</button>
+                <button data-filter="visa_required">📝 Visa Required</button>
+            </div>
+            <div class="region-tabs-en" id="regionTabs">
+                <button class="active" data-region="all">All <span class="country-count">42</span></button>
+                <button data-region="asia">Asia <span>15</span></button>
+                <button data-region="europe">Europe <span>17</span></button>
+                <button data-region="americas_north">North America <span>3</span></button>
+                <button data-region="americas_south">South America <span>3</span></button>
+                <button data-region="oceania">Oceania <span>2</span></button>
+                <button data-region="africa">Africa <span>1</span></button>
+                <button data-region="middle_east">Middle East <span>1</span></button>
+            </div>
+            <div id="countryGrid"></div>
+        </div>
+    </section>
+
+    <div class="note-en">
+        <p>🔗 Full country details are currently available in Chinese. <a href="../../country/" style="color:var(--accent);">View Chinese version →</a></p>
+    </div>
+
+    <footer class="footer" style="margin-top:0;">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Digital Nomad Guide</span>
+                <p>42 countries, 20+ visas, 34 cities — all open source.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col"><h4>Core</h4><a href="./">Countries</a><a href="../visas/">Visas</a><a href="../cities/">Cities</a><a href="../compare/">Compare</a></div>
+                <div class="footer-col"><h4>Community</h4><a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a><a href="https://github.com/kfat77/digital-nomad-cn/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> | For educational purposes only</p></div>
+    </footer>
+
+    <script src="../../countries-data.js"></script>
+    <script>
+    (function(){
+        const grid = document.getElementById('countryGrid');
+        const visaFilters = document.getElementById('visaFilters');
+        const regionTabs = document.getElementById('regionTabs');
+        let activeVisa = 'all', activeRegion = 'all';
+
+        const VISA_LABELS = {
+            visa_free: 'Visa Free',
+            evisa: 'eVisa',
+            visa_on_arrival: 'Visa on Arrival',
+            visa_required: 'Visa Required'
+        };
+
+        const VISA_CLASSES = {
+            visa_free: 'visa-free',
+            evisa: 'evisa',
+            visa_on_arrival: 'voa',
+            visa_required: 'visa-req'
+        };
+
+        const REGION_LABELS = {
+            asia: 'Asia',
+            europe: 'Europe',
+            americas_north: 'North America',
+            americas_south: 'South America',
+            oceania: 'Oceania',
+            africa: 'Africa',
+            middle_east: 'Middle East'
+        };
+
+        function render(){
+            grid.innerHTML = '';
+            const filtered = COUNTRIES.filter(c => {
+                const vMatch = activeVisa === 'all' || c.visa_type === activeVisa;
+                const rMatch = activeRegion === 'all' || c.region === activeRegion;
+                return vMatch && rMatch;
+            }).sort((a,b) => (b.digital_nomad_score || 0) - (a.digital_nomad_score || 0));
+
+            filtered.forEach(c => {
+                const name = c.enName || c.name;
+                const visaLabel = VISA_LABELS[c.visa_type] || c.visa_type;
+                const visaClass = VISA_CLASSES[c.visa_type] || '';
+                const regionLabel = REGION_LABELS[c.region] || c.region;
+                const el = document.createElement('a');
+                el.className = 'country-card';
+                el.href = '../../country/' + c.id + '/index.html';
+                el.innerHTML = `
+                    <div class="country-card-header">
+                        <span class="flag">${c.flag}</span>
+                        <h4>${name}</h4>
+                        <span class="score">${c.digital_nomad_score}pts</span>
+                    </div>
+                    <div class="country-card-body">
+                        <span class="tag ${visaClass}">${visaLabel}</span>
+                        <span class="tag">💰 ${c.cost_of_living}</span>
+                        <span class="tag">🌐 ${c.internet_speed} Mbps</span>
+                        <span class="tag">${regionLabel}</span>
+                    </div>
+                `;
+                grid.appendChild(el);
+            });
+        }
+
+        visaFilters.addEventListener('click', e => {
+            if(e.target.tagName !== 'BUTTON') return;
+            visaFilters.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            activeVisa = e.target.dataset.filter;
+            render();
+        });
+
+        regionTabs.addEventListener('click', e => {
+            if(e.target.tagName !== 'BUTTON') return;
+            regionTabs.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            activeRegion = e.target.dataset.region;
+            render();
+        });
+
+        render();
+    })();
+    </script>
+</body>
+</html>

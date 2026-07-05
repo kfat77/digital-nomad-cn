@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>搜索 — 42国+34城数字游民数据</title>
-    <meta name="description" content="搜索全球数字游民目的地、城市、签证信息。支持模糊搜索，覆盖76条国家与城市数据。">
-    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/search/">
+    <title>Search — 42 Countries + 34 Cities Digital Nomad Data</title>
+    <meta name="description" content="Search global digital nomad destinations, cities, and visa information. Fuzzy search across 76 country and city data points.">
+    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/en/search/">
     <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/search/">
     <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/search/">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../../style.css">
     <style>
         .search-hero { background: var(--bg-hero); border-bottom: 1px solid var(--border); padding: 120px 0 60px; text-align: center; }
         .search-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.03em; }
@@ -34,58 +34,83 @@
         .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
         mark.highlight { background: var(--accent-light); color: var(--accent); border-radius: 3px; padding: 0 2px; }
         @media (max-width: 640px) { .result-card { flex-direction: column; align-items: flex-start; } .result-score { text-align: left; } }
+    .lang-switch { margin-left: 12px; font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border-light); transition: all 0.2s; }
+    .lang-switch:hover { color: var(--foreground); background: var(--background-elevated); }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="header-inner">
-            <a href="../" class="logo"><span class="logo-icon">◈</span><span>数字游民指南</span></a>
+            <a href="../" class="logo"><span class="logo-icon">◈</span><span>Digital Nomad Guide</span></a>
             <nav class="main-nav">
-                <a href="../">首页</a><a href="../country/">国家</a><a href="../visa/">签证</a><a href="../city/">城市</a>
-                <a href="../compare/">对比</a><a href="../routes/">路线</a><a href="./">搜索</a>
+                <a href="../">Home</a>
+                <a href="../countries/">Countries</a>
+                <a href="../visas/">Visas</a>
+                <a href="../cities/">Cities</a>
+                <a href="../compare/">Compare</a>
+                <a href="../routes/">Routes</a>
+                <a href="./">Search</a>
             </nav>
-            <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
-            <a href="../en/search/" class="github-btn" style="margin-left:8px;background:rgba(59,130,246,0.15);color:#3b82f6;">English</a>
+            <div class="header-actions">
+                <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
+                <a href="../../search/" class="lang-switch" title="Switch to Chinese">中文</a>
+            </div>
         </div>
     </header>
 
     <section class="search-hero">
         <div class="hero-content">
-            <div class="hero-tag"><span class="hero-tag-dot"></span>模糊搜索 · 关键词匹配</div>
-            <h1 class="hero-title">🔍 全局<br><span class="hero-title-accent">数据搜索</span></h1>
-            <p class="hero-desc">搜索国家、城市、签证信息 — 共 76 条数据</p>
+            <div class="hero-tag"><span class="hero-tag-dot"></span>Fuzzy Search · Keyword Matching</div>
+            <h1 class="hero-title">🔍 Global<br><span class="hero-title-accent">Data Search</span></h1>
+            <p class="hero-desc">Search countries, cities, and visa information — 76 data points in total</p>
         </div>
     </section>
 
     <section class="search-section">
         <div class="search-stats">
-            <span>🌍 42 个国家</span>
-            <span>🏙️ 34 个城市</span>
+            <span>🌍 42 Countries</span>
+            <span>🏙️ 34 Cities</span>
         </div>
         <div class="filters">
-            <button class="filter-btn active" data-filter="all">全部</button>
-            <button class="filter-btn" data-filter="country">国家</button>
-            <button class="filter-btn" data-filter="city">城市</button>
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="country">Countries</button>
+            <button class="filter-btn" data-filter="city">Cities</button>
         </div>
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="输入国家名、城市名或关键词...（例如：泰国、数字游民签证、低成本）" autocomplete="off">
+            <input type="text" id="searchInput" placeholder="Search countries, cities, or keywords... (e.g., Thailand, digital nomad visa, low cost)" autocomplete="off">
         </div>
         <div class="results" id="results"></div>
     </section>
 
     <footer class="footer" style="margin-top: 0;">
         <div class="footer-main">
-            <div class="footer-brand"><span class="logo-icon">◈</span><span class="logo-text">数字游民指南</span><p>42 国数据、50+ 签证、34 城市，全部开源。</p></div>
+            <div class="footer-brand">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Digital Nomad Guide</span>
+                <p>42 countries, 50+ visas, 34 cities — all open source.</p>
+            </div>
             <div class="footer-links">
-                <div class="footer-col"><h4>核心内容</h4><a href="../country/">国家数据库</a><a href="../visa/">签证数据库</a><a href="../city/">城市数据库</a><a href="../compare/">国家对比</a></div>
-                <div class="footer-col"><h4>社区</h4><a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a></div>
+                <div class="footer-col">
+                    <h4>Core</h4>
+                    <a href="../countries/">Countries</a>
+                    <a href="../visas/">Visas</a>
+                    <a href="../cities/">Cities</a>
+                    <a href="../compare/">Compare</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Community</h4>
+                    <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a>
+                    <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom"><p>CC BY-NC-SA 4.0 | 内容仅供学习交流</p></div>
+        <div class="footer-bottom">
+            <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> | For educational purposes only</p>
+        </div>
     </footer>
 
     <script>
-    const SEARCH_INDEX = [
+const SEARCH_INDEX = [
   {
     "id": "argentina",
     "title": "阿根廷",
@@ -1168,7 +1193,7 @@
         document.head.appendChild(script);
     }
     function getTypeIcon(type) { return type === 'country' ? '🌍' : '🏙️'; }
-    function getTypeLabel(type) { return type === 'country' ? '国家' : '城市'; }
+    function getTypeLabel(type) { return type === 'country' ? 'Country' : 'City'; }
     function highlightText(text, matches) {
         if (!matches || matches.length === 0) return text;
         let result = text;
@@ -1182,26 +1207,27 @@
     }
     function doSearch(query) {
         const resultsDiv = document.getElementById('results');
-        if (!query.trim()) { resultsDiv.innerHTML = '<div class="no-results">输入关键词开始搜索</div>'; return; }
+        if (!query.trim()) { resultsDiv.innerHTML = '<div class="no-results">Enter keywords to start searching</div>'; return; }
         if (!fuse) return;
         const results = fuse.search(query).slice(0, 20);
-        if (results.length === 0) { resultsDiv.innerHTML = '<div class="no-results">未找到匹配结果，尝试其他关键词</div>'; return; }
+        if (results.length === 0) { resultsDiv.innerHTML = '<div class="no-results">No matching results found. Try different keywords.</div>'; return; }
         let html = '';
         for (const r of results) {
             const item = r.item;
             if (currentFilter !== 'all' && item.type !== currentFilter) continue;
-            const title = highlightText(item.title, r.matches?.filter(m => m.key === 'title'));
-            const subtitle = highlightText(item.subtitle, r.matches?.filter(m => m.key === 'subtitle'));
-            html += `<a href="../${item.url}" class="result-card">
+            // For English: subtitle is English name, title is Chinese name
+            const titleEn = highlightText(item.subtitle, r.matches?.filter(m => m.key === 'subtitle'));
+            const titleZh = highlightText(item.title, r.matches?.filter(m => m.key === 'title'));
+            html += `<a href="../../${item.url}" class="result-card">
                 <div class="result-icon">${getTypeIcon(item.type)}</div>
                 <div class="result-body">
-                    <div class="result-title">${title} <span class="result-type">${getTypeLabel(item.type)}</span></div>
-                    <div class="result-meta">${subtitle ? subtitle + ' · ' : ''}💰 ${item.cost} · 🛡️ ${item.safety} · 🌐 ${item.internet}Mbps${item.tags ? ' · ' + item.tags : ''}</div>
+                    <div class="result-title">${titleEn} <span class="result-type">${getTypeLabel(item.type)}</span></div>
+                    <div class="result-meta">${titleZh ? titleZh + ' · ' : ''}💰 ${item.cost} · 🛡️ ${item.safety} · 🌐 ${item.internet}Mbps${item.tags ? ' · ' + item.tags : ''}</div>
                 </div>
                 <div class="result-score">${item.score}</div>
             </a>`;
         }
-        resultsDiv.innerHTML = html || '<div class="no-results">当前筛选条件下无匹配结果</div>';
+        resultsDiv.innerHTML = html || '<div class="no-results">No matches under current filter</div>';
     }
     document.getElementById('searchInput').addEventListener('input', (e) => { doSearch(e.target.value); });
     document.querySelectorAll('.filter-btn').forEach(btn => {
