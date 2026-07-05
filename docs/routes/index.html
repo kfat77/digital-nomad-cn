@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数字游民路线规划 - Global Mobility Infrastructure</title>
+<meta name="description" content="精选数字游民经典路线：东南亚环线、欧洲申根环、地中海慢游。含签证串联策略、预算估算和行程建议。">
+<meta property="og:title" content="数字游民路线规划 - Global Mobility Infrastructure">
+<meta property="og:description" content="精选数字游民经典路线，含签证串联策略和预算估算">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kfat77.github.io/digital-nomad-cn/routes/">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root { --primary:#1a73e8; --accent:#00d4aa; --dark:#0a0e27; --text:#e2e8f0; --text-dim:#8892b0; --card-bg:rgba(10,14,39,0.8); --border:rgba(255,255,255,0.1); }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--dark); color:var(--text); line-height:1.6; min-height:100vh; background:radial-gradient(ellipse at top,#1a73e820 0%,transparent 70%),radial-gradient(ellipse at bottom,#00d4aa15 0%,transparent 70%),var(--dark); }
+.container { max-width:1000px; margin:0 auto; padding:40px 20px; }
+header { text-align:center; margin-bottom:50px; }
+header h1 { font-size:2.5rem; margin-bottom:0.5rem; }
+header p { color:var(--text-dim); font-size:1.1rem; max-width:600px; margin:0 auto; }
+
+.route-card { background:var(--card-bg); border:1px solid var(--border); border-radius:16px; padding:2rem; margin-bottom:2rem; backdrop-filter:blur(10px); }
+.route-header { display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem; flex-wrap:wrap; }
+.route-icon { font-size:3rem; }
+.route-title { font-size:1.5rem; font-weight:700; }
+.route-meta { display:flex; gap:1rem; flex-wrap:wrap; color:var(--text-dim); font-size:0.9rem; margin-top:0.25rem; }
+.route-meta span { padding:0.2rem 0.6rem; background:rgba(255,255,255,0.05); border-radius:20px; }
+
+.timeline { position:relative; padding-left:30px; }
+.timeline::before { content:''; position:absolute; left:8px; top:0; bottom:0; width:2px; background:linear-gradient(180deg, var(--primary), var(--accent)); border-radius:2px; }
+.stop { position:relative; margin-bottom:1.5rem; padding-left:20px; }
+.stop::before { content:''; position:absolute; left:-26px; top:6px; width:12px; height:12px; border-radius:50%; background:var(--primary); border:2px solid var(--dark); }
+.stop-duration { font-size:0.8rem; color:var(--text-dim); margin-bottom:0.2rem; }
+.stop-name { font-size:1.1rem; font-weight:600; margin-bottom:0.3rem; }
+.stop-desc { font-size:0.9rem; color:var(--text-dim); line-height:1.5; }
+.stop-tags { display:flex; gap:0.4rem; margin-top:0.5rem; flex-wrap:wrap; }
+.stop-tag { padding:0.15rem 0.5rem; background:rgba(0,212,170,0.1); color:var(--accent); border-radius:20px; font-size:0.75rem; }
+
+.route-footer { display:flex; gap:1.5rem; margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border); flex-wrap:wrap; }
+.route-stat { text-align:center; }
+.route-stat .value { font-size:1.5rem; font-weight:700; color:var(--accent); }
+.route-stat .label { font-size:0.8rem; color:var(--text-dim); }
+
+.tips { background:rgba(0,212,170,0.05); border:1px solid rgba(0,212,170,0.2); border-radius:12px; padding:1.5rem; margin-top:1rem; }
+.tips-title { font-size:1rem; font-weight:600; color:var(--accent); margin-bottom:0.75rem; }
+.tips-list { font-size:0.9rem; color:var(--text-dim); line-height:1.8; }
+.tips-list li { margin-bottom:0.3rem; margin-left:1.2rem; }
+
+@media(max-width:600px) { header h1 { font-size:1.8rem; } .route-header { flex-direction:column; align-items:flex-start; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>🗺️ 数字游民路线规划</h1>
+<p>精选经典路线，覆盖签证串联、预算估算和行程建议。选择适合你的路线，开启全球流动之旅。</p>
+</header>
+
+<div class="route-card">
+<div class="route-header">
+<div class="route-icon">🌴</div>
+<div>
+<div class="route-title">东南亚数字游民环线</div>
+<div class="route-meta">
+<span>⏱️ 30-60 天</span>
+<span>💰 月均 $800-1500</span>
+<span>🌡️ 热带气候</span>
+<span>🛂  mostly 免签/落地签</span>
+</div>
+</div>
+</div>
+<div class="timeline">
+<div class="stop">
+<div class="stop-duration">第 1-10 天</div>
+<div class="stop-name">🇹🇭 泰国 · 曼谷</div>
+<div class="stop-desc">数字游民大本营，联合办公空间丰富，生活成本极低。中国护照免签60天。</div>
+<div class="stop-tags"><span class="stop-tag">免签</span><span class="stop-tag">低成本</span><span class="stop-tag">美食</span></div>
+</div>
+<div class="stop">
+<div class="stop-duration">第 11-20 天</div>
+<div class="stop-name">🇹🇭 泰国 · 清迈</div>
+<div class="stop-desc">数字游民圣地，咖啡文化发达，社区氛围浓厚。从曼谷乘火车/飞机约1小时。</div>
+<div class="stop-tags"><span class="stop-tag">数字游民社区</span><span class="stop-tag">咖啡文化</span><span class="stop-tag">山地气候</span></div>
+</div>
+<div class="stop">
+<div class="stop-duration">第 21-30 天</div>
+<div class="stop-name">🇲🇾 马来西亚 · 吉隆坡</div>
+<div class="stop-desc">英语普及率高，基础设施完善，马来美食多元。泰国飞吉隆坡约2小时。</div>
+<div class="stop-tags"><span class="stop-tag">英语</span><span class="stop-tag">多元文化</span><span class="stop-tag">美食</span></div>
+</div>
+<div class="stop">
+<div class="stop-duration">第 31-45 天（可选）</div>
+<div class="stop-name">🇮🇩 印度尼西亚 · 巴厘岛</div>
+<div class="stop-desc">海滩与数字游民天堂，瑜伽与冲浪文化。吉隆坡飞巴厘岛约3小时。</div>
+<div class="stop-tags"><span class="stop-tag">海岛</span><span class="stop-tag">冲浪</span><span class="stop-tag">瑜伽</span></div>
+</div>
+<div class="stop">
+<div class="stop-duration">第 46-60 天（可选）</div>
+<div class="stop-name">🇻🇳 越南 · 胡志明市</div>
+<div class="stop-desc">创业者氛围浓厚，咖啡文化独特，成本极具竞争力。巴厘岛飞胡志明约3小时。</div>
+<div class="stop-tags"><span class="stop-tag">创业氛围</span><span class="stop-tag">咖啡文化</span><span class="stop-tag">低成本</span></div>
+</div>
+</div>
+<div class="route-footer">
+<div class="route-stat"><div class="value">5</div><div class="label">途经城市</div></div>
+<div class="route-stat"><div class="value">$800</div><div class="label">月均最低</div></div>
+<div class="route-stat"><div class="value">免签</div><div class="label">主要签证</div></div>
+<div class="route-stat"><div class="value">✈️</div><div class="label">飞行串联</div></div>
+</div>
+<div class="tips">
+<div class="tips-title">💡 路线贴士</div>
+<ul class="tips-list">
+<li>泰国免签60天足够覆盖曼谷+清迈，无需额外签证</li>
+<li>马来西亚对中国公民免签30天，可无缝衔接</li>
+<li>印尼电子签60天可延期，巴厘岛是数字游民必去</li>
+<li>越南需提前申请电子签，但成本极低可抵消签证费用</li>
+<li>全程推荐购买东南亚航空联票，约 $200-400</li>
+</ul>
+</div>
+</div>
+
+<div class="route-card">
+<div class="route-header">
+<div class="route-icon">🏛️</div>
+<div>
+<div class="route-title">欧洲申根数字游民环</div>
+<div class="route-meta">
+<span>⏱️ 90 天</span>
+<span>💰 月均 $1500-2500</span>
+<span>🌡️ 温带气候</span>
+<span>🛂 申根签证</span>
+</div>
+</div>
+</div>
+<div class="timeline">
+<div class="stop">
+<div class="stop-duration">第 1-30 天</div>
+<div class="stop-name">🇵🇹 葡萄牙 · 里斯本</div>
+<div class="stop-desc">欧洲数字游民之都，气候宜人，数字游民签证友好。申根签证入境第一站。</div>
+<div class="stop-tags"><span class="stop-tag">数字游民签证</span><span class="stop-tag">地中海</span><span class="stop-tag">欧洲</span></div>
+</div>
+<div class="stop">
+<div class="stop-duration">第 31-50 天</div>
+<div class="stop-name">🇪🇸 西班牙 · 巴塞罗那</div>
+<div class="stop-desc">高迪建筑与海滩并存，数字游民社区活跃。里斯本飞巴塞罗那约2小时。</div>
+<div class="stop-tags"><span class="stop-tag">建筑</span><span class="stop-tag">海滩</span><span class="stop-tag">夜生活</span></div>
+</div>
+<div class="stop">
+<div class="stop-duration">第 51-70 天</div>
+<div class="stop-name">🇭🇷 克罗地亚 · 杜布罗夫尼克</div>
+<div class="stop-desc">亚得里亚海明珠，数字游民签证可选。巴塞罗那飞杜布罗夫尼克约2小时。</div>
+<div class="stop-tags"><span class="stop-tag">海滨</span><span class="stop-tag">古城</span><span class="stop-tag">申根</span></div>
+</div>
+<div class="stop">
+<div class="stop-duration">第 71-90 天</div>
+<div class="stop-name">🇬🇷 希腊 · 雅典</div>
+<div class="stop-desc">西方文明发源地，数字游民签证友好。杜布罗夫尼克飞雅典约1.5小时。</div>
+<div class="stop-tags"><span class="stop-tag">历史</span><span class="stop-tag">海岛</span><span class="stop-tag">地中海</span></div>
+</div>
+</div>
+<div class="route-footer">
+<div class="route-stat"><div class="value">4</div><div class="label">途经国家</div></div>
+<div class="route-stat"><div class="value">$1500</div><div class="label">月均最低</div></div>
+<div class="route-stat"><div class="value">申根</div><div class="label">签证类型</div></div>
+<div class="route-stat"><div class="value">✈️</div><div class="label">飞行串联</div></div>
+</div>
+<div class="tips">
+<div class="tips-title">💡 路线贴士</div>
+<ul class="tips-list">
+<li>申根签证一次申请可覆盖全部行程，建议申请葡萄牙为入境国</li>
+<li>葡萄牙和希腊均有数字游民签证，可作为长期居留备选</li>
+<li>克罗地亚已加入申根区，2024年后无需额外签证</li>
+<li>欧洲廉航 Ryanair/EasyJet 串联城市，约 €50-150/程</li>
+<li>建议购买欧洲铁路通票 Eurail Pass 作为备用交通</li>
+</ul>
+</div>
+</div>
+
+<div class="route-card">
+<div class="route-header">
+<div class="route-icon">🏝️</div>
+<div>
+<div class="route-title">地中海慢游生活线</div>
+<div class="route-meta">
+<span>⏱️ 60 天</span>
+<span>💰 月均 $1200-2000</span>
+<span>🌡️ 地中海气候</span>
+<span>🛂 电子签/免签</span>
+</div>
+</div>
+</div>
+<div class="timeline">
+<div class="stop">
+<div class="stop-duration">第 1-20 天</div>
+<div class="stop-name">🇬🇪 格鲁吉亚 · 第比利斯</div>
+<div class="stop-desc">中国免签30天，欧洲风情与亚洲成本。红酒之乡，山地景观壮观。</div>
+<div class="stop-tags"><span class="stop-tag">免签</span><span class="stop-tag">低成本</span><span class="stop-tag">红酒</span></div>
+</div>
+<div class="stop">
+<div class="stop-duration">第 21-40 天</div>
+<div class="stop-name">🇨🇾 塞浦路斯 · 利马索尔</div>
+<div class="stop-desc">数字游民签证+税务优惠，地中海生活方式。第比利斯飞利马索尔约3小时。</div>
+<div class="stop-tags"><span class="stop-tag">数字游民签证</span><span class="stop-tag">税务优惠</span><span class="stop-tag">海滩</span></div>
+</div>
+<div class="stop">
+<div class="stop-duration">第 41-60 天</div>
+<div class="stop-name">🇬🇷 希腊 · 塞萨洛尼基</div>
+<div class="stop-desc">希腊第二大城市，成本低于雅典，数字游民签证友好。利马索尔飞塞萨洛尼基约1.5小时。</div>
+<div class="stop-tags"><span class="stop-tag">低成本</span><span class="stop-tag">数字游民签证</span><span class="stop-tag">美食</span></div>
+</div>
+</div>
+<div class="route-footer">
+<div class="route-stat"><div class="value">3</div><div class="label">途经国家</div></div>
+<div class="route-stat"><div class="value">$1200</div><div class="label">月均最低</div></div>
+<div class="route-stat"><div class="value">混合</div><div class="label">签证类型</div></div>
+<div class="route-stat"><div class="value">✈️</div><div class="label">飞行串联</div></div>
+</div>
+<div class="tips">
+<div class="tips-title">💡 路线贴士</div>
+<ul class="tips-list">
+<li>格鲁吉亚免签30天，可作为无签证压力的欧洲跳板</li>
+<li>塞浦路斯数字游民签证有效期1年，可远程申请</li>
+<li>希腊数字游民签证允许家属陪同，适合家庭数字游民</li>
+<li>三地均为地中海饮食，健康且美食丰富</li>
+<li>冬季避寒首选，12月-2月平均气温 10-15°C</li>
+</ul>
+</div>
+</div>
+
+</div>
+</body>
+</html>
