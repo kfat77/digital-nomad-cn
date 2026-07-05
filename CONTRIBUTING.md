@@ -13,12 +13,22 @@
 
 ## 数据贡献
 
+### 当前数据规模
+
+| 数据类型 | 数量 | 说明 |
+|----------|------|------|
+| 国家 | 60 | 覆盖 7 大洲 |
+| 城市 | 122 | 数字游民热门城市 |
+| 签证档案 | 60 | 中国护照签证政策全覆盖 |
+| 对比页 | 60 | 31 国对比 + 29 城对比 |
+| 总页面 | 502 | 中英双语 |
+
 ### 添加新国家
 
-1. 复制模板文件创建新国家 JSON
+1. 在 `website/data/entities/country/` 创建 `{country_id}.json`
 2. 按照 `website/data/schemas/country-detail.json` 填写数据
-3. 在 `website/scripts/generate-country-pages.py` 的 `COST_ESTIMATES` 中添加成本估算
-4. 运行生成器生成页面
+3. 运行 `node scripts/generate-en-country-pages.js` 生成英文国家页
+4. 更新 `website/sitemap.xml` 添加新 URL
 5. 提交 PR
 
 **必填字段：**
@@ -47,6 +57,15 @@
 - `status`: published/draft/archived
 - `updated_at`: 日期字符串
 
+### 添加新城市
+
+1. 在 `website/data/entities/city/` 创建 `{city_id}.json`
+2. 按照 `website/data/schemas/city-detail.json` 填写数据
+3. 运行 `node scripts/generate-en-city-pages.js` 生成英文城市页
+4. 更新 `website/en/cities/index.html` 添加新城市卡片链接
+5. 更新 `website/sitemap.xml` 添加新 URL
+6. 提交 PR
+
 ### 数据更新
 
 发现数据过时？直接编辑对应的 JSON 文件并提交 PR。
@@ -55,16 +74,29 @@
 
 ## 代码贡献
 
-### 生成器改进
+### 页面生成器
 
-`website/scripts/generate-country-pages.py` 是核心生成器，支持：
-- 国家页面生成
-- 相似度计算
-- 成本估算内联
+项目使用 Node.js 脚本生成页面，关键脚本：
 
-### 页面模板
+- `scripts/generate-en-city-pages.js` — 生成 122 个英文城市详情页
+- `scripts/generate-en-country-pages.js` — 生成 60 个英文国家详情页
+- `scripts/generate-en-compare-pages.js` — 生成 60 个英文对比页
+- `scripts/update-sitemap-en.js` — 更新 sitemap.xml
 
-`website/scripts/country-template.html` 使用 `{{placeholder}}` 替换机制。
+### 英文页面贡献
+
+修改英文页面时，请同步修改对应的：
+1. 中文页面（如果内容源是中文）
+2. 英文页面
+3. `hreflang` 标签（已自动生成）
+4. `sitemap.xml`（使用脚本更新）
+
+### 多语言 SEO 贡献
+
+添加新页面时，确保：
+- 中英文版本 URL 结构一致（`/` vs `/en/`）
+- 每个页面有 `canonical` 和 `hreflang` 标签
+- 更新 `sitemap.xml`
 
 ---
 
