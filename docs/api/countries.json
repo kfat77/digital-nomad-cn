@@ -6,3478 +6,844 @@
   "license": "CC BY-NC-SA 4.0",
   "data": [
     {
-      "id": "denmark",
-      "name": "丹麦",
-      "name_en": "Denmark",
-      "name_local": "Danmark",
-      "code_iso_3166_1": "DK",
-      "code_iso_3166_3": "DNK",
+      "id": "portugal",
+      "name": "葡萄牙",
+      "name_en": "Portugal",
+      "name_local": "Portugal",
+      "flag_emoji": "🇵🇹",
       "region": "europe",
-      "sub_region": "北欧",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 56.2639,
-        "lon": 9.5018
-      },
-      "timezone": [
-        "Europe/Copenhagen"
-      ],
-      "currency": [
-        {
-          "code": "DKK",
-          "name": "丹麦克朗",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "da",
-          "name": "丹麦语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": false
-        }
-      ],
-      "population": 5800000,
-      "area_km2": 43094,
-      "gdp_per_capita_usd": 68000,
-      "hdi": 0.952,
-      "safety_index": 84,
-      "internet_speed_avg_mbps": 150,
-      "cost_of_living_index": 82,
-      "rent_index": 50,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "需提前申请申根签证。丹麦不提供专门的数字游民签证，但可申请工作许可",
-      "digital_nomad_score": 77,
-      "tags": [
-        "北欧",
-        "申根",
-        "自行车",
-        "乐高",
-        "hygge"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank"
-    },
-    {
-      "id": "croatia",
-      "name": "克罗地亚",
-      "name_en": "Croatia",
-      "name_local": "Hrvatska",
-      "code_iso_3166_1": "HR",
-      "code_iso_3166_3": "HRV",
-      "region": "europe",
-      "sub_region": "东南欧",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 45.1,
-        "lon": 15.2
-      },
-      "timezone": [
-        "Europe/Zagreb"
-      ],
-      "currency": [
-        {
-          "code": "EUR",
-          "name": "欧元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "hr",
-          "name": "克罗地亚语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": false
-        }
-      ],
-      "population": 3900000,
-      "area_km2": 56594,
-      "gdp_per_capita_usd": 18000,
-      "hdi": 0.851,
-      "safety_index": 78,
-      "internet_speed_avg_mbps": 55,
-      "cost_of_living_index": 48,
-      "rent_index": 22,
-      "china_passport_visa_status": "evisa",
-      "china_passport_visa_note": "需提前申请申根签证（克罗地亚已加入申根区），有效期90天",
-      "digital_nomad_score": 75,
-      "tags": [
-        "申根区",
-        "地中海",
-        "数字游民签证",
-        "海滨生活",
-        "欧盟"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank, 克罗地亚数字游民签证官网"
-    },
-    {
-      "id": "iceland",
-      "name": "冰岛",
-      "name_en": "Iceland",
-      "name_local": "Ísland",
-      "code_iso_3166_1": "IS",
-      "code_iso_3166_3": "ISL",
-      "region": "europe",
-      "sub_region": "北欧",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 64.9631,
-        "lon": -19.0208
-      },
-      "timezone": [
-        "Atlantic/Reykjavik"
-      ],
-      "currency": [
-        {
-          "code": "ISK",
-          "name": "冰岛克朗",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "is",
-          "name": "冰岛语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": false
-        }
-      ],
-      "population": 370000,
-      "area_km2": 103000,
-      "gdp_per_capita_usd": 68000,
-      "hdi": 0.959,
-      "safety_index": 88,
-      "internet_speed_avg_mbps": 200,
-      "cost_of_living_index": 85,
-      "rent_index": 55,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "需提前申请申根签证。冰岛提供数字游民签证（长期远程工作者签证）",
-      "digital_nomad_score": 78,
-      "tags": [
-        "北欧",
-        "数字游民签证",
-        "极光",
-        "火山",
-        "温泉"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank"
-    },
-    {
-      "id": "canada",
-      "name": "加拿大",
-      "name_en": "Canada",
-      "name_local": "Canada",
-      "code_iso_3166_1": "CA",
-      "code_iso_3166_3": "CAN",
-      "region": "americas_north",
-      "sub_region": "northern_america",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 56.1304,
-        "lon": -106.3468
-      },
-      "timezone": [
-        "America/Toronto",
-        "America/Vancouver"
-      ],
-      "currency": [
-        {
-          "code": "CAD",
-          "name": "加元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "en",
-          "name": "English",
-          "is_official": true
-        },
-        {
-          "code": "fr",
-          "name": "French",
-          "is_official": true
-        }
-      ],
-      "population": 38250000,
-      "area_km2": 9984670,
-      "gdp_per_capita_usd": 53000,
-      "hdi": 0.936,
-      "safety_index": 65.0,
-      "internet_speed_avg_mbps": 170,
-      "cost_of_living_index": 75.0,
-      "rent_index": 45.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "旅游签证可在线申请；EE快速通道技术移民",
-      "digital_nomad_score": 77,
-      "tags": [
-        "english",
-        "immigration_friendly",
-        "nature",
-        "americas",
-        "high_quality"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, IRCC Canada"
-    },
-    {
-      "id": "indonesia",
-      "name": "印度尼西亚",
-      "name_en": "Indonesia",
-      "name_local": "Indonesia",
-      "code_iso_3166_1": "ID",
-      "code_iso_3166_3": "IDN",
-      "region": "asia",
-      "sub_region": "东南亚",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": -0.7893,
-        "lon": 113.9213
-      },
-      "timezone": [
-        "Asia/Jakarta"
-      ],
-      "currency": [
-        {
-          "code": "IDR",
-          "name": "印尼盾",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "id",
-          "name": "印尼语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": false
-        }
-      ],
-      "population": 275000000,
-      "area_km2": 1904569,
-      "gdp_per_capita_usd": 4700,
-      "hdi": 0.713,
-      "safety_index": 58,
-      "internet_speed_avg_mbps": 25,
-      "cost_of_living_index": 32,
-      "rent_index": 14,
-      "china_passport_visa_status": "evisa",
-      "china_passport_visa_note": "可申请电子签证（B211A），有效期60天，可延期。第二家园签证（Second Home Visa）可停留5-10年",
-      "digital_nomad_score": 76,
-      "tags": [
-        "东南亚",
-        "海岛",
-        "低成本",
-        "数字游民签证",
-        "冲浪"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank, 印尼移民局"
-    },
-    {
-      "id": "kazakhstan",
-      "name": "哈萨克斯坦",
-      "name_en": "Kazakhstan",
-      "name_local": "Қазақстан",
-      "code_iso_3166_1": "KZ",
-      "code_iso_3166_3": "KAZ",
-      "region": "asia",
-      "sub_region": "中亚",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 48.0196,
-        "lon": 66.9237
-      },
-      "timezone": [
-        "Asia/Almaty"
-      ],
-      "currency": [
-        {
-          "code": "KZT",
-          "name": "坚戈",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "kk",
-          "name": "哈萨克语",
-          "is_official": true
-        },
-        {
-          "code": "ru",
-          "name": "俄语",
-          "is_official": false
-        }
-      ],
-      "population": 19000000,
-      "area_km2": 2724900,
-      "gdp_per_capita_usd": 10000,
-      "hdi": 0.811,
-      "safety_index": 72,
-      "internet_speed_avg_mbps": 40,
-      "cost_of_living_index": 30,
-      "rent_index": 12,
-      "china_passport_visa_status": "visa_free",
-      "china_passport_visa_note": "中国公民免签入境，可停留30天（2023-2025年免签政策延长）",
-      "digital_nomad_score": 75,
-      "tags": [
-        "中亚",
-        "免签",
-        "丝绸之路",
-        "草原",
-        "航天"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank"
-    },
-    {
-      "id": "turkey",
-      "name": "土耳其",
-      "name_en": "Turkey",
-      "name_local": "Türkiye",
-      "code_iso_3166_1": "TR",
-      "code_iso_3166_3": "TUR",
-      "region": "europe",
-      "sub_region": "南欧/西亚",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 38.9637,
-        "lon": 35.2433
-      },
-      "timezone": [
-        "Europe/Istanbul"
-      ],
-      "currency": [
-        {
-          "code": "TRY",
-          "name": "土耳其里拉",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "tr",
-          "name": "土耳其语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": false
-        }
-      ],
-      "population": 85000000,
-      "area_km2": 783562,
-      "gdp_per_capita_usd": 9500,
-      "hdi": 0.838,
-      "safety_index": 50,
-      "internet_speed_avg_mbps": 35,
-      "cost_of_living_index": 32,
-      "rent_index": 14,
-      "china_passport_visa_status": "evisa",
-      "china_passport_visa_note": "可申请电子签证（e-Visa），有效期30天。也可申请数字游民签证",
-      "digital_nomad_score": 74,
-      "tags": [
-        "欧亚",
-        "数字游民签证",
-        "历史",
-        "美食",
-        "海滩"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank"
-    },
-    {
-      "id": "cyprus",
-      "name": "塞浦路斯",
-      "name_en": "Cyprus",
-      "name_local": "Κύπρος / Kıbrıs",
-      "code_iso_3166_1": "CY",
-      "code_iso_3166_3": "CYP",
-      "region": "europe",
-      "sub_region": "南欧",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 35.1264,
-        "lon": 33.4299
-      },
-      "timezone": [
-        "Asia/Nicosia"
-      ],
-      "currency": [
-        {
-          "code": "EUR",
-          "name": "欧元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "el",
-          "name": "希腊语",
-          "is_official": true
-        },
-        {
-          "code": "tr",
-          "name": "土耳其语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": false
-        }
-      ],
-      "population": 1250000,
-      "area_km2": 9251,
-      "gdp_per_capita_usd": 31000,
-      "hdi": 0.896,
-      "safety_index": 82,
-      "internet_speed_avg_mbps": 50,
+      "digital_nomad_score": 88,
       "cost_of_living_index": 55,
-      "rent_index": 30,
-      "china_passport_visa_status": "evisa",
-      "china_passport_visa_note": "需提前申请签证，可在塞浦路斯外交部官网申请电子签证",
-      "digital_nomad_score": 80,
-      "tags": [
-        "欧盟",
-        "地中海",
-        "数字游民签证",
-        "税务优惠",
-        "海岛"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank, 塞浦路斯数字游民签证官网"
-    },
-    {
-      "id": "mexico",
-      "name": "墨西哥",
-      "name_en": "Mexico",
-      "name_local": "México",
-      "code_iso_3166_1": "MX",
-      "code_iso_3166_3": "MEX",
-      "region": "americas_north",
-      "sub_region": "北美",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 23.6345,
-        "lon": -102.5528
-      },
-      "timezone": [
-        "America/Mexico_City"
-      ],
-      "currency": [
-        {
-          "code": "MXN",
-          "name": "墨西哥比索",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "es",
-          "name": "西班牙语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": false
-        }
-      ],
-      "population": 130000000,
-      "area_km2": 1964375,
-      "gdp_per_capita_usd": 11000,
-      "hdi": 0.767,
-      "safety_index": 45,
-      "internet_speed_avg_mbps": 40,
-      "cost_of_living_index": 38,
-      "rent_index": 18,
-      "china_passport_visa_status": "evisa",
-      "china_passport_visa_note": "可在线申请电子签证，或在特定情况下免签入境（持有美国/加拿大/申根签证）",
-      "digital_nomad_score": 72,
-      "tags": [
-        "北美",
-        "低成本",
-        "数字游民社区",
-        "海滨生活",
-        "美食"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank, 墨西哥外交部"
-    },
-    {
-      "id": "austria",
-      "name": "奥地利",
-      "name_en": "Austria",
-      "name_local": "Österreich",
-      "code_iso_3166_1": "AT",
-      "code_iso_3166_3": "AUT",
-      "region": "europe",
-      "sub_region": "中欧",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 47.5162,
-        "lon": 14.5501
-      },
-      "timezone": [
-        "Europe/Vienna"
-      ],
-      "currency": [
-        {
-          "code": "EUR",
-          "name": "欧元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "de",
-          "name": "德语",
-          "is_official": true
-        }
-      ],
-      "population": 9000000,
-      "area_km2": 83871,
-      "gdp_per_capita_usd": 55000,
-      "hdi": 0.926,
-      "safety_index": 83,
-      "internet_speed_avg_mbps": 80,
-      "cost_of_living_index": 70,
-      "rent_index": 40,
+      "safety_index": 72,
+      "internet_speed_avg_mbps": 150,
       "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "需提前申请申根签证。奥地利提供数字游民签证（Rot-Weiß-Rot Karte für Selbstständige）",
-      "digital_nomad_score": 76,
-      "tags": [
-        "欧洲",
-        "申根",
-        "数字游民签证",
-        "阿尔卑斯",
-        "音乐"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank"
-    },
-    {
-      "id": "nepal",
-      "name": "尼泊尔",
-      "name_en": "Nepal",
-      "name_local": "नेपाल",
-      "code_iso_3166_1": "NP",
-      "code_iso_3166_3": "NPL",
-      "region": "asia",
-      "sub_region": "南亚",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 28.3949,
-        "lon": 84.124
-      },
-      "timezone": [
-        "Asia/Kathmandu"
-      ],
-      "currency": [
-        {
-          "code": "NPR",
-          "name": "尼泊尔卢比",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "ne",
-          "name": "尼泊尔语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": false
-        }
-      ],
-      "population": 30000000,
-      "area_km2": 147181,
-      "gdp_per_capita_usd": 1300,
-      "hdi": 0.602,
-      "safety_index": 65,
-      "internet_speed_avg_mbps": 15,
-      "cost_of_living_index": 22,
-      "rent_index": 8,
-      "china_passport_visa_status": "visa_free",
-      "china_passport_visa_note": "中国公民免签入境，可停留30天",
-      "digital_nomad_score": 71,
-      "tags": [
-        "南亚",
-        "免签",
-        "喜马拉雅",
-        "徒步",
-        "佛教"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank"
-    },
-    {
-      "id": "brazil",
-      "name": "巴西",
-      "name_en": "Brazil",
-      "name_local": "Brasil",
-      "code_iso_3166_1": "BR",
-      "code_iso_3166_3": "BRA",
-      "region": "americas_south",
-      "sub_region": "南美",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": -14.235,
-        "lon": -51.9253
-      },
-      "timezone": [
-        "America/Sao_Paulo"
-      ],
-      "currency": [
-        {
-          "code": "BRL",
-          "name": "巴西雷亚尔",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "pt",
-          "name": "葡萄牙语",
-          "is_official": true
-        }
-      ],
-      "population": 215000000,
-      "area_km2": 8515767,
-      "gdp_per_capita_usd": 7500,
-      "hdi": 0.754,
-      "safety_index": 42,
-      "internet_speed_avg_mbps": 55,
-      "cost_of_living_index": 40,
-      "rent_index": 18,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "需提前申请签证，可申请数字游民签证（临时签证VITEM XIV）",
-      "digital_nomad_score": 70,
-      "tags": [
-        "南美",
-        "数字游民签证",
-        "海滩",
-        "桑巴",
-        "足球"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank"
-    },
-    {
-      "id": "greece",
-      "name": "希腊",
-      "name_en": "Greece",
-      "name_local": "Ελλάδα",
-      "code_iso_3166_1": "GR",
-      "code_iso_3166_3": "GRC",
-      "region": "europe",
-      "sub_region": "南欧",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 39.0742,
-        "lon": 21.8243
-      },
-      "timezone": [
-        "Europe/Athens"
-      ],
-      "currency": [
-        {
-          "code": "EUR",
-          "name": "欧元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "el",
-          "name": "希腊语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": false
-        }
-      ],
-      "population": 10700000,
-      "area_km2": 131957,
-      "gdp_per_capita_usd": 21000,
-      "hdi": 0.887,
-      "safety_index": 76,
-      "internet_speed_avg_mbps": 45,
-      "cost_of_living_index": 52,
-      "rent_index": 25,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "需提前申请申根签证，可停留90天",
-      "digital_nomad_score": 78,
-      "tags": [
-        "申根区",
-        "地中海",
-        "数字游民签证",
-        "欧盟",
-        "海岛"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank, 希腊数字游民签证官网"
-    },
-    {
-      "id": "germany",
-      "name": "德国",
-      "name_en": "Germany",
-      "name_local": "Deutschland",
-      "code_iso_3166_1": "DE",
-      "code_iso_3166_3": "DEU",
-      "region": "europe",
-      "sub_region": "western_europe",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 51.1657,
-        "lon": 10.4515
-      },
-      "timezone": [
-        "Europe/Berlin"
-      ],
-      "currency": [
-        {
-          "code": "EUR",
-          "name": "欧元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "de",
-          "name": "德语",
-          "is_official": true
-        }
-      ],
-      "population": 83200000,
-      "area_km2": 357022,
-      "gdp_per_capita_usd": 51000,
-      "hdi": 0.95,
-      "safety_index": 75.0,
-      "internet_speed_avg_mbps": 120,
-      "cost_of_living_index": 72.0,
-      "rent_index": 40.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "申根签证C类；工作签证/蓝卡需雇主担保",
-      "digital_nomad_score": 78,
-      "tags": [
-        "eu",
-        "high_quality",
-        "startup",
-        "strong_economy",
-        "europe"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, German Immigration"
-    },
-    {
-      "id": "norway",
-      "name": "挪威",
-      "name_en": "Norway",
-      "name_local": "Norge",
-      "code_iso_3166_1": "NO",
-      "code_iso_3166_3": "NOR",
-      "region": "europe",
-      "sub_region": "北欧",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 60.472,
-        "lon": 8.4689
-      },
-      "timezone": [
-        "Europe/Oslo"
-      ],
-      "currency": [
-        {
-          "code": "NOK",
-          "name": "挪威克朗",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "no",
-          "name": "挪威语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": false
-        }
-      ],
-      "population": 5500000,
-      "area_km2": 385207,
-      "gdp_per_capita_usd": 90000,
-      "hdi": 0.966,
-      "safety_index": 85,
-      "internet_speed_avg_mbps": 180,
-      "cost_of_living_index": 88,
-      "rent_index": 55,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "需提前申请申根签证。挪威提供独立承包商签证（Independent Contractor Visa）",
-      "digital_nomad_score": 80,
-      "tags": [
-        "北欧",
-        "数字游民签证",
-        "极光",
-        "峡湾",
-        "高福利"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank"
-    },
-    {
-      "id": "morocco",
-      "name": "摩洛哥",
-      "name_en": "Morocco",
-      "name_local": "المغرب",
-      "code_iso_3166_1": "MA",
-      "code_iso_3166_3": "MAR",
-      "region": "africa",
-      "sub_region": "北非",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 31.7917,
-        "lon": -7.0926
-      },
-      "timezone": [
-        "Africa/Casablanca"
-      ],
-      "currency": [
-        {
-          "code": "MAD",
-          "name": "摩洛哥迪拉姆",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "ar",
-          "name": "阿拉伯语",
-          "is_official": true
-        },
-        {
-          "code": "fr",
-          "name": "法语",
-          "is_official": true
-        }
-      ],
-      "population": 37000000,
-      "area_km2": 446550,
-      "gdp_per_capita_usd": 3500,
-      "hdi": 0.683,
-      "safety_index": 58,
-      "internet_speed_avg_mbps": 25,
-      "cost_of_living_index": 30,
-      "rent_index": 12,
-      "china_passport_visa_status": "visa_free",
-      "china_passport_visa_note": "中国公民免签入境，可停留90天",
-      "digital_nomad_score": 76,
-      "tags": [
-        "非洲",
-        "免签",
-        "撒哈拉",
-        "古城",
-        "冲浪"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank"
-    },
-    {
-      "id": "srilanka",
-      "name": "斯里兰卡",
-      "name_en": "Sri Lanka",
-      "name_local": "ශ්‍රී ලංකා",
-      "code_iso_3166_1": "LK",
-      "code_iso_3166_3": "LKA",
-      "region": "asia",
-      "sub_region": "南亚",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 7.8731,
-        "lon": 80.7718
-      },
-      "timezone": [
-        "Asia/Colombo"
-      ],
-      "currency": [
-        {
-          "code": "LKR",
-          "name": "斯里兰卡卢比",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "si",
-          "name": "僧伽罗语",
-          "is_official": true
-        },
-        {
-          "code": "ta",
-          "name": "泰米尔语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": false
-        }
-      ],
-      "population": 22000000,
-      "area_km2": 65610,
-      "gdp_per_capita_usd": 3300,
-      "hdi": 0.782,
-      "safety_index": 60,
-      "internet_speed_avg_mbps": 20,
-      "cost_of_living_index": 25,
-      "rent_index": 10,
-      "china_passport_visa_status": "evisa",
-      "china_passport_visa_note": "可申请电子签证（ETA），有效期30天。也可申请数字游民签证（有效期1年）",
-      "digital_nomad_score": 73,
-      "tags": [
-        "南亚",
-        "数字游民签证",
-        "茶园",
-        "佛教",
-        "海滩"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank"
+      "has_digital_nomad_visa": true
     },
     {
       "id": "singapore",
       "name": "新加坡",
       "name_en": "Singapore",
       "name_local": "Singapore",
-      "code_iso_3166_1": "SG",
-      "code_iso_3166_3": "SGP",
+      "flag_emoji": "🇸🇬",
       "region": "asia",
-      "sub_region": "southeast_asia",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 1.3521,
-        "lon": 103.8198
-      },
-      "timezone": [
-        "Asia/Singapore"
-      ],
-      "currency": [
-        {
-          "code": "SGD",
-          "name": "新加坡元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "en",
-          "name": "English",
-          "is_official": true
-        },
-        {
-          "code": "zh",
-          "name": "中文",
-          "is_official": true
-        },
-        {
-          "code": "ms",
-          "name": "Malay",
-          "is_official": true
-        },
-        {
-          "code": "ta",
-          "name": "Tamil",
-          "is_official": true
-        }
-      ],
-      "population": 5917600,
-      "area_km2": 728,
-      "gdp_per_capita_usd": 82800,
-      "hdi": 0.939,
-      "safety_index": 91.0,
-      "internet_speed_avg_mbps": 280,
-      "cost_of_living_index": 95.0,
-      "rent_index": 85.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "需提前申请签证，可通过VFS或旅行社",
       "digital_nomad_score": 88,
-      "tags": [
-        "financial_hub",
-        "startup_hub",
-        "asia",
-        "safe",
-        "english"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, Henley Index 2026"
-    },
-    {
-      "id": "newzealand",
-      "name": "新西兰",
-      "name_en": "New Zealand",
-      "name_local": "New Zealand",
-      "code_iso_3166_1": "NZ",
-      "code_iso_3166_3": "NZL",
-      "region": "oceania",
-      "sub_region": "australia_new_zealand",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": -40.9006,
-        "lon": 174.8869
-      },
-      "timezone": [
-        "Pacific/Auckland"
-      ],
-      "currency": [
-        {
-          "code": "NZD",
-          "name": "新西兰元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "en",
-          "name": "English",
-          "is_official": true
-        },
-        {
-          "code": "mi",
-          "name": "Māori",
-          "is_official": true
-        }
-      ],
-      "population": 5123000,
-      "area_km2": 268021,
-      "gdp_per_capita_usd": 47000,
-      "hdi": 0.937,
-      "safety_index": 70.0,
-      "internet_speed_avg_mbps": 150,
-      "cost_of_living_index": 78.0,
-      "rent_index": 45.0,
+      "cost_of_living_index": 95,
+      "safety_index": 91,
+      "internet_speed_avg_mbps": 280,
       "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "WHV 1000名额/年，先到先得；旅游签证可在线申请",
-      "digital_nomad_score": 76,
-      "tags": [
-        "english",
-        "nature",
-        "whv",
-        "oceania",
-        "work_life_balance"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, Immigration NZ"
+      "has_digital_nomad_visa": false
     },
     {
       "id": "japan",
       "name": "日本",
       "name_en": "Japan",
       "name_local": "日本",
-      "code_iso_3166_1": "JP",
-      "code_iso_3166_3": "JPN",
+      "flag_emoji": "🇯🇵",
       "region": "asia",
-      "sub_region": "east_asia",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 36.2048,
-        "lon": 138.2529
-      },
-      "timezone": [
-        "Asia/Tokyo"
-      ],
-      "currency": [
-        {
-          "code": "JPY",
-          "name": "日元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "ja",
-          "name": "日语",
-          "is_official": true
-        }
-      ],
-      "population": 125000000,
-      "area_km2": 377975,
-      "gdp_per_capita_usd": 39285,
-      "hdi": 0.92,
-      "safety_index": 92.0,
-      "internet_speed_avg_mbps": 185,
-      "cost_of_living_index": 85.0,
-      "rent_index": 45.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "旅游签证需通过指定旅行社申请，单次/多次可选",
       "digital_nomad_score": 87,
-      "tags": [
-        "culture",
-        "safe",
-        "high_quality",
-        "nomad_visa",
-        "asia"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, Japan MOFA"
-    },
-    {
-      "id": "chile",
-      "name": "智利",
-      "name_en": "Chile",
-      "name_local": "Chile",
-      "code_iso_3166_1": "CL",
-      "code_iso_3166_3": "CHL",
-      "region": "americas_south",
-      "sub_region": "南美",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": -35.6751,
-        "lon": -71.543
-      },
-      "timezone": [
-        "America/Santiago"
-      ],
-      "currency": [
-        {
-          "code": "CLP",
-          "name": "智利比索",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "es",
-          "name": "西班牙语",
-          "is_official": true
-        }
-      ],
-      "population": 19000000,
-      "area_km2": 756102,
-      "gdp_per_capita_usd": 15000,
-      "hdi": 0.855,
-      "safety_index": 55,
-      "internet_speed_avg_mbps": 80,
-      "cost_of_living_index": 45,
-      "rent_index": 20,
+      "cost_of_living_index": 85,
+      "safety_index": 92,
+      "internet_speed_avg_mbps": 185,
       "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "需提前申请签证，智利提供数字游民签证（Visa de Transitoria para Trabajadores Remotos）",
-      "digital_nomad_score": 72,
-      "tags": [
-        "南美",
-        "数字游民签证",
-        "葡萄酒",
-        "安第斯山脉",
-        "滑雪"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank"
-    },
-    {
-      "id": "georgia",
-      "name": "格鲁吉亚",
-      "name_en": "Georgia",
-      "name_local": "საქართველო",
-      "code_iso_3166_1": "GE",
-      "code_iso_3166_3": "GEO",
-      "region": "asia",
-      "sub_region": "西亚",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 42.3154,
-        "lon": 43.3569
-      },
-      "timezone": [
-        "Asia/Tbilisi"
-      ],
-      "currency": [
-        {
-          "code": "GEL",
-          "name": "格鲁吉亚拉里",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "ka",
-          "name": "格鲁吉亚语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": false
-        },
-        {
-          "code": "ru",
-          "name": "俄语",
-          "is_official": false
-        }
-      ],
-      "population": 3700000,
-      "area_km2": 69700,
-      "gdp_per_capita_usd": 7000,
-      "hdi": 0.802,
-      "safety_index": 72,
-      "internet_speed_avg_mbps": 35,
-      "cost_of_living_index": 28,
-      "rent_index": 12,
-      "china_passport_visa_status": "visa_free",
-      "china_passport_visa_note": "中国公民免签入境，可停留30天",
-      "digital_nomad_score": 82,
-      "tags": [
-        "免签",
-        "低成本",
-        "欧洲风情",
-        "高加索",
-        "葡萄酒"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank, 格鲁吉亚外交部"
-    },
-    {
-      "id": "france",
-      "name": "法国",
-      "name_en": "France",
-      "name_local": "France",
-      "code_iso_3166_1": "FR",
-      "code_iso_3166_3": "FRA",
-      "region": "europe",
-      "sub_region": "western_europe",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 46.2276,
-        "lon": 2.2137
-      },
-      "timezone": [
-        "Europe/Paris"
-      ],
-      "currency": [
-        {
-          "code": "EUR",
-          "name": "欧元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "fr",
-          "name": "法语",
-          "is_official": true
-        }
-      ],
-      "population": 67750000,
-      "area_km2": 551695,
-      "gdp_per_capita_usd": 43000,
-      "hdi": 0.903,
-      "safety_index": 65.0,
-      "internet_speed_avg_mbps": 130,
-      "cost_of_living_index": 75.0,
-      "rent_index": 45.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "申根签证C类；工作签证需雇主担保",
-      "digital_nomad_score": 77,
-      "tags": [
-        "eu",
-        "culture",
-        "art",
-        "startup",
-        "europe"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, French Immigration"
-    },
-    {
-      "id": "thailand",
-      "name": "泰国",
-      "name_en": "Thailand",
-      "name_local": "ประเทศไทย",
-      "code_iso_3166_1": "TH",
-      "code_iso_3166_3": "THA",
-      "region": "asia",
-      "sub_region": "southeast_asia",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 15.87,
-        "lon": 100.9925
-      },
-      "timezone": [
-        "Asia/Bangkok"
-      ],
-      "currency": [
-        {
-          "code": "THB",
-          "name": "泰铢",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "th",
-          "name": "泰语",
-          "is_official": true
-        }
-      ],
-      "population": 70078000,
-      "area_km2": 513120,
-      "gdp_per_capita_usd": 7500,
-      "hdi": 0.8,
-      "safety_index": 65.0,
-      "internet_speed_avg_mbps": 200,
-      "cost_of_living_index": 45.0,
-      "rent_index": 20.0,
-      "china_passport_visa_status": "visa_free",
-      "china_passport_visa_note": "免签60天，可延期30天",
-      "digital_nomad_score": 85,
-      "tags": [
-        "cheap",
-        "friendly",
-        "nomad_hub",
-        "tropical",
-        "nomad_visa"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, Thai Immigration"
-    },
-    {
-      "id": "australia",
-      "name": "澳大利亚",
-      "name_en": "Australia",
-      "name_local": "Australia",
-      "code_iso_3166_1": "AU",
-      "code_iso_3166_3": "AUS",
-      "region": "oceania",
-      "sub_region": "australia_new_zealand",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": -25.2744,
-        "lon": 133.7751
-      },
-      "timezone": [
-        "Australia/Sydney",
-        "Australia/Melbourne",
-        "Australia/Perth"
-      ],
-      "currency": [
-        {
-          "code": "AUD",
-          "name": "澳元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "en",
-          "name": "English",
-          "is_official": true
-        }
-      ],
-      "population": 25687000,
-      "area_km2": 7692024,
-      "gdp_per_capita_usd": 63000,
-      "hdi": 0.946,
-      "safety_index": 75.0,
-      "internet_speed_avg_mbps": 80,
-      "cost_of_living_index": 82.0,
-      "rent_index": 50.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "旅游签证600类别，可在线申请；WHV 462 抽签制",
-      "digital_nomad_score": 78,
-      "tags": [
-        "english",
-        "high_quality",
-        "nature",
-        "whv",
-        "oceania"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, Home Affairs Australia"
-    },
-    {
-      "id": "macao",
-      "name": "澳门",
-      "name_en": "Macao",
-      "name_local": "澳門",
-      "code_iso_3166_1": "MO",
-      "code_iso_3166_3": "MAC",
-      "region": "asia",
-      "sub_region": "east_asia",
-      "is_special_admin_region": true,
-      "is_digital_nomad_friendly": false,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 22.1987,
-        "lon": 113.5439
-      },
-      "timezone": [
-        "Asia/Macau"
-      ],
-      "currency": [
-        {
-          "code": "MOP",
-          "name": "澳门元",
-          "is_primary": true
-        },
-        {
-          "code": "HKD",
-          "name": "港币",
-          "is_primary": false
-        }
-      ],
-      "languages": [
-        {
-          "code": "zh",
-          "name": "中文",
-          "is_official": true
-        },
-        {
-          "code": "pt",
-          "name": "Portuguese",
-          "is_official": true
-        }
-      ],
-      "population": 682000,
-      "area_km2": 33,
-      "gdp_per_capita_usd": 43000,
-      "hdi": 0.914,
-      "safety_index": 85.0,
-      "internet_speed_avg_mbps": 180,
-      "cost_of_living_index": 70.0,
-      "rent_index": 55.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "港澳通行证 + 签注",
-      "digital_nomad_score": 65,
-      "tags": [
-        "casino",
-        "tax_haven",
-        "asia",
-        "free_port"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, DSEC"
-    },
-    {
-      "id": "ireland",
-      "name": "爱尔兰",
-      "name_en": "Ireland",
-      "name_local": "Éire",
-      "code_iso_3166_1": "IE",
-      "code_iso_3166_3": "IRL",
-      "region": "europe",
-      "sub_region": "西欧",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 53.1424,
-        "lon": -7.6921
-      },
-      "timezone": [
-        "Europe/Dublin"
-      ],
-      "currency": [
-        {
-          "code": "EUR",
-          "name": "欧元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": true
-        },
-        {
-          "code": "ga",
-          "name": "爱尔兰语",
-          "is_official": true
-        }
-      ],
-      "population": 5000000,
-      "area_km2": 70273,
-      "gdp_per_capita_usd": 100000,
-      "hdi": 0.955,
-      "safety_index": 82,
-      "internet_speed_avg_mbps": 120,
-      "cost_of_living_index": 78,
-      "rent_index": 50,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "需提前申请签证。爱尔兰提供数字游民签证（Stamp 1A）",
-      "digital_nomad_score": 76,
-      "tags": [
-        "欧洲",
-        "数字游民签证",
-        "英语",
-        "翡翠岛",
-        "啤酒"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank"
-    },
-    {
-      "id": "estonia",
-      "name": "爱沙尼亚",
-      "name_en": "Estonia",
-      "name_local": "Eesti",
-      "code_iso_3166_1": "EE",
-      "code_iso_3166_3": "EST",
-      "region": "europe",
-      "sub_region": "northern_europe",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 58.5953,
-        "lon": 25.0136
-      },
-      "timezone": [
-        "Europe/Tallinn"
-      ],
-      "currency": [
-        {
-          "code": "EUR",
-          "name": "欧元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "et",
-          "name": "爱沙尼亚语",
-          "is_official": true
-        }
-      ],
-      "population": 1330000,
-      "area_km2": 45228,
-      "gdp_per_capita_usd": 30000,
-      "hdi": 0.89,
-      "safety_index": 78.0,
-      "internet_speed_avg_mbps": 100,
-      "cost_of_living_index": 60.0,
-      "rent_index": 25.0,
-      "china_passport_visa_status": "evisa",
-      "china_passport_visa_note": "电子签申根入境；e-Residency数字公民；数字游民签证",
-      "digital_nomad_score": 80,
-      "tags": [
-        "digital",
-        "e_residency",
-        "eu",
-        "nomad_visa",
-        "startup",
-        "europe"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, Estonia e-Residency"
-    },
-    {
-      "id": "switzerland",
-      "name": "瑞士",
-      "name_en": "Switzerland",
-      "name_local": "Schweiz / Suisse / Svizzera",
-      "code_iso_3166_1": "CH",
-      "code_iso_3166_3": "CHE",
-      "region": "europe",
-      "sub_region": "中欧",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 46.8182,
-        "lon": 8.2275
-      },
-      "timezone": [
-        "Europe/Zurich"
-      ],
-      "currency": [
-        {
-          "code": "CHF",
-          "name": "瑞士法郎",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "de",
-          "name": "德语",
-          "is_official": true
-        },
-        {
-          "code": "fr",
-          "name": "法语",
-          "is_official": true
-        },
-        {
-          "code": "it",
-          "name": "意大利语",
-          "is_official": true
-        },
-        {
-          "code": "rm",
-          "name": "罗曼什语",
-          "is_official": true
-        }
-      ],
-      "population": 8700000,
-      "area_km2": 41284,
-      "gdp_per_capita_usd": 92000,
-      "hdi": 0.967,
-      "safety_index": 88,
-      "internet_speed_avg_mbps": 170,
-      "cost_of_living_index": 95,
-      "rent_index": 60,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "需提前申请申根签证。瑞士不提供专门的数字游民签证，但可申请L类短期居留许可",
-      "digital_nomad_score": 75,
-      "tags": [
-        "欧洲",
-        "申根",
-        "阿尔卑斯",
-        "滑雪",
-        "高福利"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank"
-    },
-    {
-      "id": "usa",
-      "name": "美国",
-      "name_en": "United States",
-      "name_local": "United States",
-      "code_iso_3166_1": "US",
-      "code_iso_3166_3": "USA",
-      "region": "americas_north",
-      "sub_region": "northern_america",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 37.0902,
-        "lon": -95.7129
-      },
-      "timezone": [
-        "America/New_York",
-        "America/Los_Angeles",
-        "America/Chicago",
-        "America/Denver"
-      ],
-      "currency": [
-        {
-          "code": "USD",
-          "name": "美元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "en",
-          "name": "English",
-          "is_official": false
-        }
-      ],
-      "population": 331900000,
-      "area_km2": 9833520,
-      "gdp_per_capita_usd": 76300,
-      "hdi": 0.921,
-      "safety_index": 50.0,
-      "internet_speed_avg_mbps": 250,
-      "cost_of_living_index": 88.0,
-      "rent_index": 65.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "B1/B2 10年多次，需面签；H1B 抽签制",
-      "digital_nomad_score": 72,
-      "tags": [
-        "startup_hub",
-        "high_salary",
-        "diverse",
-        "americas"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, US State Department"
-    },
-    {
-      "id": "uk",
-      "name": "英国",
-      "name_en": "United Kingdom",
-      "name_local": "United Kingdom",
-      "code_iso_3166_1": "GB",
-      "code_iso_3166_3": "GBR",
-      "region": "europe",
-      "sub_region": "northern_europe",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 55.3781,
-        "lon": -3.436
-      },
-      "timezone": [
-        "Europe/London"
-      ],
-      "currency": [
-        {
-          "code": "GBP",
-          "name": "英镑",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "en",
-          "name": "English",
-          "is_official": true
-        }
-      ],
-      "population": 67220000,
-      "area_km2": 242495,
-      "gdp_per_capita_usd": 46000,
-      "hdi": 0.94,
-      "safety_index": 60.0,
-      "internet_speed_avg_mbps": 110,
-      "cost_of_living_index": 80.0,
-      "rent_index": 55.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "旅游签证2/5/10年多次，需在线申请",
-      "digital_nomad_score": 75,
-      "tags": [
-        "english",
-        "financial_hub",
-        "culture",
-        "europe"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, UK Gov"
-    },
-    {
-      "id": "netherlands",
-      "name": "荷兰",
-      "name_en": "Netherlands",
-      "name_local": "Nederland",
-      "code_iso_3166_1": "NL",
-      "code_iso_3166_3": "NLD",
-      "region": "europe",
-      "sub_region": "western_europe",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 52.1326,
-        "lon": 5.2913
-      },
-      "timezone": [
-        "Europe/Amsterdam"
-      ],
-      "currency": [
-        {
-          "code": "EUR",
-          "name": "欧元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "nl",
-          "name": "荷兰语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "English",
-          "is_official": false
-        }
-      ],
-      "population": 17530000,
-      "area_km2": 41543,
-      "gdp_per_capita_usd": 57000,
-      "hdi": 0.946,
-      "safety_index": 72.0,
-      "internet_speed_avg_mbps": 180,
-      "cost_of_living_index": 78.0,
-      "rent_index": 50.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "申根签证C类；高技能移民签证；创业签证",
-      "digital_nomad_score": 82,
-      "tags": [
-        "eu",
-        "english_friendly",
-        "startup",
-        "bike",
-        "europe"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, Netherlands Immigration"
-    },
-    {
-      "id": "philippines",
-      "name": "菲律宾",
-      "name_en": "Philippines",
-      "name_local": "Pilipinas",
-      "code_iso_3166_1": "PH",
-      "code_iso_3166_3": "PHL",
-      "region": "asia",
-      "sub_region": "东南亚",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 12.8797,
-        "lon": 121.774
-      },
-      "timezone": [
-        "Asia/Manila"
-      ],
-      "currency": [
-        {
-          "code": "PHP",
-          "name": "菲律宾比索",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "tl",
-          "name": "他加禄语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": true
-        }
-      ],
-      "population": 114000000,
-      "area_km2": 343448,
-      "gdp_per_capita_usd": 3500,
-      "hdi": 0.699,
-      "safety_index": 55,
-      "internet_speed_avg_mbps": 30,
-      "cost_of_living_index": 35,
-      "rent_index": 15,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "需提前申请签证，可停留30天。持有美国/日本/申根/澳洲/加拿大签证者可免签7天",
-      "digital_nomad_score": 74,
-      "tags": [
-        "东南亚",
-        "英语",
-        "低成本",
-        "海岛",
-        "潜水"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank, 菲律宾移民局"
-    },
-    {
-      "id": "portugal",
-      "name": "葡萄牙",
-      "name_en": "Portugal",
-      "name_local": "Portugal",
-      "code_iso_3166_1": "PT",
-      "code_iso_3166_3": "PRT",
-      "region": "europe",
-      "sub_region": "southern_europe",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 39.3999,
-        "lon": -8.2245
-      },
-      "timezone": [
-        "Europe/Lisbon"
-      ],
-      "currency": [
-        {
-          "code": "EUR",
-          "name": "欧元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "pt",
-          "name": "葡萄牙语",
-          "is_official": true
-        }
-      ],
-      "population": 10330000,
-      "area_km2": 92090,
-      "gdp_per_capita_usd": 25000,
-      "hdi": 0.866,
-      "safety_index": 72.0,
-      "internet_speed_avg_mbps": 150,
-      "cost_of_living_index": 55.0,
-      "rent_index": 30.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "D7数字游民签证、黄金签证",
-      "digital_nomad_score": 88,
-      "tags": [
-        "cheap",
-        "eu",
-        "nomad_visa",
-        "sunny",
-        "safe",
-        "europe"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, SEF Portugal"
-    },
-    {
-      "id": "mongolia",
-      "name": "蒙古",
-      "name_en": "Mongolia",
-      "name_local": "Монгол",
-      "code_iso_3166_1": "MN",
-      "code_iso_3166_3": "MNG",
-      "region": "asia",
-      "sub_region": "东亚",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 46.8625,
-        "lon": 103.8467
-      },
-      "timezone": [
-        "Asia/Ulaanbaatar"
-      ],
-      "currency": [
-        {
-          "code": "MNT",
-          "name": "蒙古图格里克",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "mn",
-          "name": "蒙古语",
-          "is_official": true
-        }
-      ],
-      "population": 3400000,
-      "area_km2": 1564116,
-      "gdp_per_capita_usd": 4300,
-      "hdi": 0.739,
-      "safety_index": 70,
-      "internet_speed_avg_mbps": 20,
-      "cost_of_living_index": 28,
-      "rent_index": 10,
-      "china_passport_visa_status": "visa_free",
-      "china_passport_visa_note": "中国公民免签入境，可停留30天。也可申请数字游民签证（有效期1年）",
-      "digital_nomad_score": 72,
-      "tags": [
-        "东亚",
-        "免签",
-        "数字游民签证",
-        "草原",
-        "游牧文化"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank"
+      "has_digital_nomad_visa": true
     },
     {
       "id": "spain",
       "name": "西班牙",
       "name_en": "Spain",
       "name_local": "España",
-      "code_iso_3166_1": "ES",
-      "code_iso_3166_3": "ESP",
+      "flag_emoji": "🇪🇸",
       "region": "europe",
-      "sub_region": "southern_europe",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 40.4637,
-        "lon": -3.7492
-      },
-      "timezone": [
-        "Europe/Madrid"
-      ],
-      "currency": [
-        {
-          "code": "EUR",
-          "name": "欧元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "es",
-          "name": "西班牙语",
-          "is_official": true
-        }
-      ],
-      "population": 47420000,
-      "area_km2": 505990,
-      "gdp_per_capita_usd": 30000,
-      "hdi": 0.905,
-      "safety_index": 70.0,
-      "internet_speed_avg_mbps": 170,
-      "cost_of_living_index": 58.0,
-      "rent_index": 32.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "数字游民签证、非盈利签证、黄金签证",
       "digital_nomad_score": 86,
-      "tags": [
-        "cheap",
-        "eu",
-        "nomad_visa",
-        "sunny",
-        "culture",
-        "europe"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, Spain Immigration"
+      "cost_of_living_index": 58,
+      "safety_index": 70,
+      "internet_speed_avg_mbps": 170,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": true
     },
     {
-      "id": "vietnam",
-      "name": "越南",
-      "name_en": "Vietnam",
-      "name_local": "Việt Nam",
-      "code_iso_3166_1": "VN",
-      "code_iso_3166_3": "VNM",
+      "id": "thailand",
+      "name": "泰国",
+      "name_en": "Thailand",
+      "name_local": "ประเทศไทย",
+      "flag_emoji": "🇹🇭",
       "region": "asia",
-      "sub_region": "southeast_asia",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 14.0583,
-        "lon": 108.2772
-      },
-      "timezone": [
-        "Asia/Ho_Chi_Minh"
-      ],
-      "currency": [
-        {
-          "code": "VND",
-          "name": "越南盾",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "vi",
-          "name": "越南语",
-          "is_official": true
-        }
-      ],
-      "population": 98858000,
-      "area_km2": 331210,
-      "gdp_per_capita_usd": 4200,
-      "hdi": 0.703,
-      "safety_index": 60.0,
-      "internet_speed_avg_mbps": 120,
-      "cost_of_living_index": 35.0,
-      "rent_index": 15.0,
-      "china_passport_visa_status": "evisa",
-      "china_passport_visa_note": "电子签90天单次/多次",
-      "digital_nomad_score": 75,
-      "tags": [
-        "cheap",
-        "startup_hub",
-        "growing",
-        "asia"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, Vietnam Immigration"
-    },
-    {
-      "id": "argentina",
-      "name": "阿根廷",
-      "name_en": "Argentina",
-      "name_local": "Argentina",
-      "code_iso_3166_1": "AR",
-      "code_iso_3166_3": "ARG",
-      "region": "americas_south",
-      "sub_region": "南美",
-      "is_special_admin_region": false,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": -38.4161,
-        "lon": -63.6167
-      },
-      "timezone": [
-        "America/Argentina/Buenos_Aires"
-      ],
-      "currency": [
-        {
-          "code": "ARS",
-          "name": "阿根廷比索",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "es",
-          "name": "西班牙语",
-          "is_official": true
-        }
-      ],
-      "population": 46000000,
-      "area_km2": 2780400,
-      "gdp_per_capita_usd": 10000,
-      "hdi": 0.842,
-      "safety_index": 45,
-      "internet_speed_avg_mbps": 30,
-      "cost_of_living_index": 35,
-      "rent_index": 15,
-      "china_passport_visa_status": "evisa",
-      "china_passport_visa_note": "可申请电子签证（AVE），有效期90天",
-      "digital_nomad_score": 68,
-      "tags": [
-        "南美",
-        "探戈",
-        "低成本",
-        "牛排",
-        "足球"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15",
-      "source": "Numbeo, World Bank"
+      "digital_nomad_score": 85,
+      "cost_of_living_index": 45,
+      "safety_index": 65,
+      "internet_speed_avg_mbps": 200,
+      "china_passport_visa_status": "visa_free",
+      "has_digital_nomad_visa": true
     },
     {
       "id": "uae",
       "name": "阿联酋",
       "name_en": "United Arab Emirates",
       "name_local": "الإمارات العربية المتحدة",
-      "code_iso_3166_1": "AE",
-      "code_iso_3166_3": "ARE",
+      "flag_emoji": "🇦🇪",
       "region": "middle_east",
-      "sub_region": "western_asia",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 23.4241,
-        "lon": 53.8478
-      },
-      "timezone": [
-        "Asia/Dubai"
-      ],
-      "currency": [
-        {
-          "code": "AED",
-          "name": "阿联酋迪拉姆",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "ar",
-          "name": "阿拉伯语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "English",
-          "is_official": false
-        }
-      ],
-      "population": 9991000,
-      "area_km2": 83600,
-      "gdp_per_capita_usd": 43000,
-      "hdi": 0.911,
-      "safety_index": 88.0,
-      "internet_speed_avg_mbps": 300,
-      "cost_of_living_index": 70.0,
-      "rent_index": 55.0,
-      "china_passport_visa_status": "visa_free",
-      "china_passport_visa_note": "免签30天；可延期",
       "digital_nomad_score": 85,
-      "tags": [
-        "tax_free",
-        "luxury",
-        "modern",
-        "nomad_visa",
-        "middle_east"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, UAE Immigration"
+      "cost_of_living_index": 70,
+      "safety_index": 88,
+      "internet_speed_avg_mbps": 300,
+      "china_passport_visa_status": "visa_free",
+      "has_digital_nomad_visa": true
     },
     {
-      "id": "southkorea",
-      "name": "韩国",
-      "name_en": "South Korea",
-      "name_local": "대한민국",
-      "code_iso_3166_1": "KR",
-      "code_iso_3166_3": "KOR",
+      "id": "georgia",
+      "name": "格鲁吉亚",
+      "name_en": "Georgia",
+      "name_local": "საქართველო",
+      "flag_emoji": "🇬🇪",
       "region": "asia",
-      "sub_region": "east_asia",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 35.9078,
-        "lon": 127.7669
-      },
-      "timezone": [
-        "Asia/Seoul"
-      ],
-      "currency": [
-        {
-          "code": "KRW",
-          "name": "韩元",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "ko",
-          "name": "韩语",
-          "is_official": true
-        }
-      ],
-      "population": 51780000,
-      "area_km2": 100210,
-      "gdp_per_capita_usd": 34900,
-      "hdi": 0.925,
-      "safety_index": 88.0,
-      "internet_speed_avg_mbps": 220,
-      "cost_of_living_index": 78.0,
-      "rent_index": 35.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "济州岛免签30天，其余需申请签证",
-      "digital_nomad_score": 80,
-      "tags": [
-        "technology",
-        "fast_internet",
-        "culture",
-        "nomad_visa",
-        "asia"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, Korean Immigration"
+      "digital_nomad_score": 82,
+      "cost_of_living_index": 28,
+      "safety_index": 72,
+      "internet_speed_avg_mbps": 35,
+      "china_passport_visa_status": "visa_free",
+      "has_digital_nomad_visa": false
     },
     {
       "id": "hongkong",
       "name": "香港",
       "name_en": "Hong Kong",
       "name_local": "香港",
-      "code_iso_3166_1": "HK",
-      "code_iso_3166_3": "HKG",
+      "flag_emoji": "🇭🇰",
       "region": "asia",
-      "sub_region": "east_asia",
-      "is_special_admin_region": true,
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 22.3193,
-        "lon": 114.1694
-      },
-      "timezone": [
-        "Asia/Hong_Kong"
-      ],
-      "currency": [
-        {
-          "code": "HKD",
-          "name": "港币",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "zh",
-          "name": "中文",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "English",
-          "is_official": true
-        }
-      ],
-      "population": 7497000,
-      "area_km2": 1106,
-      "gdp_per_capita_usd": 49000,
-      "hdi": 0.952,
+      "digital_nomad_score": 82,
+      "cost_of_living_index": 85,
       "safety_index": 78.3,
       "internet_speed_avg_mbps": 250,
-      "cost_of_living_index": 85.0,
-      "rent_index": 80.0,
       "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "港澳通行证 + 签注",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "netherlands",
+      "name": "荷兰",
+      "name_en": "Netherlands",
+      "name_local": "Nederland",
+      "flag_emoji": "🇳🇱",
+      "region": "europe",
       "digital_nomad_score": 82,
-      "tags": [
-        "financial_hub",
-        "asia",
-        "gateway",
-        "no_tax_on_foreign_income"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, GovHK"
+      "cost_of_living_index": 78,
+      "safety_index": 72,
+      "internet_speed_avg_mbps": 180,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
     },
     {
-      "id": "malaysia",
-      "name": "马来西亚",
-      "name_en": "Malaysia",
-      "name_local": "Malaysia",
-      "code_iso_3166_1": "MY",
-      "code_iso_3166_3": "MYS",
-      "region": "asia",
-      "sub_region": "southeast_asia",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 4.2105,
-        "lon": 101.9758
-      },
-      "timezone": [
-        "Asia/Kuala_Lumpur"
-      ],
-      "currency": [
-        {
-          "code": "MYR",
-          "name": "马来西亚林吉特",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "ms",
-          "name": "马来语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "English",
-          "is_official": true
-        },
-        {
-          "code": "zh",
-          "name": "中文",
-          "is_official": false
-        }
-      ],
-      "population": 33938000,
-      "area_km2": 330803,
-      "gdp_per_capita_usd": 12000,
-      "hdi": 0.803,
-      "safety_index": 55.0,
-      "internet_speed_avg_mbps": 150,
-      "cost_of_living_index": 40.0,
-      "rent_index": 18.0,
-      "china_passport_visa_status": "visa_free",
-      "china_passport_visa_note": "免签30天",
-      "digital_nomad_score": 78,
-      "tags": [
-        "cheap",
-        "english",
-        "multicultural",
-        "mm2h",
-        "asia"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025, MM2H Programme"
-    },
-    {
-      "id": "armenia",
-      "name": "亚美尼亚",
-      "name_en": "Armenia",
-      "name_local": "Հայաստան",
-      "code_iso_3166_1": "AM",
-      "code_iso_3166_3": "ARM",
-      "region": "asia",
-      "sub_region": "west_asia",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 40.1792,
-        "lon": 44.4991
-      },
-      "timezone": [
-        "Asia/Yerevan"
-      ],
-      "currency": [
-        {
-          "code": "AMD",
-          "name": "亚美尼亚德拉姆",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "hy",
-          "name": "亚美尼亚语",
-          "is_official": true
-        }
-      ],
-      "population": 3000000,
-      "area_km2": 29743,
-      "gdp_per_capita_usd": 5000,
-      "hdi": 0.786,
-      "safety_index": 70.0,
-      "internet_speed_avg_mbps": 60,
-      "cost_of_living_index": 38.0,
-      "rent_index": 15.0,
-      "china_passport_visa_status": "visa_free",
-      "china_passport_visa_note": "中国公民免签入境180天",
-      "digital_nomad_score": 71,
-      "tags": [
-        "asia",
-        "cheap",
-        "history",
-        "mountains",
-        "culture"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
-    },
-    {
-      "id": "azerbaijan",
-      "name": "阿塞拜疆",
-      "name_en": "Azerbaijan",
-      "name_local": "Azərbaycan",
-      "code_iso_3166_1": "AZ",
-      "code_iso_3166_3": "AZE",
-      "region": "asia",
-      "sub_region": "west_asia",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 40.4093,
-        "lon": 49.8671
-      },
-      "timezone": [
-        "Asia/Baku"
-      ],
-      "currency": [
-        {
-          "code": "AZN",
-          "name": "阿塞拜疆马纳特",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "az",
-          "name": "阿塞拜疆语",
-          "is_official": true
-        }
-      ],
-      "population": 10000000,
-      "area_km2": 86600,
-      "gdp_per_capita_usd": 5300,
-      "hdi": 0.745,
-      "safety_index": 68.0,
-      "internet_speed_avg_mbps": 55,
-      "cost_of_living_index": 42.0,
-      "rent_index": 16.0,
-      "china_passport_visa_status": "evisa",
-      "china_passport_visa_note": "电子签可在线申请，也可落地签",
-      "digital_nomad_score": 69,
-      "tags": [
-        "asia",
-        "cheap",
-        "oil",
-        "modern",
-        "culture"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
-    },
-    {
-      "id": "bulgaria",
-      "name": "保加利亚",
-      "name_en": "Bulgaria",
-      "name_local": "България",
-      "code_iso_3166_1": "BG",
-      "code_iso_3166_3": "BGR",
+      "id": "cyprus",
+      "name": "塞浦路斯",
+      "name_en": "Cyprus",
+      "name_local": "Κύπρος / Kıbrıs",
+      "flag_emoji": "🇨🇾",
       "region": "europe",
-      "sub_region": "eastern_europe",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 42.6977,
-        "lon": 23.3219
-      },
-      "timezone": [
-        "Europe/Sofia"
-      ],
-      "currency": [
-        {
-          "code": "BGN",
-          "name": "保加利亚列弗",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "bg",
-          "name": "保加利亚语",
-          "is_official": true
-        }
-      ],
-      "population": 6900000,
-      "area_km2": 110879,
-      "gdp_per_capita_usd": 15000,
-      "hdi": 0.799,
-      "safety_index": 65.0,
-      "internet_speed_avg_mbps": 90,
-      "cost_of_living_index": 40.0,
-      "rent_index": 15.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "申根签证",
-      "digital_nomad_score": 73,
-      "tags": [
-        "cheap",
-        "eu",
-        "nature",
-        "history",
-        "mountains",
-        "europe"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
-    },
-    {
-      "id": "colombia",
-      "name": "哥伦比亚",
-      "name_en": "Colombia",
-      "name_local": "Colombia",
-      "code_iso_3166_1": "CO",
-      "code_iso_3166_3": "COL",
-      "region": "americas_south",
-      "sub_region": "south_america",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 6.2442,
-        "lon": -75.5812
-      },
-      "timezone": [
-        "America/Bogota"
-      ],
-      "currency": [
-        {
-          "code": "COP",
-          "name": "哥伦比亚比索",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "es",
-          "name": "西班牙语",
-          "is_official": true
-        }
-      ],
-      "population": 51000000,
-      "area_km2": 1141748,
-      "gdp_per_capita_usd": 6600,
-      "hdi": 0.752,
-      "safety_index": 50.0,
-      "internet_speed_avg_mbps": 65,
-      "cost_of_living_index": 40.0,
-      "rent_index": 15.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "需提前申请签证",
-      "digital_nomad_score": 70,
-      "tags": [
-        "americas",
-        "cheap",
-        "coffee",
-        "nature",
-        "nomad_hub"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
-    },
-    {
-      "id": "czech",
-      "name": "捷克",
-      "name_en": "Czech Republic",
-      "name_local": "Česká republika",
-      "code_iso_3166_1": "CZ",
-      "code_iso_3166_3": "CZE",
-      "region": "europe",
-      "sub_region": "central_europe",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 50.0755,
-        "lon": 14.4378
-      },
-      "timezone": [
-        "Europe/Prague"
-      ],
-      "currency": [
-        {
-          "code": "CZK",
-          "name": "捷克克朗",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "cs",
-          "name": "捷克语",
-          "is_official": true
-        }
-      ],
-      "population": 10700000,
-      "area_km2": 78865,
-      "gdp_per_capita_usd": 29000,
-      "hdi": 0.895,
-      "safety_index": 75.0,
-      "internet_speed_avg_mbps": 120,
-      "cost_of_living_index": 55.0,
-      "rent_index": 25.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "申根签证，可申请旅游/商务签证",
-      "digital_nomad_score": 78,
-      "tags": [
-        "cheap",
-        "eu",
-        "culture",
-        "history",
-        "beer",
-        "europe"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
-    },
-    {
-      "id": "egypt",
-      "name": "埃及",
-      "name_en": "Egypt",
-      "name_local": "مصر",
-      "code_iso_3166_1": "EG",
-      "code_iso_3166_3": "EGY",
-      "region": "africa",
-      "sub_region": "north_africa",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 30.0444,
-        "lon": 31.2357
-      },
-      "timezone": [
-        "Africa/Cairo"
-      ],
-      "currency": [
-        {
-          "code": "EGP",
-          "name": "埃及镑",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "ar",
-          "name": "阿拉伯语",
-          "is_official": true
-        }
-      ],
-      "population": 104000000,
-      "area_km2": 1002450,
-      "gdp_per_capita_usd": 4300,
-      "hdi": 0.731,
-      "safety_index": 52.0,
-      "internet_speed_avg_mbps": 45,
-      "cost_of_living_index": 30.0,
-      "rent_index": 10.0,
+      "digital_nomad_score": 80,
+      "cost_of_living_index": 55,
+      "safety_index": 82,
+      "internet_speed_avg_mbps": 50,
       "china_passport_visa_status": "evisa",
-      "china_passport_visa_note": "电子签可在线申请，落地签可选",
-      "digital_nomad_score": 63,
-      "tags": [
-        "africa",
-        "history",
-        "ancient",
-        "cheap",
-        "culture"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
+      "has_digital_nomad_visa": true
     },
     {
-      "id": "ghana",
-      "name": "加纳",
-      "name_en": "Ghana",
-      "name_local": "Ghana",
-      "code_iso_3166_1": "GH",
-      "code_iso_3166_3": "GHA",
-      "region": "africa",
-      "sub_region": "west_africa",
-      "is_digital_nomad_friendly": false,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 5.6037,
-        "lon": -0.187
-      },
-      "timezone": [
-        "Africa/Accra"
-      ],
-      "currency": [
-        {
-          "code": "GHS",
-          "name": "加纳塞地",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": true
-        }
-      ],
-      "population": 32000000,
-      "area_km2": 238533,
-      "gdp_per_capita_usd": 2500,
-      "hdi": 0.632,
-      "safety_index": 60.0,
-      "internet_speed_avg_mbps": 35,
-      "cost_of_living_index": 38.0,
-      "rent_index": 15.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "需提前申请签证",
-      "digital_nomad_score": 62,
-      "tags": [
-        "africa",
-        "culture",
-        "friendly",
-        "beach",
-        "gold"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
+      "id": "estonia",
+      "name": "爱沙尼亚",
+      "name_en": "Estonia",
+      "name_local": "Eesti",
+      "flag_emoji": "🇪🇪",
+      "region": "europe",
+      "digital_nomad_score": 80,
+      "cost_of_living_index": 60,
+      "safety_index": 78,
+      "internet_speed_avg_mbps": 100,
+      "china_passport_visa_status": "evisa",
+      "has_digital_nomad_visa": true
     },
     {
       "id": "hungary",
       "name": "匈牙利",
       "name_en": "Hungary",
       "name_local": "Magyarország",
-      "code_iso_3166_1": "HU",
-      "code_iso_3166_3": "HUN",
+      "flag_emoji": "🇭🇺",
       "region": "europe",
-      "sub_region": "central_europe",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": true,
-      "coordinates": {
-        "lat": 47.4979,
-        "lon": 19.0402
-      },
-      "timezone": [
-        "Europe/Budapest"
-      ],
-      "currency": [
-        {
-          "code": "HUF",
-          "name": "匈牙利福林",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "hu",
-          "name": "匈牙利语",
-          "is_official": true
-        }
-      ],
-      "population": 9600000,
-      "area_km2": 93028,
-      "gdp_per_capita_usd": 20000,
-      "hdi": 0.851,
-      "safety_index": 70.0,
-      "internet_speed_avg_mbps": 110,
-      "cost_of_living_index": 48.0,
-      "rent_index": 22.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "申根签证；White Card数字游民签证",
       "digital_nomad_score": 80,
-      "tags": [
-        "cheap",
-        "eu",
-        "culture",
-        "thermal_baths",
-        "nomad_visa",
-        "europe"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
+      "cost_of_living_index": 48,
+      "safety_index": 70,
+      "internet_speed_avg_mbps": 110,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": true
     },
     {
-      "id": "india",
-      "name": "印度",
-      "name_en": "India",
-      "name_local": "भारत",
-      "code_iso_3166_1": "IN",
-      "code_iso_3166_3": "IND",
+      "id": "norway",
+      "name": "挪威",
+      "name_en": "Norway",
+      "name_local": "Norge",
+      "flag_emoji": "🇳🇴",
+      "region": "europe",
+      "digital_nomad_score": 80,
+      "cost_of_living_index": 88,
+      "safety_index": 85,
+      "internet_speed_avg_mbps": 180,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": true
+    },
+    {
+      "id": "southkorea",
+      "name": "韩国",
+      "name_en": "South Korea",
+      "name_local": "대한민국",
+      "flag_emoji": "🇰🇷",
       "region": "asia",
-      "sub_region": "south_asia",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 28.6139,
-        "lon": 77.209
-      },
-      "timezone": [
-        "Asia/Kolkata"
-      ],
-      "currency": [
-        {
-          "code": "INR",
-          "name": "印度卢比",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "hi",
-          "name": "印地语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": true
-        }
-      ],
-      "population": 1400000000,
-      "area_km2": 3287263,
-      "gdp_per_capita_usd": 2500,
-      "hdi": 0.644,
-      "safety_index": 55.0,
-      "internet_speed_avg_mbps": 50,
-      "cost_of_living_index": 28.0,
-      "rent_index": 8.0,
-      "china_passport_visa_status": "evisa",
-      "china_passport_visa_note": "电子签e-Visa可在线申请",
-      "digital_nomad_score": 64,
-      "tags": [
-        "asia",
-        "cheap",
-        "tech",
-        "culture",
-        "food"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
-    },
-    {
-      "id": "israel",
-      "name": "以色列",
-      "name_en": "Israel",
-      "name_local": "ישראל",
-      "code_iso_3166_1": "IL",
-      "code_iso_3166_3": "ISR",
-      "region": "middle_east",
-      "sub_region": "middle_east",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 32.0853,
-        "lon": 34.7818
-      },
-      "timezone": [
-        "Asia/Jerusalem"
-      ],
-      "currency": [
-        {
-          "code": "ILS",
-          "name": "以色列新谢克尔",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "he",
-          "name": "希伯来语",
-          "is_official": true
-        },
-        {
-          "code": "ar",
-          "name": "阿拉伯语",
-          "is_official": true
-        }
-      ],
-      "population": 9500000,
-      "area_km2": 20770,
-      "gdp_per_capita_usd": 55000,
-      "hdi": 0.919,
-      "safety_index": 65.0,
-      "internet_speed_avg_mbps": 130,
-      "cost_of_living_index": 80.0,
-      "rent_index": 45.0,
+      "digital_nomad_score": 80,
+      "cost_of_living_index": 78,
+      "safety_index": 88,
+      "internet_speed_avg_mbps": 220,
       "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "需提前申请签证，审查较严格",
-      "digital_nomad_score": 75,
-      "tags": [
-        "middle_east",
-        "startup",
-        "tech",
-        "beach",
-        "innovation"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
-    },
-    {
-      "id": "kenya",
-      "name": "肯尼亚",
-      "name_en": "Kenya",
-      "name_local": "Kenya",
-      "code_iso_3166_1": "KE",
-      "code_iso_3166_3": "KEN",
-      "region": "africa",
-      "sub_region": "east_africa",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": -1.2921,
-        "lon": 36.8219
-      },
-      "timezone": [
-        "Africa/Nairobi"
-      ],
-      "currency": [
-        {
-          "code": "KES",
-          "name": "肯尼亚先令",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "sw",
-          "name": "斯瓦希里语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": true
-        }
-      ],
-      "population": 54000000,
-      "area_km2": 580367,
-      "gdp_per_capita_usd": 2200,
-      "hdi": 0.575,
-      "safety_index": 50.0,
-      "internet_speed_avg_mbps": 40,
-      "cost_of_living_index": 35.0,
-      "rent_index": 12.0,
-      "china_passport_visa_status": "evisa",
-      "china_passport_visa_note": "电子签ETA，可在线申请",
-      "digital_nomad_score": 65,
-      "tags": [
-        "africa",
-        "nature",
-        "safari",
-        "wildlife",
-        "adventure"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
-    },
-    {
-      "id": "peru",
-      "name": "秘鲁",
-      "name_en": "Peru",
-      "name_local": "Perú",
-      "code_iso_3166_1": "PE",
-      "code_iso_3166_3": "PER",
-      "region": "americas_south",
-      "sub_region": "south_america",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": -12.0464,
-        "lon": -77.0428
-      },
-      "timezone": [
-        "America/Lima"
-      ],
-      "currency": [
-        {
-          "code": "PEN",
-          "name": "秘鲁索尔",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "es",
-          "name": "西班牙语",
-          "is_official": true
-        }
-      ],
-      "population": 34000000,
-      "area_km2": 1285216,
-      "gdp_per_capita_usd": 7500,
-      "hdi": 0.762,
-      "safety_index": 55.0,
-      "internet_speed_avg_mbps": 55,
-      "cost_of_living_index": 38.0,
-      "rent_index": 14.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "需提前申请签证",
-      "digital_nomad_score": 68,
-      "tags": [
-        "americas",
-        "cheap",
-        "history",
-        "mountains",
-        "food"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
-    },
-    {
-      "id": "poland",
-      "name": "波兰",
-      "name_en": "Poland",
-      "name_local": "Polska",
-      "code_iso_3166_1": "PL",
-      "code_iso_3166_3": "POL",
-      "region": "europe",
-      "sub_region": "central_europe",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 52.2297,
-        "lon": 21.0122
-      },
-      "timezone": [
-        "Europe/Warsaw"
-      ],
-      "currency": [
-        {
-          "code": "PLN",
-          "name": "波兰兹罗提",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "pl",
-          "name": "波兰语",
-          "is_official": true
-        }
-      ],
-      "population": 38000000,
-      "area_km2": 312696,
-      "gdp_per_capita_usd": 21000,
-      "hdi": 0.876,
-      "safety_index": 72.0,
-      "internet_speed_avg_mbps": 100,
-      "cost_of_living_index": 45.0,
-      "rent_index": 20.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "申根签证",
-      "digital_nomad_score": 76,
-      "tags": [
-        "cheap",
-        "eu",
-        "culture",
-        "history",
-        "startup",
-        "europe"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
-    },
-    {
-      "id": "qatar",
-      "name": "卡塔尔",
-      "name_en": "Qatar",
-      "name_local": "قطر",
-      "code_iso_3166_1": "QA",
-      "code_iso_3166_3": "QAT",
-      "region": "middle_east",
-      "sub_region": "middle_east",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 25.2854,
-        "lon": 51.531
-      },
-      "timezone": [
-        "Asia/Qatar"
-      ],
-      "currency": [
-        {
-          "code": "QAR",
-          "name": "卡塔尔里亚尔",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "ar",
-          "name": "阿拉伯语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": false
-        }
-      ],
-      "population": 2700000,
-      "area_km2": 11586,
-      "gdp_per_capita_usd": 88000,
-      "hdi": 0.855,
-      "safety_index": 82.0,
-      "internet_speed_avg_mbps": 120,
-      "cost_of_living_index": 78.0,
-      "rent_index": 55.0,
-      "china_passport_visa_status": "visa_free",
-      "china_passport_visa_note": "中国公民免签入境30天",
-      "digital_nomad_score": 72,
-      "tags": [
-        "middle_east",
-        "luxury",
-        "modern",
-        "desert",
-        "safe"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
-    },
-    {
-      "id": "romania",
-      "name": "罗马尼亚",
-      "name_en": "Romania",
-      "name_local": "România",
-      "code_iso_3166_1": "RO",
-      "code_iso_3166_3": "ROU",
-      "region": "europe",
-      "sub_region": "eastern_europe",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 44.4268,
-        "lon": 26.1025
-      },
-      "timezone": [
-        "Europe/Bucharest"
-      ],
-      "currency": [
-        {
-          "code": "RON",
-          "name": "罗马尼亚列伊",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "ro",
-          "name": "罗马尼亚语",
-          "is_official": true
-        }
-      ],
-      "population": 19000000,
-      "area_km2": 238397,
-      "gdp_per_capita_usd": 17000,
-      "hdi": 0.827,
-      "safety_index": 68.0,
-      "internet_speed_avg_mbps": 95,
-      "cost_of_living_index": 42.0,
-      "rent_index": 18.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "申根签证",
-      "digital_nomad_score": 74,
-      "tags": [
-        "cheap",
-        "eu",
-        "nature",
-        "history",
-        "mountains",
-        "europe"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
-    },
-    {
-      "id": "south_africa",
-      "name": "南非",
-      "name_en": "South Africa",
-      "name_local": "South Africa",
-      "code_iso_3166_1": "ZA",
-      "code_iso_3166_3": "ZAF",
-      "region": "africa",
-      "sub_region": "southern_africa",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": -33.9249,
-        "lon": 18.4241
-      },
-      "timezone": [
-        "Africa/Johannesburg"
-      ],
-      "currency": [
-        {
-          "code": "ZAR",
-          "name": "南非兰特",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "af",
-          "name": "南非荷兰语",
-          "is_official": true
-        },
-        {
-          "code": "en",
-          "name": "英语",
-          "is_official": true
-        },
-        {
-          "code": "zu",
-          "name": "祖鲁语",
-          "is_official": true
-        }
-      ],
-      "population": 60000000,
-      "area_km2": 1221037,
-      "gdp_per_capita_usd": 7000,
-      "hdi": 0.717,
-      "safety_index": 55.0,
-      "internet_speed_avg_mbps": 50,
-      "cost_of_living_index": 45.0,
-      "rent_index": 18.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "需提前申请签证",
-      "digital_nomad_score": 68,
-      "tags": [
-        "africa",
-        "nature",
-        "beach",
-        "wine",
-        "adventure"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
+      "has_digital_nomad_visa": true
     },
     {
       "id": "sweden",
       "name": "瑞典",
       "name_en": "Sweden",
       "name_local": "Sverige",
-      "code_iso_3166_1": "SE",
-      "code_iso_3166_3": "SWE",
+      "flag_emoji": "🇸🇪",
       "region": "europe",
-      "sub_region": "northern_europe",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 59.3293,
-        "lon": 18.0686
-      },
-      "timezone": [
-        "Europe/Stockholm"
-      ],
-      "currency": [
-        {
-          "code": "SEK",
-          "name": "瑞典克朗",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "sv",
-          "name": "瑞典语",
-          "is_official": true
-        }
-      ],
-      "population": 10500000,
-      "area_km2": 450295,
-      "gdp_per_capita_usd": 62000,
-      "hdi": 0.952,
-      "safety_index": 80.0,
-      "internet_speed_avg_mbps": 140,
-      "cost_of_living_index": 85.0,
-      "rent_index": 40.0,
-      "china_passport_visa_status": "visa_required",
-      "china_passport_visa_note": "申根签证",
       "digital_nomad_score": 79,
-      "tags": [
-        "high_quality",
-        "eu",
-        "nature",
-        "innovation",
-        "safe",
-        "europe"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
+      "cost_of_living_index": 85,
+      "safety_index": 80,
+      "internet_speed_avg_mbps": 140,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "australia",
+      "name": "澳大利亚",
+      "name_en": "Australia",
+      "name_local": "Australia",
+      "flag_emoji": "🇦🇺",
+      "region": "oceania",
+      "digital_nomad_score": 78,
+      "cost_of_living_index": 82,
+      "safety_index": 75,
+      "internet_speed_avg_mbps": 80,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "czech",
+      "name": "捷克",
+      "name_en": "Czech Republic",
+      "name_local": "Česká republika",
+      "flag_emoji": "🇨🇿",
+      "region": "europe",
+      "digital_nomad_score": 78,
+      "cost_of_living_index": 55,
+      "safety_index": 75,
+      "internet_speed_avg_mbps": 120,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "germany",
+      "name": "德国",
+      "name_en": "Germany",
+      "name_local": "Deutschland",
+      "flag_emoji": "🇩🇪",
+      "region": "europe",
+      "digital_nomad_score": 78,
+      "cost_of_living_index": 72,
+      "safety_index": 75,
+      "internet_speed_avg_mbps": 120,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "greece",
+      "name": "希腊",
+      "name_en": "Greece",
+      "name_local": "Ελλάδα",
+      "flag_emoji": "🇬🇷",
+      "region": "europe",
+      "digital_nomad_score": 78,
+      "cost_of_living_index": 52,
+      "safety_index": 76,
+      "internet_speed_avg_mbps": 45,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": true
+    },
+    {
+      "id": "iceland",
+      "name": "冰岛",
+      "name_en": "Iceland",
+      "name_local": "Ísland",
+      "flag_emoji": "🇮🇸",
+      "region": "europe",
+      "digital_nomad_score": 78,
+      "cost_of_living_index": 85,
+      "safety_index": 88,
+      "internet_speed_avg_mbps": 200,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": true
+    },
+    {
+      "id": "malaysia",
+      "name": "马来西亚",
+      "name_en": "Malaysia",
+      "name_local": "Malaysia",
+      "flag_emoji": "🇲🇾",
+      "region": "asia",
+      "digital_nomad_score": 78,
+      "cost_of_living_index": 40,
+      "safety_index": 55,
+      "internet_speed_avg_mbps": 150,
+      "china_passport_visa_status": "visa_free",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "canada",
+      "name": "加拿大",
+      "name_en": "Canada",
+      "name_local": "Canada",
+      "flag_emoji": "🇨🇦",
+      "region": "americas_north",
+      "digital_nomad_score": 77,
+      "cost_of_living_index": 75,
+      "safety_index": 65,
+      "internet_speed_avg_mbps": 170,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "denmark",
+      "name": "丹麦",
+      "name_en": "Denmark",
+      "name_local": "Danmark",
+      "flag_emoji": "🇩🇰",
+      "region": "europe",
+      "digital_nomad_score": 77,
+      "cost_of_living_index": 82,
+      "safety_index": 84,
+      "internet_speed_avg_mbps": 150,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "france",
+      "name": "法国",
+      "name_en": "France",
+      "name_local": "France",
+      "flag_emoji": "🇫🇷",
+      "region": "europe",
+      "digital_nomad_score": 77,
+      "cost_of_living_index": 75,
+      "safety_index": 65,
+      "internet_speed_avg_mbps": 130,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "austria",
+      "name": "奥地利",
+      "name_en": "Austria",
+      "name_local": "Österreich",
+      "flag_emoji": "🇦🇹",
+      "region": "europe",
+      "digital_nomad_score": 76,
+      "cost_of_living_index": 70,
+      "safety_index": 83,
+      "internet_speed_avg_mbps": 80,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": true
+    },
+    {
+      "id": "indonesia",
+      "name": "印度尼西亚",
+      "name_en": "Indonesia",
+      "name_local": "Indonesia",
+      "flag_emoji": "🇮🇩",
+      "region": "asia",
+      "digital_nomad_score": 76,
+      "cost_of_living_index": 32,
+      "safety_index": 58,
+      "internet_speed_avg_mbps": 25,
+      "china_passport_visa_status": "evisa",
+      "has_digital_nomad_visa": true
+    },
+    {
+      "id": "ireland",
+      "name": "爱尔兰",
+      "name_en": "Ireland",
+      "name_local": "Éire",
+      "flag_emoji": "🇮🇪",
+      "region": "europe",
+      "digital_nomad_score": 76,
+      "cost_of_living_index": 78,
+      "safety_index": 82,
+      "internet_speed_avg_mbps": 120,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": true
+    },
+    {
+      "id": "morocco",
+      "name": "摩洛哥",
+      "name_en": "Morocco",
+      "name_local": "المغرب",
+      "flag_emoji": "🇲🇦",
+      "region": "africa",
+      "digital_nomad_score": 76,
+      "cost_of_living_index": 30,
+      "safety_index": 58,
+      "internet_speed_avg_mbps": 25,
+      "china_passport_visa_status": "visa_free",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "newzealand",
+      "name": "新西兰",
+      "name_en": "New Zealand",
+      "name_local": "New Zealand",
+      "flag_emoji": "🇳🇿",
+      "region": "oceania",
+      "digital_nomad_score": 76,
+      "cost_of_living_index": 78,
+      "safety_index": 70,
+      "internet_speed_avg_mbps": 150,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "poland",
+      "name": "波兰",
+      "name_en": "Poland",
+      "name_local": "Polska",
+      "flag_emoji": "🇵🇱",
+      "region": "europe",
+      "digital_nomad_score": 76,
+      "cost_of_living_index": 45,
+      "safety_index": 72,
+      "internet_speed_avg_mbps": 100,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "croatia",
+      "name": "克罗地亚",
+      "name_en": "Croatia",
+      "name_local": "Hrvatska",
+      "flag_emoji": "🇭🇷",
+      "region": "europe",
+      "digital_nomad_score": 75,
+      "cost_of_living_index": 48,
+      "safety_index": 78,
+      "internet_speed_avg_mbps": 55,
+      "china_passport_visa_status": "evisa",
+      "has_digital_nomad_visa": true
+    },
+    {
+      "id": "israel",
+      "name": "以色列",
+      "name_en": "Israel",
+      "name_local": "ישראל",
+      "flag_emoji": "🇮🇱",
+      "region": "middle_east",
+      "digital_nomad_score": 75,
+      "cost_of_living_index": 80,
+      "safety_index": 65,
+      "internet_speed_avg_mbps": 130,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "kazakhstan",
+      "name": "哈萨克斯坦",
+      "name_en": "Kazakhstan",
+      "name_local": "Қазақстан",
+      "flag_emoji": "🇰🇿",
+      "region": "asia",
+      "digital_nomad_score": 75,
+      "cost_of_living_index": 30,
+      "safety_index": 72,
+      "internet_speed_avg_mbps": 40,
+      "china_passport_visa_status": "visa_free",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "switzerland",
+      "name": "瑞士",
+      "name_en": "Switzerland",
+      "name_local": "Schweiz / Suisse / Svizzera",
+      "flag_emoji": "🇨🇭",
+      "region": "europe",
+      "digital_nomad_score": 75,
+      "cost_of_living_index": 95,
+      "safety_index": 88,
+      "internet_speed_avg_mbps": 170,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "uk",
+      "name": "英国",
+      "name_en": "United Kingdom",
+      "name_local": "United Kingdom",
+      "flag_emoji": "🇬🇧",
+      "region": "europe",
+      "digital_nomad_score": 75,
+      "cost_of_living_index": 80,
+      "safety_index": 60,
+      "internet_speed_avg_mbps": 110,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "vietnam",
+      "name": "越南",
+      "name_en": "Vietnam",
+      "name_local": "Việt Nam",
+      "flag_emoji": "🇻🇳",
+      "region": "asia",
+      "digital_nomad_score": 75,
+      "cost_of_living_index": 35,
+      "safety_index": 60,
+      "internet_speed_avg_mbps": 120,
+      "china_passport_visa_status": "evisa",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "philippines",
+      "name": "菲律宾",
+      "name_en": "Philippines",
+      "name_local": "Pilipinas",
+      "flag_emoji": "🇵🇭",
+      "region": "asia",
+      "digital_nomad_score": 74,
+      "cost_of_living_index": 35,
+      "safety_index": 55,
+      "internet_speed_avg_mbps": 30,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "romania",
+      "name": "罗马尼亚",
+      "name_en": "Romania",
+      "name_local": "România",
+      "flag_emoji": "🇷🇴",
+      "region": "europe",
+      "digital_nomad_score": 74,
+      "cost_of_living_index": 42,
+      "safety_index": 68,
+      "internet_speed_avg_mbps": 95,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "turkey",
+      "name": "土耳其",
+      "name_en": "Turkey",
+      "name_local": "Türkiye",
+      "flag_emoji": "🇹🇷",
+      "region": "europe",
+      "digital_nomad_score": 74,
+      "cost_of_living_index": 32,
+      "safety_index": 50,
+      "internet_speed_avg_mbps": 35,
+      "china_passport_visa_status": "evisa",
+      "has_digital_nomad_visa": true
+    },
+    {
+      "id": "bulgaria",
+      "name": "保加利亚",
+      "name_en": "Bulgaria",
+      "name_local": "България",
+      "flag_emoji": "🇧🇬",
+      "region": "europe",
+      "digital_nomad_score": 73,
+      "cost_of_living_index": 40,
+      "safety_index": 65,
+      "internet_speed_avg_mbps": 90,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "srilanka",
+      "name": "斯里兰卡",
+      "name_en": "Sri Lanka",
+      "name_local": "ශ්‍රී ලංකා",
+      "flag_emoji": "🇱🇰",
+      "region": "asia",
+      "digital_nomad_score": 73,
+      "cost_of_living_index": 25,
+      "safety_index": 60,
+      "internet_speed_avg_mbps": 20,
+      "china_passport_visa_status": "evisa",
+      "has_digital_nomad_visa": true
+    },
+    {
+      "id": "chile",
+      "name": "智利",
+      "name_en": "Chile",
+      "name_local": "Chile",
+      "flag_emoji": "🇨🇱",
+      "region": "americas_south",
+      "digital_nomad_score": 72,
+      "cost_of_living_index": 45,
+      "safety_index": 55,
+      "internet_speed_avg_mbps": 80,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": true
+    },
+    {
+      "id": "mexico",
+      "name": "墨西哥",
+      "name_en": "Mexico",
+      "name_local": "México",
+      "flag_emoji": "🇲🇽",
+      "region": "americas_north",
+      "digital_nomad_score": 72,
+      "cost_of_living_index": 38,
+      "safety_index": 45,
+      "internet_speed_avg_mbps": 40,
+      "china_passport_visa_status": "evisa",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "mongolia",
+      "name": "蒙古",
+      "name_en": "Mongolia",
+      "name_local": "Монгол",
+      "flag_emoji": "🇲🇳",
+      "region": "asia",
+      "digital_nomad_score": 72,
+      "cost_of_living_index": 28,
+      "safety_index": 70,
+      "internet_speed_avg_mbps": 20,
+      "china_passport_visa_status": "visa_free",
+      "has_digital_nomad_visa": true
+    },
+    {
+      "id": "qatar",
+      "name": "卡塔尔",
+      "name_en": "Qatar",
+      "name_local": "قطر",
+      "flag_emoji": "🇶🇦",
+      "region": "middle_east",
+      "digital_nomad_score": 72,
+      "cost_of_living_index": 78,
+      "safety_index": 82,
+      "internet_speed_avg_mbps": 120,
+      "china_passport_visa_status": "visa_free",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "usa",
+      "name": "美国",
+      "name_en": "United States",
+      "name_local": "United States",
+      "flag_emoji": "🇺🇸",
+      "region": "americas_north",
+      "digital_nomad_score": 72,
+      "cost_of_living_index": 88,
+      "safety_index": 50,
+      "internet_speed_avg_mbps": 250,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "armenia",
+      "name": "亚美尼亚",
+      "name_en": "Armenia",
+      "name_local": "Հայաստան",
+      "flag_emoji": "🇦🇲",
+      "region": "asia",
+      "digital_nomad_score": 71,
+      "cost_of_living_index": 38,
+      "safety_index": 70,
+      "internet_speed_avg_mbps": 60,
+      "china_passport_visa_status": "visa_free",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "nepal",
+      "name": "尼泊尔",
+      "name_en": "Nepal",
+      "name_local": "नेपाल",
+      "flag_emoji": "🇳🇵",
+      "region": "asia",
+      "digital_nomad_score": 71,
+      "cost_of_living_index": 22,
+      "safety_index": 65,
+      "internet_speed_avg_mbps": 15,
+      "china_passport_visa_status": "visa_free",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "brazil",
+      "name": "巴西",
+      "name_en": "Brazil",
+      "name_local": "Brasil",
+      "flag_emoji": "🇧🇷",
+      "region": "americas_south",
+      "digital_nomad_score": 70,
+      "cost_of_living_index": 40,
+      "safety_index": 42,
+      "internet_speed_avg_mbps": 55,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": true
+    },
+    {
+      "id": "colombia",
+      "name": "哥伦比亚",
+      "name_en": "Colombia",
+      "name_local": "Colombia",
+      "flag_emoji": "🇨🇴",
+      "region": "americas_south",
+      "digital_nomad_score": 70,
+      "cost_of_living_index": 40,
+      "safety_index": 50,
+      "internet_speed_avg_mbps": 65,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "azerbaijan",
+      "name": "阿塞拜疆",
+      "name_en": "Azerbaijan",
+      "name_local": "Azərbaycan",
+      "flag_emoji": "🇦🇿",
+      "region": "asia",
+      "digital_nomad_score": 69,
+      "cost_of_living_index": 42,
+      "safety_index": 68,
+      "internet_speed_avg_mbps": 55,
+      "china_passport_visa_status": "evisa",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "argentina",
+      "name": "阿根廷",
+      "name_en": "Argentina",
+      "name_local": "Argentina",
+      "flag_emoji": "🇦🇷",
+      "region": "americas_south",
+      "digital_nomad_score": 68,
+      "cost_of_living_index": 35,
+      "safety_index": 45,
+      "internet_speed_avg_mbps": 30,
+      "china_passport_visa_status": "evisa",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "peru",
+      "name": "秘鲁",
+      "name_en": "Peru",
+      "name_local": "Perú",
+      "flag_emoji": "🇵🇪",
+      "region": "americas_south",
+      "digital_nomad_score": 68,
+      "cost_of_living_index": 38,
+      "safety_index": 55,
+      "internet_speed_avg_mbps": 55,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "south_africa",
+      "name": "南非",
+      "name_en": "South Africa",
+      "name_local": "South Africa",
+      "flag_emoji": "🇿🇦",
+      "region": "africa",
+      "digital_nomad_score": 68,
+      "cost_of_living_index": 45,
+      "safety_index": 55,
+      "internet_speed_avg_mbps": 50,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
     },
     {
       "id": "uzbekistan",
       "name": "乌兹别克斯坦",
       "name_en": "Uzbekistan",
       "name_local": "Oʻzbekiston",
-      "code_iso_3166_1": "UZ",
-      "code_iso_3166_3": "UZB",
+      "flag_emoji": "🇺🇿",
       "region": "asia",
-      "sub_region": "central_asia",
-      "is_digital_nomad_friendly": true,
-      "has_digital_nomad_visa": false,
-      "coordinates": {
-        "lat": 41.2995,
-        "lon": 69.2401
-      },
-      "timezone": [
-        "Asia/Tashkent"
-      ],
-      "currency": [
-        {
-          "code": "UZS",
-          "name": "乌兹别克斯坦苏姆",
-          "is_primary": true
-        }
-      ],
-      "languages": [
-        {
-          "code": "uz",
-          "name": "乌兹别克语",
-          "is_official": true
-        }
-      ],
-      "population": 35000000,
-      "area_km2": 447400,
-      "gdp_per_capita_usd": 2300,
-      "hdi": 0.727,
-      "safety_index": 72.0,
-      "internet_speed_avg_mbps": 45,
-      "cost_of_living_index": 32.0,
-      "rent_index": 10.0,
-      "china_passport_visa_status": "visa_free",
-      "china_passport_visa_note": "中国公民免签10天",
       "digital_nomad_score": 66,
-      "tags": [
-        "asia",
-        "cheap",
-        "silk_road",
-        "history",
-        "culture"
-      ],
-      "status": "published",
-      "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, World Bank 2025"
+      "cost_of_living_index": 32,
+      "safety_index": 72,
+      "internet_speed_avg_mbps": 45,
+      "china_passport_visa_status": "visa_free",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "kenya",
+      "name": "肯尼亚",
+      "name_en": "Kenya",
+      "name_local": "Kenya",
+      "flag_emoji": "🇰🇪",
+      "region": "africa",
+      "digital_nomad_score": 65,
+      "cost_of_living_index": 35,
+      "safety_index": 50,
+      "internet_speed_avg_mbps": 40,
+      "china_passport_visa_status": "evisa",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "macao",
+      "name": "澳门",
+      "name_en": "Macao",
+      "name_local": "澳門",
+      "flag_emoji": "🇲🇴",
+      "region": "asia",
+      "digital_nomad_score": 65,
+      "cost_of_living_index": 70,
+      "safety_index": 85,
+      "internet_speed_avg_mbps": 180,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "india",
+      "name": "印度",
+      "name_en": "India",
+      "name_local": "भारत",
+      "flag_emoji": "🇮🇳",
+      "region": "asia",
+      "digital_nomad_score": 64,
+      "cost_of_living_index": 28,
+      "safety_index": 55,
+      "internet_speed_avg_mbps": 50,
+      "china_passport_visa_status": "evisa",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "egypt",
+      "name": "埃及",
+      "name_en": "Egypt",
+      "name_local": "مصر",
+      "flag_emoji": "🇪🇬",
+      "region": "africa",
+      "digital_nomad_score": 63,
+      "cost_of_living_index": 30,
+      "safety_index": 52,
+      "internet_speed_avg_mbps": 45,
+      "china_passport_visa_status": "evisa",
+      "has_digital_nomad_visa": false
+    },
+    {
+      "id": "ghana",
+      "name": "加纳",
+      "name_en": "Ghana",
+      "name_local": "Ghana",
+      "flag_emoji": "🇬🇭",
+      "region": "africa",
+      "digital_nomad_score": 62,
+      "cost_of_living_index": 38,
+      "safety_index": 60,
+      "internet_speed_avg_mbps": 35,
+      "china_passport_visa_status": "visa_required",
+      "has_digital_nomad_visa": false
     }
   ]
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>开放数据 API — 数字游民指南</title>
-    <meta name="description" content="Digital Nomad CN 开放数据 API：42个国家、34个城市、签证政策的结构化 JSON 数据，供 AI Agent 和开发者直接调用。">
+    <meta name="description" content="Digital Nomad CN 开放数据 API：60个国家、122个城市、签证政策的结构化 JSON 数据，供 AI Agent 和开发者直接调用。">
     <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/api/">
     <link rel="stylesheet" href="../style.css">
     <style>
@@ -48,15 +48,15 @@
         <div class="hero-content">
             <div class="hero-tag"><span class="hero-tag-dot"></span>AI Agent · 开发者 · 数据基础设施</div>
             <h1 class="hero-title">🤖 开放数据<br><span class="hero-title-accent">API</span></h1>
-            <p class="hero-desc">42 个国家、34 个城市、签证政策的结构化 JSON 数据。无需认证，无需 API Key，GitHub Pages 直接托管，AI Agent 和开发者可直接调用。</p>
+            <p class="hero-desc">60 个国家、122 个城市、签证政策的结构化 JSON 数据。无需认证，无需 API Key，GitHub Pages 直接托管，AI Agent 和开发者可直接调用。</p>
         </div>
     </section>
 
     <section class="api-section">
         <div class="stats-grid">
-            <div class="stats-card"><div class="value">42</div><div class="label">国家</div></div>
-            <div class="stats-card"><div class="value">34</div><div class="label">城市</div></div>
-            <div class="stats-card"><div class="value">20</div><div class="label">签证档案</div></div>
+            <div class="stats-card"><div class="value">60</div><div class="label">国家</div></div>
+            <div class="stats-card"><div class="value">122</div><div class="label">城市</div></div>
+            <div class="stats-card"><div class="value">60</div><div class="label">签证档案</div></div>
             <div class="stats-card"><div class="value">0</div><div class="label">认证门槛</div></div>
         </div>
 
@@ -66,21 +66,21 @@
         <div class="endpoint-card">
             <h3>📊 国家数据</h3>
             <div class="url">GET https://kfat77.github.io/digital-nomad-cn/api/countries.json</div>
-            <p>获取 42 个国家的完整结构化数据，包括生活成本、安全指数、网速、签证政策、评分等 20+ 字段。</p>
+            <p>获取 60 个国家的完整结构化数据，包括生活成本、安全指数、网速、签证政策、评分等 20+ 字段。</p>
             <div class="fields"><strong>关键字段：</strong>id, name, name_en, region, digital_nomad_score, cost_of_living_index, safety_index, internet_speed_avg_mbps, rent_index, hdi, gdp_per_capita_usd, china_passport_visa_status, has_digital_nomad_visa, coordinates, currency, languages, timezone, population, area_km2, tags</div>
         </div>
 
         <div class="endpoint-card">
             <h3>🏙️ 城市数据</h3>
             <div class="url">GET https://kfat77.github.io/digital-nomad-cn/api/cities.json</div>
-            <p>获取 34 个数字游民城市的完整数据，包括联合办公、气候、英语普及率、社区规模等。</p>
+            <p>获取 122 个数字游民城市的完整数据，包括联合办公、气候、英语普及率、社区规模等。</p>
             <div class="fields"><strong>关键字段：</strong>id, name, name_en, country_id, country_name, digital_nomad_score, cost_of_living_index, rent_index, safety_index, internet_speed_avg_mbps, coworking_spaces, coworking_score, climate, avg_temp_c, rainy_season, english_level, chinese_community_size, neighborhoods, food_scene, nightlife, transportation, walkability, bike_friendly, description</div>
         </div>
 
         <div class="endpoint-card">
             <h3>🛂 签证数据</h3>
             <div class="url">GET https://kfat77.github.io/digital-nomad-cn/api/visas.json</div>
-            <p>获取 20 个国家的签证类型详情，包括数字游民签证、旅游签证、工作签证等。</p>
+            <p>获取 60 个国家的签证类型详情，包括数字游民签证、旅游签证、工作签证等。</p>
             <div class="fields"><strong>关键字段：</strong>id, country_id, country_name, visa_types (array), updated_at, source</div>
         </div>
 
@@ -155,7 +155,7 @@
 
     <footer class="footer" style="margin-top: 0;">
         <div class="footer-main">
-            <div class="footer-brand"><span class="logo-icon">◈</span><span class="logo-text">数字游民指南</span><p>42 国数据、50+ 签证、34 城市，全部开源。</p></div>
+            <div class="footer-brand"><span class="logo-icon">◈</span><span class="logo-text">数字游民指南</span><p>60 国数据、50+ 签证、122 城市，全部开源。</p></div>
             <div class="footer-links">
                 <div class="footer-col"><h4>核心内容</h4><a href="../country/">国家数据库</a><a href="../visa/">签证数据库</a><a href="../city/">城市数据库</a><a href="../compare/">国家对比</a></div>
                 <div class="footer-col"><h4>数据</h4><a href="./">开放 API</a><a href="countries.json">countries.json</a><a href="cities.json">cities.json</a><a href="manifest.json">manifest.json</a></div>

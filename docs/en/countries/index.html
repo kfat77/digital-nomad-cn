@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Country Database — 42 Digital Nomad Destinations</title>
-    <meta name="description" content="Structured data for 42 digital nomad destinations: visa policies, cost of living, safety index, internet speed. Filter by region and visa type.">
+    <title>Country Database — 60 Digital Nomad Destinations</title>
+    <meta name="description" content="60 countries digital nomad data: visa policies, cost of living, safety index, internet speed. Sorted by digital nomad score, with region and visa filtering.">
     <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/en/countries/">
     <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/country/">
     <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/countries/">
@@ -65,7 +65,7 @@
         <div class="hero-content">
             <div class="hero-tag"><span class="hero-tag-dot"></span>60 Countries · Structured Data</div>
             <h1>Digital Nomad<br><span class="hero-title-accent">Country Database</span></h1>
-            <p>Sorted by digital nomad score. Filter by region and visa type. Click a card to see full details (Chinese).</p>
+            <p>Sorted by digital nomad score. Filter by region and visa type. Click a card to see full details.</p>
         </div>
     </section>
 
@@ -92,16 +92,12 @@
         </div>
     </section>
 
-    <div class="note-en">
-        <p>🔗 Full country details are currently available in Chinese. <a href="../../country/" style="color:var(--accent);">View Chinese version →</a></p>
-    </div>
 
-    <footer class="footer" style="margin-top:0;">
         <div class="footer-main">
             <div class="footer-brand">
                 <span class="logo-icon">◈</span>
                 <span class="logo-text">Digital Nomad Guide</span>
-                <p>60 countries, 20+ visas, 34 cities — all open source.</p>
+                <p>60 countries, 50+ visas, 122 cities — all open source.</p>
             </div>
             <div class="footer-links">
                 <div class="footer-col"><h4>Core</h4><a href="./">Countries</a><a href="../visas/">Visas</a><a href="../cities/">Cities</a><a href="../compare/">Compare</a></div>
@@ -221,7 +217,7 @@ const COUNTRIES = [
                 const regionLabel = REGION_LABELS[c.region] || c.region;
                 const el = document.createElement('a');
                 el.className = 'country-card';
-                el.href = '../../country/' + c.id + '/index.html';
+                el.href = './country/' + c.id + '/';
                 el.innerHTML = `
                     <div class="country-card-header">
                         <span class="flag">${c.flag}</span>
