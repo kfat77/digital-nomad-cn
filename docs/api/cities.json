@@ -1,7 +1,7 @@
 {
-  "api_version": "1.0",
+  "api_version": "1.1",
   "total": 122,
-  "updated_at": "2026-07-06T00:00:00Z",
+  "updated_at": "2026-07-05T21:45:07Z",
   "source": "https://github.com/kfat77/digital-nomad-cn",
   "license": "CC BY-NC-SA 4.0",
   "data": [
@@ -37,7 +37,10 @@
       "description": "全球数字游民天堂，联合办公生态成熟，自然与瑜伽文化。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 74,
+      "monthly_cost_usd_low": 1100,
+      "monthly_cost_usd_high": 1700
     },
     {
       "id": "chiangmai",
@@ -55,7 +58,7 @@
       "climate": "热带季风",
       "avg_temp_c": 26,
       "rainy_season": "5-10月",
-      "english_level": "高（数字游民社区）",
+      "english_level": "高",
       "chinese_community_size": "中等",
       "neighborhoods": [
         "古城",
@@ -71,7 +74,10 @@
       "description": "数字游民麦加，社区氛围极好，生活成本极低，适合长期数字游民。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List"
+      "source": "Numbeo 2026, Nomad List",
+      "remote_work_friendly_score": 79,
+      "monthly_cost_usd_low": 1070,
+      "monthly_cost_usd_high": 1640
     },
     {
       "id": "lisbon",
@@ -89,7 +95,7 @@
       "climate": "地中海",
       "avg_temp_c": 17,
       "rainy_season": "11-3月",
-      "english_level": "高（数字游民社区）",
+      "english_level": "高",
       "chinese_community_size": "小",
       "neighborhoods": [
         "Bairro Alto",
@@ -106,7 +112,10 @@
       "description": "欧洲数字游民之都，阳光充沛，物价友好，社区活跃。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List"
+      "source": "Numbeo 2026, Nomad List",
+      "remote_work_friendly_score": 79,
+      "monthly_cost_usd_low": 1370,
+      "monthly_cost_usd_high": 2240
     },
     {
       "id": "tokyo",
@@ -124,7 +133,7 @@
       "climate": "温带季风",
       "avg_temp_c": 16,
       "rainy_season": "6-7月（梅雨）",
-      "english_level": "中等（服务业较好）",
+      "english_level": "中等",
       "chinese_community_size": "大",
       "neighborhoods": [
         "涩谷",
@@ -142,7 +151,10 @@
       "description": "数字游民天堂，安全、便利、基础设施完善，但语言障碍和房租是挑战。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List"
+      "source": "Numbeo 2026, Nomad List",
+      "remote_work_friendly_score": 87,
+      "monthly_cost_usd_low": 1820,
+      "monthly_cost_usd_high": 3140
     },
     {
       "id": "bangkok",
@@ -177,7 +189,10 @@
       "description": "全球数字游民之都，性价比极高，联合办公丰富，但交通拥堵和空气质量需注意。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List"
+      "source": "Numbeo 2026, Nomad List",
+      "remote_work_friendly_score": 82,
+      "monthly_cost_usd_low": 1220,
+      "monthly_cost_usd_high": 1940
     },
     {
       "id": "barcelona",
@@ -212,7 +227,10 @@
       "description": "欧洲数字游民之都，海滩+城市，设计之都，社区极其活跃。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List"
+      "source": "Numbeo 2026, Nomad List",
+      "remote_work_friendly_score": 81,
+      "monthly_cost_usd_low": 1430,
+      "monthly_cost_usd_high": 2360
     },
     {
       "id": "berlin",
@@ -230,7 +248,7 @@
       "climate": "温带大陆",
       "avg_temp_c": 10,
       "rainy_season": "全年分布",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "大",
       "neighborhoods": [
         "Mitte",
@@ -247,7 +265,10 @@
       "description": "欧洲创业之都，性价比极高，创意社区活跃，夜生活 legendary。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List"
+      "source": "Numbeo 2026, Nomad List",
+      "remote_work_friendly_score": 78,
+      "monthly_cost_usd_low": 1520,
+      "monthly_cost_usd_high": 2540
     },
     {
       "id": "budapest",
@@ -281,7 +302,10 @@
       "description": "多瑙河上的明珠，欧洲数字游民之都，性价比极高。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 74,
+      "monthly_cost_usd_low": 1175,
+      "monthly_cost_usd_high": 1850
     },
     {
       "id": "istanbul",
@@ -315,7 +339,10 @@
       "description": "横跨欧亚的千年古都，数字游民热门，文化丰富，物价低廉。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 72,
+      "monthly_cost_usd_low": 1130,
+      "monthly_cost_usd_high": 1760
     },
     {
       "id": "prague",
@@ -349,7 +376,10 @@
       "description": "百塔之城，欧洲数字游民中心，性价比极高。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 75,
+      "monthly_cost_usd_low": 1250,
+      "monthly_cost_usd_high": 2000
     },
     {
       "id": "singapore-city",
@@ -367,8 +397,8 @@
       "climate": "热带雨林",
       "avg_temp_c": 27,
       "rainy_season": "全年多雨",
-      "english_level": "极高",
-      "chinese_community_size": "大（华人占74%）",
+      "english_level": "高",
+      "chinese_community_size": "大",
       "neighborhoods": [
         "滨海湾",
         "乌节路",
@@ -384,7 +414,10 @@
       "description": "全球最安全的数字游民城市之一，基础设施世界一流，但生活成本亚洲最高。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List"
+      "source": "Numbeo 2026, Nomad List",
+      "remote_work_friendly_score": 91,
+      "monthly_cost_usd_low": 1925,
+      "monthly_cost_usd_high": 3350
     },
     {
       "id": "amsterdam",
@@ -402,7 +435,7 @@
       "climate": "温带海洋",
       "avg_temp_c": 11,
       "rainy_season": "全年分布",
-      "english_level": "极高（几乎人人会说英语）",
+      "english_level": "高",
       "chinese_community_size": "中等",
       "neighborhoods": [
         "Jordaan",
@@ -418,7 +451,10 @@
       "description": "自行车之都，英语普及率极高，国际化程度高，但住房紧张。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 79,
+      "monthly_cost_usd_low": 1775,
+      "monthly_cost_usd_high": 3050
     },
     {
       "id": "athens",
@@ -452,7 +488,10 @@
       "description": "西方文明摇篮，数字游民签证友好，岛屿跳岛便利。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 70,
+      "monthly_cost_usd_low": 1280,
+      "monthly_cost_usd_high": 2060
     },
     {
       "id": "cape_town",
@@ -470,7 +509,7 @@
       "climate": "地中海",
       "avg_temp_c": 17,
       "rainy_season": "6-8月",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "小",
       "neighborhoods": [
         "City Bowl",
@@ -486,7 +525,10 @@
       "description": "世界最美城市之一，桌山与大海，创业生态，但贫富差距大。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 67,
+      "monthly_cost_usd_low": 1175,
+      "monthly_cost_usd_high": 1850
     },
     {
       "id": "copenhagen",
@@ -504,7 +546,7 @@
       "climate": "温带海洋",
       "avg_temp_c": 9,
       "rainy_season": "全年均匀",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "小",
       "neighborhoods": [
         "Vesterbro",
@@ -520,7 +562,10 @@
       "description": "全球最幸福城市之一，自行车天堂，设计之都，但成本高。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 76,
+      "monthly_cost_usd_low": 1775,
+      "monthly_cost_usd_high": 3050
     },
     {
       "id": "dubai",
@@ -538,7 +583,7 @@
       "climate": "热带沙漠",
       "avg_temp_c": 28,
       "rainy_season": "极少",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "大",
       "neighborhoods": [
         "Downtown",
@@ -555,7 +600,10 @@
       "description": "中东数字游民首选，零所得税，网速全球最快，但夏季极热。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 89,
+      "monthly_cost_usd_low": 1670,
+      "monthly_cost_usd_high": 2840
     },
     {
       "id": "krakow",
@@ -588,7 +636,10 @@
       "description": "波兰文化之都，保存完好的中世纪老城，性价比极高。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 72,
+      "monthly_cost_usd_low": 1130,
+      "monthly_cost_usd_high": 1760
     },
     {
       "id": "london",
@@ -606,7 +657,7 @@
       "climate": "温带海洋",
       "avg_temp_c": 11,
       "rainy_season": "全年分布",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "大",
       "neighborhoods": [
         "Shoreditch",
@@ -623,7 +674,10 @@
       "description": "欧洲数字游民之都，Shoreditch是创业社区中心，但租金和生活成本高。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 77,
+      "monthly_cost_usd_low": 1850,
+      "monthly_cost_usd_high": 3200
     },
     {
       "id": "madrid",
@@ -657,7 +711,10 @@
       "description": "西班牙首都，夜生活之都，比巴塞罗那更便宜，但无海滩。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 77,
+      "monthly_cost_usd_low": 1400,
+      "monthly_cost_usd_high": 2300
     },
     {
       "id": "medellin",
@@ -690,7 +747,10 @@
       "description": "永恒春天之城，数字游民热门地，创业氛围浓厚。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 68,
+      "monthly_cost_usd_low": 1025,
+      "monthly_cost_usd_high": 1550
     },
     {
       "id": "mexico_city",
@@ -724,7 +784,10 @@
       "description": "拉美文化之都，数字游民热门，艺术丰富，美食天堂。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 70,
+      "monthly_cost_usd_low": 1130,
+      "monthly_cost_usd_high": 1760
     },
     {
       "id": "osaka",
@@ -759,7 +822,10 @@
       "description": "比东京更接地气，生活成本更低，美食丰富，适合长期数字游民。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 79,
+      "monthly_cost_usd_low": 1670,
+      "monthly_cost_usd_high": 2840
     },
     {
       "id": "porto",
@@ -793,7 +859,10 @@
       "description": "比里斯本更便宜，更安静，适合喜欢小城市的数字游民。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 71,
+      "monthly_cost_usd_low": 1250,
+      "monthly_cost_usd_high": 2000
     },
     {
       "id": "seoul",
@@ -828,7 +897,10 @@
       "description": "亚洲科技之都，网速全球领先，夜生活丰富，但语言障碍较大。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 84,
+      "monthly_cost_usd_low": 1670,
+      "monthly_cost_usd_high": 2840
     },
     {
       "id": "tbilisi",
@@ -861,7 +933,10 @@
       "description": "高加索明珠，365天免签，葡萄酒发源地，数字游民热门。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 70,
+      "monthly_cost_usd_low": 980,
+      "monthly_cost_usd_high": 1460
     },
     {
       "id": "vienna",
@@ -895,7 +970,10 @@
       "description": "全球最宜居城市之一，文化丰富，但生活成本较高。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 75,
+      "monthly_cost_usd_low": 1550,
+      "monthly_cost_usd_high": 2600
     },
     {
       "id": "austin",
@@ -913,7 +991,7 @@
       "climate": "亚热带",
       "avg_temp_c": 21,
       "rainy_season": "5-6月",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "中等",
       "neighborhoods": [
         "South Congress",
@@ -929,7 +1007,10 @@
       "description": "Keep Austin Weird，科技中心，音乐之都，德州自由氛围。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 73,
+      "monthly_cost_usd_low": 1580,
+      "monthly_cost_usd_high": 2660
     },
     {
       "id": "seville",
@@ -962,7 +1043,10 @@
       "description": "flamenco 发源地，西班牙最热情城市，橙香四溢。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 68,
+      "monthly_cost_usd_low": 1175,
+      "monthly_cost_usd_high": 1850
     },
     {
       "id": "brno",
@@ -994,7 +1078,10 @@
       "description": "捷克第二城，科技中心，生活节奏比布拉格更慢。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 69,
+      "monthly_cost_usd_low": 1070,
+      "monthly_cost_usd_high": 1640
     },
     {
       "id": "bucharest",
@@ -1027,7 +1114,10 @@
       "description": "东欧小巴黎，IT外包中心，生活成本低，夜生活丰富。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 69,
+      "monthly_cost_usd_low": 1070,
+      "monthly_cost_usd_high": 1640
     },
     {
       "id": "buenos_aires",
@@ -1061,7 +1151,10 @@
       "description": "南美最欧洲化的城市，文化丰富，物价低廉，但经济波动大。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 66,
+      "monthly_cost_usd_low": 1070,
+      "monthly_cost_usd_high": 1640
     },
     {
       "id": "danang",
@@ -1094,7 +1187,10 @@
       "description": "越南最宜居城市，海滩与山脉，干净现代，生活成本极低。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 66,
+      "monthly_cost_usd_low": 920,
+      "monthly_cost_usd_high": 1340
     },
     {
       "id": "fukuoka",
@@ -1127,7 +1223,10 @@
       "description": "日本Startup之都，亚洲门户，生活成本低，美食丰富。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 70,
+      "monthly_cost_usd_low": 1370,
+      "monthly_cost_usd_high": 2240
     },
     {
       "id": "hamburg",
@@ -1160,7 +1259,10 @@
       "description": "德国港口之都，北方文化中心，音乐产业，比柏林更宜居。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 72,
+      "monthly_cost_usd_low": 1520,
+      "monthly_cost_usd_high": 2540
     },
     {
       "id": "hochiminh",
@@ -1178,8 +1280,8 @@
       "climate": "热带",
       "avg_temp_c": 28,
       "rainy_season": "5-11月",
-      "english_level": "中等（服务业）",
-      "chinese_community_size": "大（堤岸区）",
+      "english_level": "中等",
+      "chinese_community_size": "大",
       "neighborhoods": [
         "第一郡",
         "第二郡（Thao Dien）",
@@ -1194,7 +1296,10 @@
       "description": "越南创业之都，外籍社区活跃，生活成本极低，但交通混乱。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 70,
+      "monthly_cost_usd_low": 1070,
+      "monthly_cost_usd_high": 1640
     },
     {
       "id": "hongkong-city",
@@ -1213,7 +1318,7 @@
       "avg_temp_c": 23,
       "rainy_season": "5-9月",
       "english_level": "高",
-      "chinese_community_size": "N/A",
+      "chinese_community_size": "小",
       "neighborhoods": [
         "中环",
         "铜锣湾",
@@ -1229,7 +1334,10 @@
       "description": "亚洲金融中心，数字游民基础设施完善，联合办公空间丰富，但生活成本极高。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List"
+      "source": "Numbeo 2026, Nomad List",
+      "remote_work_friendly_score": 84,
+      "monthly_cost_usd_low": 1775,
+      "monthly_cost_usd_high": 3050
     },
     {
       "id": "kualalumpur",
@@ -1264,7 +1372,10 @@
       "description": "东南亚数字游民新宠，英语普及，华人友好，联合办公丰富。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 72,
+      "monthly_cost_usd_low": 1130,
+      "monthly_cost_usd_high": 1760
     },
     {
       "id": "limassol",
@@ -1296,7 +1407,10 @@
       "description": "塞浦路斯经济中心，海滨生活，数字游民友好。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 67,
+      "monthly_cost_usd_low": 1400,
+      "monthly_cost_usd_high": 2300
     },
     {
       "id": "lyon",
@@ -1329,7 +1443,10 @@
       "description": "法国美食之都，联合国教科文组织老城，比巴黎更实惠。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 71,
+      "monthly_cost_usd_low": 1400,
+      "monthly_cost_usd_high": 2300
     },
     {
       "id": "madeira",
@@ -1348,7 +1465,7 @@
       "avg_temp_c": 20,
       "rainy_season": "11-3月",
       "english_level": "高",
-      "chinese_community_size": "极小",
+      "chinese_community_size": "小",
       "neighborhoods": [
         "Funchal",
         "Câmara de Lobos"
@@ -1361,7 +1478,10 @@
       "description": "大西洋明珠，永恒春天，数字游民签证友好，自然绝美。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 67,
+      "monthly_cost_usd_low": 1250,
+      "monthly_cost_usd_high": 2000
     },
     {
       "id": "melbourne",
@@ -1379,7 +1499,7 @@
       "climate": "温带海洋",
       "avg_temp_c": 15,
       "rainy_season": "全年分布",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "大",
       "neighborhoods": [
         "CBD",
@@ -1396,7 +1516,10 @@
       "description": "全球最宜居城市，咖啡文化和艺术氛围浓厚，数字游民社区活跃。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 71,
+      "monthly_cost_usd_low": 1775,
+      "monthly_cost_usd_high": 3050
     },
     {
       "id": "montreal",
@@ -1430,7 +1553,10 @@
       "description": "北美最欧洲城市，双语文化，艺术节日，冬季寒冷但室内丰富。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 72,
+      "monthly_cost_usd_low": 1475,
+      "monthly_cost_usd_high": 2450
     },
     {
       "id": "newyork",
@@ -1448,8 +1574,8 @@
       "climate": "温带大陆",
       "avg_temp_c": 13,
       "rainy_season": "全年分布",
-      "english_level": "极高",
-      "chinese_community_size": "大（法拉盛）",
+      "english_level": "高",
+      "chinese_community_size": "大",
       "neighborhoods": [
         "曼哈顿",
         "布鲁克林",
@@ -1465,7 +1591,10 @@
       "description": "全球创业之都，联合办公空间极其丰富，但生活成本极高，安全性因区域而异。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 83,
+      "monthly_cost_usd_low": 2000,
+      "monthly_cost_usd_high": 3500
     },
     {
       "id": "paris",
@@ -1500,7 +1629,10 @@
       "description": "浪漫之都，数字游民社区活跃，但租金和治安是挑战。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 75,
+      "monthly_cost_usd_low": 1775,
+      "monthly_cost_usd_high": 3050
     },
     {
       "id": "stockholm",
@@ -1518,7 +1650,7 @@
       "climate": "温带大陆",
       "avg_temp_c": 7,
       "rainy_season": "全年均匀",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "小",
       "neighborhoods": [
         "Södermalm",
@@ -1534,7 +1666,10 @@
       "description": "北欧威尼斯，群岛之城，设计之都，但成本高。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 73,
+      "monthly_cost_usd_low": 1700,
+      "monthly_cost_usd_high": 2900
     },
     {
       "id": "tallinn",
@@ -1552,7 +1687,7 @@
       "climate": "温带海洋",
       "avg_temp_c": 6,
       "rainy_season": "全年分布",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "小",
       "neighborhoods": [
         "老城区",
@@ -1568,7 +1703,10 @@
       "description": "数字国家首都，e-Residency发源地，免费公共交通，但冬季寒冷。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 69,
+      "monthly_cost_usd_low": 1325,
+      "monthly_cost_usd_high": 2150
     },
     {
       "id": "tel_aviv",
@@ -1602,7 +1740,10 @@
       "description": "地中海 Startup 之都，科技生态强大，海滩生活，但成本高。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 71,
+      "monthly_cost_usd_low": 1625,
+      "monthly_cost_usd_high": 2750
     },
     {
       "id": "vancouver",
@@ -1620,8 +1761,8 @@
       "climate": "温带海洋",
       "avg_temp_c": 11,
       "rainy_season": "11-3月",
-      "english_level": "极高",
-      "chinese_community_size": "大（列治文）",
+      "english_level": "高",
+      "chinese_community_size": "大",
       "neighborhoods": [
         "Downtown",
         "Gastown",
@@ -1637,7 +1778,10 @@
       "description": "山海之间，户外活动丰富，华人比例极高，气候温和。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 73,
+      "monthly_cost_usd_low": 1775,
+      "monthly_cost_usd_high": 3050
     },
     {
       "id": "warsaw",
@@ -1671,7 +1815,10 @@
       "description": "凤凰城，战后重建，现代商业与文化融合，东欧科技中心。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 72,
+      "monthly_cost_usd_low": 1220,
+      "monthly_cost_usd_high": 1940
     },
     {
       "id": "aarhus",
@@ -1689,7 +1836,7 @@
       "climate": "温带海洋",
       "avg_temp_c": 8,
       "rainy_season": "全年",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "小",
       "neighborhoods": [
         "拉丁区",
@@ -1704,7 +1851,10 @@
       "description": "丹麦第二城，欧洲文化之都，年轻活力，比哥本哈根更紧凑。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 70,
+      "monthly_cost_usd_low": 1625,
+      "monthly_cost_usd_high": 2750
     },
     {
       "id": "antalya",
@@ -1737,7 +1887,10 @@
       "description": "地中海度假天堂，土耳其里维埃拉，生活成本低。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 65,
+      "monthly_cost_usd_low": 1025,
+      "monthly_cost_usd_high": 1550
     },
     {
       "id": "brisbane",
@@ -1755,7 +1908,7 @@
       "climate": "亚热带",
       "avg_temp_c": 21,
       "rainy_season": "11-3月",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "中等",
       "neighborhoods": [
         "South Bank",
@@ -1770,7 +1923,10 @@
       "description": "阳光之州首府，亚热带气候，2032奥运会城市，户外生活。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 70,
+      "monthly_cost_usd_low": 1580,
+      "monthly_cost_usd_high": 2660
     },
     {
       "id": "dublin",
@@ -1788,7 +1944,7 @@
       "climate": "温带海洋",
       "avg_temp_c": 10,
       "rainy_season": "全年",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "中等",
       "neighborhoods": [
         "Temple Bar",
@@ -1804,7 +1960,10 @@
       "description": "翡翠岛国首都，科技巨头欧洲总部，文化友好，但成本高。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 70,
+      "monthly_cost_usd_low": 1700,
+      "monthly_cost_usd_high": 2900
     },
     {
       "id": "gothenburg",
@@ -1822,7 +1981,7 @@
       "climate": "温带海洋",
       "avg_temp_c": 8,
       "rainy_season": "全年",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "小",
       "neighborhoods": [
         "Haga",
@@ -1837,7 +1996,10 @@
       "description": "西海岸门户，瑞典第二城，港口文化，Liseberg 游乐园。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 70,
+      "monthly_cost_usd_low": 1580,
+      "monthly_cost_usd_high": 2660
     },
     {
       "id": "kyoto",
@@ -1871,7 +2033,10 @@
       "description": "古都氛围，文化深厚，适合追求安静和灵感的数字游民。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 72,
+      "monthly_cost_usd_low": 1625,
+      "monthly_cost_usd_high": 2750
     },
     {
       "id": "manchester",
@@ -1889,7 +2054,7 @@
       "climate": "温带海洋",
       "avg_temp_c": 10,
       "rainy_season": "全年",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "中等",
       "neighborhoods": [
         "Northern Quarter",
@@ -1904,7 +2069,10 @@
       "description": "北方工业之都，足球文化，音乐历史，比伦敦更实惠。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 69,
+      "monthly_cost_usd_low": 1430,
+      "monthly_cost_usd_high": 2360
     },
     {
       "id": "marrakech",
@@ -1937,7 +2105,10 @@
       "description": "红城，北非数字游民中心，色彩斑斓，文化独特。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 63,
+      "monthly_cost_usd_low": 1025,
+      "monthly_cost_usd_high": 1550
     },
     {
       "id": "munich",
@@ -1955,7 +2126,7 @@
       "climate": "温带大陆",
       "avg_temp_c": 9,
       "rainy_season": "全年分布",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "中等",
       "neighborhoods": [
         "Altstadt",
@@ -1971,7 +2142,10 @@
       "description": "德国最富裕城市，生活质量高，但租金和生活成本也高。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 72,
+      "monthly_cost_usd_low": 1730,
+      "monthly_cost_usd_high": 2960
     },
     {
       "id": "oslo",
@@ -1989,7 +2163,7 @@
       "climate": "温带海洋",
       "avg_temp_c": 6,
       "rainy_season": "全年",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "小",
       "neighborhoods": [
         "Grünerløkka",
@@ -2004,7 +2178,10 @@
       "description": "峡湾之都，北欧设计，户外生活，但全球成本最高之一。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 71,
+      "monthly_cost_usd_low": 1850,
+      "monthly_cost_usd_high": 3200
     },
     {
       "id": "phuket",
@@ -2022,7 +2199,7 @@
       "climate": "热带",
       "avg_temp_c": 28,
       "rainy_season": "5-10月",
-      "english_level": "高（旅游区）",
+      "english_level": "高",
       "chinese_community_size": "大",
       "neighborhoods": [
         "芭东",
@@ -2038,7 +2215,10 @@
       "description": "海滨数字游民目的地，适合喜欢海边生活的人，但雨季较长。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 63,
+      "monthly_cost_usd_low": 1325,
+      "monthly_cost_usd_high": 2150
     },
     {
       "id": "rotterdam",
@@ -2071,7 +2251,10 @@
       "description": "现代建筑实验场，欧洲最大港口，比阿姆斯特丹更前卫。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 70,
+      "monthly_cost_usd_low": 1520,
+      "monthly_cost_usd_high": 2540
     },
     {
       "id": "sao_paulo",
@@ -2105,7 +2288,10 @@
       "description": "南美经济中心，联合办公丰富，美食文化多元。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 67,
+      "monthly_cost_usd_low": 1175,
+      "monthly_cost_usd_high": 1850
     },
     {
       "id": "sofia",
@@ -2138,7 +2324,10 @@
       "description": "巴尔干半岛明珠，生活成本极低，IT产业发达，适合远程工作。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 68,
+      "monthly_cost_usd_low": 1025,
+      "monthly_cost_usd_high": 1550
     },
     {
       "id": "split",
@@ -2157,7 +2346,7 @@
       "avg_temp_c": 16,
       "rainy_season": "11-12月",
       "english_level": "高",
-      "chinese_community_size": "极小",
+      "chinese_community_size": "小",
       "neighborhoods": [
         "老城区",
         "Bacvice"
@@ -2170,7 +2359,10 @@
       "description": "亚得里亚海明珠，戴克里先宫古城，夏季繁忙。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 65,
+      "monthly_cost_usd_low": 1250,
+      "monthly_cost_usd_high": 2000
     },
     {
       "id": "sydney",
@@ -2188,7 +2380,7 @@
       "climate": "亚热带",
       "avg_temp_c": 18,
       "rainy_season": "全年分布",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "大",
       "neighborhoods": [
         "CBD",
@@ -2205,7 +2397,10 @@
       "description": "南半球数字游民首选，海滩+城市生活，华人社区庞大，但租金极高。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 71,
+      "monthly_cost_usd_low": 1820,
+      "monthly_cost_usd_high": 3140
     },
     {
       "id": "thessaloniki",
@@ -2237,7 +2432,10 @@
       "description": "希腊第二城，年轻活力，海滨生活，比雅典更实惠。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 65,
+      "monthly_cost_usd_low": 1130,
+      "monthly_cost_usd_high": 1760
     },
     {
       "id": "toronto",
@@ -2255,8 +2453,8 @@
       "climate": "温带大陆",
       "avg_temp_c": 9,
       "rainy_season": "全年分布",
-      "english_level": "极高",
-      "chinese_community_size": "大（万锦/列治文山）",
+      "english_level": "高",
+      "chinese_community_size": "大",
       "neighborhoods": [
         "Downtown",
         "Kensington Market",
@@ -2271,7 +2469,10 @@
       "description": "加拿大最大城市，多元文化，华人社区庞大，但冬季寒冷。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 74,
+      "monthly_cost_usd_low": 1700,
+      "monthly_cost_usd_high": 2900
     },
     {
       "id": "zurich",
@@ -2289,7 +2490,7 @@
       "climate": "温带大陆",
       "avg_temp_c": 9,
       "rainy_season": "全年",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "中等",
       "neighborhoods": [
         "Altstadt",
@@ -2304,7 +2505,10 @@
       "description": "全球银行中心，生活质量最高，但成本全球顶级。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 73,
+      "monthly_cost_usd_low": 1925,
+      "monthly_cost_usd_high": 3350
     },
     {
       "id": "abudhabi",
@@ -2322,7 +2526,7 @@
       "climate": "热带沙漠",
       "avg_temp_c": 28,
       "rainy_season": "极少",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "中等",
       "neighborhoods": [
         "Al Maryah Island",
@@ -2337,7 +2541,10 @@
       "description": "比迪拜更安静、更保守，文化资源丰富，但夜生活较少。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 77,
+      "monthly_cost_usd_low": 1580,
+      "monthly_cost_usd_high": 2660
     },
     {
       "id": "auckland",
@@ -2355,7 +2562,7 @@
       "climate": "温带海洋",
       "avg_temp_c": 15,
       "rainy_season": "全年分布",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "大",
       "neighborhoods": [
         "CBD",
@@ -2371,7 +2578,10 @@
       "description": "帆船之都，户外活动丰富，但联合办公空间相对有限。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 69,
+      "monthly_cost_usd_low": 1730,
+      "monthly_cost_usd_high": 2960
     },
     {
       "id": "bangalore",
@@ -2405,7 +2615,10 @@
       "description": "印度硅谷，科技中心，联合办公丰富，但交通和污染挑战大。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 67,
+      "monthly_cost_usd_low": 950,
+      "monthly_cost_usd_high": 1400
     },
     {
       "id": "batumi",
@@ -2424,7 +2637,7 @@
       "avg_temp_c": 16,
       "rainy_season": "全年均匀",
       "english_level": "低",
-      "chinese_community_size": "极小",
+      "chinese_community_size": "小",
       "neighborhoods": [
         "海滨区",
         "老城区"
@@ -2437,7 +2650,10 @@
       "description": "黑海海滨度假城，亚热带气候，生活成本极低。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 61,
+      "monthly_cost_usd_low": 920,
+      "monthly_cost_usd_high": 1340
     },
     {
       "id": "bergen",
@@ -2455,7 +2671,7 @@
       "climate": "温带海洋",
       "avg_temp_c": 7,
       "rainy_season": "全年",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "小",
       "neighborhoods": [
         "Bryggen",
@@ -2470,7 +2686,10 @@
       "description": "七山之城，峡湾门户，雨城但绝美，海鲜天堂。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 67,
+      "monthly_cost_usd_low": 1775,
+      "monthly_cost_usd_high": 3050
     },
     {
       "id": "busan",
@@ -2504,7 +2723,10 @@
       "description": "海滨城市，生活成本低，适合喜欢海边的数字游民。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 70,
+      "monthly_cost_usd_low": 1475,
+      "monthly_cost_usd_high": 2450
     },
     {
       "id": "geneva",
@@ -2522,7 +2744,7 @@
       "climate": "温带大陆",
       "avg_temp_c": 10,
       "rainy_season": "全年",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "中等",
       "neighborhoods": [
         "老城",
@@ -2537,7 +2759,10 @@
       "description": "联合国城，国际外交中心，湖光山色，成本高。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 70,
+      "monthly_cost_usd_low": 1880,
+      "monthly_cost_usd_high": 3260
     },
     {
       "id": "guadalajara",
@@ -2569,7 +2794,10 @@
       "description": "墨西哥硅谷，科技中心， mariachi 故乡，比墨西哥城更实惠。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 63,
+      "monthly_cost_usd_low": 1025,
+      "monthly_cost_usd_high": 1550
     },
     {
       "id": "haifa",
@@ -2602,7 +2830,10 @@
       "description": "巴哈伊花园之城，科技产业，多元文化，比特拉维夫更实惠。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 65,
+      "monthly_cost_usd_low": 1475,
+      "monthly_cost_usd_high": 2450
     },
     {
       "id": "hanoi",
@@ -2636,7 +2867,10 @@
       "description": "越南首都，文化气息浓厚，生活节奏比胡志明慢，适合追求安静的数字游民。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 63,
+      "monthly_cost_usd_low": 1025,
+      "monthly_cost_usd_high": 1550
     },
     {
       "id": "lima",
@@ -2669,7 +2903,10 @@
       "description": "世界美食之都，太平洋海滨，文化丰富，美食场景顶级。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 64,
+      "monthly_cost_usd_low": 1070,
+      "monthly_cost_usd_high": 1640
     },
     {
       "id": "penang",
@@ -2702,7 +2939,10 @@
       "description": "文化遗产城市，美食天堂，生活成本极低，适合悠闲的数字游民。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 63,
+      "monthly_cost_usd_low": 1025,
+      "monthly_cost_usd_high": 1550
     },
     {
       "id": "queenstown",
@@ -2720,7 +2960,7 @@
       "climate": "温带海洋",
       "avg_temp_c": 10,
       "rainy_season": "全年",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "小",
       "neighborhoods": [
         "市中心",
@@ -2734,7 +2974,10 @@
       "description": "世界冒险之都，绝美山湖，极限运动天堂，但成本高。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 64,
+      "monthly_cost_usd_low": 1625,
+      "monthly_cost_usd_high": 2750
     },
     {
       "id": "reykjavik",
@@ -2752,7 +2995,7 @@
       "climate": "亚极地海洋",
       "avg_temp_c": 5,
       "rainy_season": "全年",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "小",
       "neighborhoods": [
         "101 Reykjavik",
@@ -2766,7 +3009,10 @@
       "description": "世界最北首都，极光与温泉，自然奇观，但成本极高。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 67,
+      "monthly_cost_usd_low": 1850,
+      "monthly_cost_usd_high": 3200
     },
     {
       "id": "rio_de_janeiro",
@@ -2800,7 +3046,10 @@
       "description": "热情桑巴之都，海滩生活，但安全需留意。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 62,
+      "monthly_cost_usd_low": 1130,
+      "monthly_cost_usd_high": 1760
     },
     {
       "id": "sanfrancisco",
@@ -2809,7 +3058,7 @@
       "country_id": "usa",
       "country_name": "美国",
       "digital_nomad_score": 78,
-      "cost_of_living_index": 105,
+      "cost_of_living_index": 100,
       "rent_index": 90,
       "safety_index": 50,
       "internet_speed_avg_mbps": 280,
@@ -2818,7 +3067,7 @@
       "climate": "地中海",
       "avg_temp_c": 14,
       "rainy_season": "11-4月",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "大",
       "neighborhoods": [
         "SOMA",
@@ -2834,7 +3083,10 @@
       "description": "硅谷心脏，科技氛围浓厚，但租金全美最高， homelessness 问题严重。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 82,
+      "monthly_cost_usd_low": 2075,
+      "monthly_cost_usd_high": 3650
     },
     {
       "id": "santiago",
@@ -2868,7 +3120,10 @@
       "description": "安第斯山下的现代都市，拉美最稳定经济体之一。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 67,
+      "monthly_cost_usd_low": 1220,
+      "monthly_cost_usd_high": 1940
     },
     {
       "id": "yerevan",
@@ -2887,7 +3142,7 @@
       "avg_temp_c": 12,
       "rainy_season": "4-5月",
       "english_level": "中等",
-      "chinese_community_size": "极小",
+      "chinese_community_size": "小",
       "neighborhoods": [
         "共和国广场",
         "北大街",
@@ -2901,7 +3156,10 @@
       "description": "高加索文化之都，生活成本低，互联网质量好，签证友好。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 63,
+      "monthly_cost_usd_low": 1025,
+      "monthly_cost_usd_high": 1550
     },
     {
       "id": "zagreb",
@@ -2934,7 +3192,10 @@
       "description": "中欧文化交汇点，生活成本低，咖啡馆文化丰富。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 66,
+      "monthly_cost_usd_low": 1175,
+      "monthly_cost_usd_high": 1850
     },
     {
       "id": "baku",
@@ -2953,7 +3214,7 @@
       "avg_temp_c": 15,
       "rainy_season": "11-3月",
       "english_level": "低",
-      "chinese_community_size": "极小",
+      "chinese_community_size": "小",
       "neighborhoods": [
         "旧城",
         "海滨大道",
@@ -2967,7 +3228,10 @@
       "description": "里海之滨的现代都市，石油经济推动发展，签证便利。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 61,
+      "monthly_cost_usd_low": 1100,
+      "monthly_cost_usd_high": 1700
     },
     {
       "id": "bogota",
@@ -3001,7 +3265,10 @@
       "description": "安第斯高原上的创业中心，联合办公生态成熟，成本低廉。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 64,
+      "monthly_cost_usd_low": 1070,
+      "monthly_cost_usd_high": 1640
     },
     {
       "id": "cebu",
@@ -3019,7 +3286,7 @@
       "climate": "热带",
       "avg_temp_c": 28,
       "rainy_season": "6-10月",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "中等",
       "neighborhoods": [
         "IT Park",
@@ -3033,7 +3300,10 @@
       "description": "南方皇后城，潜水胜地，比马尼拉更悠闲，生活成本低。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 61,
+      "monthly_cost_usd_low": 980,
+      "monthly_cost_usd_high": 1460
     },
     {
       "id": "colombo",
@@ -3065,7 +3335,10 @@
       "description": "印度洋上的宝石，破产危机后低成本，茶文化，海滩近。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 61,
+      "monthly_cost_usd_low": 920,
+      "monthly_cost_usd_high": 1340
     },
     {
       "id": "debrecen",
@@ -3084,7 +3357,7 @@
       "avg_temp_c": 10,
       "rainy_season": "5-6月",
       "english_level": "中等",
-      "chinese_community_size": "极小",
+      "chinese_community_size": "小",
       "neighborhoods": [
         "市中心",
         "Nagyerdő"
@@ -3097,7 +3370,10 @@
       "description": "匈牙利第二城，加尔文教中心，大平原门户，更安静。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 63,
+      "monthly_cost_usd_low": 980,
+      "monthly_cost_usd_high": 1460
     },
     {
       "id": "jeju",
@@ -3129,7 +3405,10 @@
       "description": "韩国夏威夷，火山岛，免签30天， Koreans 数字游民热门。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 65,
+      "monthly_cost_usd_low": 1175,
+      "monthly_cost_usd_high": 1850
     },
     {
       "id": "malacca",
@@ -3161,7 +3440,10 @@
       "description": "世界文化遗产古城，殖民历史，多元文化，小而美。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 61,
+      "monthly_cost_usd_low": 980,
+      "monthly_cost_usd_high": 1460
     },
     {
       "id": "tartu",
@@ -3180,7 +3462,7 @@
       "avg_temp_c": 6,
       "rainy_season": "全年",
       "english_level": "高",
-      "chinese_community_size": "极小",
+      "chinese_community_size": "小",
       "neighborhoods": [
         "老城",
         "Supilinn"
@@ -3193,7 +3475,10 @@
       "description": "爱沙尼亚第二城，大学城，欧洲最古老大学之一，安静学术氛围。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 65,
+      "monthly_cost_usd_low": 1130,
+      "monthly_cost_usd_high": 1760
     },
     {
       "id": "almaty",
@@ -3226,7 +3511,10 @@
       "description": "天山脚下的中亚枢纽，免签30天，生活成本低，自然美。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 62,
+      "monthly_cost_usd_low": 1025,
+      "monthly_cost_usd_high": 1550
     },
     {
       "id": "cusco",
@@ -3258,7 +3546,10 @@
       "description": "印加帝国首都，马丘比丘门户，海拔3400米需适应。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 59,
+      "monthly_cost_usd_low": 920,
+      "monthly_cost_usd_high": 1340
     },
     {
       "id": "doha",
@@ -3291,7 +3582,10 @@
       "description": "波斯湾明珠，现代建筑，世界杯效应，但夏季极热。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 66,
+      "monthly_cost_usd_low": 1550,
+      "monthly_cost_usd_high": 2600
     },
     {
       "id": "mendoza",
@@ -3310,7 +3604,7 @@
       "avg_temp_c": 16,
       "rainy_season": "极少",
       "english_level": "低",
-      "chinese_community_size": "极小",
+      "chinese_community_size": "小",
       "neighborhoods": [
         "市中心",
         "奇亚尼塔"
@@ -3323,7 +3617,10 @@
       "description": "葡萄酒之都，安第斯山脚下，适合户外爱好者和远程工作者。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 58,
+      "monthly_cost_usd_low": 950,
+      "monthly_cost_usd_high": 1400
     },
     {
       "id": "nairobi",
@@ -3356,7 +3653,10 @@
       "description": "非洲硅谷，Safari 门户，创业生态增长，安全需注意。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 60,
+      "monthly_cost_usd_low": 1070,
+      "monthly_cost_usd_high": 1640
     },
     {
       "id": "nicosia",
@@ -3388,7 +3688,10 @@
       "description": "欧盟最南首都，税收优惠，历史与现代交融。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 64,
+      "monthly_cost_usd_low": 1325,
+      "monthly_cost_usd_high": 2150
     },
     {
       "id": "akureyri",
@@ -3406,8 +3709,8 @@
       "climate": "亚极地海洋",
       "avg_temp_c": 4,
       "rainy_season": "全年",
-      "english_level": "极高",
-      "chinese_community_size": "极小",
+      "english_level": "高",
+      "chinese_community_size": "小",
       "neighborhoods": [
         "市中心",
         "Hafnarfjörður"
@@ -3420,7 +3723,10 @@
       "description": "北方之都，北极圈门户，极光观赏，冰岛第二城。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 62,
+      "monthly_cost_usd_low": 1775,
+      "monthly_cost_usd_high": 3050
     },
     {
       "id": "casablanca",
@@ -3452,7 +3758,10 @@
       "description": "摩洛哥经济中心，海滨现代都市，哈桑二世清真寺。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 61,
+      "monthly_cost_usd_low": 1130,
+      "monthly_cost_usd_high": 1760
     },
     {
       "id": "plovdiv",
@@ -3471,7 +3780,7 @@
       "avg_temp_c": 13,
       "rainy_season": "5-6月",
       "english_level": "低",
-      "chinese_community_size": "极小",
+      "chinese_community_size": "小",
       "neighborhoods": [
         "Kapana",
         "老城区"
@@ -3484,7 +3793,10 @@
       "description": "欧洲文化之都，艺术氛围浓厚，生活节奏慢。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 60,
+      "monthly_cost_usd_low": 950,
+      "monthly_cost_usd_high": 1400
     },
     {
       "id": "accra",
@@ -3517,7 +3829,10 @@
       "description": "西非门户，英语国家，创业生态增长，适合非洲探索者。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 57,
+      "monthly_cost_usd_low": 1025,
+      "monthly_cost_usd_high": 1550
     },
     {
       "id": "astana",
@@ -3549,7 +3864,10 @@
       "description": "未来主义建筑之城，寒冷但现代，新兴首都。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 60,
+      "monthly_cost_usd_low": 1070,
+      "monthly_cost_usd_high": 1640
     },
     {
       "id": "dilijan",
@@ -3568,7 +3886,7 @@
       "avg_temp_c": 10,
       "rainy_season": "5-6月",
       "english_level": "低",
-      "chinese_community_size": "极小",
+      "chinese_community_size": "小",
       "neighborhoods": [
         "市中心",
         "Getap"
@@ -3581,7 +3899,10 @@
       "description": "亚美尼亚瑞士，山林环抱，空气纯净，适合专注工作。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 57,
+      "monthly_cost_usd_low": 920,
+      "monthly_cost_usd_high": 1340
     },
     {
       "id": "jakarta",
@@ -3614,7 +3935,10 @@
       "description": "东南亚最大城市，经济中心，交通拥堵，但机会多。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 62,
+      "monthly_cost_usd_low": 1070,
+      "monthly_cost_usd_high": 1640
     },
     {
       "id": "johannesburg",
@@ -3632,7 +3956,7 @@
       "climate": "亚热带高原",
       "avg_temp_c": 16,
       "rainy_season": "10-3月",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "中等",
       "neighborhoods": [
         "Sandton",
@@ -3647,7 +3971,10 @@
       "description": "非洲经济引擎，矿业历史，安全挑战大，但机会多。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 61,
+      "monthly_cost_usd_low": 1100,
+      "monthly_cost_usd_high": 1700
     },
     {
       "id": "kathmandu",
@@ -3680,7 +4007,10 @@
       "description": "喜马拉雅门户，精神文化中心，生活成本极低，适合徒步爱好者。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 57,
+      "monthly_cost_usd_low": 830,
+      "monthly_cost_usd_high": 1160
     },
     {
       "id": "manila",
@@ -3698,7 +4028,7 @@
       "climate": "热带",
       "avg_temp_c": 28,
       "rainy_season": "6-10月",
-      "english_level": "极高",
+      "english_level": "高",
       "chinese_community_size": "中等",
       "neighborhoods": [
         "BGC",
@@ -3714,7 +4044,10 @@
       "description": "东南亚英语中心，BPO产业庞大，海岛跳岛便利，但交通拥堵。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 61,
+      "monthly_cost_usd_low": 1025,
+      "monthly_cost_usd_high": 1550
     },
     {
       "id": "pattaya",
@@ -3747,7 +4080,10 @@
       "description": "海滨度假城，离曼谷近，生活成本低，但夜生活导向。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 56,
+      "monthly_cost_usd_low": 1025,
+      "monthly_cost_usd_high": 1550
     },
     {
       "id": "salzburg",
@@ -3779,7 +4115,10 @@
       "description": "莫扎特故乡，阿尔卑斯山门户，风景绝美。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 61,
+      "monthly_cost_usd_low": 1475,
+      "monthly_cost_usd_high": 2450
     },
     {
       "id": "valparaiso",
@@ -3798,7 +4137,7 @@
       "avg_temp_c": 14,
       "rainy_season": "5-8月",
       "english_level": "低",
-      "chinese_community_size": "极小",
+      "chinese_community_size": "小",
       "neighborhoods": [
         "Cerro Alegre",
         "Cerro Concepción"
@@ -3811,7 +4150,10 @@
       "description": "彩色涂鸦山城，波西米亚氛围，艺术家聚集地。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 58,
+      "monthly_cost_usd_low": 1025,
+      "monthly_cost_usd_high": 1550
     },
     {
       "id": "cairo",
@@ -3844,7 +4186,10 @@
       "description": "千年古都，金字塔门户，生活成本极低，但基础设施挑战大。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 55,
+      "monthly_cost_usd_low": 875,
+      "monthly_cost_usd_high": 1250
     },
     {
       "id": "delhi",
@@ -3878,7 +4223,10 @@
       "description": "印度首都，历史与现代碰撞，美食天堂，但空气质量差。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 60,
+      "monthly_cost_usd_low": 980,
+      "monthly_cost_usd_high": 1460
     },
     {
       "id": "luxor",
@@ -3910,7 +4258,10 @@
       "description": "世界最大露天博物馆，神庙与陵墓，历史爱好者的天堂。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 53,
+      "monthly_cost_usd_low": 800,
+      "monthly_cost_usd_high": 1100
     },
     {
       "id": "sharjah",
@@ -3942,7 +4293,10 @@
       "description": "阿联酋文化之都，比迪拜更保守但更便宜，家庭友好。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 59,
+      "monthly_cost_usd_low": 1175,
+      "monthly_cost_usd_high": 1850
     },
     {
       "id": "tashkent",
@@ -3974,7 +4328,10 @@
       "description": "丝绸之路枢纽，中亚最大城，免签10天，探索中亚门户。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 57,
+      "monthly_cost_usd_low": 920,
+      "monthly_cost_usd_high": 1340
     },
     {
       "id": "sheki",
@@ -3993,7 +4350,7 @@
       "avg_temp_c": 12,
       "rainy_season": "4-5月",
       "english_level": "低",
-      "chinese_community_size": "极小",
+      "chinese_community_size": "小",
       "neighborhoods": [
         "老城区"
       ],
@@ -4005,7 +4362,10 @@
       "description": "丝绸之路古城，皇宫与商队旅馆，保存完好的历史。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 53,
+      "monthly_cost_usd_low": 830,
+      "monthly_cost_usd_high": 1160
     },
     {
       "id": "ulaanbaatar",
@@ -4037,7 +4397,10 @@
       "description": "世界最冷首都，草原文化，免签30天，独特体验。",
       "status": "published",
       "updated_at": "2026-07-06T00:00:00Z",
-      "source": "Numbeo 2026, Nomad List, Local Research"
+      "source": "Numbeo 2026, Nomad List, Local Research",
+      "remote_work_friendly_score": 54,
+      "monthly_cost_usd_low": 950,
+      "monthly_cost_usd_high": 1400
     },
     {
       "id": "macao-city",
@@ -4056,7 +4419,7 @@
       "avg_temp_c": 23,
       "rainy_season": "5-9月",
       "english_level": "中等",
-      "chinese_community_size": "N/A",
+      "chinese_community_size": "小",
       "neighborhoods": [
         "澳门半岛",
         "氹仔",
@@ -4070,7 +4433,10 @@
       "description": "税率低，生活节奏慢，但联合办公空间有限，适合短期居留。",
       "status": "published",
       "updated_at": "2026-01-15T00:00:00Z",
-      "source": "Numbeo 2026"
+      "source": "Numbeo 2026",
+      "remote_work_friendly_score": 62,
+      "monthly_cost_usd_low": 1550,
+      "monthly_cost_usd_high": 2600
     }
   ]
 }
