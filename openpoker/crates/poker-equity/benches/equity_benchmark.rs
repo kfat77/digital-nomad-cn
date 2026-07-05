@@ -1,1 +1,0 @@
-use criterion::{criterion_group, criterion_main, Criterion};/n/nfn bench_equity(c: &mut Criterion) {/n    c.bench_function(//noop//, |b| b.iter(|| {}));/n}/n/ncriterion_group!(benches, bench_equity);/ncriterion_main!(benches);
