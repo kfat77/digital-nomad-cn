@@ -67,6 +67,7 @@
                 <a href="compare/" class="btn btn-secondary">国家对比</a>
                 <a href="https://github.com/kfat77/digital-nomad-cn" class="btn btn-secondary" target="_blank">查看源码</a>
             </div>
+            <p class="hero-freshness" id="dataFreshness" style="margin-top:16px;font-size:13px;color:var(--muted);opacity:0.8;">数据加载中...</p>
         </div>
     </section>
 
@@ -445,6 +446,21 @@
             navigator.serviceWorker.register('sw.js').catch(() => {});
         });
     }
+    // Data freshness badge
+    (async function() {
+        try {
+            const res = await fetch('api/stats.json', {cache: 'no-cache'});
+            const data = await res.json();
+            const updated = data.updated_at || data.last_updated;
+            if (updated) {
+                const date = new Date(updated);
+                const str = date.toLocaleDateString('zh-CN', {year:'numeric', month:'long', day:'numeric'});
+                document.getElementById('dataFreshness').textContent = '数据更新于 ' + str;
+            }
+        } catch(e) {
+            document.getElementById('dataFreshness').textContent = '';
+        }
+    })();
     </script>
 </body>
 </html>
