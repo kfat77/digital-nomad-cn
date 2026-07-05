@@ -1,0 +1,31 @@
+{
+  "id": "sheki",
+  "name": "舍基",
+  "name_en": "Sheki",
+  "country_id": "azerbaijan",
+  "country_name": "阿塞拜疆",
+  "digital_nomad_score": 68,
+  "cost_of_living_index": 22,
+  "rent_index": 8,
+  "safety_index": 80,
+  "internet_speed_avg_mbps": 35,
+  "coworking_spaces": 5,
+  "coworking_score": 50,
+  "climate": "温带",
+  "avg_temp_c": 12,
+  "rainy_season": "4-5月",
+  "english_level": "低",
+  "chinese_community_size": "极小",
+  "neighborhoods": [
+    "老城区"
+  ],
+  "food_scene": "sheki halva、piti",
+  "nightlife": "传统茶馆",
+  "transportation": "巴士/出租车",
+  "walkability": 90,
+  "bike_friendly": 60,
+  "description": "丝绸之路古城，皇宫与商队旅馆，保存完好的历史。",
+  "status": "published",
+  "updated_at": "2026-07-06T00:00:00Z",
+  "source": "Numbeo 2026, Nomad List, Local Research"
+}
