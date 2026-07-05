@@ -31,7 +31,7 @@
     "format": "prettier --write \"website/**/*.{js,css,json,md}\""
   },
   "devDependencies": {
-    "vite": "^6.0.0",
+    "vite": "^8.1.3",
     "eslint": "^9.0.0",
     "stylelint": "^16.0.0",
     "prettier": "^3.0.0",
