@@ -1,0 +1,59 @@
+{
+  "id": "newzealand",
+  "name": "新西兰",
+  "name_en": "New Zealand",
+  "name_local": "New Zealand",
+  "code_iso_3166_1": "NZ",
+  "code_iso_3166_3": "NZL",
+  "region": "oceania",
+  "sub_region": "australia_new_zealand",
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": false,
+  "coordinates": {
+    "lat": -40.9006,
+    "lon": 174.8869
+  },
+  "timezone": [
+    "Pacific/Auckland"
+  ],
+  "currency": [
+    {
+      "code": "NZD",
+      "name": "新西兰元",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "en",
+      "name": "English",
+      "is_official": true
+    },
+    {
+      "code": "mi",
+      "name": "Māori",
+      "is_official": true
+    }
+  ],
+  "population": 5123000,
+  "area_km2": 268021,
+  "gdp_per_capita_usd": 47000,
+  "hdi": 0.937,
+  "safety_index": 70.0,
+  "internet_speed_avg_mbps": 150,
+  "cost_of_living_index": 78.0,
+  "rent_index": 45.0,
+  "china_passport_visa_status": "visa_required",
+  "china_passport_visa_note": "WHV 1000名额/年，先到先得；旅游签证可在线申请",
+  "digital_nomad_score": 76,
+  "tags": [
+    "english",
+    "nature",
+    "whv",
+    "oceania",
+    "work_life_balance"
+  ],
+  "status": "published",
+  "updated_at": "2026-01-15T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025, Immigration NZ"
+}
