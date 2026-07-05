@@ -1,0 +1,27 @@
+[package]
+name = "poker-equity"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+rust-version.workspace = true
+description = "Poker equity calculator: Monte Carlo + Exact enumeration"
+
+[dependencies]
+poker-types = { workspace = true }
+poker-eval = { workspace = true }
+poker-range = { workspace = true }
+rand = { workspace = true }
+rayon = { workspace = true }
+serde = { workspace = true }
+
+# [dev-dependencies]
+# criterion = { workspace = true }
+
+# [[bench]]
+# name = "equity_benchmark"
+# harness = false

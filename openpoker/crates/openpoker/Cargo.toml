@@ -1,0 +1,24 @@
+[package]
+name = "openpoker"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+rust-version.workspace = true
+description = "OpenPoker — Unified facade crate for the poker engine"
+
+[dependencies]
+poker-types = { workspace = true }
+poker-eval = { workspace = true }
+poker-equity = { workspace = true }
+poker-range = { workspace = true }
+poker-solver = { workspace = true }
+poker-parser = { workspace = true }
+poker-trainer = { workspace = true }
+serde = { workspace = true }
+
+[dev-dependencies]

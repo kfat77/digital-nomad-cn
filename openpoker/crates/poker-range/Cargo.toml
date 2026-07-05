@@ -1,0 +1,17 @@
+[package]
+name = "poker-range"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+rust-version.workspace = true
+description = "Poker range algebra: 1326-bit mask representation"
+
+[dependencies]
+poker-types = { workspace = true }
+
+[dev-dependencies]
