@@ -4,43 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>数字游民国家数据库 - 全球数字游民目的地指南</title>
-    <meta name="description" content="面向中国数字游民的国家数据库，包含签证政策、生活成本、安全指数、网络速度等20+国家详情。覆盖亚洲、欧洲、北美、大洋洲、中东。">
-    <meta name="keywords" content="数字游民国家, 数字游民目的地, 数字游民签证, 远程工作国家, 中国护照免签, 数字游民生活成本">
-    <meta property="og:title" content="数字游民国家数据库 - 20+目的地全覆盖">
-    <meta property="og:description" content="签证、成本、安全、网络速度等20+国家详情，为中国数字游民提供一站式国家选择指南。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kfat77.github.io/digital-nomad-cn/country/">
+    <meta name="description" content="面向中国数字游民的国家数据库，包含签证政策、生活成本、安全指数、网络速度等20+国家详情。">
     <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/country/">
     <link rel="stylesheet" href="../style.css">
     <style>
         .country-hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 20px 40px; text-align: center; }
         .country-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
         .country-hero p { opacity: 0.9; max-width: 600px; margin: 0 auto; }
-        .stats-bar { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
-        .stats-bar .item { text-align: center; }
-        .stats-bar .value { font-size: 1.5rem; font-weight: 700; }
-        .stats-bar .label { font-size: 0.8rem; opacity: 0.8; }
         .filters { background: #f8fafc; padding: 20px; border-bottom: 1px solid #e2e8f0; }
-        .filters-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; align-items: center; }
-        .filters select, .filters input { padding: 0.6rem 1rem; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.9rem; background: white; }
-        .country-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
-        .no-results { text-align: center; padding: 3rem; color: #64748b; display: none; }
+        .filters-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+        .filters select, .filters input { padding: 0.5rem 1rem; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.9rem; }
+        .country-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
     </style>
 </head>
 <body>
-    <nav style="padding: 1rem 20px; max-width: 1200px; margin: 0 auto; font-size: 0.9rem; color: #64748b;">
+    <nav class="breadcrumb" style="padding: 1rem 20px; max-width: 1200px; margin: 0 auto; font-size: 0.9rem; color: #64748b;">
         <a href="../" style="color: #2563eb; text-decoration: none;">首页</a> › 国家数据库
     </nav>
     
     <header class="country-hero">
         <h1>🌍 数字游民国家数据库</h1>
         <p>20+ 个精选数字游民目的地，签证、成本、安全、网络全覆盖。按数字游民评分排序。</p>
-        <div class="stats-bar">
-            <div class="item"><div class="value">20</div><div class="label">覆盖国家</div></div>
-            <div class="item"><div class="value">5</div><div class="label">大洲</div></div>
-            <div class="item"><div class="value">3</div><div class="label">免签</div></div>
-            <div class="item"><div class="value">4</div><div class="label">数字游民签证</div></div>
-        </div>
     </header>
     
     <div class="filters">
@@ -60,22 +44,18 @@
                 <option value="visa_required">需签证</option>
             </select>
             <input type="text" id="search" placeholder="搜索国家...">
-            <span id="count" style="color:#64748b;font-size:0.85rem;">显示 20 个国家</span>
         </div>
     </div>
     
-    <div class="country-grid" id="grid">
+    <div class="country-grid">
         
-        <a href="portugal.html" class="country-card" data-region="europe" data-visa="visa_required" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="portugal.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">葡萄牙</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Portugal | 欧洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Portugal</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">88</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">88</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 55.0</div>
@@ -89,16 +69,13 @@
         </a>
         
 
-        <a href="singapore.html" class="country-card" data-region="asia" data-visa="visa_required" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="singapore.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">新加坡</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Singapore | 亚洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Singapore</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">88</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">88</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 95.0</div>
@@ -112,16 +89,13 @@
         </a>
         
 
-        <a href="japan.html" class="country-card" data-region="asia" data-visa="visa_required" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="japan.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">日本</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Japan | 亚洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Japan</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">87</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">87</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 85.0</div>
@@ -135,16 +109,13 @@
         </a>
         
 
-        <a href="spain.html" class="country-card" data-region="europe" data-visa="visa_required" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="spain.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">西班牙</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Spain | 欧洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Spain</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">86</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">86</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 58.0</div>
@@ -158,16 +129,13 @@
         </a>
         
 
-        <a href="thailand.html" class="country-card" data-region="asia" data-visa="visa_free" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="thailand.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">泰国</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Thailand | 亚洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Thailand</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">85</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">85</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 45.0</div>
@@ -181,16 +149,13 @@
         </a>
         
 
-        <a href="uae.html" class="country-card" data-region="middle_east" data-visa="visa_free" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="uae.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">阿联酋</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">United Arab Emirates | 中东</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">United Arab Emirates</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">85</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">85</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 70.0</div>
@@ -204,16 +169,13 @@
         </a>
         
 
-        <a href="hongkong.html" class="country-card" data-region="asia" data-visa="visa_required" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="hongkong.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">香港</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Hong Kong | 亚洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Hong Kong</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">82</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">82</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 85.0</div>
@@ -227,16 +189,13 @@
         </a>
         
 
-        <a href="netherlands.html" class="country-card" data-region="europe" data-visa="visa_required" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="netherlands.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">荷兰</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Netherlands | 欧洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Netherlands</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">82</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">82</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 78.0</div>
@@ -250,16 +209,13 @@
         </a>
         
 
-        <a href="estonia.html" class="country-card" data-region="europe" data-visa="evisa" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="estonia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">爱沙尼亚</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Estonia | 欧洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Estonia</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">80</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">80</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 60.0</div>
@@ -273,16 +229,13 @@
         </a>
         
 
-        <a href="southkorea.html" class="country-card" data-region="asia" data-visa="visa_required" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="southkorea.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">韩国</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">South Korea | 亚洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">South Korea</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">80</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">80</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 78.0</div>
@@ -296,16 +249,13 @@
         </a>
         
 
-        <a href="australia.html" class="country-card" data-region="oceania" data-visa="visa_required" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="australia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">澳大利亚</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Australia | 大洋洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Australia</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">78</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">78</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 82.0</div>
@@ -319,16 +269,13 @@
         </a>
         
 
-        <a href="germany.html" class="country-card" data-region="europe" data-visa="visa_required" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="germany.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">德国</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Germany | 欧洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Germany</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">78</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">78</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 72.0</div>
@@ -342,16 +289,13 @@
         </a>
         
 
-        <a href="malaysia.html" class="country-card" data-region="asia" data-visa="visa_free" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="malaysia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">马来西亚</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Malaysia | 亚洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Malaysia</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">78</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">78</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 40.0</div>
@@ -365,16 +309,13 @@
         </a>
         
 
-        <a href="canada.html" class="country-card" data-region="americas_north" data-visa="visa_required" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="canada.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">加拿大</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Canada | 北美</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Canada</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">77</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">77</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 75.0</div>
@@ -388,16 +329,13 @@
         </a>
         
 
-        <a href="france.html" class="country-card" data-region="europe" data-visa="visa_required" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="france.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">法国</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">France | 欧洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">France</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">77</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">77</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 75.0</div>
@@ -411,16 +349,13 @@
         </a>
         
 
-        <a href="newzealand.html" class="country-card" data-region="oceania" data-visa="visa_required" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="newzealand.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">新西兰</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">New Zealand | 大洋洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">New Zealand</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">76</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">76</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 78.0</div>
@@ -434,16 +369,13 @@
         </a>
         
 
-        <a href="uk.html" class="country-card" data-region="europe" data-visa="visa_required" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="uk.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">英国</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">United Kingdom | 欧洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">United Kingdom</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">75</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">75</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 80.0</div>
@@ -457,16 +389,13 @@
         </a>
         
 
-        <a href="vietnam.html" class="country-card" data-region="asia" data-visa="evisa" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="vietnam.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">越南</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Vietnam | 亚洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Vietnam</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">75</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">75</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 35.0</div>
@@ -480,16 +409,13 @@
         </a>
         
 
-        <a href="usa.html" class="country-card" data-region="americas_north" data-visa="visa_required" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="usa.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">美国</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">United States | 北美</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">United States</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">72</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">72</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 88.0</div>
@@ -503,16 +429,13 @@
         </a>
         
 
-        <a href="macao.html" class="country-card" data-region="asia" data-visa="visa_required" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="macao.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">澳门</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Macao | 亚洲</p>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Macao</p>
                 </div>
-                <div style="text-align:right;">
-                    <span style="font-size:1.5rem;font-weight:700;color:#2563eb;display:block;">65</span>
-                    <span style="font-size:0.7rem;color:#64748b;">数字游民评分</span>
-                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">65</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
                 <div>💰 生活成本: 70.0</div>
@@ -527,51 +450,27 @@
         
     </div>
     
-    <div class="no-results" id="no-results">
-        <p style="font-size:1.2rem;">🔍 未找到符合条件的国家</p>
-        <p>请尝试调整筛选条件</p>
-    </div>
-    
     <footer style="background:#1e293b;color:#94a3b8;padding:40px 20px;text-align:center;">
         <p>© 2026 数字游民指南 | 面向中国用户的全球流动基础设施</p>
-        <p style="margin-top:0.5rem;font-size:0.9rem;">
-            <a href="../" style="color:#64748b;">首页</a> |
-            <a href="https://github.com/kfat77/digital-nomad-cn" style="color:#64748b;" target="_blank">GitHub</a>
-        </p>
     </footer>
     
     <script>
+        // Simple client-side filtering (static data embedded in HTML via cards)
         const cards = document.querySelectorAll('.country-card');
         const regionFilter = document.getElementById('region-filter');
         const visaFilter = document.getElementById('visa-filter');
         const searchInput = document.getElementById('search');
-        const countLabel = document.getElementById('count');
-        const noResults = document.getElementById('no-results');
-        const grid = document.getElementById('grid');
         
         function filter() {
             const region = regionFilter.value.toLowerCase();
             const visa = visaFilter.value.toLowerCase();
             const query = searchInput.value.toLowerCase();
-            let visible = 0;
             
             cards.forEach(card => {
-                const cardRegion = card.getAttribute('data-region').toLowerCase();
-                const cardVisa = card.getAttribute('data-visa').toLowerCase();
                 const text = card.textContent.toLowerCase();
-                
-                const matchRegion = !region || cardRegion === region;
-                const matchVisa = !visa || cardVisa === visa;
                 const matchQuery = !query || text.includes(query);
-                
-                const show = matchRegion && matchVisa && matchQuery;
-                card.style.display = show ? 'block' : 'none';
-                if (show) visible++;
+                card.style.display = matchQuery ? 'block' : 'none';
             });
-            
-            countLabel.textContent = `显示 ${visible} 个国家`;
-            noResults.style.display = visible === 0 ? 'block' : 'none';
-            grid.style.display = visible === 0 ? 'none' : 'grid';
         }
         
         regionFilter.addEventListener('change', filter);
