@@ -15,7 +15,7 @@
     <img src="https://img.shields.io/github/issues/kfat77/digital-nomad-cn?style=flat&color=ef4444&label=Issues" alt="GitHub Issues">
   </a>
   <a href="https://github.com/kfat77/digital-nomad-cn/actions">
-    <img src="https://github.com/kfat77/digital-nomad-cn/actions/workflows/generate-and-deploy.yml/badge.svg" alt="CI/CD">
+    <img src="https://github.com/kfat77/digital-nomad-cn/actions/workflows/data-update.yml/badge.svg" alt="CI/CD">
   </a>
   <br>
   <a href="https://kfat77.github.io/digital-nomad-cn/">
@@ -43,6 +43,7 @@
 | 🗺️ 数字游民路线 | **3** | ✅ 已上线 | 东南亚、欧洲申根、地中海 |
 | 📊 对比工具 | **60** | ✅ 已上线 | 31 国对比 + 29 城对比，12 维度指标 |
 | 🔍 搜索 | **242** | ✅ 已上线 | 60 国 + 122 城 + 60 对比页模糊搜索 |
+| 📝 文章 | **3** | ✅ 已上线 | 数据驱动的深度文章：签证攻略、排名、指南 |
 | 🔌 数据 API | **5** | ✅ 已上线 | 静态 JSON API，开放供 AI Agent 调用 |
 
 ---
@@ -105,6 +106,11 @@ python -m http.server 8080
 - 加权评分算法，Top 5 推荐 + 匹配理由
 - 前三名对比表格
 - 中英双语版本
+
+### 📝 数据驱动文章
+- 3 篇深度数据文章：免签指南、数字游民排名、签证完全指南
+- 基于 60 国/122 城实时数据自动生成，确保信息一致性
+- Article Schema.org 结构化标记，提升 AI Search 可见度
 
 ### 🗺️ 数字游民路线
 - 3 条经典路线：东南亚环线、欧洲申根环、地中海慢游
@@ -183,7 +189,8 @@ digital-nomad-cn/
 │
 ├── 📁 .github/
 │   ├── workflows/           # CI/CD 自动化
-│   │   └── generate-and-deploy.yml
+│   │   ├── data-update.yml    # 月度数据更新 + 异常检测
+│   │   └── sync-to-docs.yml   # 自动同步 website/ → docs/
 │   └── ISSUE_TEMPLATE/    # 议题模板
 │
 ├── 📁 docs/ (repo)        # 项目文档
@@ -277,9 +284,34 @@ git push origin add-country-romania
 | ✅ 英文对比页 | 31 国对比 + 29 城对比，60 个英文对比页 | 已完成 |
 | ✅ 数据质量 | 60 国签证数据补全 + 全站统计修复 + 浮点精度 | 已完成 |
 | ✅ 多语言 SEO | 485 页 hreflang 标签 + 502 URL 站点地图 | 已完成 |
+| ✅ 文章系统 | 数据驱动文章生成 + 3 篇首发 | 已完成 |
 | 📋 社区功能 | 用户评论、评分、经验分享 | 计划中 |
 
 完整路线图：[36MONTH_ROADMAP.md](docs/36MONTH_ROADMAP.md)
+
+---
+
+## ⭐ Star History
+
+<p align="center">
+  <a href="https://star-history.com/#kfat77/digital-nomad-cn&Date">
+    <img src="https://api.star-history.com/svg?repos=kfat77/digital-nomad-cn&type=Date" alt="Star History Chart" width="600">
+  </a>
+</p>
+
+---
+
+## 👥 Contributors
+
+感谢所有为这个项目做出贡献的人！
+
+<p align="center">
+  <a href="https://github.com/kfat77/digital-nomad-cn/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=kfat77/digital-nomad-cn" alt="Contributors" />
+  </a>
+</p>
+
+<a href="https://github.com/kfat77/digital-nomad-cn/issues/new">成为第一个贡献者 →</a>
 
 ---
 

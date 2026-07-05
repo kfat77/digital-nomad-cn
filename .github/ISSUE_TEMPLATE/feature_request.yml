@@ -1,48 +1,39 @@
-name: 💡 Feature Request
-description: Suggest a new feature or improvement
+name: ✨ 功能建议
+description: 提出新功能、改进或用户体验优化建议
 title: "[Feature] "
-labels: ["enhancement", "triage"]
+labels: ["enhancement"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢提出功能建议！请描述你的想法和预期效果。
   - type: textarea
     id: problem
     attributes:
-      label: Problem / Pain Point
-      description: What problem are you trying to solve?
-      placeholder: "I often need to compare multiple countries side by side but currently have to open multiple tabs..."
+      label: 问题 / 痛点
+      description: 这个功能解决什么问题？
+      placeholder: 目前无法对比超过 4 个国家的数据...
     validations:
       required: true
-
   - type: textarea
     id: solution
     attributes:
-      label: Proposed Solution
-      description: Describe your idea
-      placeholder: "Add a country comparison page where users can select 2-3 countries and see a side-by-side comparison table..."
+      label: 建议的解决方案
+      description: 你希望如何实现？
+      placeholder: 支持添加更多国家到对比列表中...
     validations:
       required: true
-
   - type: textarea
     id: alternatives
     attributes:
-      label: Alternatives Considered
-      description: Have you considered other solutions?
-      placeholder: "I tried using the existing data pages but it's hard to compare more than 2 countries..."
-
-  - type: dropdown
-    id: priority
+      label: 替代方案
+      description: 你有没有考虑过其他实现方式？
+    validations:
+      required: false
+  - type: textarea
+    id: context
     attributes:
-      label: Priority
-      options:
-        - Nice to have
-        - Would help significantly
-        - Critical for my use case
-
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Would you like to contribute?
-      options:
-        - label: I can help design this feature
-          required: false
-        - label: I can help implement this feature
-          required: false
+      label: 补充说明
+      description: 任何其他背景信息或参考链接
+    validations:
+      required: false
