@@ -1,0 +1,17 @@
+{
+  "name": "@openpoker/core",
+  "version": "0.0.1",
+  "description": "WASM bindings for OpenPoker engine",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist", "wasm"],
+  "scripts": {
+    "build": "tsc && wasm-pack build ../../crates/openpoker --target web --out-dir ./wasm",
+    "test": "vitest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "vitest": "^1.0.0"
+  }
+}

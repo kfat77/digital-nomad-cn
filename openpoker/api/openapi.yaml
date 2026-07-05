@@ -1,0 +1,35 @@
+openapi: 3.1.0
+info:
+  title: OpenPoker API
+  version: 1.0.0
+  description: |
+    RESTful API for the Open Poker Intelligence Platform.
+    Also available via MCP Server and gRPC.
+servers:
+  - url: https://api.openpoker.dev/v1
+paths:
+  /equity:
+    post:
+      summary: Calculate equity
+      operationId: calculateEquity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                hero: { type: string, example: "AsKh" }
+                villains: { type: array, items: { type: string } }
+                board: { type: string, example: "Ts9d2h" }
+                iterations: { type: integer, default: 100000 }
+      responses:
+        '200':
+          description: Equity result
+  /health:
+    get:
+      summary: Health check
+      operationId: healthCheck
+      responses:
+        '200':
+          description: Healthy

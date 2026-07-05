@@ -1,0 +1,28 @@
+[package]
+name = "openpoker-wasm"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+rust-version.workspace = true
+description = "OpenPoker WASM bindings for web"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+poker-types = { workspace = true }
+poker-eval = { workspace = true }
+poker-equity = { workspace = true }
+wasm-bindgen = "0.2"
+serde = { workspace = true }
+serde-wasm-bindgen = "0.6"
+getrandom = { version = "0.2", features = ["js"] }
+
+[dependencies.web-sys]
+version = "0.3"
+features = ["console"]

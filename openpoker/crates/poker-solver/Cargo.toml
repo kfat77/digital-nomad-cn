@@ -1,0 +1,20 @@
+[package]
+name = "poker-solver"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+rust-version.workspace = true
+description = "GTO solver using Discounted CFR (DCFR)"
+
+[dependencies]
+poker-types = { workspace = true }
+poker-eval = { workspace = true }
+poker-range = { workspace = true }
+serde = { workspace = true }
+
+[dev-dependencies]
