@@ -1,0 +1,48 @@
+name: 💡 Feature Request
+description: Suggest a new feature or improvement
+title: "[Feature] "
+labels: ["enhancement", "triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / Pain Point
+      description: What problem are you trying to solve?
+      placeholder: "I often need to compare multiple countries side by side but currently have to open multiple tabs..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe your idea
+      placeholder: "Add a country comparison page where users can select 2-3 countries and see a side-by-side comparison table..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you considered other solutions?
+      placeholder: "I tried using the existing data pages but it's hard to compare more than 2 countries..."
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Nice to have
+        - Would help significantly
+        - Critical for my use case
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Would you like to contribute?
+      options:
+        - label: I can help design this feature
+          required: false
+        - label: I can help implement this feature
+          required: false
