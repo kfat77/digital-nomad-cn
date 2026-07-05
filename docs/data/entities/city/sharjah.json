@@ -1,0 +1,32 @@
+{
+  "id": "sharjah",
+  "name": "沙迦",
+  "name_en": "Sharjah",
+  "country_id": "uae",
+  "country_name": "阿联酋",
+  "digital_nomad_score": 70,
+  "cost_of_living_index": 45,
+  "rent_index": 22,
+  "safety_index": 88,
+  "internet_speed_avg_mbps": 65,
+  "coworking_spaces": 15,
+  "coworking_score": 60,
+  "climate": "沙漠",
+  "avg_temp_c": 27,
+  "rainy_season": "12-3月",
+  "english_level": "中等",
+  "chinese_community_size": "小",
+  "neighborhoods": [
+    "Al Khan",
+    "Al Majaz"
+  ],
+  "food_scene": "阿拉伯菜、国际美食",
+  "nightlife": "家庭为主、Al Majaz 海滨",
+  "transportation": "巴士/出租车",
+  "walkability": 65,
+  "bike_friendly": 40,
+  "description": "阿联酋文化之都，比迪拜更保守但更便宜，家庭友好。",
+  "status": "published",
+  "updated_at": "2026-07-06T00:00:00Z",
+  "source": "Numbeo 2026, Nomad List, Local Research"
+}

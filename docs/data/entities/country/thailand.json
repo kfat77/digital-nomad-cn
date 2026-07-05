@@ -34,10 +34,10 @@
   "area_km2": 513120,
   "gdp_per_capita_usd": 7500,
   "hdi": 0.8,
-  "safety_index": 65.0,
+  "safety_index": 65,
   "internet_speed_avg_mbps": 200,
-  "cost_of_living_index": 45.0,
-  "rent_index": 20.0,
+  "cost_of_living_index": 45,
+  "rent_index": 20,
   "china_passport_visa_status": "visa_free",
   "china_passport_visa_note": "免签60天，可延期30天",
   "digital_nomad_score": 85,
@@ -49,6 +49,8 @@
     "nomad_visa"
   ],
   "status": "published",
-  "updated_at": "2026-01-15T00:00:00Z",
-  "source": "Numbeo 2026, World Bank 2025, Thai Immigration"
+  "updated_at": "2026-07-05T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025, Thai Immigration",
+  "flag_emoji": "🇹🇭",
+  "chinese_passport_visa_status": "免签（60天）"
 }

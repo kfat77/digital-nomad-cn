@@ -10,10 +10,32 @@
   "is_special_admin_region": false,
   "is_digital_nomad_friendly": true,
   "has_digital_nomad_visa": true,
-  "coordinates": {"lat": 45.1, "lon": 15.2},
-  "timezone": ["Europe/Zagreb"],
-  "currency": [{"code": "EUR", "name": "欧元", "is_primary": true}],
-  "languages": [{"code": "hr", "name": "克罗地亚语", "is_official": true}, {"code": "en", "name": "英语", "is_official": false}],
+  "coordinates": {
+    "lat": 45.1,
+    "lon": 15.2
+  },
+  "timezone": [
+    "Europe/Zagreb"
+  ],
+  "currency": [
+    {
+      "code": "EUR",
+      "name": "欧元",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "hr",
+      "name": "克罗地亚语",
+      "is_official": true
+    },
+    {
+      "code": "en",
+      "name": "英语",
+      "is_official": false
+    }
+  ],
   "population": 3900000,
   "area_km2": 56594,
   "gdp_per_capita_usd": 18000,
@@ -25,8 +47,16 @@
   "china_passport_visa_status": "evisa",
   "china_passport_visa_note": "需提前申请申根签证（克罗地亚已加入申根区），有效期90天",
   "digital_nomad_score": 75,
-  "tags": ["申根区", "地中海", "数字游民签证", "海滨生活", "欧盟"],
+  "tags": [
+    "申根区",
+    "地中海",
+    "数字游民签证",
+    "海滨生活",
+    "欧盟"
+  ],
   "status": "published",
-  "updated_at": "2026-01-15",
-  "source": "Numbeo, World Bank, 克罗地亚数字游民签证官网"
+  "updated_at": "2026-07-05T00:00:00Z",
+  "source": "Numbeo, World Bank, 克罗地亚数字游民签证官网",
+  "flag_emoji": "🇭🇷",
+  "chinese_passport_visa_status": "需签证（申根）"
 }
