@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字游民城市数据库 - 34个全球数字游民城市指南</title>
+    <meta name="description" content="34个全球数字游民城市完整指南：生活成本、安全指数、网络速度、联合办公、气候、美食。覆盖亚洲、欧洲、北美、大洋洲、中东。">
+    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/city/">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .city-hero { background: linear-gradient(135deg, #059669 0%, #047857 100%); color: white; padding: 80px 20px 40px; text-align: center; }
+        .city-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .city-hero p { opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        .stats-bar { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        .stats-bar .item { text-align: center; }
+        .stats-bar .value { font-size: 1.5rem; font-weight: 700; }
+        .stats-bar .label { font-size: 0.8rem; opacity: 0.8; }
+        .filters { background: #f8fafc; padding: 20px; border-bottom: 1px solid #e2e8f0; }
+        .filters-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+        .filters input { padding: 0.6rem 1rem; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.9rem; }
+        .city-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
+    </style>
+</head>
+<body>
+    <nav style="padding: 1rem 20px; max-width: 1200px; margin: 0 auto; font-size: 0.9rem; color: #64748b;">
+        <a href="../" style="color: #2563eb; text-decoration: none;">首页</a> › 城市数据库
+    </nav>
+    <header class="city-hero">
+        <h1>🏙️ 数字游民城市数据库</h1>
+        <p>34 个全球数字游民城市，生活成本、安全、网络、联合办公全覆盖</p>
+        <div class="stats-bar">
+            <div class="item"><div class="value">34</div><div class="label">覆盖城市</div></div>
+            <div class="item"><div class="value">20</div><div class="label">国家</div></div>
+            <div class="item"><div class="value">5</div><div class="label">大洲</div></div>
+        </div>
+    </header>
+    <div class="filters">
+        <div class="filters-inner">
+            <input type="text" id="search" placeholder="搜索城市...">
+            <span id="count" style="color:#64748b;font-size:0.85rem;">显示 34 个城市</span>
+        </div>
+    </div>
+    <div class="city-grid" id="grid">
+        
+        <a href="chiangmai.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">清迈</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Chiang Mai | 泰国</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">90</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 38</div>
+                <div>🛡️ 安全: 70</div>
+                <div>🌐 网速: 150Mbps</div>
+                <div>🏢 联合办公: 80+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">热带季风</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">高（数字游民社区）</span>
+            </div>
+        </a>
+        
+        <a href="lisbon.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">里斯本</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Lisbon | 葡萄牙</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">90</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 58</div>
+                <div>🛡️ 安全: 75</div>
+                <div>🌐 网速: 150Mbps</div>
+                <div>🏢 联合办公: 80+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">地中海</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">高（数字游民社区）</span>
+            </div>
+        </a>
+        
+        <a href="tokyo.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">东京</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Tokyo | 日本</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">90</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 88</div>
+                <div>🛡️ 安全: 95</div>
+                <div>🌐 网速: 200Mbps</div>
+                <div>🏢 联合办公: 300+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带季风</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">中等（服务业较好）</span>
+            </div>
+        </a>
+        
+        <a href="bangkok.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">曼谷</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Bangkok | 泰国</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">88</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 48</div>
+                <div>🛡️ 安全: 65</div>
+                <div>🌐 网速: 200Mbps</div>
+                <div>🏢 联合办公: 150+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">热带季风</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">中等</span>
+            </div>
+        </a>
+        
+        <a href="barcelona.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">巴塞罗那</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Barcelona | 西班牙</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">88</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 62</div>
+                <div>🛡️ 安全: 70</div>
+                <div>🌐 网速: 170Mbps</div>
+                <div>🏢 联合办公: 120+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">地中海</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">高</span>
+            </div>
+        </a>
+        
+        <a href="berlin.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">柏林</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Berlin | 德国</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">88</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 68</div>
+                <div>🛡️ 安全: 72</div>
+                <div>🌐 网速: 130Mbps</div>
+                <div>🏢 联合办公: 150+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带大陆</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极高</span>
+            </div>
+        </a>
+        
+        <a href="singapore-city.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">新加坡</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Singapore | 新加坡</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">88</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 95</div>
+                <div>🛡️ 安全: 91</div>
+                <div>🌐 网速: 280Mbps</div>
+                <div>🏢 联合办公: 150+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">热带雨林</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极高</span>
+            </div>
+        </a>
+        
+        <a href="amsterdam.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">阿姆斯特丹</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Amsterdam | 荷兰</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">85</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 85</div>
+                <div>🛡️ 安全: 72</div>
+                <div>🌐 网速: 180Mbps</div>
+                <div>🏢 联合办公: 80+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带海洋</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极高（几乎人人会说英语）</span>
+            </div>
+        </a>
+        
+        <a href="dubai.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">迪拜</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Dubai | 阿联酋</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">85</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 78</div>
+                <div>🛡️ 安全: 90</div>
+                <div>🌐 网速: 300Mbps</div>
+                <div>🏢 联合办公: 80+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">热带沙漠</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极高</span>
+            </div>
+        </a>
+        
+        <a href="london.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">伦敦</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">London | 英国</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">85</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 90</div>
+                <div>🛡️ 安全: 65</div>
+                <div>🌐 网速: 120Mbps</div>
+                <div>🏢 联合办公: 250+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带海洋</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极高</span>
+            </div>
+        </a>
+        
+        <a href="madrid.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">马德里</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Madrid | 西班牙</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">85</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 60</div>
+                <div>🛡️ 安全: 72</div>
+                <div>🌐 网速: 160Mbps</div>
+                <div>🏢 联合办公: 100+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带大陆</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">高</span>
+            </div>
+        </a>
+        
+        <a href="osaka.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">大阪</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Osaka | 日本</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">85</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 78</div>
+                <div>🛡️ 安全: 92</div>
+                <div>🌐 网速: 180Mbps</div>
+                <div>🏢 联合办公: 80+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带季风</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">中等</span>
+            </div>
+        </a>
+        
+        <a href="porto.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">波尔图</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Porto | 葡萄牙</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">85</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 50</div>
+                <div>🛡️ 安全: 78</div>
+                <div>🌐 网速: 130Mbps</div>
+                <div>🏢 联合办公: 30+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">地中海</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">高</span>
+            </div>
+        </a>
+        
+        <a href="seoul.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">首尔</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Seoul | 韩国</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">85</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 78</div>
+                <div>🛡️ 安全: 88</div>
+                <div>🌐 网速: 220Mbps</div>
+                <div>🏢 联合办公: 200+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带季风</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">中等</span>
+            </div>
+        </a>
+        
+        <a href="hochiminh.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">胡志明市</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Ho Chi Minh City | 越南</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">82</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 38</div>
+                <div>🛡️ 安全: 60</div>
+                <div>🌐 网速: 130Mbps</div>
+                <div>🏢 联合办公: 60+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">热带</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">中等（服务业）</span>
+            </div>
+        </a>
+        
+        <a href="hongkong-city.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">香港</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Hong Kong | 香港</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">82</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 85</div>
+                <div>🛡️ 安全: 78</div>
+                <div>🌐 网速: 250Mbps</div>
+                <div>🏢 联合办公: 200+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">亚热带季风</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">高</span>
+            </div>
+        </a>
+        
+        <a href="kualalumpur.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">吉隆坡</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Kuala Lumpur | 马来西亚</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">82</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 42</div>
+                <div>🛡️ 安全: 55</div>
+                <div>🌐 网速: 150Mbps</div>
+                <div>🏢 联合办公: 80+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">热带雨林</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">高</span>
+            </div>
+        </a>
+        
+        <a href="melbourne.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">墨尔本</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Melbourne | 澳大利亚</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">82</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 85</div>
+                <div>🛡️ 安全: 75</div>
+                <div>🌐 网速: 85Mbps</div>
+                <div>🏢 联合办公: 120+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带海洋</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极高</span>
+            </div>
+        </a>
+        
+        <a href="newyork.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">纽约</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">New York | 美国</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">82</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 100</div>
+                <div>🛡️ 安全: 55</div>
+                <div>🌐 网速: 250Mbps</div>
+                <div>🏢 联合办公: 300+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带大陆</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极高</span>
+            </div>
+        </a>
+        
+        <a href="paris.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">巴黎</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Paris | 法国</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">82</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 85</div>
+                <div>🛡️ 安全: 60</div>
+                <div>🌐 网速: 140Mbps</div>
+                <div>🏢 联合办公: 180+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带海洋</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">高</span>
+            </div>
+        </a>
+        
+        <a href="tallinn.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">塔林</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Tallinn | 爱沙尼亚</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">82</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 55</div>
+                <div>🛡️ 安全: 82</div>
+                <div>🌐 网速: 100Mbps</div>
+                <div>🏢 联合办公: 25+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带海洋</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极高</span>
+            </div>
+        </a>
+        
+        <a href="vancouver.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">温哥华</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Vancouver | 加拿大</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">82</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 85</div>
+                <div>🛡️ 安全: 72</div>
+                <div>🌐 网速: 150Mbps</div>
+                <div>🏢 联合办公: 70+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带海洋</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极高</span>
+            </div>
+        </a>
+        
+        <a href="kyoto.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">京都</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Kyoto | 日本</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">80</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 75</div>
+                <div>🛡️ 安全: 93</div>
+                <div>🌐 网速: 170Mbps</div>
+                <div>🏢 联合办公: 40+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">中等</span>
+            </div>
+        </a>
+        
+        <a href="munich.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">慕尼黑</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Munich | 德国</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">80</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 82</div>
+                <div>🛡️ 安全: 80</div>
+                <div>🌐 网速: 140Mbps</div>
+                <div>🏢 联合办公: 60+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带大陆</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极高</span>
+            </div>
+        </a>
+        
+        <a href="phuket.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">普吉岛</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Phuket | 泰国</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">80</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 55</div>
+                <div>🛡️ 安全: 60</div>
+                <div>🌐 网速: 120Mbps</div>
+                <div>🏢 联合办公: 20+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">热带</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">高（旅游区）</span>
+            </div>
+        </a>
+        
+        <a href="sydney.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">悉尼</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Sydney | 澳大利亚</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">80</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 88</div>
+                <div>🛡️ 安全: 78</div>
+                <div>🌐 网速: 90Mbps</div>
+                <div>🏢 联合办公: 150+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">亚热带</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极高</span>
+            </div>
+        </a>
+        
+        <a href="toronto.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">多伦多</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Toronto | 加拿大</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">80</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 80</div>
+                <div>🛡️ 安全: 70</div>
+                <div>🌐 网速: 160Mbps</div>
+                <div>🏢 联合办公: 100+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带大陆</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极高</span>
+            </div>
+        </a>
+        
+        <a href="abudhabi.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">阿布扎比</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Abu Dhabi | 阿联酋</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">78</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 72</div>
+                <div>🛡️ 安全: 92</div>
+                <div>🌐 网速: 250Mbps</div>
+                <div>🏢 联合办公: 30+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">热带沙漠</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极高</span>
+            </div>
+        </a>
+        
+        <a href="auckland.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">奥克兰</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Auckland | 新西兰</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">78</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 82</div>
+                <div>🛡️ 安全: 72</div>
+                <div>🌐 网速: 140Mbps</div>
+                <div>🏢 联合办公: 40+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带海洋</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极高</span>
+            </div>
+        </a>
+        
+        <a href="busan.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">釜山</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Busan | 韩国</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">78</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 65</div>
+                <div>🛡️ 安全: 85</div>
+                <div>🌐 网速: 180Mbps</div>
+                <div>🏢 联合办公: 30+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">温带海洋</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">低</span>
+            </div>
+        </a>
+        
+        <a href="hanoi.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">河内</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Hanoi | 越南</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">78</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 35</div>
+                <div>🛡️ 安全: 65</div>
+                <div>🌐 网速: 110Mbps</div>
+                <div>🏢 联合办公: 30+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">热带季风</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">中等</span>
+            </div>
+        </a>
+        
+        <a href="penang.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">槟城</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Penang | 马来西亚</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">78</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 35</div>
+                <div>🛡️ 安全: 60</div>
+                <div>🌐 网速: 120Mbps</div>
+                <div>🏢 联合办公: 25+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">热带雨林</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">高</span>
+            </div>
+        </a>
+        
+        <a href="sanfrancisco.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">旧金山</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">San Francisco | 美国</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">78</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 105</div>
+                <div>🛡️ 安全: 50</div>
+                <div>🌐 网速: 280Mbps</div>
+                <div>🏢 联合办公: 200+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">地中海</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极高</span>
+            </div>
+        </a>
+        
+        <a href="macao-city.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">澳门</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Macao | 澳门</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#059669;">65</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 70</div>
+                <div>🛡️ 安全: 85</div>
+                <div>🌐 网速: 180Mbps</div>
+                <div>🏢 联合办公: 15+</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">亚热带</span>
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">中等</span>
+            </div>
+        </a>
+        
+    </div>
+    <footer style="background:#1e293b;color:#94a3b8;padding:40px 20px;text-align:center;">
+        <p>© 2026 数字游民指南 | 面向中国用户的全球流动基础设施</p>
+        <p><a href="../" style="color:#64748b;">首页</a> | <a href="../country/" style="color:#64748b;">国家</a> | <a href="../visa/" style="color:#64748b;">签证</a></p>
+    </footer>
+    <script>
+        const cards = document.querySelectorAll('.city-grid > a');
+        const searchInput = document.getElementById('search');
+        const countLabel = document.getElementById('count');
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            let visible = 0;
+            cards.forEach(card => {
+                const show = !query || card.textContent.toLowerCase().includes(query);
+                card.style.display = show ? 'block' : 'none';
+                if (show) visible++;
+            });
+            countLabel.textContent = `显示 ${visible} 个城市`;
+        });
+    </script>
+</body>
+</html>
