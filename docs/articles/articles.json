@@ -1,5 +1,44 @@
 [
   {
+    "slug": "digital-nomad-city-ranking-2026",
+    "title": "2026 全球数字游民城市排名 TOP 20",
+    "description": "基于 122 个城市数据的多维度算法排名，覆盖生活成本、网速、安全、联合办公等核心指标",
+    "date": "2026-07-07",
+    "tags": [
+      "数字游民",
+      "城市排名",
+      "数据解读",
+      "城市对比"
+    ],
+    "image": "/images/og/city-ranking.png"
+  },
+  {
+    "slug": "safest-digital-nomad-cities-2026",
+    "title": "2026 最安全数字游民城市指南",
+    "description": "基于 122 个城市安全数据的 TOP 15 排名，为女性数字游民、家庭出行和长期居留提供安全城市参考",
+    "date": "2026-07-07",
+    "tags": [
+      "数字游民",
+      "安全指数",
+      "城市指南",
+      "女性出行"
+    ],
+    "image": "/images/og/safety-cities.png"
+  },
+  {
+    "slug": "most-affordable-digital-nomad-cities-2026",
+    "title": "2026 生活成本最低数字游民城市",
+    "description": "基于 122 个城市生活成本数据的 TOP 15 排名，为预算型数字游民提供最具性价比的目的地参考",
+    "date": "2026-07-07",
+    "tags": [
+      "数字游民",
+      "生活成本",
+      "预算旅行",
+      "城市推荐"
+    ],
+    "image": "/images/og/affordable-cities.png"
+  },
+  {
     "slug": "china-passport-visa-guide-2026",
     "title": "2026 中国护照免签/落地签/电子签国家完全指南",
     "description": "覆盖全部 60 个国家的中国护照签证政策",

@@ -1,5 +1,44 @@
 [
   {
+    "slug": "digital-nomad-city-ranking-2026",
+    "title": "2026 Top 20 Digital Nomad Cities Ranking",
+    "description": "Data-driven ranking of 122 cities based on multi-dimensional algorithms covering cost, internet, safety, and coworking ecosystem",
+    "date": "2026-07-07",
+    "tags": [
+      "Digital Nomad",
+      "City Ranking",
+      "Data Insight",
+      "City Comparison"
+    ],
+    "image": "/images/og/city-ranking.png"
+  },
+  {
+    "slug": "safest-digital-nomad-cities-2026",
+    "title": "2026 Safest Digital Nomad Cities Guide",
+    "description": "Top 15 ranking based on safety data from 122 cities, with recommendations for female nomads, families, and budget travelers",
+    "date": "2026-07-07",
+    "tags": [
+      "Digital Nomad",
+      "Safety",
+      "City Guide",
+      "Solo Travel"
+    ],
+    "image": "/images/og/safety-cities.png"
+  },
+  {
+    "slug": "most-affordable-digital-nomad-cities-2026",
+    "title": "2026 Most Affordable Digital Nomad Cities",
+    "description": "Top 15 ranking based on cost of living data from 122 cities, with budget-friendly recommendations for cost-conscious nomads",
+    "date": "2026-07-07",
+    "tags": [
+      "Digital Nomad",
+      "Cost of Living",
+      "Budget Travel",
+      "City Recommendations"
+    ],
+    "image": "/images/og/affordable-cities.png"
+  },
+  {
     "slug": "china-passport-visa-guide-2026",
     "title": "2026 Complete Guide: Visa-Free, Visa on Arrival & eVisa Countries for China Passport",
     "description": "Full visa policy overview for all 60 countries",

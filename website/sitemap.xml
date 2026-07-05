@@ -3060,4 +3060,40 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://kfat77.github.io/digital-nomad-cn/articles/digital-nomad-city-ranking-2026/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kfat77.github.io/digital-nomad-cn/articles/safest-digital-nomad-cities-2026/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kfat77.github.io/digital-nomad-cn/articles/most-affordable-digital-nomad-cities-2026/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kfat77.github.io/digital-nomad-cn/en/articles/digital-nomad-city-ranking-2026/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kfat77.github.io/digital-nomad-cn/en/articles/safest-digital-nomad-cities-2026/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kfat77.github.io/digital-nomad-cn/en/articles/most-affordable-digital-nomad-cities-2026/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
