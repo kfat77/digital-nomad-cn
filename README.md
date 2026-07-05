@@ -1,7 +1,7 @@
 # 数字游民指南 🇨🇳
 
 > 面向中国国内用户的数字游民基础设施一站式攻略
-> 银行卡 · 电话卡 · 证券账户 · 身份规划
+> 银行卡 · 电话卡 · 证券账户 · 身份规划 · 工具与资源
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
@@ -9,7 +9,7 @@
 
 本项目是一个面向**中国国内用户**的实用指南合集，帮助希望拓展全球生活、工作、投资能力的数字游民群体，系统性地解决跨境金融基础设施和身份规划问题。
 
-核心覆盖四大模块：
+核心覆盖五大模块：
 
 | 模块 | 说明 | 状态 |
 |------|------|------|
@@ -17,6 +17,7 @@
 | 📱 [电话卡](./docs/phone-cards/) | 海外实体/eSIM卡购买、激活与保号教程 | 🟢 已完成 |
 | 📈 [证券账户](./docs/securities/) | 美股/港股/全球券商开户与使用指南 | 🟢 已完成 |
 | 🏛️ [身份规划](./docs/identity/) | 香港/澳门/日本/东南亚/大洋洲移民路径 | 🟢 已完成 |
+| 🛠️ [工具与资源](./docs/tools/) | 远程工作、跨境支付、AI订阅、数字游民基建 | 🟢 已完成 |
 
 ## 🚀 快速导航
 
@@ -26,7 +27,7 @@
 
 ### 电话卡
 - [Giffgaff 英国手机卡完全指南](./docs/phone-cards/giffgaff.md) — 购买 + 激活 + 充值 + 保号全流程
-- [香港 Club SIM / SoSIM](./docs/phone-cards/hong-kong.md) — 短期/长期方案（待补充）
+- [香港 Club SIM / SoSIM](./docs/phone-cards/hong-kong.md) — 短期/长期方案
 - [美国 Ultra Mobile / T-Mobile](./docs/phone-cards/us-ultramobile.md) — 保号方案（待补充）
 
 ### 证券账户
@@ -39,6 +40,13 @@
 - [🇯🇵 日本移民指南](./docs/identity/japan.md) — 经营管理签、高度人才签、工签（含2025年新政）
 - [🌴 东南亚移民指南](./docs/identity/southeast-asia.md) — 泰国、马来西亚、新加坡、印尼
 - [🌏 大洋洲移民指南](./docs/identity/oceania.md) — 澳大利亚、新西兰技术/雇主担保
+- [🌍 其他热门路径](./docs/identity/other-pathways.md) — 韩国、土耳其、西班牙、葡萄牙、美国、加拿大
+
+### 工具与资源
+- [远程工作资源指南](./docs/tools/remote-work.md) — 62+ 求职网站、面试准备、数字游民社区
+- [爱沙尼亚 e-Residency](./docs/tools/e-residency.md) — 欧盟数字身份、远程注册公司
+- [数字游民基建清单](./docs/tools/digital-kit.md) — 银行、支付、通讯、工具、身份等 15 类基建
+- [AI 订阅与虚拟 U 卡](./docs/tools/ai-subscription.md) — 解决 AI 产品订阅、8 款虚拟 U 卡对比
 
 ## 🗺️ 为什么需要这些？
 
@@ -49,6 +57,9 @@
 | 投资美股/港股/全球ETF | 境外证券账户 | 📈 |
 | 全球免签通行、子女教育 | 香港/澳门身份 | 🏛️ |
 | 长期海外居住、资产配置 | 日本/东南亚/大洋洲身份 | 🏛️ |
+| 找远程工作 | 全球远程工作平台 | 🛠️ |
+| 注册欧盟公司 | 爱沙尼亚 e-Residency | 🛠️ |
+| 订阅 ChatGPT/Claude | 虚拟 U 卡 / 香港信用卡 | 🛠️ |
 | 资金自由兑换/跨境转账 | 香港银行 + 券商 | 💳📈 |
 | 长期保号，维持海外身份 | 低成本电话卡 | 📱 |
 
