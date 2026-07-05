@@ -6,6 +6,10 @@
     <title>搜索 — 42国+34城数字游民数据</title>
     <meta name="description" content="搜索全球数字游民目的地、城市、签证信息。支持模糊搜索，覆盖76条国家与城市数据。">
     <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/search/">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <meta name="theme-color" content="#3b82f6">
     <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/search/">
     <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/search/">
     <link rel="stylesheet" href="../style.css">
@@ -1213,6 +1217,13 @@
         });
     });
     initFuse();
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('../sw.js').catch(() => {});
+        });
+    }
     </script>
 </body>
 </html>

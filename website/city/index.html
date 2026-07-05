@@ -6,6 +6,10 @@
     <title>城市数据库 — 34个全球数字游民城市</title>
     <meta name="description" content="34个全球数字游民城市完整指南：生活成本、安全指数、网络速度、联合办公、气候、美食。覆盖亚洲、欧洲、北美、大洋洲、中东。">
     <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/city/">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <meta name="theme-color" content="#3b82f6">
     <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/city/">
     <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/cities/">
     <link rel="stylesheet" href="../style.css">
@@ -73,5 +77,12 @@
         </div>
         <div class="footer-bottom"><p>CC BY-NC-SA 4.0 | 内容仅供学习交流</p></div>
     </footer>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('../sw.js').catch(() => {});
+        });
+    }
+    </script>
 </body>
 </html>

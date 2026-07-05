@@ -6,6 +6,10 @@
     <title>数字游民目的地推荐 — 基于42国数据的智能匹配</title>
     <meta name="description" content="回答5个问题，为你推荐最适合的数字游民目的地。基于42国生活成本、签证政策、网速、安全数据的智能匹配引擎。">
     <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/recommend/">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <meta name="theme-color" content="#3b82f6">
     <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/recommend/">
     <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/recommend/">
     <link rel="stylesheet" href="../style.css">
@@ -747,6 +751,12 @@
         document.getElementById('questionnaire').style.display = 'block';
         goToStep(1);
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('../sw.js').catch(() => {});
+        });
     }
     </script>
 </body>
