@@ -30,3 +30,11 @@ package-lock.json
 
 # PDFs and docs not in docs/
 /*.pdf
+
+# Submodules (unrelated projects)
+PhotoCrypt-NFT/
+drive-game/
+overwatch-assistant/
+taiji-gh/
+taiji-opt/
+texas-holdem-calculator/

@@ -32,6 +32,16 @@ const COUNTRY_DATA = {
           { text: "高才通计划 - 1-2个月获批身份", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/hong-kong.md" }
         ]
       },
+      identity: {
+        title: "身份规划",
+        items: [
+          { text: "香港优才计划 - 12项评核准则，满足6项即可申请", link: "https://zhuanlan.zhihu.com/p/687695809" },
+          { text: "高才通计划 - 百强名校或年收入250万+", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/hong-kong.md" },
+          { text: "专才计划 - 需先获香港雇主聘用", link: "https://zhuanlan.zhihu.com/p/697122836" },
+          { text: "IANG留学进修 - 毕业后留港2年", link: "https://zhuanlan.zhihu.com/p/697122836" },
+          { text: "7大合法赴港工作途径", link: "https://zhuanlan.zhihu.com/p/697122836" }
+        ]
+      },
       securities: {
         title: "证券账户",
         items: [
@@ -47,10 +57,25 @@ const COUNTRY_DATA = {
     lon: 113.5439,
     color: 0xe11d48,
     info: {
+      bank: {
+        title: "银行卡",
+        items: [
+          { text: "蚂蚁银行 - 0门槛开户，送阿里股票，报销路费", link: "https://zhuanlan.zhihu.com/p/2043115647786386108" },
+          { text: "澳门国际银行 - 无保险即可开户", link: null },
+          { text: "立桥银行 - 线上预约开户", link: null }
+        ]
+      },
       identity: {
         title: "身份规划",
         items: [
           { text: "澳门人才引进计划 - 高端人才/优秀人才/高级专业人才", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/macao.md" }
+        ]
+      },
+      tools: {
+        title: "免税购物",
+        items: [
+          { text: "澳门买Mac - 立省3000块，顺手开蚂蚁银行", link: "https://zhuanlan.zhihu.com/p/2032459435319235404" },
+          { text: "蚂蚁银行开户礼 - 2股阿里+路费报销+半年免佣", link: "https://zhuanlan.zhihu.com/p/2032459435319235404" }
         ]
       }
     }
