@@ -2043,3 +2043,105 @@ body {
     }
 }
 
+/* --- Social Sharing --- */
+.share-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 32px 0;
+    padding: 16px 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+    flex-wrap: wrap;
+}
+.share-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    white-space: nowrap;
+}
+.share-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s, opacity 0.15s;
+    color: #fff;
+}
+.share-btn:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+.share-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+.share-btn.x { background: #000; }
+.share-btn.weibo { background: #e6162d; }
+.share-btn.wechat { background: #07c160; }
+.share-btn.facebook { background: #1877f2; }
+.share-btn.linkedin { background: #0a66c2; }
+.share-btn.copy { background: #64748b; }
+.share-btn.whatsapp { background: #25d366; }
+.share-btn.telegram { background: #26a5e4; }
+
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #1e293b;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 9999;
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+    pointer-events: none;
+}
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* Latest articles on homepage */
+.latest-articles-section {
+    max-width: 960px;
+    margin: 60px auto 0;
+    padding: 0 24px;
+}
+.latest-articles-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.latest-articles-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+}
+.latest-articles-header a {
+    color: #3b82f6;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+.latest-articles-header a:hover {
+    text-decoration: underline;
+}
+
