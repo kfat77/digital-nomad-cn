@@ -1,0 +1,100 @@
+{
+  "country_id": "estonia",
+  "country_name": "爱沙尼亚",
+  "updated_at": "2026-01-15T00:00:00Z",
+  "source": "爱沙尼亚移民局, Police and Border Guard Board",
+  "visa_types": [
+    {
+      "id": "ee_digital_nomad",
+      "type": "digital_nomad_visa",
+      "name": "数字游民签证（Digital Nomad Visa）",
+      "name_en": "Estonia Digital Nomad Visa",
+      "duration": "1年",
+      "validity": "1年（C类签证）或居留许可",
+      "extendable": false,
+      "fee_usd": 100,
+      "processing_days": 30,
+      "application_method": "embassy",
+      "requirements": [
+        "为境外雇主远程工作，或为境外客户提供服务的自由职业者",
+        "月收入达到爱沙尼亚平均工资（约3500欧元/月，2024年）",
+        "健康保险"
+      ],
+      "documents": [
+        "护照",
+        "照片",
+        "申请表",
+        "远程工作合同/自由职业证明",
+        "收入证明",
+        "银行流水",
+        "健康保险"
+      ],
+      "official_url": "https://www.politsei.ee/en/",
+      "china_passport_eligible": true,
+      "notes": "全球首个推出数字游民签证的国家（2020年）。可在申根区自由流动。e-Residency可配合用于注册公司",
+      "is_recommended_for_digital_nomad": true
+    },
+    {
+      "id": "ee_eresidency",
+      "type": "special_permit",
+      "name": "e-Residency 数字公民",
+      "name_en": "Estonia e-Residency",
+      "duration": "N/A",
+      "validity": "3年",
+      "extendable": true,
+      "extend_duration": "3年",
+      "fee_usd": 120,
+      "processing_days": 30,
+      "application_method": "online",
+      "requirements": [
+        "任何国家公民均可申请",
+        "无犯罪记录",
+        "非实地居住身份"
+      ],
+      "documents": [
+        "护照",
+        "照片",
+        "动机信",
+        "无犯罪记录证明"
+      ],
+      "official_url": "https://e-resident.gov.ee/",
+      "china_passport_eligible": true,
+      "notes": "非签证，而是在线经营欧盟公司的身份。可注册爱沙尼亚公司，获得欧盟银行账户，享受欧盟商业便利。但不可用于实地居住",
+      "is_recommended_for_digital_nomad": true
+    },
+    {
+      "id": "ee_schengen",
+      "type": "visa_required",
+      "name": "申根旅游签证（C类）",
+      "name_en": "Estonia Schengen Tourist Visa",
+      "duration": "90天/180天",
+      "validity": "90天-5年",
+      "extendable": false,
+      "fee_usd": 90,
+      "processing_days": 15,
+      "application_method": "embassy",
+      "requirements": [
+        "有效护照",
+        "旅行保险",
+        "往返机票",
+        "酒店预订",
+        "资金证明",
+        "行程单"
+      ],
+      "documents": [
+        "护照",
+        "照片",
+        "申请表",
+        "旅行保险",
+        "机票",
+        "酒店预订",
+        "银行流水",
+        "在职证明"
+      ],
+      "official_url": "https://www.vm.ee/",
+      "china_passport_eligible": true,
+      "notes": "爱沙尼亚为申根区，C类签证可通行29个申根国",
+      "is_recommended_for_digital_nomad": true
+    }
+  ]
+}
