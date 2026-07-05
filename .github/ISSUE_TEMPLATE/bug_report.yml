@@ -1,0 +1,77 @@
+name: 🐛 Bug Report
+description: Report a data error, broken link, or functionality issue
+title: "[Bug] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report! Please fill in the details below.
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Bug Type
+      options:
+        - Data Error (incorrect/outdated information)
+        - Broken Link
+        - UI/Display Issue
+        - Functionality Error
+        - Performance Issue
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: page
+    attributes:
+      label: Page/URL
+      description: Which page or data entry is affected?
+      placeholder: "e.g., /country/japan or Japan Tourist Visa"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What is wrong? What did you expect?
+      placeholder: "The visa fee for Japan tourist visa is listed as ¥200 but the official website shows ¥400..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence / Source
+      description: Provide evidence (links, screenshots, official sources)
+      placeholder: "Link to official embassy page: https://..."
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: If it's a UI/functionality issue, how can we reproduce it?
+      placeholder: "1. Go to... 2. Click... 3. See error..."
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser (if UI issue)
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Other
+        - N/A
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have checked that this issue has not already been reported
+          required: true
+        - label: I have provided evidence/source for data corrections
+          required: false

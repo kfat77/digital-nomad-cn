@@ -1,0 +1,52 @@
+name: 🚀 Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          CHANGELOG=$(git log --pretty=format:"- %s" $(git describe --tags --abbrev=0 HEAD~1)..HEAD)
+          echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGELOG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          body: |
+            ## What's Changed
+            ${{ steps.changelog.outputs.CHANGELOG }}
+
+            ## Download
+            - [Full data (JSON)](https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/data-json.zip)
+            - [Full data (CSV)](https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/data-csv.zip)
+            - [Full data (SQL)](https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/data-sql.zip)
+          files: |
+            data-json.zip
+            data-csv.zip
+            data-sql.zip
+          generate_release_notes: true
