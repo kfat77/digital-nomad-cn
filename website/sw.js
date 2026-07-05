@@ -1,7 +1,7 @@
 // Service Worker for Digital Nomad Guide PWA
 // Cache-first strategy with network fallback
 
-const CACHE_VERSION = 'v18';
+const CACHE_VERSION = 'v20';
 const STATIC_CACHE = `dn-static-${CACHE_VERSION}`;
 const DATA_CACHE = `dn-data-${CACHE_VERSION}`;
 const API_CACHE = `dn-api-${CACHE_VERSION}`;
@@ -45,6 +45,10 @@ const CORE_PAGES = [
   '/digital-nomad-cn/en/routes/index.html',
   '/digital-nomad-cn/en/recommend/',
   '/digital-nomad-cn/en/recommend/index.html',
+  '/digital-nomad-cn/assistant/',
+  '/digital-nomad-cn/assistant/index.html',
+  '/digital-nomad-cn/en/assistant/',
+  '/digital-nomad-cn/en/assistant/index.html',
   // CDN assets
   'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js',
   'https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js',
@@ -59,6 +63,8 @@ const API_ENDPOINTS = [
   '/digital-nomad-cn/api/visas.json',
   '/digital-nomad-cn/api/stats.json',
   '/digital-nomad-cn/api/manifest.json',
+  '/digital-nomad-cn/data/updated-at.json',
+  '/digital-nomad-cn/data/exchange-rates.json',
 ];
 
 // Install: pre-cache core pages
