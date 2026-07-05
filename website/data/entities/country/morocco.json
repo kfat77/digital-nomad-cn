@@ -55,7 +55,8 @@
     "冲浪"
   ],
   "status": "published",
-  "updated_at": "2026-01-15",
+  "updated_at": "2026-07-05T00:00:00Z",
   "source": "Numbeo, World Bank",
-  "flag_emoji": "🇲🇦"
+  "flag_emoji": "🇲🇦",
+  "chinese_passport_visa_status": "免签（90天）"
 }
