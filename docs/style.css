@@ -889,6 +889,119 @@ body {
     font-size: 16px;
 }
 
+.globe-tooltip {
+    position: absolute;
+    pointer-events: none;
+    z-index: 10;
+    background: var(--foreground);
+    color: var(--bg);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translate(-50%, -100%) translateY(-8px);
+    transition: opacity 0.15s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.globe-tooltip.visible {
+    opacity: 1;
+}
+
+.globe-sidebar {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 180px;
+    max-height: 80%;
+    overflow-y: auto;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px;
+    box-shadow: var(--shadow-card);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+.globe-sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.globe-sidebar::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+}
+
+.globe-sidebar-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.globe-sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 13px;
+    color: var(--foreground);
+    margin-bottom: 2px;
+}
+
+.globe-sidebar-item:hover,
+.globe-sidebar-item.active {
+    background: var(--accent-light);
+    color: var(--accent);
+}
+
+.globe-sidebar-item .flag {
+    font-size: 16px;
+    line-height: 1;
+}
+
+.globe-sidebar-item .name {
+    flex: 1;
+}
+
+.globe-sidebar-item .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+    .globe-sidebar {
+        display: none;
+    }
+    .globe-container {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 640px) {
+    .globe-container {
+        max-width: 100%;
+    }
+    .globe-tooltip {
+        display: none;
+    }
+}
+
 /* ============================================
    国家信息弹窗
    ============================================ */

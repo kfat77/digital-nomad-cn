@@ -272,12 +272,24 @@ function initGlobe() {
     ringMesh.rotation.x = Math.PI / 2;
     earthGroup.add(ringMesh);
 
-    // 4. Country markers
+    // 4. Atmosphere glow
+    const atmosGeo = new THREE.SphereGeometry(earthRadius * 1.08, 64, 64);
+    const atmosMat = new THREE.MeshBasicMaterial({
+        color: 0x2563eb,
+        transparent: true,
+        opacity: 0.08,
+        side: THREE.BackSide
+    });
+    const atmosMesh = new THREE.Mesh(atmosGeo, atmosMat);
+    earthGroup.add(atmosMesh);
+
+    // 5. Country markers
     const markers = [];
     const markerGroup = new THREE.Group();
     earthGroup.add(markerGroup);
 
     const countryData = window.COUNTRY_DATA || {};
+    const markerMap = {}; // key -> marker mesh mapping
 
     Object.entries(countryData).forEach(([key, country]) => {
         const pos = latLonToVector3(country.lat, country.lon, earthRadius * 1.02);
@@ -287,16 +299,17 @@ function initGlobe() {
         const dotMat = new THREE.MeshBasicMaterial({
             color: country.color || 0x2563eb,
             transparent: true,
-            opacity: 0.8
+            opacity: 0.85
         });
         const dot = new THREE.Mesh(dotGeo, dotMat);
         dot.position.copy(pos);
         dot.userData = { country: key, data: country, originalScale: 1 };
         markerGroup.add(dot);
         markers.push(dot);
+        markerMap[key] = dot;
 
         // Glow ring around marker
-        const glowGeo = new THREE.RingGeometry(0.035, 0.045, 16);
+        const glowGeo = new THREE.RingGeometry(0.035, 0.05, 16);
         const glowMat = new THREE.MeshBasicMaterial({
             color: country.color || 0x2563eb,
             transparent: true,
@@ -312,12 +325,12 @@ function initGlobe() {
         // Connection line to surface
         const lineGeo = new THREE.BufferGeometry().setFromPoints([
             pos.clone().multiplyScalar(0.98),
-            pos.clone().multiplyScalar(1.05)
+            pos.clone().multiplyScalar(1.08)
         ]);
         const lineMat = new THREE.LineBasicMaterial({
             color: country.color || 0x2563eb,
             transparent: true,
-            opacity: 0.4
+            opacity: 0.35
         });
         const line = new THREE.Line(lineGeo, lineMat);
         markerGroup.add(line);
@@ -415,6 +428,10 @@ function initGlobe() {
         isDragging = false;
     });
 
+    // Tooltip element
+    const tooltip = document.getElementById('globeTooltip');
+    let tooltipTimeout = null;
+
     // Animation loop
     let frameId;
     function animate() {
@@ -435,32 +452,70 @@ function initGlobe() {
                 // Reset previous
                 if (hoveredMarker) {
                     hoveredMarker.scale.setScalar(1);
-                    hoveredMarker.material.opacity = 0.8;
+                    hoveredMarker.material.opacity = 0.85;
                     if (hoveredMarker.userData.glow) {
                         hoveredMarker.userData.glow.scale.setScalar(1);
                         hoveredMarker.userData.glow.material.opacity = 0.3;
                     }
+                    // Reset sidebar active
+                    const prevKey = hoveredMarker.userData.country;
+                    const prevItem = document.querySelector(`.globe-sidebar-item[data-country="${prevKey}"]`);
+                    if (prevItem) prevItem.classList.remove('active');
                 }
                 // Highlight new
                 hoveredMarker = marker;
-                hoveredMarker.scale.setScalar(1.8);
+                hoveredMarker.scale.setScalar(2.0);
                 hoveredMarker.material.opacity = 1;
                 if (hoveredMarker.userData.glow) {
-                    hoveredMarker.userData.glow.scale.setScalar(1.5);
-                    hoveredMarker.userData.glow.material.opacity = 0.6;
+                    hoveredMarker.userData.glow.scale.setScalar(1.8);
+                    hoveredMarker.userData.glow.material.opacity = 0.7;
                 }
                 wrapper.style.cursor = 'pointer';
+
+                // Show tooltip
+                const data = marker.userData.data;
+                if (tooltip) {
+                    tooltip.textContent = `${data.name} (${data.nameEn})`;
+                    tooltip.classList.add('visible');
+                }
+                // Highlight sidebar item
+                const key = marker.userData.country;
+                const item = document.querySelector(`.globe-sidebar-item[data-country="${key}"]`);
+                if (item) {
+                    item.classList.add('active');
+                    item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }
+
+            // Update tooltip position
+            if (tooltip && !isDragging) {
+                const wrapperRect = wrapper.getBoundingClientRect();
+                // Project marker position to screen
+                const markerPos = marker.position.clone();
+                markerPos.applyMatrix4(earthGroup.matrixWorld);
+                markerPos.project(camera);
+                const x = (markerPos.x * 0.5 + 0.5) * wrapperRect.width;
+                const y = (-markerPos.y * 0.5 + 0.5) * wrapperRect.height;
+                tooltip.style.left = x + 'px';
+                tooltip.style.top = (y - 12) + 'px';
             }
         } else {
             if (hoveredMarker) {
                 hoveredMarker.scale.setScalar(1);
-                hoveredMarker.material.opacity = 0.8;
+                hoveredMarker.material.opacity = 0.85;
                 if (hoveredMarker.userData.glow) {
                     hoveredMarker.userData.glow.scale.setScalar(1);
                     hoveredMarker.userData.glow.material.opacity = 0.3;
                 }
+                // Reset sidebar active
+                const key = hoveredMarker.userData.country;
+                const item = document.querySelector(`.globe-sidebar-item[data-country="${key}"]`);
+                if (item) item.classList.remove('active');
                 hoveredMarker = null;
                 wrapper.style.cursor = 'grab';
+            }
+            if (tooltip) {
+                tooltip.classList.remove('visible');
             }
         }
 
@@ -476,10 +531,16 @@ function initGlobe() {
         // Ring rotation
         ringMesh.rotation.z += 0.0005;
 
+        // Atmosphere subtle rotation
+        atmosMesh.rotation.y += 0.0002;
+
         renderer.render(scene, camera);
     }
 
     animate();
+
+    // Generate sidebar country list
+    generateGlobeSidebar(markerMap, countryData);
 
     // Resize handler
     const resizeObserver = new ResizeObserver((entries) => {
@@ -507,6 +568,106 @@ function initGlobe() {
         });
     }, { threshold: 0.1 });
     globeObserver.observe(wrapper);
+}
+
+// ============================================
+// 地球侧边国家列表
+// ============================================
+
+function generateGlobeSidebar(markerMap, countryData) {
+    const sidebar = document.getElementById('globeSidebar');
+    if (!sidebar) return;
+
+    const flagEmoji = {
+        'Hong Kong': '🇭🇰', 'Macao': '🇲🇴', 'Singapore': '🇸🇬', 'Japan': '🇯🇵',
+        'South Korea': '🇰🇷', 'Australia': '🇦🇺', 'New Zealand': '🇳🇿',
+        'United States': '🇺🇸', 'United Kingdom': '🇬🇧', 'Portugal': '🇵🇹',
+        'Spain': '🇪🇸', 'Estonia': '🇪🇪', 'Malaysia': '🇲🇾', 'Thailand': '🇹🇭',
+        'Vietnam': '🇻🇳', 'Canada': '🇨🇦', 'Schengen Area': '🇪🇺'
+    };
+
+    // Sort countries by region: Asia -> Oceania -> Americas -> Europe
+    const regionOrder = ['hongkong', 'macao', 'singapore', 'japan', 'southkorea', 'thailand', 'vietnam', 'malaysia', 'australia', 'newzealand', 'usa', 'canada', 'uk', 'schengen', 'portugal', 'spain', 'estonia'];
+    const sortedEntries = regionOrder
+        .map(key => [key, countryData[key]])
+        .filter(([, c]) => c);
+
+    // Group by region
+    const groups = {
+        '亚洲': [],
+        '大洋洲': [],
+        '美洲': [],
+        '欧洲': []
+    };
+
+    const regionMap = {
+        hongkong: '亚洲', macao: '亚洲', singapore: '亚洲', japan: '亚洲', southkorea: '亚洲',
+        thailand: '亚洲', vietnam: '亚洲', malaysia: '亚洲',
+        australia: '大洋洲', newzealand: '大洋洲',
+        usa: '美洲', canada: '美洲',
+        uk: '欧洲', schengen: '欧洲', portugal: '欧洲', spain: '欧洲', estonia: '欧洲'
+    };
+
+    sortedEntries.forEach(([key, country]) => {
+        const region = regionMap[key] || '其他';
+        if (!groups[region]) groups[region] = [];
+        groups[region].push({ key, country });
+    });
+
+    let html = '';
+    Object.entries(groups).forEach(([regionName, items]) => {
+        if (items.length === 0) return;
+        html += `<div class="globe-sidebar-title">${regionName}</div>`;
+        items.forEach(({ key, country }) => {
+            const flag = flagEmoji[country.nameEn] || '🌐';
+            const colorHex = '#' + (country.color || 0x2563eb).toString(16).padStart(6, '0');
+            html += `
+                <div class="globe-sidebar-item" data-country="${key}">
+                    <span class="flag">${flag}</span>
+                    <span class="name">${country.name}</span>
+                    <span class="dot" style="background:${colorHex}"></span>
+                </div>
+            `;
+        });
+    });
+
+    sidebar.innerHTML = html;
+
+    // Bind click events
+    sidebar.querySelectorAll('.globe-sidebar-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const key = item.dataset.country;
+            const country = countryData[key];
+            if (country) {
+                openCountryModal(country);
+            }
+        });
+        item.addEventListener('mouseenter', () => {
+            const key = item.dataset.country;
+            const marker = markerMap[key];
+            if (marker) {
+                // Simulate hover on marker
+                marker.scale.setScalar(2.0);
+                marker.material.opacity = 1;
+                if (marker.userData.glow) {
+                    marker.userData.glow.scale.setScalar(1.8);
+                    marker.userData.glow.material.opacity = 0.7;
+                }
+            }
+        });
+        item.addEventListener('mouseleave', () => {
+            const key = item.dataset.country;
+            const marker = markerMap[key];
+            if (marker) {
+                marker.scale.setScalar(1);
+                marker.material.opacity = 0.85;
+                if (marker.userData.glow) {
+                    marker.userData.glow.scale.setScalar(1);
+                    marker.userData.glow.material.opacity = 0.3;
+                }
+            }
+        });
+    });
 }
 
 // Convert lat/lon to 3D vector
