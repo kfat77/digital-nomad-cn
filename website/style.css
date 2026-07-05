@@ -824,3 +824,367 @@ body {
 .feature-block {
     animation: fadeInUp 0.5s ease-out forwards;
 }
+
+/* ============================================
+   3D 交互地球
+   ============================================ */
+
+.globe-section {
+    padding: 80px 0;
+    background: var(--bg-hero);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.globe-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    aspect-ratio: 1;
+}
+
+#globe-canvas-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: grab;
+}
+
+#globe-canvas-wrapper:active {
+    cursor: grabbing;
+}
+
+#globe-canvas-wrapper canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: var(--radius);
+}
+
+.globe-overlay {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.globe-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    color: var(--muted);
+    box-shadow: var(--shadow);
+}
+
+.globe-hint-icon {
+    font-size: 16px;
+}
+
+/* ============================================
+   国家信息弹窗
+   ============================================ */
+
+.country-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.country-modal.active {
+    display: flex;
+}
+
+.country-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.country-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    max-height: 80vh;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    animation: slideUp 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.country-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    font-size: 20px;
+    color: var(--muted);
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.country-modal-close:hover {
+    background: var(--border-light);
+    color: var(--foreground);
+}
+
+.country-modal-header {
+    padding: 24px 24px 16px;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.country-modal-flag {
+    font-size: 32px;
+    line-height: 1;
+}
+
+.country-modal-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--foreground);
+    margin: 0;
+}
+
+.country-modal-subtitle {
+    font-size: 13px;
+    color: var(--muted);
+    margin-left: auto;
+}
+
+.country-modal-body {
+    padding: 20px 24px 24px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.country-info-section {
+    margin-bottom: 20px;
+}
+
+.country-info-section:last-child {
+    margin-bottom: 0;
+}
+
+.country-info-section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.country-info-section-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 16px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+.country-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.country-info-list li {
+    margin-bottom: 8px;
+}
+
+.country-info-list li:last-child {
+    margin-bottom: 0;
+}
+
+.country-info-list a {
+    display: block;
+    padding: 10px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--foreground);
+    text-decoration: none;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.country-info-list a:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.country-info-list span {
+    display: block;
+    padding: 10px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ============================================
+   签证官网直达
+   ============================================ */
+
+.visa-official {
+    padding: 80px 0;
+    background: var(--bg-hero);
+    border-top: 1px solid var(--border-light);
+}
+
+.visa-official-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.visa-official-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: var(--transition);
+}
+
+.visa-official-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--border);
+    transform: translateY(-2px);
+}
+
+.visa-official-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.visa-official-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.visa-official-card-list li {
+    margin-bottom: 8px;
+}
+
+.visa-official-card-list li:last-child {
+    margin-bottom: 0;
+}
+
+.visa-official-card-list a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    color: var(--foreground);
+    text-decoration: none;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.visa-official-card-list a:hover {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.visa-official-card-list .flag {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.visa-official-card-list .link-arrow {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted-light);
+    transition: var(--transition);
+}
+
+.visa-official-card-list a:hover .link-arrow {
+    color: var(--accent);
+    transform: translateX(2px);
+}
+
+@media (max-width: 1024px) {
+    .visa-official-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .globe-container {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 640px) {
+    .visa-official-grid {
+        grid-template-columns: 1fr;
+    }
+    .country-modal-content {
+        max-height: 90vh;
+    }
+    .country-modal-header {
+        padding: 20px 16px 12px;
+    }
+    .country-modal-body {
+        padding: 16px;
+    }
+    .globe-container {
+        max-width: 100%;
+    }
+}

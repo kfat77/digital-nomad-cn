@@ -1,8 +1,9 @@
-// 数字游民指南 — 复刻 tikhub.io 风格交互脚本
+// 数字游民指南 — 3D 交互地球 + 签证官网直达
+// Three.js Earth with country markers, modal info, and official visa links
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    // ===== 数字计数动画 =====
+    // ===== 1. 数字计数动画 =====
     const statNumbers = document.querySelectorAll('.stat-num[data-count]');
 
     const countUp = (element, target, duration = 2000) => {
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     statNumbers.forEach(num => statsObserver.observe(num));
 
-    // ===== 导航栏滚动效果 =====
+    // ===== 2. 导航栏滚动效果 =====
     const header = document.querySelector('.header');
     let lastScroll = 0;
 
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScroll = currentScroll;
     });
 
-    // ===== 平滑滚动到锚点 =====
+    // ===== 3. 平滑滚动到锚点 =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -64,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ===== 模块卡片渐入动画 =====
+    // ===== 4. 模块卡片渐入动画 =====
     const cards = document.querySelectorAll('.module-card');
     const cardObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
@@ -85,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cardObserver.observe(card);
     });
 
-    // ===== 快速导航项动画 =====
+    // ===== 5. 快速导航项动画 =====
     const quickItems = document.querySelectorAll('.quicknav-item');
     const quickObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
@@ -106,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         quickObserver.observe(item);
     });
 
-    // ===== 特色区块动画 =====
+    // ===== 6. 特色区块动画 =====
     const featureBlocks = document.querySelectorAll('.feature-block');
     const featureObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -125,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
         featureObserver.observe(block);
     });
 
-    // ===== 代码标签切换 =====
+    // ===== 7. 代码标签切换 =====
     const codeTabs = document.querySelectorAll('.code-header span');
     const codeBlock = document.querySelector('.code-block');
 
@@ -188,5 +189,474 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    console.log('🌍 数字游民指南 — tikhub.io 风格已加载');
+    // ===== 8. Three.js 3D 交互地球 =====
+    initGlobe();
+
+    // ===== 9. 签证官网链接生成 =====
+    generateVisaLinks();
+
+    // ===== 10. 国家信息弹窗 =====
+    initCountryModal();
+
+    console.log('🌍 数字游民指南 — 3D 交互地球已加载');
 });
+
+
+// ============================================
+// Three.js 3D 地球
+// ============================================
+
+function initGlobe() {
+    const wrapper = document.getElementById('globe-canvas-wrapper');
+    if (!wrapper || typeof THREE === 'undefined') {
+        console.warn('Three.js 或地球容器未找到');
+        return;
+    }
+
+    const rect = wrapper.getBoundingClientRect();
+    const width = rect.width || 900;
+    const height = rect.height || 900;
+
+    // Scene
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xfafafa);
+
+    // Camera
+    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+    camera.position.z = 2.8;
+
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.domElement.style.width = '100%';
+    renderer.domElement.style.height = '100%';
+    wrapper.appendChild(renderer.domElement);
+
+    // Earth group
+    const earthGroup = new THREE.Group();
+    scene.add(earthGroup);
+
+    // Earth sphere (using wireframe + dot pattern for stylized look)
+    const earthRadius = 1;
+
+    // 1. Wireframe sphere (main globe outline)
+    const wireGeo = new THREE.IcosahedronGeometry(earthRadius, 3);
+    const wireMat = new THREE.MeshBasicMaterial({
+        color: 0xd0d5dd,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.4
+    });
+    const wireMesh = new THREE.Mesh(wireGeo, wireMat);
+    earthGroup.add(wireMesh);
+
+    // 2. Inner solid sphere (slightly smaller, subtle fill)
+    const innerGeo = new THREE.SphereGeometry(earthRadius * 0.98, 64, 64);
+    const innerMat = new THREE.MeshBasicMaterial({
+        color: 0xf5f7fa,
+        transparent: true,
+        opacity: 0.6
+    });
+    const innerMesh = new THREE.Mesh(innerGeo, innerMat);
+    earthGroup.add(innerMesh);
+
+    // 3. Outer glow ring
+    const ringGeo = new THREE.TorusGeometry(earthRadius * 1.15, 0.008, 16, 128);
+    const ringMat = new THREE.MeshBasicMaterial({
+        color: 0x2563eb,
+        transparent: true,
+        opacity: 0.2
+    });
+    const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+    ringMesh.rotation.x = Math.PI / 2;
+    earthGroup.add(ringMesh);
+
+    // 4. Country markers
+    const markers = [];
+    const markerGroup = new THREE.Group();
+    earthGroup.add(markerGroup);
+
+    const countryData = window.COUNTRY_DATA || {};
+
+    Object.entries(countryData).forEach(([key, country]) => {
+        const pos = latLonToVector3(country.lat, country.lon, earthRadius * 1.02);
+
+        // Marker dot
+        const dotGeo = new THREE.SphereGeometry(0.025, 16, 16);
+        const dotMat = new THREE.MeshBasicMaterial({
+            color: country.color || 0x2563eb,
+            transparent: true,
+            opacity: 0.8
+        });
+        const dot = new THREE.Mesh(dotGeo, dotMat);
+        dot.position.copy(pos);
+        dot.userData = { country: key, data: country, originalScale: 1 };
+        markerGroup.add(dot);
+        markers.push(dot);
+
+        // Glow ring around marker
+        const glowGeo = new THREE.RingGeometry(0.035, 0.045, 16);
+        const glowMat = new THREE.MeshBasicMaterial({
+            color: country.color || 0x2563eb,
+            transparent: true,
+            opacity: 0.3,
+            side: THREE.DoubleSide
+        });
+        const glow = new THREE.Mesh(glowGeo, glowMat);
+        glow.position.copy(pos.clone().multiplyScalar(1.001));
+        glow.lookAt(new THREE.Vector3(0, 0, 0));
+        markerGroup.add(glow);
+        dot.userData.glow = glow;
+
+        // Connection line to surface
+        const lineGeo = new THREE.BufferGeometry().setFromPoints([
+            pos.clone().multiplyScalar(0.98),
+            pos.clone().multiplyScalar(1.05)
+        ]);
+        const lineMat = new THREE.LineBasicMaterial({
+            color: country.color || 0x2563eb,
+            transparent: true,
+            opacity: 0.4
+        });
+        const line = new THREE.Line(lineGeo, lineMat);
+        markerGroup.add(line);
+        dot.userData.line = line;
+    });
+
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    directionalLight.position.set(5, 3, 5);
+    scene.add(directionalLight);
+
+    // Interaction
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2(-10, -10);
+    let hoveredMarker = null;
+    let isDragging = false;
+    let previousMousePosition = { x: 0, y: 0 };
+    let autoRotate = true;
+    const rotationSpeed = 0.001;
+
+    // Mouse move for raycasting
+    wrapper.addEventListener('mousemove', (e) => {
+        const rect = wrapper.getBoundingClientRect();
+        mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+        mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+
+        if (isDragging) {
+            const deltaX = e.clientX - previousMousePosition.x;
+            const deltaY = e.clientY - previousMousePosition.y;
+            earthGroup.rotation.y += deltaX * 0.005;
+            earthGroup.rotation.x += deltaY * 0.005;
+            earthGroup.rotation.x = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, earthGroup.rotation.x));
+            autoRotate = false;
+            previousMousePosition = { x: e.clientX, y: e.clientY };
+        }
+    });
+
+    wrapper.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        previousMousePosition = { x: e.clientX, y: e.clientY };
+    });
+
+    wrapper.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+        isDragging = false;
+        mouse.x = -10;
+        mouse.y = -10;
+    });
+
+    // Click to open modal
+    wrapper.addEventListener('click', (e) => {
+        if (!isDragging) {
+            const rect = wrapper.getBoundingClientRect();
+            const clickMouse = new THREE.Vector2(
+                ((e.clientX - rect.left) / rect.width) * 2 - 1,
+                -((e.clientY - rect.top) / rect.height) * 2 + 1
+            );
+            raycaster.setFromCamera(clickMouse, camera);
+            const intersects = raycaster.intersectObjects(markers);
+            if (intersects.length > 0) {
+                const marker = intersects[0].object;
+                if (marker.userData && marker.userData.data) {
+                    openCountryModal(marker.userData.data);
+                }
+            }
+        }
+    });
+
+    // Touch support
+    wrapper.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+            isDragging = true;
+            previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        }
+    }, { passive: true });
+
+    wrapper.addEventListener('touchmove', (e) => {
+        if (isDragging && e.touches.length === 1) {
+            const deltaX = e.touches[0].clientX - previousMousePosition.x;
+            const deltaY = e.touches[0].clientY - previousMousePosition.y;
+            earthGroup.rotation.y += deltaX * 0.005;
+            earthGroup.rotation.x += deltaY * 0.005;
+            autoRotate = false;
+            previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        }
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+
+    // Animation loop
+    let frameId;
+    function animate() {
+        frameId = requestAnimationFrame(animate);
+
+        // Auto rotate
+        if (autoRotate && !isDragging) {
+            earthGroup.rotation.y += rotationSpeed;
+        }
+
+        // Hover detection
+        raycaster.setFromCamera(mouse, camera);
+        const intersects = raycaster.intersectObjects(markers);
+
+        if (intersects.length > 0) {
+            const marker = intersects[0].object;
+            if (hoveredMarker !== marker) {
+                // Reset previous
+                if (hoveredMarker) {
+                    hoveredMarker.scale.setScalar(1);
+                    hoveredMarker.material.opacity = 0.8;
+                    if (hoveredMarker.userData.glow) {
+                        hoveredMarker.userData.glow.scale.setScalar(1);
+                        hoveredMarker.userData.glow.material.opacity = 0.3;
+                    }
+                }
+                // Highlight new
+                hoveredMarker = marker;
+                hoveredMarker.scale.setScalar(1.8);
+                hoveredMarker.material.opacity = 1;
+                if (hoveredMarker.userData.glow) {
+                    hoveredMarker.userData.glow.scale.setScalar(1.5);
+                    hoveredMarker.userData.glow.material.opacity = 0.6;
+                }
+                wrapper.style.cursor = 'pointer';
+            }
+        } else {
+            if (hoveredMarker) {
+                hoveredMarker.scale.setScalar(1);
+                hoveredMarker.material.opacity = 0.8;
+                if (hoveredMarker.userData.glow) {
+                    hoveredMarker.userData.glow.scale.setScalar(1);
+                    hoveredMarker.userData.glow.material.opacity = 0.3;
+                }
+                hoveredMarker = null;
+                wrapper.style.cursor = 'grab';
+            }
+        }
+
+        // Gentle pulse animation for markers
+        const time = Date.now() * 0.001;
+        markers.forEach((m, i) => {
+            if (m !== hoveredMarker && m.userData.glow) {
+                const pulse = Math.sin(time * 2 + i) * 0.1 + 0.3;
+                m.userData.glow.material.opacity = pulse;
+            }
+        });
+
+        // Ring rotation
+        ringMesh.rotation.z += 0.0005;
+
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Resize handler
+    const resizeObserver = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+            const w = entry.contentRect.width;
+            const h = entry.contentRect.height;
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        }
+    });
+    resizeObserver.observe(wrapper);
+
+    // IntersectionObserver for performance (pause when not visible)
+    const globeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (!frameId) animate();
+            } else {
+                if (frameId) {
+                    cancelAnimationFrame(frameId);
+                    frameId = null;
+                }
+            }
+        });
+    }, { threshold: 0.1 });
+    globeObserver.observe(wrapper);
+}
+
+// Convert lat/lon to 3D vector
+function latLonToVector3(lat, lon, radius) {
+    const phi = (90 - lat) * (Math.PI / 180);
+    const theta = (lon + 180) * (Math.PI / 180);
+    const x = -(radius * Math.sin(phi) * Math.cos(theta));
+    const z = radius * Math.sin(phi) * Math.sin(theta);
+    const y = radius * Math.cos(phi);
+    return new THREE.Vector3(x, y, z);
+}
+
+
+// ============================================
+// 国家信息弹窗
+// ============================================
+
+function initCountryModal() {
+    const modal = document.getElementById('countryModal');
+    const backdrop = modal.querySelector('.country-modal-backdrop');
+    const closeBtn = modal.querySelector('.country-modal-close');
+
+    function close() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    backdrop.addEventListener('click', close);
+    closeBtn.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            close();
+        }
+    });
+
+    window.closeCountryModal = close;
+}
+
+function openCountryModal(data) {
+    const modal = document.getElementById('countryModal');
+    const flag = document.getElementById('modalFlag');
+    const title = document.getElementById('modalTitle');
+    const subtitle = document.getElementById('modalSubtitle');
+    const body = document.getElementById('modalBody');
+
+    flag.textContent = getFlagEmoji(data.nameEn);
+    title.textContent = data.name;
+    subtitle.textContent = data.nameEn;
+
+    let html = '';
+    const sections = data.info || {};
+
+    const sectionIcons = {
+        bank: '💳',
+        phone: '📱',
+        visa: '🛂',
+        securities: '📈',
+        identity: '🏛️',
+        tools: '🛠️'
+    };
+
+    const sectionNames = {
+        bank: '银行卡',
+        phone: '电话卡',
+        visa: '签证',
+        securities: '证券账户',
+        identity: '身份规划',
+        tools: '数字工具'
+    };
+
+    Object.entries(sections).forEach(([key, section]) => {
+        const icon = sectionIcons[key] || '📋';
+        const name = section.title || sectionNames[key] || key;
+        html += `<div class="country-info-section">
+            <div class="country-info-section-title">${icon} ${name}</div>
+            <ul class="country-info-list">`;
+
+        section.items.forEach(item => {
+            if (item.link) {
+                html += `<li><a href="${item.link}" target="_blank">${item.text}</a></li>`;
+            } else {
+                html += `<li><span>${item.text}</span></li>`;
+            }
+        });
+
+        html += `</ul></div>`;
+    });
+
+    body.innerHTML = html;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function getFlagEmoji(countryName) {
+    const flags = {
+        'Hong Kong': '🇭🇰',
+        'Macao': '🇲🇴',
+        'Singapore': '🇸🇬',
+        'Japan': '🇯🇵',
+        'South Korea': '🇰🇷',
+        'Australia': '🇦🇺',
+        'New Zealand': '🇳🇿',
+        'United States': '🇺🇸',
+        'United Kingdom': '🇬🇧',
+        'Portugal': '🇵🇹',
+        'Spain': '🇪🇸',
+        'Estonia': '🇪🇪',
+        'Malaysia': '🇲🇾',
+        'Thailand': '🇹🇭',
+        'Vietnam': '🇻🇳',
+        'Canada': '🇨🇦',
+        'Schengen Area': '🇪🇺'
+    };
+    return flags[countryName] || '🌐';
+}
+
+
+// ============================================
+// 签证官网链接生成
+// ============================================
+
+function generateVisaLinks() {
+    const grid = document.getElementById('visaOfficialGrid');
+    if (!grid) return;
+
+    const links = window.VISA_OFFICIAL_LINKS || {};
+
+    Object.entries(links).forEach(([key, region]) => {
+        const card = document.createElement('div');
+        card.className = 'visa-official-card';
+
+        let listHtml = '<ul class="visa-official-card-list">';
+        region.countries.forEach(country => {
+            listHtml += `
+                <li>
+                    <a href="${country.link}" target="_blank" rel="noopener">
+                        <span class="flag">${country.flag}</span>
+                        <span>${country.name}</span>
+                        <span class="link-arrow">→</span>
+                    </a>
+                </li>
+            `;
+        });
+        listHtml += '</ul>';
+
+        card.innerHTML = `
+            <div class="visa-official-card-title">${region.title}</div>
+            ${listHtml}
+        `;
+
+        grid.appendChild(card);
+    });
+}
