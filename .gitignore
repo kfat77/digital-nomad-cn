@@ -39,3 +39,24 @@ taiji-gh/
 taiji-opt/
 texas-holdem-calculator/
 openpoker/
+FingerMagicLite/
+PhotoCrypt-Social/
+desktop-pet/
+pdf_texts/
+ppt_extract/
+qz_edna_analysis/
+
+# Build artifacts
+build-backup/
+build-deploy/
+build-liquid-glass/
+build-temp/
+build-temp2/
+build-v2/
+PhotoCrypt-NFT/
+drive-game/
+overwatch-assistant/
+taiji-gh/
+taiji-opt/
+texas-holdem-calculator/
+openpoker/
