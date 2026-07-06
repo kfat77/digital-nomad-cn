@@ -94,5 +94,29 @@
     "date": "2026-07-08",
     "tags": ["Digital Nomad", "Banking", "Cross-Border", "Multi-Currency", "Finance"],
     "image": "/images/og/banking-guide.png"
+  },
+  {
+    "slug": "digital-nomad-packing-guide",
+    "title": "Digital Nomad Packing Guide: Gear, Tools & Productivity",
+    "description": "Digital nomad packing list, luggage tips, essential electronics, remote work tools, based on 60-country data",
+    "date": "2026-07-09",
+    "tags": ["Digital Nomad", "Packing", "Gear", "Electronics", "Remote Work Tools"],
+    "image": "/images/og/packing-guide.png"
+  },
+  {
+    "slug": "remote-work-guide",
+    "title": "How to Find Remote Work: Digital Nomad Job Guide",
+    "description": "Remote work platforms, resume optimization, interview strategies, freelance platforms compared, based on 60-country data",
+    "date": "2026-07-09",
+    "tags": ["Digital Nomad", "Remote Work", "Job Search", "Freelance", "Platforms"],
+    "image": "/images/og/remote-work-guide.png"
+  },
+  {
+    "slug": "digital-nomad-communities",
+    "title": "Digital Nomad Communities: Meetups, Coworking & Online Groups",
+    "description": "Digital nomad community recommendations, global meetups, coworking spaces, online platforms, based on 60-country data",
+    "date": "2026-07-09",
+    "tags": ["Digital Nomad", "Community", "Coworking", "Meetups", "Online Groups"],
+    "image": "/images/og/communities-guide.png"
   }
 ]

@@ -94,5 +94,29 @@
     "date": "2026-07-08",
     "tags": ["数字游民", "银行", "跨境支付", "多币种", "金融基础设施"],
     "image": "/images/og/banking-guide.png"
+  },
+  {
+    "slug": "digital-nomad-packing-guide",
+    "title": "数字游民装备指南：行李、电子设备与远程工作工具",
+    "description": "数字游民打包清单、行李选择、必备电子设备、远程工作工具推荐，基于60国数据的实用装备指南",
+    "date": "2026-07-09",
+    "tags": ["数字游民", "装备", "行李", "电子设备", "远程工作工具"],
+    "image": "/images/og/packing-guide.png"
+  },
+  {
+    "slug": "remote-work-guide",
+    "title": "如何找到远程工作：数字游民求职完全指南",
+    "description": "远程工作平台推荐、简历优化、面试策略、自由职业平台对比，基于60国数据的求职实战指南",
+    "date": "2026-07-09",
+    "tags": ["数字游民", "远程工作", "求职", "自由职业", "工作平台"],
+    "image": "/images/og/remote-work-guide.png"
+  },
+  {
+    "slug": "digital-nomad-communities",
+    "title": "数字游民社区指南：全球线下聚会、联合办公与线上社群",
+    "description": "数字游民社区推荐、全球线下聚会、联合办公空间、线上社群平台，基于60国数据的社区指南",
+    "date": "2026-07-09",
+    "tags": ["数字游民", "社区", "联合办公", "线下聚会", "线上社群"],
+    "image": "/images/og/communities-guide.png"
   }
 ]
