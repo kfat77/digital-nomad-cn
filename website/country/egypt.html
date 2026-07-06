@@ -90,6 +90,17 @@
             .country-nav ul { overflow-x: auto; }
             .country-nav li { flex: 0 0 auto; min-width: 100px; }
         }
+    
+        .freshness-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; padding: 0.25rem 0.6rem; border-radius: var(--radius-full); font-weight: 500; }
+        .freshness-badge.fresh { background: rgba(34,197,94,0.15); color: #16a34a; }
+        .freshness-badge.aging { background: rgba(234,179,8,0.15); color: #ca8a04; }
+        .freshness-badge.warning { background: rgba(249,115,22,0.15); color: #ea580c; }
+        .freshness-badge.stale { background: rgba(239,68,68,0.15); color: #dc2626; }
+        .freshness-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+        .freshness-badge.fresh::before { background: #16a34a; }
+        .freshness-badge.aging::before { background: #ca8a04; }
+        .freshness-badge.warning::before { background: #ea580c; }
+        .freshness-badge.stale::before { background: #dc2626; }
     </style>
 </head>
 <body>
@@ -122,6 +133,7 @@
             <span>数字游民友好度</span>
             <span class="score">63/100</span>
         </div>
+        <div class="freshness-badge fresh">数据更新于 2026-07-06 (刚刚)</div>
     </header>
 
     <nav class="country-nav">

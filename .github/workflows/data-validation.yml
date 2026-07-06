@@ -5,28 +5,228 @@ on:
     paths:
       - 'datasets/**'
       - 'schemas/**'
+      - 'website/**'
+      - '.github/workflows/data-validation.yml'
   push:
     branches: [main]
     paths:
       - 'datasets/**'
       - 'schemas/**'
+      - 'website/**'
+      - '.github/workflows/data-validation.yml'
 
 jobs:
-  validate:
+  validate-json:
+    name: JSON Syntax Validation
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Check JSON syntax
+      - name: Validate JSON syntax
         run: |
-          # Validate all JSON files under datasets/ have valid syntax
-          find datasets -name '*.json' -exec node -e "JSON.parse(require('fs').readFileSync('{}', 'utf8'))" \; || exit 1
+          echo "🔍 Validating all JSON files..."
+          find datasets website/api schemas -name '*.json' | while read f; do
+            node -e "JSON.parse(require('fs').readFileSync('$f', 'utf8'))" || { echo "❌ Invalid JSON: $f"; exit 1; }
+          done
+          echo "✅ All JSON files valid"
+
+  validate-schema:
+    name: Schema Validation
+    runs-on: ubuntu-latest
+    needs: validate-json
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Install dependencies
+        run: npm install ajv ajv-formats --no-save
+
+      - name: Validate countries.json against schema
+        run: |
+          node -e "
+            const Ajv = require('ajv');
+            const addFormats = require('ajv-formats');
+            const ajv = new Ajv({ allErrors: true });
+            addFormats(ajv);
+            
+            const schema = JSON.parse(require('fs').readFileSync('schemas/country.schema.json', 'utf8'));
+            const data = JSON.parse(require('fs').readFileSync('datasets/countries.json', 'utf8'));
+            
+            const validate = ajv.compile(schema);
+            const valid = validate(data);
+            
+            if (!valid) {
+              console.error('❌ Schema validation failed:');
+              validate.errors.forEach(e => console.error('  -', e.instancePath, ':', e.message));
+              process.exit(1);
+            }
+            console.log('✅ countries.json validates against schema');
+            console.log('📊 Countries:', data.countries?.length || 'N/A');
+          "
+
+  check-sync:
+    name: Dataset Sync Check
+    runs-on: ubuntu-latest
+    needs: validate-json
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Check dataset sync
         run: |
-          # Verify datasets/countries.json and website/api/countries.json are in sync
+          echo "🔍 Checking dataset synchronization..."
+          
+          # Check countries.json sync
           if [ -f datasets/countries.json ] && [ -f website/api/countries.json ]; then
-            diff -q datasets/countries.json website/api/countries.json || echo "⚠️ datasets/countries.json 与 website/api/countries.json 不同步"
+            if diff -q datasets/countries.json website/api/countries.json > /dev/null 2>&1; then
+              echo "✅ datasets/countries.json ↔ website/api/countries.json in sync"
+            else
+              echo "⚠️ datasets/countries.json is out of sync with website/api/countries.json"
+              echo "   Run: node scripts/sync-to-docs.js"
+            fi
           fi
+          
+          # Check cities.json sync
+          if [ -f datasets/cities.json ] && [ -f website/api/cities.json ]; then
+            if diff -q datasets/cities.json website/api/cities.json > /dev/null 2>&1; then
+              echo "✅ datasets/cities.json ↔ website/api/cities.json in sync"
+            else
+              echo "⚠️ datasets/cities.json is out of sync with website/api/cities.json"
+            fi
+          fi
+
+  check-links:
+    name: Dead Link Detection
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Check for dead internal links
+        run: |
+          echo "🔍 Checking internal links..."
+          node -e "
+            const fs = require('fs');
+            const path = require('path');
+            
+            const websiteDir = 'website';
+            const allFiles = [];
+            
+            function walk(dir) {
+              const entries = fs.readdirSync(dir, { withFileTypes: true });
+              for (const entry of entries) {
+                const fullPath = path.join(dir, entry.name);
+                if (entry.isDirectory()) {
+                  walk(fullPath);
+                } else if (entry.name.endsWith('.html')) {
+                  allFiles.push(fullPath);
+                }
+              }
+            }
+            walk(websiteDir);
+            
+            const fileSet = new Set(allFiles.map(f => f.replace(/^website\\//, '')));
+            let deadLinks = 0;
+            
+            for (const file of allFiles) {
+              const content = fs.readFileSync(file, 'utf8');
+              const hrefMatches = content.matchAll(/href=['\"]([^'\"]+)['\"]/g);
+              
+              for (const match of hrefMatches) {
+                const href = match[1];
+                if (href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('javascript:')) continue;
+                if (href.startsWith('/')) {
+                  const target = href.slice(1);
+                  if (!fileSet.has(target) && !fileSet.has(target + 'index.html') && !fileSet.has(target + '/index.html')) {
+                    console.log('⚠️ Dead link in', file.replace(/^website\\//, ''), '→', href);
+                    deadLinks++;
+                  }
+                }
+              }
+            }
+            
+            if (deadLinks > 0) {
+              console.log('\\n❌ Found', deadLinks, 'dead internal links');
+              process.exit(1);
+            } else {
+              console.log('✅ All internal links valid');
+            }
+          "
         continue-on-error: true
+
+  check-html:
+    name: HTML Structure Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check required meta tags
+        run: |
+          echo "🔍 Checking HTML structure..."
+          node -e "
+            const fs = require('fs');
+            const path = require('path');
+            
+            const issues = [];
+            
+            function walk(dir) {
+              const entries = fs.readdirSync(dir, { withFileTypes: true });
+              for (const entry of entries) {
+                const fullPath = path.join(dir, entry.name);
+                if (entry.isDirectory()) {
+                  walk(fullPath);
+                } else if (entry.name.endsWith('.html')) {
+                  const content = fs.readFileSync(fullPath, 'utf8');
+                  const relPath = fullPath.replace(/^website\\//, '');
+                  
+                  // Check title
+                  if (!content.includes('<title>')) {
+                    issues.push(relPath + ': Missing <title>');
+                  }
+                  
+                  // Check description
+                  if (!content.includes('name=\"description\"')) {
+                    issues.push(relPath + ': Missing meta description');
+                  }
+                  
+                  // Check viewport
+                  if (!content.includes('name=\"viewport\"')) {
+                    issues.push(relPath + ': Missing viewport meta');
+                  }
+                  
+                  // Check canonical
+                  if (!content.includes('rel=\"canonical\"')) {
+                    issues.push(relPath + ': Missing canonical link');
+                  }
+                  
+                  // Check hreflang on country/city pages
+                  if (relPath.startsWith('country/') || relPath.startsWith('city/') || relPath === 'index.html') {
+                    if (!content.includes('hreflang=\"zh-CN\"')) {
+                      issues.push(relPath + ': Missing hreflang zh-CN');
+                    }
+                  }
+                }
+              }
+            }
+            walk('website');
+            
+            if (issues.length > 0) {
+              console.log('⚠️ HTML structure issues found:');
+              issues.forEach(i => console.log('  -', i));
+              console.log('\\nTotal:', issues.length, 'issues');
+            } else {
+              console.log('✅ All HTML files have required structure');
+            }
+          "
