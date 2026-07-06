@@ -17,6 +17,9 @@
   <a href="https://github.com/kfat77/digital-nomad-cn/actions">
     <img src="https://github.com/kfat77/digital-nomad-cn/actions/workflows/data-update.yml/badge.svg" alt="CI/CD">
   </a>
+  <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT%20%2B%20CC%20BY--NC--SA%204.0-3b82f6?style=flat" alt="License">
+  </a>
   <br>
   <a href="https://kfat77.github.io/digital-nomad-cn/">
     <img src="https://img.shields.io/badge/🌐_Live_Site-Visit_Now-3b82f6?style=flat" alt="Live Site">
@@ -31,6 +34,13 @@
 
 > 🎯 **目标**：让每一个中国人都能拥有全球流动的完整信息和工具，打破信息垄断。
 
+### 为什么这个项目重要？
+
+- **信息垄断**：全球流动信息长期被英语世界垄断，中文用户缺乏系统、可信的数据来源
+- **数据开源**：所有数据完全开源（CC BY-NC-SA 4.0），任何人可验证、改进、复用
+- **AI 就绪**：结构化 JSON API + llms.txt，AI Agent 可直接调用我们的数据基础设施
+- **社区共建**：60 国 × 122 城的数据，由社区共同维护，确保准确和时效
+
 ---
 
 ## 📊 当前数据覆盖
@@ -43,8 +53,12 @@
 | 🗺️ 数字游民路线 | **3** | ✅ 已上线 | 东南亚、欧洲申根、地中海 |
 | 📊 对比工具 | **60** | ✅ 已上线 | 31 国对比 + 29 城对比，12 维度指标 |
 | 🔍 搜索 | **242** | ✅ 已上线 | 60 国 + 122 城 + 60 对比页模糊搜索 |
-| 📝 文章 | **3** | ✅ 已上线 | 数据驱动的深度文章：签证攻略、排名、指南 |
-| 🔌 数据 API | **5** | ✅ 已上线 | 静态 JSON API，开放供 AI Agent 调用 |
+| 📝 文章 | **18** | ✅ 已上线 | 数据驱动的深度文章 + 指南 + 对比分析 |
+| 🔌 数据 API | **5** | ✅ v1.2 | 静态 JSON API，AI Agent 可直接调用 |
+| 🌙 深色模式 | ✅ | ✅ 已上线 | 系统偏好检测 + 手动切换 + localStorage 持久化 |
+| 📱 移动端 | ✅ | ✅ 已上线 | 汉堡菜单 + 响应式导航 + 触摸优化 |
+| 📊 分析系统 | ✅ | ✅ 已上线 | 隐私优先分析，支持 GoatCounter/Plausible/自定义 |
+| 🚀 性能优化 | ✅ | ✅ 已上线 | Core Web Vitals 监控 + 资源预加载 + JS 延迟加载 |
 
 ---
 
@@ -69,9 +83,12 @@ python -m http.server 8080
 
 ### 🌍 国家详情页
 - 60 个国家完整数据：签证、生活成本、网络、安全、HDI、GDP
+- **12 个深度字段**（v1.2）：医疗质量、英语普及、租金范围、餐饮/交通成本、税率、优势/劣势、推荐社区
 - **ECharts 雷达图**：7 维度综合评分可视化
 - **全球对比条形图**：vs 全球平均值
 - **相似目的地推荐**：基于相似度算法推荐 4 个相关国家
+- **面包屑 Schema.org**：提升搜索引擎结果展示
+- **社交分享**：X/Twitter、LinkedIn、复制链接、原生分享
 
 ### 🏙️ 城市数据
 - 122 个数字游民热门城市
@@ -118,9 +135,35 @@ python -m http.server 8080
 
 ### 🔌 开放数据 API
 - 5 个静态 JSON 端点：国家、城市、签证、统计、清单
+- **API v1.2**：新增 12 个深度字段（医疗、英语、租金、税率等）
+- **API 文档页面**：交互式代码示例（JS/Python/cURL）、版本变更日志
+- **llms.txt**：AI Agent 机器可读站点描述
 - 零后端依赖，AI Agent 可直接调用
 - JSON Schema 定义，数据格式标准化
 - 使用条款：CC BY-NC-SA 4.0
+
+### 🌙 深色模式与用户体验
+- 系统偏好自动检测 + 手动切换按钮
+- localStorage 持久化，刷新后保持偏好
+- 文章页打印样式优化
+- 阅读进度条（文章页面滚动指示器）
+
+### 📱 移动端优化
+- 汉堡菜单导航（900px 以下断点）
+- 响应式布局适配
+- 触摸友好的交互元素
+
+### 📊 隐私优先分析
+- 尊重 Do Not Track（DNT）
+- 默认完全关闭，可配置 GoatCounter/Plausible/自定义端点
+- 本地 "你的足迹" 页面：完全浏览器本地存储的浏览统计
+- Core Web Vitals 实时监控（LCP、CLS、FID）
+
+### 🚀 性能优化
+- `fetchpriority="high"` 关键资源优先加载
+- `dns-prefetch` + `preconnect` CDN 资源预连接
+- 非关键 JS 延迟加载（defer）
+- Service Worker 缓存策略（v48）
 
 ### 📱 PWA 离线支持
 - 渐进式 Web 应用，可安装到主屏幕
@@ -285,6 +328,15 @@ git push origin add-country-romania
 | ✅ 数据质量 | 60 国签证数据补全 + 全站统计修复 + 浮点精度 | 已完成 |
 | ✅ 多语言 SEO | 485 页 hreflang 标签 + 502 URL 站点地图 | 已完成 |
 | ✅ 文章系统 | 数据驱动文章生成 + 3 篇首发 | 已完成 |
+| ✅ AI Search 就绪 | FAQPage Schema + llms.txt + robots.txt AI 爬虫规则 | 已完成 |
+| ✅ 社区参与 | 社区页面 + GitHub Star CTA + 贡献入口 | 已完成 |
+| ✅ 分析系统 | 隐私优先 analytics.js + 足迹页面 + CWV 监控 | 已完成 |
+| ✅ 性能优化 | fetchpriority + preconnect + defer + CWV observer | 已完成 |
+| ✅ 国家深度指南 | 12 新字段 + 5 试点页面（成本明细、优势劣势、推荐社区） | 已完成 |
+| ✅ API 文档 | 增强版文档 + 代码标签页 + 变更日志 + LLM 上下文 | 已完成 |
+| ✅ 移动端导航 | 汉堡菜单 + 响应式导航 + 触摸优化 | 已完成 |
+| ✅ 社交分享 | share.js（X/Twitter, LinkedIn, 复制, 原生分享） | 已完成 |
+| ✅ SEO 完善 | 自定义 404 页面 + 面包屑 Schema + 内部链接优化 | 已完成 |
 | 📋 社区功能 | 用户评论、评分、经验分享 | 计划中 |
 
 完整路线图：[36MONTH_ROADMAP.md](docs/36MONTH_ROADMAP.md)
