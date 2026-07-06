@@ -23,6 +23,9 @@
   <a href="https://github.com/kfat77/digital-nomad-cn/releases">
     <img src="https://img.shields.io/badge/Open_Data-v2.0.0-f59e0b?style=flat" alt="Open Data">
   </a>
+  <a href="https://www.npmjs.com/package/@digital-nomad-cn/sdk">
+    <img src="https://img.shields.io/badge/npm-@digital--nomad--cn/sdk-cb3837?style=flat" alt="npm SDK">
+  </a>
   <br>
   <a href="https://kfat77.github.io/digital-nomad-cn/">
     <img src="https://img.shields.io/badge/🌐_Live_Site-Visit_Now-3b82f6?style=flat" alt="Live Site">
@@ -79,6 +82,7 @@
 | **REST API** | `https://api.digital-nomad.cn/v1/countries` | 实时 API |
 | **GraphQL** | `https://api.digital-nomad.cn/graphql` | 灵活查询 |
 | **npm SDK** | `@digital-nomad-cn/sdk` | TypeScript SDK |
+| **MCP Server** | `@digital-nomad-cn/mcp` | Claude/Cursor AI Agent |
 
 ### 引用本数据集
 
@@ -91,6 +95,34 @@
   url = {https://github.com/kfat77/digital-nomad-cn}
 }
 ```
+
+---
+
+## 🤖 MCP Server (AI Agent 集成)
+
+让 ChatGPT、Claude、Cursor、Windsurf 直接查询全球数字游民数据：
+
+```json
+// Claude Desktop / Cursor / Windsurf 配置
+{
+  "mcpServers": {
+    "digital-nomad": {
+      "command": "npx",
+      "args": ["-y", "@digital-nomad-cn/mcp@latest"]
+    }
+  }
+}
+```
+
+**可用工具**（6 个）：
+- `nomad_search_countries` — 搜索国家
+- `nomad_get_country` — 获取国家详情
+- `nomad_list_regions` — 列出所有区域
+- `nomad_compare_countries` — 对比国家
+- `nomad_recommend` — 智能推荐
+- `nomad_get_stats` — 数据集统计
+
+详细文档：[packages/mcp-server/README.md](packages/mcp-server/README.md)
 
 ---
 
@@ -116,8 +148,9 @@ digital-nomad-cn/
 │   │   └── routes/          # REST 路由
 │   └── wrangler.toml        # Cloudflare Workers
 │
-├── 📁 packages/             # ⭐ SDK 包
-│   └── js-sdk/              # @digital-nomad-cn/sdk
+├── 📁 packages/             # ⭐ SDK / MCP 包
+│   ├── js-sdk/              # @digital-nomad-cn/sdk
+│   └── mcp-server/          # @digital-nomad-cn/mcp (NEW)
 │
 ├── 📁 website/              # 网站（消费者之一）
 │   ├── index.html           # 首页
@@ -275,9 +308,9 @@ git push origin your-branch
 | **Phase 1** | M8 | 自动化管道完善 | ✅ 完成 |
 | **Phase 1** | M9 | 开源生态初建 | ✅ 完成 |
 | **Phase 1** | M10 | GraphQL API v1 | ✅ 完成 |
-| **Phase 1** | M11 | **Open Data 发布** | 🚧 **进行中** |
-| **Phase 1** | M12 | Year 1 总结 | 📋 计划 |
-| **Phase 2** | M13 | MCP Server | 📋 计划 |
+| **Phase 1** | M11 | Open Data 发布 | ✅ 完成 |
+| **Phase 2** | M12 | Year 1 总结 | 📋 计划 |
+| **Phase 2** | **M13** | **MCP Server** | 🚧 **进行中** |
 | **Phase 2** | M14 | Embedding 系统 | 📋 计划 |
 | **Phase 2** | M15 | RAG 系统 | 📋 计划 |
 
