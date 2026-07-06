@@ -291,8 +291,9 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/vision_bundle.js" crossorigin="anonymous"></script>
-<script>
+<script type="module">
+import { HandLandmarker, FilesetResolver } from 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/vision_bundle.js';
+
 // ===== CONFIG =====
 const CONFIG = {
   smoothing: 0.25,
@@ -429,7 +430,7 @@ async function setupMediaPipe() {
       throw new Error('MediaPipe FilesetResolver 不可用');
     }
     const vision = await FilesetResolver.forVisionTasks(
-      'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm'
+      'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm'
     );
     setLoading('正在加载手部分析模型 (约 7MB)...');
     handLandmarker = await HandLandmarker.createFromOptions(vision, {
