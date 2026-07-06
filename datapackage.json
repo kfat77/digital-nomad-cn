@@ -1,0 +1,90 @@
+{
+  "name": "digital-nomad-countries",
+  "title": "Digital Nomad CN — Global Mobility Open Dataset",
+  "description": "A comprehensive open dataset covering 100+ countries for digital nomads and global mobility, including visa policies, cost of living, internet quality, and nomad-friendliness scores.",
+  "version": "2.0.0",
+  "license": "CC-BY-SA-4.0",
+  "keywords": [
+    "digital-nomad",
+    "global-mobility",
+    "visa-data",
+    "cost-of-living",
+    "remote-work",
+    "open-data"
+  ],
+  "homepage": "https://kfat77.github.io/digital-nomad-cn/",
+  "repository": "https://github.com/kfat77/digital-nomad-cn",
+  "resources": [
+    {
+      "name": "countries",
+      "path": "datasets/countries.json",
+      "format": "json",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "string", "description": "Unique country identifier" },
+            "iso": {
+              "type": "object",
+              "properties": {
+                "alpha2": { "type": "string" },
+                "alpha3": { "type": "string" }
+              }
+            },
+            "name": {
+              "type": "object",
+              "properties": {
+                "zh": { "type": "string" },
+                "en": { "type": "string" }
+              }
+            },
+            "region": { "type": "string", "description": "Geographic region" },
+            "coordinates": {
+              "type": "object",
+              "properties": {
+                "latitude": { "type": "number" },
+                "longitude": { "type": "number" }
+              }
+            },
+            "color": { "type": "string" },
+            "info": { "type": "object", "description": "Detailed country information" },
+            "status": { "type": "string", "enum": ["active", "draft", "deprecated"] },
+            "metadata": {
+              "type": "object",
+              "properties": {
+                "version": { "type": "string" },
+                "lastUpdated": { "type": "string", "format": "date-time" },
+                "dataQuality": {
+                  "type": "object",
+                  "properties": {
+                    "completeness": { "type": "number" },
+                    "accuracy": { "type": "number" },
+                    "freshness": { "type": "number" }
+                  }
+                }
+              }
+            }
+          },
+          "required": ["id", "name", "region", "status", "metadata"]
+        }
+      }
+    }
+  ],
+  "contributors": [
+    {
+      "title": "Digital Nomad CN Contributors",
+      "role": "author"
+    }
+  ],
+  "sources": [
+    {
+      "title": "World Bank Open Data",
+      "path": "https://data.worldbank.org/"
+    },
+    {
+      "title": "Official Government Visa Portals",
+      "path": "https://github.com/kfat77/digital-nomad-cn/tree/main/datasets"
+    }
+  ]
+}
