@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/kfat77/digital-nomad-cn/schemas/v2/core/country.schema.json",
+  "title": "Country",
+  "description": "国家/地区基础信息定义（V2最小可用版本）。所有其他数据类型的核心锚点。",
+  "version": "2.0.0",
+  "type": "object",
+  "required": ["id", "name", "region", "status", "metadata"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "国家/地区唯一标识符，使用小写slug",
+      "pattern": "^[a-z][a-z0-9_]+$",
+      "examples": ["thailand", "japan", "portugal"]
+    },
+    "iso": {
+      "type": "object",
+      "description": "ISO标准代码",
+      "properties": {
+        "alpha2": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "alpha3": { "type": "string", "pattern": "^[A-Z]{3}$" }
+      }
+    },
+    "name": {
+      "type": "object",
+      "description": "多语言名称",
+      "required": ["zh", "en"],
+      "properties": {
+        "zh": { "type": "string" },
+        "en": { "type": "string" }
+      }
+    },
+    "region": {
+      "type": "string",
+      "description": "所属区域",
+      "enum": [
+        "east-asia", "southeast-asia", "south-asia", "central-asia",
+        "western-europe", "eastern-europe", "northern-europe", "southern-europe",
+        "north-america", "central-america", "south-america", "caribbean",
+        "oceania", "middle-east", "africa", "unclassified"
+      ]
+    },
+    "coordinates": {
+      "type": "object",
+      "properties": {
+        "latitude": { "type": "number", "minimum": -90, "maximum": 90 },
+        "longitude": { "type": "number", "minimum": -180, "maximum": 180 }
+      }
+    },
+    "color": {
+      "type": "string",
+      "description": "地图显示颜色（十六进制）",
+      "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "info": {
+      "type": "object",
+      "description": "分类详情信息",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["title", "items"],
+        "properties": {
+          "title": { "type": "string" },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["text"],
+              "properties": {
+                "text": { "type": "string" },
+                "url": { "type": ["string", "null"] }
+              }
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "draft", "deprecated", "pending-review"],
+      "default": "draft"
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["version", "lastUpdated"],
+      "properties": {
+        "version": { "type": "string" },
+        "lastUpdated": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "contributors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "github": { "type": "string" },
+              "name": { "type": "string" },
+              "role": { "type": "string", "enum": ["author", "maintainer", "contributor", "reviewer"] }
+            }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string", "format": "uri" },
+              "type": { "type": "string", "enum": ["official", "third-party", "crowdsourced", "estimate"] }
+            }
+          }
+        },
+        "dataQuality": {
+          "type": "object",
+          "properties": {
+            "completeness": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "accuracy": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "freshness": { "type": "integer", "minimum": 0, "maximum": 100 }
+          }
+        },
+        "extractionNote": { "type": "string" }
+      }
+    }
+  }
+}

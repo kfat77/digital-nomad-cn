@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-07-06T16:00:12.732Z",
+  "checks": [
+    {
+      "file": "countries.json",
+      "schema": "country.schema.json",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "summary": "所有校验通过"
+}
