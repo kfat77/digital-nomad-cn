@@ -363,29 +363,38 @@
       "timezone": "UTC+8",
       "dn_community_size": "大",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 90,
+      "english_proficiency": 70,
+      "monthly_rent_usd_low": 2500,
+      "monthly_rent_usd_high": 6000,
+      "food_cost_usd_daily": 35,
+      "transport_cost_usd_monthly": 60,
+      "coworking_spaces_count": 70,
+      "local_tax_rate": 15,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "无需签证，持中国护照自由出入",
+        "中文环境，零语言障碍",
+        "世界级金融与商业基础设施",
+        "美食天堂，从茶餐厅到米其林",
+        "高效公共交通，24小时便利"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "生活成本极高，全球最贵城市之一",
+        "居住空间极小且昂贵",
+        "气候炎热潮湿，夏季漫长",
+        "社会竞争激烈，压力大",
+        "政治环境变化带来不确定性"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "金融/科技从业者",
+        "大中华区域商务人士",
+        "中文环境追求者",
+        "高预算城市生活爱好者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "中环/上环：金融核心，高端住宅",
+        "铜锣湾/湾仔：购物与美食中心，生活便利",
+        "西贡/清水湾：海滩与郊野，低密度住宅"
       ]
     },
     {
@@ -405,29 +414,38 @@
       "timezone": "UTC+1~+2",
       "dn_community_size": "中",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 82,
+      "english_proficiency": 90,
+      "monthly_rent_usd_low": 900,
+      "monthly_rent_usd_high": 1800,
+      "food_cost_usd_daily": 20,
+      "transport_cost_usd_monthly": 40,
+      "coworking_spaces_count": 60,
+      "local_tax_rate": 49,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "英语普及率极高（90%+）",
+        "自行车文化，城市设计友好",
+        "创新科技生态（阿姆斯特丹/埃因霍温）",
+        "数字游民签证",
+        "社会开放包容"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "生活成本高",
+        "住房短缺严重",
+        "天气多雨",
+        "税务复杂",
+        " bureaucracy"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        " tech 创业者",
+        "设计/创意工作者",
+        "环保/可持续生活爱好者",
+        "自行车通勤者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "阿姆斯特丹 De Pijp：多元文化，美食",
+        "鹿特丹 Kop van Zuid：现代建筑， waterfront",
+        "埃因霍温 Strijp-S：工业设计区，创意产业"
       ]
     },
     {
@@ -642,29 +660,38 @@
       "timezone": "UTC+9",
       "dn_community_size": "中",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
+      "healthcare_quality": 82,
+      "english_proficiency": 45,
+      "monthly_rent_usd_low": 500,
       "monthly_rent_usd_high": 1200,
       "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "transport_cost_usd_monthly": 30,
+      "coworking_spaces_count": 85,
+      "local_tax_rate": 42,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "科技基础设施全球顶尖（5G/光纤）",
+        "公共交通极佳",
+        "安全指数高",
+        "美食丰富（烧烤、炸鸡、泡菜）",
+        "文化输出强劲（K-pop/K-drama）"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "韩语必需，英语普及率有限",
+        "生活成本高（首尔）",
+        "工作文化内卷严重",
+        "社会压力与竞争大",
+        "冬季寒冷"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        " tech 从业者",
+        "K-pop/K-drama 爱好者",
+        "追求高速互联网者",
+        "亚洲文化爱好者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "首尔 Gangnam：商业中心，高端设施",
+        "首尔 Hongdae：年轻创意区，夜生活",
+        "釜山 Haeundae：海滨城市，低成本"
       ]
     },
     {
@@ -684,29 +711,38 @@
       "timezone": "UTC+1~+2",
       "dn_community_size": "小",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 85,
+      "english_proficiency": 85,
+      "monthly_rent_usd_low": 700,
+      "monthly_rent_usd_high": 1400,
+      "food_cost_usd_daily": 20,
+      "transport_cost_usd_monthly": 35,
+      "coworking_spaces_count": 50,
+      "local_tax_rate": 50,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "生活质量极高，work-life balance 典范",
+        "创新科技生态（Spotify/Klarna 诞生地）",
+        "英语普及率高",
+        "自然与城市完美融合",
+        "社会平等、包容"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "生活成本高",
+        "冬季极长且黑暗",
+        "税务负担重",
+        "社交融入困难（含蓄文化）",
+        "住房短缺"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        " tech 从业者",
+        "追求 work-life balance 者",
+        "家庭数字游民",
+        "环保主义者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "斯德哥尔摩 Södermalm：创意区，时尚",
+        "哥德堡 Linnéstaden：滨海，美食",
+        "马尔默 Västra Hamnen：现代建筑，与丹麦相连"
       ]
     },
     {
@@ -726,29 +762,38 @@
       "timezone": "UTC+8~+11",
       "dn_community_size": "中",
       "median_stay_months": 6,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 82,
+      "english_proficiency": 95,
+      "monthly_rent_usd_low": 1200,
+      "monthly_rent_usd_high": 2800,
+      "food_cost_usd_daily": 28,
+      "transport_cost_usd_monthly": 60,
+      "coworking_spaces_count": 80,
+      "local_tax_rate": 45,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "英语环境，华人社区成熟",
+        "自然环境世界级（大堡礁、乌鲁鲁）",
+        "生活质量极高",
+        "工作文化强调平衡",
+        "多个城市气候宜人"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "生活成本极高",
+        "距离世界其他地方遥远",
+        "互联网速度相对较慢",
+        "严格的生物安全检查",
+        "夏季极端高温与火灾风险"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "户外生活方式爱好者",
+        "英语环境游民",
+        "家庭数字游民",
+        "自然摄影师"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "悉尼 Surry Hills：创意区，coworking 密集",
+        "墨尔本 Fitzroy：文艺区，咖啡文化",
+        "布里斯班 West End：亚热带气候，河滨生活"
       ]
     },
     {
@@ -819,29 +864,38 @@
       "timezone": "UTC+1~+2",
       "dn_community_size": "大",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 88,
+      "english_proficiency": 60,
+      "monthly_rent_usd_low": 700,
+      "monthly_rent_usd_high": 1500,
+      "food_cost_usd_daily": 20,
+      "transport_cost_usd_monthly": 40,
+      "coworking_spaces_count": 120,
+      "local_tax_rate": 45,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "欧盟经济引擎，基础设施顶尖",
+        "数字游民签证（2023年推出）",
+        "公共交通准时高效",
+        "医疗体系世界一流",
+        "环境优美，城市绿化率高"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "德语必需，英语普及率中等",
+        " bureaucracy 复杂，办事效率低",
+        "冬季漫长阴冷",
+        "租金上涨快（柏林等）",
+        "社会相对保守，融入较难"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        " tech 工程师",
+        "欧盟长期基地寻求者",
+        "工业4.0/汽车从业者",
+        "追求秩序与效率者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "柏林 Mitte：历史与创意中心，coworking 密集",
+        "柏林 Kreuzberg：多元文化，艺术氛围",
+        "慕尼黑 Schwabing：富裕区，科技产业集中"
       ]
     },
     {
@@ -1005,29 +1059,38 @@
       "timezone": "UTC-8~UTC-3.5",
       "dn_community_size": "中",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
+      "healthcare_quality": 85,
+      "english_proficiency": 95,
+      "monthly_rent_usd_low": 1000,
+      "monthly_rent_usd_high": 2500,
+      "food_cost_usd_daily": 25,
       "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "coworking_spaces_count": 90,
+      "local_tax_rate": 33,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "多元文化社会，华人社区庞大",
+        "生活质量极高，自然环境壮丽",
+        "医疗体系全民覆盖",
+        "安全指数全球领先",
+        "工作签证政策相对友好"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "生活成本高（尤其温哥华/多伦多）",
+        "冬季极寒漫长",
+        "税务负担重",
+        "距离亚洲遥远，时差大",
+        "住房危机严重"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "家庭数字游民",
+        "华人背景移民/游民",
+        "自然爱好者",
+        "追求安全与稳定者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "温哥华 Kitsilano：海滩+山景，休闲生活方式",
+        "多伦多 Kensington Market：多元文化，创意产业",
+        "蒙特利尔 Plateau：艺术区，法语与英语交融"
       ]
     },
     {
@@ -1047,29 +1110,38 @@
       "timezone": "UTC+1~+2",
       "dn_community_size": "小",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 88,
+      "english_proficiency": 90,
+      "monthly_rent_usd_low": 800,
+      "monthly_rent_usd_high": 1600,
+      "food_cost_usd_daily": 22,
+      "transport_cost_usd_monthly": 35,
+      "coworking_spaces_count": 35,
+      "local_tax_rate": 50,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "生活质量全球最高（Hygge 文化）",
+        "社会信任度高，安全",
+        "英语普及率极高",
+        "自行车基础设施世界最佳",
+        "设计美学全球领先"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "生活成本极高",
+        "天气阴冷多雨",
+        "税务负担重",
+        "社交融入困难（排外倾向）",
+        "冬季黑暗漫长"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "设计/创意工作者",
+        "追求 Hygge 生活方式者",
+        "家庭数字游民",
+        "自行车通勤者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "哥本哈根 Nørrebro：多元文化，创意产业",
+        "奥胡斯 Aarhus C：文化之都，大学城",
+        "欧登塞 Odense C：安徒生故乡，低成本"
       ]
     },
     {
@@ -1089,29 +1161,38 @@
       "timezone": "UTC+1~+2",
       "dn_community_size": "大",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
+      "healthcare_quality": 85,
       "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "monthly_rent_usd_low": 600,
+      "monthly_rent_usd_high": 1800,
+      "food_cost_usd_daily": 22,
+      "transport_cost_usd_monthly": 35,
+      "coworking_spaces_count": 100,
+      "local_tax_rate": 45,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "文化、艺术、美食的全球中心",
+        "巴黎之外生活成本可控",
+        "欧盟申根区，自由旅行",
+        "医疗体系世界前列",
+        "数字游民签证（2024）"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "巴黎生活成本极高",
+        " bureaucracy 复杂",
+        "法语沟通障碍大",
+        "罢工频繁影响生活",
+        "部分区域治安问题"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "文化/艺术爱好者",
+        "美食爱好者",
+        "时尚/设计从业者",
+        "法语学习者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "巴黎 Le Marais：历史街区，时尚与设计",
+        "里昂 Presqu'île：美食之都，生活成本适中",
+        "尼斯 Vieux Nice：地中海气候，阳光充足"
       ]
     },
     {
@@ -1224,29 +1305,38 @@
       "timezone": "UTC+0~+1",
       "dn_community_size": "中",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 75,
+      "english_proficiency": 95,
+      "monthly_rent_usd_low": 800,
+      "monthly_rent_usd_high": 1800,
+      "food_cost_usd_daily": 20,
+      "transport_cost_usd_monthly": 35,
+      "coworking_spaces_count": 45,
+      "local_tax_rate": 40,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "英语环境，欧盟唯一英语国家",
+        "企业税率低（12.5%）",
+        "科技巨头欧洲总部（Google/Apple/Meta）",
+        "文化友好，pub 文化独特",
+        "都柏林以外生活成本可控"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "都柏林住房危机严重",
+        "天气多雨阴冷",
+        "交通基础设施不足",
+        "医疗系统等待时间长",
+        "脱欧后与英国关系复杂"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        " tech 从业者",
+        "欧盟英语基地寻求者",
+        "企业税务优化者",
+        "文化爱好者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "都柏林 Temple Bar：文化中心，但游客多",
+        "都柏林 Ranelagh：本地社区，生活便利",
+        "高威 Galway：文化之都，低成本"
       ]
     },
     {
@@ -1266,29 +1356,38 @@
       "timezone": "UTC+0~+1",
       "dn_community_size": "小",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 55,
+      "english_proficiency": 30,
+      "monthly_rent_usd_low": 250,
+      "monthly_rent_usd_high": 600,
+      "food_cost_usd_daily": 8,
+      "transport_cost_usd_monthly": 15,
+      "coworking_spaces_count": 25,
+      "local_tax_rate": 38,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "生活成本极低",
+        "文化丰富多元（阿拉伯/柏柏尔/法国）",
+        "地理位置优越，连接欧洲与非洲",
+        "气候宜人（卡萨布兰卡/马拉喀什）",
+        "美食独特（塔吉锅、薄荷茶）"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "法语/阿拉伯语沟通障碍",
+        "部分区域安全需关注",
+        " bureaucracy 与腐败",
+        "基础设施不均",
+        "女性单独出行需谨慎"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "预算型游民",
+        "文化探索者",
+        "法语/阿拉伯语学习者",
+        "冲浪爱好者（阿加迪尔）"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "马拉喀什 Gueliz：法国区，现代设施",
+        "卡萨布兰卡 Maarif：商业区，时尚",
+        "拉巴特 Agdal：使馆区，安全安静"
       ]
     },
     {
@@ -1308,29 +1407,38 @@
       "timezone": "UTC+12~+13",
       "dn_community_size": "小",
       "median_stay_months": 6,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 78,
+      "english_proficiency": 95,
+      "monthly_rent_usd_low": 900,
+      "monthly_rent_usd_high": 1800,
+      "food_cost_usd_daily": 22,
+      "transport_cost_usd_monthly": 45,
+      "coworking_spaces_count": 30,
+      "local_tax_rate": 33,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "自然环境无与伦比",
+        "安全、友好、低压力社会",
+        "英语环境，华人社区较小但友好",
+        "工作签证政策相对灵活",
+        "户外探险天堂"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "距离世界其他地方极远",
+        "生活成本不低",
+        "城市规模小，设施有限",
+        "互联网速度相对慢",
+        "冬季湿冷"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "自然爱好者",
+        "户外探险者",
+        "追求低压力生活者",
+        "家庭数字游民"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "奥克兰 Ponsonby：文艺区，海景",
+        "惠灵顿 Cuba Street：创意中心，咖啡文化",
+        "基督城 Merivale：灾后重建，现代设施"
       ]
     },
     {
@@ -1443,29 +1551,38 @@
       "timezone": "UTC+2~+3",
       "dn_community_size": "小",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 80,
+      "english_proficiency": 75,
+      "monthly_rent_usd_low": 800,
+      "monthly_rent_usd_high": 1800,
+      "food_cost_usd_daily": 18,
+      "transport_cost_usd_monthly": 35,
+      "coworking_spaces_count": 40,
+      "local_tax_rate": 50,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "科技创新全球领先（Startup Nation）",
+        "英语普及率高",
+        "气候温暖，阳光充足",
+        "医疗体系先进",
+        "文化历史丰富（ Jerusalem/特拉维夫）"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "安全局势紧张（区域冲突）",
+        "生活成本极高",
+        " bureaucracy 复杂",
+        "宗教与社会规范严格",
+        "签证申请流程复杂"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        " tech 创业者",
+        "科技创新从业者",
+        "文化/历史爱好者",
+        "高预算游民"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "特拉维夫 Florentin：艺术区，年轻活力",
+        "耶路撒冷 German Colony：历史区，国际化",
+        "海法 Carmel：山地城市，多元文化"
       ]
     },
     {
@@ -1527,29 +1644,38 @@
       "timezone": "UTC+1~+2",
       "dn_community_size": "小",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
+      "healthcare_quality": 92,
+      "english_proficiency": 65,
+      "monthly_rent_usd_low": 1800,
+      "monthly_rent_usd_high": 4000,
+      "food_cost_usd_daily": 40,
       "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "coworking_spaces_count": 40,
+      "local_tax_rate": 40,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "生活质量全球最高",
+        "自然环境绝美（阿尔卑斯山、湖泊）",
+        "安全指数极高",
+        "多语言环境（德/法/意/英）",
+        "基础设施无可挑剔"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "生活成本全球最高之一",
+        "社交融入困难（保守文化）",
+        "签证门槛极高",
+        "冬季漫长",
+        "娱乐选择相对有限"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "高净值数字游民",
+        "金融/医药从业者",
+        "自然与户外运动爱好者",
+        "追求极致生活品质者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "苏黎世 Kreis 2：富裕区，湖景生活",
+        "日内瓦 Eaux-Vives：国际化社区，联合国区",
+        "洛桑 Ouchy：日内瓦湖畔，安静宜居"
       ]
     },
     {
@@ -1569,29 +1695,38 @@
       "timezone": "UTC+0~+1",
       "dn_community_size": "大",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
+      "healthcare_quality": 80,
+      "english_proficiency": 95,
+      "monthly_rent_usd_low": 1000,
+      "monthly_rent_usd_high": 2800,
+      "food_cost_usd_daily": 25,
       "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "coworking_spaces_count": 110,
+      "local_tax_rate": 45,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "英语环境，沟通无障碍",
+        "全球金融中心（伦敦）",
+        "创新科技生态活跃",
+        "文化多元，包容度高",
+        "数字游民签证（2022）"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "生活成本极高（尤其伦敦）",
+        "天气阴冷多雨",
+        "脱欧后欧盟旅行不便",
+        " NHS 等待时间长",
+        "签证费用高昂"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "金融/科技从业者",
+        "英语环境追求者",
+        "创意产业工作者",
+        "国际学生过渡"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "伦敦 Shoreditch：科技创业中心，coworking 密集",
+        "曼彻ster Northern Quarter：创意产业，低成本",
+        "爱丁堡 New Town：历史+现代，文化丰富"
       ]
     },
     {
