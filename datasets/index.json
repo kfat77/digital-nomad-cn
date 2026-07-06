@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "lastUpdated": "2026-07-07T00:00:00Z",
+  "description": "Digital Nomad CN 数据集总索引",
+  "datasets": {
+    "countries": {
+      "file": "countries.json",
+      "count": 61,
+      "schema": "country.schema.json",
+      "lastUpdated": "2026-07-07T00:00:00Z",
+      "description": "国家/地区基础数据"
+    },
+    "visa-official-links": {
+      "file": "visa-official-links.json",
+      "schema": null,
+      "lastUpdated": "2026-07-07T00:00:00Z",
+      "description": "各国签证官方链接"
+    }
+  },
+  "coverage": {
+    "totalCountries": 61,
+    "withDetailedInfo": 0,
+    "byRegion": {
+      "east-asia": 5,
+      "southeast-asia": 6,
+      "south-asia": 3,
+      "central-asia": 3,
+      "western-europe": 7,
+      "eastern-europe": 5,
+      "northern-europe": 5,
+      "southern-europe": 5,
+      "north-america": 2,
+      "central-america": 1,
+      "south-america": 5,
+      "oceania": 2,
+      "middle-east": 6,
+      "africa": 5,
+      "unclassified": 1
+    }
+  },
+  "stats": {
+    "infoCategories": {
+      "visa": 0,
+      "bank": 0,
+      "phone": 0,
+      "identity": 0,
+      "tools": 0
+    },
+    "dataQuality": {
+      "averageCompleteness": 20,
+      "averageAccuracy": 60,
+      "averageFreshness": 50
+    }
+  }
+}
