@@ -2263,6 +2263,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kfat77.github.io/digital-nomad-cn/journey/" />
   </url>
   <url>
+    <loc>https://kfat77.github.io/digital-nomad-cn/offline.html</loc>
+    <lastmod>2026-07-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/offline.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kfat77.github.io/digital-nomad-cn/offline.html" />
+  </url>
+  <url>
     <loc>https://kfat77.github.io/digital-nomad-cn/privacy/</loc>
     <lastmod>2026-07-06</lastmod>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/privacy/" />
