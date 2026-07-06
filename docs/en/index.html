@@ -13,12 +13,13 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/">
     <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.css" fetchpriority="high">
     <link rel="manifest" href="../manifest.json">
     <link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
     <link rel="apple-touch-icon" href="../icons/icon-192.png">
     <meta name="theme-color" content="#3b82f6">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         .lang-switch { margin-left: 12px; font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border-light); transition: all 0.2s; }
@@ -487,9 +488,9 @@
         </div>
     </footer>
 
-    <script src="../countries-data.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-    <script src="app-en.js"></script>
+    <script src="../countries-data.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
+    <script src="app-en.js" defer></script>
     <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
@@ -512,7 +513,56 @@
         }
     })();
     </script>
-<script src="../analytics.js"></script>
+<script>
+    // Core Web Vitals observer
+    (function() {
+        if (!('PerformanceObserver' in window)) return;
+        const metrics = {};
+        function sendMetric(name, value) {
+            if (window.DNAnalytics) {
+                DNAnalytics.trackEvent('cwv', { metric: name, value: Math.round(value) });
+            }
+        }
+        try {
+            new PerformanceObserver(function(list) {
+                for (const entry of list.getEntries()) {
+                    if (entry.entryType === 'largest-contentful-paint') {
+                        metrics.lcp = entry.startTime;
+                        sendMetric('LCP', entry.startTime);
+                    }
+                    if (entry.entryType === 'layout-shift' && !entry.hadRecentInput) {
+                        metrics.cls = (metrics.cls || 0) + entry.value;
+                    }
+                    if (entry.entryType === 'first-input') {
+                        sendMetric('FID', entry.processingStart - entry.startTime);
+                    }
+                    if (entry.entryType === 'event') {
+                        const duration = entry.processingEnd - entry.startTime;
+                        if (!metrics.inp || duration > metrics.inp) metrics.inp = duration;
+                    }
+                }
+            }).observe({ type: 'largest-contentful-paint', buffered: true });
+            new PerformanceObserver(function(list) {
+                for (const entry of list.getEntries()) {
+                    if (entry.entryType === 'layout-shift' && !entry.hadRecentInput) {
+                        metrics.cls = (metrics.cls || 0) + entry.value;
+                    }
+                }
+            }).observe({ type: 'layout-shift', buffered: true });
+            new PerformanceObserver(function(list) {
+                for (const entry of list.getEntries()) {
+                    sendMetric('FID', entry.processingStart - entry.startTime);
+                }
+            }).observe({ type: 'first-input', buffered: true });
+            window.addEventListener('visibilitychange', function() {
+                if (document.visibilityState === 'hidden' && metrics.cls !== undefined) {
+                    sendMetric('CLS', Math.round(metrics.cls * 1000) / 1000);
+                }
+            });
+        } catch (e) {}
+    })();
+    </script>
+<script src="../analytics.js" defer></script>
 <script src="../theme.js"></script>
 </body>
 </html>
