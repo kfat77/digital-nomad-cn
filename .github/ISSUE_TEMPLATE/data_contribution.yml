@@ -12,6 +12,7 @@ body:
         - 添加新国家：参考 `website/data/schemas/country-detail.json`
         - 添加新城市：参考 `website/data/schemas/city-detail.json`
         - 数据纠错：请提供可信来源链接
+        - 深度字段（v1.2）：healthcare_quality, english_proficiency, monthly_rent_usd_low/high, food_cost_usd_daily, transport_cost_usd_monthly, coworking_spaces_count, local_tax_rate, pros, cons, ideal_for, best_neighborhoods
   - type: dropdown
     id: type
     attributes:
