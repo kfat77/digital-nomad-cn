@@ -1,7 +1,7 @@
 {
   "api_version": "1.2",
   "total": 60,
-  "updated_at": "2026-07-08T00:00:00Z",
+  "updated_at": "2026-07-09T00:00:00Z",
   "source": "https://github.com/kfat77/digital-nomad-cn",
   "license": "CC BY-NC-SA 4.0",
   "data": [
@@ -70,29 +70,38 @@
       "timezone": "UTC+8",
       "dn_community_size": "中",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 92,
+      "english_proficiency": 85,
+      "monthly_rent_usd_low": 2000,
+      "monthly_rent_usd_high": 5000,
+      "food_cost_usd_daily": 30,
+      "transport_cost_usd_monthly": 60,
+      "coworking_spaces_count": 80,
+      "local_tax_rate": 0,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "全球最安全城市之一",
+        "世界级基础设施和互联网",
+        "华人文化背景，中文无障碍",
+        "税务友好，低个人所得税",
+        "地理位置优越，飞亚洲各地便捷"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "生活成本全球最高之一",
+        "居住空间极小且昂贵",
+        "气候炎热潮湿，全年夏天",
+        "社会规范严格，自由度有限",
+        "长期签证门槛高"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "高收入的金融/科技从业者",
+        "区域商务人士",
+        "追求安全与秩序的家庭",
+        "华人背景游民"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "丹戎巴葛：CBD 核心，coworking 集中",
+        "东海岸：本地生活，海滩与美食",
+        "荷兰村： expat 社区，国际学校区"
       ]
     },
     {
@@ -112,29 +121,38 @@
       "timezone": "UTC+9",
       "dn_community_size": "大",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
+      "healthcare_quality": 90,
+      "english_proficiency": 35,
+      "monthly_rent_usd_low": 700,
+      "monthly_rent_usd_high": 2000,
+      "food_cost_usd_daily": 25,
+      "transport_cost_usd_monthly": 80,
+      "coworking_spaces_count": 150,
       "local_tax_rate": 20,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "极致的公共交通系统，准点率世界领先",
+        "治安极好，深夜独行也安全",
+        "美食文化丰富，从便利店到米其林",
+        "高速网络普及，全国5G覆盖",
+        "基础设施完善，办事效率高"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "生活成本极高，尤其是东京",
+        "日语沟通障碍，英文普及率有限",
+        "居住空间狭小",
+        "签证要求严格，数字游民签证选择有限",
+        "地震等自然灾害风险"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "高收入的远程工程师",
+        "设计师和创意工作者",
+        "日本文化爱好者",
+        "追求安全与秩序的游民"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "涩谷·原宿：潮流中心， coworking 密集",
+        "中野·高圆寺： affordable，文艺社区",
+        "福冈博多：低成本日本体验，创业氛围"
       ]
     },
     {
@@ -429,29 +447,38 @@
       "timezone": "UTC+2~+3",
       "dn_community_size": "中",
       "median_stay_months": 6,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
+      "healthcare_quality": 75,
+      "english_proficiency": 80,
+      "monthly_rent_usd_low": 600,
       "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "food_cost_usd_daily": 18,
+      "transport_cost_usd_monthly": 40,
+      "coworking_spaces_count": 25,
+      "local_tax_rate": 0,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "非 dom 税制，17年免税",
+        "数字游民签证",
+        "英联邦国家，英语通用",
+        "地中海气候",
+        "欧盟成员国"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "南北分裂问题",
+        "夏季极热",
+        "生活成本不低",
+        "公共交通有限",
+        "远离欧洲大陆"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "高净值税务规划者",
+        "英语环境追求者",
+        "欧盟税务优化者",
+        "地中海生活爱好者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "利马索尔：金融区，商业活跃",
+        "尼科西亚：首都，生活便利",
+        "帕福斯：退休与家庭友好，低成本"
       ]
     },
     {
@@ -471,29 +498,38 @@
       "timezone": "UTC+2~+3",
       "dn_community_size": "小",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
+      "healthcare_quality": 75,
+      "english_proficiency": 70,
+      "monthly_rent_usd_low": 500,
+      "monthly_rent_usd_high": 1000,
+      "food_cost_usd_daily": 18,
+      "transport_cost_usd_monthly": 25,
+      "coworking_spaces_count": 35,
       "local_tax_rate": 20,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "全球首个数字游民签证国家",
+        "先进的数字政府系统",
+        "欧盟申根区，自由旅行",
+        "低生活成本（欧盟标准）",
+        "创业生态活跃，Skype 诞生地"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "冬季极寒且漫长，日照短",
+        "人口少，城市规模小",
+        "俄语与英语并重， Estonian 难学",
+        "美食选择有限",
+        "冬季抑郁症常见"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        " tech 创业者",
+        "欧盟基地寻求者",
+        "数字游民签证申请者",
+        "低预算欧盟生活者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "塔林老城：世界遗产， coworking 密集",
+        "Kalamaja：文艺区，创意产业集中",
+        "Ülemiste City：科技园区，初创企业"
       ]
     },
     {
@@ -513,29 +549,38 @@
       "timezone": "UTC+1~+2",
       "dn_community_size": "中",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
+      "healthcare_quality": 65,
       "english_proficiency": 50,
       "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "monthly_rent_usd_high": 800,
+      "food_cost_usd_daily": 12,
+      "transport_cost_usd_monthly": 20,
+      "coworking_spaces_count": 45,
+      "local_tax_rate": 15,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "匈牙利数字游民签证（白卡）",
+        "布达佩斯生活成本低廉",
+        "丰富的温泉和夜生活",
+        "中欧地理位置，辐射欧洲",
+        "建筑与历史极具魅力"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "政治气候趋向保守",
+        "匈牙利语极为难学",
+        "冬季阴冷",
+        "医疗系统官僚化",
+        "部分区域排外情绪"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "预算型数字游民",
+        "派对与社交爱好者",
+        "欧洲漫游基地",
+        "历史建筑爱好者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "布达佩斯第五区：市中心核心，便利",
+        "布达佩斯第七区：废墟酒吧区，年轻活力",
+        "布达佩斯二区：布达一侧，安静住宅"
       ]
     },
     {
@@ -723,29 +768,38 @@
       "timezone": "UTC+1~+2",
       "dn_community_size": "中",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 70,
+      "english_proficiency": 55,
+      "monthly_rent_usd_low": 500,
+      "monthly_rent_usd_high": 1000,
+      "food_cost_usd_daily": 12,
+      "transport_cost_usd_monthly": 20,
+      "coworking_spaces_count": 50,
+      "local_tax_rate": 15,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "布拉格生活成本低廉",
+        "啤酒文化世界闻名（比水便宜）",
+        "历史建筑保存完好",
+        "中欧中心，旅行便利",
+        "艺术与文化氛围浓厚"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "捷克语难学",
+        "冬季阴冷",
+        "官僚效率低",
+        "工资水平低",
+        " Airbnb 过度旅游化老城区"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "预算型欧洲游民",
+        "啤酒爱好者",
+        "历史建筑与摄影爱好者",
+        "数字游民新手"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "布拉格1区：老城核心，但游客多",
+        "布拉格2区：Vinohrady， expat 最爱",
+        "布拉格3区：Žižkov，本地艺术区，低价"
       ]
     },
     {
@@ -807,29 +861,38 @@
       "timezone": "UTC+2~+3",
       "dn_community_size": "中",
       "median_stay_months": 6,
-      "healthcare_quality": 60,
+      "healthcare_quality": 68,
       "english_proficiency": 50,
       "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
+      "monthly_rent_usd_high": 900,
       "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "transport_cost_usd_monthly": 30,
+      "coworking_spaces_count": 35,
+      "local_tax_rate": 0,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "数字游民签证（50%减税优惠）",
+        "地中海气候与生活方式",
+        "美食文化丰富",
+        "岛屿众多，适合跳岛",
+        "生活成本低于西欧"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "官僚效率极低",
+        "经济危机后遗症",
+        "夏季酷热且游客爆满",
+        "岛屿间交通成本高",
+        "英语普及率一般"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "追求地中海生活方式",
+        "内容创作者",
+        "50%减税优惠受益者",
+        "岛屿爱好者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "雅典 Koukaki：本地社区，生活便利",
+        "塞萨洛尼基：第二大城市，成本低",
+        "克里特岛哈尼亚：岛屿生活，美景"
       ]
     },
     {
@@ -891,29 +954,38 @@
       "timezone": "UTC+8",
       "dn_community_size": "中",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 78,
+      "english_proficiency": 65,
+      "monthly_rent_usd_low": 350,
+      "monthly_rent_usd_high": 800,
+      "food_cost_usd_daily": 10,
+      "transport_cost_usd_monthly": 25,
+      "coworking_spaces_count": 55,
+      "local_tax_rate": 30,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        " MM2H 长期居留计划",
+        "多元文化社会，华人友好",
+        "英语通用",
+        "医疗质量高且便宜",
+        "美食天堂"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "热带气候全年炎热",
+        "穆斯林国家部分限制",
+        "交通依赖驾车",
+        " bureaucracy",
+        "东马与西马差异大"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "家庭数字游民",
+        "华人背景游民",
+        "医疗旅游",
+        "长期基地寻求者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "吉隆坡 Bukit Bintang：市中心，便利",
+        "吉隆坡 Mont Kiara： expat 社区",
+        "槟城乔治市：低成本，文化丰富"
       ]
     },
     {
@@ -1101,29 +1173,38 @@
       "timezone": "UTC+7~+9",
       "dn_community_size": "大",
       "median_stay_months": 6,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 50,
+      "english_proficiency": 30,
+      "monthly_rent_usd_low": 250,
+      "monthly_rent_usd_high": 600,
+      "food_cost_usd_daily": 8,
+      "transport_cost_usd_monthly": 15,
+      "coworking_spaces_count": 100,
+      "local_tax_rate": 30,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "巴厘岛是全球数字游民首都",
+        "生活成本极低",
+        "热带岛屿天堂",
+        "签证灵活（B211A）",
+        "庞大的 expat 社区"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "基础设施落后（岛外）",
+        "官僚腐败",
+        "雨季洪水",
+        "交通混乱",
+        "医疗资源有限（岛外）"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "预算型游民",
+        "冲浪与瑜伽爱好者",
+        "内容创作者",
+        "首次数字游民"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "巴厘岛 Canggu：游民核心区，coworking 密集",
+        "巴厘岛 Ubud：瑜伽与灵性中心",
+        "雅加达 Kemang： expat 区，商业便利"
       ]
     },
     {
@@ -1311,29 +1392,38 @@
       "timezone": "UTC+1~+2",
       "dn_community_size": "小",
       "median_stay_months": 6,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
+      "healthcare_quality": 70,
+      "english_proficiency": 55,
+      "monthly_rent_usd_low": 450,
+      "monthly_rent_usd_high": 900,
       "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
+      "transport_cost_usd_monthly": 30,
+      "coworking_spaces_count": 40,
       "local_tax_rate": 20,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "地中海数字游民签证",
+        "亚得里亚海绝美海岸线",
+        "生活成本远低于西欧",
+        "加入欧盟和申根区",
+        "气候宜人，夏季阳光充足"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "旺季游客拥挤，物价飙升",
+        "冬季旅游淡季，部分设施关闭",
+        "基础设施不及西欧",
+        "官僚效率低",
+        "英语普及率中等"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "追求地中海生活方式的游民",
+        "帆船与海洋爱好者",
+        "预算有限的欧盟游民",
+        "内容创作者（风景素材丰富）"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "萨格勒布市中心：首都核心，coworking 多",
+        "斯普利特老城：海滨+古城",
+        "杜布罗夫尼克：绝美景色，高端市场"
       ]
     },
     {
@@ -1521,29 +1611,38 @@
       "timezone": "UTC+7",
       "dn_community_size": "大",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 55,
+      "english_proficiency": 25,
+      "monthly_rent_usd_low": 250,
+      "monthly_rent_usd_high": 600,
+      "food_cost_usd_daily": 7,
+      "transport_cost_usd_monthly": 15,
+      "coworking_spaces_count": 45,
+      "local_tax_rate": 35,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "生活成本极低",
+        "美食世界级（pho, banh mi）",
+        "咖啡文化出色",
+        "高速经济增长",
+        "签证灵活（3个月商务签）"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "语言障碍大（越南语极难）",
+        "交通混乱（摩托车文化）",
+        "空气质量差（河内/胡志明）",
+        "官僚主义",
+        "网络审查"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "预算型游民",
+        "美食爱好者",
+        "咖啡文化爱好者",
+        "冒险型游民"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "胡志明市 Thao Dien： expat 核心区",
+        "河内 Tay Ho：西湖区，外国人聚集",
+        "岘港：海滩+低成本，新兴游民地"
       ]
     },
     {
@@ -1815,29 +1914,38 @@
       "timezone": "UTC-8~UTC-5",
       "dn_community_size": "中",
       "median_stay_months": 3,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 55,
+      "english_proficiency": 25,
+      "monthly_rent_usd_low": 350,
+      "monthly_rent_usd_high": 800,
+      "food_cost_usd_daily": 10,
+      "transport_cost_usd_monthly": 20,
+      "coworking_spaces_count": 80,
+      "local_tax_rate": 30,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "生活成本极低（美墨标准）",
+        "美食文化世界级",
+        "气候多样，海滩到高原",
+        "美国近邻，时差友好",
+        "丰富的殖民历史与本土文化"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "安全问题（区域差异大）",
+        "西班牙语必需",
+        "官僚主义",
+        "基础设施不均",
+        "部分区域水质问题"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "北美时区远程工作者",
+        "美食爱好者",
+        "预算型游民",
+        "西班牙语学习者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "墨西哥城 Roma/Condesa：文艺核心区，coworking 密集",
+        "瓜达拉哈拉：科技中心，低成本",
+        "梅里达：尤卡坦安全，殖民风情"
       ]
     },
     {
@@ -2067,29 +2175,38 @@
       "timezone": "UTC-5~UTC-2",
       "dn_community_size": "中",
       "median_stay_months": 6,
-      "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "healthcare_quality": 55,
+      "english_proficiency": 20,
+      "monthly_rent_usd_low": 300,
+      "monthly_rent_usd_high": 700,
+      "food_cost_usd_daily": 10,
+      "transport_cost_usd_monthly": 25,
+      "coworking_spaces_count": 60,
+      "local_tax_rate": 27,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "自然风光壮丽（雨林、海滩、瀑布）",
+        "生活成本相对较低",
+        "文化热情奔放",
+        "气候温暖",
+        "大乡村"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "安全问题严重",
+        "葡萄牙语必需",
+        "汇率波动大",
+        "官僚复杂",
+        "贫富差距导致社会不稳定"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "自然爱好者",
+        "冒险型游民",
+        "葡萄牙语使用者",
+        "拉丁文化爱好者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "圣保罗 Vila Madalena：艺术区，coworking",
+        "里约热内卢 Ipanema：海滩生活",
+        "库里提巴：最安全城市，高生活质量"
       ]
     },
     {
@@ -2110,28 +2227,37 @@
       "dn_community_size": "中",
       "median_stay_months": 3,
       "healthcare_quality": 60,
-      "english_proficiency": 50,
-      "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "english_proficiency": 20,
+      "monthly_rent_usd_low": 300,
+      "monthly_rent_usd_high": 700,
+      "food_cost_usd_daily": 8,
+      "transport_cost_usd_monthly": 20,
+      "coworking_spaces_count": 40,
+      "local_tax_rate": 35,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "生活成本极低",
+        "气候永恒春天（波哥大、麦德林）",
+        "咖啡文化世界级",
+        "自然风光丰富",
+        "数字游民社区快速增长"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "安全问题仍有风险",
+        "西班牙语必需",
+        "海拔高（波哥大2600m）",
+        "基础设施不均",
+        "山区交通不便"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "预算型游民",
+        "咖啡爱好者",
+        "拉丁文化爱好者",
+        "西班牙语学习者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "麦德林 Poblado：核心 expat 区， coworking",
+        "波哥大 Chapinero：文艺区，安全",
+        "卡塔赫纳老城：加勒比海风情"
       ]
     },
     {
@@ -2278,28 +2404,37 @@
       "dn_community_size": "小",
       "median_stay_months": 3,
       "healthcare_quality": 60,
-      "english_proficiency": 50,
+      "english_proficiency": 80,
       "monthly_rent_usd_low": 400,
-      "monthly_rent_usd_high": 1200,
-      "food_cost_usd_daily": 15,
-      "transport_cost_usd_monthly": 50,
-      "coworking_spaces_count": 20,
-      "local_tax_rate": 20,
+      "monthly_rent_usd_high": 900,
+      "food_cost_usd_daily": 12,
+      "transport_cost_usd_monthly": 30,
+      "coworking_spaces_count": 35,
+      "local_tax_rate": 45,
       "pros": [
-        "友好当地人",
-        "美食丰富"
+        "生活成本相对低廉",
+        "英语通用",
+        "自然风光壮丽（Safari, 桌山）",
+        "现代基础设施（开普敦、约翰内斯堡）",
+        "多元文化"
       ],
       "cons": [
-        "语言障碍",
-        "文化差异"
+        "安全问题严重",
+        "电力危机（限电）",
+        "水资源紧张（开普敦）",
+        "贫富差距极大",
+        "公共交通不安全"
       ],
       "ideal_for": [
-        "远程工作者",
-        "自由职业者"
+        "自然与野生动物爱好者",
+        "英语环境游民",
+        "冒险型游民",
+        "摄影爱好者"
       ],
       "best_neighborhoods": [
-        "市中心",
-        "老城区"
+        "开普敦 Sea Point：海滨，安全， expat 区",
+        "约翰内斯堡 Sandton：商业核心，安全",
+        "斯泰伦博斯：葡萄酒区，安静"
       ]
     },
     {
