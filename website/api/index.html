@@ -7,6 +7,9 @@
     <meta name="description" content="Digital Nomad CN 开放数据 API：60个国家、122个城市、签证政策的结构化 JSON 数据，供 AI Agent 和开发者直接调用。">
     <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/api/">
     <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         .api-hero { background: var(--bg-hero); border-bottom: 1px solid var(--border); padding: 120px 0 60px; text-align: center; }
         .api-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.03em; }
@@ -19,16 +22,27 @@
         .endpoint-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
         .endpoint-card .url { font-family: var(--font-mono); font-size: 14px; background: var(--bg-card); padding: 8px 12px; border-radius: var(--radius-sm); color: var(--accent); margin-bottom: 12px; display: inline-block; }
         .endpoint-card p { font-size: 14px; margin-bottom: 12px; }
-        .endpoint-card .fields { font-size: 13px; color: var(--muted); }
+        .endpoint-card .fields { font-size: 13px; color: var(--muted); line-height: 1.6; }
         .endpoint-card .fields strong { color: var(--foreground); }
+        .endpoint-card .version-tag { display: inline-block; background: var(--accent); color: white; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; margin-left: 8px; vertical-align: middle; }
         .code-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; overflow-x: auto; font-family: var(--font-mono); font-size: 13px; line-height: 1.6; color: var(--foreground); }
         .code-block .comment { color: var(--muted); }
         .code-block .string { color: #16a34a; }
         .code-block .key { color: #2563eb; }
+        .code-block .number { color: #f59e0b; }
         .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 32px 0; }
         .stats-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; text-align: center; }
         .stats-card .value { font-size: 32px; font-weight: 800; color: var(--accent); margin-bottom: 4px; }
         .stats-card .label { font-size: 13px; color: var(--muted); }
+        .tab-nav { display: flex; gap: 8px; margin-bottom: 16px; border-bottom: 1px solid var(--border); }
+        .tab-nav button { background: none; border: none; padding: 8px 16px; font-size: 14px; cursor: pointer; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+        .tab-nav button.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+        .changelog-item { padding: 16px 0; border-bottom: 1px solid var(--border); }
+        .changelog-item .version { font-weight: 700; color: var(--accent); font-size: 14px; }
+        .changelog-item .date { font-size: 12px; color: var(--muted); margin-left: 8px; }
+        .changelog-item ul { margin: 8px 0 0 16px; color: var(--muted); font-size: 14px; }
         @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head>
@@ -37,10 +51,12 @@
         <div class="header-inner">
             <a href="../" class="logo"><span class="logo-icon">◈</span><span>数字游民指南</span></a>
             <nav class="main-nav">
-                <a href="../">首页</a><a href="../country/">国家</a><a href="../visa/">签证</a><a href="../city/">城市</a>
+                <a href="../country/">国家</a><a href="../visa/">签证</a><a href="../city/">城市</a>
                 <a href="../compare/">对比</a><a href="../routes/">路线</a><a href="../search/">搜索</a>
+                <a href="../assistant/">AI助手</a><a href="../community/">社区</a>
             </nav>
             <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
+            <button class="theme-toggle" aria-label="切换主题" title="切换主题">🌙</button>
         </div>
     </header>
 
@@ -49,6 +65,10 @@
             <div class="hero-tag"><span class="hero-tag-dot"></span>AI Agent · 开发者 · 数据基础设施</div>
             <h1 class="hero-title">🤖 开放数据<br><span class="hero-title-accent">API</span></h1>
             <p class="hero-desc">60 个国家、122 个城市、签证政策的结构化 JSON 数据。无需认证，无需 API Key，GitHub Pages 直接托管，AI Agent 和开发者可直接调用。</p>
+            <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank" class="btn btn-primary" style="display: inline-flex; gap: 8px; margin-top: 8px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                在 GitHub 上 Star
+            </a>
         </div>
     </section>
 
@@ -56,7 +76,7 @@
         <div class="stats-grid">
             <div class="stats-card"><div class="value">60</div><div class="label">国家</div></div>
             <div class="stats-card"><div class="value">122</div><div class="label">城市</div></div>
-            <div class="stats-card"><div class="value">60</div><div class="label">签证档案</div></div>
+            <div class="stats-card"><div class="value">25+</div><div class="label">国家字段</div></div>
             <div class="stats-card"><div class="value">0</div><div class="label">认证门槛</div></div>
         </div>
 
@@ -64,17 +84,17 @@
         <p>所有数据端点均为静态 JSON 文件，由 GitHub Actions 在每次提交时自动生成。可直接通过 HTTP GET 获取。</p>
 
         <div class="endpoint-card">
-            <h3>📊 国家数据</h3>
+            <h3>📊 国家数据 <span class="version-tag">v1.2</span></h3>
             <div class="url">GET https://kfat77.github.io/digital-nomad-cn/api/countries.json</div>
-            <p>获取 60 个国家的完整结构化数据，包括生活成本、安全指数、网速、签证政策、评分等 20+ 字段。</p>
-            <div class="fields"><strong>关键字段：</strong>id, name, name_en, region, digital_nomad_score, cost_of_living_index, safety_index, internet_speed_avg_mbps, rent_index, hdi, gdp_per_capita_usd, china_passport_visa_status, has_digital_nomad_visa, coordinates, currency, languages, timezone, population, area_km2, tags</div>
+            <p>获取 60 个国家的完整结构化数据，包括生活成本、安全指数、网速、签证政策、深度指南字段等 25+ 字段。</p>
+            <div class="fields"><strong>核心字段：</strong>id, name, name_en, region, digital_nomad_score, cost_of_living_index, safety_index, internet_speed_avg_mbps, china_passport_visa_status, has_digital_nomad_visa, climate_zone, timezone, dn_community_size, median_stay_months<br><br><strong>深度字段 (v1.2)：</strong>healthcare_quality, english_proficiency, monthly_rent_usd_low/high, food_cost_usd_daily, transport_cost_usd_monthly, coworking_spaces_count, local_tax_rate, pros, cons, ideal_for, best_neighborhoods</div>
         </div>
 
         <div class="endpoint-card">
             <h3>🏙️ 城市数据</h3>
             <div class="url">GET https://kfat77.github.io/digital-nomad-cn/api/cities.json</div>
-            <p>获取 122 个数字游民城市的完整数据，包括联合办公、气候、英语普及率、社区规模等。</p>
-            <div class="fields"><strong>关键字段：</strong>id, name, name_en, country_id, country_name, digital_nomad_score, cost_of_living_index, rent_index, safety_index, internet_speed_avg_mbps, coworking_spaces, coworking_score, climate, avg_temp_c, rainy_season, english_level, chinese_community_size, neighborhoods, food_scene, nightlife, transportation, walkability, bike_friendly, description</div>
+            <p>获取 122 个数字游民城市的完整数据，包括联合办公、气候、英语普及率、社区规模、远程工作友好度等。</p>
+            <div class="fields"><strong>关键字段：</strong>id, name, name_en, country_id, country_name, digital_nomad_score, cost_of_living_index, rent_index, safety_index, internet_speed_avg_mbps, coworking_spaces, coworking_score, climate, avg_temp_c, rainy_season, english_level, chinese_community_size, neighborhoods, food_scene, nightlife, transportation, walkability, bike_friendly, description, remote_work_friendly_score, monthly_cost_usd_low, monthly_cost_usd_high</div>
         </div>
 
         <div class="endpoint-card">
@@ -95,48 +115,102 @@
             <div class="url">GET https://kfat77.github.io/digital-nomad-cn/api/manifest.json</div>
             <p>AI Agent 发现接口。包含所有端点描述、字段列表、Schema 链接和示例请求。</p>
         </div>
+
+        <div class="endpoint-card">
+            <h3>🤖 LLM 上下文</h3>
+            <div class="url">GET https://kfat77.github.io/digital-nomad-cn/llms.txt</div>
+            <p>为 AI Agent 和 LLM 提供的机器可读站点描述，包含数据 Schema、API 端点、内容清单。</p>
+        </div>
     </section>
 
     <section class="api-section" style="background: var(--bg-hero); padding: 60px 24px; margin-top: 0;">
-        <h2>AI Agent 使用示例</h2>
-        <p>以下是一个 AI Agent 调用本数据 API 的示例。不需要 API Key，不需要认证，直接 GET 即可。</p>
-        <div class="code-block">
-<span class="comment"># 示例：获取所有国家数据并筛选高评分目的地</span>
+        <h2>代码示例</h2>
+        <p>无需 API Key，直接 GET 即可。以下示例展示如何调用数据 API。</p>
+
+        <div class="tab-nav">
+            <button class="active" onclick="switchTab(this, 'tab-js')">JavaScript</button>
+            <button onclick="switchTab(this, 'tab-py')">Python</button>
+            <button onclick="switchTab(this, 'tab-curl')">cURL</button>
+        </div>
+
+        <div id="tab-js" class="tab-panel active">
+            <div class="code-block">
+<span class="comment">// 获取所有国家数据并筛选高评分目的地</span>
 <span class="key">fetch</span>(<span class="string">'https://kfat77.github.io/digital-nomad-cn/api/countries.json'</span>)
   .then(r => r.json())
   .then(data => {
-    <span class="comment">// 筛选数字游民评分 >= 80 的国家</span>
+    <span class="comment">// 筛选数字游民评分 >= 80 且生活成本 <= 60 的国家</span>
     <span class="key">const</span> topCountries = data.data
-      .filter(c => c.digital_nomad_score >= 80)
+      .filter(c => c.digital_nomad_score >= <span class="number">80</span> && c.cost_of_living_index <= <span class="number">60</span>)
       .sort((a, b) => b.digital_nomad_score - a.digital_nomad_score);
-    console.log(topCountries.map(c => `${c.name}: ${c.digital_nomad_score}分`));
+    console.log(topCountries.map(c => <span class="string">`${c.name}: ${c.digital_nomad_score}分`</span>));
   });
-        </div>
-        <div class="code-block" style="margin-top: 16px;">
-<span class="comment"># 示例：获取统计摘要</span>
+            </div>
+            <div class="code-block" style="margin-top: 16px;">
+<span class="comment">// 获取统计摘要</span>
 <span class="key">fetch</span>(<span class="string">'https://kfat77.github.io/digital-nomad-cn/api/stats.json'</span>)
   .then(r => r.json())
   .then(stats => {
-    console.log(`平均数字游民评分: ${stats.countries.avg_digital_nomad_score}`);
-    console.log(`免签国家数: ${stats.countries.by_visa_status.visa_free || 0}`);
+    console.log(<span class="string">`平均数字游民评分: ${stats.countries.avg_digital_nomad_score}`</span>);
+    console.log(<span class="string">`免签国家数: ${stats.countries.by_visa_status.visa_free || 0}`</span>);
   });
+            </div>
+        </div>
+
+        <div id="tab-py" class="tab-panel">
+            <div class="code-block">
+<span class="comment"># 获取国家数据并筛选（Python 示例）</span>
+<span class="key">import</span> requests
+
+url = <span class="string">"https://kfat77.github.io/digital-nomad-cn/api/countries.json"</span>
+resp = requests.get(url)
+data = resp.json()
+
+<span class="comment"># 筛选数字游民评分 >= 80 的国家</span>
+top = [c <span class="key">for</span> c <span class="key">in</span> data[<span class="string">"data"</span>] <span class="key">if</span> c[<span class="string">"digital_nomad_score"</span>] >= <span class="number">80</span>]
+<span class="key">for</span> c <span class="key">in</span> sorted(top, key=lambda x: x[<span class="string">"digital_nomad_score"</span>], reverse=True):
+    print(<span class="string">f"{c['name']}: {c['digital_nomad_score']}分 | 生活成本: {c['cost_of_living_index']}"</span>)
+            </div>
+        </div>
+
+        <div id="tab-curl" class="tab-panel">
+            <div class="code-block">
+<span class="comment"># 获取国家数据</span>
+curl -s <span class="string">"https://kfat77.github.io/digital-nomad-cn/api/countries.json"</span> | python -m json.tool
+
+<span class="comment"># 获取城市数据</span>
+curl -s <span class="string">"https://kfat77.github.io/digital-nomad-cn/api/cities.json"</span> | python -m json.tool
+
+<span class="comment"># 获取统计摘要</span>
+curl -s <span class="string">"https://kfat77.github.io/digital-nomad-cn/api/stats.json"</span> | python -m json.tool
+            </div>
         </div>
     </section>
 
     <section class="api-section">
-        <h2>数据 Schema</h2>
-        <p>所有数据均遵循 JSON Schema 规范，Schema 文件位于 <code>website/data/schemas/</code> 目录下。</p>
-        <div class="endpoint-card">
-            <h3>国家 Schema</h3>
-            <div class="url">https://raw.githubusercontent.com/kfat77/digital-nomad-cn/main/website/data/schemas/country-detail.json</div>
+        <h2>数据版本与变更日志</h2>
+        <div class="changelog-item">
+            <span class="version">v1.2</span><span class="date">2026-07-08</span>
+            <ul>
+                <li>新增 12 个深度字段：医疗质量、英语普及度、租金范围、餐饮/交通成本、共享办公数量、本地税率、优势/劣势、适合人群、推荐社区</li>
+                <li>新增 5 个国家深度指南页面</li>
+                <li>API 版本号升级至 1.2</li>
+            </ul>
         </div>
-        <div class="endpoint-card">
-            <h3>城市 Schema</h3>
-            <div class="url">https://raw.githubusercontent.com/kfat77/digital-nomad-cn/main/website/data/schemas/city-detail.json</div>
+        <div class="changelog-item">
+            <span class="version">v1.1</span><span class="date">2026-07-05</span>
+            <ul>
+                <li>新增字段：climate_zone, timezone, dn_community_size, median_stay_months</li>
+                <li>城市数据新增：remote_work_friendly_score, monthly_cost_usd_low/high</li>
+                <li>JSON Schema 验证上线</li>
+            </ul>
         </div>
-        <div class="endpoint-card">
-            <h3>签证 Schema</h3>
-            <div class="url">https://raw.githubusercontent.com/kfat77/digital-nomad-cn/main/website/data/schemas/visa-detail.json</div>
+        <div class="changelog-item">
+            <span class="version">v1.0</span><span class="date">2026-07-01</span>
+            <ul>
+                <li>初始发布：60 国、122 城、签证数据</li>
+                <li>核心字段：评分、生活成本、安全、网速、签证状态</li>
+            </ul>
         </div>
     </section>
 
@@ -154,15 +228,21 @@
     </section>
 
     <footer class="footer" style="margin-top: 0;">
-        <div class="footer-main">
-            <div class="footer-brand"><span class="logo-icon">◈</span><span class="logo-text">数字游民指南</span><p>60 国数据、50+ 签证、122 城市，全部开源。</p></div>
-            <div class="footer-links">
-                <div class="footer-col"><h4>核心内容</h4><a href="../country/">国家数据库</a><a href="../visa/">签证数据库</a><a href="../city/">城市数据库</a><a href="../compare/">国家对比</a></div>
-                <div class="footer-col"><h4>数据</h4><a href="./">开放 API</a><a href="countries.json">countries.json</a><a href="cities.json">cities.json</a><a href="manifest.json">manifest.json</a></div>
-                <div class="footer-col"><h4>社区</h4><a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a></div>
-            </div>
+        <div class="footer-inner" style="max-width: 1200px; margin: 0 auto; padding: 40px 24px; text-align: center;">
+            <p> 数字游民指南 · 开源全球流动数据平台</p>
+            <p><a href="https://github.com/kfat77/digital-nomad-cn">GitHub</a> · <a href="../">首页</a> · <a href="../privacy/">隐私政策</a></p>
         </div>
-        <div class="footer-bottom"><p>CC BY-NC-SA 4.0 | 内容仅供学习交流</p></div>
     </footer>
+
+    <script src="../theme.js"></script>
+    <script src="../analytics.js" defer></script>
+    <script>
+    function switchTab(btn, panelId) {
+        document.querySelectorAll('.tab-nav button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(panelId).classList.add('active');
+    }
+    </script>
 </body>
 </html>
