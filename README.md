@@ -20,6 +20,9 @@
   <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-3b82f6?style=flat" alt="License">
   </a>
+  <a href="https://github.com/kfat77/digital-nomad-cn/releases">
+    <img src="https://img.shields.io/badge/Open_Data-v2.0.0-f59e0b?style=flat" alt="Open Data">
+  </a>
   <br>
   <a href="https://kfat77.github.io/digital-nomad-cn/">
     <img src="https://img.shields.io/badge/🌐_Live_Site-Visit_Now-3b82f6?style=flat" alt="Live Site">
@@ -56,12 +59,38 @@
 
 | 数据类型 | 数量 | 状态 | 说明 |
 |----------|------|------|------|
-| 🌍 国家 | **61** | ✅ 已结构化 | 覆盖 15 个区域，完整 JSON Schema |
+| 🌍 国家 | **100** | ✅ 已结构化 | 覆盖 15 个区域，完整 JSON Schema |
 | 📋 Schema | **1** | ✅ 稳定 | country.schema.json (draft-07) |
 | 🔄 数据同步 | ✅ | ✅ 自动 | datasets/ → website/ 单向同步 |
 | ✅ 数据校验 | ✅ | ✅ CI | GitHub Actions 自动 Schema 校验 |
 | 🏙️ 城市 | **122** | 🚧 待结构化 | 将逐步迁移到 datasets/ |
-| 🛂 签证数据 | **61** | 🚧 待结构化 | 将逐步迁移到 datasets/ |
+| 🛂 签证数据 | **100** | 🚧 待完善 | 基础框架就绪，内容持续补充 |
+
+---
+
+## 🚀 Open Data 发布
+
+本项目的数据集已通过以下渠道发布：
+
+| 渠道 | 链接 | 说明 |
+|------|------|------|
+| **GitHub Releases** | [Releases](https://github.com/kfat77/digital-nomad-cn/releases) | 版本化数据集下载 |
+| **Raw JSON** | `datasets/countries.json` | 直接读取 |
+| **REST API** | `https://api.digital-nomad.cn/v1/countries` | 实时 API |
+| **GraphQL** | `https://api.digital-nomad.cn/graphql` | 灵活查询 |
+| **npm SDK** | `@digital-nomad-cn/sdk` | TypeScript SDK |
+
+### 引用本数据集
+
+```bibtex
+@dataset{digital_nomad_cn_2026,
+  author = {{Digital Nomad CN Contributors}},
+  title = {Digital Nomad CN — Global Mobility Open Dataset},
+  year = {2026},
+  version = {2.0.0},
+  url = {https://github.com/kfat77/digital-nomad-cn}
+}
+```
 
 ---
 
@@ -76,9 +105,19 @@ digital-nomad-cn/
 │
 ├── 📁 datasets/             # ⭐ 数据集（核心资产）
 │   ├── index.json           # 数据总索引
-│   ├── countries.json       # 61 国结构化数据
+│   ├── countries.json       # 100 国结构化数据
 │   ├── visa-official-links.json
 │   └── README.md
+│
+├── 📁 api/                  # ⭐ API 服务
+│   ├── src/
+│   │   ├── index.ts         # REST + GraphQL 入口
+│   │   ├── graphql/         # GraphQL 实现
+│   │   └── routes/          # REST 路由
+│   └── wrangler.toml        # Cloudflare Workers
+│
+├── 📁 packages/             # ⭐ SDK 包
+│   └── js-sdk/              # @digital-nomad-cn/sdk
 │
 ├── 📁 website/              # 网站（消费者之一）
 │   ├── index.html           # 首页
@@ -105,6 +144,8 @@ digital-nomad-cn/
 │   ├── validate-data.js     # Schema 校验
 │   └── sync-data-to-website.js
 │
+├── CITATION.cff             # 学术引用
+├── datapackage.json         # 数据包标准
 ├── package.json
 ├── README.md
 └── LICENSE
@@ -164,6 +205,27 @@ console.log(thailand.name.zh);  // "泰国"
 console.log(thailand.region);    // "southeast-asia"
 ```
 
+### 使用 SDK
+
+```bash
+npm install @digital-nomad-cn/sdk
+```
+
+```typescript
+import { NomadClient } from '@digital-nomad-cn/sdk';
+
+const client = new NomadClient();
+
+// 获取所有国家
+const countries = await client.listCountries();
+
+// 获取特定国家
+const thailand = await client.getCountry('thailand');
+
+// 搜索
+const results = await client.search('东南亚 签证');
+```
+
 ---
 
 ## 🤝 如何贡献数据
@@ -205,11 +267,19 @@ git push origin your-branch
 |------|--------|------|------|
 | **Phase 0** | M1 | Schema 体系建立 | ✅ 完成 |
 | **Phase 0** | M2 | 数据层抽离（61国） | ✅ 完成 |
-| **Phase 0** | M3 | 目录重构 + 自动管道 | 🚧 进行中 |
-| **Phase 1** | M4 | REST API v1 | 📋 计划 |
-| **Phase 1** | M5 | JS SDK 发布 | 📋 计划 |
-| **Phase 1** | M6 | 首批社区维护者 | 📋 计划 |
-| **Phase 2** | M7-M10 | 数据扩展 + GraphQL + MCP | 📋 计划 |
+| **Phase 0** | M3 | 目录重构 + 自动管道 | ✅ 完成 |
+| **Phase 1** | M4 | REST API v1 | ✅ 完成 |
+| **Phase 1** | M5 | JS SDK 发布 | ✅ 完成 |
+| **Phase 1** | M6 | 社区建设启动 | ✅ 完成 |
+| **Phase 1** | M7 | 数据扩展到100国 | ✅ 完成 |
+| **Phase 1** | M8 | 自动化管道完善 | ✅ 完成 |
+| **Phase 1** | M9 | 开源生态初建 | ✅ 完成 |
+| **Phase 1** | M10 | GraphQL API v1 | ✅ 完成 |
+| **Phase 1** | M11 | **Open Data 发布** | 🚧 **进行中** |
+| **Phase 1** | M12 | Year 1 总结 | 📋 计划 |
+| **Phase 2** | M13 | MCP Server | 📋 计划 |
+| **Phase 2** | M14 | Embedding 系统 | 📋 计划 |
+| **Phase 2** | M15 | RAG 系统 | 📋 计划 |
 
 完整路线图：[architecture/v2/08-roadmap.md](architecture/v2/08-roadmap.md)
 
