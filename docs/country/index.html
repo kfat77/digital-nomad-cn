@@ -1,214 +1,1187 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>国家数据库 — 60国数字游民目的地</title>
-    <meta name="description" content="60个国家的数字游民结构化数据：签证政策、生活成本、安全指数、网速评分。按数字游民评分排序，支持地区与签证筛选。">
-    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/country/">
-    <link rel="manifest" href="../manifest.json">
-    <link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
-    <link rel="apple-touch-icon" href="../icons/icon-192.png">
-    <meta name="theme-color" content="#3b82f6">
-    <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/country/">
-    <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/countries/">
-    <link rel="stylesheet" href="../style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数字游民国家数据库 - 全球数字游民目的地指南</title>
+<meta name="description" content="面向中国数字游民的国家数据库，包含签证政策、生活成本、安全指数、网络速度等20+国家详情。">
+<link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/country/">
+<link rel="stylesheet" href="../style.css">
+<style>
+.country-hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 20px 40px; text-align: center; }
+.country-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.country-hero p { opacity: 0.9; max-width: 600px; margin: 0 auto; }
+.filters { background: #f8fafc; padding: 20px; border-bottom: 1px solid #e2e8f0; }
+.filters-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+.filters select, .filters input { padding: 0.5rem 1rem; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.9rem; }
+.country-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
+</style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-inner">
-            <a href="../" class="logo"><span class="logo-icon">◈</span><span>数字游民指南</span></a>
-            <nav class="main-nav">
-                <a href="../">首页</a>
-                <a href="./">国家</a>
-                <a href="../visa/">签证</a>
-                <a href="../city/">城市</a>
-                <a href="../articles/">文章</a>
-                <a href="../compare/">对比</a>
-                <a href="../routes/">路线</a>
-                <a href="../search/">搜索</a>
-                <a href="../assistant/">AI助手</a>
-                <a href="../recommend/">推荐</a>
-            </nav>
-            <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
-            <a href="../en/countries/" class="github-btn" style="margin-left:8px;background:rgba(59,130,246,0.15);color:#3b82f6;">English</a>
-        </div>
-    </header>
+<nav class="breadcrumb" style="padding: 1rem 20px; max-width: 1200px; margin: 0 auto; font-size: 0.9rem; color: #64748b;">
+<a href="../" style="color: #2563eb; text-decoration: none;">首页</a> › 国家数据库
+</nav>
+<header class="country-hero">
+<h1>🌍 数字游民国家数据库</h1>
+<p>60 个精选数字游民目的地，签证、成本、安全、网络全覆盖。按数字游民评分排序。</p>
+</header>
+<div class="filters">
+<div class="filters-inner">
+<select id="region-filter"><option value="">所有地区</option><option value="asia">亚洲</option><option value="europe">欧洲</option><option value="oceania">大洋洲</option><option value="americas_north">北美</option><option value="middle_east">中东</option></select>
+<select id="visa-filter"><option value="">所有签证</option><option value="visa_free">免签</option><option value="evisa">电子签</option><option value="visa_required">需签证</option></select>
+<input type="text" id="search" placeholder="搜索国家...">
+</div>
+</div>
+<div class="country-grid">
 
-    <section class="hero" style="padding: 120px 0 60px;">
-        <div class="hero-content">
-            <div class="hero-tag"><span class="hero-tag-dot"></span>60 国 · 结构化数据</div>
-            <h1 class="hero-title">数字游民<br><span class="hero-title-accent">国家数据库</span></h1>
-            <p class="hero-desc">按数字游民评分排序，支持地区与签证类型筛选。点击卡片查看完整数据。</p>
-        </div>
-    </section>
-
-    <section class="country-grid-section" style="padding-top: 0;">
-        <div class="container">
-            <div class="visa-filters">
-                <button class="visa-filter active" data-filter="all">全部</button>
-                <button class="visa-filter" data-filter="visa_free">🛂 免签</button>
-                <button class="visa-filter" data-filter="evisa">📋 电子签</button>
-                <button class="visa-filter" data-filter="visa_on_arrival">🛬 落地签</button>
-                <button class="visa-filter" data-filter="visa_required">📝 需签证</button>
+        <a href="portugal.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">葡萄牙</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Portugal</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">88</span>
             </div>
-            <div class="region-tabs">
-                <button class="region-tab active" data-region="all">全部 <span>60</span></button>
-                <button class="region-tab" data-region="asia">亚洲 <span>19</span></button>
-                <button class="region-tab" data-region="europe">欧洲 <span>23</span></button>
-                <button class="region-tab" data-region="americas_north">北美 <span>3</span></button>
-                <button class="region-tab" data-region="americas_south">南美 <span>5</span></button>
-                <button class="region-tab" data-region="oceania">大洋洲 <span>2</span></button>
-                <button class="region-tab" data-region="africa">非洲 <span>5</span></button>
-                <button class="region-tab" data-region="middle_east">中东 <span>3</span></button>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 55</div>
+                <div>🛡️ 安全: 72</div>
+                <div>🌐 网速: 150Mbps</div>
+                <div>📝 需提前申请签证</div>
             </div>
-            <div class="country-grid" style="margin-top: 32px;">
-<a href="portugal/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇵🇹</span><div class="country-card-info"><h4>葡萄牙</h4><span class="country-card-sub">Portugal | 欧洲 | 需签证</span></div><span class="country-card-score">88</span></div><div class="country-card-metrics"><span>💰 55</span><span>🛡️ 72</span><span>🌐 150 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="singapore/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇸🇬</span><div class="country-card-info"><h4>新加坡</h4><span class="country-card-sub">Singapore | 亚洲 | 需签证</span></div><span class="country-card-score">88</span></div><div class="country-card-metrics"><span>💰 95</span><span>🛡️ 91</span><span>🌐 280 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">visa_required</span></div></a>
-<a href="japan/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇯🇵</span><div class="country-card-info"><h4>日本</h4><span class="country-card-sub">Japan | 亚洲 | 需签证</span></div><span class="country-card-score">87</span></div><div class="country-card-metrics"><span>💰 85</span><span>🛡️ 92</span><span>🌐 185 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">visa_required</span></div></a>
-<a href="spain/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇪🇸</span><div class="country-card-info"><h4>西班牙</h4><span class="country-card-sub">Spain | 欧洲 | 需签证</span></div><span class="country-card-score">86</span></div><div class="country-card-metrics"><span>💰 58</span><span>🛡️ 70</span><span>🌐 170 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="thailand/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇹🇭</span><div class="country-card-info"><h4>泰国</h4><span class="country-card-sub">Thailand | 亚洲 | 免签</span></div><span class="country-card-score">85</span></div><div class="country-card-metrics"><span>💰 45</span><span>🛡️ 65</span><span>🌐 200 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">visa_free</span></div></a>
-<a href="uae/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇦🇪</span><div class="country-card-info"><h4>阿联酋</h4><span class="country-card-sub">United Arab Emirates | 中东 | 免签</span></div><span class="country-card-score">85</span></div><div class="country-card-metrics"><span>💰 70</span><span>🛡️ 88</span><span>🌐 300 Mbps</span></div><div class="country-card-tags"><span class="tag">middle_east</span><span class="tag">visa_free</span></div></a>
-<a href="georgia/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇬🇪</span><div class="country-card-info"><h4>格鲁吉亚</h4><span class="country-card-sub">Georgia | 亚洲 | 免签</span></div><span class="country-card-score">82</span></div><div class="country-card-metrics"><span>💰 28</span><span>🛡️ 72</span><span>🌐 35 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">visa_free</span></div></a>
-<a href="hongkong/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇭🇰</span><div class="country-card-info"><h4>香港</h4><span class="country-card-sub">Hong Kong | 亚洲 | 需签证</span></div><span class="country-card-score">82</span></div><div class="country-card-metrics"><span>💰 85</span><span>🛡️ 78.3</span><span>🌐 250 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">visa_required</span></div></a>
-<a href="netherlands/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇳🇱</span><div class="country-card-info"><h4>荷兰</h4><span class="country-card-sub">Netherlands | 欧洲 | 需签证</span></div><span class="country-card-score">82</span></div><div class="country-card-metrics"><span>💰 78</span><span>🛡️ 72</span><span>🌐 180 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="cyprus/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇨🇾</span><div class="country-card-info"><h4>塞浦路斯</h4><span class="country-card-sub">Cyprus | 欧洲 | 电子签</span></div><span class="country-card-score">80</span></div><div class="country-card-metrics"><span>💰 55</span><span>🛡️ 82</span><span>🌐 50 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">evisa</span></div></a>
-<a href="estonia/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇪🇪</span><div class="country-card-info"><h4>爱沙尼亚</h4><span class="country-card-sub">Estonia | 欧洲 | 电子签</span></div><span class="country-card-score">80</span></div><div class="country-card-metrics"><span>💰 60</span><span>🛡️ 78</span><span>🌐 100 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">evisa</span></div></a>
-<a href="hungary/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇭🇺</span><div class="country-card-info"><h4>匈牙利</h4><span class="country-card-sub">Hungary | 欧洲 | 需签证</span></div><span class="country-card-score">80</span></div><div class="country-card-metrics"><span>💰 48</span><span>🛡️ 70</span><span>🌐 110 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="norway/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇳🇴</span><div class="country-card-info"><h4>挪威</h4><span class="country-card-sub">Norway | 欧洲 | 需签证</span></div><span class="country-card-score">80</span></div><div class="country-card-metrics"><span>💰 88</span><span>🛡️ 85</span><span>🌐 180 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="southkorea/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇰🇷</span><div class="country-card-info"><h4>韩国</h4><span class="country-card-sub">South Korea | 亚洲 | 需签证</span></div><span class="country-card-score">80</span></div><div class="country-card-metrics"><span>💰 78</span><span>🛡️ 88</span><span>🌐 220 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">visa_required</span></div></a>
-<a href="sweden/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇸🇪</span><div class="country-card-info"><h4>瑞典</h4><span class="country-card-sub">Sweden | 欧洲 | 需签证</span></div><span class="country-card-score">79</span></div><div class="country-card-metrics"><span>💰 85</span><span>🛡️ 80</span><span>🌐 140 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="australia/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇦🇺</span><div class="country-card-info"><h4>澳大利亚</h4><span class="country-card-sub">Australia | 大洋洲 | 需签证</span></div><span class="country-card-score">78</span></div><div class="country-card-metrics"><span>💰 82</span><span>🛡️ 75</span><span>🌐 80 Mbps</span></div><div class="country-card-tags"><span class="tag">oceania</span><span class="tag">visa_required</span></div></a>
-<a href="czech/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇨🇿</span><div class="country-card-info"><h4>捷克</h4><span class="country-card-sub">Czech Republic | 欧洲 | 需签证</span></div><span class="country-card-score">78</span></div><div class="country-card-metrics"><span>💰 55</span><span>🛡️ 75</span><span>🌐 120 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="germany/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇩🇪</span><div class="country-card-info"><h4>德国</h4><span class="country-card-sub">Germany | 欧洲 | 需签证</span></div><span class="country-card-score">78</span></div><div class="country-card-metrics"><span>💰 72</span><span>🛡️ 75</span><span>🌐 120 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="greece/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇬🇷</span><div class="country-card-info"><h4>希腊</h4><span class="country-card-sub">Greece | 欧洲 | 需签证</span></div><span class="country-card-score">78</span></div><div class="country-card-metrics"><span>💰 52</span><span>🛡️ 76</span><span>🌐 45 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="iceland/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇮🇸</span><div class="country-card-info"><h4>冰岛</h4><span class="country-card-sub">Iceland | 欧洲 | 需签证</span></div><span class="country-card-score">78</span></div><div class="country-card-metrics"><span>💰 85</span><span>🛡️ 88</span><span>🌐 200 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="malaysia/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇲🇾</span><div class="country-card-info"><h4>马来西亚</h4><span class="country-card-sub">Malaysia | 亚洲 | 免签</span></div><span class="country-card-score">78</span></div><div class="country-card-metrics"><span>💰 40</span><span>🛡️ 55</span><span>🌐 150 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">visa_free</span></div></a>
-<a href="canada/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇨🇦</span><div class="country-card-info"><h4>加拿大</h4><span class="country-card-sub">Canada | 北美 | 需签证</span></div><span class="country-card-score">77</span></div><div class="country-card-metrics"><span>💰 75</span><span>🛡️ 65</span><span>🌐 170 Mbps</span></div><div class="country-card-tags"><span class="tag">americas_north</span><span class="tag">visa_required</span></div></a>
-<a href="denmark/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇩🇰</span><div class="country-card-info"><h4>丹麦</h4><span class="country-card-sub">Denmark | 欧洲 | 需签证</span></div><span class="country-card-score">77</span></div><div class="country-card-metrics"><span>💰 82</span><span>🛡️ 84</span><span>🌐 150 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="france/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇫🇷</span><div class="country-card-info"><h4>法国</h4><span class="country-card-sub">France | 欧洲 | 需签证</span></div><span class="country-card-score">77</span></div><div class="country-card-metrics"><span>💰 75</span><span>🛡️ 65</span><span>🌐 130 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="austria/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇦🇹</span><div class="country-card-info"><h4>奥地利</h4><span class="country-card-sub">Austria | 欧洲 | 需签证</span></div><span class="country-card-score">76</span></div><div class="country-card-metrics"><span>💰 70</span><span>🛡️ 83</span><span>🌐 80 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="indonesia/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇮🇩</span><div class="country-card-info"><h4>印度尼西亚</h4><span class="country-card-sub">Indonesia | 亚洲 | 电子签</span></div><span class="country-card-score">76</span></div><div class="country-card-metrics"><span>💰 32</span><span>🛡️ 58</span><span>🌐 25 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">evisa</span></div></a>
-<a href="ireland/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇮🇪</span><div class="country-card-info"><h4>爱尔兰</h4><span class="country-card-sub">Ireland | 欧洲 | 需签证</span></div><span class="country-card-score">76</span></div><div class="country-card-metrics"><span>💰 78</span><span>🛡️ 82</span><span>🌐 120 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="morocco/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇲🇦</span><div class="country-card-info"><h4>摩洛哥</h4><span class="country-card-sub">Morocco | 非洲 | 免签</span></div><span class="country-card-score">76</span></div><div class="country-card-metrics"><span>💰 30</span><span>🛡️ 58</span><span>🌐 25 Mbps</span></div><div class="country-card-tags"><span class="tag">africa</span><span class="tag">visa_free</span></div></a>
-<a href="newzealand/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇳🇿</span><div class="country-card-info"><h4>新西兰</h4><span class="country-card-sub">New Zealand | 大洋洲 | 需签证</span></div><span class="country-card-score">76</span></div><div class="country-card-metrics"><span>💰 78</span><span>🛡️ 70</span><span>🌐 150 Mbps</span></div><div class="country-card-tags"><span class="tag">oceania</span><span class="tag">visa_required</span></div></a>
-<a href="poland/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇵🇱</span><div class="country-card-info"><h4>波兰</h4><span class="country-card-sub">Poland | 欧洲 | 需签证</span></div><span class="country-card-score">76</span></div><div class="country-card-metrics"><span>💰 45</span><span>🛡️ 72</span><span>🌐 100 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="croatia/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇭🇷</span><div class="country-card-info"><h4>克罗地亚</h4><span class="country-card-sub">Croatia | 欧洲 | 电子签</span></div><span class="country-card-score">75</span></div><div class="country-card-metrics"><span>💰 48</span><span>🛡️ 78</span><span>🌐 55 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">evisa</span></div></a>
-<a href="israel/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇮🇱</span><div class="country-card-info"><h4>以色列</h4><span class="country-card-sub">Israel | 中东 | 需签证</span></div><span class="country-card-score">75</span></div><div class="country-card-metrics"><span>💰 80</span><span>🛡️ 65</span><span>🌐 130 Mbps</span></div><div class="country-card-tags"><span class="tag">middle_east</span><span class="tag">visa_required</span></div></a>
-<a href="kazakhstan/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇰🇿</span><div class="country-card-info"><h4>哈萨克斯坦</h4><span class="country-card-sub">Kazakhstan | 亚洲 | 免签</span></div><span class="country-card-score">75</span></div><div class="country-card-metrics"><span>💰 30</span><span>🛡️ 72</span><span>🌐 40 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">visa_free</span></div></a>
-<a href="switzerland/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇨🇭</span><div class="country-card-info"><h4>瑞士</h4><span class="country-card-sub">Switzerland | 欧洲 | 需签证</span></div><span class="country-card-score">75</span></div><div class="country-card-metrics"><span>💰 95</span><span>🛡️ 88</span><span>🌐 170 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="uk/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇬🇧</span><div class="country-card-info"><h4>英国</h4><span class="country-card-sub">United Kingdom | 欧洲 | 需签证</span></div><span class="country-card-score">75</span></div><div class="country-card-metrics"><span>💰 80</span><span>🛡️ 60</span><span>🌐 110 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="vietnam/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇻🇳</span><div class="country-card-info"><h4>越南</h4><span class="country-card-sub">Vietnam | 亚洲 | 电子签</span></div><span class="country-card-score">75</span></div><div class="country-card-metrics"><span>💰 35</span><span>🛡️ 60</span><span>🌐 120 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">evisa</span></div></a>
-<a href="philippines/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇵🇭</span><div class="country-card-info"><h4>菲律宾</h4><span class="country-card-sub">Philippines | 亚洲 | 需签证</span></div><span class="country-card-score">74</span></div><div class="country-card-metrics"><span>💰 35</span><span>🛡️ 55</span><span>🌐 30 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">visa_required</span></div></a>
-<a href="romania/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇷🇴</span><div class="country-card-info"><h4>罗马尼亚</h4><span class="country-card-sub">Romania | 欧洲 | 需签证</span></div><span class="country-card-score">74</span></div><div class="country-card-metrics"><span>💰 42</span><span>🛡️ 68</span><span>🌐 95 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="turkey/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇹🇷</span><div class="country-card-info"><h4>土耳其</h4><span class="country-card-sub">Turkey | 欧洲 | 电子签</span></div><span class="country-card-score">74</span></div><div class="country-card-metrics"><span>💰 32</span><span>🛡️ 50</span><span>🌐 35 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">evisa</span></div></a>
-<a href="bulgaria/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇧🇬</span><div class="country-card-info"><h4>保加利亚</h4><span class="country-card-sub">Bulgaria | 欧洲 | 需签证</span></div><span class="country-card-score">73</span></div><div class="country-card-metrics"><span>💰 40</span><span>🛡️ 65</span><span>🌐 90 Mbps</span></div><div class="country-card-tags"><span class="tag">europe</span><span class="tag">visa_required</span></div></a>
-<a href="srilanka/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇱🇰</span><div class="country-card-info"><h4>斯里兰卡</h4><span class="country-card-sub">Sri Lanka | 亚洲 | 电子签</span></div><span class="country-card-score">73</span></div><div class="country-card-metrics"><span>💰 25</span><span>🛡️ 60</span><span>🌐 20 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">evisa</span></div></a>
-<a href="chile/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇨🇱</span><div class="country-card-info"><h4>智利</h4><span class="country-card-sub">Chile | 南美 | 需签证</span></div><span class="country-card-score">72</span></div><div class="country-card-metrics"><span>💰 45</span><span>🛡️ 55</span><span>🌐 80 Mbps</span></div><div class="country-card-tags"><span class="tag">americas_south</span><span class="tag">visa_required</span></div></a>
-<a href="mexico/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇲🇽</span><div class="country-card-info"><h4>墨西哥</h4><span class="country-card-sub">Mexico | 北美 | 电子签</span></div><span class="country-card-score">72</span></div><div class="country-card-metrics"><span>💰 38</span><span>🛡️ 45</span><span>🌐 40 Mbps</span></div><div class="country-card-tags"><span class="tag">americas_north</span><span class="tag">evisa</span></div></a>
-<a href="mongolia/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇲🇳</span><div class="country-card-info"><h4>蒙古</h4><span class="country-card-sub">Mongolia | 亚洲 | 免签</span></div><span class="country-card-score">72</span></div><div class="country-card-metrics"><span>💰 28</span><span>🛡️ 70</span><span>🌐 20 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">visa_free</span></div></a>
-<a href="qatar/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇶🇦</span><div class="country-card-info"><h4>卡塔尔</h4><span class="country-card-sub">Qatar | 中东 | 免签</span></div><span class="country-card-score">72</span></div><div class="country-card-metrics"><span>💰 78</span><span>🛡️ 82</span><span>🌐 120 Mbps</span></div><div class="country-card-tags"><span class="tag">middle_east</span><span class="tag">visa_free</span></div></a>
-<a href="usa/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇺🇸</span><div class="country-card-info"><h4>美国</h4><span class="country-card-sub">United States | 北美 | 需签证</span></div><span class="country-card-score">72</span></div><div class="country-card-metrics"><span>💰 88</span><span>🛡️ 50</span><span>🌐 250 Mbps</span></div><div class="country-card-tags"><span class="tag">americas_north</span><span class="tag">visa_required</span></div></a>
-<a href="armenia/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇦🇲</span><div class="country-card-info"><h4>亚美尼亚</h4><span class="country-card-sub">Armenia | 亚洲 | 免签</span></div><span class="country-card-score">71</span></div><div class="country-card-metrics"><span>💰 38</span><span>🛡️ 70</span><span>🌐 60 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">visa_free</span></div></a>
-<a href="nepal/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇳🇵</span><div class="country-card-info"><h4>尼泊尔</h4><span class="country-card-sub">Nepal | 亚洲 | 免签</span></div><span class="country-card-score">71</span></div><div class="country-card-metrics"><span>💰 22</span><span>🛡️ 65</span><span>🌐 15 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">visa_free</span></div></a>
-<a href="brazil/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇧🇷</span><div class="country-card-info"><h4>巴西</h4><span class="country-card-sub">Brazil | 南美 | 需签证</span></div><span class="country-card-score">70</span></div><div class="country-card-metrics"><span>💰 40</span><span>🛡️ 42</span><span>🌐 55 Mbps</span></div><div class="country-card-tags"><span class="tag">americas_south</span><span class="tag">visa_required</span></div></a>
-<a href="colombia/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇨🇴</span><div class="country-card-info"><h4>哥伦比亚</h4><span class="country-card-sub">Colombia | 南美 | 需签证</span></div><span class="country-card-score">70</span></div><div class="country-card-metrics"><span>💰 40</span><span>🛡️ 50</span><span>🌐 65 Mbps</span></div><div class="country-card-tags"><span class="tag">americas_south</span><span class="tag">visa_required</span></div></a>
-<a href="azerbaijan/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇦🇿</span><div class="country-card-info"><h4>阿塞拜疆</h4><span class="country-card-sub">Azerbaijan | 亚洲 | 电子签</span></div><span class="country-card-score">69</span></div><div class="country-card-metrics"><span>💰 42</span><span>🛡️ 68</span><span>🌐 55 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">evisa</span></div></a>
-<a href="argentina/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇦🇷</span><div class="country-card-info"><h4>阿根廷</h4><span class="country-card-sub">Argentina | 南美 | 电子签</span></div><span class="country-card-score">68</span></div><div class="country-card-metrics"><span>💰 35</span><span>🛡️ 45</span><span>🌐 30 Mbps</span></div><div class="country-card-tags"><span class="tag">americas_south</span><span class="tag">evisa</span></div></a>
-<a href="peru/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇵🇪</span><div class="country-card-info"><h4>秘鲁</h4><span class="country-card-sub">Peru | 南美 | 需签证</span></div><span class="country-card-score">68</span></div><div class="country-card-metrics"><span>💰 38</span><span>🛡️ 55</span><span>🌐 55 Mbps</span></div><div class="country-card-tags"><span class="tag">americas_south</span><span class="tag">visa_required</span></div></a>
-<a href="south_africa/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇿🇦</span><div class="country-card-info"><h4>南非</h4><span class="country-card-sub">South Africa | 非洲 | 需签证</span></div><span class="country-card-score">68</span></div><div class="country-card-metrics"><span>💰 45</span><span>🛡️ 55</span><span>🌐 50 Mbps</span></div><div class="country-card-tags"><span class="tag">africa</span><span class="tag">visa_required</span></div></a>
-<a href="uzbekistan/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇺🇿</span><div class="country-card-info"><h4>乌兹别克斯坦</h4><span class="country-card-sub">Uzbekistan | 亚洲 | 免签</span></div><span class="country-card-score">66</span></div><div class="country-card-metrics"><span>💰 32</span><span>🛡️ 72</span><span>🌐 45 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">visa_free</span></div></a>
-<a href="kenya/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇰🇪</span><div class="country-card-info"><h4>肯尼亚</h4><span class="country-card-sub">Kenya | 非洲 | 电子签</span></div><span class="country-card-score">65</span></div><div class="country-card-metrics"><span>💰 35</span><span>🛡️ 50</span><span>🌐 40 Mbps</span></div><div class="country-card-tags"><span class="tag">africa</span><span class="tag">evisa</span></div></a>
-<a href="macao/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇲🇴</span><div class="country-card-info"><h4>澳门</h4><span class="country-card-sub">Macao | 亚洲 | 需签证</span></div><span class="country-card-score">65</span></div><div class="country-card-metrics"><span>💰 70</span><span>🛡️ 85</span><span>🌐 180 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">visa_required</span></div></a>
-<a href="india/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇮🇳</span><div class="country-card-info"><h4>印度</h4><span class="country-card-sub">India | 亚洲 | 电子签</span></div><span class="country-card-score">64</span></div><div class="country-card-metrics"><span>💰 28</span><span>🛡️ 55</span><span>🌐 50 Mbps</span></div><div class="country-card-tags"><span class="tag">asia</span><span class="tag">evisa</span></div></a>
-<a href="egypt/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇪🇬</span><div class="country-card-info"><h4>埃及</h4><span class="country-card-sub">Egypt | 非洲 | 电子签</span></div><span class="country-card-score">63</span></div><div class="country-card-metrics"><span>💰 30</span><span>🛡️ 52</span><span>🌐 45 Mbps</span></div><div class="country-card-tags"><span class="tag">africa</span><span class="tag">evisa</span></div></a>
-<a href="ghana/" class="country-card"><div class="country-card-header"><span class="country-card-flag">🇬🇭</span><div class="country-card-info"><h4>加纳</h4><span class="country-card-sub">Ghana | 非洲 | 需签证</span></div><span class="country-card-score">62</span></div><div class="country-card-metrics"><span>💰 38</span><span>🛡️ 60</span><span>🌐 35 Mbps</span></div><div class="country-card-tags"><span class="tag">africa</span><span class="tag">visa_required</span></div></a>
-</div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 95.0</span><span class="country-metric">🌐 280 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="portugal/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="88"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>葡萄牙</h4><span class="country-score">88 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 55.0</span><span class="country-metric">🌐 150 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="japan/index.html" class="country-card" data-region="asia" data-visa="visa_required" data-score="87"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>日本</h4><span class="country-score">87 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 85.0</span><span class="country-metric">🌐 185 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="spain/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="86"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>西班牙</h4><span class="country-score">86 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 58.0</span><span class="country-metric">🌐 170 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="thailand/index.html" class="country-card" data-region="asia" data-visa="visa_free" data-score="85"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>泰国</h4><span class="country-score">85 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 45.0</span><span class="country-metric">🌐 200 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="uae/index.html" class="country-card" data-region="middle_east" data-visa="visa_free" data-score="85"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>阿联酋</h4><span class="country-score">85 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 70.0</span><span class="country-metric">🌐 300 Mbps</span><span class="country-metric">中东</span></div></a>
-<a href="georgia/index.html" class="country-card" data-region="asia" data-visa="visa_free" data-score="82"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>格鲁吉亚</h4><span class="country-score">82 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 28</span><span class="country-metric">🌐 35 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="netherlands/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="82"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>荷兰</h4><span class="country-score">82 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 78.0</span><span class="country-metric">🌐 180 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="hongkong/index.html" class="country-card" data-region="asia" data-visa="visa_required" data-score="82"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>香港</h4><span class="country-score">82 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 85.0</span><span class="country-metric">🌐 250 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="cyprus/index.html" class="country-card" data-region="europe" data-visa="evisa" data-score="80"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>塞浦路斯</h4><span class="country-score">80 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span><span class="country-metric">💰 55</span><span class="country-metric">🌐 50 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="norway/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="80"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>挪威</h4><span class="country-score">80 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 88</span><span class="country-metric">🌐 180 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="estonia/index.html" class="country-card" data-region="europe" data-visa="evisa" data-score="80"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>爱沙尼亚</h4><span class="country-score">80 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span><span class="country-metric">💰 60.0</span><span class="country-metric">🌐 100 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="southkorea/index.html" class="country-card" data-region="asia" data-visa="visa_required" data-score="80"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>韩国</h4><span class="country-score">80 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 78.0</span><span class="country-metric">🌐 220 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="hungary/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="80"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>匈牙利</h4><span class="country-score">80 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 48.0</span><span class="country-metric">🌐 110 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="sweden/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="79"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>瑞典</h4><span class="country-score">79 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 85.0</span><span class="country-metric">🌐 140 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="iceland/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="78"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>冰岛</h4><span class="country-score">78 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 85</span><span class="country-metric">🌐 200 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="greece/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="78"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>希腊</h4><span class="country-score">78 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 52</span><span class="country-metric">🌐 45 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="germany/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="78"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>德国</h4><span class="country-score">78 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 72.0</span><span class="country-metric">🌐 120 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="australia/index.html" class="country-card" data-region="oceania" data-visa="visa_required" data-score="78"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>澳大利亚</h4><span class="country-score">78 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 82.0</span><span class="country-metric">🌐 80 Mbps</span><span class="country-metric">大洋洲</span></div></a>
-<a href="malaysia/index.html" class="country-card" data-region="asia" data-visa="visa_free" data-score="78"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>马来西亚</h4><span class="country-score">78 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 40.0</span><span class="country-metric">🌐 150 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="czech/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="78"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>捷克</h4><span class="country-score">78 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 55.0</span><span class="country-metric">🌐 120 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="denmark/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="77"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>丹麦</h4><span class="country-score">77 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 82</span><span class="country-metric">🌐 150 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="canada/index.html" class="country-card" data-region="americas_north" data-visa="visa_required" data-score="77"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>加拿大</h4><span class="country-score">77 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 75.0</span><span class="country-metric">🌐 170 Mbps</span><span class="country-metric">北美</span></div></a>
-<a href="france/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="77"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>法国</h4><span class="country-score">77 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 75.0</span><span class="country-metric">🌐 130 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="indonesia/index.html" class="country-card" data-region="asia" data-visa="evisa" data-score="76"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>印度尼西亚</h4><span class="country-score">76 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span><span class="country-metric">💰 32</span><span class="country-metric">🌐 25 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="austria/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="76"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>奥地利</h4><span class="country-score">76 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 70</span><span class="country-metric">🌐 80 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="morocco/index.html" class="country-card" data-region="africa" data-visa="visa_free" data-score="76"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>摩洛哥</h4><span class="country-score">76 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 30</span><span class="country-metric">🌐 25 Mbps</span><span class="country-metric">非洲</span></div></a>
-<a href="newzealand/index.html" class="country-card" data-region="oceania" data-visa="visa_required" data-score="76"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>新西兰</h4><span class="country-score">76 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 78.0</span><span class="country-metric">🌐 150 Mbps</span><span class="country-metric">大洋洲</span></div></a>
-<a href="ireland/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="76"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>爱尔兰</h4><span class="country-score">76 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 78</span><span class="country-metric">🌐 120 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="poland/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="76"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>波兰</h4><span class="country-score">76 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 45.0</span><span class="country-metric">🌐 100 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="croatia/index.html" class="country-card" data-region="europe" data-visa="evisa" data-score="75"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>克罗地亚</h4><span class="country-score">75 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span><span class="country-metric">💰 48</span><span class="country-metric">🌐 55 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="kazakhstan/index.html" class="country-card" data-region="asia" data-visa="visa_free" data-score="75"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>哈萨克斯坦</h4><span class="country-score">75 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 30</span><span class="country-metric">🌐 40 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="switzerland/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="75"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>瑞士</h4><span class="country-score">75 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 95</span><span class="country-metric">🌐 170 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="uk/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="75"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>英国</h4><span class="country-score">75 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 80.0</span><span class="country-metric">🌐 110 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="vietnam/index.html" class="country-card" data-region="asia" data-visa="evisa" data-score="75"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>越南</h4><span class="country-score">75 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span><span class="country-metric">💰 35.0</span><span class="country-metric">🌐 120 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="israel/index.html" class="country-card" data-region="middle_east" data-visa="visa_required" data-score="75"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>以色列</h4><span class="country-score">75 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 80.0</span><span class="country-metric">🌐 130 Mbps</span><span class="country-metric">中东</span></div></a>
-<a href="turkey/index.html" class="country-card" data-region="europe" data-visa="evisa" data-score="74"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>土耳其</h4><span class="country-score">74 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span><span class="country-metric">💰 32</span><span class="country-metric">🌐 35 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="philippines/index.html" class="country-card" data-region="asia" data-visa="visa_required" data-score="74"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>菲律宾</h4><span class="country-score">74 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 35</span><span class="country-metric">🌐 30 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="romania/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="74"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>罗马尼亚</h4><span class="country-score">74 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 42.0</span><span class="country-metric">🌐 95 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="srilanka/index.html" class="country-card" data-region="asia" data-visa="evisa" data-score="73"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>斯里兰卡</h4><span class="country-score">73 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span><span class="country-metric">💰 25</span><span class="country-metric">🌐 20 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="bulgaria/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="73"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>保加利亚</h4><span class="country-score">73 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 40.0</span><span class="country-metric">🌐 90 Mbps</span><span class="country-metric">欧洲</span></div></a>
-<a href="mexico/index.html" class="country-card" data-region="americas_north" data-visa="evisa" data-score="72"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>墨西哥</h4><span class="country-score">72 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span><span class="country-metric">💰 38</span><span class="country-metric">🌐 40 Mbps</span><span class="country-metric">北美</span></div></a>
-<a href="chile/index.html" class="country-card" data-region="americas_south" data-visa="visa_required" data-score="72"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>智利</h4><span class="country-score">72 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 45</span><span class="country-metric">🌐 80 Mbps</span><span class="country-metric">南美</span></div></a>
-<a href="usa/index.html" class="country-card" data-region="americas_north" data-visa="visa_required" data-score="72"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>美国</h4><span class="country-score">72 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 88.0</span><span class="country-metric">🌐 250 Mbps</span><span class="country-metric">北美</span></div></a>
-<a href="mongolia/index.html" class="country-card" data-region="asia" data-visa="visa_free" data-score="72"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>蒙古</h4><span class="country-score">72 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 28</span><span class="country-metric">🌐 20 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="qatar/index.html" class="country-card" data-region="middle_east" data-visa="visa_free" data-score="72"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>卡塔尔</h4><span class="country-score">72 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 78.0</span><span class="country-metric">🌐 120 Mbps</span><span class="country-metric">中东</span></div></a>
-<a href="nepal/index.html" class="country-card" data-region="asia" data-visa="visa_free" data-score="71"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>尼泊尔</h4><span class="country-score">71 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 22</span><span class="country-metric">🌐 15 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="armenia/index.html" class="country-card" data-region="asia" data-visa="visa_free" data-score="71"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>亚美尼亚</h4><span class="country-score">71 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 38.0</span><span class="country-metric">🌐 60 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="brazil/index.html" class="country-card" data-region="americas_south" data-visa="visa_required" data-score="70"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>巴西</h4><span class="country-score">70 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 40</span><span class="country-metric">🌐 55 Mbps</span><span class="country-metric">南美</span></div></a>
-<a href="colombia/index.html" class="country-card" data-region="americas_south" data-visa="visa_required" data-score="70"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>哥伦比亚</h4><span class="country-score">70 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 40.0</span><span class="country-metric">🌐 65 Mbps</span><span class="country-metric">南美</span></div></a>
-<a href="azerbaijan/index.html" class="country-card" data-region="asia" data-visa="evisa" data-score="69"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>阿塞拜疆</h4><span class="country-score">69 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span><span class="country-metric">💰 42.0</span><span class="country-metric">🌐 55 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="argentina/index.html" class="country-card" data-region="americas_south" data-visa="evisa" data-score="68"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>阿根廷</h4><span class="country-score">68 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span><span class="country-metric">💰 35</span><span class="country-metric">🌐 30 Mbps</span><span class="country-metric">南美</span></div></a>
-<a href="peru/index.html" class="country-card" data-region="americas_south" data-visa="visa_required" data-score="68"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>秘鲁</h4><span class="country-score">68 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 38.0</span><span class="country-metric">🌐 55 Mbps</span><span class="country-metric">南美</span></div></a>
-<a href="south_africa/index.html" class="country-card" data-region="africa" data-visa="visa_required" data-score="68"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>南非</h4><span class="country-score">68 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 45.0</span><span class="country-metric">🌐 50 Mbps</span><span class="country-metric">非洲</span></div></a>
-<a href="uzbekistan/index.html" class="country-card" data-region="asia" data-visa="visa_free" data-score="66"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>乌兹别克斯坦</h4><span class="country-score">66 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 32.0</span><span class="country-metric">🌐 45 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="macao/index.html" class="country-card" data-region="asia" data-visa="visa_required" data-score="65"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>澳门</h4><span class="country-score">65 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 70.0</span><span class="country-metric">🌐 180 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="kenya/index.html" class="country-card" data-region="africa" data-visa="evisa" data-score="65"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>肯尼亚</h4><span class="country-score">65 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span><span class="country-metric">💰 35.0</span><span class="country-metric">🌐 40 Mbps</span><span class="country-metric">非洲</span></div></a>
-<a href="india/index.html" class="country-card" data-region="asia" data-visa="evisa" data-score="64"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>印度</h4><span class="country-score">64 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span><span class="country-metric">💰 28.0</span><span class="country-metric">🌐 50 Mbps</span><span class="country-metric">亚洲</span></div></a>
-<a href="egypt/index.html" class="country-card" data-region="africa" data-visa="evisa" data-score="63"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>埃及</h4><span class="country-score">63 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span><span class="country-metric">💰 30.0</span><span class="country-metric">🌐 45 Mbps</span><span class="country-metric">非洲</span></div></a>
-<a href="ghana/index.html" class="country-card" data-region="africa" data-visa="visa_required" data-score="62"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>加纳</h4><span class="country-score">62 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 38.0</span><span class="country-metric">🌐 35 Mbps</span><span class="country-metric">非洲</span></div></a>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">cheap</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">eu</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">nomad_visa</span>
             </div>
-        </div>
-    </section>
-
-    <footer class="footer" style="margin-top: 0;">
-        <div class="footer-main">
-            <div class="footer-brand">
-                <span class="logo-icon">◈</span>
-                <span class="logo-text">数字游民指南</span>
-                <p>60 国数据、50+ 签证、122 城市，全部开源。</p>
+        </a>
+        
+        <a href="singapore.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">新加坡</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Singapore</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">88</span>
             </div>
-            <div class="footer-links">
-                <div class="footer-col"><h4>核心内容</h4><a href="../country/">国家数据库</a><a href="../visa/">签证数据库</a><a href="../city/">城市数据库</a><a href="../compare/">国家对比</a></div>
-                <div class="footer-col"><h4>社区</h4><a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a><a href="https://github.com/kfat77/digital-nomad-cn/blob/main/CONTRIBUTING.md" target="_blank">贡献指南</a></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 95</div>
+                <div>🛡️ 安全: 91</div>
+                <div>🌐 网速: 280Mbps</div>
+                <div>📝 需提前申请签证</div>
             </div>
-        </div>
-        <div class="footer-bottom"><p>CC BY-NC-SA 4.0 | 内容仅供学习交流</p></div>
-    </footer>
-
-    <script src="../app.js"></script>
-    <script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('../sw.js').catch(() => {});
-        });
-    }
-    </script>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">financial_hub</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">startup_hub</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">asia</span>
+            </div>
+        </a>
+        
+        <a href="japan.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">日本</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Japan</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">87</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 85</div>
+                <div>🛡️ 安全: 92</div>
+                <div>🌐 网速: 185Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">culture</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">safe</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">high_quality</span>
+            </div>
+        </a>
+        
+        <a href="spain.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">西班牙</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Spain</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">86</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 58</div>
+                <div>🛡️ 安全: 70</div>
+                <div>🌐 网速: 170Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">cheap</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">eu</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">nomad_visa</span>
+            </div>
+        </a>
+        
+        <a href="thailand.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">泰国</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Thailand</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">85</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 45</div>
+                <div>🛡️ 安全: 65</div>
+                <div>🌐 网速: 200Mbps</div>
+                <div>✅ 免签入境</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">cheap</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">friendly</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">nomad_hub</span>
+            </div>
+        </a>
+        
+        <a href="uae.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">阿联酋</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">United Arab Emirates</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">85</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 70</div>
+                <div>🛡️ 安全: 88</div>
+                <div>🌐 网速: 300Mbps</div>
+                <div>✅ 免签入境</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">tax_free</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">luxury</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">modern</span>
+            </div>
+        </a>
+        
+        <a href="georgia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">格鲁吉亚</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Georgia</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">82</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 28</div>
+                <div>🛡️ 安全: 72</div>
+                <div>🌐 网速: 35Mbps</div>
+                <div>✅ 免签入境</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">免签</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">低成本</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">欧洲风情</span>
+            </div>
+        </a>
+        
+        <a href="hongkong.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">香港</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Hong Kong</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">82</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 85</div>
+                <div>🛡️ 安全: 78.3</div>
+                <div>🌐 网速: 250Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">financial_hub</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">asia</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">gateway</span>
+            </div>
+        </a>
+        
+        <a href="netherlands.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">荷兰</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Netherlands</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">82</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 78</div>
+                <div>🛡️ 安全: 72</div>
+                <div>🌐 网速: 180Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">eu</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">english_friendly</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">startup</span>
+            </div>
+        </a>
+        
+        <a href="cyprus.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">塞浦路斯</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Cyprus</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">80</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 55</div>
+                <div>🛡️ 安全: 82</div>
+                <div>🌐 网速: 50Mbps</div>
+                <div>📱 电子签</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">欧盟</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">地中海</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">数字游民签证</span>
+            </div>
+        </a>
+        
+        <a href="estonia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">爱沙尼亚</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Estonia</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">80</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 60</div>
+                <div>🛡️ 安全: 78</div>
+                <div>🌐 网速: 100Mbps</div>
+                <div>📱 电子签</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">digital</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">e_residency</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">eu</span>
+            </div>
+        </a>
+        
+        <a href="hungary.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">匈牙利</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Hungary</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">80</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 48</div>
+                <div>🛡️ 安全: 70</div>
+                <div>🌐 网速: 110Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">cheap</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">eu</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">culture</span>
+            </div>
+        </a>
+        
+        <a href="norway.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">挪威</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Norway</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">80</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 88</div>
+                <div>🛡️ 安全: 85</div>
+                <div>🌐 网速: 180Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">北欧</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">数字游民签证</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极光</span>
+            </div>
+        </a>
+        
+        <a href="southkorea.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">韩国</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">South Korea</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">80</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 78</div>
+                <div>🛡️ 安全: 88</div>
+                <div>🌐 网速: 220Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">technology</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">fast_internet</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">culture</span>
+            </div>
+        </a>
+        
+        <a href="sweden.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">瑞典</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Sweden</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">79</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 85</div>
+                <div>🛡️ 安全: 80</div>
+                <div>🌐 网速: 140Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">high_quality</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">eu</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">nature</span>
+            </div>
+        </a>
+        
+        <a href="australia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">澳大利亚</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Australia</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">78</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 82</div>
+                <div>🛡️ 安全: 75</div>
+                <div>🌐 网速: 80Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">english</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">high_quality</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">nature</span>
+            </div>
+        </a>
+        
+        <a href="czech.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">捷克</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Czech Republic</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">78</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 55</div>
+                <div>🛡️ 安全: 75</div>
+                <div>🌐 网速: 120Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">cheap</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">eu</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">culture</span>
+            </div>
+        </a>
+        
+        <a href="germany.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">德国</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Germany</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">78</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 72</div>
+                <div>🛡️ 安全: 75</div>
+                <div>🌐 网速: 120Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">eu</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">high_quality</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">startup</span>
+            </div>
+        </a>
+        
+        <a href="greece.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">希腊</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Greece</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">78</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 52</div>
+                <div>🛡️ 安全: 76</div>
+                <div>🌐 网速: 45Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">申根区</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">地中海</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">数字游民签证</span>
+            </div>
+        </a>
+        
+        <a href="iceland.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">冰岛</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Iceland</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">78</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 85</div>
+                <div>🛡️ 安全: 88</div>
+                <div>🌐 网速: 200Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">北欧</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">数字游民签证</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">极光</span>
+            </div>
+        </a>
+        
+        <a href="malaysia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">马来西亚</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Malaysia</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">78</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 40</div>
+                <div>🛡️ 安全: 55</div>
+                <div>🌐 网速: 150Mbps</div>
+                <div>✅ 免签入境</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">cheap</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">english</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">multicultural</span>
+            </div>
+        </a>
+        
+        <a href="canada.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">加拿大</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Canada</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">77</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 75</div>
+                <div>🛡️ 安全: 65</div>
+                <div>🌐 网速: 170Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">english</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">immigration_friendly</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">nature</span>
+            </div>
+        </a>
+        
+        <a href="denmark.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">丹麦</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Denmark</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">77</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 82</div>
+                <div>🛡️ 安全: 84</div>
+                <div>🌐 网速: 150Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">北欧</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">申根</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">自行车</span>
+            </div>
+        </a>
+        
+        <a href="france.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">法国</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">France</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">77</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 75</div>
+                <div>🛡️ 安全: 65</div>
+                <div>🌐 网速: 130Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">eu</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">culture</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">art</span>
+            </div>
+        </a>
+        
+        <a href="austria.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">奥地利</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Austria</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">76</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 70</div>
+                <div>🛡️ 安全: 83</div>
+                <div>🌐 网速: 80Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">欧洲</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">申根</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">数字游民签证</span>
+            </div>
+        </a>
+        
+        <a href="indonesia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">印度尼西亚</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Indonesia</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">76</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 32</div>
+                <div>🛡️ 安全: 58</div>
+                <div>🌐 网速: 25Mbps</div>
+                <div>📱 电子签</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">东南亚</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">海岛</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">低成本</span>
+            </div>
+        </a>
+        
+        <a href="ireland.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">爱尔兰</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Ireland</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">76</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 78</div>
+                <div>🛡️ 安全: 82</div>
+                <div>🌐 网速: 120Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">欧洲</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">数字游民签证</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">英语</span>
+            </div>
+        </a>
+        
+        <a href="morocco.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">摩洛哥</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Morocco</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">76</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 30</div>
+                <div>🛡️ 安全: 58</div>
+                <div>🌐 网速: 25Mbps</div>
+                <div>✅ 免签入境</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">非洲</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">免签</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">撒哈拉</span>
+            </div>
+        </a>
+        
+        <a href="newzealand.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">新西兰</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">New Zealand</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">76</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 78</div>
+                <div>🛡️ 安全: 70</div>
+                <div>🌐 网速: 150Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">english</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">nature</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">whv</span>
+            </div>
+        </a>
+        
+        <a href="poland.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">波兰</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Poland</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">76</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 45</div>
+                <div>🛡️ 安全: 72</div>
+                <div>🌐 网速: 100Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">cheap</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">eu</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">culture</span>
+            </div>
+        </a>
+        
+        <a href="croatia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">克罗地亚</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Croatia</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">75</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 48</div>
+                <div>🛡️ 安全: 78</div>
+                <div>🌐 网速: 55Mbps</div>
+                <div>📱 电子签</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">申根区</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">地中海</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">数字游民签证</span>
+            </div>
+        </a>
+        
+        <a href="israel.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">以色列</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Israel</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">75</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 80</div>
+                <div>🛡️ 安全: 65</div>
+                <div>🌐 网速: 130Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">middle_east</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">startup</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">tech</span>
+            </div>
+        </a>
+        
+        <a href="kazakhstan.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">哈萨克斯坦</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Kazakhstan</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">75</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 30</div>
+                <div>🛡️ 安全: 72</div>
+                <div>🌐 网速: 40Mbps</div>
+                <div>✅ 免签入境</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">中亚</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">免签</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">丝绸之路</span>
+            </div>
+        </a>
+        
+        <a href="switzerland.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">瑞士</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Switzerland</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">75</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 95</div>
+                <div>🛡️ 安全: 88</div>
+                <div>🌐 网速: 170Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">欧洲</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">申根</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">阿尔卑斯</span>
+            </div>
+        </a>
+        
+        <a href="uk.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">英国</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">United Kingdom</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">75</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 80</div>
+                <div>🛡️ 安全: 60</div>
+                <div>🌐 网速: 110Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">english</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">financial_hub</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">culture</span>
+            </div>
+        </a>
+        
+        <a href="vietnam.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">越南</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Vietnam</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">75</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 35</div>
+                <div>🛡️ 安全: 60</div>
+                <div>🌐 网速: 120Mbps</div>
+                <div>📱 电子签</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">cheap</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">startup_hub</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">growing</span>
+            </div>
+        </a>
+        
+        <a href="philippines.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">菲律宾</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Philippines</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">74</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 35</div>
+                <div>🛡️ 安全: 55</div>
+                <div>🌐 网速: 30Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">东南亚</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">英语</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">低成本</span>
+            </div>
+        </a>
+        
+        <a href="romania.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">罗马尼亚</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Romania</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">74</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 42</div>
+                <div>🛡️ 安全: 68</div>
+                <div>🌐 网速: 95Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">cheap</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">eu</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">nature</span>
+            </div>
+        </a>
+        
+        <a href="turkey.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">土耳其</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Turkey</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">74</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 32</div>
+                <div>🛡️ 安全: 50</div>
+                <div>🌐 网速: 35Mbps</div>
+                <div>📱 电子签</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">欧亚</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">数字游民签证</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">历史</span>
+            </div>
+        </a>
+        
+        <a href="bulgaria.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">保加利亚</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Bulgaria</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">73</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 40</div>
+                <div>🛡️ 安全: 65</div>
+                <div>🌐 网速: 90Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">cheap</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">eu</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">nature</span>
+            </div>
+        </a>
+        
+        <a href="srilanka.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">斯里兰卡</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Sri Lanka</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">73</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 25</div>
+                <div>🛡️ 安全: 60</div>
+                <div>🌐 网速: 20Mbps</div>
+                <div>📱 电子签</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">南亚</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">数字游民签证</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">茶园</span>
+            </div>
+        </a>
+        
+        <a href="chile.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">智利</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Chile</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">72</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 45</div>
+                <div>🛡️ 安全: 55</div>
+                <div>🌐 网速: 80Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">南美</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">数字游民签证</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">葡萄酒</span>
+            </div>
+        </a>
+        
+        <a href="mexico.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">墨西哥</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Mexico</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">72</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 38</div>
+                <div>🛡️ 安全: 45</div>
+                <div>🌐 网速: 40Mbps</div>
+                <div>📱 电子签</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">北美</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">低成本</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">数字游民社区</span>
+            </div>
+        </a>
+        
+        <a href="mongolia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">蒙古</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Mongolia</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">72</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 28</div>
+                <div>🛡️ 安全: 70</div>
+                <div>🌐 网速: 20Mbps</div>
+                <div>✅ 免签入境</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">东亚</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">免签</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">数字游民签证</span>
+            </div>
+        </a>
+        
+        <a href="qatar.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">卡塔尔</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Qatar</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">72</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 78</div>
+                <div>🛡️ 安全: 82</div>
+                <div>🌐 网速: 120Mbps</div>
+                <div>✅ 免签入境</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">middle_east</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">luxury</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">modern</span>
+            </div>
+        </a>
+        
+        <a href="usa.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">美国</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">United States</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">72</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 88</div>
+                <div>🛡️ 安全: 50</div>
+                <div>🌐 网速: 250Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">startup_hub</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">high_salary</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">diverse</span>
+            </div>
+        </a>
+        
+        <a href="armenia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">亚美尼亚</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Armenia</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">71</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 38</div>
+                <div>🛡️ 安全: 70</div>
+                <div>🌐 网速: 60Mbps</div>
+                <div>✅ 免签入境</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">asia</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">cheap</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">history</span>
+            </div>
+        </a>
+        
+        <a href="nepal.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">尼泊尔</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Nepal</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">71</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 22</div>
+                <div>🛡️ 安全: 65</div>
+                <div>🌐 网速: 15Mbps</div>
+                <div>✅ 免签入境</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">南亚</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">免签</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">喜马拉雅</span>
+            </div>
+        </a>
+        
+        <a href="brazil.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">巴西</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Brazil</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">70</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 40</div>
+                <div>🛡️ 安全: 42</div>
+                <div>🌐 网速: 55Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">南美</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">数字游民签证</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">海滩</span>
+            </div>
+        </a>
+        
+        <a href="colombia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">哥伦比亚</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Colombia</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">70</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 40</div>
+                <div>🛡️ 安全: 50</div>
+                <div>🌐 网速: 65Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">americas</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">cheap</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">coffee</span>
+            </div>
+        </a>
+        
+        <a href="azerbaijan.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">阿塞拜疆</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Azerbaijan</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">69</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 42</div>
+                <div>🛡️ 安全: 68</div>
+                <div>🌐 网速: 55Mbps</div>
+                <div>📱 电子签</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">asia</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">cheap</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">oil</span>
+            </div>
+        </a>
+        
+        <a href="argentina.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">阿根廷</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Argentina</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">68</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 35</div>
+                <div>🛡️ 安全: 45</div>
+                <div>🌐 网速: 30Mbps</div>
+                <div>📱 电子签</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">南美</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">探戈</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">低成本</span>
+            </div>
+        </a>
+        
+        <a href="peru.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">秘鲁</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Peru</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">68</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 38</div>
+                <div>🛡️ 安全: 55</div>
+                <div>🌐 网速: 55Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">americas</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">cheap</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">history</span>
+            </div>
+        </a>
+        
+        <a href="south_africa.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">南非</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">South Africa</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">68</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 45</div>
+                <div>🛡️ 安全: 55</div>
+                <div>🌐 网速: 50Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">africa</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">nature</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">beach</span>
+            </div>
+        </a>
+        
+        <a href="uzbekistan.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">乌兹别克斯坦</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Uzbekistan</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">66</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 32</div>
+                <div>🛡️ 安全: 72</div>
+                <div>🌐 网速: 45Mbps</div>
+                <div>✅ 免签入境</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">asia</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">cheap</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">silk_road</span>
+            </div>
+        </a>
+        
+        <a href="kenya.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">肯尼亚</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Kenya</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">65</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 35</div>
+                <div>🛡️ 安全: 50</div>
+                <div>🌐 网速: 40Mbps</div>
+                <div>📱 电子签</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">africa</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">nature</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">safari</span>
+            </div>
+        </a>
+        
+        <a href="macao.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">澳门</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Macao</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">65</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 70</div>
+                <div>🛡️ 安全: 85</div>
+                <div>🌐 网速: 180Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">casino</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">tax_haven</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">asia</span>
+            </div>
+        </a>
+        
+        <a href="india.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">印度</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">India</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">64</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 28</div>
+                <div>🛡️ 安全: 55</div>
+                <div>🌐 网速: 50Mbps</div>
+                <div>📱 电子签</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">asia</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">cheap</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">tech</span>
+            </div>
+        </a>
+        
+        <a href="egypt.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">埃及</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Egypt</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">63</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 30</div>
+                <div>🛡️ 安全: 52</div>
+                <div>🌐 网速: 45Mbps</div>
+                <div>📱 电子签</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">africa</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">history</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">ancient</span>
+            </div>
+        </a>
+        
+        <a href="ghana.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <div>
+                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">加纳</h3>
+                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Ghana</p>
+                </div>
+                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">62</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
+                <div>💰 生活成本: 38</div>
+                <div>🛡️ 安全: 60</div>
+                <div>🌐 网速: 35Mbps</div>
+                <div>📝 需提前申请签证</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
+                <span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">africa</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">culture</span><span style="padding:0.2rem 0.5rem;background:#f1f5f9;border-radius:50px;font-size:0.75rem;color:#475569;">friendly</span>
+            </div>
+        </a>
+        
+</div>
+<footer style="background:#1e293b;color:#94a3b8;padding:40px 20px;text-align:center;"><p>© 2026 数字游民指南 | 面向中国用户的全球流动基础设施</p></footer>
+<script>
+const cards = document.querySelectorAll('.country-card');
+document.getElementById('search').addEventListener('input', (e) => {
+    const q = e.target.value.toLowerCase();
+    cards.forEach(c => c.style.display = c.textContent.toLowerCase().includes(q) ? 'block' : 'none');
+});
+</script>
 </body>
 </html>
