@@ -1,7 +1,7 @@
 {
   "name": "digital-nomad-cn",
-  "version": "1.2.0",
-  "description": "开源全球数字游民数据平台 — 60国、122城市、50+签证",
+  "version": "2.0.0",
+  "description": "全球最大的中文 Global Mobility Open Infrastructure — Data First / API First / AI First / Open Source First",
   "homepage": "https://kfat77.github.io/digital-nomad-cn/",
   "repository": {
     "type": "git",
@@ -14,11 +14,14 @@
   "author": "Digital Nomad Guide Contributors",
   "scripts": {
     "validate": "node scripts/validate-data.js",
+    "extract:data": "node scripts/extract-data.js",
+    "extract:info": "node scripts/extract-info.js",
+    "sync:data": "node scripts/sync-data-to-website.js",
     "generate:countries": "node scripts/generate-country-pages.js",
     "sync:docs": "node scripts/sync-to-docs.js",
-    "build": "npm run generate:countries && npm run sync:docs",
+    "build": "npm run sync:data && npm run generate:countries && npm run sync:docs",
     "bump:sw": "node scripts/bump-sw-cache.js",
-    "ci:check": "npm run validate && npm run generate:countries"
+    "ci:check": "npm run validate && npm run build"
   },
   "keywords": [
     "digital-nomad",
@@ -28,12 +31,15 @@
     "cost-of-living",
     "china-passport",
     "open-data",
-    "travel"
+    "travel",
+    "open-infrastructure"
   ],
   "engines": {
     "node": ">=20.0.0"
   },
   "devDependencies": {
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
     "earcut": "^3.2.3"
   }
 }
