@@ -215,6 +215,35 @@ curl -s <span class="string">"https://kfat77.github.io/digital-nomad-cn/api/stat
         </div>
     </section>
 
+    <section class="api-section" id="interactive-explorer">
+        <h2>🧪 交互式 API 探索器</h2>
+        <p>无需安装任何工具，直接在浏览器中测试 API 端点。点击按钮发送请求，查看实时响应。</p>
+        
+        <div class="endpoint-card" style="margin-top: 24px;">
+            <h3>选择端点</h3>
+            <select id="api-endpoint-select" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 14px; background: var(--bg); color: var(--foreground); margin-bottom: 16px;">
+                <option value="https://kfat77.github.io/digital-nomad-cn/api/countries.json">GET /api/countries.json — 60国数据</option>
+                <option value="https://kfat77.github.io/digital-nomad-cn/api/cities.json">GET /api/cities.json — 122城数据</option>
+                <option value="https://kfat77.github.io/digital-nomad-cn/api/visas.json">GET /api/visas.json — 签证数据</option>
+                <option value="https://kfat77.github.io/digital-nomad-cn/api/stats.json">GET /api/stats.json — 统计摘要</option>
+                <option value="https://kfat77.github.io/digital-nomad-cn/api/manifest.json">GET /api/manifest.json — API清单</option>
+                <option value="https://kfat77.github.io/digital-nomad-cn/api/articles.json">GET /api/articles.json — 文章索引</option>
+            </select>
+            <button id="try-api-btn" class="btn btn-primary" style="padding: 10px 24px; font-size: 14px; cursor: pointer; border: none; border-radius: var(--radius); background: var(--accent); color: white; font-weight: 600;">
+                🚀 发送请求
+            </button>
+            <div id="api-response-status" style="margin-top: 12px; font-size: 14px; color: var(--muted); min-height: 20px;"></div>
+        </div>
+        
+        <div id="api-response-panel" style="margin-top: 16px; display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-weight: 600; font-size: 14px;">响应结果</span>
+                <button id="copy-response-btn" style="background: var(--bg-card); border: 1px solid var(--border); padding: 4px 12px; border-radius: var(--radius-sm); font-size: 12px; cursor: pointer; color: var(--muted);">复制 JSON</button>
+            </div>
+            <pre id="api-response-body" class="code-block" style="max-height: 400px; overflow-y: auto; white-space: pre-wrap; word-break: break-word;"></pre>
+        </div>
+    </section>
+
     <section class="api-section" style="background: var(--bg-hero); padding: 60px 24px; margin-top: 0;">
         <h2>使用条款</h2>
         <p>本数据 API 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议共享。</p>
@@ -244,6 +273,45 @@ curl -s <span class="string">"https://kfat77.github.io/digital-nomad-cn/api/stat
         btn.classList.add('active');
         document.getElementById(panelId).classList.add('active');
     }
+
+    // Interactive API Explorer
+    document.getElementById('try-api-btn').addEventListener('click', async function() {
+        const url = document.getElementById('api-endpoint-select').value;
+        const statusDiv = document.getElementById('api-response-status');
+        const panel = document.getElementById('api-response-panel');
+        const body = document.getElementById('api-response-body');
+        
+        statusDiv.textContent = '⏳ 发送请求中...';
+        panel.style.display = 'none';
+        
+        try {
+            const start = performance.now();
+            const response = await fetch(url);
+            const latency = Math.round(performance.now() - start);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            
+            const data = await response.json();
+            const totalItems = data.data ? data.data.length : (data.total || 'N/A');
+            
+            statusDiv.innerHTML = `✅ <strong>成功</strong> — HTTP ${response.status} · ${latency}ms · 返回 ${totalItems} 条记录 · 内容大小 ${JSON.stringify(data).length} 字节`;
+            body.textContent = JSON.stringify(data, null, 2);
+            panel.style.display = 'block';
+        } catch (err) {
+            statusDiv.innerHTML = `❌ <strong>失败</strong> — ${err.message}`;
+            panel.style.display = 'none';
+        }
+    });
+
+    document.getElementById('copy-response-btn').addEventListener('click', function() {
+        const body = document.getElementById('api-response-body').textContent;
+        navigator.clipboard.writeText(body).then(() => {
+            this.textContent = '✓ 已复制';
+            setTimeout(() => this.textContent = '复制 JSON', 2000);
+        });
+    });
     </script>
 </body>
 </html>
