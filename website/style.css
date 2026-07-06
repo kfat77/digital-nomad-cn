@@ -944,6 +944,95 @@ a {
 }
 
 /* ============================================
+   Core Infrastructure
+   ============================================ */
+
+.core-infra-section {
+    padding: 100px 24px;
+    background: var(--bg-hero);
+}
+
+.core-infra-grid {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.core-infra-card {
+    border: 1px solid var(--border);
+    padding: 40px 32px;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+    background: var(--bg-card);
+    display: block;
+}
+
+.core-infra-card:hover {
+    border-color: var(--foreground);
+    background: var(--bg-card-hover);
+}
+
+.core-infra-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.core-infra-card h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--foreground);
+}
+
+.core-infra-card > p {
+    font-size: 0.9375rem;
+    color: var(--muted);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.core-infra-list {
+    list-style: none;
+    margin-bottom: 24px;
+}
+
+.core-infra-list li {
+    font-size: 0.875rem;
+    color: var(--muted);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.core-infra-list li:last-child {
+    border-bottom: none;
+}
+
+.core-infra-link {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--foreground);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+}
+
+.core-infra-link:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   Quick Nav
+   ============================================ */
+    text-decoration: underline;
+}
+
+/* ============================================
    Quick Nav
    ============================================ */
 
@@ -1568,8 +1657,13 @@ a {
     .tools-section,
     .modules,
     .quicknav,
-    .latest-articles-section {
+    .latest-articles-section,
+    .core-infra-section {
         padding: 60px 24px;
+    }
+
+    .core-infra-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1588,6 +1682,14 @@ a {
 
     .modules-grid {
         grid-template-columns: 1fr;
+    }
+
+    .core-infra-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .core-infra-card {
+        padding: 32px 24px;
     }
 
     .tools-grid {

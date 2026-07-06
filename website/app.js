@@ -263,7 +263,7 @@ function initGlobe() {
     // 3. Outer glow ring
     const ringGeo = new THREE.TorusGeometry(earthRadius * 1.15, 0.008, 16, 128);
     const ringMat = new THREE.MeshBasicMaterial({
-        color: 0x2563eb,
+        color: 0x000000,
         transparent: true,
         opacity: 0.2
     });
@@ -281,7 +281,8 @@ function initGlobe() {
         .then(r => r.json())
         .then(geoData => {
             Object.entries(geoData).forEach(([key, data]) => {
-                const countryColor = (window.COUNTRY_DATA && window.COUNTRY_DATA[key] && window.COUNTRY_DATA[key].color) || 0x2563eb;
+                const hasData = !!(window.COUNTRY_DATA && window.COUNTRY_DATA[key]);
+                const countryColor = hasData ? (window.COUNTRY_DATA[key].color || 0x2563eb) : 0xcccccc;
                 const colorObj = new THREE.Color(countryColor);
 
                 // Create triangle mesh (fill)
@@ -293,13 +294,13 @@ function initGlobe() {
                     const triMat = new THREE.MeshBasicMaterial({
                         color: colorObj,
                         transparent: true,
-                        opacity: 0.1,
+                        opacity: hasData ? 0.1 : 0.05,
                         side: THREE.DoubleSide,
                         depthWrite: false
                     });
 
                     const triMesh = new THREE.Mesh(triGeo, triMat);
-                    triMesh.userData = { country: key, type: 'fill', originalOpacity: 0.1, originalColor: colorObj.clone() };
+                    triMesh.userData = { country: key, type: 'fill', hasData: hasData, originalOpacity: hasData ? 0.1 : 0.05, originalColor: colorObj.clone() };
                     earthGroup.add(triMesh);
                     countryMeshList.push(triMesh);
 
@@ -314,13 +315,13 @@ function initGlobe() {
                     lineGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
                     const lineMat = new THREE.LineBasicMaterial({
-                        color: 0x8899aa,
+                        color: hasData ? 0x8899aa : 0xbbbbbb,
                         transparent: true,
-                        opacity: 0.4
+                        opacity: hasData ? 0.4 : 0.25
                     });
 
                     const lineMesh = new THREE.Line(lineGeo, lineMat);
-                    lineMesh.userData = { country: key, type: 'outline' };
+                    lineMesh.userData = { country: key, type: 'outline', hasData: hasData };
                     earthGroup.add(lineMesh);
 
                     if (!countryMeshes[key]) countryMeshes[key] = {};
@@ -414,7 +415,7 @@ function initGlobe() {
         mouse.x = -10; mouse.y = -10;
     });
 
-    // Click to navigate
+    // Click handler
     wrapper.addEventListener('click', (e) => {
         if (!isDragging) {
             const rect = wrapper.getBoundingClientRect();
@@ -429,8 +430,18 @@ function initGlobe() {
                 const meshIntersects = raycaster.intersectObjects(countryMeshList);
                 if (meshIntersects.length > 0) {
                     const countryKey = meshIntersects[0].object.userData.country;
+                    const hasData = meshIntersects[0].object.userData.hasData;
                     if (countryKey) {
-                        window.location.href = 'country/' + countryKey + '/';
+                        if (hasData) {
+                            window.location.href = 'country/' + countryKey + '/';
+                        } else {
+                            // Show tooltip for no-data countries
+                            if (tooltip) {
+                                tooltip.textContent = '数据准备中';
+                                tooltip.classList.add('visible');
+                                setTimeout(() => tooltip.classList.remove('visible'), 1500);
+                            }
+                        }
                         return;
                     }
                 }
@@ -480,8 +491,9 @@ function initGlobe() {
                 prev.mesh.material.color.copy(prev.mesh.userData.originalColor);
             }
             if (prev.lines) {
-                prev.lines.material.color.setHex(0x8899aa);
-                prev.lines.material.opacity = 0.4;
+                const hasData = prev.mesh && prev.mesh.userData.hasData;
+                prev.lines.material.color.setHex(hasData ? 0x8899aa : 0xbbbbbb);
+                prev.lines.material.opacity = hasData ? 0.4 : 0.25;
             }
         }
         const prevMarker = markerMap[key];
@@ -500,14 +512,15 @@ function initGlobe() {
     function setHighlight(key) {
         if (!key) return;
         const curr = countryMeshes[key];
+        const hasData = curr && curr.mesh && curr.mesh.userData.hasData;
         if (curr) {
             if (curr.mesh) {
-                curr.mesh.material.opacity = 0.5;
-                curr.mesh.material.color.setHex(0x3b82f6);
+                curr.mesh.material.opacity = hasData ? 0.5 : 0.15;
+                curr.mesh.material.color.setHex(hasData ? 0x3b82f6 : 0x999999);
             }
             if (curr.lines) {
-                curr.lines.material.color.setHex(0xffffff);
-                curr.lines.material.opacity = 0.9;
+                curr.lines.material.color.setHex(hasData ? 0xffffff : 0xdddddd);
+                curr.lines.material.opacity = hasData ? 0.9 : 0.5;
             }
         }
         const marker = markerMap[key];
@@ -519,10 +532,14 @@ function initGlobe() {
                 marker.userData.glow.material.opacity = 0.7;
             }
         }
-        wrapper.style.cursor = 'pointer';
+        wrapper.style.cursor = hasData ? 'pointer' : 'not-allowed';
         const countryInfo = window.COUNTRY_DATA && window.COUNTRY_DATA[key];
-        if (tooltip && countryInfo) {
-            tooltip.textContent = countryInfo.name + ' (' + countryInfo.nameEn + ')';
+        if (tooltip) {
+            if (countryInfo) {
+                tooltip.textContent = countryInfo.name + ' (' + countryInfo.nameEn + ')';
+            } else {
+                tooltip.textContent = '数据准备中';
+            }
             tooltip.classList.add('visible');
         }
         const item = document.querySelector('.globe-sidebar-item[data-country="' + key + '"]');
