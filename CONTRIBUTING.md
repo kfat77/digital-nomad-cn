@@ -8,6 +8,38 @@
 
 ---
 
+## 🏆 贡献者等级体系（Contributor Tiers）
+
+我们为每一位贡献者设计了成长体系，你的每一次贡献都会被记录和认可！
+
+| 等级 | 徽章 | 所需贡献 | 特权 |
+|------|------|----------|------|
+| 🌱 **Seed** 种子 | 🌱 | 首次贡献 | 名字出现在 CONTRIBUTORS.md |
+| 🌿 **Sprout** 嫩芽 | 🌿 | 5+ 贡献 | 获得 `contributor` 标签，Issue 优先回复 |
+| 🌳 **Tree** 大树 | 🌳 | 20+ 贡献 | 获得 `collaborator` 邀请，可审核小型 PR |
+| 🌍 **Globe** 地球 | 🌍 | 50+ 贡献 | 进入核心贡献者列表，参与路线图规划 |
+| ⭐ **Star** 明星 | ⭐ | 100+ 贡献 | 专属徽章展示，项目 README 署名 |
+| 🏆 **Legend** 传奇 | 🏆 | 核心维护者 | 直接合并权限，项目方向决策权 |
+
+### 贡献积分规则
+
+| 贡献类型 | 积分 |
+|----------|------|
+| 修正数据错误 | +1 |
+| 补充国家/城市信息 | +3 |
+| 添加新国家完整数据 | +10 |
+| 翻译页面（i18n） | +2 |
+| 报告 Bug / 开 Issue | +1 |
+| 修复 Bug / 提交 PR | +5 |
+| 优化性能 | +5 |
+| 撰写文章/指南 | +8 |
+| 代码审查（Review） | +2 |
+| 回答社区问题 | +1 |
+
+> 💡 贡献积分由维护者手动统计，每月更新一次。对积分有异议？随时开 Issue 讨论！
+
+---
+
 ## 快速开始（首次贡献者必读）
 
 从未做过开源贡献？没关系！以下是最简单的贡献方式：
@@ -17,6 +49,8 @@
 | **修正数据错误** | ⭐ | 5 分钟 | 发现某个国家的签证政策或生活成本数据过时？编辑 `datasets/countries.json` |
 | **补充国家深度信息** | ⭐⭐ | 15 分钟 | 为你住过的国家补充 `info` 中的分类数据 |
 | **报告问题** | ⭐ | 5 分钟 | 发现网站 bug 或数据错误？开一个新的 Issue |
+| **翻译页面** | ⭐⭐ | 10 分钟 | 帮助改进英文版页面的翻译质量 |
+| **分享你的经验** | ⭐⭐ | 20 分钟 | 撰写数字游民指南文章 |
 
 ### 首次贡献者 Step-by-Step
 
@@ -24,6 +58,7 @@
 2. **找到你想改的内容**：
    - 数据错误 → 编辑 `datasets/countries.json`
    - 新国家数据 → 在 `datasets/countries.json` 中添加
+   - 翻译问题 → 编辑 `website/en/` 下的对应文件
 3. **校验数据**：运行 `npm run validate`
 4. **同步到网站**：运行 `npm run sync:data`
 5. **提交 PR**：编辑完成后点击 "Propose changes" → "Create pull request"
@@ -115,6 +150,35 @@ npm run build           # 完整构建
 
 ---
 
+## 🌍 国际化（i18n）贡献
+
+我们致力于让全球数字游民都能使用这个项目。如果你擅长多语言，欢迎帮助我们：
+
+### 当前支持的语言
+
+| 语言 | 状态 | 贡献者 |
+|------|------|--------|
+| 简体中文 (zh-CN) | ✅ 完整 | 核心团队 |
+| 英文 (en) | 🚧 进行中 | 招募中 |
+| 日文 (ja) | 📋 计划中 | 招募中 |
+| 西班牙文 (es) | 📋 计划中 | 招募中 |
+
+### 如何贡献翻译
+
+1. 找到需要翻译的页面（`website/en/` 目录）
+2. 对比中文版内容，确保翻译准确
+3. 注意保留所有 HTML 标签和结构化数据
+4. 提交 PR 时标题使用 `[i18n]` 前缀
+
+### 翻译质量要求
+
+- 专业术语需准确（如 visa 政策、税务术语）
+- 保持语气友好、信息密度高
+- 数字和日期格式符合目标语言习惯
+- 链接和引用需验证可用性
+
+---
+
 ## 提交规范
 
 ```
@@ -124,6 +188,9 @@ feat: add new cost-of-living field
 fix: correct Singapore safety index
 schema: add city.schema.json
 docs: update CONTRIBUTING.md
+i18n: improve Japan country page English translation
+perf: optimize image loading with lazy loading
+seo: add structured data for city pages
 ```
 
 前缀说明：
@@ -132,6 +199,9 @@ docs: update CONTRIBUTING.md
 - `feat:` — 新功能
 - `fix:` — 修复错误
 - `docs:` — 文档更新
+- `i18n:` — 国际化/翻译
+- `perf:` — 性能优化
+- `seo:` — SEO 改进
 
 ---
 
@@ -158,9 +228,23 @@ docs: update CONTRIBUTING.md
 
 ---
 
+## 🎯 我们的愿景
+
+> 把这个项目打造为 GitHub 上中文 Digital Nomad / Global Mobility 领域最优秀的开源项目，
+> 长期具有获得 10,000+ GitHub Stars 潜力，
+> 在 SEO、AI Search 和社区影响力方面达到行业领先水平，
+> 成为未来 AI Agent 可以调用的开放数据基础设施。
+
+### 路线图
+
+查看完整的项目路线图：[roadmap](https://kfat77.github.io/digital-nomad-cn/roadmap/)
+
+---
+
 ## 联系我们
 
 - **Issues**: [报告问题或建议](https://github.com/kfat77/digital-nomad-cn/issues)
 - **Discussions**: [一般性讨论](https://github.com/kfat77/digital-nomad-cn/discussions)
+- **路线图**: [项目发展路线图](https://kfat77.github.io/digital-nomad-cn/roadmap/)
 
 **感谢你的贡献！每一行代码、每一条数据，都在帮助全球数字游民做出更好的决策。**

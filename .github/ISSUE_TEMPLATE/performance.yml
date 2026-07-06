@@ -1,0 +1,65 @@
+name: ⚡ Performance / Core Web Vitals
+about: 报告性能问题或提交 Core Web Vitals 优化建议
+title: '[Performance] '
+labels: ['performance', 'triage']
+body:
+  - type: dropdown
+    id: metric
+    attributes:
+      label: 相关指标
+      options:
+        - LCP (Largest Contentful Paint)
+        - CLS (Cumulative Layout Shift)
+        - INP (Interaction to Next Paint)
+        - FCP (First Contentful Paint)
+        - TTFB (Time to First Byte)
+        - 页面整体加载速度
+        - 内存占用
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 具体的性能问题或优化机会
+      placeholder: |
+        例如：
+        - 首页 LCP 在 3G 网络下超过 4 秒
+        - 国家页面滚动时出现明显掉帧
+        - Three.js 地球在低端设备上卡顿
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+      description: 如何复现该性能问题
+      placeholder: |
+        1. 打开 Chrome DevTools Performance 面板
+        2. 切换到 "Slow 3G" 网络节流
+        3. 访问 https://kfat77.github.io/digital-nomad-cn/
+        4. 记录 LCP 时间
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 测试环境
+      description: 发现问题时的设备和浏览器信息
+      placeholder: |
+        - 设备: iPhone 13 / MacBook Pro M1 / Windows PC
+        - 浏览器: Chrome 120 / Safari 17 / Firefox 121
+        - 网络: WiFi / 4G / 3G
+
+  - type: textarea
+    id: data
+    attributes:
+      label: 性能数据
+      description: Lighthouse 分数、Web Vitals 数值或性能分析截图
+      placeholder: |
+        - Lighthouse 性能分数: 65/100
+        - LCP: 3.2s
+        - CLS: 0.15
+        - INP: 320ms
