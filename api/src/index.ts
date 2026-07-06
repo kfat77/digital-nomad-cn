@@ -1,6 +1,7 @@
 import { Router } from './utils/router';
 import { countriesRoute } from './routes/countries';
 import { searchRoute } from './routes/search';
+import { handleGraphQL } from './graphql/executor';
 
 export interface Env {
   // Cloudflare Workers 环境变量
@@ -8,17 +9,27 @@ export interface Env {
 
 const router = new Router();
 
-// 健康检查
+// Health check
 router.get('/health', () => {
   return jsonResponse({ status: 'ok', version: '1.0.0' });
 });
 
-// 国家路由
+// REST API v1
 router.get('/v1/countries', countriesRoute.list);
 router.get('/v1/countries/:id', countriesRoute.get);
-
-// 搜索路由
 router.get('/v1/search', searchRoute.search);
+
+// GraphQL
+router.post('/graphql', handleGraphQL);
+router.get('/graphql', () => {
+  return jsonResponse({
+    message: 'Digital Nomad CN GraphQL API',
+    playground: 'Use POST /graphql with a GraphQL query',
+    example: {
+      query: '{ countries(limit: 5) { data { id name { zh } } } }'
+    }
+  });
+});
 
 // 404
 router.all('*', () => {
@@ -30,7 +41,7 @@ export default {
     // CORS headers
     const corsHeaders = {
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
       'Access-Control-Max-Age': '86400',
     };
