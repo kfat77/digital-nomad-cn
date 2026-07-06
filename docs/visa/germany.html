@@ -1,413 +1,117 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>德国签证完全指南 - 德国 Visa Guide for Chinese Passport</title>
-    <meta name="description" content="德国签证攻略：中国护照持有者的德国签证类型、申请条件、费用、处理时间、材料清单、官方链接。数字游民签证/旅游签证/工作签证全解析。">
-    <meta name="keywords" content="德国签证, 德国数字游民签证, 德国旅游签证, 中国护照德国签证, 德国签证申请">
-    <meta property="og:title" content="德国签证完全指南">
-    <meta property="og:description" content="中国护照持有者的德国签证攻略：签证类型、费用、材料、官方链接">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kfat77.github.io/digital-nomad-cn/visa/germany">
-    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/visa/germany">
-    <link rel="stylesheet" href="../style.css">
-    <style>
-        .visa-hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: white; padding: 80px 20px 40px; text-align: center; position: relative; overflow: hidden; }
-        .visa-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.3; }
-        .visa-hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; position: relative; z-index: 1; }
-        .visa-hero .subtitle { font-size: 1.1rem; opacity: 0.85; position: relative; z-index: 1; }
-        .visa-hero .badge { display: inline-block; padding: 0.5rem 1rem; border-radius: 50px; font-weight: 600; font-size: 0.85rem; margin-top: 1rem; position: relative; z-index: 1; }
-        .badge-green { background: #22c55e; }
-        .badge-yellow { background: #eab308; }
-        .badge-red { background: #ef4444; }
-        .badge-blue { background: #3b82f6; }
-        .badge-purple { background: #a855f7; }
-
-        .visa-nav { background: #f8fafc; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
-        .visa-nav ul { display: flex; justify-content: center; gap: 0; list-style: none; padding: 0; margin: 0; max-width: 1200px; margin: 0 auto; }
-        .visa-nav li { flex: 1; text-align: center; }
-        .visa-nav a { display: block; padding: 1rem 0.5rem; color: #475569; text-decoration: none; font-weight: 500; font-size: 0.9rem; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap; }
-        .visa-nav a:hover, .visa-nav a.active { color: #2563eb; border-bottom-color: #2563eb; background: white; }
-
-        .section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-size: 1.8rem; font-weight: 700; color: #1e293b; margin-bottom: 2rem; text-align: center; }
-
-        .visa-card { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; margin-bottom: 1.5rem; transition: transform 0.2s, box-shadow 0.2s; }
-        .visa-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .visa-card.recommended { border-left: 4px solid #22c55e; }
-        .visa-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
-        .visa-card-header h3 { margin: 0; font-size: 1.3rem; color: #1e293b; }
-        .visa-card-header .en { color: #64748b; font-size: 0.9rem; margin-top: 0.25rem; }
-        .visa-card-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-        .visa-tag { padding: 0.3rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; }
-        .tag-type { background: #dbeafe; color: #1e40af; }
-        .tag-recommended { background: #dcfce7; color: #166534; }
-        .tag-eligible { background: #f3e8ff; color: #7c3aed; }
-
-        .visa-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-        .visa-item { background: #f8fafc; padding: 1rem; border-radius: 8px; text-align: center; }
-        .visa-item .label { font-size: 0.8rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
-        .visa-item .value { font-size: 1.2rem; font-weight: 700; color: #1e293b; }
-
-        .visa-section-title { font-size: 1.1rem; font-weight: 600; color: #1e293b; margin: 1.5rem 0 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
-        .visa-list { list-style: none; padding: 0; margin: 0; }
-        .visa-list li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: #475569; }
-        .visa-list li::before { content: '✓'; position: absolute; left: 0; color: #22c55e; font-weight: 700; }
-
-        .visa-official { display: flex; align-items: center; gap: 1rem; background: #eff6ff; padding: 1rem 1.5rem; border-radius: 8px; margin-top: 1.5rem; }
-        .visa-official a { color: #2563eb; text-decoration: none; font-weight: 600; word-break: break-all; }
-        .visa-official a:hover { text-decoration: underline; }
-
-        .breadcrumb { padding: 1rem 20px; max-width: 1200px; margin: 0 auto; font-size: 0.9rem; color: #64748b; }
-        .breadcrumb a { color: #2563eb; text-decoration: none; }
-        .breadcrumb a:hover { text-decoration: underline; }
-
-        .cta-section { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: white; padding: 60px 20px; text-align: center; border-radius: 12px; margin: 60px auto; max-width: 1200px; }
-        .cta-section h2 { font-size: 2rem; margin-bottom: 1rem; }
-        .cta-section p { opacity: 0.9; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .btn { display: inline-block; padding: 0.75rem 2rem; background: white; color: #0f172a; text-decoration: none; border-radius: 50px; font-weight: 600; transition: transform 0.2s; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-
-        .compare-bar { background: #f1f5f9; padding: 1rem 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
-        .compare-bar label { font-size: 0.85rem; color: #64748b; }
-        .compare-bar select { padding: 0.5rem 1rem; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; }
-
-        .schema-org { display: none; }
-
-        @media (max-width: 768px) {
-            .visa-hero h1 { font-size: 1.8rem; }
-            .visa-card-header { flex-direction: column; }
-            .visa-nav ul { overflow-x: auto; }
-            .visa-nav li { flex: 0 0 auto; min-width: 100px; }
-        }
-    </style>
-</head>
-<body>
-    <nav class="breadcrumb">
-        <a href="../">首页</a> › <a href="../country/germany.html">德国</a> › 签证指南
-    </nav>
-
-    <header class="visa-hero">
-        <h1>德国签证完全指南</h1>
-        <p class="subtitle">中国护照持有者的 德国 签证攻略 | Germany Visa Guide</p>
-        <span class="badge badge-red">需提前申请签证</span>
-    </header>
-
-    <nav class="visa-nav">
-        <ul>
-            <li><a href="#overview" class="active">概览</a></li>
-            <li><a href="#types">签证类型</a></li>
-            <li><a href="#recommended">推荐</a></li>
-            <li><a href="#compare">对比</a></li>
-        </ul>
-    </nav>
-
-    <section class="section" id="overview">
-        <h2 class="section-title">德国签证概览</h2>
-        <div class="visa-grid">
-            <div class="visa-item">
-                <div class="label">签证类型数量</div>
-                <div class="value">3</div>
-            </div>
-            <div class="visa-item">
-                <div class="label">数字游民签证</div>
-                <div class="value">❌ 无</div>
-            </div>
-            <div class="visa-item">
-                <div class="label">中国护照适用</div>
-                <div class="value">3 / 3</div>
-            </div>
-            <div class="visa-item">
-                <div class="label">最低费用</div>
-                <div class="value">$90</div>
-            </div>
-            <div class="visa-item">
-                <div class="label">最短处理</div>
-                <div class="value">15天</div>
-            </div>
-        </div>
-        <p style="text-align:center;color:#64748b;font-size:0.9rem;margin-top:1rem;">数据更新于 2026-01-15 | 来源：德国联邦外交部, 德国驻华大使馆</p>
-    </section>
-
-    <section class="section" id="types">
-        <h2 class="section-title">德国签证类型详解</h2>
-        
-<div class="visa-card recommended" id="visa-de_schengen">
-    <div class="visa-card-header">
-        <div>
-            <h3>申根旅游签证（C类）</h3>
-            <div class="en">Germany Schengen Tourist Visa</div>
-        </div>
-        <div class="visa-card-tags"><span class="visa-tag tag-type">需签证</span><span class="visa-tag tag-recommended">⭐ 推荐数字游民</span><span class="visa-tag tag-eligible">🇨🇳 中国护照适用</span></div>
-    </div>
-    <div class="visa-grid">
-        <div class="visa-item"><div class="label">停留时长</div><div class="value">90天/180天</div></div>
-        <div class="visa-item"><div class="label">签证有效期</div><div class="value">90天-5年</div></div>
-        <div class="visa-item"><div class="label">费用</div><div class="value">$90</div></div>
-        <div class="visa-item"><div class="label">处理时间</div><div class="value">15天</div></div>
-        <div class="visa-item"><div class="label">延期</div><div class="value">不可延期</div></div>
-        <div class="visa-item"><div class="label">申请方式</div><div class="value">大使馆/领事馆</div></div>
-    </div>
-    <div class="visa-section-title">📋 申请要求</div>
-    <ul class="visa-list"><li>有效护照</li>
-<li>旅行保险</li>
-<li>往返机票</li>
-<li>酒店预订</li>
-<li>资金证明</li>
-<li>行程单</li>
-<li>在职证明</li></ul>
-    <div class="visa-section-title">📁 所需材料</div>
-    <ul class="visa-list"><li>护照</li>
-<li>照片</li>
-<li>申请表</li>
-<li>旅行保险</li>
-<li>机票</li>
-<li>酒店预订</li>
-<li>银行流水</li>
-<li>在职证明</li>
-<li>户口本</li>
-<li>营业执照</li></ul>
-    <div style="margin-top:1rem;padding:1rem;background:#fefce8;border-radius:8px;color:#854d0e;font-size:0.9rem;"><strong>💡 提示：</strong>德国为申根区，C类签证可通行29个申根国。德国签证较严格，资金证明和回国约束力审核较严</div>
-    <div class="visa-official"><span>🔗</span><a href="https://www.germany-visa.org/" target="_blank" rel="noopener">https://www.germany-visa.org/</a></div>
-</div>
-
-
-<div class="visa-card " id="visa-de_blue_card">
-    <div class="visa-card-header">
-        <div>
-            <h3>欧盟蓝卡（EU Blue Card）</h3>
-            <div class="en">Germany EU Blue Card</div>
-        </div>
-        <div class="visa-card-tags"><span class="visa-tag tag-type">工作签证</span><span class="visa-tag tag-eligible">🇨🇳 中国护照适用</span></div>
-    </div>
-    <div class="visa-grid">
-        <div class="visa-item"><div class="label">停留时长</div><div class="value">4年</div></div>
-        <div class="visa-item"><div class="label">签证有效期</div><div class="value">4年</div></div>
-        <div class="visa-item"><div class="label">费用</div><div class="value">$110</div></div>
-        <div class="visa-item"><div class="label">处理时间</div><div class="value">60天</div></div>
-        <div class="visa-item"><div class="label">延期</div><div class="value">可延期 4年</div></div>
-        <div class="visa-item"><div class="label">申请方式</div><div class="value">大使馆/领事馆</div></div>
-    </div>
-    <div class="visa-section-title">📋 申请要求</div>
-    <ul class="visa-list"><li>德国雇主担保</li>
-<li>大学本科以上学历</li>
-<li>年薪达到门槛（2024年约45,300欧元，稀缺职业约41,041欧元）</li>
-<li>专业对口工作</li></ul>
-    <div class="visa-section-title">📁 所需材料</div>
-    <ul class="visa-list"><li>护照</li>
-<li>照片</li>
-<li>学历证明</li>
-<li>工作合同</li>
-<li>雇主声明</li>
-<li>ZAB学历认证</li></ul>
-    <div style="margin-top:1rem;padding:1rem;background:#fefce8;border-radius:8px;color:#854d0e;font-size:0.9rem;"><strong>💡 提示：</strong>高技能移民签证，可携家属。21-27个月（德语B1）或33个月（德语A1）后可申请永居</div>
-    <div class="visa-official"><span>🔗</span><a href="https://www.bamf.de/" target="_blank" rel="noopener">https://www.bamf.de/</a></div>
-</div>
-
-
-<div class="visa-card recommended" id="visa-de_freelance">
-    <div class="visa-card-header">
-        <div>
-            <h3>自由职业签证（Freiberufler）</h3>
-            <div class="en">Germany Freelance Visa</div>
-        </div>
-        <div class="visa-card-tags"><span class="visa-tag tag-type">工作签证</span><span class="visa-tag tag-recommended">⭐ 推荐数字游民</span><span class="visa-tag tag-eligible">🇨🇳 中国护照适用</span></div>
-    </div>
-    <div class="visa-grid">
-        <div class="visa-item"><div class="label">停留时长</div><div class="value">1-3年</div></div>
-        <div class="visa-item"><div class="label">签证有效期</div><div class="value">1-3年</div></div>
-        <div class="visa-item"><div class="label">费用</div><div class="value">$100</div></div>
-        <div class="visa-item"><div class="label">处理时间</div><div class="value">60天</div></div>
-        <div class="visa-item"><div class="label">延期</div><div class="value">可延期 1-3年</div></div>
-        <div class="visa-item"><div class="label">申请方式</div><div class="value">大使馆/领事馆</div></div>
-    </div>
-    <div class="visa-section-title">📋 申请要求</div>
-    <ul class="visa-list"><li>作为自由职业者在德国工作</li>
-<li>证明有德国客户和足够收入</li>
-<li>健康保险</li>
-<li>德国住址</li>
-<li>专业资质（如适用）</li></ul>
-    <div class="visa-section-title">📁 所需材料</div>
-    <ul class="visa-list"><li>护照</li>
-<li>照片</li>
-<li>申请表</li>
-<li>自由职业计划</li>
-<li>客户合同/意向书</li>
-<li>资金证明</li>
-<li>健康保险</li>
-<li>德国住址证明</li>
-<li>专业资质证明</li></ul>
-    <div style="margin-top:1rem;padding:1rem;background:#fefce8;border-radius:8px;color:#854d0e;font-size:0.9rem;"><strong>💡 提示：</strong>适合自由职业者、艺术家、咨询师等。柏林等大城市相对容易获批。可携家属</div>
-    <div class="visa-official"><span>🔗</span><a href="https://www.berlin.de/" target="_blank" rel="noopener">https://www.berlin.de/</a></div>
-</div>
-
-    </section>
-
-    <section class="section" id="recommended">
-        <h2 class="section-title">数字游民推荐签证</h2>
-        
-<div class="visa-card recommended" id="visa-de_schengen">
-    <div class="visa-card-header">
-        <div>
-            <h3>申根旅游签证（C类）</h3>
-            <div class="en">Germany Schengen Tourist Visa</div>
-        </div>
-        <div class="visa-card-tags"><span class="visa-tag tag-type">需签证</span><span class="visa-tag tag-recommended">⭐ 推荐数字游民</span><span class="visa-tag tag-eligible">🇨🇳 中国护照适用</span></div>
-    </div>
-    <div class="visa-grid">
-        <div class="visa-item"><div class="label">停留时长</div><div class="value">90天/180天</div></div>
-        <div class="visa-item"><div class="label">签证有效期</div><div class="value">90天-5年</div></div>
-        <div class="visa-item"><div class="label">费用</div><div class="value">$90</div></div>
-        <div class="visa-item"><div class="label">处理时间</div><div class="value">15天</div></div>
-        <div class="visa-item"><div class="label">延期</div><div class="value">不可延期</div></div>
-        <div class="visa-item"><div class="label">申请方式</div><div class="value">大使馆/领事馆</div></div>
-    </div>
-    <div class="visa-section-title">📋 申请要求</div>
-    <ul class="visa-list"><li>有效护照</li>
-<li>旅行保险</li>
-<li>往返机票</li>
-<li>酒店预订</li>
-<li>资金证明</li>
-<li>行程单</li>
-<li>在职证明</li></ul>
-    <div class="visa-section-title">📁 所需材料</div>
-    <ul class="visa-list"><li>护照</li>
-<li>照片</li>
-<li>申请表</li>
-<li>旅行保险</li>
-<li>机票</li>
-<li>酒店预订</li>
-<li>银行流水</li>
-<li>在职证明</li>
-<li>户口本</li>
-<li>营业执照</li></ul>
-    <div style="margin-top:1rem;padding:1rem;background:#fefce8;border-radius:8px;color:#854d0e;font-size:0.9rem;"><strong>💡 提示：</strong>德国为申根区，C类签证可通行29个申根国。德国签证较严格，资金证明和回国约束力审核较严</div>
-    <div class="visa-official"><span>🔗</span><a href="https://www.germany-visa.org/" target="_blank" rel="noopener">https://www.germany-visa.org/</a></div>
-</div>
-
-
-<div class="visa-card recommended" id="visa-de_freelance">
-    <div class="visa-card-header">
-        <div>
-            <h3>自由职业签证（Freiberufler）</h3>
-            <div class="en">Germany Freelance Visa</div>
-        </div>
-        <div class="visa-card-tags"><span class="visa-tag tag-type">工作签证</span><span class="visa-tag tag-recommended">⭐ 推荐数字游民</span><span class="visa-tag tag-eligible">🇨🇳 中国护照适用</span></div>
-    </div>
-    <div class="visa-grid">
-        <div class="visa-item"><div class="label">停留时长</div><div class="value">1-3年</div></div>
-        <div class="visa-item"><div class="label">签证有效期</div><div class="value">1-3年</div></div>
-        <div class="visa-item"><div class="label">费用</div><div class="value">$100</div></div>
-        <div class="visa-item"><div class="label">处理时间</div><div class="value">60天</div></div>
-        <div class="visa-item"><div class="label">延期</div><div class="value">可延期 1-3年</div></div>
-        <div class="visa-item"><div class="label">申请方式</div><div class="value">大使馆/领事馆</div></div>
-    </div>
-    <div class="visa-section-title">📋 申请要求</div>
-    <ul class="visa-list"><li>作为自由职业者在德国工作</li>
-<li>证明有德国客户和足够收入</li>
-<li>健康保险</li>
-<li>德国住址</li>
-<li>专业资质（如适用）</li></ul>
-    <div class="visa-section-title">📁 所需材料</div>
-    <ul class="visa-list"><li>护照</li>
-<li>照片</li>
-<li>申请表</li>
-<li>自由职业计划</li>
-<li>客户合同/意向书</li>
-<li>资金证明</li>
-<li>健康保险</li>
-<li>德国住址证明</li>
-<li>专业资质证明</li></ul>
-    <div style="margin-top:1rem;padding:1rem;background:#fefce8;border-radius:8px;color:#854d0e;font-size:0.9rem;"><strong>💡 提示：</strong>适合自由职业者、艺术家、咨询师等。柏林等大城市相对容易获批。可携家属</div>
-    <div class="visa-official"><span>🔗</span><a href="https://www.berlin.de/" target="_blank" rel="noopener">https://www.berlin.de/</a></div>
-</div>
-
-    </section>
-
-    <section class="section" id="compare">
-        <h2 class="section-title">签证对比</h2>
-        <div class="compare-bar">
-            <label>对比签证：</label>
-            <select id="compare-1"><option value="de_schengen">申根旅游签证（C类）</option>
-<option value="de_blue_card">欧盟蓝卡（EU Blue Card）</option>
-<option value="de_freelance">自由职业签证（Freiberufler）</option></select>
-            <select id="compare-2"><option value="de_schengen">申根旅游签证（C类）</option>
-<option value="de_blue_card">欧盟蓝卡（EU Blue Card）</option>
-<option value="de_freelance">自由职业签证（Freiberufler）</option></select>
-        </div>
-        <div id="compare-result" style="overflow-x:auto;">
-            <p style="color:#64748b;text-align:center;">选择两个签证类型进行横向对比</p>
-        </div>
-        <p style="text-align:center;color:#64748b;font-size:0.85rem;margin-top:1rem;">* 以上信息仅供参考，实际签证政策请以官方最新信息为准</p>
-    </section>
-
-    <div class="cta-section">
-        <h2>需要更多 德国 数字游民信息？</h2>
-        <p>查看 德国 国家详情页：生活成本、安全指数、网络速度、热门城市</p>
-        <a href="../country/germany.html" class="btn">📍 德国 国家详情</a>
-    </div>
-
-    <footer style="background:#1e293b;color:#94a3b8;padding:40px 20px;text-align:center;">
-        <p>© 2026 数字游民指南 | 面向中国用户的全球流动基础设施</p>
-        <p style="margin-top:0.5rem;font-size:0.9rem;">
-            <a href="../" style="color:#64748b;">首页</a> |
-            <a href="https://github.com/kfat77/digital-nomad-cn" style="color:#64748b;" target="_blank">GitHub</a> |
-            <a href="../country/" style="color:#64748b;">国家数据库</a>
-        </p>
-    </footer>
-
-    <script>
-        // Smooth scroll for nav links
-        document.querySelectorAll('.visa-nav a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.querySelector(link.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    document.querySelectorAll('.visa-nav a').forEach(l => l.classList.remove('active'));
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Active nav on scroll
-        const sections = document.querySelectorAll('.section');
-        const navLinks = document.querySelectorAll('.visa-nav a');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 100) current = section.getAttribute('id');
-            });
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
-            });
-        });
-
-        // Simple comparison (client-side, static data embedded)
-        const compareData = [{"id": "de_schengen", "name": "申根旅游签证（C类）", "duration": "90天/180天", "fee": "$90", "processing": "15天", "method": "大使馆/领事馆", "extendable": "不可延期"}, {"id": "de_blue_card", "name": "欧盟蓝卡（EU Blue Card）", "duration": "4年", "fee": "$110", "processing": "60天", "method": "大使馆/领事馆", "extendable": "可延期 4年"}, {"id": "de_freelance", "name": "自由职业签证（Freiberufler）", "duration": "1-3年", "fee": "$100", "processing": "60天", "method": "大使馆/领事馆", "extendable": "可延期 1-3年"}];
-        const sel1 = document.getElementById('compare-1');
-        const sel2 = document.getElementById('compare-2');
-        const result = document.getElementById('compare-result');
-
-        function doCompare() {
-            const v1 = compareData.find(v => v.id === sel1.value);
-            const v2 = compareData.find(v => v.id === sel2.value);
-            if (!v1 || !v2 || v1.id === v2.id) { result.innerHTML = '<p style="color:#64748b;text-align:center;">请选择两个不同的签证类型</p>'; return; }
-            result.innerHTML = `<table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
-                <thead><tr style="background:#f1f5f9;"><th style="padding:0.75rem;text-align:left;border:1px solid #e2e8f0;">对比项</th><th style="padding:0.75rem;text-align:left;border:1px solid #e2e8f0;">${v1.name}</th><th style="padding:0.75rem;text-align:left;border:1px solid #e2e8f0;">${v2.name}</th></tr></thead>
-                <tbody>
-                    <tr><td style="padding:0.75rem;border:1px solid #e2e8f0;font-weight:600;">停留时长</td><td style="padding:0.75rem;border:1px solid #e2e8f0;">${v1.duration}</td><td style="padding:0.75rem;border:1px solid #e2e8f0;">${v2.duration}</td></tr>
-                    <tr><td style="padding:0.75rem;border:1px solid #e2e8f0;font-weight:600;">费用</td><td style="padding:0.75rem;border:1px solid #e2e8f0;">${v1.fee}</td><td style="padding:0.75rem;border:1px solid #e2e8f0;">${v2.fee}</td></tr>
-                    <tr><td style="padding:0.75rem;border:1px solid #e2e8f0;font-weight:600;">处理时间</td><td style="padding:0.75rem;border:1px solid #e2e8f0;">${v1.processing}</td><td style="padding:0.75rem;border:1px solid #e2e8f0;">${v2.processing}</td></tr>
-                    <tr><td style="padding:0.75rem;border:1px solid #e2e8f0;font-weight:600;">申请方式</td><td style="padding:0.75rem;border:1px solid #e2e8f0;">${v1.method}</td><td style="padding:0.75rem;border:1px solid #e2e8f0;">${v2.method}</td></tr>
-                    <tr><td style="padding:0.75rem;border:1px solid #e2e8f0;font-weight:600;">可延期</td><td style="padding:0.75rem;border:1px solid #e2e8f0;">${v1.extendable}</td><td style="padding:0.75rem;border:1px solid #e2e8f0;">${v2.extendable}</td></tr>
-                </tbody>
-            </table>`;
-        }
-        if (sel1) { sel1.addEventListener('change', doCompare); sel2.addEventListener('change', doCompare); }
-    </script>
-</body>
-</html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>德国签证指南</title><link rel="stylesheet" href="../style.css"></head>
+<body style="max-width:800px;margin:0 auto;padding:40px 20px;">
+<h1>德国签证指南</h1>
+<p>签证详情页面正在建设中。数据已就绪，请访问 <a href="../country/germany.html">国家详情页</a> 查看完整信息。</p>
+<pre style="background:#f8fafc;padding:1rem;border-radius:8px;overflow:auto;">{
+  "country_id": "germany",
+  "country_name": "德国",
+  "updated_at": "2026-01-15T00:00:00Z",
+  "source": "德国联邦外交部, 德国驻华大使馆",
+  "visa_types": [
+    {
+      "id": "de_schengen",
+      "type": "visa_required",
+      "name": "申根旅游签证（C类）",
+      "name_en": "Germany Schengen Tourist Visa",
+      "duration": "90天/180天",
+      "validity": "90天-5年",
+      "extendable": false,
+      "fee_usd": 90,
+      "processing_days": 15,
+      "application_method": "embassy",
+      "requirements": [
+        "有效护照",
+        "旅行保险",
+        "往返机票",
+        "酒店预订",
+        "资金证明",
+        "行程单",
+        "在职证明"
+      ],
+      "documents": [
+        "护照",
+        "照片",
+        "申请表",
+        "旅行保险",
+        "机票",
+        "酒店预订",
+        "银行流水",
+        "在职证明",
+        "户口本",
+        "营业执照"
+      ],
+      "official_url": "https://www.germany-visa.org/",
+      "china_passport_eligible": true,
+      "notes": "德国为申根区，C类签证可通行29个申根国。德国签证较严格，资金证明和回国约束力审核较严",
+      "is_recommended_for_digital_nomad": true
+    },
+    {
+      "id": "de_blue_card",
+      "type": "work_visa",
+      "name": "欧盟蓝卡（EU Blue Card）",
+      "name_en": "Germany EU Blue Card",
+      "duration": "4年",
+      "validity": "4年",
+      "extendable": true,
+      "extend_duration": "4年",
+      "fee_usd": 110,
+      "processing_days": 60,
+      "application_method": "embassy",
+      "requirements": [
+        "德国雇主担保",
+        "大学本科以上学历",
+        "年薪达到门槛（2024年约45,300欧元，稀缺职业约41,041欧元）",
+        "专业对口工作"
+      ],
+      "documents": [
+        "护照",
+        "照片",
+        "学历证明",
+        "工作合同",
+        "雇主声明",
+        "ZAB学历认证"
+      ],
+      "official_url": "https://www.bamf.de/",
+      "china_passport_eligible": true,
+      "notes": "高技能移民签证，可携家属。21-27个月（德语B1）或33个月（德语A1）后可申请永居",
+      "is_recommended_for_digital_nomad": false
+    },
+    {
+      "id": "de_freelance",
+      "type": "work_visa",
+      "name": "自由职业签证（Freiberufler）",
+      "name_en": "Germany Freelance Visa",
+      "duration": "1-3年",
+      "validity": "1-3年",
+      "extendable": true,
+      "extend_duration": "1-3年",
+      "fee_usd": 100,
+      "processing_days": 60,
+      "application_method": "embassy",
+      "requirements": [
+        "作为自由职业者在德国工作",
+        "证明有德国客户和足够收入",
+        "健康保险",
+        "德国住址",
+        "专业资质（如适用）"
+      ],
+      "documents": [
+        "护照",
+        "照片",
+        "申请表",
+        "自由职业计划",
+        "客户合同/意向书",
+        "资金证明",
+        "健康保险",
+        "德国住址证明",
+        "专业资质证明"
+      ],
+      "official_url": "https://www.berlin.de/",
+      "china_passport_eligible": true,
+      "notes": "适合自由职业者、艺术家、咨询师等。柏林等大城市相对容易获批。可携家属",
+      "is_recommended_for_digital_nomad": true
+    }
+  ]
+}</pre>
+</body></html>
