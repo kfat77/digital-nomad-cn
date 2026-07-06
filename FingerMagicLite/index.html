@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Finger Magic Lite - 指尖魔法</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -80,10 +80,10 @@
     #ui-layer > * { pointer-events: auto; }
     #menu-bar {
       position: absolute; top: 0; left: 0; right: 0; height: 56px;
-      background: rgba(10, 10, 20, 0.85); backdrop-filter: blur(16px);
+      background: rgba(10, 10, 20, 0.85); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 24px; z-index: 20; user-select: none;
+      padding: 0 24px; z-index: 20; -webkit-user-select: none; user-select: none;
     }
     .menu-title {
       font-size: 1.1rem; font-weight: 500; letter-spacing: 2px;
@@ -94,8 +94,8 @@
       animation: pulseGlow 2s ease-in-out infinite;
     }
     @keyframes pulseGlow {
-      0%, 100% { opacity: 1; text-shadow: 0 0 10px rgba(0,212,255,0.5); }
-      50% { opacity: 0.6; text-shadow: 0 0 20px rgba(0,212,255,0.8); }
+      0%, 100% { opacity: 1; filter: drop-shadow(0 0 6px rgba(0,212,255,0.5)); }
+      50% { opacity: 0.5; filter: drop-shadow(0 0 12px rgba(0,212,255,0.8)); }
     }
     .menu-right { display: flex; align-items: center; gap: 20px; }
     .debug-toggle {
@@ -120,7 +120,7 @@
     #status-bar {
       position: absolute; top: 68px; left: 50%; transform: translateX(-50%);
       padding: 8px 24px; z-index: 20; transition: all 0.4s ease;
-      background: rgba(10, 10, 20, 0.75); backdrop-filter: blur(10px);
+      background: rgba(10, 10, 20, 0.75); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
       border-radius: 24px; border: 1px solid rgba(255,255,255,0.06);
       font-size: 0.85rem; color: rgba(255,255,255,0.6);
       display: flex; align-items: center; gap: 10px; white-space: nowrap;
@@ -150,7 +150,7 @@
     #effect-panel {
       position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
       display: flex; gap: 16px; padding: 16px 24px; z-index: 20;
-      background: rgba(10, 10, 20, 0.88); backdrop-filter: blur(16px);
+      background: rgba(10, 10, 20, 0.88); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
       border-radius: 14px; border: 1px solid rgba(255,255,255,0.06);
       transition: box-shadow 0.4s ease;
     }
@@ -168,7 +168,7 @@
       border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
       color: #fff; font-size: 0.85rem; cursor: pointer; outline: none;
       min-width: 120px; font-family: inherit; transition: all 0.2s;
-      appearance: none; -webkit-appearance: none;
+      -webkit-appearance: none; appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 10px center;
       padding-right: 30px;
@@ -178,7 +178,7 @@
     .effect-select option { background: #1a1a2e; color: #fff; padding: 8px; }
     #debug-info {
       position: absolute; top: 68px; right: 20px; z-index: 20;
-      padding: 14px 18px; background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(8px);
+      padding: 14px 18px; background: rgba(0, 0, 0, 0.75); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
       border-radius: 10px; border: 1px solid rgba(0, 255, 136, 0.15);
       font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
       font-size: 0.75rem; color: #00ff88; line-height: 1.7;
@@ -224,7 +224,7 @@
 </div>
 
 <div id="app">
-  <video id="input-video" autoplay playsinline muted></video>
+  <video id="input-video" autoplay playsinline webkit-playsinline x5-playsinline muted></video>
   <canvas id="main-canvas"></canvas>
   <div class="scanlines"></div>
 
@@ -259,7 +259,7 @@
     <div id="effect-panel">
       <div class="effect-card">
         <span class="effect-label">拇指 ↔ 食指</span>
-        <select class="effect-select" id="effect-0">
+        <select class="effect-select" id="effect-0" aria-label="拇指到食指特效选择">
           <option value="0">半单色流</option>
           <option value="1">故障色流</option>
           <option value="2">墨水</option>
@@ -269,7 +269,7 @@
       </div>
       <div class="effect-card">
         <span class="effect-label">食指 ↔ 中指</span>
-        <select class="effect-select" id="effect-1">
+        <select class="effect-select" id="effect-1" aria-label="食指到中指特效选择">
           <option value="0">半单色流</option>
           <option value="1" selected>故障色流</option>
           <option value="2">墨水</option>
@@ -279,7 +279,7 @@
       </div>
       <div class="effect-card">
         <span class="effect-label">中指 ↔ 小指</span>
-        <select class="effect-select" id="effect-2">
+        <select class="effect-select" id="effect-2" aria-label="中指到小指特效选择">
           <option value="0">半单色流</option>
           <option value="1">故障色流</option>
           <option value="2" selected>墨水</option>

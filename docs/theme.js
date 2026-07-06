@@ -52,6 +52,34 @@
     });
 })();
 
+// Mobile navigation toggle
+(function() {
+    function initMobileNav() {
+        const btn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('.main-nav');
+        if (!btn || !nav) return;
+
+        btn.addEventListener('click', function() {
+            nav.classList.toggle('mobile-open');
+            btn.setAttribute('aria-expanded', nav.classList.contains('mobile-open'));
+        });
+
+        // Close menu when clicking a link
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('mobile-open');
+                btn.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMobileNav);
+    } else {
+        initMobileNav();
+    }
+})();
+
 // Reading progress bar for article pages
 (function() {
     function initProgressBar() {
