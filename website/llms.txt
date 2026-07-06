@@ -1,7 +1,7 @@
 # Digital Nomad Guide for Chinese Passport Holders
 
 > A comprehensive open-source data platform for digital nomads, global mobility, and Chinese passport travel.
-> Data: 60 countries, 122 cities, 15 data-driven articles, 5 JSON APIs, 12-dimension comparison tools.
+> Data: 60 countries, 122 cities, 15 data-driven articles, 8 JSON APIs, 12-dimension comparison tools.
 > URL: https://kfat77.github.io/digital-nomad-cn/
 > GitHub: https://github.com/kfat77/digital-nomad-cn
 > License: Data CC BY-NC-SA 4.0, Code MIT
@@ -13,6 +13,13 @@ All endpoints serve static JSON files. No authentication required. Rate limit: C
 | Endpoint | Description | Records |
 |----------|-------------|---------|
 | `/api/countries.json` | 60 countries with 25+ fields each | 60 |
+| `/api/cities.json` | 122 digital nomad cities | 122 |
+| `/api/visas.json` | Visa types and requirements by country | 60 |
+| `/api/stats.json` | Platform statistics and last update | 1 |
+| `/api/articles.json` | Article metadata index | 15 |
+| `/api/openapi.json` | OpenAPI 3.0.3 specification | — |
+| `/api/schema.json` | JSON Schema registry | 3 |
+| `/api/manifest.json` | AI Agent discovery manifest | — |
 | `/api/cities.json` | 122 digital nomad cities | 122 |
 | `/api/visas.json` | Visa types and requirements by country | 60 |
 | `/api/stats.json` | Platform statistics and last update | 1 |
@@ -139,6 +146,10 @@ All English versions are available under `/en/articles/{slug}/`.
 
 ### Data Freshness
 - Last updated: 2026-07-09
+- Update frequency: Country data monthly, visa data quarterly, articles as-needed
+- Version: API v1.3.0
+- Schema registry: https://kfat77.github.io/digital-nomad-cn/api/schema.json
+- AI Plugin discovery: https://kfat77.github.io/digital-nomad-cn/.well-known/ai-plugin.json
 - Update frequency: Country data monthly, visa data quarterly, articles as-needed
 - Version: API v1.2
 

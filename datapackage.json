@@ -1,9 +1,9 @@
 {
   "name": "digital-nomad-countries",
   "title": "Digital Nomad CN — Global Mobility Open Dataset",
-  "description": "A comprehensive open dataset covering 100+ countries for digital nomads and global mobility, including visa policies, cost of living, internet quality, and nomad-friendliness scores.",
-  "version": "2.0.0",
-  "license": "CC-BY-SA-4.0",
+  "description": "A comprehensive open dataset covering 60 countries and 122 cities for digital nomads and global mobility, including visa policies, cost of living, internet quality, safety indices, and nomad-friendliness scores. All data is open and licensed under CC BY-NC-SA 4.0.",
+  "version": "2.1.0",
+  "license": "CC-BY-NC-SA-4.0",
   "keywords": [
     "digital-nomad",
     "global-mobility",
@@ -24,51 +24,128 @@
         "items": {
           "type": "object",
           "properties": {
-            "id": { "type": "string", "description": "Unique country identifier" },
+            "id": {
+              "type": "string",
+              "description": "Unique country identifier"
+            },
             "iso": {
               "type": "object",
               "properties": {
-                "alpha2": { "type": "string" },
-                "alpha3": { "type": "string" }
+                "alpha2": {
+                  "type": "string"
+                },
+                "alpha3": {
+                  "type": "string"
+                }
               }
             },
             "name": {
               "type": "object",
               "properties": {
-                "zh": { "type": "string" },
-                "en": { "type": "string" }
+                "zh": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                }
               }
             },
-            "region": { "type": "string", "description": "Geographic region" },
+            "region": {
+              "type": "string",
+              "description": "Geographic region"
+            },
             "coordinates": {
               "type": "object",
               "properties": {
-                "latitude": { "type": "number" },
-                "longitude": { "type": "number" }
+                "latitude": {
+                  "type": "number"
+                },
+                "longitude": {
+                  "type": "number"
+                }
               }
             },
-            "color": { "type": "string" },
-            "info": { "type": "object", "description": "Detailed country information" },
-            "status": { "type": "string", "enum": ["active", "draft", "deprecated"] },
+            "color": {
+              "type": "string"
+            },
+            "info": {
+              "type": "object",
+              "description": "Detailed country information"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "active",
+                "draft",
+                "deprecated"
+              ]
+            },
             "metadata": {
               "type": "object",
               "properties": {
-                "version": { "type": "string" },
-                "lastUpdated": { "type": "string", "format": "date-time" },
+                "version": {
+                  "type": "string"
+                },
+                "lastUpdated": {
+                  "type": "string",
+                  "format": "date-time"
+                },
                 "dataQuality": {
                   "type": "object",
                   "properties": {
-                    "completeness": { "type": "number" },
-                    "accuracy": { "type": "number" },
-                    "freshness": { "type": "number" }
+                    "completeness": {
+                      "type": "number"
+                    },
+                    "accuracy": {
+                      "type": "number"
+                    },
+                    "freshness": {
+                      "type": "number"
+                    }
                   }
                 }
               }
             }
           },
-          "required": ["id", "name", "region", "status", "metadata"]
+          "required": [
+            "id",
+            "name",
+            "region",
+            "status",
+            "metadata"
+          ]
         }
       }
+    },
+    {
+      "name": "api-countries",
+      "path": "api/countries.json",
+      "format": "json",
+      "description": "60 countries with cost of living, safety, internet, visa status"
+    },
+    {
+      "name": "api-cities",
+      "path": "api/cities.json",
+      "format": "json",
+      "description": "122 digital nomad cities with coworking, climate, neighborhoods"
+    },
+    {
+      "name": "api-visas",
+      "path": "api/visas.json",
+      "format": "json",
+      "description": "Visa requirements for Chinese passport holders"
+    },
+    {
+      "name": "api-stats",
+      "path": "api/stats.json",
+      "format": "json",
+      "description": "Aggregated platform statistics"
+    },
+    {
+      "name": "api-openapi",
+      "path": "api/openapi.json",
+      "format": "json",
+      "description": "OpenAPI 3.0.3 specification"
     }
   ],
   "contributors": [
