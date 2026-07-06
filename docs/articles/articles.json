@@ -118,5 +118,29 @@
     "date": "2026-07-09",
     "tags": ["数字游民", "社区", "联合办公", "线下聚会", "线上社群"],
     "image": "/images/og/communities-guide.png"
+  },
+  {
+    "slug": "family-guide",
+    "title": "数字游民家庭指南：带孩子环球旅居的实战攻略",
+    "description": "数字游民家庭签证、教育、医疗、安全、目的地选择。基于60国数据的实战攻略",
+    "date": "2026-07-09",
+    "tags": ["数字游民", "家庭", "孩子", "教育", "环球旅居"],
+    "image": "/images/og/family-guide.png"
+  },
+  {
+    "slug": "women-safety-guide",
+    "title": "女性数字游民安全指南：独行、防身与目的地选择",
+    "description": "女性数字游民独行安全、防身技巧、目的地选择、社区支持。基于60国数据的实用安全攻略",
+    "date": "2026-07-09",
+    "tags": ["数字游民", "女性", "安全", "独行", "防身"],
+    "image": "/images/og/women-safety-guide.png"
+  },
+  {
+    "slug": "retirement-planning-guide",
+    "title": "数字游民退休规划：长期财务安全与全球养老",
+    "description": "数字游民养老金、投资、保险、长期居住地选择。基于60国数据的财务安全攻略",
+    "date": "2026-07-09",
+    "tags": ["数字游民", "退休", "财务规划", "投资", "养老"],
+    "image": "/images/og/retirement-planning-guide.png"
   }
 ]

@@ -118,5 +118,29 @@
     "date": "2026-07-09",
     "tags": ["Digital Nomad", "Community", "Coworking", "Meetups", "Online Groups"],
     "image": "/images/og/communities-guide.png"
+  },
+  {
+    "slug": "family-guide",
+    "title": "Digital Nomad Family Guide: Traveling with Kids",
+    "description": "Digital nomad family visas, education, healthcare, safety, destination choices. Based on 60-country data",
+    "date": "2026-07-09",
+    "tags": ["Digital Nomad", "Family", "Kids", "Education", "Travel"],
+    "image": "/images/og/family-guide.png"
+  },
+  {
+    "slug": "women-safety-guide",
+    "title": "Women Digital Nomad Safety Guide",
+    "description": "Solo female nomad safety, self-defense, destination choices, community support. Based on 60-country data",
+    "date": "2026-07-09",
+    "tags": ["Digital Nomad", "Women", "Safety", "Solo Travel", "Self-Defense"],
+    "image": "/images/og/women-safety-guide.png"
+  },
+  {
+    "slug": "retirement-planning-guide",
+    "title": "Digital Nomad Retirement Planning: Long-Term Financial Security",
+    "description": "Pensions, investments, insurance, long-term residency choices. Based on 60-country data",
+    "date": "2026-07-09",
+    "tags": ["Digital Nomad", "Retirement", "Financial Planning", "Investment", "Pension"],
+    "image": "/images/og/retirement-planning-guide.png"
   }
 ]
