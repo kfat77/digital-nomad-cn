@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据可视化仪表盘 | 数字游民指南</title>
+    <meta name="description" content="数字游民数据可视化仪表盘：60国成本、安全、网速、评分交互式图表。">
+    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/dashboard/">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        .dashboard-hero { background: var(--bg-hero); border-bottom: 1px solid var(--border); padding: 120px 24px 60px; text-align: center; }
+        .dashboard-hero h1 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
+        .dashboard-hero p { color: var(--muted); max-width: 600px; margin: 0 auto; }
+        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 24px; max-width: 1400px; margin: 0 auto; padding: 40px 24px; }
+        .chart-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+        .chart-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--foreground); }
+        .chart-container { width: 100%; height: 350px; }
+        .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; max-width: 1400px; margin: 0 auto; padding: 24px; }
+        .stat-chip { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; text-align: center; }
+        .stat-chip .num { font-size: 28px; font-weight: 800; color: var(--accent); }
+        .stat-chip .lbl { font-size: 12px; color: var(--muted); margin-top: 4px; }
+        @media (max-width: 600px) { .dashboard-grid { grid-template-columns: 1fr; padding: 20px 12px; } }
+    </style>
+</head>
+<body>
+    <header class="header"><div class="header-inner"><a href="../" class="logo"><span class="logo-icon">◈</span><span>数字游民指南</span></a><nav class="main-nav"><a href="../country/">国家</a><a href="../visa/">签证</a><a href="../city/">城市</a><a href="../articles/">文章</a><a href="../compare/">对比</a><a href="../routes/">路线</a><a href="../search/">搜索</a><a href="../assistant/">AI助手</a><a href="../community/">社区</a></nav><a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a><button class="theme-toggle" aria-label="切换主题">🌙</button><button class="mobile-menu-btn">☰</button></div></header>
+
+    <div class="dashboard-hero">
+        <h1>📊 数据可视化仪表盘</h1>
+        <p>基于 60 国数据的交互式图表。探索成本、安全、网速、评分之间的关系。</p>
+    </div>
+
+    <div class="stats-bar" id="stats-bar"></div>
+
+    <div class="dashboard-grid">
+        <div class="chart-card">
+            <h3>生活成本 vs 安全指数（气泡大小 = 数字游民评分）</h3>
+            <div id="chart-scatter" class="chart-container"></div>
+        </div>
+        <div class="chart-card">
+            <h3>数字游民评分 TOP 10</h3>
+            <div id="chart-ranking" class="chart-container"></div>
+        </div>
+        <div class="chart-card">
+            <h3>地区分布</h3>
+            <div id="chart-region" class="chart-container"></div>
+        </div>
+        <div class="chart-card">
+            <h3>中国护照签证类型分布</h3>
+            <div id="chart-visa" class="chart-container"></div>
+        </div>
+        <div class="chart-card">
+            <h3>网速 vs 生活成本</h3>
+            <div id="chart-internet" class="chart-container"></div>
+        </div>
+        <div class="chart-card">
+            <h3>HDI 分布</h3>
+            <div id="chart-hdi" class="chart-container"></div>
+        </div>
+    </div>
+
+    <footer class="footer"><div class="footer-inner" style="max-width:1200px;margin:0 auto;padding:40px 24px;text-align:center;"><p>数字游民指南 · 开源全球流动数据平台</p><p><a href="https://github.com/kfat77/digital-nomad-cn">GitHub</a> · <a href="../">首页</a></p></div></footer>
+    <script src="../theme.js"></script><script src="../analytics.js" defer></script>
+
+    <script>
+    async function initDashboard() {
+        const resp = await fetch('../api/countries.json');
+        const data = await resp.json();
+        const countries = data.data || data;
+
+        // Stats bar
+        const avgScore = Math.round(countries.reduce((a,c) => a + c.digital_nomad_score, 0) / countries.length);
+        const avgCost = Math.round(countries.reduce((a,c) => a + c.cost_of_living_index, 0) / countries.length);
+        const avgSafety = Math.round(countries.reduce((a,c) => a + c.safety_index, 0) / countries.length);
+        const avgNet = Math.round(countries.reduce((a,c) => a + c.internet_speed_avg_mbps, 0) / countries.length);
+        const dnVisa = countries.filter(c => c.has_digital_nomad_visa).length;
+        const visaFree = countries.filter(c => c.china_passport_visa_status === 'visa_free').length;
+
+        document.getElementById('stats-bar').innerHTML = `
+            <div class="stat-chip"><div class="num">${countries.length}</div><div class="lbl">国家</div></div>
+            <div class="stat-chip"><div class="num">${avgScore}</div><div class="lbl">平均评分</div></div>
+            <div class="stat-chip"><div class="num">${avgCost}</div><div class="lbl">平均生活成本</div></div>
+            <div class="stat-chip"><div class="num">${avgSafety}</div><div class="lbl">平均安全指数</div></div>
+            <div class="stat-chip"><div class="num">${avgNet}</div><div class="lbl">平均网速 Mbps</div></div>
+            <div class="stat-chip"><div class="num">${dnVisa}</div><div class="lbl">有 DN 签证</div></div>
+            <div class="stat-chip"><div class="num">${visaFree}</div><div class="lbl">中国免签</div></div>
+        `;
+
+        const isDark = document.documentElement.classList.contains('dark');
+        const textColor = isDark ? '#e2e8f0' : '#1e293b';
+        const gridColor = isDark ? '#334155' : '#e2e8f0';
+
+        // Scatter: Cost vs Safety
+        const scatter = echarts.init(document.getElementById('chart-scatter'));
+        scatter.setOption({
+            tooltip: { trigger: 'item', formatter: p => `${p.data[3]}<br>生活成本: ${p.data[0]}<br>安全: ${p.data[1]}<br>评分: ${p.data[2]}` },
+            xAxis: { name: '生活成本指数', type: 'value', nameTextStyle: { color: textColor }, axisLine: { lineStyle: { color: gridColor } }, axisLabel: { color: textColor }, splitLine: { lineStyle: { color: gridColor } } },
+            yAxis: { name: '安全指数', type: 'value', nameTextStyle: { color: textColor }, axisLine: { lineStyle: { color: gridColor } }, axisLabel: { color: textColor }, splitLine: { lineStyle: { color: gridColor } } },
+            series: [{ type: 'scatter', symbolSize: d => Math.sqrt(d[2]) * 2.5, data: countries.map(c => [c.cost_of_living_index, c.safety_index, c.digital_nomad_score, c.name]), itemStyle: { color: p => { const s = p.data[2]; return s >= 80 ? '#22c55e' : s >= 70 ? '#3b82f6' : s >= 60 ? '#f59e0b' : '#ef4444'; } } }]
+        });
+
+        // Ranking TOP 10
+        const top10 = [...countries].sort((a,b) => b.digital_nomad_score - a.digital_nomad_score).slice(0, 10);
+        const ranking = echarts.init(document.getElementById('chart-ranking'));
+        ranking.setOption({
+            tooltip: { trigger: 'axis' },
+            xAxis: { type: 'value', max: 100, axisLabel: { color: textColor }, splitLine: { lineStyle: { color: gridColor } } },
+            yAxis: { type: 'category', data: top10.map(c => c.name).reverse(), axisLabel: { color: textColor }, axisLine: { lineStyle: { color: gridColor } } },
+            series: [{ type: 'bar', data: top10.map(c => c.digital_nomad_score).reverse(), itemStyle: { color: '#3b82f6', borderRadius: [0, 4, 4, 0] } }]
+        });
+
+        // Region pie
+        const regionMap = {};
+        countries.forEach(c => { regionMap[c.region] = (regionMap[c.region] || 0) + 1; });
+        const region = echarts.init(document.getElementById('chart-region'));
+        region.setOption({
+            tooltip: { trigger: 'item' },
+            series: [{ type: 'pie', radius: ['40%', '70%'], data: Object.entries(regionMap).map(([name, value]) => ({ name, value })), label: { color: textColor } }]
+        });
+
+        // Visa status
+        const visaMap = {};
+        countries.forEach(c => { const v = c.china_passport_visa_status; visaMap[v] = (visaMap[v] || 0) + 1; });
+        const visaNames = { visa_free: '免签', visa_on_arrival: '落地签', evisa: '电子签', visa_required: '需签证' };
+        const visa = echarts.init(document.getElementById('chart-visa'));
+        visa.setOption({
+            tooltip: { trigger: 'item' },
+            xAxis: { type: 'category', data: Object.keys(visaMap).map(k => visaNames[k] || k), axisLabel: { color: textColor }, axisLine: { lineStyle: { color: gridColor } } },
+            yAxis: { type: 'value', axisLabel: { color: textColor }, splitLine: { lineStyle: { color: gridColor } } },
+            series: [{ type: 'bar', data: Object.values(visaMap), itemStyle: { color: '#10b981', borderRadius: [4, 4, 0, 0] } }]
+        });
+
+        // Internet vs Cost
+        const internet = echarts.init(document.getElementById('chart-internet'));
+        internet.setOption({
+            tooltip: { trigger: 'item', formatter: p => `${p.data[2]}<br>网速: ${p.data[0]} Mbps<br>成本: ${p.data[1]}` },
+            xAxis: { name: '网速 Mbps', type: 'value', nameTextStyle: { color: textColor }, axisLine: { lineStyle: { color: gridColor } }, axisLabel: { color: textColor }, splitLine: { lineStyle: { color: gridColor } } },
+            yAxis: { name: '生活成本', type: 'value', nameTextStyle: { color: textColor }, axisLine: { lineStyle: { color: gridColor } }, axisLabel: { color: textColor }, splitLine: { lineStyle: { color: gridColor } } },
+            series: [{ type: 'scatter', symbolSize: 10, data: countries.map(c => [c.internet_speed_avg_mbps, c.cost_of_living_index, c.name]), itemStyle: { color: '#8b5cf6' } }]
+        });
+
+        // HDI histogram
+        const hdiRanges = { '0.90+': 0, '0.85-0.89': 0, '0.80-0.84': 0, '0.75-0.79': 0, '0.70-0.74': 0, '<0.70': 0 };
+        countries.forEach(c => { const h = c.hdi; if (h >= 0.90) hdiRanges['0.90+']++; else if (h >= 0.85) hdiRanges['0.85-0.89']++; else if (h >= 0.80) hdiRanges['0.80-0.84']++; else if (h >= 0.75) hdiRanges['0.75-0.79']++; else if (h >= 0.70) hdiRanges['0.70-0.74']++; else hdiRanges['<0.70']++; });
+        const hdi = echarts.init(document.getElementById('chart-hdi'));
+        hdi.setOption({
+            tooltip: { trigger: 'axis' },
+            xAxis: { type: 'category', data: Object.keys(hdiRanges), axisLabel: { color: textColor, rotate: 30 }, axisLine: { lineStyle: { color: gridColor } } },
+            yAxis: { type: 'value', axisLabel: { color: textColor }, splitLine: { lineStyle: { color: gridColor } } },
+            series: [{ type: 'bar', data: Object.values(hdiRanges), itemStyle: { color: '#f59e0b', borderRadius: [4, 4, 0, 0] } }]
+        });
+
+        window.addEventListener('resize', () => { [scatter, ranking, region, visa, internet, hdi].forEach(c => c.resize()); });
+    }
+    initDashboard();
+    </script>
+</body>
+</html>
