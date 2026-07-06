@@ -100,7 +100,7 @@
     .menu-right { display: flex; align-items: center; gap: 20px; }
     .debug-toggle {
       display: flex; align-items: center; gap: 8px;
-      font-size: 0.8rem; color: rgba(255,255,255,0.6); cursor: pointer; user-select: none;
+      font-size: 0.8rem; color: rgba(255,255,255,0.6); cursor: pointer; -webkit-user-select: none; user-select: none;
     }
     .debug-toggle input { display: none; }
     .toggle-switch {
@@ -224,7 +224,7 @@
 </div>
 
 <div id="app">
-  <video id="input-video" autoplay playsinline webkit-playsinline x5-playsinline muted></video>
+  <video id="input-video" autoplay muted></video>
   <canvas id="main-canvas"></canvas>
   <div class="scanlines"></div>
 
@@ -259,7 +259,7 @@
     <div id="effect-panel">
       <div class="effect-card">
         <span class="effect-label">拇指 ↔ 食指</span>
-        <select class="effect-select" id="effect-0" aria-label="拇指到食指特效选择">
+        <select class="effect-select" id="effect-0" aria-label="拇指到食指特效选择" title="拇指到食指特效选择">
           <option value="0">半单色流</option>
           <option value="1">故障色流</option>
           <option value="2">墨水</option>
@@ -269,7 +269,7 @@
       </div>
       <div class="effect-card">
         <span class="effect-label">食指 ↔ 中指</span>
-        <select class="effect-select" id="effect-1" aria-label="食指到中指特效选择">
+        <select class="effect-select" id="effect-1" aria-label="食指到中指特效选择" title="食指到中指特效选择">
           <option value="0">半单色流</option>
           <option value="1" selected>故障色流</option>
           <option value="2">墨水</option>
@@ -279,7 +279,7 @@
       </div>
       <div class="effect-card">
         <span class="effect-label">中指 ↔ 小指</span>
-        <select class="effect-select" id="effect-2" aria-label="中指到小指特效选择">
+        <select class="effect-select" id="effect-2" aria-label="中指到小指特效选择" title="中指到小指特效选择">
           <option value="0">半单色流</option>
           <option value="1">故障色流</option>
           <option value="2" selected>墨水</option>
@@ -392,6 +392,9 @@ async function setupCamera() {
       audio: false
     });
     dom.video.srcObject = stream;
+    dom.video.playsInline = true;
+    dom.video.setAttribute('playsinline', '');
+    dom.video.setAttribute('webkit-playsinline', '');
     await new Promise((resolve, reject) => {
       dom.video.onloadedmetadata = () => { dom.video.play(); resolve(); };
       dom.video.onerror = reject;

@@ -14,10 +14,12 @@
 
 ## 检查清单
 
-- [ ] 已验证数据 JSON 符合 Schema
-- [ ] 已运行生成器重新生成页面
+- [ ] 已验证数据 JSON 符合 Schema（运行 `node scripts/validate-data.js`）
+- [ ] 已运行生成器重新生成页面（如适用）
+- [ ] 已更新 `website/sitemap.xml`（如添加新页面）
+- [ ] 已更新 `website/sw.js` 中的 CACHE_VERSION（如修改核心页面）
+- [ ] 已同步 docs/ 目录（运行 `node scripts/sync-to-docs.js`）
 - [ ] 已在本地预览确认效果
-- [ ] 已同步 docs/ 目录
 
 ## 相关 Issue
 
