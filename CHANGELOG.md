@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] — 2026-07-07
+
+### Added
+- **M11 — Open Data Release**: CITATION.cff, datapackage.json, expanded datasets/README.md
+  - Academic citation support (BibTeX)
+  - Frictionless Data standard compliance
+  - JS/Python/R usage examples
+- **M13 — MCP Server v1.0**: `@digital-nomad-cn/mcp` package with 6 AI Agent tools
+  - `nomad_search_countries` — keyword/region/status search
+  - `nomad_get_country` — detailed country lookup by ID
+  - `nomad_list_regions` — geographic coverage overview
+  - `nomad_compare_countries` — side-by-side comparison
+  - `nomad_recommend` — preference-based recommendations
+  - `nomad_get_stats` — dataset statistics and quality metrics
+  - Claude Desktop / Cursor / Windsurf configuration guides
+- **100 Countries**: Dataset expanded from 61 to 100 countries across 15 regions
+- **REST API v1 + GraphQL API v1**: Cloudflare Workers deployment
+- **JS SDK**: `@digital-nomad-cn/sdk` TypeScript client
+
+### Changed
+- README: Added MCP Server section, npm badge, Open Data badges, updated roadmap
+
 ## [1.2.0] — 2026-07-08
 
 ### Added
@@ -62,7 +84,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **3 Thematic Articles**: Seasonal guide, cost analysis, visa comparison
 - **SEO Foundation**: Sitemap, Open Graph tags, canonical URLs, Schema.org Article markup
 
-[Unreleased]: https://github.com/kfat77/digital-nomad-cn/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/kfat77/digital-nomad-cn/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/kfat77/digital-nomad-cn/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/kfat77/digital-nomad-cn/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/kfat77/digital-nomad-cn/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/kfat77/digital-nomad-cn/releases/tag/v1.0.0
