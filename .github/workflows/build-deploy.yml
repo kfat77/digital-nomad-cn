@@ -7,6 +7,8 @@ on:
       - 'website/**'
       - 'datasets/**'
       - 'schemas/**'
+      - 'scripts/**'
+      - '.github/workflows/build-deploy.yml'
 
 jobs:
   build:
@@ -21,6 +23,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
@@ -28,7 +31,7 @@ jobs:
       - name: Validate data
         run: npm run validate
 
-      - name: Sync datasets to website data
+      - name: Sync datasets to website
         run: npm run sync:data
 
       - name: Build website
@@ -40,3 +43,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
+          commit_message: 'deploy: auto build from ${{ github.sha }}'

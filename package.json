@@ -19,7 +19,8 @@
     "sync:data": "node scripts/sync-data-to-website.js",
     "generate:countries": "node scripts/generate-country-pages.js",
     "sync:docs": "node scripts/sync-to-docs.js",
-    "build": "npm run sync:data && npm run generate:countries && npm run sync:docs",
+    "build": "npm run validate && npm run sync:data && npm run sync:docs",
+    "build:legacy": "npm run sync:data && npm run generate:countries && npm run sync:docs",
     "bump:sw": "node scripts/bump-sw-cache.js",
     "ci:check": "npm run validate && npm run build"
   },
