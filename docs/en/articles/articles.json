@@ -70,5 +70,29 @@
     "date": "2026-07-06",
     "tags": ["Digital Nomad Visa", "Remote Work", "Visa Guide", "Long-Term Stay"],
     "image": "/images/og/dn-visa.png"
+  },
+  {
+    "slug": "digital-nomad-tax-guide",
+    "title": "Digital Nomad Tax Guide: How to Legally Optimize Your Global Tax",
+    "description": "Tax residency, double taxation, low-tax countries comparison, and legal tax strategies based on 60-country data",
+    "date": "2026-07-08",
+    "tags": ["Digital Nomad", "Tax", "Global Tax", "Tax Optimization", "Low Tax"],
+    "image": "/images/og/tax-guide.png"
+  },
+  {
+    "slug": "digital-nomad-insurance-guide",
+    "title": "Digital Nomad Insurance Guide: Health, Equipment, Travel",
+    "description": "Global health insurance, equipment coverage, travel insurance comparison and recommendations based on 60-country data",
+    "date": "2026-07-08",
+    "tags": ["Digital Nomad", "Insurance", "Health Insurance", "Equipment", "Travel Insurance"],
+    "image": "/images/og/insurance-guide.png"
+  },
+  {
+    "slug": "digital-nomad-banking-guide",
+    "title": "Digital Nomad Banking Guide: Cross-Border Payments, Multi-Currency, Global ATM",
+    "description": "Wise, Revolut, Payoneer, local banks compared. Cross-border payment, multi-currency management, and global ATM strategies",
+    "date": "2026-07-08",
+    "tags": ["Digital Nomad", "Banking", "Cross-Border", "Multi-Currency", "Finance"],
+    "image": "/images/og/banking-guide.png"
   }
 ]
