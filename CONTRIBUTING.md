@@ -2,6 +2,8 @@
 
 感谢您对 Global Mobility Infrastructure 项目的兴趣！本指南将帮助您快速参与贡献。
 
+> 🎉 **欢迎！** 无论你是数据研究者、开发者、设计师，还是曾在某个国家生活过的数字游民，都可以为这个项目做出贡献。每一个 PR 都让全球华人数字游民受益。
+
 ## 目录
 
 - [数据贡献](#数据贡献)
@@ -57,6 +59,20 @@
 - `status`: published/draft/archived
 - `updated_at`: 日期字符串
 
+**深度字段（v1.2，可选）：**
+- `healthcare_quality`: 0-100 数字（医疗质量评分）
+- `english_proficiency`: 0-100 数字（英语普及度）
+- `monthly_rent_usd_low`: 数字（最低月租金 USD）
+- `monthly_rent_usd_high`: 数字（最高月租金 USD）
+- `food_cost_usd_daily`: 数字（日均餐饮成本 USD）
+- `transport_cost_usd_monthly`: 数字（月交通成本 USD）
+- `coworking_spaces_count`: 整数（共享办公空间数量）
+- `local_tax_rate`: 数字（本地税率百分比）
+- `pros`: 字符串数组（优势列表）
+- `cons`: 字符串数组（劣势列表）
+- `ideal_for`: 字符串数组（适合人群）
+- `best_neighborhoods`: 字符串数组（推荐社区）
+
 ### 添加新城市
 
 1. 在 `website/data/entities/city/` 创建 `{city_id}.json`
@@ -69,6 +85,20 @@
 ### 数据更新
 
 发现数据过时？直接编辑对应的 JSON 文件并提交 PR。
+
+---
+
+## 首次贡献者指南
+
+### 快速 checklist
+
+- [ ] 我已阅读本贡献指南
+- [ ] 我检查过该数据/功能尚未被贡献
+- [ ] 我运行过 `node scripts/validate-data.js` 确保数据格式正确
+- [ ] 我更新了 `website/sitemap.xml`（如添加新页面）
+- [ ] 我更新了 `website/sw.js` 中的 CACHE_VERSION（如修改核心页面）
+- [ ] 我运行过 `node scripts/sync-to-docs.js` 同步到 docs/ 目录
+- [ ] 我的提交信息遵循了提交规范
 
 ---
 
