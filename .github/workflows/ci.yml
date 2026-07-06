@@ -1,43 +1,24 @@
-name: 🔄 CI / Build, Generate & Deploy
+name: CI / Sync & Deploy
 
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
+    paths:
+      - 'website/**'
+      - 'scripts/**'
+      - '.github/workflows/ci.yml'
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  validate:
-    name: Validate Data
+  sync:
+    name: Sync website to docs
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-
-      - name: Validate JSON data
-        run: node scripts/validate-data.js
-
-      - name: Validate country pages can be generated
-        run: node scripts/generate-country-pages.js
-
-  generate-and-sync:
-    name: Generate Pages & Sync to Docs
-    runs-on: ubuntu-latest
-    needs: validate
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -48,10 +29,7 @@ jobs:
         with:
           node-version: '24'
 
-      - name: Generate country pages
-        run: node scripts/generate-country-pages.js
-
-      - name: Bump SW cache version
+      - name: Bump Service Worker cache
         run: node scripts/bump-sw-cache.js
 
       - name: Sync website to docs
@@ -67,32 +45,11 @@ jobs:
             echo "changed=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Commit and push generated changes
+      - name: Commit and push
         if: steps.check.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "ci: auto-generate pages & bump SW cache [$(date -u +%Y-%m-%d %H:%M UTC)]
-
-          - Regenerated country pages from latest JSON data
-          - Bumped Service Worker cache version
-          - Synced website/ to docs/ for GitHub Pages
-
-          Automated by CI/CD pipeline."
+          git commit -m "ci: sync website to docs & bump SW cache [$(date -u +%Y-%m-%d %H:%M UTC)]"
           git push
-
-  deploy:
-    name: Deploy to GitHub Pages
-    runs-on: ubuntu-latest
-    needs: generate-and-sync
-    if: github.ref == 'refs/heads/main'
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-        with:
-          path: docs/
