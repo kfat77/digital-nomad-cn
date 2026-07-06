@@ -4,12 +4,7 @@
     "title": "2026 Top 20 Digital Nomad Cities Ranking",
     "description": "Data-driven ranking of 122 cities based on multi-dimensional algorithms covering cost, internet, safety, and coworking ecosystem",
     "date": "2026-07-07",
-    "tags": [
-      "Digital Nomad",
-      "City Ranking",
-      "Data Insight",
-      "City Comparison"
-    ],
+    "tags": ["Digital Nomad", "City Ranking", "Data Insight", "City Comparison"],
     "image": "/images/og/city-ranking.png"
   },
   {
@@ -17,12 +12,7 @@
     "title": "2026 Safest Digital Nomad Cities Guide",
     "description": "Top 15 ranking based on safety data from 122 cities, with recommendations for female nomads, families, and budget travelers",
     "date": "2026-07-07",
-    "tags": [
-      "Digital Nomad",
-      "Safety",
-      "City Guide",
-      "Solo Travel"
-    ],
+    "tags": ["Digital Nomad", "Safety", "City Guide", "Solo Travel"],
     "image": "/images/og/safety-cities.png"
   },
   {
@@ -30,25 +20,39 @@
     "title": "2026 Most Affordable Digital Nomad Cities",
     "description": "Top 15 ranking based on cost of living data from 122 cities, with budget-friendly recommendations for cost-conscious nomads",
     "date": "2026-07-07",
-    "tags": [
-      "Digital Nomad",
-      "Cost of Living",
-      "Budget Travel",
-      "City Recommendations"
-    ],
+    "tags": ["Digital Nomad", "Cost of Living", "Budget Travel", "City Recommendations"],
     "image": "/images/og/affordable-cities.png"
+  },
+  {
+    "slug": "seasonal-guide",
+    "title": "Global Digital Nomad Seasonal Guide: Year-Round Flow Strategy",
+    "description": "Season-by-season recommendations for the best digital nomad destinations worldwide, covering climate, cost, and visa",
+    "date": "2026-07-07",
+    "tags": ["Digital Nomad", "Seasonal Guide", "Best Time to Travel", "Climate"],
+    "image": "/images/og/seasonal-guide.png"
+  },
+  {
+    "slug": "cost-of-living-analysis",
+    "title": "Digital Nomad Cost of Living Analysis: From $500 to $5,000/Month",
+    "description": "Comprehensive analysis of global digital nomad living costs based on 60 countries and 122 cities",
+    "date": "2026-07-07",
+    "tags": ["Digital Nomad", "Cost of Living", "Global Comparison", "Budget"],
+    "image": "/images/og/cost-analysis.png"
+  },
+  {
+    "slug": "visa-free-destinations",
+    "title": "China Passport Visa-Free & E-Visa Digital Nomad Destinations: 21 Countries",
+    "description": "Complete guide to visa-free and e-visa digital nomad destinations for Chinese passport holders",
+    "date": "2026-07-07",
+    "tags": ["China Passport", "Visa-Free", "E-Visa", "Digital Nomad"],
+    "image": "/images/og/visa-free.png"
   },
   {
     "slug": "china-passport-visa-guide-2026",
     "title": "2026 Complete Guide: Visa-Free, Visa on Arrival & eVisa Countries for China Passport",
     "description": "Full visa policy overview for all 60 countries",
     "date": "2026-07-06",
-    "tags": [
-      "Visa",
-      "China Passport",
-      "Visa-Free",
-      "Travel Guide"
-    ],
+    "tags": ["Visa", "China Passport", "Visa-Free", "Travel Guide"],
     "image": "/images/og/visa-guide.png"
   },
   {
@@ -56,12 +60,7 @@
     "title": "2026 Top 15 Digital Nomad Friendly Countries Ranking",
     "description": "Data-driven ranking based on 12-dimension algorithm",
     "date": "2026-07-06",
-    "tags": [
-      "Digital Nomad",
-      "Ranking",
-      "Data Insight",
-      "Country Comparison"
-    ],
+    "tags": ["Digital Nomad", "Ranking", "Data Insight", "Country Comparison"],
     "image": "/images/og/ranking.png"
   },
   {
@@ -69,12 +68,7 @@
     "title": "2026 Digital Nomad Visa Complete Guide: Countries & Requirements",
     "description": "Full overview of 21 countries offering digital nomad visas",
     "date": "2026-07-06",
-    "tags": [
-      "Digital Nomad Visa",
-      "Remote Work",
-      "Visa Guide",
-      "Long-Term Stay"
-    ],
+    "tags": ["Digital Nomad Visa", "Remote Work", "Visa Guide", "Long-Term Stay"],
     "image": "/images/og/dn-visa.png"
   }
 ]
