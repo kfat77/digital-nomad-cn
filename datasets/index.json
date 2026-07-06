@@ -5,7 +5,7 @@
   "datasets": {
     "countries": {
       "file": "countries.json",
-      "count": 61,
+      "count": 100,
       "schema": "country.schema.json",
       "lastUpdated": "2026-07-07T00:00:00Z",
       "description": "国家/地区基础数据"
@@ -18,33 +18,34 @@
     }
   },
   "coverage": {
-    "totalCountries": 61,
-    "withDetailedInfo": 0,
+    "totalCountries": 100,
+    "withDetailedInfo": 11,
     "byRegion": {
-      "east-asia": 5,
-      "southeast-asia": 6,
-      "south-asia": 3,
+      "africa": 12,
+      "middle-east": 10,
+      "southeast-asia": 10,
+      "western-europe": 9,
+      "southern-europe": 9,
+      "northern-europe": 8,
+      "south-america": 7,
+      "eastern-europe": 8,
+      "east-asia": 7,
+      "south-asia": 6,
+      "central-america": 4,
+      "oceania": 3,
       "central-asia": 3,
-      "western-europe": 7,
-      "eastern-europe": 5,
-      "northern-europe": 5,
-      "southern-europe": 5,
       "north-america": 2,
-      "central-america": 1,
-      "south-america": 5,
-      "oceania": 2,
-      "middle-east": 6,
-      "africa": 5,
+      "caribbean": 1,
       "unclassified": 1
     }
   },
   "stats": {
     "infoCategories": {
-      "visa": 0,
-      "bank": 0,
-      "phone": 0,
-      "identity": 0,
-      "tools": 0
+      "visa": 5,
+      "bank": 3,
+      "phone": 2,
+      "identity": 7,
+      "tools": 1
     },
     "dataQuality": {
       "averageCompleteness": 20,

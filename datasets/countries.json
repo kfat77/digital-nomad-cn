@@ -1,5 +1,42 @@
 [
   {
+    "id": "albania",
+    "iso": {
+      "alpha2": "AL",
+      "alpha3": "ALB"
+    },
+    "name": {
+      "zh": "阿尔巴尼亚",
+      "en": "Albania"
+    },
+    "region": "southern-europe",
+    "coordinates": {
+      "latitude": 41.1533,
+      "longitude": 20.1683
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:23:08.334Z",
+      "createdAt": "2026-07-06T16:23:08.334Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
     "id": "argentina",
     "iso": {
       "alpha2": "AR",
@@ -160,6 +197,117 @@
     }
   },
   {
+    "id": "bahrain",
+    "iso": {
+      "alpha2": "BH",
+      "alpha3": "BHR"
+    },
+    "name": {
+      "zh": "巴林",
+      "en": "Bahrain"
+    },
+    "region": "middle-east",
+    "coordinates": {
+      "latitude": 25.9304,
+      "longitude": 50.6378
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
+    "id": "bangladesh",
+    "iso": {
+      "alpha2": "BD",
+      "alpha3": "BGD"
+    },
+    "name": {
+      "zh": "孟加拉国",
+      "en": "Bangladesh"
+    },
+    "region": "south-asia",
+    "coordinates": {
+      "latitude": 23.685,
+      "longitude": 90.3563
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
+    "id": "belgium",
+    "iso": {
+      "alpha2": "BE",
+      "alpha3": "BEL"
+    },
+    "name": {
+      "zh": "比利时",
+      "en": "Belgium"
+    },
+    "region": "western-europe",
+    "coordinates": {
+      "latitude": 50.5039,
+      "longitude": 4.4699
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
     "id": "brazil",
     "iso": {
       "alpha2": "BR",
@@ -192,6 +340,43 @@
     }
   },
   {
+    "id": "brunei",
+    "iso": {
+      "alpha2": "BN",
+      "alpha3": "BRN"
+    },
+    "name": {
+      "zh": "文莱",
+      "en": "Brunei"
+    },
+    "region": "southeast-asia",
+    "coordinates": {
+      "latitude": 4.5353,
+      "longitude": 114.7277
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
     "id": "bulgaria",
     "iso": {
       "alpha2": "BG",
@@ -221,6 +406,43 @@
         "freshness": 50
       },
       "extractionNote": "Auto-extracted from website/countries-data.js v1.2.0"
+    }
+  },
+  {
+    "id": "cambodia",
+    "iso": {
+      "alpha2": "KH",
+      "alpha3": "KHM"
+    },
+    "name": {
+      "zh": "柬埔寨",
+      "en": "Cambodia"
+    },
+    "region": "southeast-asia",
+    "coordinates": {
+      "latitude": 12.5657,
+      "longitude": 104.991
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
     }
   },
   {
@@ -288,6 +510,43 @@
     }
   },
   {
+    "id": "china",
+    "iso": {
+      "alpha2": "CN",
+      "alpha3": "CHN"
+    },
+    "name": {
+      "zh": "中国",
+      "en": "China"
+    },
+    "region": "east-asia",
+    "coordinates": {
+      "latitude": 35.8617,
+      "longitude": 104.1954
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
     "id": "colombia",
     "iso": {
       "alpha2": "CO",
@@ -317,6 +576,43 @@
         "freshness": 50
       },
       "extractionNote": "Auto-extracted from website/countries-data.js v1.2.0"
+    }
+  },
+  {
+    "id": "costa_rica",
+    "iso": {
+      "alpha2": "CR",
+      "alpha3": "CRI"
+    },
+    "name": {
+      "zh": "哥斯达黎加",
+      "en": "Costa Rica"
+    },
+    "region": "central-america",
+    "coordinates": {
+      "latitude": 9.7489,
+      "longitude": -83.7534
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
     }
   },
   {
@@ -448,6 +744,80 @@
     }
   },
   {
+    "id": "dominican_republic",
+    "iso": {
+      "alpha2": "DO",
+      "alpha3": "DOM"
+    },
+    "name": {
+      "zh": "多米尼加共和国",
+      "en": "Dominican Republic"
+    },
+    "region": "caribbean",
+    "coordinates": {
+      "latitude": 18.7357,
+      "longitude": -70.1627
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
+    "id": "ecuador",
+    "iso": {
+      "alpha2": "EC",
+      "alpha3": "ECU"
+    },
+    "name": {
+      "zh": "厄瓜多尔",
+      "en": "Ecuador"
+    },
+    "region": "south-america",
+    "coordinates": {
+      "latitude": -1.8312,
+      "longitude": -78.1834
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
     "id": "egypt",
     "iso": {
       "alpha2": "EG",
@@ -509,6 +879,117 @@
         "freshness": 50
       },
       "extractionNote": "Auto-extracted from website/countries-data.js v1.2.0"
+    }
+  },
+  {
+    "id": "ethiopia",
+    "iso": {
+      "alpha2": "ET",
+      "alpha3": "ETH"
+    },
+    "name": {
+      "zh": "埃塞俄比亚",
+      "en": "Ethiopia"
+    },
+    "region": "africa",
+    "coordinates": {
+      "latitude": 9.145,
+      "longitude": 40.4897
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
+    "id": "fiji",
+    "iso": {
+      "alpha2": "FJ",
+      "alpha3": "FJI"
+    },
+    "name": {
+      "zh": "斐济",
+      "en": "Fiji"
+    },
+    "region": "oceania",
+    "coordinates": {
+      "latitude": -17.7134,
+      "longitude": 178.065
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
+    "id": "finland",
+    "iso": {
+      "alpha2": "FI",
+      "alpha3": "FIN"
+    },
+    "name": {
+      "zh": "芬兰",
+      "en": "Finland"
+    },
+    "region": "northern-europe",
+    "coordinates": {
+      "latitude": 61.9241,
+      "longitude": 25.7482
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
     }
   },
   {
@@ -669,6 +1150,43 @@
         "freshness": 50
       },
       "extractionNote": "Auto-extracted from website/countries-data.js v1.2.0"
+    }
+  },
+  {
+    "id": "guatemala",
+    "iso": {
+      "alpha2": "GT",
+      "alpha3": "GTM"
+    },
+    "name": {
+      "zh": "危地马拉",
+      "en": "Guatemala"
+    },
+    "region": "central-america",
+    "coordinates": {
+      "latitude": 15.7835,
+      "longitude": -90.2308
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
     }
   },
   {
@@ -928,6 +1446,43 @@
     }
   },
   {
+    "id": "italy",
+    "iso": {
+      "alpha2": "IT",
+      "alpha3": "ITA"
+    },
+    "name": {
+      "zh": "意大利",
+      "en": "Italy"
+    },
+    "region": "southern-europe",
+    "coordinates": {
+      "latitude": 41.8719,
+      "longitude": 12.5674
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
     "id": "japan",
     "iso": {
       "alpha2": "JP",
@@ -957,6 +1512,43 @@
         "freshness": 50
       },
       "extractionNote": "Auto-extracted from website/countries-data.js v1.2.0"
+    }
+  },
+  {
+    "id": "jordan",
+    "iso": {
+      "alpha2": "JO",
+      "alpha3": "JOR"
+    },
+    "name": {
+      "zh": "约旦",
+      "en": "Jordan"
+    },
+    "region": "middle-east",
+    "coordinates": {
+      "latitude": 30.5852,
+      "longitude": 36.2384
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
     }
   },
   {
@@ -1024,6 +1616,154 @@
     }
   },
   {
+    "id": "laos",
+    "iso": {
+      "alpha2": "LA",
+      "alpha3": "LAO"
+    },
+    "name": {
+      "zh": "老挝",
+      "en": "Laos"
+    },
+    "region": "southeast-asia",
+    "coordinates": {
+      "latitude": 19.8563,
+      "longitude": 102.4955
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
+    "id": "latvia",
+    "iso": {
+      "alpha2": "LV",
+      "alpha3": "LVA"
+    },
+    "name": {
+      "zh": "拉脱维亚",
+      "en": "Latvia"
+    },
+    "region": "northern-europe",
+    "coordinates": {
+      "latitude": 56.8796,
+      "longitude": 24.6032
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
+    "id": "lithuania",
+    "iso": {
+      "alpha2": "LT",
+      "alpha3": "LTU"
+    },
+    "name": {
+      "zh": "立陶宛",
+      "en": "Lithuania"
+    },
+    "region": "northern-europe",
+    "coordinates": {
+      "latitude": 55.1694,
+      "longitude": 23.8813
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
+    "id": "luxembourg",
+    "iso": {
+      "alpha2": "LU",
+      "alpha3": "LUX"
+    },
+    "name": {
+      "zh": "卢森堡",
+      "en": "Luxembourg"
+    },
+    "region": "western-europe",
+    "coordinates": {
+      "latitude": 49.8153,
+      "longitude": 6.1296
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
     "id": "macao",
     "iso": {
       "alpha2": "MA",
@@ -1053,6 +1793,43 @@
         "freshness": 50
       },
       "extractionNote": "Auto-extracted from website/countries-data.js v1.2.0"
+    }
+  },
+  {
+    "id": "madagascar",
+    "iso": {
+      "alpha2": "MG",
+      "alpha3": "MDG"
+    },
+    "name": {
+      "zh": "马达加斯加",
+      "en": "Madagascar"
+    },
+    "region": "africa",
+    "coordinates": {
+      "latitude": -18.7669,
+      "longitude": 46.8691
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
     }
   },
   {
@@ -1088,6 +1865,80 @@
     }
   },
   {
+    "id": "malta",
+    "iso": {
+      "alpha2": "MT",
+      "alpha3": "MLT"
+    },
+    "name": {
+      "zh": "马耳他",
+      "en": "Malta"
+    },
+    "region": "southern-europe",
+    "coordinates": {
+      "latitude": 35.9375,
+      "longitude": 14.3754
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
+    "id": "mauritius",
+    "iso": {
+      "alpha2": "MU",
+      "alpha3": "MUS"
+    },
+    "name": {
+      "zh": "毛里求斯",
+      "en": "Mauritius"
+    },
+    "region": "africa",
+    "coordinates": {
+      "latitude": -20.3484,
+      "longitude": 57.5522
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
     "id": "mexico",
     "iso": {
       "alpha2": "ME",
@@ -1117,6 +1968,43 @@
         "freshness": 50
       },
       "extractionNote": "Auto-extracted from website/countries-data.js v1.2.0"
+    }
+  },
+  {
+    "id": "moldova",
+    "iso": {
+      "alpha2": "MD",
+      "alpha3": "MDA"
+    },
+    "name": {
+      "zh": "摩尔多瓦",
+      "en": "Moldova"
+    },
+    "region": "eastern-europe",
+    "coordinates": {
+      "latitude": 47.4116,
+      "longitude": 28.3699
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:26:12.937Z",
+      "createdAt": "2026-07-06T16:26:12.937Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated"
     }
   },
   {
@@ -1152,6 +2040,43 @@
     }
   },
   {
+    "id": "montenegro",
+    "iso": {
+      "alpha2": "ME",
+      "alpha3": "MNE"
+    },
+    "name": {
+      "zh": "黑山",
+      "en": "Montenegro"
+    },
+    "region": "southern-europe",
+    "coordinates": {
+      "latitude": 42.7087,
+      "longitude": 19.3744
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:26:12.937Z",
+      "createdAt": "2026-07-06T16:26:12.937Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated"
+    }
+  },
+  {
     "id": "morocco",
     "iso": {
       "alpha2": "MA",
@@ -1181,6 +2106,80 @@
         "freshness": 50
       },
       "extractionNote": "Auto-extracted from website/countries-data.js v1.2.0"
+    }
+  },
+  {
+    "id": "myanmar",
+    "iso": {
+      "alpha2": "MM",
+      "alpha3": "MMR"
+    },
+    "name": {
+      "zh": "缅甸",
+      "en": "Myanmar"
+    },
+    "region": "southeast-asia",
+    "coordinates": {
+      "latitude": 21.9162,
+      "longitude": 95.956
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
+    "id": "namibia",
+    "iso": {
+      "alpha2": "NA",
+      "alpha3": "NAM"
+    },
+    "name": {
+      "zh": "纳米比亚",
+      "en": "Namibia"
+    },
+    "region": "africa",
+    "coordinates": {
+      "latitude": -22.9576,
+      "longitude": 18.4904
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
     }
   },
   {
@@ -1309,6 +2308,117 @@
         "freshness": 50
       },
       "extractionNote": "Auto-extracted from website/countries-data.js v1.2.0"
+    }
+  },
+  {
+    "id": "oman",
+    "iso": {
+      "alpha2": "OM",
+      "alpha3": "OMN"
+    },
+    "name": {
+      "zh": "阿曼",
+      "en": "Oman"
+    },
+    "region": "middle-east",
+    "coordinates": {
+      "latitude": 21.4735,
+      "longitude": 55.9754
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
+    "id": "pakistan",
+    "iso": {
+      "alpha2": "PK",
+      "alpha3": "PAK"
+    },
+    "name": {
+      "zh": "巴基斯坦",
+      "en": "Pakistan"
+    },
+    "region": "south-asia",
+    "coordinates": {
+      "latitude": 30.3753,
+      "longitude": 69.3451
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
+    "id": "panama",
+    "iso": {
+      "alpha2": "PA",
+      "alpha3": "PAN"
+    },
+    "name": {
+      "zh": "巴拿马",
+      "en": "Panama"
+    },
+    "region": "central-america",
+    "coordinates": {
+      "latitude": 8.538,
+      "longitude": -80.7821
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
     }
   },
   {
@@ -1504,6 +2614,117 @@
     }
   },
   {
+    "id": "rwanda",
+    "iso": {
+      "alpha2": "RW",
+      "alpha3": "RWA"
+    },
+    "name": {
+      "zh": "卢旺达",
+      "en": "Rwanda"
+    },
+    "region": "africa",
+    "coordinates": {
+      "latitude": -1.9403,
+      "longitude": 29.8739
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
+    "id": "saudi_arabia",
+    "iso": {
+      "alpha2": "SA",
+      "alpha3": "SAU"
+    },
+    "name": {
+      "zh": "沙特阿拉伯",
+      "en": "Saudi Arabia"
+    },
+    "region": "middle-east",
+    "coordinates": {
+      "latitude": 23.8859,
+      "longitude": 45.0792
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
+    "id": "serbia",
+    "iso": {
+      "alpha2": "RS",
+      "alpha3": "SRB"
+    },
+    "name": {
+      "zh": "塞尔维亚",
+      "en": "Serbia"
+    },
+    "region": "eastern-europe",
+    "coordinates": {
+      "latitude": 44.0165,
+      "longitude": 21.0059
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
     "id": "singapore",
     "iso": {
       "alpha2": "SG",
@@ -1533,6 +2754,80 @@
         "freshness": 50
       },
       "extractionNote": "Auto-extracted from website/countries-data.js v1.2.0"
+    }
+  },
+  {
+    "id": "slovakia",
+    "iso": {
+      "alpha2": "SK",
+      "alpha3": "SVK"
+    },
+    "name": {
+      "zh": "斯洛伐克",
+      "en": "Slovakia"
+    },
+    "region": "eastern-europe",
+    "coordinates": {
+      "latitude": 48.669,
+      "longitude": 19.699
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
+    "id": "slovenia",
+    "iso": {
+      "alpha2": "SI",
+      "alpha3": "SVN"
+    },
+    "name": {
+      "zh": "斯洛文尼亚",
+      "en": "Slovenia"
+    },
+    "region": "southern-europe",
+    "coordinates": {
+      "latitude": 46.1512,
+      "longitude": 14.9955
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
     }
   },
   {
@@ -1632,7 +2927,7 @@
     }
   },
   {
-    "id": "srilanka",
+    "id": "sri_lanka",
     "iso": {
       "alpha2": "LK",
       "alpha3": "LKA"
@@ -1650,17 +2945,22 @@
     "info": {},
     "status": "active",
     "metadata": {
-      "version": "2.0.0-extracted",
-      "lastUpdated": "2026-07-06T15:57:20.317Z",
-      "createdAt": "2026-01-01T00:00:00Z",
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:25:11.474Z",
+      "createdAt": "2026-07-06T16:25:11.474Z",
       "contributors": [],
-      "sources": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
       "dataQuality": {
-        "completeness": 20,
-        "accuracy": 60,
-        "freshness": 50
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
       },
-      "extractionNote": "Auto-extracted from website/countries-data.js v1.2.0"
+      "extractionNote": "Unified from srilanka/sri_lanka duplicates"
     }
   },
   {
@@ -1728,6 +3028,80 @@
     }
   },
   {
+    "id": "taiwan",
+    "iso": {
+      "alpha2": "TW",
+      "alpha3": "TWN"
+    },
+    "name": {
+      "zh": "台湾",
+      "en": "Taiwan"
+    },
+    "region": "east-asia",
+    "coordinates": {
+      "latitude": 23.6978,
+      "longitude": 120.9605
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
+    "id": "tanzania",
+    "iso": {
+      "alpha2": "TZ",
+      "alpha3": "TZA"
+    },
+    "name": {
+      "zh": "坦桑尼亚",
+      "en": "Tanzania"
+    },
+    "region": "africa",
+    "coordinates": {
+      "latitude": -6.369,
+      "longitude": 34.8888
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
+    }
+  },
+  {
     "id": "thailand",
     "iso": {
       "alpha2": "TH",
@@ -1757,6 +3131,43 @@
         "freshness": 50
       },
       "extractionNote": "Auto-extracted from website/countries-data.js v1.2.0"
+    }
+  },
+  {
+    "id": "tunisia",
+    "iso": {
+      "alpha2": "TN",
+      "alpha3": "TUN"
+    },
+    "name": {
+      "zh": "突尼斯",
+      "en": "Tunisia"
+    },
+    "region": "africa",
+    "coordinates": {
+      "latitude": 33.8869,
+      "longitude": 9.5375
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
     }
   },
   {
@@ -1853,6 +3264,43 @@
         "freshness": 50
       },
       "extractionNote": "Auto-extracted from website/countries-data.js v1.2.0"
+    }
+  },
+  {
+    "id": "uruguay",
+    "iso": {
+      "alpha2": "UY",
+      "alpha3": "URY"
+    },
+    "name": {
+      "zh": "乌拉圭",
+      "en": "Uruguay"
+    },
+    "region": "south-america",
+    "coordinates": {
+      "latitude": -32.5228,
+      "longitude": -55.7658
+    },
+    "color": "#3b82f6",
+    "info": {},
+    "status": "draft",
+    "metadata": {
+      "version": "2.0.0",
+      "lastUpdated": "2026-07-06T16:22:19.886Z",
+      "createdAt": "2026-07-06T16:22:19.886Z",
+      "contributors": [],
+      "sources": [
+        {
+          "name": "World Bank Open Data",
+          "type": "official"
+        }
+      ],
+      "dataQuality": {
+        "completeness": 15,
+        "accuracy": 70,
+        "freshness": 80
+      },
+      "extractionNote": "Auto-generated from standard reference data"
     }
   },
   {
