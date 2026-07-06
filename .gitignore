@@ -2,7 +2,7 @@
 .DS_Store
 Thumbs.db
 
-# Python
+# Python venv (only root-level, not project scripts/)
 __pycache__/
 *.pyc
 *.pyo
@@ -10,7 +10,8 @@ __pycache__/
 .venv/
 venv/
 Lib/
-Scripts/
+/Scripts/
+!/scripts/
 pyvenv.cfg
 
 # IDE
@@ -53,10 +54,3 @@ build-liquid-glass/
 build-temp/
 build-temp2/
 build-v2/
-PhotoCrypt-NFT/
-drive-game/
-overwatch-assistant/
-taiji-gh/
-taiji-opt/
-texas-holdem-calculator/
-openpoker/
