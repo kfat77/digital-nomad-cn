@@ -214,6 +214,35 @@ curl -s <span class="string">"https://kfat77.github.io/digital-nomad-cn/api/stat
         </div>
     </section>
 
+    <section class="api-section" id="interactive-explorer">
+        <h2>🧪 Interactive API Explorer</h2>
+        <p>Test API endpoints directly in your browser. Select an endpoint, click the button, and see the live response.</p>
+        
+        <div class="endpoint-card" style="margin-top: 24px;">
+            <h3>Select Endpoint</h3>
+            <select id="api-endpoint-select" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 14px; background: var(--bg); color: var(--foreground); margin-bottom: 16px;">
+                <option value="https://kfat77.github.io/digital-nomad-cn/api/countries.json">GET /api/countries.json — 60 Countries</option>
+                <option value="https://kfat77.github.io/digital-nomad-cn/api/cities.json">GET /api/cities.json — 122 Cities</option>
+                <option value="https://kfat77.github.io/digital-nomad-cn/api/visas.json">GET /api/visas.json — Visa Data</option>
+                <option value="https://kfat77.github.io/digital-nomad-cn/api/stats.json">GET /api/stats.json — Statistics</option>
+                <option value="https://kfat77.github.io/digital-nomad-cn/api/manifest.json">GET /api/manifest.json — API Manifest</option>
+                <option value="https://kfat77.github.io/digital-nomad-cn/api/articles.json">GET /api/articles.json — Article Index</option>
+            </select>
+            <button id="try-api-btn" class="btn btn-primary" style="padding: 10px 24px; font-size: 14px; cursor: pointer; border: none; border-radius: var(--radius); background: var(--accent); color: white; font-weight: 600;">
+                🚀 Send Request
+            </button>
+            <div id="api-response-status" style="margin-top: 12px; font-size: 14px; color: var(--muted); min-height: 20px;"></div>
+        </div>
+        
+        <div id="api-response-panel" style="margin-top: 16px; display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-weight: 600; font-size: 14px;">Response</span>
+                <button id="copy-response-btn" style="background: var(--bg-card); border: 1px solid var(--border); padding: 4px 12px; border-radius: var(--radius-sm); font-size: 12px; cursor: pointer; color: var(--muted);">Copy JSON</button>
+            </div>
+            <pre id="api-response-body" class="code-block" style="max-height: 400px; overflow-y: auto; white-space: pre-wrap; word-break: break-word;"></pre>
+        </div>
+    </section>
+
     <section class="api-section" style="background: var(--bg-hero); padding: 60px 24px; margin-top: 0;">
         <h2>License</h2>
         <p>Data is shared under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</p>
@@ -243,6 +272,45 @@ curl -s <span class="string">"https://kfat77.github.io/digital-nomad-cn/api/stat
         btn.classList.add('active');
         document.getElementById(panelId).classList.add('active');
     }
+
+    // Interactive API Explorer
+    document.getElementById('try-api-btn').addEventListener('click', async function() {
+        const url = document.getElementById('api-endpoint-select').value;
+        const statusDiv = document.getElementById('api-response-status');
+        const panel = document.getElementById('api-response-panel');
+        const body = document.getElementById('api-response-body');
+        
+        statusDiv.textContent = '⏳ Sending request...';
+        panel.style.display = 'none';
+        
+        try {
+            const start = performance.now();
+            const response = await fetch(url);
+            const latency = Math.round(performance.now() - start);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            
+            const data = await response.json();
+            const totalItems = data.data ? data.data.length : (data.total || 'N/A');
+            
+            statusDiv.innerHTML = `✅ <strong>Success</strong> — HTTP ${response.status} · ${latency}ms · ${totalItems} records · ${JSON.stringify(data).length} bytes`;
+            body.textContent = JSON.stringify(data, null, 2);
+            panel.style.display = 'block';
+        } catch (err) {
+            statusDiv.innerHTML = `❌ <strong>Failed</strong> — ${err.message}`;
+            panel.style.display = 'none';
+        }
+    });
+
+    document.getElementById('copy-response-btn').addEventListener('click', function() {
+        const body = document.getElementById('api-response-body').textContent;
+        navigator.clipboard.writeText(body).then(() => {
+            this.textContent = '✓ Copied';
+            setTimeout(() => this.textContent = 'Copy JSON', 2000);
+        });
+    });
     </script>
 </body>
 </html>
