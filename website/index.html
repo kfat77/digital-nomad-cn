@@ -21,7 +21,12 @@
     <link rel="stylesheet" href="style.css?v=3" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap"></noscript>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -103,16 +108,34 @@
     </header>
 
     <script>
-        // Fetch GitHub star count
-        fetch('https://api.github.com/repos/kfat77/digital-nomad-cn')
-            .then(r => r.json())
-            .then(data => {
-                const stars = data.stargazers_count;
-                if (stars !== undefined) {
-                    document.getElementById('github-stars').textContent = `⭐ ${stars}`;
-                }
-            })
-            .catch(() => {});
+        // Fetch GitHub star count (deferred to idle time)
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => {
+                fetch('https://api.github.com/repos/kfat77/digital-nomad-cn')
+                    .then(r => r.json())
+                    .then(data => {
+                        const stars = data.stargazers_count;
+                        if (stars !== undefined) {
+                            const el = document.getElementById('github-stars');
+                            if (el) el.textContent = '⭐ ' + stars;
+                        }
+                    })
+                    .catch(() => {});
+            }, { timeout: 5000 });
+        } else {
+            setTimeout(() => {
+                fetch('https://api.github.com/repos/kfat77/digital-nomad-cn')
+                    .then(r => r.json())
+                    .then(data => {
+                        const stars = data.stargazers_count;
+                        if (stars !== undefined) {
+                            const el = document.getElementById('github-stars');
+                            if (el) el.textContent = '⭐ ' + stars;
+                        }
+                    })
+                    .catch(() => {});
+            }, 2000);
+        }
     </script>
 
     <!-- Hero -->
@@ -592,7 +615,7 @@
     </footer>
 
     <script src="countries-data.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer fetchpriority="low"></script>
     <script src="app.js" defer></script>
     <script>
     if ('serviceWorker' in navigator) {

@@ -498,6 +498,8 @@ a {
    ============================================ */
 
 .country-grid-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
     padding: 100px 24px;
     background: var(--bg);
 }
@@ -718,6 +720,8 @@ a {
    ============================================ */
 
 .trending-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
     padding: 100px 24px;
     background: var(--bg-hero);
 }
@@ -798,6 +802,8 @@ a {
    ============================================ */
 
 .new-arrivals-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
     padding: 100px 24px;
     background: var(--bg);
 }
@@ -860,6 +866,8 @@ a {
    ============================================ */
 
 .tools-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
     padding: 100px 24px;
     background: var(--bg-hero);
 }
@@ -929,6 +937,8 @@ a {
    ============================================ */
 
 .modules {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
     padding: 100px 24px;
     background: var(--bg);
 }
@@ -1097,6 +1107,8 @@ a {
    ============================================ */
 
 .quicknav {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
     padding: 100px 24px;
     background: var(--bg-hero);
 }
@@ -1153,6 +1165,8 @@ a {
    ============================================ */
 
 .footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
     padding: 80px 24px 40px;
     background: var(--bg-hero);
     border-top: 1px solid var(--border);
@@ -1406,6 +1420,8 @@ a {
    ============================================ */
 
 .latest-articles-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
     padding: 100px 24px;
     background: var(--bg);
 }
