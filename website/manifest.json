@@ -1,7 +1,7 @@
 {
   "name": "数字游民指南 — Digital Nomad Guide",
-  "short_name": "Digital Nomad Guide",
-  "description": "42-country digital nomad data platform. Cost of living, visa policies, internet speed, safety index — all open source, offline-ready.",
+  "short_name": "DN Guide",
+  "description": "60-country digital nomad data platform. Cost of living, visa policies, internet speed, safety index — all open source, offline-ready.",
   "start_url": "/digital-nomad-cn/",
   "display": "standalone",
   "background_color": "#0a0a0f",
@@ -10,6 +10,7 @@
   "scope": "/digital-nomad-cn/",
   "categories": ["travel", "productivity", "utilities"],
   "lang": "zh-CN",
+  "dir": "ltr",
   "icons": [
     {
       "src": "icons/icon-192.png",
@@ -31,8 +32,48 @@
       "type": "image/png",
       "form_factor": "wide",
       "label": "Homepage with 3D globe"
+    },
+    {
+      "src": "images/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile country list"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "国家数据库",
+      "short_name": "国家",
+      "description": "浏览 60 国数字游民数据",
+      "url": "/digital-nomad-cn/country/",
+      "icons": [{ "src": "icons/shortcut-country.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "智能推荐",
+      "short_name": "推荐",
+      "description": "找到最适合你的目的地",
+      "url": "/digital-nomad-cn/recommend/",
+      "icons": [{ "src": "icons/shortcut-recommend.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "签证数据库",
+      "short_name": "签证",
+      "description": "查看各国签证政策",
+      "url": "/digital-nomad-cn/visa/",
+      "icons": [{ "src": "icons/shortcut-visa.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "AI 助手",
+      "short_name": "AI",
+      "description": "智能签证咨询",
+      "url": "/digital-nomad-cn/assistant/",
+      "icons": [{ "src": "icons/shortcut-ai.png", "sizes": "96x96" }]
     }
   ],
   "related_applications": [],
-  "prefer_related_applications": false
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
 }

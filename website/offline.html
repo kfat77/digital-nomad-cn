@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>离线模式 — 数字游民指南</title>
+    <meta name="description" content="你已离线，但核心数据仍可用">
+    <link rel="stylesheet" href="style.css?v=2">
+    <style>
+        .offline-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; background: var(--bg-hero); }
+        .offline-card { max-width: 480px; text-align: center; padding: 48px 32px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-card); }
+        .offline-icon { font-size: 64px; margin-bottom: 16px; }
+        .offline-card h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .offline-card p { color: var(--muted); margin-bottom: 24px; line-height: 1.7; }
+        .offline-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .offline-actions a { padding: 10px 20px; border-radius: var(--radius); font-size: 14px; font-weight: 600; text-decoration: none; transition: var(--transition); }
+        .offline-actions .btn-primary { background: var(--foreground); color: var(--foreground-inverse); }
+        .offline-actions .btn-secondary { background: var(--bg-card); color: var(--foreground); border: 1px solid var(--border); }
+        .offline-data { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
+        .offline-data h3 { font-size: 14px; font-weight: 600; color: var(--muted); margin-bottom: 12px; }
+        .offline-data ul { list-style: none; padding: 0; margin: 0; }
+        .offline-data li { padding: 6px 0; font-size: 14px; color: var(--foreground); }
+        .offline-data li::before { content: '✓ '; color: #16a34a; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="offline-page">
+        <div class="offline-card">
+            <div class="offline-icon">📡</div>
+            <h1>你已离线</h1>
+            <p>别担心！数字游民指南支持离线访问。<br>你仍然可以浏览已缓存的国家数据、签证信息和对比工具。</p>
+            <div class="offline-actions">
+                <a href="./" class="btn-primary">返回首页</a>
+                <a href="country/" class="btn-secondary">国家数据库</a>
+                <a href="compare/" class="btn-secondary">国家对比</a>
+            </div>
+            <div class="offline-data">
+                <h3>离线可用内容</h3>
+                <ul>
+                    <li>60 国基础数据与评分</li>
+                    <li>签证政策概览</li>
+                    <li>国家对比工具</li>
+                    <li>智能推荐引擎</li>
+                    <li>搜索功能（已缓存数据）</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
