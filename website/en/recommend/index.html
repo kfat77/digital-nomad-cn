@@ -3,371 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Nomad Destination Recommender — Smart Match Based on 42 Countries</title>
-    <meta name="description" content="Answer 5 questions to get your best digital nomad destination recommendation. Smart matching engine based on 42-country data covering cost of living, visa policies, internet speed, and safety.">
-    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/en/recommend/"><link rel="stylesheet" href="../../style.css?v=2">
-    <link rel="manifest" href="../../manifest.json">
-    <link rel="icon" type="image/svg+xml" href="../../icons/favicon.svg">
-    <link rel="apple-touch-icon" href="../../icons/icon-192.png">
-    <meta name="theme-color" content="#3b82f6">
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <title>Smart Country Recommender — Find Your Ideal Digital Nomad Destination</title>
+    <meta name="description" content="AI-powered recommendation engine based on 60 countries' real data. Answer 5 questions to find your ideal digital nomad destination.">
+    <meta property="og:title" content="Smart Country Recommender">
+    <meta property="og:description" content="60-country data-driven recommendation engine">
+    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/en/recommend/">
+    <link rel="stylesheet" href="../../style.css?v=2">
     <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/recommend/">
     <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/recommend/">
     <link rel="alternate" hreflang="x-default" href="https://kfat77.github.io/digital-nomad-cn/recommend/">
     <style>
-        .recommend-hero {
-            background: var(--bg-hero);
-            border-bottom: 1px solid var(--border);
-            padding: 140px 0 80px;
-            text-align: center;
-        }
-        .recommend-hero h1 {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 16px;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-        }
-        .recommend-hero .hero-desc {
-            font-size: 18px;
-            color: var(--muted);
-            max-width: 560px;
-            margin: 0 auto 32px;
-            line-height: 1.7;
-        }
-        .recommend-section {
-            padding: 60px 24px;
-            max-width: 800px;
-            margin: 0 auto;
-            min-height: 500px;
-        }
-        .step-indicator {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 40px;
-        }
-        .step-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--border);
-            transition: var(--transition);
-            position: relative;
-        }
-        .step-dot.active {
-            background: var(--accent);
-            box-shadow: 0 0 0 4px var(--accent-light);
-        }
-        .step-dot.completed {
-            background: var(--accent);
-        }
-        .step-dot::after {
-            content: attr(data-step);
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 11px;
-            color: var(--muted);
-            font-weight: 600;
-            white-space: nowrap;
-        }
-        .step-dot.active::after {
-            color: var(--accent);
-        }
-        .quiz-container {
-            position: relative;
-        }
-        .quiz-step {
-            display: none;
-            animation: fadeInUp 0.4s ease forwards;
-        }
-        .quiz-step.active {
-            display: block;
-        }
-        .quiz-step h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            text-align: center;
-        }
-        .quiz-step .step-desc {
-            font-size: 14px;
-            color: var(--muted);
-            text-align: center;
-            margin-bottom: 32px;
-        }
-        .option-grid {
-            display: grid;
-            gap: 12px;
-        }
-        .option-btn {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 20px 24px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            cursor: pointer;
-            transition: var(--transition);
-            text-align: left;
-            font-family: var(--font-sans);
-            font-size: 15px;
-            color: var(--foreground);
-            width: 100%;
-        }
-        .option-btn:hover {
-            border-color: var(--accent);
-            background: var(--accent-light);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-card);
-        }
-        .option-btn .option-icon {
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-        .option-btn .option-text {
-            font-weight: 600;
-        }
-        .option-btn .option-sub {
-            font-size: 13px;
-            color: var(--muted);
-            font-weight: 400;
-            display: block;
-            margin-top: 2px;
-        }
-        .quiz-nav {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 32px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border-light);
-        }
-        .quiz-nav-btn {
-            padding: 10px 24px;
-            border-radius: var(--radius-full);
-            border: 1px solid var(--border);
-            background: var(--bg);
-            color: var(--muted);
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            font-family: var(--font-sans);
-        }
-        .quiz-nav-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        .quiz-nav-btn.primary {
-            background: var(--foreground);
-            color: var(--foreground-inverse);
-            border-color: var(--foreground);
-        }
-        .quiz-nav-btn.primary:hover {
-            background: #333;
-            border-color: #333;
-            color: var(--foreground-inverse);
-        }
-        .quiz-nav-btn:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-        }
-        .results-section {
-            padding: 60px 24px 100px;
-            max-width: 1000px;
-            margin: 0 auto;
-            display: none;
-        }
-        .results-section.visible {
-            display: block;
-            animation: fadeInUp 0.5s ease forwards;
-        }
-        .results-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .results-header h2 {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-        .results-header p {
-            color: var(--muted);
-            font-size: 16px;
-        }
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 48px;
-        }
-        .result-card {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 24px;
-            transition: var(--transition);
-            text-decoration: none;
-            color: var(--foreground);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-        .result-card:hover {
-            box-shadow: var(--shadow-card-hover);
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
-        .result-card .match-badge {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            padding: 4px 12px;
-            border-radius: var(--radius-full);
-            background: var(--accent);
-            color: #fff;
-            font-size: 13px;
-            font-weight: 700;
-        }
-        .result-card-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-            padding-right: 60px;
-        }
-        .result-card-flag {
-            font-size: 36px;
-            line-height: 1;
-        }
-        .result-card-meta h4 {
-            font-size: 17px;
-            font-weight: 700;
-            margin: 0;
-        }
-        .result-card-meta .subtitle {
-            font-size: 13px;
-            color: var(--muted);
-        }
-        .result-reasons {
-            list-style: none;
-            margin: 0 0 16px;
-            padding: 0;
-            flex: 1;
-        }
-        .result-reasons li {
-            font-size: 13px;
-            color: var(--muted);
-            padding: 6px 0;
-            padding-left: 18px;
-            position: relative;
-            line-height: 1.5;
-        }
-        .result-reasons li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 12px;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--accent);
-            opacity: 0.6;
-        }
-        .result-metrics {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            padding-top: 12px;
-            border-top: 1px solid var(--border-light);
-        }
-        .result-metric {
-            font-size: 12px;
-            color: var(--muted);
-            background: var(--bg-card);
-            padding: 4px 10px;
-            border-radius: var(--radius-sm);
-        }
-        .result-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            margin-top: 12px;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--accent);
-            text-decoration: none;
-        }
-        .result-link:hover {
-            color: var(--accent-hover);
-            gap: 8px;
-        }
-        .comparison-section {
-            margin-top: 48px;
-        }
-        .comparison-section h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-        }
-        .comparison-table th,
-        .comparison-table td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-light);
-        }
-        .comparison-table th {
-            font-weight: 600;
-            color: var(--muted);
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            background: var(--bg-card);
-        }
-        .comparison-table td {
-            color: var(--foreground);
-        }
-        .comparison-table .col-country {
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .comparison-table .col-match {
-            font-weight: 700;
-            color: var(--accent);
-        }
-        .comparison-table .highlight-best {
-            background: var(--accent-light);
-            color: var(--accent);
-            font-weight: 700;
-        }
-        .action-bar {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-        @media (max-width: 640px) {
-            .recommend-hero { padding: 100px 0 60px; }
-            .recommend-hero h1 { font-size: 32px; }
-            .results-grid { grid-template-columns: 1fr; }
-            .comparison-table { font-size: 13px; }
-            .comparison-table th, .comparison-table td { padding: 8px 10px; }
-        }
+    .recommend-page { padding: 100px 0 80px; background: var(--bg-hero); min-height: 100vh; }
+    .recommend-container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .recommend-header { text-align: center; margin-bottom: 40px; }
+    .recommend-header h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .recommend-header p { color: var(--muted); font-size: 15px; }
+    .recommend-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: var(--radius-full); background: var(--accent-light); color: var(--accent); font-size: 13px; font-weight: 600; margin-bottom: 16px; }
+    .quiz-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow-card); }
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; animation: fadeInUp 0.4s ease-out; }
+    .quiz-step h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .quiz-step .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+    .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+    .quiz-option { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: var(--transition); background: var(--bg-card); }
+    .quiz-option:hover { border-color: var(--accent); background: var(--accent-light); }
+    .quiz-option.selected { border-color: var(--accent); background: var(--accent-light); }
+    .quiz-option .opt-icon { font-size: 24px; flex-shrink: 0; }
+    .quiz-option .opt-text { flex: 1; }
+    .quiz-option .opt-text strong { display: block; font-size: 15px; font-weight: 600; }
+    .quiz-option .opt-text span { font-size: 13px; color: var(--muted); }
+    .quiz-nav { display: flex; justify-content: space-between; margin-top: 24px; }
+    .quiz-btn { padding: 12px 24px; border-radius: var(--radius); font-size: 14px; font-weight: 600; cursor: pointer; transition: var(--transition); border: none; }
+    .quiz-btn-primary { background: var(--foreground); color: var(--foreground-inverse); }
+    .quiz-btn-secondary { background: var(--bg-card); color: var(--muted); border: 1px solid var(--border); }
+    .quiz-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .quiz-progress { display: flex; gap: 6px; margin-bottom: 24px; }
+    .quiz-progress-dot { flex: 1; height: 4px; border-radius: 2px; background: var(--border); transition: var(--transition); }
+    .quiz-progress-dot.active { background: var(--accent); }
+    .quiz-progress-dot.completed { background: var(--foreground); }
+    .results-card { display: none; }
+    .results-card.active { display: block; animation: fadeInUp 0.5s ease-out; }
+    .match-card { display: flex; gap: 16px; padding: 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; transition: var(--transition); text-decoration: none; color: inherit; }
+    .match-card:hover { box-shadow: var(--shadow-card-hover); border-color: var(--accent); transform: translateY(-2px); }
+    .match-rank { width: 40px; height: 40px; border-radius: var(--radius); background: var(--foreground); color: var(--foreground-inverse); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; flex-shrink: 0; }
+    .match-rank.top3 { background: var(--accent); }
+    .match-info { flex: 1; }
+    .match-info h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .match-score { font-size: 13px; color: var(--accent); font-weight: 600; }
+    .match-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .match-tag { padding: 3px 10px; border-radius: var(--radius-full); font-size: 12px; font-weight: 500; }
+    .match-tag.pos { background: rgba(34,197,94,0.12); color: #16a34a; }
+    .match-tag.neu { background: rgba(100,116,139,0.12); color: #475569; }
+    .match-tag.neg { background: rgba(239,68,68,0.12); color: #dc2626; }
+    .match-reason { font-size: 13px; color: var(--muted); margin-top: 8px; line-height: 1.6; }
+    .results-actions { display: flex; gap: 10px; margin-top: 24px; justify-content: center; flex-wrap: wrap; }
+    .results-actions a, .results-actions button { padding: 10px 20px; border-radius: var(--radius); font-size: 14px; font-weight: 600; cursor: pointer; transition: var(--transition); text-decoration: none; border: none; }
+    .btn-primary { background: var(--foreground); color: var(--foreground-inverse); }
+    .btn-secondary { background: var(--bg-card); color: var(--foreground); border: 1px solid var(--border); }
+    @media (max-width: 640px) { .recommend-header h1 { font-size: 24px; } .quiz-card { padding: 20px; } .match-card { flex-direction: column; } }
     </style>
 </head>
 <body>
@@ -375,396 +68,345 @@
         <div class="header-inner">
             <a href="../" class="logo"><span class="logo-icon">◈</span><span>Digital Nomad Guide</span></a>
             <nav class="main-nav">
-                <a href="../">Home</a><a href="../countries/">Countries</a><a href="../visas/">Visas</a><a href="../cities/">Cities</a>
-                <a href="../articles/">Articles</a>
-                <a href="../compare/">Compare</a><a href="../routes/">Routes</a><a href="../search/">Search</a><a href="../assistant/">Assistant</a><a href="./">Recommend</a>
+                <a href="../countries/">Countries</a>
+                <a href="../visa/">Visas</a>
+                <a href="../cities/">Cities</a>
+                <a href="../compare/">Compare</a>
+                <a href="../assistant/">AI Assistant</a>
+                <a href="./">Recommend</a>
             </nav>
             <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
-            <a href="../../recommend/" class="github-btn" style="margin-left:8px;background:rgba(59,130,246,0.15);color:#3b82f6;">中文</a>
         </div>
     </header>
 
-    <section class="recommend-hero">
-        <div class="hero-content">
-            <div class="hero-tag"><span class="hero-tag-dot"></span>Smart Match · 5 Questions</div>
-            <h1 class="hero-title">Find Your Best<br><span class="hero-title-accent">Digital Nomad Destination</span></h1>
-            <p class="hero-desc">Answer 5 questions, we recommend your best destination based on 42-country data</p>
-            <div class="hero-btns">
-                <a href="#questionnaire" class="btn btn-primary">Start Recommendation</a>
-                <a href="../compare/" class="btn btn-secondary">Country Comparison</a>
+    <main class="recommend-page">
+        <div class="recommend-container">
+            <div class="recommend-header">
+                <div class="recommend-badge">🎯 AI-Powered · 60 Countries · Real-Time</div>
+                <h1>Find Your Ideal Digital Nomad Destination</h1>
+                <p>Answer 5 questions, get data-driven recommendations</p>
             </div>
-        </div>
-    </section>
 
-    <section class="recommend-section" id="questionnaire">
-        <div class="step-indicator" id="stepIndicator">
-            <div class="step-dot active" data-step="1"></div>
-            <div class="step-dot" data-step="2"></div>
-            <div class="step-dot" data-step="3"></div>
-            <div class="step-dot" data-step="4"></div>
-            <div class="step-dot" data-step="5"></div>
-        </div>
-        <div class="quiz-container" id="quizContainer">
-            <div class="quiz-step active" data-step="1">
-                <h3>💰 What's Your Monthly Budget?</h3>
-                <p class="step-desc">Lower budget = prefer countries with lower cost of living</p>
-                <div class="option-grid">
-                    <button class="option-btn" onclick="selectOption(1, 'low')"><span class="option-icon">💰</span><div><span class="option-text">Low Budget</span><span class="option-sub">&lt; 1000 USD / month</span></div></button>
-                    <button class="option-btn" onclick="selectOption(1, 'medium')"><span class="option-icon">💰💰</span><div><span class="option-text">Medium Budget</span><span class="option-sub">1000 - 2000 USD / month</span></div></button>
-                    <button class="option-btn" onclick="selectOption(1, 'high')"><span class="option-icon">💰💰💰</span><div><span class="option-text">High Budget</span><span class="option-sub">&gt; 2000 USD / month</span></div></button>
-                </div>
-            </div>
-            <div class="quiz-step" data-step="2">
-                <h3>🛂 What's Your Visa Preference?</h3>
-                <p class="step-desc">Prioritize the easiest entry method for you</p>
-                <div class="option-grid">
-                    <button class="option-btn" onclick="selectOption(2, 'visa_free')"><span class="option-icon">🛂</span><div><span class="option-text">Visa-Free Priority</span><span class="option-sub">Enter with passport only, most convenient</span></div></button>
-                    <button class="option-btn" onclick="selectOption(2, 'evisa')"><span class="option-icon">📋</span><div><span class="option-text">eVisa Acceptable</span><span class="option-sub">Apply online, no embassy visit needed</span></div></button>
-                    <button class="option-btn" onclick="selectOption(2, 'voa')"><span class="option-icon">🛬</span><div><span class="option-text">Visa on Arrival Acceptable</span><span class="option-sub">Apply at the airport upon arrival</span></div></button>
-                    <button class="option-btn" onclick="selectOption(2, 'any')"><span class="option-icon">✅</span><div><span class="option-text">Any</span><span class="option-sub">No restriction, visa is not a deciding factor</span></div></button>
-                </div>
-            </div>
-            <div class="quiz-step" data-step="3">
-                <h3>🌐 How Important Is Internet Speed?</h3>
-                <p class="step-desc">Remote work requirements for network stability</p>
-                <div class="option-grid">
-                    <button class="option-btn" onclick="selectOption(3, 'basic')"><span class="option-icon">🌐</span><div><span class="option-text">Basic</span><span class="option-sub">&lt; 50 Mbps, emails and documents</span></div></button>
-                    <button class="option-btn" onclick="selectOption(3, 'important')"><span class="option-icon">🌐🌐</span><div><span class="option-text">Important</span><span class="option-sub">50 - 100 Mbps, smooth video calls</span></div></button>
-                    <button class="option-btn" onclick="selectOption(3, 'fast')"><span class="option-icon">🌐🌐🌐</span><div><span class="option-text">Must Be Fast</span><span class="option-sub">&gt; 100 Mbps, HD meetings and large file transfers</span></div></button>
-                </div>
-            </div>
-            <div class="quiz-step" data-step="4">
-                <h3>🛡️ What's Your Safety Requirement?</h3>
-                <p class="step-desc">Higher safety index = better public order</p>
-                <div class="option-grid">
-                    <button class="option-btn" onclick="selectOption(4, '60')"><span class="option-icon">🛡️</span><div><span class="option-text">Generally Safe</span><span class="option-sub">Safety index 60+, acceptable</span></div></button>
-                    <button class="option-btn" onclick="selectOption(4, '70')"><span class="option-icon">🛡️🛡️</span><div><span class="option-text">Relatively Safe</span><span class="option-sub">Safety index 70+, fairly reassuring</span></div></button>
-                    <button class="option-btn" onclick="selectOption(4, '80')"><span class="option-icon">🛡️🛡️🛡️</span><div><span class="option-text">Must Be Very Safe</span><span class="option-sub">Safety index 80+, public safety is top priority</span></div></button>
-                </div>
-            </div>
-            <div class="quiz-step" data-step="5">
-                <h3>🌍 Do You Have a Region Preference?</h3>
-                <p class="step-desc">Choose a region you're interested in, or consider all</p>
-                <div class="option-grid" style="grid-template-columns: repeat(2, 1fr);">
-                    <button class="option-btn" onclick="selectOption(5, 'any')"><span class="option-icon">🌍</span><div><span class="option-text">Any</span><span class="option-sub">Global recommendations, no region limit</span></div></button>
-                    <button class="option-btn" onclick="selectOption(5, 'asia')"><span class="option-icon">🌏</span><div><span class="option-text">Asia</span><span class="option-sub">Southeast Asia, East Asia, Central Asia, South Asia</span></div></button>
-                    <button class="option-btn" onclick="selectOption(5, 'europe')"><span class="option-icon">🇪🇺</span><div><span class="option-text">Europe</span><span class="option-sub">EU, Schengen, Nordic, Eastern Europe</span></div></button>
-                    <button class="option-btn" onclick="selectOption(5, 'americas_north')"><span class="option-icon">🌎</span><div><span class="option-text">North America</span><span class="option-sub">USA, Canada, Mexico</span></div></button>
-                    <button class="option-btn" onclick="selectOption(5, 'americas_south')"><span class="option-icon">🌎</span><div><span class="option-text">South America</span><span class="option-sub">Brazil, Argentina, Chile, etc.</span></div></button>
-                    <button class="option-btn" onclick="selectOption(5, 'oceania')"><span class="option-icon">🌊</span><div><span class="option-text">Oceania</span><span class="option-sub">Australia, New Zealand</span></div></button>
-                    <button class="option-btn" onclick="selectOption(5, 'africa')"><span class="option-icon">🌍</span><div><span class="option-text">Africa</span><span class="option-sub">Morocco, etc.</span></div></button>
-                    <button class="option-btn" onclick="selectOption(5, 'middle_east')"><span class="option-icon">🕌</span><div><span class="option-text">Middle East</span><span class="option-sub">UAE, etc.</span></div></button>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="quiz-card" id="quizCard">
+                <div class="quiz-progress" id="quizProgress"></div>
 
-    <section class="results-section" id="resultsSection">
-        <div class="results-header">
-            <h2>🎯 Recommended Results</h2>
-            <p id="resultsSummary">Based on your preferences, here are the best digital nomad destinations for you</p>
-        </div>
-        <div class="results-grid" id="resultsGrid"></div>
-        <div class="comparison-section" id="comparisonSection">
-            <h3>📊 Top 3 Comparison</h3>
-            <div style="overflow-x: auto;">
-                <table class="comparison-table" id="comparisonTable">
-                    <thead><tr><th>Country</th><th>Match</th><th>💰 Cost of Living</th><th>🌐 Internet Speed</th><th>🛡️ Safety</th><th>Visa</th></tr></thead>
-                    <tbody id="comparisonBody"></tbody>
-                </table>
+                <div class="quiz-step active" data-step="0">
+                    <h3>💰 What's your monthly budget?</h3>
+                    <p class="subtitle">Including rent, food, transport, entertainment</p>
+                    <div class="quiz-options">
+                        <label class="quiz-option" data-value="budget_low">
+                            <span class="opt-icon">🍜</span>
+                            <span class="opt-text"><strong>&lt; $800 / month</strong><span>Backpacker style, shared apt, street food</span></span>
+                        </label>
+                        <label class="quiz-option" data-value="budget_medium">
+                            <span class="opt-icon">🏠</span>
+                            <span class="opt-text"><strong>$800 – $1,500 / month</strong><span>Private apt, occasional dining out</span></span>
+                        </label>
+                        <label class="quiz-option" data-value="budget_high">
+                            <span class="opt-icon">✈️</span>
+                            <span class="opt-text"><strong>$1,500 – $3,000 / month</strong><span>Quality housing, frequent dining</span></span>
+                        </label>
+                        <label class="quiz-option" data-value="budget_luxury">
+                            <span class="opt-icon">🏖️</span>
+                            <span class="opt-text"><strong>&gt; $3,000 / month</strong><span>No budget constraints, best experience</span></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="quiz-step" data-step="1">
+                    <h3>🛂 Visa preference?</h3>
+                    <p class="subtitle">How much visa hassle are you willing to accept?</p>
+                    <div class="quiz-options">
+                        <label class="quiz-option" data-value="visa_free">
+                            <span class="opt-icon">🆓</span>
+                            <span class="opt-text"><strong>Visa-free only</strong><span>Show up without paperwork</span></span>
+                        </label>
+                        <label class="quiz-option" data-value="visa_easy">
+                            <span class="opt-icon">📱</span>
+                            <span class="opt-text"><strong>E-visa OK</strong><span>Online application, quick approval</span></span>
+                        </label>
+                        <label class="quiz-option" data-value="visa_dn">
+                            <span class="opt-icon">📝</span>
+                            <span class="opt-text"><strong>Digital Nomad Visa优先</strong><span>Willing to apply for long-term DN visa</span></span>
+                        </label>
+                        <label class="quiz-option" data-value="visa_any">
+                            <span class="opt-icon">🌍</span>
+                            <span class="opt-text"><strong>No preference</strong><span>Anything worthwhile is fine</span></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="quiz-step" data-step="2">
+                    <h3>🌡️ Preferred climate?</h3>
+                    <p class="subtitle">Your ideal year-round temperature</p>
+                    <div class="quiz-options">
+                        <label class="quiz-option" data-value="climate_hot">
+                            <span class="opt-icon">☀️</span>
+                            <span class="opt-text"><strong>Tropical / Hot</strong><span>25°C+, beaches, sunshine</span></span>
+                        </label>
+                        <label class="quiz-option" data-value="climate_warm">
+                            <span class="opt-icon">🌴</span>
+                            <span class="opt-text"><strong>Warm</strong><span>18-25°C, spring-like year round</span></span>
+                        </label>
+                        <label class="quiz-option" data-value="climate_mild">
+                            <span class="opt-icon">🍂</span>
+                            <span class="opt-text"><strong>Mild</strong><span>10-20°C, distinct seasons</span></span>
+                        </label>
+                        <label class="quiz-option" data-value="climate_cold">
+                            <span class="opt-icon">❄️</span>
+                            <span class="opt-text"><strong>Cool / Cold</strong><span>&lt;15°C, winter and snow</span></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="quiz-step" data-step="3">
+                    <h3>⭐ What's your top priority?</h3>
+                    <p class="subtitle">The one thing you cannot compromise on</p>
+                    <div class="quiz-options">
+                        <label class="quiz-option" data-value="prio_safety">
+                            <span class="opt-icon">🛡️</span>
+                            <span class="opt-text"><strong>Safety</strong><span>Walk alone at night, zero worry</span></span>
+                        </label>
+                        <label class="quiz-option" data-value="prio_internet">
+                            <span class="opt-icon">🌐</span>
+                            <span class="opt-text"><strong>Internet Speed</strong><span>Smooth video calls, no lag</span></span>
+                        </label>
+                        <label class="quiz-option" data-value="prio_community">
+                            <span class="opt-icon">👥</span>
+                            <span class="opt-text"><strong>Community</strong><span>Active digital nomad scene</span></span>
+                        </label>
+                        <label class="quiz-option" data-value="prio_cost">
+                            <span class="opt-icon">💵</span>
+                            <span class="opt-text"><strong>Value</strong><span>Best life for least money</span></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="quiz-step" data-step="4">
+                    <h3>🌏 Preferred region?</h3>
+                    <p class="subtitle">Select one or choose "Anywhere"</p>
+                    <div class="quiz-options">
+                        <label class="quiz-option" data-value="region_asia">
+                            <span class="opt-icon">🏯</span>
+                            <span class="opt-text"><strong>Asia</strong><span>Southeast, East, South Asia</span></span>
+                        </label>
+                        <label class="quiz-option" data-value="region_europe">
+                            <span class="opt-icon">🏰</span>
+                            <span class="opt-text"><strong>Europe</strong><span>West, East, South, North Europe</span></span>
+                        </label>
+                        <label class="quiz-option" data-value="region_americas">
+                            <span class="opt-icon">🌎</span>
+                            <span class="opt-text"><strong>Americas</strong><span>North, South, Central America</span></span>
+                        </label>
+                        <label class="quiz-option" data-value="region_any">
+                            <span class="opt-icon">🌐</span>
+                            <span class="opt-text"><strong>Anywhere</strong><span>Open to the whole world</span></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="quiz-nav">
+                    <button class="quiz-btn quiz-btn-secondary" id="prevBtn" disabled>Back</button>
+                    <button class="quiz-btn quiz-btn-primary" id="nextBtn">Next</button>
+                </div>
+            </div>
+
+            <div class="results-card" id="resultsCard">
+                <div class="results-header">
+                    <h2>🎯 Your Personalized Recommendations</h2>
+                    <p>Top matches from 60 countries based on your preferences</p>
+                </div>
+                <div id="resultsList"></div>
+                <div class="results-actions">
+                    <a href="../compare/" class="btn-primary">Compare Countries</a>
+                    <a href="../assistant/" class="btn-secondary">Ask AI Assistant</a>
+                    <button class="btn-secondary" onclick="location.reload()">Retake Quiz</button>
+                </div>
             </div>
         </div>
-        <div class="action-bar">
-            <button class="btn btn-primary" onclick="resetQuiz()">🔄 Recommend Again</button>
-            <a href="../compare/" class="btn btn-secondary">⚖️ Country Comparison</a>
-        </div>
-    </section>
+    </main>
 
     <footer class="footer" style="margin-top: 0;">
         <div class="footer-main">
-            <div class="footer-brand"><span class="logo-icon">◈</span><span class="logo-text">Digital Nomad Guide</span><p>42 countries, 50+ visas, 34 cities — all open source.</p></div>
-            <div class="footer-links">
-                <div class="footer-col">
-                    <h4>Core Content</h4>
-                    <a href="../countries/">Country Database</a>
-                    <a href="../visas/">Visa Database</a>
-                    <a href="../cities/">City Database</a>
-                    <a href="../compare/">Country Comparison</a>
-                    <a href="../api/">Open API</a>
-                    <a href="./">Recommend</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Community</h4>
-                    <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a>
-                </div>
+            <div class="footer-brand">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Digital Nomad Guide</span>
+                <p>60 countries, 50+ visas, 122 cities. All open source.</p>
             </div>
         </div>
-        <div class="footer-bottom"><p>CC BY-NC-SA 4.0 | Content for educational purposes only</p></div>
+        <div class="footer-bottom"><p>CC BY-NC-SA 4.0 | For educational purposes</p></div>
     </footer>
 
-    <script>
-    const FLAGS = {
-        argentina: '🇦🇷', australia: '🇦🇺', austria: '🇦🇹', brazil: '🇧🇷', canada: '🇨🇦',
-        chile: '🇨🇱', croatia: '🇭🇷', cyprus: '🇨🇾', denmark: '🇩🇰', estonia: '🇪🇪',
-        france: '🇫🇷', georgia: '🇬🇪', germany: '🇩🇪', greece: '🇬🇷', hongkong: '🇭🇰',
-        iceland: '🇮🇸', indonesia: '🇮🇩', ireland: '🇮🇪', japan: '🇯🇵', kazakhstan: '🇰🇿',
-        macao: '🇲🇴', malaysia: '🇲🇾', mexico: '🇲🇽', mongolia: '🇲🇳', morocco: '🇲🇦',
-        nepal: '🇳🇵', netherlands: '🇳🇱', newzealand: '🇳🇿', norway: '🇳🇴', philippines: '🇵🇭',
-        portugal: '🇵🇹', singapore: '🇸🇬', southkorea: '🇰🇷', spain: '🇪🇸', srilanka: '🇱🇰',
-        switzerland: '🇨🇭', thailand: '🇹🇭', turkey: '🇹🇷', uae: '🇦🇪', uk: '🇬🇧',
-        usa: '🇺🇸', vietnam: '🇻🇳'
-    };
-    const VISA_LABELS = { visa_free: 'Visa Free', evisa: 'eVisa', visa_on_arrival: 'Visa on Arrival', visa_required: 'Visa Required' };
-    const REGION_LABELS = { asia: 'Asia', europe: 'Europe', americas_north: 'North America', americas_south: 'South America', oceania: 'Oceania', africa: 'Africa', middle_east: 'Middle East' };
-    const COUNTRIES = [
-        { id: 'argentina', title: 'Argentina', subtitle: '阿根廷', cost: 35, safety: 45, internet: 30, visa: 'evisa', region: 'americas_south' },
-        { id: 'australia', title: 'Australia', subtitle: '澳大利亚', cost: 82, safety: 75, internet: 80, visa: 'visa_required', region: 'oceania' },
-        { id: 'austria', title: 'Austria', subtitle: '奥地利', cost: 70, safety: 83, internet: 80, visa: 'visa_required', region: 'europe' },
-        { id: 'brazil', title: 'Brazil', subtitle: '巴西', cost: 40, safety: 42, internet: 55, visa: 'visa_required', region: 'americas_south' },
-        { id: 'canada', title: 'Canada', subtitle: '加拿大', cost: 75, safety: 65, internet: 170, visa: 'visa_required', region: 'americas_north' },
-        { id: 'chile', title: 'Chile', subtitle: '智利', cost: 45, safety: 55, internet: 80, visa: 'visa_required', region: 'americas_south' },
-        { id: 'croatia', title: 'Croatia', subtitle: '克罗地亚', cost: 48, safety: 78, internet: 55, visa: 'evisa', region: 'europe' },
-        { id: 'cyprus', title: 'Cyprus', subtitle: '塞浦路斯', cost: 55, safety: 82, internet: 50, visa: 'evisa', region: 'europe' },
-        { id: 'denmark', title: 'Denmark', subtitle: '丹麦', cost: 82, safety: 84, internet: 150, visa: 'visa_required', region: 'europe' },
-        { id: 'estonia', title: 'Estonia', subtitle: '爱沙尼亚', cost: 60, safety: 78, internet: 100, visa: 'evisa', region: 'europe' },
-        { id: 'france', title: 'France', subtitle: '法国', cost: 75, safety: 65, internet: 130, visa: 'visa_required', region: 'europe' },
-        { id: 'georgia', title: 'Georgia', subtitle: '格鲁吉亚', cost: 28, safety: 72, internet: 35, visa: 'visa_free', region: 'asia' },
-        { id: 'germany', title: 'Germany', subtitle: '德国', cost: 72, safety: 75, internet: 120, visa: 'visa_required', region: 'europe' },
-        { id: 'greece', title: 'Greece', subtitle: '希腊', cost: 52, safety: 76, internet: 45, visa: 'visa_required', region: 'europe' },
-        { id: 'hongkong', title: 'Hong Kong', subtitle: '香港', cost: 85, safety: 78.3, internet: 250, visa: 'visa_required', region: 'asia' },
-        { id: 'iceland', title: 'Iceland', subtitle: '冰岛', cost: 85, safety: 88, internet: 200, visa: 'visa_required', region: 'europe' },
-        { id: 'indonesia', title: 'Indonesia', subtitle: '印度尼西亚', cost: 32, safety: 58, internet: 25, visa: 'evisa', region: 'asia' },
-        { id: 'ireland', title: 'Ireland', subtitle: '爱尔兰', cost: 78, safety: 82, internet: 120, visa: 'visa_required', region: 'europe' },
-        { id: 'japan', title: 'Japan', subtitle: '日本', cost: 85, safety: 92, internet: 185, visa: 'visa_required', region: 'asia' },
-        { id: 'kazakhstan', title: 'Kazakhstan', subtitle: '哈萨克斯坦', cost: 30, safety: 72, internet: 40, visa: 'visa_free', region: 'asia' },
-        { id: 'macao', title: 'Macao', subtitle: '澳门', cost: 70, safety: 85, internet: 180, visa: 'visa_required', region: 'asia' },
-        { id: 'malaysia', title: 'Malaysia', subtitle: '马来西亚', cost: 40, safety: 55, internet: 150, visa: 'visa_free', region: 'asia' },
-        { id: 'mexico', title: 'Mexico', subtitle: '墨西哥', cost: 38, safety: 45, internet: 40, visa: 'evisa', region: 'americas_north' },
-        { id: 'mongolia', title: 'Mongolia', subtitle: '蒙古', cost: 28, safety: 70, internet: 20, visa: 'visa_free', region: 'asia' },
-        { id: 'morocco', title: 'Morocco', subtitle: '摩洛哥', cost: 30, safety: 58, internet: 25, visa: 'visa_free', region: 'africa' },
-        { id: 'nepal', title: 'Nepal', subtitle: '尼泊尔', cost: 22, safety: 65, internet: 15, visa: 'visa_free', region: 'asia' },
-        { id: 'netherlands', title: 'Netherlands', subtitle: '荷兰', cost: 78, safety: 72, internet: 180, visa: 'visa_required', region: 'europe' },
-        { id: 'newzealand', title: 'New Zealand', subtitle: '新西兰', cost: 78, safety: 70, internet: 150, visa: 'visa_required', region: 'oceania' },
-        { id: 'norway', title: 'Norway', subtitle: '挪威', cost: 88, safety: 85, internet: 180, visa: 'visa_required', region: 'europe' },
-        { id: 'philippines', title: 'Philippines', subtitle: '菲律宾', cost: 35, safety: 55, internet: 30, visa: 'visa_required', region: 'asia' },
-        { id: 'portugal', title: 'Portugal', subtitle: '葡萄牙', cost: 55, safety: 72, internet: 150, visa: 'visa_required', region: 'europe' },
-        { id: 'singapore', title: 'Singapore', subtitle: '新加坡', cost: 95, safety: 91, internet: 280, visa: 'visa_required', region: 'asia' },
-        { id: 'southkorea', title: 'South Korea', subtitle: '韩国', cost: 78, safety: 88, internet: 220, visa: 'visa_required', region: 'asia' },
-        { id: 'spain', title: 'Spain', subtitle: '西班牙', cost: 58, safety: 70, internet: 170, visa: 'visa_required', region: 'europe' },
-        { id: 'srilanka', title: 'Sri Lanka', subtitle: '斯里兰卡', cost: 25, safety: 60, internet: 20, visa: 'evisa', region: 'asia' },
-        { id: 'switzerland', title: 'Switzerland', subtitle: '瑞士', cost: 95, safety: 88, internet: 170, visa: 'visa_required', region: 'europe' },
-        { id: 'thailand', title: 'Thailand', subtitle: '泰国', cost: 45, safety: 65, internet: 200, visa: 'visa_free', region: 'asia' },
-        { id: 'turkey', title: 'Turkey', subtitle: '土耳其', cost: 32, safety: 50, internet: 35, visa: 'evisa', region: 'europe' },
-        { id: 'uae', title: 'UAE', subtitle: '阿联酋', cost: 70, safety: 88, internet: 300, visa: 'visa_free', region: 'middle_east' },
-        { id: 'uk', title: 'United Kingdom', subtitle: '英国', cost: 80, safety: 60, internet: 110, visa: 'visa_required', region: 'europe' },
-        { id: 'usa', title: 'United States', subtitle: '美国', cost: 88, safety: 50, internet: 250, visa: 'visa_required', region: 'americas_north' },
-        { id: 'vietnam', title: 'Vietnam', subtitle: '越南', cost: 35, safety: 60, internet: 120, visa: 'evisa', region: 'asia' }
-    ];
+<script>
+const COUNTRIES = [
+  { id: 'thailand', name: 'Thailand', nameCn: '泰国', region: 'asia', cost: 45, internet: 200, safety: 65, score: 85, visa: 'visa_free', dnVisa: true, climate: 'hot', monthlyLow: 800, monthlyHigh: 1500 },
+  { id: 'portugal', name: 'Portugal', nameCn: '葡萄牙', region: 'europe', cost: 55, internet: 150, safety: 72, score: 88, visa: 'visa_required', dnVisa: true, climate: 'warm', monthlyLow: 1200, monthlyHigh: 2200 },
+  { id: 'spain', name: 'Spain', nameCn: '西班牙', region: 'europe', cost: 58, internet: 170, safety: 70, score: 86, visa: 'visa_required', dnVisa: true, climate: 'warm', monthlyLow: 1300, monthlyHigh: 2400 },
+  { id: 'japan', name: 'Japan', nameCn: '日本', region: 'asia', cost: 85, internet: 185, safety: 92, score: 87, visa: 'visa_required', dnVisa: true, climate: 'mild', monthlyLow: 1800, monthlyHigh: 3000 },
+  { id: 'singapore', name: 'Singapore', nameCn: '新加坡', region: 'asia', cost: 95, internet: 280, safety: 91, score: 88, visa: 'visa_required', dnVisa: false, climate: 'hot', monthlyLow: 2500, monthlyHigh: 4000 },
+  { id: 'georgia', name: 'Georgia', nameCn: '格鲁吉亚', region: 'asia', cost: 28, internet: 35, safety: 72, score: 82, visa: 'visa_free', dnVisa: false, climate: 'mild', monthlyLow: 600, monthlyHigh: 1000 },
+  { id: 'mexico', name: 'Mexico', nameCn: '墨西哥', region: 'americas', cost: 38, internet: 40, safety: 45, score: 72, visa: 'evisa', dnVisa: false, climate: 'warm', monthlyLow: 700, monthlyHigh: 1200 },
+  { id: 'brazil', name: 'Brazil', nameCn: '巴西', region: 'americas', cost: 40, internet: 55, safety: 42, score: 70, visa: 'visa_required', dnVisa: true, climate: 'hot', monthlyLow: 800, monthlyHigh: 1400 },
+  { id: 'indonesia', name: 'Indonesia', nameCn: '印度尼西亚', region: 'asia', cost: 32, internet: 25, safety: 58, score: 76, visa: 'evisa', dnVisa: true, climate: 'hot', monthlyLow: 600, monthlyHigh: 1100 },
+  { id: 'vietnam', name: 'Vietnam', nameCn: '越南', region: 'asia', cost: 35, internet: 120, safety: 60, score: 75, visa: 'evisa', dnVisa: false, climate: 'hot', monthlyLow: 600, monthlyHigh: 1000 },
+  { id: 'malaysia', name: 'Malaysia', nameCn: '马来西亚', region: 'asia', cost: 40, internet: 150, safety: 55, score: 78, visa: 'visa_free', dnVisa: false, climate: 'hot', monthlyLow: 700, monthlyHigh: 1200 },
+  { id: 'uae', name: 'UAE', nameCn: '阿联酋', region: 'asia', cost: 70, internet: 300, safety: 88, score: 85, visa: 'visa_free', dnVisa: true, climate: 'hot', monthlyLow: 1500, monthlyHigh: 2500 },
+  { id: 'southkorea', name: 'South Korea', nameCn: '韩国', region: 'asia', cost: 78, internet: 220, safety: 88, score: 80, visa: 'visa_required', dnVisa: true, climate: 'mild', monthlyLow: 1400, monthlyHigh: 2200 },
+  { id: 'germany', name: 'Germany', nameCn: '德国', region: 'europe', cost: 72, internet: 120, safety: 75, score: 78, visa: 'visa_required', dnVisa: false, climate: 'mild', monthlyLow: 1500, monthlyHigh: 2500 },
+  { id: 'france', name: 'France', nameCn: '法国', region: 'europe', cost: 75, internet: 130, safety: 65, score: 77, visa: 'visa_required', dnVisa: false, climate: 'mild', monthlyLow: 1600, monthlyHigh: 2600 },
+  { id: 'netherlands', name: 'Netherlands', nameCn: '荷兰', region: 'europe', cost: 78, internet: 180, safety: 72, score: 82, visa: 'visa_required', dnVisa: false, climate: 'mild', monthlyLow: 1700, monthlyHigh: 2800 },
+  { id: 'norway', name: 'Norway', nameCn: '挪威', region: 'europe', cost: 88, internet: 180, safety: 85, score: 80, visa: 'visa_required', dnVisa: true, climate: 'cold', monthlyLow: 2000, monthlyHigh: 3500 },
+  { id: 'estonia', name: 'Estonia', nameCn: '爱沙尼亚', region: 'europe', cost: 60, internet: 100, safety: 78, score: 80, visa: 'evisa', dnVisa: true, climate: 'cold', monthlyLow: 1100, monthlyHigh: 1800 },
+  { id: 'croatia', name: 'Croatia', nameCn: '克罗地亚', region: 'europe', cost: 48, internet: 55, safety: 78, score: 75, visa: 'evisa', dnVisa: true, climate: 'warm', monthlyLow: 1000, monthlyHigh: 1600 },
+  { id: 'greece', name: 'Greece', nameCn: '希腊', region: 'europe', cost: 52, internet: 45, safety: 76, score: 78, visa: 'visa_required', dnVisa: true, climate: 'warm', monthlyLow: 1000, monthlyHigh: 1700 },
+  { id: 'turkey', name: 'Turkey', nameCn: '土耳其', region: 'europe', cost: 32, internet: 35, safety: 50, score: 74, visa: 'evisa', dnVisa: true, climate: 'warm', monthlyLow: 600, monthlyHigh: 1000 },
+  { id: 'cyprus', name: 'Cyprus', nameCn: '塞浦路斯', region: 'europe', cost: 55, internet: 50, safety: 82, score: 80, visa: 'evisa', dnVisa: true, climate: 'warm', monthlyLow: 1100, monthlyHigh: 1800 },
+  { id: 'switzerland', name: 'Switzerland', nameCn: '瑞士', region: 'europe', cost: 95, internet: 170, safety: 88, score: 75, visa: 'visa_required', dnVisa: false, climate: 'mild', monthlyLow: 2500, monthlyHigh: 4000 },
+  { id: 'austria', name: 'Austria', nameCn: '奥地利', region: 'europe', cost: 70, internet: 80, safety: 83, score: 76, visa: 'visa_required', dnVisa: true, climate: 'mild', monthlyLow: 1400, monthlyHigh: 2200 },
+  { id: 'ireland', name: 'Ireland', nameCn: '爱尔兰', region: 'europe', cost: 78, internet: 120, safety: 82, score: 76, visa: 'visa_required', dnVisa: true, climate: 'mild', monthlyLow: 1600, monthlyHigh: 2500 },
+  { id: 'uk', name: 'UK', nameCn: '英国', region: 'europe', cost: 80, internet: 110, safety: 60, score: 75, visa: 'visa_required', dnVisa: false, climate: 'mild', monthlyLow: 1700, monthlyHigh: 2800 },
+  { id: 'denmark', name: 'Denmark', nameCn: '丹麦', region: 'europe', cost: 82, internet: 150, safety: 84, score: 77, visa: 'visa_required', dnVisa: false, climate: 'mild', monthlyLow: 1800, monthlyHigh: 2800 },
+  { id: 'usa', name: 'USA', nameCn: '美国', region: 'americas', cost: 88, internet: 250, safety: 50, score: 72, visa: 'visa_required', dnVisa: false, climate: 'mild', monthlyLow: 2000, monthlyHigh: 3500 },
+  { id: 'canada', name: 'Canada', nameCn: '加拿大', region: 'americas', cost: 75, internet: 170, safety: 65, score: 77, visa: 'visa_required', dnVisa: false, climate: 'cold', monthlyLow: 1600, monthlyHigh: 2600 },
+  { id: 'australia', name: 'Australia', nameCn: '澳大利亚', region: 'asia', cost: 82, internet: 80, safety: 75, score: 78, visa: 'visa_required', dnVisa: false, climate: 'warm', monthlyLow: 1800, monthlyHigh: 3000 },
+  { id: 'newzealand', name: 'New Zealand', nameCn: '新西兰', region: 'asia', cost: 78, internet: 150, safety: 70, score: 76, visa: 'visa_required', dnVisa: false, climate: 'mild', monthlyLow: 1600, monthlyHigh: 2600 },
+  { id: 'argentina', name: 'Argentina', nameCn: '阿根廷', region: 'americas', cost: 35, internet: 30, safety: 45, score: 68, visa: 'evisa', dnVisa: false, climate: 'mild', monthlyLow: 600, monthlyHigh: 1000 },
+  { id: 'chile', name: 'Chile', nameCn: '智利', region: 'americas', cost: 45, internet: 80, safety: 55, score: 72, visa: 'visa_required', dnVisa: true, climate: 'mild', monthlyLow: 900, monthlyHigh: 1400 },
+  { id: 'colombia', name: 'Colombia', nameCn: '哥伦比亚', region: 'americas', cost: 38, internet: 40, safety: 48, score: 72, visa: 'evisa', dnVisa: true, climate: 'warm', monthlyLow: 700, monthlyHigh: 1100 },
+  { id: 'srilanka', name: 'Sri Lanka', nameCn: '斯里兰卡', region: 'asia', cost: 25, internet: 20, safety: 60, score: 73, visa: 'evisa', dnVisa: true, climate: 'hot', monthlyLow: 500, monthlyHigh: 800 },
+  { id: 'nepal', name: 'Nepal', nameCn: '尼泊尔', region: 'asia', cost: 22, internet: 15, safety: 65, score: 71, visa: 'visa_free', dnVisa: false, climate: 'mild', monthlyLow: 400, monthlyHigh: 700 },
+  { id: 'kazakhstan', name: 'Kazakhstan', nameCn: '哈萨克斯坦', region: 'asia', cost: 30, internet: 40, safety: 72, score: 75, visa: 'visa_free', dnVisa: false, climate: 'cold', monthlyLow: 600, monthlyHigh: 900 },
+  { id: 'morocco', name: 'Morocco', nameCn: '摩洛哥', region: 'africa', cost: 30, internet: 25, safety: 58, score: 76, visa: 'visa_free', dnVisa: false, climate: 'warm', monthlyLow: 600, monthlyHigh: 900 },
+  { id: 'hongkong', name: 'Hong Kong', nameCn: '香港', region: 'asia', cost: 85, internet: 250, safety: 78, score: 82, visa: 'visa_required', dnVisa: false, climate: 'warm', monthlyLow: 2000, monthlyHigh: 3500 },
+  { id: 'mongolia', name: 'Mongolia', nameCn: '蒙古', region: 'asia', cost: 28, internet: 20, safety: 70, score: 72, visa: 'visa_free', dnVisa: true, climate: 'cold', monthlyLow: 500, monthlyHigh: 800 },
+  { id: 'philippines', name: 'Philippines', nameCn: '菲律宾', region: 'asia', cost: 35, internet: 30, safety: 55, score: 74, visa: 'visa_required', dnVisa: false, climate: 'hot', monthlyLow: 600, monthlyHigh: 1000 },
+  { id: 'peru', name: 'Peru', nameCn: '秘鲁', region: 'americas', cost: 30, internet: 30, safety: 50, score: 70, visa: 'visa_free', dnVisa: false, climate: 'mild', monthlyLow: 600, monthlyHigh: 900 },
+  { id: 'romania', name: 'Romania', nameCn: '罗马尼亚', region: 'europe', cost: 38, internet: 100, safety: 70, score: 76, visa: 'evisa', dnVisa: true, climate: 'mild', monthlyLow: 800, monthlyHigh: 1200 },
+  { id: 'bulgaria', name: 'Bulgaria', nameCn: '保加利亚', region: 'europe', cost: 32, internet: 80, safety: 68, score: 74, visa: 'evisa', dnVisa: false, climate: 'mild', monthlyLow: 700, monthlyHigh: 1000 },
+  { id: 'kenya', name: 'Kenya', nameCn: '肯尼亚', region: 'africa', cost: 28, internet: 20, safety: 52, score: 70, visa: 'evisa', dnVisa: true, climate: 'warm', monthlyLow: 600, monthlyHigh: 900 },
+  { id: 'south_africa', name: 'South Africa', nameCn: '南非', region: 'africa', cost: 35, internet: 35, safety: 40, score: 68, visa: 'visa_free', dnVisa: false, climate: 'warm', monthlyLow: 700, monthlyHigh: 1000 },
+  { id: 'israel', name: 'Israel', nameCn: '以色列', region: 'middle_east', cost: 72, internet: 150, safety: 55, score: 75, visa: 'visa_required', dnVisa: false, climate: 'warm', monthlyLow: 1500, monthlyHigh: 2200 },
+  { id: 'qatar', name: 'Qatar', nameCn: '卡塔尔', region: 'middle_east', cost: 75, internet: 180, safety: 82, score: 72, visa: 'visa_free', dnVisa: false, climate: 'hot', monthlyLow: 1600, monthlyHigh: 2400 },
+  { id: 'india', name: 'India', nameCn: '印度', region: 'asia', cost: 22, internet: 50, safety: 50, score: 70, visa: 'evisa', dnVisa: false, climate: 'hot', monthlyLow: 400, monthlyHigh: 700 },
+  { id: 'poland', name: 'Poland', nameCn: '波兰', region: 'europe', cost: 42, internet: 120, safety: 75, score: 78, visa: 'visa_required', dnVisa: false, climate: 'mild', monthlyLow: 900, monthlyHigh: 1400 },
+  { id: 'czech', name: 'Czech Republic', nameCn: '捷克', region: 'europe', cost: 48, internet: 110, safety: 78, score: 80, visa: 'visa_required', dnVisa: false, climate: 'mild', monthlyLow: 1000, monthlyHigh: 1500 },
+  { id: 'hungary', name: 'Hungary', nameCn: '匈牙利', region: 'europe', cost: 45, internet: 120, safety: 76, score: 79, visa: 'visa_required', dnVisa: false, climate: 'mild', monthlyLow: 900, monthlyHigh: 1400 },
+  { id: 'sweden', name: 'Sweden', nameCn: '瑞典', region: 'europe', cost: 80, internet: 160, safety: 80, score: 78, visa: 'visa_required', dnVisa: false, climate: 'cold', monthlyLow: 1800, monthlyHigh: 2800 },
+];
 
-    const SCORE_WEIGHTS = { budget: 0.25, visa: 0.20, internet: 0.20, safety: 0.20, region: 0.15 };
+let currentStep = 0;
+const answers = {};
+const totalSteps = 5;
 
-    let answers = {};
-    let currentStep = 1;
+const progressEl = document.getElementById('quizProgress');
+for (let i = 0; i < totalSteps; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'quiz-progress-dot' + (i === 0 ? ' active' : '');
+    progressEl.appendChild(dot);
+}
 
-    function selectOption(step, value) {
-        answers[step] = value;
-        if (step < 5) {
-            goToStep(step + 1);
-        } else {
-            showResults();
-        }
-    }
+function updateProgress() {
+    const dots = progressEl.querySelectorAll('.quiz-progress-dot');
+    dots.forEach((dot, i) => {
+        dot.className = 'quiz-progress-dot' + (i < currentStep ? ' completed' : '') + (i === currentStep ? ' active' : '');
+    });
+}
 
-    function goToStep(step) {
-        document.querySelectorAll('.quiz-step').forEach(el => el.classList.remove('active'));
-        document.querySelector(`.quiz-step[data-step="${step}"]`).classList.add('active');
-        document.querySelectorAll('.step-dot').forEach((dot, idx) => {
-            const dotStep = idx + 1;
-            dot.classList.remove('active', 'completed');
-            if (dotStep < step) dot.classList.add('completed');
-            else if (dotStep === step) dot.classList.add('active');
-        });
-        currentStep = step;
-    }
+function showStep(n) {
+    document.querySelectorAll('.quiz-step').forEach((el, i) => el.classList.toggle('active', i === n));
+    document.getElementById('prevBtn').disabled = n === 0;
+    document.getElementById('nextBtn').textContent = n === totalSteps - 1 ? 'See Results' : 'Next';
+    updateProgress();
+}
 
-    function scoreBudget(cost, preference) {
-        if (preference === 'low') return Math.max(0, (100 - cost) / 100 * 100);
-        if (preference === 'medium') return Math.max(0, 100 - Math.abs(cost - 50) / 50 * 100);
-        if (preference === 'high') return Math.max(0, cost);
-        return 50;
-    }
+document.querySelectorAll('.quiz-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+        const step = opt.closest('.quiz-step');
+        step.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+        answers[step.dataset.step] = opt.dataset.value;
+    });
+});
 
-    function scoreVisa(countryVisa, preference) {
-        if (preference === 'any') return 100;
-        const matrix = {
-            visa_free: { visa_free: 100, evisa: 30, visa_on_arrival: 20, visa_required: 0 },
-            evisa: { visa_free: 80, evisa: 100, visa_on_arrival: 40, visa_required: 10 },
-            voa: { visa_free: 90, evisa: 70, visa_on_arrival: 100, visa_required: 0 },
-            any: { visa_free: 100, evisa: 100, visa_on_arrival: 100, visa_required: 100 }
-        };
-        return matrix[preference][countryVisa] ?? 0;
-    }
+document.getElementById('nextBtn').addEventListener('click', () => {
+    const stepEl = document.querySelector('.quiz-step.active');
+    if (!answers[stepEl.dataset.step]) { alert('Please select an option'); return; }
+    if (currentStep < totalSteps - 1) { currentStep++; showStep(currentStep); }
+    else { showResults(); }
+});
 
-    function scoreInternet(internet, preference) {
-        if (preference === 'basic') return Math.min(100, internet / 50 * 100);
-        if (preference === 'important') return Math.min(100, internet / 75 * 100);
-        if (preference === 'fast') return Math.min(100, internet / 120 * 100);
-        return 50;
-    }
+document.getElementById('prevBtn').addEventListener('click', () => {
+    if (currentStep > 0) { currentStep--; showStep(currentStep); }
+});
 
-    function scoreSafety(safety, preference) {
-        const threshold = parseInt(preference);
-        if (!threshold) return 50;
-        return Math.min(100, safety / threshold * 100);
-    }
+function calculateMatches() {
+    const budget = answers['0'], visaPref = answers['1'], climate = answers['2'], priority = answers['3'], region = answers['4'];
+    const budgetMap = { budget_low: [0, 1000], budget_medium: [800, 1800], budget_high: [1500, 3000], budget_luxury: [2500, 99999] };
+    const [minBudget, maxBudget] = budgetMap[budget] || [0, 99999];
 
-    function scoreRegion(countryRegion, preference) {
-        if (preference === 'any') return 100;
-        return countryRegion === preference ? 100 : 0;
-    }
+    return COUNTRIES.map(c => {
+        let score = c.score * 0.3;
+        let reasons = [];
 
-    function generateReasons(country, scores) {
-        const reasons = [];
-        const dims = [
-            { key: 'budget', score: scores.budget, label: 'Cost of Living' },
-            { key: 'visa', score: scores.visa, label: 'Visa Convenience' },
-            { key: 'internet', score: scores.internet, label: 'Internet Speed' },
-            { key: 'safety', score: scores.safety, label: 'Safety' },
-            { key: 'region', score: scores.region, label: 'Region' }
-        ];
-        dims.sort((a, b) => b.score - a.score);
+        if (c.monthlyLow <= maxBudget && c.monthlyHigh >= minBudget) {
+            score += 25; reasons.push(`Monthly cost ~$${c.monthlyLow}-${c.monthlyHigh}, fits your budget`);
+        } else if (c.monthlyLow > maxBudget) { score -= 15; reasons.push(`Higher cost ($${c.monthlyLow}+)`); }
+        else { score += 15; reasons.push(`Very affordable, budget surplus`); }
 
-        for (const dim of dims.slice(0, 3)) {
-            if (dim.score < 30) continue;
-            if (dim.key === 'budget') {
-                if (answers[1] === 'low' && country.cost < 40) reasons.push(`Extremely low cost of living (index ${country.cost}), perfect for budget-conscious digital nomads`);
-                else if (answers[1] === 'low' && country.cost < 55) reasons.push(`Low cost of living (index ${country.cost}), suitable for budget-limited digital nomads`);
-                else if (answers[1] === 'medium' && country.cost >= 45 && country.cost <= 65) reasons.push(`Moderate cost of living (index ${country.cost}), excellent value for money`);
-                else if (answers[1] === 'high' && country.cost > 70) reasons.push(`High cost of living (index ${country.cost}), but top-tier infrastructure and quality of life`);
-                else reasons.push(`Cost of living index ${country.cost}, matches your budget preference`);
-            } else if (dim.key === 'visa') {
-                if (country.visa === 'visa_free') reasons.push('Visa-free entry, go anytime, no visa processing time or fees');
-                else if (country.visa === 'evisa') reasons.push('Convenient eVisa, apply online, no need to visit an embassy');
-                else if (country.visa === 'visa_on_arrival') reasons.push('Convenient visa on arrival, apply upon entry');
-                else reasons.push('Clear visa requirements, standardized process, can be planned in advance');
-            } else if (dim.key === 'internet') {
-                if (country.internet >= 150) reasons.push(`Internet speed reaches ${country.internet} Mbps, fully meets remote work and HD video conferencing needs`);
-                else if (country.internet >= 80) reasons.push(`Internet speed ${country.internet} Mbps, sufficient for daily remote work and video calls`);
-                else reasons.push(`Internet speed ${country.internet} Mbps, basically meets daily office needs`);
-            } else if (dim.key === 'safety') {
-                if (country.safety >= 80) reasons.push(`Safety index ${country.safety}, excellent public order, can live and work with peace of mind`);
-                else if (country.safety >= 70) reasons.push(`Safety index ${country.safety}, relatively safe, normal caution is sufficient`);
-                else reasons.push(`Safety index ${country.safety}, within acceptable range`);
-            } else if (dim.key === 'region') {
-                reasons.push(`Located in ${REGION_LABELS[country.region] || country.region}, matches your region preference`);
-            }
-            if (reasons.length >= 3) break;
-        }
-        return reasons.slice(0, 3);
-    }
+        if (visaPref === 'visa_free' && (c.visa === 'visa_free' || c.visa === 'visa_on_arrival')) { score += 20; reasons.push('Visa-free entry'); }
+        else if (visaPref === 'visa_easy' && (c.visa === 'evisa' || c.visa === 'visa_free')) { score += 20; reasons.push(c.visa === 'evisa' ? 'E-visa available' : 'Visa-free'); }
+        else if (visaPref === 'visa_dn' && c.dnVisa) { score += 20; reasons.push('Has Digital Nomad Visa'); }
+        else if (visaPref === 'visa_any') { score += 10; }
+        else if (c.visa === 'visa_required') { score -= 5; reasons.push('Visa required in advance'); }
 
-    function showResults() {
-        const scored = COUNTRIES.map(c => {
-            const scores = {
-                budget: scoreBudget(c.cost, answers[1]),
-                visa: scoreVisa(c.visa, answers[2]),
-                internet: scoreInternet(c.internet, answers[3]),
-                safety: scoreSafety(c.safety, answers[4]),
-                region: scoreRegion(c.region, answers[5])
-            };
-            const total = scores.budget * SCORE_WEIGHTS.budget
-                        + scores.visa * SCORE_WEIGHTS.visa
-                        + scores.internet * SCORE_WEIGHTS.internet
-                        + scores.safety * SCORE_WEIGHTS.safety
-                        + scores.region * SCORE_WEIGHTS.region;
-            return { ...c, scores, total: Math.round(total) };
-        });
-        scored.sort((a, b) => b.total - a.total);
-        const top5 = scored.slice(0, 5);
+        if (climate === 'climate_any' || climate === 'region_any' || climate === c.climate) score += 15;
+        else if ((climate === 'climate_warm' && c.climate === 'hot') || (climate === 'climate_mild' && c.climate === 'warm')) score += 8;
 
-        // Render cards
-        const grid = document.getElementById('resultsGrid');
-        grid.innerHTML = top5.map((c, idx) => {
-            const reasons = generateReasons(c, c.scores);
-            const reasonsHtml = reasons.map(r => `<li>${r}</li>`).join('');
-            return `<a href="../../country/${c.id}/index.html" class="result-card">
-                <div class="match-badge">${c.total}% Match</div>
-                <div class="result-card-header">
-                    <span class="result-card-flag">${FLAGS[c.id] || ''}</span>
-                    <div class="result-card-meta">
-                        <h4>${c.title}</h4>
-                        <span class="subtitle">${c.subtitle}</span>
-                    </div>
+        if (region === 'region_any') score += 10;
+        else if (region === 'region_asia' && c.region === 'asia') { score += 15; reasons.push('Asia destination'); }
+        else if (region === 'region_europe' && c.region === 'europe') { score += 15; reasons.push('Europe destination'); }
+        else if (region === 'region_americas' && c.region === 'americas') { score += 15; reasons.push('Americas destination'); }
+
+        if (priority === 'prio_safety') score += c.safety * 0.15;
+        if (priority === 'prio_internet') score += c.internet * 0.08;
+        if (priority === 'prio_cost') score += (100 - c.cost) * 0.15;
+        if (priority === 'prio_community') { if (c.score >= 80) { score += 15; reasons.push('Active DN community'); } }
+
+        return { country: c, score: Math.round(score), reasons };
+    }).sort((a, b) => b.score - a.score).slice(0, 8);
+}
+
+function showResults() {
+    document.getElementById('quizCard').style.display = 'none';
+    document.getElementById('resultsCard').classList.add('active');
+    const matches = calculateMatches();
+    const list = document.getElementById('resultsList');
+    list.innerHTML = '';
+
+    matches.forEach((m, i) => {
+        const c = m.country;
+        const card = document.createElement('a');
+        card.className = 'match-card';
+        card.href = `../country/${c.id}/`;
+        const visaText = { visa_free: 'Visa-free', evisa: 'E-visa', visa_on_arrival: 'VoA', visa_required: 'Visa req' };
+        const visaClass = c.visa === 'visa_free' ? 'pos' : (c.visa === 'visa_required' ? 'neg' : 'neu');
+        const dnClass = c.dnVisa ? 'pos' : 'neu';
+        card.innerHTML = `
+            <div class="match-rank ${i < 3 ? 'top3' : ''}">${i + 1}</div>
+            <div class="match-info">
+                <h4>${c.name}</h4>
+                <div class="match-score">Match Score: ${m.score}</div>
+                <div class="match-tags">
+                    <span class="match-tag ${visaClass}">${visaText[c.visa]}</span>
+                    <span class="match-tag ${dnClass}">${c.dnVisa ? 'DN Visa ✓' : 'No DN Visa'}</span>
+                    <span class="match-tag neu">💰 $${c.monthlyLow}-${c.monthlyHigh}</span>
+                    <span class="match-tag neu">🛡️ Safety ${c.safety}</span>
                 </div>
-                <ul class="result-reasons">${reasonsHtml}</ul>
-                <div class="result-metrics">
-                    <span class="result-metric">💰 ${c.cost}</span>
-                    <span class="result-metric">🌐 ${c.internet} Mbps</span>
-                    <span class="result-metric">🛡️ ${c.safety}</span>
-                </div>
-                <span class="result-link">View Details →</span>
-            </a>`;
-        }).join('');
-
-        // Render comparison table
-        const tbody = document.getElementById('comparisonBody');
-        const top3 = top5.slice(0, 3);
-        const bestMatch = Math.max(...top3.map(c => c.total));
-        const bestCost = Math.min(...top3.map(c => c.cost));
-        const bestInternet = Math.max(...top3.map(c => c.internet));
-        const bestSafety = Math.max(...top3.map(c => c.safety));
-        tbody.innerHTML = top3.map(c => {
-            return `<tr>
-                <td class="col-country"><span>${FLAGS[c.id] || ''}</span> ${c.title}</td>
-                <td class="col-match ${c.total === bestMatch ? 'highlight-best' : ''}">${c.total}%</td>
-                <td class="${c.cost === bestCost ? 'highlight-best' : ''}">${c.cost}</td>
-                <td class="${c.internet === bestInternet ? 'highlight-best' : ''}">${c.internet} Mbps</td>
-                <td class="${c.safety === bestSafety ? 'highlight-best' : ''}">${c.safety}</td>
-                <td>${VISA_LABELS[c.visa] || c.visa}</td>
-            </tr>`;
-        }).join('');
-
-        // Update summary
-        document.getElementById('resultsSummary').textContent = `Based on your preferences (Budget: ${getBudgetLabel(answers[1])} · Visa: ${getVisaLabel(answers[2])} · Internet: ${getInternetLabel(answers[3])} · Safety: ${getSafetyLabel(answers[4])} · Region: ${getRegionLabel(answers[5])}), here are the best digital nomad destinations for you`;
-
-        // Show results, hide questionnaire
-        document.getElementById('questionnaire').style.display = 'none';
-        document.getElementById('resultsSection').classList.add('visible');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function getBudgetLabel(v) {
-        return { low: 'Low Budget', medium: 'Medium Budget', high: 'High Budget' }[v] || v;
-    }
-    function getVisaLabel(v) {
-        return { visa_free: 'Visa-Free Priority', evisa: 'eVisa Acceptable', voa: 'Visa on Arrival Acceptable', any: 'Any' }[v] || v;
-    }
-    function getInternetLabel(v) {
-        return { basic: 'Basic', important: 'Important', fast: 'Must Be Fast' }[v] || v;
-    }
-    function getSafetyLabel(v) {
-        return { '60': 'Generally Safe', '70': 'Relatively Safe', '80': 'Must Be Very Safe' }[v] || v;
-    }
-    function getRegionLabel(v) {
-        return { any: 'Any', asia: 'Asia', europe: 'Europe', americas_north: 'North America', americas_south: 'South America', oceania: 'Oceania', africa: 'Africa', middle_east: 'Middle East' }[v] || v;
-    }
-
-    function resetQuiz() {
-        answers = {};
-        currentStep = 1;
-        document.getElementById('resultsSection').classList.remove('visible');
-        document.getElementById('questionnaire').style.display = 'block';
-        goToStep(1);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    </script>
-    <script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('../../sw.js').catch(() => {});
-        });
-    }
-    </script>
-  <script src="../../lang-switcher.js" defer></script>
+                <div class="match-reason">${m.reasons.slice(0, 3).join(' · ')}</div>
+            </div>`;
+        list.appendChild(card);
+    });
+}
+</script>
 </body>
 </html>
