@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/kfat77/digital-nomad-cn/schemas/v2/quality/weather.schema.json",
+  "title": "Weather",
+  "description": "气候数据。按月统计，支持城市和国家级别。",
+  "version": "2.0.0",
+  "type": "object",
+  "required": ["location", "climate", "monthly", "metadata"],
+  "properties": {
+    "location": {
+      "type": "object",
+      "required": ["country"],
+      "properties": {
+        "country": { "type": "string" },
+        "city": { "type": "string" }
+      }
+    },
+    "climate": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["tropical", "subtropical", "temperate", "continental", "mediterranean", "desert", "alpine", "oceanic"]
+        },
+        "description": {
+          "type": "object",
+          "properties": {
+            "zh": { "type": "string" },
+            "en": { "type": "string" }
+          }
+        }
+      }
+    },
+    "monthly": {
+      "type": "array",
+      "description": "12个月的气候数据",
+      "items": {
+        "type": "object",
+        "required": ["month"],
+        "properties": {
+          "month": { "type": "integer", "minimum": 1, "maximum": 12 },
+          "temperature": {
+            "type": "object",
+            "properties": {
+              "avgHigh": { "type": "number" },
+              "avgLow": { "type": "number" },
+              "mean": { "type": "number" }
+            }
+          },
+          "humidity": { "type": "number", "minimum": 0, "maximum": 100 },
+          "rainfall": {
+            "type": "object",
+            "properties": {
+              "mm": { "type": "number" },
+              "rainyDays": { "type": "integer" }
+            }
+          },
+          "sunshine": {
+            "type": "object",
+            "properties": {
+              "hoursPerDay": { "type": "number" },
+              "clearDays": { "type": "integer" }
+            }
+          },
+          "seaTemperature": { "type": "number" },
+          "uvIndex": { "type": "integer", "minimum": 0, "maximum": 11 },
+          "digitalNomadRating": {
+            "type": "string",
+            "enum": ["excellent", "good", "acceptable", "avoid"],
+            "description": "该月是否适合数字游民"
+          }
+        }
+      }
+    },
+    "bestTimeToVisit": {
+      "type": "object",
+      "properties": {
+        "months": {
+          "type": "array",
+          "items": { "type": "integer", "minimum": 1, "maximum": 12 }
+        },
+        "description": {
+          "type": "object",
+          "properties": {
+            "zh": { "type": "string" },
+            "en": { "type": "string" }
+          }
+        }
+      }
+    },
+    "worstTimeToVisit": {
+      "type": "object",
+      "properties": {
+        "months": {
+          "type": "array",
+          "items": { "type": "integer", "minimum": 1, "maximum": 12 }
+        },
+        "reason": {
+          "type": "object",
+          "properties": {
+            "zh": { "type": "string" },
+            "en": { "type": "string" }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["version", "lastUpdated"],
+      "properties": {
+        "version": { "type": "string" },
+        "lastUpdated": { "type": "string", "format": "date-time" },
+        "dataSource": { "type": "string" }
+      }
+    }
+  }
+}

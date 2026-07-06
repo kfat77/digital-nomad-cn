@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/kfat77/digital-nomad-cn/schemas/v2/quality/education.schema.json",
+  "title": "Education",
+  "description": "教育质量数据。面向带子女的数字游民家庭。",
+  "version": "2.0.0",
+  "type": "object",
+  "required": ["country", "system", "metadata"],
+  "properties": {
+    "country": { "type": "string" },
+    "system": {
+      "type": "object",
+      "properties": {
+        "compulsoryYears": { "type": "integer" },
+        " literacyRate": { "type": "number", "minimum": 0, "maximum": 100 },
+        "pisaRanking": { "type": "integer" }
+      }
+    },
+    "internationalSchools": {
+      "type": "object",
+      "properties": {
+        "available": { "type": "boolean" },
+        "curriculums": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["IB", "AP", "A-Level", "IGCSE", "local", "montessori", "waldorf"]
+          }
+        },
+        "tuitionRange": {
+          "type": "object",
+          "properties": {
+            "min": { "type": "integer" },
+            "max": { "type": "integer" },
+            "currency": { "type": "string", "pattern": "^[A-Z]{3}$" }
+          }
+        },
+        "chineseLanguageSupport": { "type": "boolean" }
+      }
+    },
+    "homeschooling": {
+      "type": "object",
+      "properties": {
+        "legal": { "type": "boolean" },
+        "regulated": { "type": "boolean" },
+        "requirements": { "type": "string" }
+      }
+    },
+    "universities": {
+      "type": "object",
+      "properties": {
+        "topRanked": { "type": "boolean" },
+        "englishPrograms": { "type": "boolean" },
+        "tuitionForForeigners": {
+          "type": "object",
+          "properties": {
+            "min": { "type": "integer" },
+            "max": { "type": "integer" },
+            "currency": { "type": "string", "pattern": "^[A-Z]{3}$" }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["version", "lastUpdated"],
+      "properties": {
+        "version": { "type": "string" },
+        "lastUpdated": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}
