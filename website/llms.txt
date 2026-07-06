@@ -1,0 +1,75 @@
+# Digital Nomad Guide for Chinese Passport Holders
+
+> A comprehensive open-source data platform for digital nomads, global mobility, and Chinese passport travel.
+
+## About
+
+Digital Nomad Guide (数字游民指南) is an open-source project providing structured data and insights for Chinese passport holders seeking global mobility. The platform covers 60 countries, 122 digital nomad cities, 50+ visa types, and offers tools for comparison, route planning, and search.
+
+## Data API
+
+The project provides machine-readable JSON APIs at:
+
+- `/api/countries.json` — 60 countries with scores, costs, safety, internet speed, visa status
+- `/api/cities.json` — 122 digital nomad cities with coworking spaces, climate, neighborhoods
+- `/api/visas.json` — 50+ visa types and requirements
+- `/api/stats.json` — Platform statistics and last update timestamp
+
+All data is licensed under CC BY-NC-SA 4.0.
+
+## Key Data Points
+
+### Country Data Schema
+- `digital_nomad_score`: 0-100 composite score
+- `cost_of_living_index`: 0-100 relative index
+- `safety_index`: 0-100 safety score
+- `internet_speed_avg_mbps`: Average internet speed
+- `china_passport_visa_status`: visa_free | evisa | visa_required
+- `has_digital_nomad_visa`: boolean
+- `climate_zone`: Mediterranean | Tropical | Temperate | Continental | Subtropical | Polar | Desert
+- `timezone`: UTC offset
+- `dn_community_size`: Large | Medium | Small
+- `median_stay_months`: Typical stay duration
+
+### City Data Schema
+- `digital_nomad_score`: 0-100
+- `cost_of_living_index`: 0-100
+- `rent_index`: 0-100
+- `coworking_spaces`: Number of coworking spaces
+- `coworking_score`: 0-100
+- `remote_work_friendly_score`: 0-100 composite
+- `monthly_cost_usd_low` / `monthly_cost_usd_high`: Estimated monthly costs
+- `climate`, `avg_temp_c`, `rainy_season`
+- `english_level`, `chinese_community_size`
+- `walkability`, `bike_friendly`: 0-100
+
+## Content
+
+The site publishes data-driven articles including:
+- Global digital nomad city rankings (TOP 20)
+- Safest digital nomad cities guide
+- Most affordable digital nomad cities
+- Seasonal travel guides by climate
+- Cost of living analysis across 60 countries
+- China passport visa-free destination guides
+- Digital nomad visa application guides
+
+## Tools
+
+- **Country Comparison**: Side-by-side comparison of 2-3 countries
+- **Route Planner**: Pre-planned digital nomad routes (Southeast Asia, Europe Schengen, Mediterranean)
+- **Smart Search**: Fuzzy search across 76+ data fields
+- **AI Assistant**: Chat-based Q&A using the dataset
+
+## Languages
+
+Content is available in Chinese (zh-CN) and English (en). Hreflang tags are implemented for all article pages.
+
+## GitHub
+
+https://github.com/kfat77/digital-nomad-cn
+
+## License
+
+Data: CC BY-NC-SA 4.0
+Code: MIT
