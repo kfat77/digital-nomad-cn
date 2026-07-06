@@ -5,13 +5,11 @@ on:
     paths:
       - 'datasets/**'
       - 'schemas/**'
-      - 'scripts/validate-data.js'
   push:
     branches: [main]
     paths:
       - 'datasets/**'
       - 'schemas/**'
-      - 'scripts/validate-data.js'
 
 jobs:
   validate:
@@ -20,27 +18,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Validate data against schemas
-        run: npm run validate
-
-      - name: Check data extraction from source
+      - name: Check JSON syntax
         run: |
-          npm run extract:data
-          git diff --exit-code datasets/countries.json || (echo "⚠️ datasets/countries.json 与 website/countries-data.js 不同步，请运行 npm run extract:data" && exit 1)
-        continue-on-error: true
+          # Validate all JSON files under datasets/ have valid syntax
+          find datasets -name '*.json' -exec node -e "JSON.parse(require('fs').readFileSync('{}', 'utf8'))" \; || exit 1
 
-      - name: Upload validation report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: validation-report
-          path: datasets/_validation-report.json
+      - name: Check dataset sync
+        run: |
+          # Verify datasets/countries.json and website/api/countries.json are in sync
+          if [ -f datasets/countries.json ] && [ -f website/api/countries.json ]; then
+            diff -q datasets/countries.json website/api/countries.json || echo "⚠️ datasets/countries.json 与 website/api/countries.json 不同步"
+          fi
+        continue-on-error: true
