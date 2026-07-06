@@ -1,7 +1,7 @@
 {
-  "api_version": "1.1",
+  "api_version": "1.2",
   "total": 60,
-  "updated_at": "2026-07-05T21:44:22Z",
+  "updated_at": "2026-07-08T00:00:00Z",
   "source": "https://github.com/kfat77/digital-nomad-cn",
   "license": "CC BY-NC-SA 4.0",
   "data": [
@@ -21,7 +21,37 @@
       "climate_zone": "地中海",
       "timezone": "UTC+0",
       "dn_community_size": "大",
-      "median_stay_months": 6
+      "median_stay_months": 6,
+      "healthcare_quality": 78,
+      "english_proficiency": 55,
+      "monthly_rent_usd_low": 600,
+      "monthly_rent_usd_high": 1400,
+      "food_cost_usd_daily": 18,
+      "transport_cost_usd_monthly": 45,
+      "coworking_spaces_count": 45,
+      "local_tax_rate": 20,
+      "pros": [
+        "D7签证易申请",
+        "生活成本低",
+        "气候宜人",
+        "英语普及度中等"
+      ],
+      "cons": [
+        "bureaucracy",
+        "冬季湿冷",
+        "办事效率低"
+      ],
+      "ideal_for": [
+        "退休人士",
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "Lisbon",
+        "Porto",
+        "Faro",
+        "Coimbra"
+      ]
     },
     {
       "id": "singapore",
@@ -39,7 +69,31 @@
       "climate_zone": "热带",
       "timezone": "UTC+8",
       "dn_community_size": "中",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "japan",
@@ -57,7 +111,31 @@
       "climate_zone": "温带",
       "timezone": "UTC+9",
       "dn_community_size": "大",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "spain",
@@ -75,7 +153,37 @@
       "climate_zone": "地中海",
       "timezone": "UTC+1~+2",
       "dn_community_size": "大",
-      "median_stay_months": 6
+      "median_stay_months": 6,
+      "healthcare_quality": 82,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 700,
+      "monthly_rent_usd_high": 1800,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 55,
+      "coworking_spaces_count": 55,
+      "local_tax_rate": 24,
+      "pros": [
+        "数字游民签证",
+        "医疗体系优秀",
+        "气候宜人",
+        "美食丰富"
+      ],
+      "cons": [
+        "bureaucracy高",
+        "税收较高",
+        "夏季炎热"
+      ],
+      "ideal_for": [
+        "家庭数字游民",
+        "欧盟爱好者",
+        "美食爱好者"
+      ],
+      "best_neighborhoods": [
+        "Barcelona",
+        "Madrid",
+        "Valencia",
+        "Malaga"
+      ]
     },
     {
       "id": "thailand",
@@ -93,7 +201,37 @@
       "climate_zone": "热带",
       "timezone": "UTC+7",
       "dn_community_size": "大",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 70,
+      "english_proficiency": 40,
+      "monthly_rent_usd_low": 300,
+      "monthly_rent_usd_high": 900,
+      "food_cost_usd_daily": 8,
+      "transport_cost_usd_monthly": 25,
+      "coworking_spaces_count": 60,
+      "local_tax_rate": 0,
+      "pros": [
+        "免签入境",
+        "生活成本极低",
+        "美食天堂",
+        "数字游民社区大"
+      ],
+      "cons": [
+        "雨季湿热",
+        "语言障碍大",
+        "交通混乱"
+      ],
+      "ideal_for": [
+        "预算有限者",
+        "数字游民新手",
+        "美食爱好者"
+      ],
+      "best_neighborhoods": [
+        "Chiang Mai",
+        "Bangkok Sukhumvit",
+        "Phuket",
+        "Koh Phangan"
+      ]
     },
     {
       "id": "uae",
@@ -111,7 +249,37 @@
       "climate_zone": "沙漠",
       "timezone": "UTC+4",
       "dn_community_size": "中",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 80,
+      "english_proficiency": 75,
+      "monthly_rent_usd_low": 1000,
+      "monthly_rent_usd_high": 3000,
+      "food_cost_usd_daily": 25,
+      "transport_cost_usd_monthly": 80,
+      "coworking_spaces_count": 80,
+      "local_tax_rate": 0,
+      "pros": [
+        "免税",
+        "英语通用",
+        "安全极高",
+        "基础设施完善"
+      ],
+      "cons": [
+        "生活成本高",
+        "夏季酷热",
+        "文化限制"
+      ],
+      "ideal_for": [
+        "高收入者",
+        "企业主",
+        "金融从业者"
+      ],
+      "best_neighborhoods": [
+        "Dubai Marina",
+        "Abu Dhabi",
+        "Dubai JLT",
+        "Sharjah"
+      ]
     },
     {
       "id": "georgia",
@@ -129,7 +297,36 @@
       "climate_zone": "亚热带",
       "timezone": "UTC+4",
       "dn_community_size": "中",
-      "median_stay_months": 6
+      "median_stay_months": 6,
+      "healthcare_quality": 55,
+      "english_proficiency": 45,
+      "monthly_rent_usd_low": 250,
+      "monthly_rent_usd_high": 700,
+      "food_cost_usd_daily": 10,
+      "transport_cost_usd_monthly": 15,
+      "coworking_spaces_count": 15,
+      "local_tax_rate": 1,
+      "pros": [
+        "免签一年",
+        "税率极低",
+        "生活成本极低",
+        "风景优美"
+      ],
+      "cons": [
+        "医疗水平有限",
+        "英语普及度低",
+        "冬季寒冷"
+      ],
+      "ideal_for": [
+        "税务优化者",
+        "预算有限者",
+        "户外爱好者"
+      ],
+      "best_neighborhoods": [
+        "Tbilisi",
+        "Batumi",
+        "Kutaisi"
+      ]
     },
     {
       "id": "hongkong",
@@ -147,7 +344,31 @@
       "climate_zone": "亚热带",
       "timezone": "UTC+8",
       "dn_community_size": "大",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "netherlands",
@@ -165,7 +386,31 @@
       "climate_zone": "温带海洋",
       "timezone": "UTC+1~+2",
       "dn_community_size": "中",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "cyprus",
@@ -183,7 +428,31 @@
       "climate_zone": "地中海",
       "timezone": "UTC+2~+3",
       "dn_community_size": "中",
-      "median_stay_months": 6
+      "median_stay_months": 6,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "estonia",
@@ -201,7 +470,31 @@
       "climate_zone": "温带",
       "timezone": "UTC+2~+3",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "hungary",
@@ -219,7 +512,31 @@
       "climate_zone": "温带大陆",
       "timezone": "UTC+1~+2",
       "dn_community_size": "中",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "norway",
@@ -237,7 +554,31 @@
       "climate_zone": "寒带",
       "timezone": "UTC+1~+2",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "southkorea",
@@ -255,7 +596,31 @@
       "climate_zone": "温带",
       "timezone": "UTC+9",
       "dn_community_size": "中",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "sweden",
@@ -273,7 +638,31 @@
       "climate_zone": "寒带",
       "timezone": "UTC+1~+2",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "australia",
@@ -291,7 +680,31 @@
       "climate_zone": "温带",
       "timezone": "UTC+8~+11",
       "dn_community_size": "中",
-      "median_stay_months": 6
+      "median_stay_months": 6,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "czech",
@@ -309,7 +722,31 @@
       "climate_zone": "温带大陆",
       "timezone": "UTC+1~+2",
       "dn_community_size": "中",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "germany",
@@ -327,7 +764,31 @@
       "climate_zone": "温带",
       "timezone": "UTC+1~+2",
       "dn_community_size": "大",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "greece",
@@ -345,7 +806,31 @@
       "climate_zone": "地中海",
       "timezone": "UTC+2~+3",
       "dn_community_size": "中",
-      "median_stay_months": 6
+      "median_stay_months": 6,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "iceland",
@@ -363,7 +848,31 @@
       "climate_zone": "寒带",
       "timezone": "UTC+0",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "malaysia",
@@ -381,7 +890,31 @@
       "climate_zone": "热带",
       "timezone": "UTC+8",
       "dn_community_size": "中",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "canada",
@@ -399,7 +932,31 @@
       "climate_zone": "温带",
       "timezone": "UTC-8~UTC-3.5",
       "dn_community_size": "中",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "denmark",
@@ -417,7 +974,31 @@
       "climate_zone": "温带海洋",
       "timezone": "UTC+1~+2",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "france",
@@ -435,7 +1016,31 @@
       "climate_zone": "温带",
       "timezone": "UTC+1~+2",
       "dn_community_size": "大",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "austria",
@@ -453,7 +1058,31 @@
       "climate_zone": "温带大陆",
       "timezone": "UTC+1~+2",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "indonesia",
@@ -471,7 +1100,31 @@
       "climate_zone": "热带",
       "timezone": "UTC+7~+9",
       "dn_community_size": "大",
-      "median_stay_months": 6
+      "median_stay_months": 6,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "ireland",
@@ -489,7 +1142,31 @@
       "climate_zone": "温带海洋",
       "timezone": "UTC+0~+1",
       "dn_community_size": "中",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "morocco",
@@ -507,7 +1184,31 @@
       "climate_zone": "地中海",
       "timezone": "UTC+0~+1",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "newzealand",
@@ -525,7 +1226,31 @@
       "climate_zone": "温带海洋",
       "timezone": "UTC+12~+13",
       "dn_community_size": "小",
-      "median_stay_months": 6
+      "median_stay_months": 6,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "poland",
@@ -543,7 +1268,31 @@
       "climate_zone": "温带大陆",
       "timezone": "UTC+1~+2",
       "dn_community_size": "中",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "croatia",
@@ -561,7 +1310,31 @@
       "climate_zone": "地中海",
       "timezone": "UTC+1~+2",
       "dn_community_size": "小",
-      "median_stay_months": 6
+      "median_stay_months": 6,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "israel",
@@ -579,7 +1352,31 @@
       "climate_zone": "地中海",
       "timezone": "UTC+2~+3",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "kazakhstan",
@@ -597,7 +1394,31 @@
       "climate_zone": "温带大陆",
       "timezone": "UTC+5~+6",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "switzerland",
@@ -615,7 +1436,31 @@
       "climate_zone": "温带",
       "timezone": "UTC+1~+2",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "uk",
@@ -633,7 +1478,31 @@
       "climate_zone": "温带海洋",
       "timezone": "UTC+0~+1",
       "dn_community_size": "大",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "vietnam",
@@ -651,7 +1520,31 @@
       "climate_zone": "热带",
       "timezone": "UTC+7",
       "dn_community_size": "大",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "philippines",
@@ -669,7 +1562,31 @@
       "climate_zone": "热带",
       "timezone": "UTC+8",
       "dn_community_size": "中",
-      "median_stay_months": 6
+      "median_stay_months": 6,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "romania",
@@ -687,7 +1604,31 @@
       "climate_zone": "温带大陆",
       "timezone": "UTC+2~+3",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "turkey",
@@ -705,7 +1646,31 @@
       "climate_zone": "地中海",
       "timezone": "UTC+3",
       "dn_community_size": "中",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "bulgaria",
@@ -723,7 +1688,31 @@
       "climate_zone": "温带大陆",
       "timezone": "UTC+2~+3",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "srilanka",
@@ -741,7 +1730,31 @@
       "climate_zone": "热带",
       "timezone": "UTC+5.5",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "chile",
@@ -759,7 +1772,31 @@
       "climate_zone": "温带",
       "timezone": "UTC-4~UTC-3",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "mexico",
@@ -777,7 +1814,31 @@
       "climate_zone": "热带",
       "timezone": "UTC-8~UTC-5",
       "dn_community_size": "中",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "mongolia",
@@ -795,7 +1856,31 @@
       "climate_zone": "寒带",
       "timezone": "UTC+7~+8",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "qatar",
@@ -813,7 +1898,31 @@
       "climate_zone": "沙漠",
       "timezone": "UTC+3",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "usa",
@@ -831,7 +1940,31 @@
       "climate_zone": "温带",
       "timezone": "UTC-11~UTC-4",
       "dn_community_size": "大",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "armenia",
@@ -849,7 +1982,31 @@
       "climate_zone": "温带大陆",
       "timezone": "UTC+4",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "nepal",
@@ -867,7 +2024,31 @@
       "climate_zone": "亚热带",
       "timezone": "UTC+5.45",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "brazil",
@@ -885,7 +2066,31 @@
       "climate_zone": "热带",
       "timezone": "UTC-5~UTC-2",
       "dn_community_size": "中",
-      "median_stay_months": 6
+      "median_stay_months": 6,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "colombia",
@@ -903,7 +2108,31 @@
       "climate_zone": "热带",
       "timezone": "UTC-5",
       "dn_community_size": "中",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "azerbaijan",
@@ -921,7 +2150,31 @@
       "climate_zone": "温带大陆",
       "timezone": "UTC+4",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "argentina",
@@ -939,7 +2192,31 @@
       "climate_zone": "温带",
       "timezone": "UTC-3",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "peru",
@@ -957,7 +2234,31 @@
       "climate_zone": "热带",
       "timezone": "UTC-5",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "south_africa",
@@ -975,7 +2276,31 @@
       "climate_zone": "温带",
       "timezone": "UTC+2",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "uzbekistan",
@@ -993,7 +2318,31 @@
       "climate_zone": "温带大陆",
       "timezone": "UTC+5",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "kenya",
@@ -1011,7 +2360,31 @@
       "climate_zone": "热带",
       "timezone": "UTC+3",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "macao",
@@ -1029,7 +2402,31 @@
       "climate_zone": "亚热带",
       "timezone": "UTC+8",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "india",
@@ -1047,7 +2444,31 @@
       "climate_zone": "热带",
       "timezone": "UTC+5.5",
       "dn_community_size": "中",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "egypt",
@@ -1065,7 +2486,31 @@
       "climate_zone": "沙漠",
       "timezone": "UTC+2",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     },
     {
       "id": "ghana",
@@ -1083,7 +2528,31 @@
       "climate_zone": "热带",
       "timezone": "UTC+0",
       "dn_community_size": "小",
-      "median_stay_months": 3
+      "median_stay_months": 3,
+      "healthcare_quality": 60,
+      "english_proficiency": 50,
+      "monthly_rent_usd_low": 400,
+      "monthly_rent_usd_high": 1200,
+      "food_cost_usd_daily": 15,
+      "transport_cost_usd_monthly": 50,
+      "coworking_spaces_count": 20,
+      "local_tax_rate": 20,
+      "pros": [
+        "友好当地人",
+        "美食丰富"
+      ],
+      "cons": [
+        "语言障碍",
+        "文化差异"
+      ],
+      "ideal_for": [
+        "远程工作者",
+        "自由职业者"
+      ],
+      "best_neighborhoods": [
+        "市中心",
+        "老城区"
+      ]
     }
   ]
 }
