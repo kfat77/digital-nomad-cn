@@ -70,5 +70,29 @@
     "date": "2026-07-06",
     "tags": ["数字游民签证", "远程工作", "签证指南", "长期居留"],
     "image": "/images/og/dn-visa.png"
+  },
+  {
+    "slug": "digital-nomad-tax-guide",
+    "title": "数字游民税务完全指南：如何合法优化全球税务",
+    "description": "税务居民身份认定、双重征税协定、全球低税率国家对比、合法节税策略，基于60国数据的实用税务规划",
+    "date": "2026-07-08",
+    "tags": ["数字游民", "税务", "全球税务", "合法节税", "低税率国家"],
+    "image": "/images/og/tax-guide.png"
+  },
+  {
+    "slug": "digital-nomad-insurance-guide",
+    "title": "数字游民保险完全指南：健康、设备、旅行全覆盖",
+    "description": "全球健康保险、设备保险、旅行保险对比与推荐，基于60国数据的实用保险策略",
+    "date": "2026-07-08",
+    "tags": ["数字游民", "保险", "健康保险", "设备保险", "旅行保险"],
+    "image": "/images/og/insurance-guide.png"
+  },
+  {
+    "slug": "digital-nomad-banking-guide",
+    "title": "数字游民银行与金融完全指南：跨境收款、多币种管理、全球取现",
+    "description": "Wise、Revolut、Payoneer、本地银行对比与推荐，跨境支付、多币种管理、全球取现实战策略",
+    "date": "2026-07-08",
+    "tags": ["数字游民", "银行", "跨境支付", "多币种", "金融基础设施"],
+    "image": "/images/og/banking-guide.png"
   }
 ]
