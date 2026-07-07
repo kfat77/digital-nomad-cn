@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap"></noscript>
-    <link rel="stylesheet" href="style.css?v=6" fetchpriority="high">
+    <link rel="stylesheet" href="style.css?v=7" fetchpriority="high">
 </head>
 <body>
 
@@ -33,12 +33,9 @@
         <nav class="header-nav" aria-label="主导航">
             <a href="country/">国家</a>
             <a href="visa/">签证</a>
-            <a href="city/">城市</a>
             <a href="articles/">文章</a>
             <a href="compare/">对比</a>
-            <a href="routes/">路线</a>
             <a href="search/">搜索</a>
-            <a href="assistant/">AI助手</a>
         </nav>
         <div class="header-actions">
             <a href="https://github.com/kfat77/digital-nomad-cn" class="header-icon-btn" target="_blank" aria-label="GitHub">
@@ -55,45 +52,33 @@
     <nav class="mobile-menu" id="mobileMenu" aria-label="移动端菜单">
         <a href="country/">国家数据库</a>
         <a href="visa/">签证数据库</a>
-        <a href="city/">城市数据库</a>
         <a href="articles/">文章</a>
         <a href="compare/">国家对比</a>
-        <a href="routes/">路线规划</a>
         <a href="search/">搜索</a>
-        <a href="assistant/">AI助手</a>
-        <a href="community/">社区</a>
-        <a href="faq/">FAQ</a>
-        <a href="dashboard/">数据中心</a>
-        <a href="recommend/">推荐</a>
-        <a href="tools/">工具</a>
+        <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a>
     </nav>
 
-    <!-- Hero — with particle bg + blur text + decrypt text + grid motion -->
+    <!-- Hero -->
     <section class="hero" id="hero">
         <div class="hero-bg"></div>
-        <div class="particle-container" id="particleContainer"></div>
-        <div class="grid-motion" id="gridMotion"></div>
         <div class="hero-content">
-            <div class="hero-meta blur-text">
-                <span class="decrypt-text" data-text="100 个国家，50 多种签证，122 座城市 — 全部开源">100 个国家，50 多种签证，122 座城市 — 全部开源</span>
+            <div class="hero-meta">
+                <span>100 个国家，50 多种签证，122 座城市 — 全部开源</span>
             </div>
-            <h1 class="hero-title blur-text blur-text-delay-1">
+            <h1 class="hero-title">
                 全球数字游民<br><span class="hero-title-accent">一站式数据平台</span>
             </h1>
-            <p class="hero-desc blur-text blur-text-delay-2">
+            <p class="hero-desc">
                 从新加坡到里斯本，我们为每座数字游民目的地建立了档案。生活成本、安全指数、网速评分、签证政策——结构化的数据，拿来就能用。
             </p>
-            <div class="hero-cta blur-text blur-text-delay-3">
-                <a href="#country-grid" class="btn btn-primary btn-lg magnet-btn">探索国家</a>
-                <a href="compare/" class="btn btn-outline btn-lg magnet-btn">国家对比</a>
-                <a href="https://github.com/kfat77/digital-nomad-cn" class="btn btn-outline btn-lg magnet-btn" target="_blank">查看源码</a>
+            <div class="hero-cta">
+                <a href="#country-grid" class="btn btn-primary btn-lg">探索国家</a>
+                <a href="compare/" class="btn btn-outline btn-lg">国家对比</a>
+                <a href="https://github.com/kfat77/digital-nomad-cn" class="btn btn-outline btn-lg" target="_blank">查看源码</a>
             </div>
-            <p class="hero-meta" style="margin-top: 24px; font-size: 13px; color: var(--text-tertiary);" id="dataFreshness">数据加载中...</p>
+            <p class="hero-meta" id="dataFreshness">数据加载中...</p>
         </div>
-        <div class="hero-scroll">
-            <span>向下滚动</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-        </div>
+
     </section>
 
     <!-- Stats Bar -->
@@ -118,7 +103,7 @@
         </div>
     </section>
 
-    <!-- Core Infrastructure — with TiltCard + SpotlightCard -->
+    <!-- Core Infrastructure -->
     <section class="section" id="core-infra">
         <div class="container">
             <div class="section-header reveal">
@@ -126,10 +111,8 @@
                 <p class="section-desc">银行卡、电话卡、证券账户——这三个基础设施弄好了，去任何地方都不会慌。</p>
             </div>
             <div class="infra-grid">
-                <a href="articles/digital-nomad-banking-guide/" class="infra-card tilt-card spotlight-card reveal">
-                    <div class="tilt-card-inner">
-                        <div class="tilt-card-shine"></div>
-                        <div class="infra-card-icon">
+                <a href="articles/digital-nomad-banking-guide/" class="infra-card reveal">
+                    <div class="infra-card-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
                         </div>
                         <h3>银行卡</h3>
@@ -141,12 +124,9 @@
                             <li>Wise 多币种账户</li>
                         </ul>
                         <span class="infra-card-link">查看攻略 →</span>
-                    </div>
                 </a>
-                <a href="articles/giffgaff-guide-2026/" class="infra-card tilt-card spotlight-card reveal reveal-delay-1">
-                    <div class="tilt-card-inner">
-                        <div class="tilt-card-shine"></div>
-                        <div class="infra-card-icon">
+                <a href="articles/giffgaff-guide-2026/" class="infra-card reveal reveal-delay-1">
+                    <div class="infra-card-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
                         </div>
                         <h3>电话卡</h3>
@@ -158,12 +138,9 @@
                             <li>eSIM 全球流量卡</li>
                         </ul>
                         <span class="infra-card-link">查看攻略 →</span>
-                    </div>
                 </a>
-                <a href="articles/securities-guide/" class="infra-card tilt-card spotlight-card reveal reveal-delay-2">
-                    <div class="tilt-card-inner">
-                        <div class="tilt-card-shine"></div>
-                        <div class="infra-card-icon">
+                <a href="articles/securities-guide/" class="infra-card reveal reveal-delay-2">
+                    <div class="infra-card-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                         </div>
                         <h3>证券账户</h3>
@@ -174,9 +151,7 @@
                             <li>FSMOne 内地可用方案</li>
                             <li>券商入金最优路径</li>
                         </ul>
-                        <span class="infra-card-link">查看攻略 →</span>
-                    </div>
-                </a>
+                        <span class="infra-card-link">查看攻略 →</span></a>
             </div>
         </div>
     </section>
@@ -187,7 +162,7 @@
 
     <div class="divider"></div>
 
-    <!-- Trending Destinations — with SpotlightCard -->
+    <!-- Trending Destinations -->
     <section class="section" id="trending">
         <div class="container">
             <div class="section-header reveal">
@@ -195,7 +170,7 @@
                 <p class="section-desc">综合生活成本、安全、网速和社区活跃度，目前排名靠前的数字游民城市。</p>
             </div>
             <div class="trending-grid stagger-list" id="trendingGrid">
-                <a href="country/singapore/index.html" class="trending-card spotlight-card stagger-item">
+                <a href="country/singapore/index.html" class="trending-card stagger-item">
                     <div class="trending-rank">1</div>
                     <div class="trending-info">
                         <h4>新加坡</h4>
@@ -204,7 +179,7 @@
                     </div>
                     <div class="trending-score">88</div>
                 </a>
-                <a href="country/portugal/index.html" class="trending-card spotlight-card stagger-item">
+                <a href="country/portugal/index.html" class="trending-card stagger-item">
                     <div class="trending-rank">2</div>
                     <div class="trending-info">
                         <h4>葡萄牙</h4>
@@ -213,7 +188,7 @@
                     </div>
                     <div class="trending-score">88</div>
                 </a>
-                <a href="country/japan/index.html" class="trending-card spotlight-card stagger-item">
+                <a href="country/japan/index.html" class="trending-card stagger-item">
                     <div class="trending-rank">3</div>
                     <div class="trending-info">
                         <h4>日本</h4>
@@ -222,7 +197,7 @@
                     </div>
                     <div class="trending-score">87</div>
                 </a>
-                <a href="country/spain/index.html" class="trending-card spotlight-card stagger-item">
+                <a href="country/spain/index.html" class="trending-card stagger-item">
                     <div class="trending-rank">4</div>
                     <div class="trending-info">
                         <h4>西班牙</h4>
@@ -231,7 +206,7 @@
                     </div>
                     <div class="trending-score">86</div>
                 </a>
-                <a href="country/thailand/index.html" class="trending-card spotlight-card stagger-item">
+                <a href="country/thailand/index.html" class="trending-card stagger-item">
                     <div class="trending-rank">5</div>
                     <div class="trending-info">
                         <h4>泰国</h4>
@@ -240,7 +215,7 @@
                     </div>
                     <div class="trending-score">85</div>
                 </a>
-                <a href="country/uae/index.html" class="trending-card spotlight-card stagger-item">
+                <a href="country/uae/index.html" class="trending-card stagger-item">
                     <div class="trending-rank">6</div>
                     <div class="trending-info">
                         <h4>阿联酋</h4>
@@ -249,7 +224,7 @@
                     </div>
                     <div class="trending-score">85</div>
                 </a>
-                <a href="country/georgia/index.html" class="trending-card spotlight-card stagger-item">
+                <a href="country/georgia/index.html" class="trending-card stagger-item">
                     <div class="trending-rank">7</div>
                     <div class="trending-info">
                         <h4>格鲁吉亚</h4>
@@ -258,15 +233,14 @@
                     </div>
                     <div class="trending-score">82</div>
                 </a>
-                <a href="country/netherlands/index.html" class="trending-card spotlight-card stagger-item">
+                <a href="country/netherlands/index.html" class="trending-card stagger-item">
                     <div class="trending-rank">8</div>
                     <div class="trending-info">
                         <h4>荷兰</h4>
                         <div class="trending-metrics"><span>生活成本 78</span><span>网速 180</span><span>安全 72</span></div>
                         <span class="country-badge badge-danger">需签证</span>
                     </div>
-                    <div class="trending-score">82</div>
-                </a>
+                    <div class="trending-score">82</a>
             </div>
         </div>
     </section>
@@ -316,7 +290,7 @@
                         <a href="country/vietnam/index.html" class="country-card" data-region="asia" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇻🇳</span><div class="country-meta"><h4>越南</h4><span class="country-score">75</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 35</span><span class="country-metric">网速 120</span></div></a>
                         <a href="country/southkorea/index.html" class="country-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇰🇷</span><div class="country-meta"><h4>韩国</h4><span class="country-score">80</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 220</span></div></a>
                         <a href="country/hongkong/index.html" class="country-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇭🇰</span><div class="country-meta"><h4>香港</h4><span class="country-score">82</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 85</span><span class="country-metric">网速 250</span></div></a>
-                        <a href="country/malaysia/index.html" class="country-card" data-region="asia" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇾</span><div class="country-meta"><h4>马来西亚</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 40</span><span class="country-metric">网速 150</span></div></a>
+                        <a href="country/malaysia/index.html" class="country-card" data-region="asia" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇾</span><div class="country-meta"><h4>马来西亚</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 40</span><span class="country-metric">网速 150</span></a>
                     </div>
                 </div>
                 <div class="region-section" id="region-europe">
@@ -338,7 +312,7 @@
                         <a href="country/uk/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇬🇧</span><div class="country-meta"><h4>英国</h4><span class="country-score">75</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 80</span><span class="country-metric">网速 110</span></div></a>
                         <a href="country/netherlands/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇳🇱</span><div class="country-meta"><h4>荷兰</h4><span class="country-score">82</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 180</span></div></a>
                         <a href="country/portugal/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇵🇹</span><div class="country-meta"><h4>葡萄牙</h4><span class="country-score">88</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 55</span><span class="country-metric">网速 150</span></div></a>
-                        <a href="country/spain/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇪🇸</span><div class="country-meta"><h4>西班牙</h4><span class="country-score">86</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 58</span><span class="country-metric">网速 170</span></div></a>
+                        <a href="country/spain/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇪🇸</span><div class="country-meta"><h4>西班牙</h4><span class="country-score">86</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 58</span><span class="country-metric">网速 170</span></a>
                     </div>
                 </div>
                 <div class="region-section" id="region-americas_north">
@@ -346,7 +320,7 @@
                     <div class="country-grid">
                         <a href="country/canada/index.html" class="country-card" data-region="americas_north" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇨🇦</span><div class="country-meta"><h4>加拿大</h4><span class="country-score">77</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 75</span><span class="country-metric">网速 170</span></div></a>
                         <a href="country/mexico/index.html" class="country-card" data-region="americas_north" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇲🇽</span><div class="country-meta"><h4>墨西哥</h4><span class="country-score">72</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 38</span><span class="country-metric">网速 40</span></div></a>
-                        <a href="country/usa/index.html" class="country-card" data-region="americas_north" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇺🇸</span><div class="country-meta"><h4>美国</h4><span class="country-score">72</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 88</span><span class="country-metric">网速 250</span></div></a>
+                        <a href="country/usa/index.html" class="country-card" data-region="americas_north" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇺🇸</span><div class="country-meta"><h4>美国</h4><span class="country-score">72</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 88</span><span class="country-metric">网速 250</span></a>
                     </div>
                 </div>
                 <div class="region-section" id="region-americas_south">
@@ -354,26 +328,26 @@
                     <div class="country-grid">
                         <a href="country/brazil/index.html" class="country-card" data-region="americas_south" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇧🇷</span><div class="country-meta"><h4>巴西</h4><span class="country-score">70</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 40</span><span class="country-metric">网速 55</span></div></a>
                         <a href="country/chile/index.html" class="country-card" data-region="americas_south" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇨🇱</span><div class="country-meta"><h4>智利</h4><span class="country-score">72</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 45</span><span class="country-metric">网速 80</span></div></a>
-                        <a href="country/argentina/index.html" class="country-card" data-region="americas_south" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇦🇷</span><div class="country-meta"><h4>阿根廷</h4><span class="country-score">68</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 35</span><span class="country-metric">网速 30</span></div></a>
+                        <a href="country/argentina/index.html" class="country-card" data-region="americas_south" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇦🇷</span><div class="country-meta"><h4>阿根廷</h4><span class="country-score">68</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 35</span><span class="country-metric">网速 30</span></a>
                     </div>
                 </div>
                 <div class="region-section" id="region-oceania">
                     <h3 class="region-title">大洋洲 <span class="region-count">2</span></h3>
                     <div class="country-grid">
                         <a href="country/newzealand/index.html" class="country-card" data-region="oceania" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇳🇿</span><div class="country-meta"><h4>新西兰</h4><span class="country-score">76</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 150</span></div></a>
-                        <a href="country/australia/index.html" class="country-card" data-region="oceania" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇦🇺</span><div class="country-meta"><h4>澳大利亚</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 82</span><span class="country-metric">网速 80</span></div></a>
+                        <a href="country/australia/index.html" class="country-card" data-region="oceania" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇦🇺</span><div class="country-meta"><h4>澳大利亚</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 82</span><span class="country-metric">网速 80</span></a>
                     </div>
                 </div>
                 <div class="region-section" id="region-africa">
                     <h3 class="region-title">非洲 <span class="region-count">1</span></h3>
                     <div class="country-grid">
-                        <a href="country/morocco/index.html" class="country-card" data-region="africa" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇦</span><div class="country-meta"><h4>摩洛哥</h4><span class="country-score">76</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 30</span><span class="country-metric">网速 25</span></div></a>
+                        <a href="country/morocco/index.html" class="country-card" data-region="africa" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇦</span><div class="country-meta"><h4>摩洛哥</h4><span class="country-score">76</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 30</span><span class="country-metric">网速 25</span></a>
                     </div>
                 </div>
                 <div class="region-section" id="region-middle_east">
                     <h3 class="region-title">中东 <span class="region-count">1</span></h3>
                     <div class="country-grid">
-                        <a href="country/uae/index.html" class="country-card" data-region="middle_east" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇦🇪</span><div class="country-meta"><h4>阿联酋</h4><span class="country-score">85</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 70</span><span class="country-metric">网速 300</span></div></a>
+                        <a href="country/uae/index.html" class="country-card" data-region="middle_east" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇦🇪</span><div class="country-meta"><h4>阿联酋</h4><span class="country-score">85</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 70</span><span class="country-metric">网速 300</span></a>
                     </div>
                 </div>
             </div>
@@ -405,7 +379,7 @@
                 <a href="country/mongolia/index.html" class="new-card stagger-item"><span class="new-flag">🇲🇳</span><div class="new-info"><h4>蒙古</h4><span class="new-score">72 分</span><span class="country-badge badge-success">免签</span></div></a>
                 <a href="country/vietnam/index.html" class="new-card stagger-item"><span class="new-flag">🇻🇳</span><div class="new-info"><h4>越南</h4><span class="new-score">75 分</span><span class="country-badge badge-info">电子签</span></div></a>
                 <a href="country/argentina/index.html" class="new-card stagger-item"><span class="new-flag">🇦🇷</span><div class="new-info"><h4>阿根廷</h4><span class="new-score">68 分</span><span class="country-badge badge-info">电子签</span></div></a>
-                <a href="country/southkorea/index.html" class="new-card stagger-item"><span class="new-flag">🇰🇷</span><div class="new-info"><h4>韩国</h4><span class="new-score">80 分</span><span class="country-badge badge-danger">需签证</span></div></a>
+                <a href="country/southkorea/index.html" class="new-card stagger-item"><span class="new-flag">🇰🇷</span><div class="new-info"><h4>韩国</h4><span class="new-score">80 分</span><span class="country-badge badge-danger">需签证</span></a>
             </div>
         </div>
     </section>
@@ -420,7 +394,7 @@
                 <p class="section-desc">从对比到搜索，从路线规划到数据下载——用工具代替猜测。</p>
             </div>
             <div class="tools-grid">
-                <a href="compare/" class="tool-card spotlight-card reveal">
+                <a href="compare/" class="tool-card reveal">
                     <div class="tool-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
                     </div>
@@ -428,7 +402,7 @@
                     <p>同时对比 2-3 个国家的生活成本、安全、网速、签证等全维度指标。</p>
                     <span class="tool-link">开始对比 →</span>
                 </a>
-                <a href="routes/" class="tool-card spotlight-card reveal reveal-delay-1">
+                <a href="routes/" class="tool-card reveal reveal-delay-1">
                     <div class="tool-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 21 18 21 6 8 18 1 6"/><line x1="1" y1="6" x2="8" y2="18"/><line x1="21" y1="6" x2="16" y2="18"/></svg>
                     </div>
@@ -436,7 +410,7 @@
                     <p>东南亚环、欧洲申根、地中海三大经典数字游民路线。</p>
                     <span class="tool-link">查看路线 →</span>
                 </a>
-                <a href="search/" class="tool-card spotlight-card reveal reveal-delay-2">
+                <a href="search/" class="tool-card reveal reveal-delay-2">
                     <div class="tool-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                     </div>
@@ -444,7 +418,7 @@
                     <p>模糊搜索 76 项国家与城市数据，支持拼音、关键词、标签匹配。</p>
                     <span class="tool-link">立即搜索 →</span>
                 </a>
-                <a href="https://github.com/kfat77/digital-nomad-cn" class="tool-card spotlight-card reveal reveal-delay-3" target="_blank">
+                <a href="https://github.com/kfat77/digital-nomad-cn" class="tool-card reveal reveal-delay-3" target="_blank">
                     <div class="tool-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
                     </div>
