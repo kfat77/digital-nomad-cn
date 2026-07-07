@@ -27,18 +27,18 @@
 
   const CONFIG = {
     radius: 100,
-    dotCount: isMobile ? 1800 : 4000,
+    dotCount: isMobile ? 2500 : 6000,
     starCount: isMobile ? 600 : 1800,
     arcSegments: isMobile ? 60 : 120,
     colors: {
-      ocean: 0xE8ECF2,
-      oceanEmissive: 0xF5F7FA,
-      dotBase: new THREE.Color(0x002F6C),
-      dotHover: new THREE.Color(0xFE0000),
-      atmosphereInner: new THREE.Color(0xE6EEF8),
-      atmosphereOuter: new THREE.Color(0x002F6C),
-      arc: new THREE.Color(0x002F6C),
-      star: new THREE.Color(0x8899AA)
+      ocean: 0x000D1A,
+      oceanEmissive: 0x001A33,
+      dotBase: new THREE.Color(0xD2B48C),
+      dotHover: new THREE.Color(0xFFD700),
+      atmosphereInner: new THREE.Color(0x66AAFF),
+      atmosphereOuter: new THREE.Color(0x004080),
+      arc: new THREE.Color(0x44AAFF),
+      star: new THREE.Color(0x8899BB)
     }
   };
 
@@ -378,6 +378,295 @@
     'South Georgia and the South Sandwich Islands': 'country/southgeorgia/index.html'
   };
 
+  const LAND_SEEDS = [
+    // === North America ===
+    { lat: 71, lng: -156, spread: 6, count: 8 },  // Alaska north
+    { lat: 64, lng: -153, spread: 5, count: 6 },  // Alaska central
+    { lat: 60, lng: -135, spread: 6, count: 7 },  // Yukon/BC
+    { lat: 55, lng: -125, spread: 5, count: 6 },  // BC coast
+    { lat: 51, lng: -119, spread: 5, count: 6 },  // Alberta
+    { lat: 55, lng: -106, spread: 6, count: 7 },  // Saskatchewan
+    { lat: 53, lng: -97,  spread: 5, count: 6 },  // Manitoba
+    { lat: 50, lng: -86,  spread: 6, count: 7 },  // Ontario
+    { lat: 54, lng: -72,  spread: 6, count: 7 },  // Quebec
+    { lat: 56, lng: -62,  spread: 5, count: 6 },  // Labrador
+    { lat: 52, lng: -56,  spread: 4, count: 5 },  // Newfoundland
+    { lat: 46, lng: -62,  spread: 3, count: 4 },  // Nova Scotia
+    { lat: 45, lng: -75,  spread: 4, count: 5 },  // Ottawa/Montreal
+    { lat: 49, lng: -54,  spread: 5, count: 6 },  // New Brunswick/PEI
+    { lat: 37, lng: -122, spread: 5, count: 6 },  // California
+    { lat: 44, lng: -120, spread: 5, count: 6 },  // Oregon
+    { lat: 47, lng: -114, spread: 6, count: 7 },  // Montana/Idaho
+    { lat: 39, lng: -111, spread: 5, count: 6 },  // Utah
+    { lat: 35, lng: -105, spread: 5, count: 6 },  // New Mexico
+    { lat: 39, lng: -98,  spread: 6, count: 7 },  // Kansas/Nebraska
+    { lat: 41, lng: -93,  spread: 5, count: 6 },  // Iowa
+    { lat: 40, lng: -83,  spread: 5, count: 6 },  // Ohio
+    { lat: 35, lng: -80,  spread: 5, count: 6 },  // Carolinas
+    { lat: 33, lng: -84,  spread: 4, count: 5 },  // Georgia
+    { lat: 28, lng: -82,  spread: 4, count: 5 },  // Florida
+    { lat: 30, lng: -95,  spread: 5, count: 6 },  // Texas
+    { lat: 25, lng: -100, spread: 6, count: 7 },  // Mexico central
+    { lat: 19, lng: -99,  spread: 5, count: 6 },  // Mexico City area
+    { lat: 17, lng: -92,  spread: 5, count: 6 },  // Yucatan
+    { lat: 15, lng: -88,  spread: 4, count: 5 },  // Central America
+    { lat: 10, lng: -85,  spread: 4, count: 5 },  // Costa Rica/Panama
+    { lat: 22, lng: -79,  spread: 4, count: 5 },  // Cuba
+    { lat: 19, lng: -72,  spread: 3, count: 4 },  // Hispaniola
+    { lat: 18, lng: -77,  spread: 3, count: 4 },  // Jamaica
+    { lat: 21, lng: -89,  spread: 3, count: 4 },  // Yucatan tip
+
+    // === South America ===
+    { lat: 12, lng: -70,  spread: 5, count: 6 },  // Colombia north
+    { lat: 4,  lng: -74,  spread: 4, count: 5 },  // Colombia central
+    { lat: -2, lng: -77,  spread: 4, count: 5 },  // Ecuador
+    { lat: -9, lng: -75,  spread: 5, count: 6 },  // Peru
+    { lat: -13, lng: -72, spread: 5, count: 6 },  // Peru south
+    { lat: -17, lng: -65, spread: 5, count: 6 },  // Bolivia
+    { lat: -22, lng: -68, spread: 5, count: 6 },  // Chile north
+    { lat: -33, lng: -71, spread: 5, count: 6 },  // Chile central
+    { lat: -41, lng: -73, spread: 5, count: 6 },  // Chile south
+    { lat: -51, lng: -73, spread: 4, count: 5 },  // Patagonia
+    { lat: -55, lng: -67, spread: 4, count: 5 },  // Tierra del Fuego
+    { lat: -20, lng: -55, spread: 6, count: 7 },  // Paraguay/Uruguay
+    { lat: -15, lng: -47, spread: 6, count: 7 },  // Brazil central
+    { lat: -3,  lng: -60, spread: 6, count: 7 },  // Brazil Amazon
+    { lat: -8,  lng: -50, spread: 6, count: 7 },  // Brazil east
+    { lat: -23, lng: -46, spread: 5, count: 6 },  // Sao Paulo
+    { lat: -10, lng: -37, spread: 5, count: 6 },  // Brazil northeast
+    { lat: 5,  lng: -60,  spread: 4, count: 5 },  // Guyana/Venezuela
+    { lat: 7,  lng: -66,  spread: 4, count: 5 },  // Venezuela
+
+    // === Europe ===
+    { lat: 71, lng: 26,  spread: 5, count: 6 },  // Norway north
+    { lat: 68, lng: 16,  spread: 5, count: 6 },  // Norway central
+    { lat: 62, lng: 10,  spread: 5, count: 6 },  // Norway south
+    { lat: 65, lng: 18,  spread: 5, count: 6 },  // Sweden
+    { lat: 62, lng: 27,  spread: 5, count: 6 },  // Finland
+    { lat: 60, lng: 25,  spread: 4, count: 5 },  // Finland south
+    { lat: 56, lng: 12,  spread: 4, count: 5 },  // Denmark
+    { lat: 60, lng: -2,  spread: 5, count: 6 },  // Scotland
+    { lat: 53, lng: -2,  spread: 5, count: 6 },  // England
+    { lat: 52, lng: -4,  spread: 4, count: 5 },  // Wales
+    { lat: 54, lng: -7,  spread: 3, count: 4 },  // Ireland
+    { lat: 50, lng: 3,   spread: 4, count: 5 },  // Belgium/Netherlands
+    { lat: 52, lng: 6,   spread: 4, count: 5 },  // Netherlands
+    { lat: 51, lng: 10,  spread: 5, count: 6 },  // Germany
+    { lat: 53, lng: 14,  spread: 5, count: 6 },  // Poland
+    { lat: 50, lng: 15,  spread: 4, count: 5 },  // Czech
+    { lat: 47, lng: 14,  spread: 5, count: 6 },  // Austria
+    { lat: 47, lng: 8,   spread: 4, count: 5 },  // Switzerland
+    { lat: 46, lng: 2,   spread: 5, count: 6 },  // France
+    { lat: 44, lng: -1,  spread: 4, count: 5 },  // France west
+    { lat: 42, lng: 12,  spread: 5, count: 6 },  // Italy
+    { lat: 43, lng: 11,  spread: 4, count: 5 },  // Tuscany
+    { lat: 40, lng: 14,  spread: 4, count: 5 },  // Naples/Sicily
+    { lat: 40, lng: -4,  spread: 5, count: 6 },  // Spain
+    { lat: 38, lng: -7,  spread: 4, count: 5 },  // Portugal
+    { lat: 40, lng: 22,  spread: 5, count: 6 },  // Greece
+    { lat: 42, lng: 24,  spread: 5, count: 6 },  // Bulgaria/Romania
+    { lat: 46, lng: 28,  spread: 4, count: 5 },  // Romania
+    { lat: 48, lng: 20,  spread: 4, count: 5 },  // Hungary
+    { lat: 55, lng: 24,  spread: 5, count: 6 },  // Baltics
+    { lat: 55, lng: 38,  spread: 5, count: 6 },  // Russia west
+    { lat: 60, lng: 45,  spread: 5, count: 6 },  // Russia central
+    { lat: 65, lng: 55,  spread: 4, count: 5 },  // Russia north
+    { lat: 58, lng: 74,  spread: 5, count: 6 },  // Siberia west
+    { lat: 62, lng: 90,  spread: 5, count: 6 },  // Siberia central
+    { lat: 66, lng: 105, spread: 4, count: 5 },  // Siberia east
+    { lat: 70, lng: 100, spread: 4, count: 5 },  // Arctic Russia
+    { lat: 65, lng: 75,  spread: 4, count: 5 },  // Yamal
+    { lat: 36, lng: 14,  spread: 3, count: 4 },  // Sicily
+    { lat: 36, lng: 22,  spread: 3, count: 4 },  // Crete/Cyprus
+    { lat: 36, lng: -5,  spread: 3, count: 4 },  // Gibraltar area
+    { lat: 60, lng: -7,  spread: 3, count: 4 },  // Faroe
+    { lat: 64, lng: -19, spread: 3, count: 4 },  // Iceland
+
+    // === Africa ===
+    { lat: 32, lng: -6,  spread: 4, count: 5 },  // Morocco
+    { lat: 28, lng: 10,  spread: 5, count: 6 },  // Algeria
+    { lat: 24, lng: 5,   spread: 6, count: 7 },  // Algeria south
+    { lat: 33, lng: 10,  spread: 4, count: 5 },  // Tunisia
+    { lat: 31, lng: 17,  spread: 4, count: 5 },  // Libya
+    { lat: 27, lng: 22,  spread: 5, count: 6 },  // Libya south
+    { lat: 22, lng: 26,  spread: 5, count: 6 },  // Egypt west
+    { lat: 26, lng: 32,  spread: 4, count: 5 },  // Egypt
+    { lat: 16, lng: 21,  spread: 6, count: 7 },  // Chad
+    { lat: 13, lng: 15,  spread: 6, count: 7 },  // Chad south
+    { lat: 18, lng: 8,   spread: 6, count: 7 },  // Niger/Mali
+    { lat: 12, lng: -2,  spread: 6, count: 7 },  // Burkina/Mali
+    { lat: 7,  lng: -5,  spread: 5, count: 6 },  // Ivory Coast
+    { lat: 9,  lng: 1,   spread: 5, count: 6 },  // Ghana/Togo
+    { lat: 6,  lng: 8,   spread: 5, count: 6 },  // Nigeria
+    { lat: 4,  lng: 12,  spread: 5, count: 6 },  // Cameroon
+    { lat: 1,  lng: 16,  spread: 6, count: 7 },  // Congo
+    { lat: -1, lng: 24,  spread: 6, count: 7 },  // DRC
+    { lat: -4, lng: 22,  spread: 6, count: 7 },  // DRC south
+    { lat: -7, lng: 22,  spread: 5, count: 6 },  // Angola
+    { lat: -13, lng: 24, spread: 5, count: 6 },  // Zambia
+    { lat: -19, lng: 27, spread: 5, count: 6 },  // Zimbabwe/Botswana
+    { lat: -26, lng: 28, spread: 5, count: 6 },  // South Africa
+    { lat: -30, lng: 23, spread: 5, count: 6 },  // South Africa south
+    { lat: -33, lng: 19, spread: 4, count: 5 },  // Cape area
+    { lat: -15, lng: 35, spread: 5, count: 6 },  // Mozambique
+    { lat: -4, lng: 38,  spread: 5, count: 6 },  // Tanzania
+    { lat: 0,  lng: 37,  spread: 5, count: 6 },  // Kenya
+    { lat: 3,  lng: 39,  spread: 4, count: 5 },  // Ethiopia
+    { lat: 9,  lng: 41,  spread: 5, count: 6 },  // Ethiopia/Horn
+    { lat: 12, lng: 45,  spread: 4, count: 5 },  // Djibouti
+    { lat: 15, lng: 39,  spread: 4, count: 5 },  // Eritrea
+    { lat: 18, lng: 31,  spread: 4, count: 5 },  // Sudan
+    { lat: -20, lng: 47, spread: 4, count: 5 },  // Madagascar
+    { lat: -18, lng: 44, spread: 4, count: 5 },  // Madagascar north
+    { lat: -2, lng: 11,  spread: 4, count: 5 },  // Gabon
+    { lat: 5,  lng: -5,  spread: 4, count: 5 },  // Liberia
+    { lat: 10, lng: -14, spread: 4, count: 5 },  // Guinea
+    { lat: 14, lng: -3,  spread: 4, count: 5 },  // Mali north
+    { lat: 20, lng: 2,   spread: 4, count: 5 },  // Mali central
+    { lat: 36, lng: 3,   spread: 3, count: 4 },  // Tunisia coast
+    { lat: 30, lng: 31,  spread: 3, count: 4 },  // Cairo area
+    { lat: 24, lng: 29,  spread: 4, count: 5 },  // Egypt south
+    { lat: -25, lng: 17, spread: 4, count: 5 },  // Namibia
+    { lat: -22, lng: 15, spread: 3, count: 4 },  // Namibia coast
+    { lat: -34, lng: 18, spread: 3, count: 4 },  // Cape Town
+
+    // === Asia ===
+    { lat: 35, lng: 36,  spread: 5, count: 6 },  // Turkey
+    { lat: 33, lng: 44,  spread: 5, count: 6 },  // Iraq
+    { lat: 30, lng: 48,  spread: 5, count: 6 },  // Iran
+    { lat: 35, lng: 52,  spread: 5, count: 6 },  // Iran north
+    { lat: 25, lng: 55,  spread: 4, count: 5 },  // UAE
+    { lat: 24, lng: 46,  spread: 4, count: 5 },  // Saudi central
+    { lat: 21, lng: 40,  spread: 5, count: 6 },  // Saudi west
+    { lat: 17, lng: 44,  spread: 4, count: 5 },  // Yemen
+    { lat: 15, lng: 45,  spread: 4, count: 5 },  // Yemen east
+    { lat: 25, lng: 67,  spread: 5, count: 6 },  // Pakistan
+    { lat: 28, lng: 70,  spread: 5, count: 6 },  // Pakistan central
+    { lat: 30, lng: 75,  spread: 5, count: 6 },  // India north
+    { lat: 22, lng: 79,  spread: 6, count: 7 },  // India central
+    { lat: 15, lng: 77,  spread: 5, count: 6 },  // India south
+    { lat: 11, lng: 78,  spread: 4, count: 5 },  // Tamil Nadu
+    { lat: 7,  lng: 80,  spread: 3, count: 4 },  // Sri Lanka
+    { lat: 27, lng: 89,  spread: 4, count: 5 },  // Bhutan
+    { lat: 23, lng: 91,  spread: 4, count: 5 },  // Bangladesh
+    { lat: 22, lng: 96,  spread: 4, count: 5 },  // Myanmar
+    { lat: 16, lng: 96,  spread: 4, count: 5 },  // Myanmar south
+    { lat: 13, lng: 100, spread: 4, count: 5 },  // Thailand
+    { lat: 4,  lng: 102, spread: 4, count: 5 },  // Malaysia
+    { lat: 3,  lng: 114, spread: 4, count: 5 },  // Borneo
+    { lat: 0,  lng: 113, spread: 4, count: 5 },  // Indonesia
+    { lat: -5, lng: 120, spread: 5, count: 6 },  // Sulawesi
+    { lat: -2, lng: 128, spread: 4, count: 5 },  // New Guinea
+    { lat: 0,  lng: 125, spread: 4, count: 5 },  // Moluccas
+    { lat: 7,  lng: 125, spread: 4, count: 5 },  // Mindanao
+    { lat: 14, lng: 121, spread: 4, count: 5 },  // Luzon
+    { lat: 35, lng: 105, spread: 6, count: 7 },  // China central
+    { lat: 30, lng: 115, spread: 5, count: 6 },  // China east
+    { lat: 40, lng: 116, spread: 5, count: 6 },  // Beijing area
+    { lat: 45, lng: 125, spread: 5, count: 6 },  // Manchuria
+    { lat: 43, lng: 115, spread: 6, count: 7 },  // Mongolia
+    { lat: 47, lng: 108, spread: 5, count: 6 },  // Mongolia north
+    { lat: 50, lng: 110, spread: 5, count: 6 },  // Siberia border
+    { lat: 35, lng: 135, spread: 4, count: 5 },  // Japan
+    { lat: 38, lng: 140, spread: 4, count: 5 },  // Japan north
+    { lat: 33, lng: 130, spread: 4, count: 5 },  // Kyushu
+    { lat: 37, lng: 128, spread: 4, count: 5 },  // Korea
+    { lat: 42, lng: 125, spread: 4, count: 5 },  // Korea north
+    { lat: 25, lng: 123, spread: 3, count: 4 },  // Taiwan
+    { lat: 23, lng: 121, spread: 3, count: 4 },  // Taiwan central
+    { lat: 22, lng: 114, spread: 3, count: 4 },  // Hong Kong
+    { lat: 31, lng: 121, spread: 3, count: 4 },  // Shanghai
+    { lat: 39, lng: 66,   spread: 4, count: 5 },  // Uzbekistan
+    { lat: 42, lng: 74,   spread: 4, count: 5 },  // Kyrgyzstan
+    { lat: 38, lng: 71,   spread: 4, count: 5 },  // Tajikistan
+    { lat: 41, lng: 69,   spread: 4, count: 5 },  // Kazakhstan
+    { lat: 48, lng: 68,   spread: 4, count: 5 },  // Kazakhstan north
+    { lat: 37, lng: 59,   spread: 4, count: 5 },  // Turkmenistan
+    { lat: 40, lng: 48,   spread: 4, count: 5 },  // Azerbaijan
+    { lat: 40, lng: 45,   spread: 3, count: 4 },  // Armenia
+    { lat: 42, lng: 44,   spread: 3, count: 4 },  // Georgia
+    { lat: 34, lng: 36,   spread: 3, count: 4 },  // Lebanon
+    { lat: 32, lng: 36,   spread: 3, count: 4 },  // Jordan/Israel
+    { lat: 34, lng: 44,   spread: 3, count: 4 },  // Syria
+    { lat: 33, lng: 44,   spread: 3, count: 4 },  // Iraq south
+    { lat: 29, lng: 48,   spread: 3, count: 4 },  // Kuwait
+    { lat: 26, lng: 51,   spread: 3, count: 4 },  // Qatar/Bahrain
+    { lat: 21, lng: 57,   spread: 4, count: 5 },  // Oman
+    { lat: 17, lng: 54,   spread: 4, count: 5 },  // Oman south
+    { lat: 15, lng: 43,   spread: 4, count: 5 },  // Eritrea/Horn
+    { lat: 12, lng: 50,   spread: 3, count: 4 },  // Somalia
+    { lat: 5,  lng: 48,   spread: 4, count: 5 },  // Somalia south
+    { lat: 6,  lng: 80,   spread: 3, count: 4 },  // Maldives
+    { lat: 34, lng: 77,   spread: 3, count: 4 },  // Kashmir
+    { lat: 28, lng: 84,   spread: 3, count: 4 },  // Nepal
+    { lat: 27, lng: 88,   spread: 3, count: 4 },  // Sikkim
+    { lat: 20, lng: 100,  spread: 3, count: 4 },  // Laos
+    { lat: 12, lng: 105,  spread: 3, count: 4 },  // Cambodia
+    { lat: 17, lng: 107,  spread: 3, count: 4 },  // Vietnam central
+    { lat: 10, lng: 107,  spread: 3, count: 4 },  // Vietnam south
+    { lat: 1,  lng: 104,  spread: 3, count: 4 },  // Singapore
+    { lat: 6,  lng: 117,  spread: 3, count: 4 },  // Sabah
+    { lat: 2,  lng: 112,  spread: 3, count: 4 },  // Sarawak
+    { lat: -8, lng: 119,  spread: 3, count: 4 },  // Sumbawa/Flores
+    { lat: -1, lng: 132,  spread: 3, count: 4 },  // West Papua
+    { lat: 35, lng: 139,  spread: 3, count: 4 },  // Tokyo
+    { lat: 34, lng: 132,  spread: 3, count: 4 },  // Hiroshima
+    { lat: 43, lng: 142,  spread: 3, count: 4 },  // Hokkaido
+    { lat: 38, lng: 141,  spread: 3, count: 4 },  // Sendai
+    { lat: 34, lng: 136,  spread: 3, count: 4 },  // Nagoya
+    { lat: 50, lng: 85,   spread: 4, count: 5 },  // Altai
+    { lat: 55, lng: 83,   spread: 4, count: 5 },  // Novosibirsk
+    { lat: 60, lng: 80,   spread: 4, count: 5 },  // Tomsk
+    { lat: 65, lng: 85,   spread: 4, count: 5 },  // Taimyr
+    { lat: 70, lng: 130,  spread: 4, count: 5 },  // Yakutia
+    { lat: 65, lng: 145,  spread: 4, count: 5 },  // Magadan
+    { lat: 60, lng: 140,  spread: 4, count: 5 },  // Khabarovsk
+    { lat: 55, lng: 132,  spread: 4, count: 5 },  // Vladivostok area
+    { lat: 50, lng: 140,  spread: 4, count: 5 },  // Sakhalin
+    { lat: 45, lng: 142,  spread: 3, count: 4 },  // Kuril
+    { lat: 52, lng: 104,  spread: 4, count: 5 },  // Irkutsk
+    { lat: 56, lng: 95,   spread: 4, count: 5 },  // Krasnoyarsk
+    { lat: 62, lng: 100,  spread: 4, count: 5 },  // Evenki
+    { lat: 67, lng: 110,  spread: 4, count: 5 },  // Lena
+    { lat: 70, lng: 95,   spread: 4, count: 5 },  // Taymyr
+    { lat: 75, lng: 100,  spread: 3, count: 4 },  // Arctic islands
+
+    // === Australia & Oceania ===
+    { lat: -25, lng: 134, spread: 6, count: 7 },  // Australia central
+    { lat: -30, lng: 136, spread: 5, count: 6 },  // Australia south
+    { lat: -35, lng: 149, spread: 5, count: 6 },  // Australia east
+    { lat: -20, lng: 145, spread: 5, count: 6 },  // Queensland
+    { lat: -17, lng: 133, spread: 5, count: 6 },  // Northern Territory
+    { lat: -22, lng: 122, spread: 5, count: 6 },  // Western Australia
+    { lat: -33, lng: 116, spread: 4, count: 5 },  // Perth area
+    { lat: -35, lng: 139, spread: 4, count: 5 },  // Adelaide
+    { lat: -38, lng: 145, spread: 4, count: 5 },  // Melbourne
+    { lat: -33, lng: 151, spread: 4, count: 5 },  // Sydney
+    { lat: -41, lng: 147, spread: 4, count: 5 },  // Tasmania
+    { lat: -40, lng: 174, spread: 3, count: 4 },  // New Zealand north
+    { lat: -44, lng: 170, spread: 3, count: 4 },  // New Zealand south
+    { lat: -37, lng: 175, spread: 3, count: 4 },  // Auckland
+    { lat: -42, lng: 173, spread: 3, count: 4 },  // Christchurch
+    { lat: -17, lng: 178, spread: 3, count: 4 },  // Fiji
+    { lat: -14, lng: -172, spread: 3, count: 4 },  // Samoa
+    { lat: -21, lng: -175, spread: 3, count: 4 },  // Tonga
+    { lat: -8,  lng: 159,  spread: 3, count: 4 },  // Solomon Islands
+    { lat: -6,  lng: 155,  spread: 3, count: 4 },  // Papua New Guinea
+    { lat: -9,  lng: 147,  spread: 3, count: 4 },  // Papua
+
+    // === Antarctica ===
+    { lat: -70, lng: -65, spread: 4, count: 5 },  // Antarctic peninsula
+    { lat: -75, lng: -60, spread: 4, count: 5 },  // West Antarctica
+    { lat: -80, lng: 0,   spread: 5, count: 6 },  // East Antarctica
+    { lat: -75, lng: 90,  spread: 4, count: 5 },  // East Antarctica east
+    { lat: -70, lng: 170, spread: 4, count: 5 },  // Ross Sea
+    { lat: -78, lng: 165, spread: 3, count: 4 },  // Ross Island
+    { lat: -72, lng: -30, spread: 4, count: 5 },  // South Atlantic
+    { lat: -68, lng: -90, spread: 4, count: 5 },  // Marie Byrd Land
+    { lat: -82, lng: 60,  spread: 3, count: 4 },  // South Pole area
+    { lat: -77, lng: 140, spread: 3, count: 4 },  // Victoria Land
+  ];
+
   /* ========================================================================
      5. UTILITY FUNCTIONS
      ======================================================================== */
@@ -429,7 +718,7 @@
       pointSize *= (1.0 + isHovered * 2.5);
       gl_PointSize = max(pointSize, 2.0);
 
-      vAlpha = 0.65 + breath * 0.25 + isHovered * 0.35;
+      vAlpha = 0.80 + breath * 0.15 + isHovered * 0.35;
     }
   `;
 
@@ -446,11 +735,11 @@
       float glow = 1.0 - smoothstep(0.0, 0.5, dist);
 
       // Bright core
-      float core = 1.0 - smoothstep(0.0, 0.15, dist);
+      float core = 1.0 - smoothstep(0.0, 0.08, dist);
 
-      // Light theme: darker, more opaque dots
-      vec3 finalColor = vColor * (0.8 + core * 1.2);
-      float finalAlpha = vAlpha * glow * 1.0;
+      // Earth theme: vivid illuminated tan/gold dots on deep ocean
+      vec3 finalColor = vColor * (1.5 + core * 2.0);
+      float finalAlpha = vAlpha * glow * 1.3;
 
       gl_FragColor = vec4(finalColor, finalAlpha);
     }
@@ -480,8 +769,8 @@
       float fresnel = pow(1.0 - dot(viewDir, vNormal), 3.0);
 
       vec3 color = mix(uColorInner, uColorOuter, fresnel);
-      // Light theme: very subtle atmosphere
-      float alpha = fresnel * 0.25;
+      // Earth theme: vivid atmospheric rim glow
+      float alpha = fresnel * 0.45;
 
       gl_FragColor = vec4(color, alpha);
     }
@@ -514,8 +803,8 @@
       // Fade at both ends
       float endFade = smoothstep(0.0, 0.03, vProgress) * smoothstep(1.0, 0.97, vProgress);
 
-      vec3 finalColor = uColor * (1.0 + intensity * 0.5);
-      float alpha = intensity * endFade * 0.7;
+      vec3 finalColor = uColor * (1.5 + intensity * 1.0);
+      float alpha = intensity * endFade * 0.85;
 
       gl_FragColor = vec4(finalColor, alpha);
     }
@@ -551,8 +840,8 @@
       if (dist > 0.5) discard;
 
       float alpha = (1.0 - smoothstep(0.0, 0.5, dist)) * vAlpha;
-      // Light theme: dark gray stars visible on white
-      gl_FragColor = vec4(0.45, 0.50, 0.58, alpha * 0.6);
+      // Earth theme: brighter stars
+      gl_FragColor = vec4(0.55, 0.65, 0.85, alpha * 0.75);
     }
   `;
 
@@ -651,22 +940,22 @@
 
     /* ------------------------------------------------------------------ */
     setupLights() {
-      // Ambient: dark blue/purple base — eliminates dead black
-      const ambient = new THREE.AmbientLight(0x1a1a4a, 1.8);
+      // Ambient: warm base for illuminated earth
+      const ambient = new THREE.AmbientLight(0x1a3a5c, 2.5);
       this.scene.add(ambient);
 
-      // Directional: cool white from top-left — creates terminator line
-      const mainLight = new THREE.DirectionalLight(0xc8e0ff, 2.5);
+      // Directional: warm sunlight from top-left
+      const mainLight = new THREE.DirectionalLight(0xffeedd, 3.5);
       mainLight.position.set(-120, 100, 80);
       this.scene.add(mainLight);
 
       // Fill light: soft blue from opposite side
-      const fillLight = new THREE.DirectionalLight(0x2244aa, 0.6);
+      const fillLight = new THREE.DirectionalLight(0x4488cc, 1.2);
       fillLight.position.set(100, -40, -80);
       this.scene.add(fillLight);
 
-      // Subtle point light for rim glow
-      const rimLight = new THREE.PointLight(0x00aaff, 1.0, 400);
+      // Rim glow for atmosphere effect
+      const rimLight = new THREE.PointLight(0x00aaff, 2.0, 400);
       rimLight.position.set(0, 0, 180);
       this.scene.add(rimLight);
     }
@@ -679,7 +968,7 @@
         position:absolute;
         top:0;left:0;
         background:#FFFFFF;
-        color:#002F6C;
+        color:#D2B48C;
         padding:10px 16px;
         border-radius:8px;
         font-size:13px;
@@ -688,7 +977,7 @@
         pointer-events:none;
         opacity:0;
         transition:opacity 0.2s ease;
-        border:1px solid rgba(0,47,108,0.12);
+        border:1px solid rgba(210,180,140,0.2);
         box-shadow:0 4px 20px rgba(0,0,0,0.12);
         z-index:1000;
         white-space:nowrap;
@@ -735,12 +1024,12 @@
 
     /* ------------------------------------------------------------------ */
     createGlobeBase() {
-      // Ultra-subtle frosted-glass sphere for particle contrast on light theme
+      // Deep ocean blue base sphere for realistic earth look
       const geometry = new THREE.SphereGeometry(CONFIG.radius - 0.5, 64, 64);
       const material = new THREE.MeshBasicMaterial({
-        color: 0xF5F7FA,
+        color: 0x000D1A,
         transparent: true,
-        opacity: 0.25,
+        opacity: 0.92,
         depthWrite: false
       });
       this.oceanSphere = new THREE.Mesh(geometry, material);
@@ -749,27 +1038,11 @@
 
     /* ------------------------------------------------------------------ */
     createDots() {
-      // Build dot data: cities + procedural clusters around them
       const dotData = [];
 
-      CITIES.forEach(city => {
-        const pos = latLngToVector3(city.lat, city.lng, CONFIG.radius);
-
-        // Main city dot
-        dotData.push({
-          position: pos,
-          size: city.size,
-          color: CONFIG.colors.dotBase.clone(),
-          phase: Math.random(),
-          country: city.country,
-          cityName: city.name
-        });
-
-        // Cluster dots around city to simulate land mass
-        const clusterCount = Math.floor(city.size * 6) + 5;
-        const spread = city.size * 2.0;
-
-        for (let i = 0; i < clusterCount; i++) {
+      // Helper: add a cluster of particles around a position
+      const addCluster = (pos, count, spread, baseSize, baseColor, country, cityName) => {
+        for (let i = 0; i < count; i++) {
           const offset = new THREE.Vector3(
             (Math.random() - 0.5) * spread,
             (Math.random() - 0.5) * spread,
@@ -777,26 +1050,76 @@
           );
           const clusterPos = pos.clone().add(offset).normalize().multiplyScalar(CONFIG.radius);
 
-          // Slight color variation
-          const hueShift = (Math.random() - 0.5) * 0.08;
-          const color = CONFIG.colors.dotBase.clone();
-          color.offsetHSL(hueShift, 0, 0);
+          // Earth-tone variation: warm browns, golds, slight green for forests
+          const hueShift = (Math.random() - 0.5) * 0.06;
+          const satShift = (Math.random() - 0.5) * 0.15;
+          const lightShift = (Math.random() - 0.5) * 0.12;
+          const color = baseColor.clone();
+          color.offsetHSL(hueShift, satShift, lightShift);
 
           dotData.push({
             position: clusterPos,
-            size: 0.5 + Math.random() * 1.0,
+            size: baseSize * (0.6 + Math.random() * 0.8),
             color: color,
             phase: Math.random(),
-            country: city.country,
-            cityName: null  // cluster dots don't show tooltips
+            country: country,
+            cityName: cityName
           });
         }
+      };
+
+      // === 1. LAND SEEDS — continent-wide particle distribution ===
+      LAND_SEEDS.forEach(seed => {
+        const pos = latLngToVector3(seed.lat, seed.lng, CONFIG.radius);
+        // Warm earth tones with variation per continent
+        const baseColor = CONFIG.colors.dotBase.clone();
+        addCluster(pos, seed.count, seed.spread, 0.8, baseColor, null, null);
       });
 
-      // Fill remaining budget with random decorative dots
+      // === 2. CITIES — brighter highlight points on land ===
+      CITIES.forEach(city => {
+        const pos = latLngToVector3(city.lat, city.lng, CONFIG.radius);
+
+        // Main city dot: brighter, slightly larger
+        const cityColor = CONFIG.colors.dotBase.clone().offsetHSL(0, 0.08, 0.1);
+        dotData.push({
+          position: pos,
+          size: city.size * 1.2,
+          color: cityColor,
+          phase: Math.random(),
+          country: city.country,
+          cityName: city.name
+        });
+
+        // City cluster: tighter spread, brighter
+        addCluster(pos, Math.floor(city.size * 5) + 4, city.size * 1.8, 0.7, cityColor, city.country, null);
+      });
+
+      // === 3. OCEAN PARTICLES — sparse deep blue dots for ocean texture ===
+      const oceanBudget = Math.floor(CONFIG.dotCount * 0.08);
+      const oceanColor = new THREE.Color(0x003366);
+      for (let i = 0; i < oceanBudget; i++) {
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(2 * Math.random() - 1);
+        const pos = new THREE.Vector3(
+          CONFIG.radius * Math.sin(phi) * Math.cos(theta),
+          CONFIG.radius * Math.cos(phi),
+          CONFIG.radius * Math.sin(phi) * Math.sin(theta)
+        );
+        dotData.push({
+          position: pos,
+          size: 0.2 + Math.random() * 0.4,
+          color: oceanColor.clone().multiplyScalar(0.5 + Math.random() * 0.5),
+          phase: Math.random(),
+          country: null,
+          cityName: null
+        });
+      }
+
+      // === 4. RANDOM DECORATIVE FILL ===
       while (dotData.length < CONFIG.dotCount) {
         const theta = Math.random() * Math.PI * 2;
-        const phi   = Math.acos(2 * Math.random() - 1);
+        const phi = Math.acos(2 * Math.random() - 1);
         const pos = new THREE.Vector3(
           CONFIG.radius * Math.sin(phi) * Math.cos(theta),
           CONFIG.radius * Math.cos(phi),
@@ -938,8 +1261,8 @@
       const glowGeo = new THREE.SphereGeometry(CONFIG.radius + 2, 64, 64);
       const glowMat = new THREE.ShaderMaterial({
         uniforms: {
-          uColorInner: { value: new THREE.Color(0xE6EEF8) },
-          uColorOuter: { value: new THREE.Color(0x002F6C) }
+          uColorInner: { value: new THREE.Color(0x66AAFF) },
+          uColorOuter: { value: new THREE.Color(0x004080) }
         },
         vertexShader:   ATMOSPHERE_VERTEX_SHADER,
         fragmentShader: ATMOSPHERE_FRAGMENT_SHADER,
