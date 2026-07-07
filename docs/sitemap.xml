@@ -98,6 +98,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kfat77.github.io/digital-nomad-cn/articles/giffgaff-guide-2026/" />
   </url>
   <url>
+    <loc>https://kfat77.github.io/digital-nomad-cn/articles/giffgaff-lumoza-guide/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/articles/giffgaff-lumoza-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kfat77.github.io/digital-nomad-cn/articles/giffgaff-lumoza-guide/" />
+  </url>
+  <url>
     <loc>https://kfat77.github.io/digital-nomad-cn/articles/</loc>
     <lastmod>2026-07-07</lastmod>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/articles/" />
@@ -138,6 +144,12 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/articles/seasonal-guide/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/articles/seasonal-guide/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kfat77.github.io/digital-nomad-cn/articles/seasonal-guide/" />
+  </url>
+  <url>
+    <loc>https://kfat77.github.io/digital-nomad-cn/articles/securities-guide/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/articles/securities-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kfat77.github.io/digital-nomad-cn/articles/securities-guide/" />
   </url>
   <url>
     <loc>https://kfat77.github.io/digital-nomad-cn/articles/visa-free-destinations/</loc>
@@ -2246,6 +2258,12 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/dashboard/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/dashboard/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kfat77.github.io/digital-nomad-cn/dashboard/" />
+  </url>
+  <url>
+    <loc>https://kfat77.github.io/digital-nomad-cn/dashboard/perf/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/dashboard/perf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kfat77.github.io/digital-nomad-cn/dashboard/perf/" />
   </url>
   <url>
     <loc>https://kfat77.github.io/digital-nomad-cn/faq/</loc>
