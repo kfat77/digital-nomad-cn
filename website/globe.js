@@ -4,7 +4,7 @@
  * ============================================================================
  * GitHub-Style Globe with Custom Shaders
  * Features:
- *   • ~2,500 instanced particle dots with breathing animation
+ *   • ~4,000 instanced particle dots with breathing animation
  *   • Fresnel atmospheric glow (custom vertex/fragment shaders)
  *   • Animated arc connections with flowing light pulses
  *   • Starfield background with twinkling
@@ -27,7 +27,7 @@
 
   const CONFIG = {
     radius: 100,
-    dotCount: isMobile ? 1200 : 2800,
+    dotCount: isMobile ? 1800 : 4000,
     starCount: isMobile ? 600 : 1800,
     arcSegments: isMobile ? 60 : 120,
     colors: {
@@ -424,10 +424,10 @@
       gl_Position = projectionMatrix * mvPosition;
 
       // Size with distance attenuation
-      float pointSize = aSize * breath * uPixelRatio * 3.5;
-      pointSize *= (280.0 / -mvPosition.z);
-      pointSize *= (1.0 + isHovered * 1.8);
-      gl_PointSize = max(pointSize, 1.0);
+      float pointSize = aSize * breath * uPixelRatio * 7.0;
+      pointSize *= (300.0 / -mvPosition.z);
+      pointSize *= (1.0 + isHovered * 2.5);
+      gl_PointSize = max(pointSize, 2.0);
 
       vAlpha = 0.65 + breath * 0.25 + isHovered * 0.35;
     }
@@ -449,8 +449,8 @@
       float core = 1.0 - smoothstep(0.0, 0.15, dist);
 
       // Light theme: darker, more opaque dots
-      vec3 finalColor = vColor * (0.6 + core * 0.8);
-      float finalAlpha = vAlpha * glow * 0.9;
+      vec3 finalColor = vColor * (0.8 + core * 1.2);
+      float finalAlpha = vAlpha * glow * 1.0;
 
       gl_FragColor = vec4(finalColor, finalAlpha);
     }
@@ -737,12 +737,11 @@
     createGlobeBase() {
       // Dark ocean sphere — NOT pure black
       const geometry = new THREE.SphereGeometry(CONFIG.radius - 0.5, 64, 64);
-      const material = new THREE.MeshPhongMaterial({
-        color: CONFIG.colors.ocean,
-        emissive: CONFIG.colors.oceanEmissive,
-        emissiveIntensity: 0.4,
-        shininess: 15,
-        specular: new THREE.Color(0x113355)
+      const material = new THREE.MeshBasicMaterial({
+        color: 0xE8ECF2,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.15
       });
       this.oceanSphere = new THREE.Mesh(geometry, material);
       this.globeGroup.add(this.oceanSphere);
@@ -785,7 +784,7 @@
 
           dotData.push({
             position: clusterPos,
-            size: 0.3 + Math.random() * 0.7,
+            size: 0.6 + Math.random() * 1.2,
             color: color,
             phase: Math.random(),
             country: city.country,
@@ -806,7 +805,7 @@
 
         dotData.push({
           position: pos,
-          size: 0.2 + Math.random() * 0.4,
+          size: 0.4 + Math.random() * 0.8,
           color: CONFIG.colors.dotBase.clone().multiplyScalar(0.5 + Math.random() * 0.5),
           phase: Math.random(),
           country: null,
