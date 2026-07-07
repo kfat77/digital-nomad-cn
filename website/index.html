@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="js-enabled">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,244 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap"></noscript>
-    <link rel="stylesheet" href="style.css?v=7" fetchpriority="high">
+    <link rel="stylesheet" href="style.css?v=9" fetchpriority="high">
+
+    <!-- 3D Globe Dependencies -->
+    <script src="https://unpkg.com/three@0.160.0/build/three.min.js" defer></script>
+    <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" defer></script>
+    <script src="https://unpkg.com/globe.gl@2.32.0/dist/globe.gl.min.js" defer></script>
+
+    <!-- Theme Override: White / Black / Navy / Red -->
+    <style>
+    /* ============================================
+       Theme Override — White Navy Red
+       ============================================ */
+    :root {
+        --bg-primary: #FFFFFF;
+        --bg-secondary: #FAFBFC;
+        --bg-surface: #F5F7FA;
+        --bg-hover: #EDF1F5;
+        --text-primary: #000000;
+        --text-secondary: #1A1A2E;
+        --text-tertiary: #5A6A7A;
+        --text-inverse: #FFFFFF;
+        --brand: #002F6C;
+        --brand-hover: #001F4C;
+        --brand-soft: #E6EEF8;
+        --brand-glow: rgba(0, 47, 108, 0.12);
+        --accent: #FE0000;
+        --accent-soft: #FFE6E6;
+        --accent-glow: rgba(254, 0, 0, 0.15);
+        --border: #DDE3EC;
+        --border-light: #E8ECF2;
+        --border-hover: #B8C4D8;
+        --info: #002F6C;
+        --info-soft: #E6EEF8;
+    }
+
+    ::selection {
+        background: var(--brand-soft);
+        color: var(--brand);
+    }
+
+    /* Globe Hero */
+    .globe-hero {
+        position: relative;
+        min-height: 100vh;
+        background: var(--bg-primary);
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        padding-top: var(--nav-height);
+    }
+
+    .globe-hero-inner {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+        gap: var(--space-12);
+        align-items: center;
+        min-height: calc(100vh - var(--nav-height));
+    }
+
+    .globe-hero-text {
+        z-index: 2;
+        max-width: 520px;
+    }
+
+    .globe-hero-label {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-size: var(--text-xs);
+        font-weight: 600;
+        letter-spacing: var(--tracking-wider);
+        text-transform: uppercase;
+        color: var(--brand);
+        margin-bottom: var(--space-6);
+        padding: var(--space-2) var(--space-4);
+        background: var(--brand-soft);
+        border-radius: var(--radius-full);
+        border: 1px solid rgba(0, 47, 108, 0.08);
+    }
+
+    .globe-hero-label-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--brand);
+        border-radius: 50%;
+        animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    .globe-hero-title {
+        font-size: clamp(2.5rem, 5vw, 3.75rem);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: var(--tracking-tight);
+        color: var(--text-primary);
+        margin-bottom: var(--space-6);
+    }
+
+    .globe-hero-title .accent-line {
+        display: block;
+        color: var(--brand);
+    }
+
+    .globe-hero-desc {
+        font-size: var(--text-lg);
+        color: var(--text-secondary);
+        line-height: var(--leading-relaxed);
+        margin-bottom: var(--space-8);
+    }
+
+    .globe-hero-cta {
+        display: flex;
+        gap: var(--space-3);
+        flex-wrap: wrap;
+    }
+
+    .globe-container {
+        position: relative;
+        width: 100%;
+        height: 600px;
+        z-index: 1;
+    }
+
+    #globe-viz {
+        width: 100%;
+        height: 100%;
+    }
+
+    .globe-container canvas {
+        outline: none !important;
+    }
+
+    /* Globe tooltip */
+    .globe-tooltip {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        padding: 8px 14px !important;
+        border-radius: 8px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+        border: 1px solid var(--border) !important;
+        pointer-events: none !important;
+        white-space: nowrap !important;
+    }
+
+    .globe-tooltip::after {
+        display: none !important;
+    }
+
+    /* Custom buttons for new theme */
+    .btn-navy {
+        background: var(--brand);
+        color: var(--text-inverse);
+        border-color: var(--brand);
+    }
+    .btn-navy:hover {
+        background: var(--brand-hover);
+        border-color: var(--brand-hover);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(0, 47, 108, 0.3);
+    }
+
+    .btn-red-outline {
+        background: transparent;
+        color: var(--accent);
+        border-color: var(--accent);
+    }
+    .btn-red-outline:hover {
+        background: var(--accent-soft);
+        color: var(--accent);
+        transform: translateY(-1px);
+    }
+
+    /* Stats bar override */
+    .stats-bar {
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .stat-num {
+        color: var(--brand);
+    }
+
+    /* Section title accent */
+    .section-title .text-gradient {
+        background: linear-gradient(135deg, var(--brand) 0%, var(--info) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Hero background subtle grid */
+    .globe-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(0, 47, 108, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 47, 108, 0.03) 1px, transparent 1px);
+        background-size: 60px 60px;
+        pointer-events: none;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 1024px) {
+        .globe-hero-inner {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: var(--space-8);
+            padding-top: var(--space-12);
+            padding-bottom: var(--space-12);
+        }
+        .globe-hero-text {
+            max-width: 100%;
+        }
+        .globe-hero-cta {
+            justify-content: center;
+        }
+        .globe-container {
+            height: 400px;
+            order: -1;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .globe-container {
+            height: 320px;
+        }
+        .globe-hero-title {
+            font-size: var(--text-3xl);
+        }
+    }
+    </style>
 </head>
 <body>
 
@@ -41,7 +278,6 @@
             <a href="https://github.com/kfat77/digital-nomad-cn" class="header-icon-btn" target="_blank" aria-label="GitHub">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             </a>
-            
             <button class="menu-toggle header-icon-btn" aria-label="打开菜单" id="menuToggle" aria-expanded="false">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
             </button>
@@ -58,32 +294,37 @@
         <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero" id="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <div class="hero-meta">
-                <span>100 个国家，50 多种签证，122 座城市 — 全部开源</span>
+    <!-- Globe Hero -->
+    <section class="globe-hero" id="hero">
+        <div class="globe-hero-inner">
+            <div class="globe-hero-text">
+                <div class="globe-hero-label">
+                    <span class="globe-hero-label-dot"></span>
+                    100 个国家 · 50+ 签证 · 122 座城市 — 全部开源
+                </div>
+                <h1 class="globe-hero-title">
+                    全球数字游民<br>
+                    <span class="accent-line">一站式数据平台</span>
+                </h1>
+                <p class="globe-hero-desc">
+                    从新加坡到里斯本，我们为每座数字游民目的地建立了档案。点击地球上的国家，探索完整数据与签证攻略。
+                </p>
+                <div class="globe-hero-cta">
+                    <a href="#country-grid" class="btn btn-primary btn-lg btn-navy">探索国家</a>
+                    <a href="compare/" class="btn btn-outline btn-lg btn-red-outline">国家对比</a>
+                    <a href="https://github.com/kfat77/digital-nomad-cn" class="btn btn-outline btn-lg" target="_blank">查看源码</a>
+                </div>
+                <p class="hero-freshness" id="dataFreshness" style="margin-top:var(--space-6); font-size:var(--text-sm); color:var(--text-tertiary);">数据加载中...</p>
             </div>
-            <h1 class="hero-title">
-                全球数字游民<br><span class="hero-title-accent">一站式数据平台</span>
-            </h1>
-            <p class="hero-desc">
-                从新加坡到里斯本，我们为每座数字游民目的地建立了档案。生活成本、安全指数、网速评分、签证政策——结构化的数据，拿来就能用。
-            </p>
-            <div class="hero-cta">
-                <a href="#country-grid" class="btn btn-primary btn-lg">探索国家</a>
-                <a href="compare/" class="btn btn-outline btn-lg">国家对比</a>
-                <a href="https://github.com/kfat77/digital-nomad-cn" class="btn btn-outline btn-lg" target="_blank">查看源码</a>
+            <div class="globe-container">
+                <div id="globe-viz"></div>
             </div>
-            <p class="hero-meta" id="dataFreshness">数据加载中...</p>
         </div>
-
     </section>
 
     <!-- Stats Bar -->
     <section class="stats-bar" id="stats">
-        <div class="stats-grid">
+        <div class="stats-grid container">
             <div class="stat-item reveal">
                 <div class="stat-num count-up" data-count="100">0</div>
                 <div class="stat-label">国家 / 地区</div>
@@ -113,52 +354,49 @@
             <div class="infra-grid">
                 <a href="articles/digital-nomad-banking-guide/" class="infra-card reveal">
                     <div class="infra-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-                        </div>
-                        <h3>银行卡</h3>
-                        <p>香港汇丰、中银、众安、蚂蚁四卡策略，新加坡 OCBC 远程开户，澳门蚂蚁银行零门槛。</p>
-                        <ul class="infra-card-list">
-                            <li>四卡策略完整方案</li>
-                            <li>澳门蚂蚁银行开户</li>
-                            <li>OCBC 远程开户</li>
-                            <li>Wise 多币种账户</li>
-                        </ul>
-                        <span class="infra-card-link">查看攻略 →</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                    </div>
+                    <h3>银行卡</h3>
+                    <p>香港汇丰、中银、众安、蚂蚁四卡策略，新加坡 OCBC 远程开户，澳门蚂蚁银行零门槛。</p>
+                    <ul class="infra-card-list">
+                        <li>四卡策略完整方案</li>
+                        <li>澳门蚂蚁银行开户</li>
+                        <li>OCBC 远程开户</li>
+                        <li>Wise 多币种账户</li>
+                    </ul>
+                    <span class="infra-card-link">查看攻略 →</span>
                 </a>
                 <a href="articles/giffgaff-guide-2026/" class="infra-card reveal reveal-delay-1">
                     <div class="infra-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-                        </div>
-                        <h3>电话卡</h3>
-                        <p>海外实体卡与 eSIM 购买教程，低成本保号方案，全球漫游与接收验证码。</p>
-                        <ul class="infra-card-list">
-                            <li>Giffgaff 英国卡</li>
-                            <li>Club SIM 每年 6 港币保号</li>
-                            <li>Ultra Mobile 美国保号</li>
-                            <li>eSIM 全球流量卡</li>
-                        </ul>
-                        <span class="infra-card-link">查看攻略 →</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                    </div>
+                    <h3>电话卡</h3>
+                    <p>海外实体卡与 eSIM 购买教程，低成本保号方案，全球漫游与接收验证码。</p>
+                    <ul class="infra-card-list">
+                        <li>Giffgaff 英国卡</li>
+                        <li>Club SIM 每年 6 港币保号</li>
+                        <li>Ultra Mobile 美国保号</li>
+                        <li>eSIM 全球流量卡</li>
+                    </ul>
+                    <span class="infra-card-link">查看攻略 →</span>
                 </a>
                 <a href="articles/securities-guide/" class="infra-card reveal reveal-delay-2">
                     <div class="infra-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                        </div>
-                        <h3>证券账户</h3>
-                        <p>美股、港股、全球券商开户，入金路径规划，CRS 合规与税务优化。</p>
-                        <ul class="infra-card-list">
-                            <li>盈透证券 20 分钟开户</li>
-                            <li>嘉信理财零元开户</li>
-                            <li>FSMOne 内地可用方案</li>
-                            <li>券商入金最优路径</li>
-                        </ul>
-                        <span class="infra-card-link">查看攻略 →</span></a>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <h3>证券账户</h3>
+                    <p>美股、港股、全球券商开户，入金路径规划，CRS 合规与税务优化。</p>
+                    <ul class="infra-card-list">
+                        <li>盈透证券 20 分钟开户</li>
+                        <li>嘉信理财零元开户</li>
+                        <li>FSMOne 内地可用方案</li>
+                        <li>券商入金最优路径</li>
+                    </ul>
+                    <span class="infra-card-link">查看攻略 →</span>
+                </a>
             </div>
         </div>
     </section>
-
-    <div class="divider"></div>
-
-    
 
     <div class="divider"></div>
 
@@ -274,6 +512,7 @@
                 <button class="region-tab" data-region="middle_east">中东 <span>1</span></button>
             </div>
             <div class="country-grid-wrapper" id="countryGridWrapper">
+                <!-- Asia -->
                 <div class="region-section" id="region-asia">
                     <h3 class="region-title">亚洲 <span class="region-count">15</span></h3>
                     <div class="country-grid">
@@ -291,9 +530,10 @@
                         <a href="country/vietnam/index.html" class="country-card" data-region="asia" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇻🇳</span><div class="country-meta"><h4>越南</h4><span class="country-score">75</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 35</span><span class="country-metric">网速 120</span></div></a>
                         <a href="country/southkorea/index.html" class="country-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇰🇷</span><div class="country-meta"><h4>韩国</h4><span class="country-score">80</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 220</span></div></a>
                         <a href="country/hongkong/index.html" class="country-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇭🇰</span><div class="country-meta"><h4>香港</h4><span class="country-score">82</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 85</span><span class="country-metric">网速 250</span></div></a>
-                        <a href="country/malaysia/index.html" class="country-card" data-region="asia" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇾</span><div class="country-meta"><h4>马来西亚</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 40</span><span class="country-metric">网速 150</span></a>
+                        <a href="country/malaysia/index.html" class="country-card" data-region="asia" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇾</span><div class="country-meta"><h4>马来西亚</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 40</span><span class="country-metric">网速 150</span></div></a>
                     </div>
                 </div>
+                <!-- Europe -->
                 <div class="region-section" id="region-europe">
                     <h3 class="region-title">欧洲 <span class="region-count">17</span></h3>
                     <div class="country-grid">
@@ -313,42 +553,35 @@
                         <a href="country/uk/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇬🇧</span><div class="country-meta"><h4>英国</h4><span class="country-score">75</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 80</span><span class="country-metric">网速 110</span></div></a>
                         <a href="country/netherlands/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇳🇱</span><div class="country-meta"><h4>荷兰</h4><span class="country-score">82</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 180</span></div></a>
                         <a href="country/portugal/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇵🇹</span><div class="country-meta"><h4>葡萄牙</h4><span class="country-score">88</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 55</span><span class="country-metric">网速 150</span></div></a>
-                        <a href="country/spain/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇪🇸</span><div class="country-meta"><h4>西班牙</h4><span class="country-score">86</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 58</span><span class="country-metric">网速 170</span></a>
+                        <a href="country/spain/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇪🇸</span><div class="country-meta"><h4>西班牙</h4><span class="country-score">86</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 58</span><span class="country-metric">网速 170</span></div></a>
                     </div>
                 </div>
+                <!-- Other regions condensed -->
                 <div class="region-section" id="region-americas_north">
                     <h3 class="region-title">北美 <span class="region-count">3</span></h3>
                     <div class="country-grid">
                         <a href="country/canada/index.html" class="country-card" data-region="americas_north" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇨🇦</span><div class="country-meta"><h4>加拿大</h4><span class="country-score">77</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 75</span><span class="country-metric">网速 170</span></div></a>
                         <a href="country/mexico/index.html" class="country-card" data-region="americas_north" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇲🇽</span><div class="country-meta"><h4>墨西哥</h4><span class="country-score">72</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 38</span><span class="country-metric">网速 40</span></div></a>
-                        <a href="country/usa/index.html" class="country-card" data-region="americas_north" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇺🇸</span><div class="country-meta"><h4>美国</h4><span class="country-score">72</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 88</span><span class="country-metric">网速 250</span></a>
-                    </div>
-                </div>
-                <div class="region-section" id="region-americas_south">
-                    <h3 class="region-title">南美 <span class="region-count">3</span></h3>
-                    <div class="country-grid">
-                        <a href="country/brazil/index.html" class="country-card" data-region="americas_south" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇧🇷</span><div class="country-meta"><h4>巴西</h4><span class="country-score">70</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 40</span><span class="country-metric">网速 55</span></div></a>
-                        <a href="country/chile/index.html" class="country-card" data-region="americas_south" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇨🇱</span><div class="country-meta"><h4>智利</h4><span class="country-score">72</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 45</span><span class="country-metric">网速 80</span></div></a>
-                        <a href="country/argentina/index.html" class="country-card" data-region="americas_south" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇦🇷</span><div class="country-meta"><h4>阿根廷</h4><span class="country-score">68</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 35</span><span class="country-metric">网速 30</span></a>
+                        <a href="country/usa/index.html" class="country-card" data-region="americas_north" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇺🇸</span><div class="country-meta"><h4>美国</h4><span class="country-score">72</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 88</span><span class="country-metric">网速 250</span></div></a>
                     </div>
                 </div>
                 <div class="region-section" id="region-oceania">
                     <h3 class="region-title">大洋洲 <span class="region-count">2</span></h3>
                     <div class="country-grid">
                         <a href="country/newzealand/index.html" class="country-card" data-region="oceania" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇳🇿</span><div class="country-meta"><h4>新西兰</h4><span class="country-score">76</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 150</span></div></a>
-                        <a href="country/australia/index.html" class="country-card" data-region="oceania" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇦🇺</span><div class="country-meta"><h4>澳大利亚</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 82</span><span class="country-metric">网速 80</span></a>
+                        <a href="country/australia/index.html" class="country-card" data-region="oceania" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇦🇺</span><div class="country-meta"><h4>澳大利亚</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 82</span><span class="country-metric">网速 80</span></div></a>
                     </div>
                 </div>
                 <div class="region-section" id="region-africa">
                     <h3 class="region-title">非洲 <span class="region-count">1</span></h3>
                     <div class="country-grid">
-                        <a href="country/morocco/index.html" class="country-card" data-region="africa" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇦</span><div class="country-meta"><h4>摩洛哥</h4><span class="country-score">76</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 30</span><span class="country-metric">网速 25</span></a>
+                        <a href="country/morocco/index.html" class="country-card" data-region="africa" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇦</span><div class="country-meta"><h4>摩洛哥</h4><span class="country-score">76</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 30</span><span class="country-metric">网速 25</span></div></a>
                     </div>
                 </div>
                 <div class="region-section" id="region-middle_east">
                     <h3 class="region-title">中东 <span class="region-count">1</span></h3>
                     <div class="country-grid">
-                        <a href="country/uae/index.html" class="country-card" data-region="middle_east" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇦🇪</span><div class="country-meta"><h4>阿联酋</h4><span class="country-score">85</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 70</span><span class="country-metric">网速 300</span></a>
+                        <a href="country/uae/index.html" class="country-card" data-region="middle_east" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇦🇪</span><div class="country-meta"><h4>阿联酋</h4><span class="country-score">85</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 70</span><span class="country-metric">网速 300</span></div></a>
                     </div>
                 </div>
             </div>
@@ -357,37 +590,7 @@
 
     <div class="divider"></div>
 
-    <!-- New Arrivals — with StaggerChildren -->
-    <section class="section" id="new-arrivals">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">最新加入</h2>
-                <p class="section-desc">最近新增 16 个国家与地区，覆盖南美、非洲、北欧、中欧。</p>
-            </div>
-            <div class="new-grid stagger-list" id="newArrivalsGrid">
-                <a href="country/denmark/index.html" class="new-card stagger-item"><span class="new-flag">🇩🇰</span><div class="new-info"><h4>丹麦</h4><span class="new-score">77 分</span><span class="country-badge badge-danger">需签证</span></div></a>
-                <a href="country/kazakhstan/index.html" class="new-card stagger-item"><span class="new-flag">🇰🇿</span><div class="new-info"><h4>哈萨克斯坦</h4><span class="new-score">75 分</span><span class="country-badge badge-success">免签</span></div></a>
-                <a href="country/turkey/index.html" class="new-card stagger-item"><span class="new-flag">🇹🇷</span><div class="new-info"><h4>土耳其</h4><span class="new-score">74 分</span><span class="country-badge badge-info">电子签</span></div></a>
-                <a href="country/austria/index.html" class="new-card stagger-item"><span class="new-flag">🇦🇹</span><div class="new-info"><h4>奥地利</h4><span class="new-score">76 分</span><span class="country-badge badge-danger">需签证</span></div></a>
-                <a href="country/nepal/index.html" class="new-card stagger-item"><span class="new-flag">🇳🇵</span><div class="new-info"><h4>尼泊尔</h4><span class="new-score">71 分</span><span class="country-badge badge-success">免签</span></div></a>
-                <a href="country/brazil/index.html" class="new-card stagger-item"><span class="new-flag">🇧🇷</span><div class="new-info"><h4>巴西</h4><span class="new-score">70 分</span><span class="country-badge badge-danger">需签证</span></div></a>
-                <a href="country/norway/index.html" class="new-card stagger-item"><span class="new-flag">🇳🇴</span><div class="new-info"><h4>挪威</h4><span class="new-score">80 分</span><span class="country-badge badge-danger">需签证</span></div></a>
-                <a href="country/morocco/index.html" class="new-card stagger-item"><span class="new-flag">🇲🇦</span><div class="new-info"><h4>摩洛哥</h4><span class="new-score">76 分</span><span class="country-badge badge-success">免签</span></div></a>
-                <a href="country/srilanka/index.html" class="new-card stagger-item"><span class="new-flag">🇱🇰</span><div class="new-info"><h4>斯里兰卡</h4><span class="new-score">73 分</span><span class="country-badge badge-info">电子签</span></div></a>
-                <a href="country/chile/index.html" class="new-card stagger-item"><span class="new-flag">🇨🇱</span><div class="new-info"><h4>智利</h4><span class="new-score">72 分</span><span class="country-badge badge-danger">需签证</span></div></a>
-                <a href="country/macao/index.html" class="new-card stagger-item"><span class="new-flag">🇲🇴</span><div class="new-info"><h4>澳门</h4><span class="new-score">65 分</span><span class="country-badge badge-danger">需签证</span></div></a>
-                <a href="country/switzerland/index.html" class="new-card stagger-item"><span class="new-flag">🇨🇭</span><div class="new-info"><h4>瑞士</h4><span class="new-score">75 分</span><span class="country-badge badge-danger">需签证</span></div></a>
-                <a href="country/mongolia/index.html" class="new-card stagger-item"><span class="new-flag">🇲🇳</span><div class="new-info"><h4>蒙古</h4><span class="new-score">72 分</span><span class="country-badge badge-success">免签</span></div></a>
-                <a href="country/vietnam/index.html" class="new-card stagger-item"><span class="new-flag">🇻🇳</span><div class="new-info"><h4>越南</h4><span class="new-score">75 分</span><span class="country-badge badge-info">电子签</span></div></a>
-                <a href="country/argentina/index.html" class="new-card stagger-item"><span class="new-flag">🇦🇷</span><div class="new-info"><h4>阿根廷</h4><span class="new-score">68 分</span><span class="country-badge badge-info">电子签</span></div></a>
-                <a href="country/southkorea/index.html" class="new-card stagger-item"><span class="new-flag">🇰🇷</span><div class="new-info"><h4>韩国</h4><span class="new-score">80 分</span><span class="country-badge badge-danger">需签证</span></a>
-            </div>
-        </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- Tools — with SpotlightCard -->
+    <!-- Tools -->
     <section class="section" id="tools">
         <div class="container">
             <div class="section-header reveal">
@@ -433,39 +636,7 @@
 
     <div class="divider"></div>
 
-    <!-- Quick Nav — with StaggerChildren -->
-    <section class="section" id="quicknav">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">快速导航</h2>
-                <p class="section-desc">常用攻略直达，不用翻目录。</p>
-            </div>
-            <div class="quicknav-grid stagger-list" id="quicknavGrid">
-                <a href="articles/digital-nomad-banking-guide/" class="quicknav-item stagger-item"><span class="qicon">🏦</span><span>香港银行卡</span></a>
-                <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/bank-cards/wise.md" class="quicknav-item stagger-item" target="_blank"><span class="qicon">💱</span><span>Wise 注册</span></a>
-                <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/bank-cards/ocbc.md" class="quicknav-item stagger-item" target="_blank"><span class="qicon">🏛️</span><span>OCBC 远程</span></a>
-                <a href="articles/giffgaff-guide-2026/" class="quicknav-item stagger-item"><span class="qicon">📲</span><span>Giffgaff</span></a>
-                <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/phone-cards/hong-kong.md" class="quicknav-item stagger-item" target="_blank"><span class="qicon">📞</span><span>Club SIM</span></a>
-                <a href="articles/securities-guide/" class="quicknav-item stagger-item"><span class="qicon">📊</span><span>盈透证券</span></a>
-                <a href="articles/securities-guide/" class="quicknav-item stagger-item"><span class="qicon">📈</span><span>嘉信理财</span></a>
-                <a href="articles/securities-guide/" class="quicknav-item stagger-item"><span class="qicon">📋</span><span>FSMOne</span></a>
-                <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/hong-kong.md" class="quicknav-item stagger-item" target="_blank"><span class="qicon">🛂</span><span>香港身份</span></a>
-                <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/japan.md" class="quicknav-item stagger-item" target="_blank"><span class="qicon">🗾</span><span>日本移民</span></a>
-                <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/tools/remote-work.md" class="quicknav-item stagger-item" target="_blank"><span class="qicon">💻</span><span>远程工作</span></a>
-                <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/tools/ai-subscription.md" class="quicknav-item stagger-item" target="_blank"><span class="qicon">🤖</span><span>AI 订阅</span></a>
-                <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/visa/australia-whv.md" class="quicknav-item stagger-item" target="_blank"><span class="qicon">🇦🇺</span><span>澳洲 WHV</span></a>
-                <a href="https://zhuanlan.zhihu.com/p/687695809" class="quicknav-item stagger-item" target="_blank"><span class="qicon">🇭🇰</span><span>香港优才</span></a>
-                <a href="https://zhuanlan.zhihu.com/p/697122836" class="quicknav-item stagger-item" target="_blank"><span class="qicon">💼</span><span>赴港工作</span></a>
-                <a href="https://zhuanlan.zhihu.com/p/2043115647786386108" class="quicknav-item stagger-item" target="_blank"><span class="qicon">🇲🇴</span><span>蚂蚁银行</span></a>
-                <a href="https://www.zhihu.com/question/1999636575890474485/answer/2049141084715066617" class="quicknav-item stagger-item" target="_blank"><span class="qicon">🛂</span><span>免签趋势</span></a>
-                <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/visa/new-zealand-whv.md" class="quicknav-item stagger-item" target="_blank"><span class="qicon">🇳🇿</span><span>新西兰 WHV</span></a>
-            </div>
-        </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- Articles -->
+    <!-- Latest Articles -->
     <section class="section" id="latest-articles">
         <div class="container">
             <div class="articles-header reveal">
@@ -514,192 +685,486 @@
     </footer>
 
 <script>
-    // Core interactions
+// ============================================================
+// 3D GLOBE — Globe.gl Hex Particle Earth
+// Color: White BG / Navy Land / Red Hover
+// ============================================================
 
+// --- Country Route Mapping ---
+const countryRoutes = {
+    'Thailand': 'country/thailand/index.html',
+    'Japan': 'country/japan/index.html',
+    'Singapore': 'country/singapore/index.html',
+    'Indonesia': 'country/indonesia/index.html',
+    'Vietnam': 'country/vietnam/index.html',
+    'Malaysia': 'country/malaysia/index.html',
+    'Philippines': 'country/philippines/index.html',
+    'South Korea': 'country/southkorea/index.html',
+    'Georgia': 'country/georgia/index.html',
+    'Kazakhstan': 'country/kazakhstan/index.html',
+    'Nepal': 'country/nepal/index.html',
+    'Sri Lanka': 'country/srilanka/index.html',
+    'Mongolia': 'country/mongolia/index.html',
+    'Portugal': 'country/portugal/index.html',
+    'Spain': 'country/spain/index.html',
+    'Germany': 'country/germany/index.html',
+    'France': 'country/france/index.html',
+    'Netherlands': 'country/netherlands/index.html',
+    'United Kingdom': 'country/uk/index.html',
+    'Switzerland': 'country/switzerland/index.html',
+    'Austria': 'country/austria/index.html',
+    'Greece': 'country/greece/index.html',
+    'Croatia': 'country/croatia/index.html',
+    'Estonia': 'country/estonia/index.html',
+    'Cyprus': 'country/cyprus/index.html',
+    'Iceland': 'country/iceland/index.html',
+    'Norway': 'country/norway/index.html',
+    'Denmark': 'country/denmark/index.html',
+    'Ireland': 'country/ireland/index.html',
+    'Turkey': 'country/turkey/index.html',
+    'United Arab Emirates': 'country/uae/index.html',
+    'Qatar': 'country/qatar/index.html',
+    'Morocco': 'country/morocco/index.html',
+    'United States of America': 'country/usa/index.html',
+    'Canada': 'country/canada/index.html',
+    'Mexico': 'country/mexico/index.html',
+    'Brazil': 'country/brazil/index.html',
+    'Chile': 'country/chile/index.html',
+    'Argentina': 'country/argentina/index.html',
+    'Australia': 'country/australia/index.html',
+    'New Zealand': 'country/newzealand/index.html',
+    'Hong Kong': 'country/hongkong/index.html',
+    'Macao': 'country/macao/index.html',
+    'India': 'country/india/index.html',
+    'Russia': 'country/russia/index.html',
+    'Poland': 'country/poland/index.html',
+    'Czech Republic': 'country/czech/index.html',
+    'Hungary': 'country/hungary/index.html',
+    'Italy': 'country/italy/index.html',
+    'Sweden': 'country/sweden/index.html',
+    'Finland': 'country/finland/index.html',
+    'Belgium': 'country/belgium/index.html',
+    'Ukraine': 'country/ukraine/index.html',
+    'Romania': 'country/romania/index.html',
+    'Bulgaria': 'country/bulgaria/index.html',
+    'Serbia': 'country/serbia/index.html',
+    'Slovenia': 'country/slovenia/index.html',
+    'Slovakia': 'country/slovakia/index.html',
+    'Lithuania': 'country/lithuania/index.html',
+    'Latvia': 'country/latvia/index.html',
+    'Belarus': 'country/belarus/index.html',
+    'Moldova': 'country/moldova/index.html',
+    'Bosnia and Herzegovina': 'country/bosnia/index.html',
+    'North Macedonia': 'country/macedonia/index.html',
+    'Albania': 'country/albania/index.html',
+    'Montenegro': 'country/montenegro/index.html',
+    'Egypt': 'country/egypt/index.html',
+    'South Africa': 'country/southafrica/index.html',
+    'Kenya': 'country/kenya/index.html',
+    'Nigeria': 'country/nigeria/index.html',
+    'Ghana': 'country/ghana/index.html',
+    'Israel': 'country/israel/index.html',
+    'Jordan': 'country/jordan/index.html',
+    'Saudi Arabia': 'country/saudiarabia/index.html',
+    'Kuwait': 'country/kuwait/index.html',
+    'Bahrain': 'country/bahrain/index.html',
+    'Oman': 'country/oman/index.html',
+    'Iraq': 'country/iraq/index.html',
+    'Iran': 'country/iran/index.html',
+    'Syria': 'country/syria/index.html',
+    'Yemen': 'country/yemen/index.html',
+    'Afghanistan': 'country/afghanistan/index.html',
+    'Uzbekistan': 'country/uzbekistan/index.html',
+    'Kyrgyzstan': 'country/kyrgyzstan/index.html',
+    'Tajikistan': 'country/tajikistan/index.html',
+    'Turkmenistan': 'country/turkmenistan/index.html',
+    'Azerbaijan': 'country/azerbaijan/index.html',
+    'Armenia': 'country/armenia/index.html',
+    'Colombia': 'country/colombia/index.html',
+    'Peru': 'country/peru/index.html',
+    'Ecuador': 'country/ecuador/index.html',
+    'Uruguay': 'country/uruguay/index.html',
+    'Paraguay': 'country/paraguay/index.html',
+    'Bolivia': 'country/bolivia/index.html',
+    'Venezuela': 'country/venezuela/index.html',
+    'Guyana': 'country/guyana/index.html',
+    'Suriname': 'country/suriname/index.html',
+    'Cuba': 'country/cuba/index.html',
+    'Jamaica': 'country/jamaica/index.html',
+    'Haiti': 'country/haiti/index.html',
+    'Dominican Republic': 'country/dominican/index.html',
+    'Puerto Rico': 'country/puertorico/index.html',
+    'Guatemala': 'country/guatemala/index.html',
+    'Belize': 'country/belize/index.html',
+    'El Salvador': 'country/elsalvador/index.html',
+    'Honduras': 'country/honduras/index.html',
+    'Nicaragua': 'country/nicaragua/index.html',
+    'Costa Rica': 'country/costarica/index.html',
+    'Panama': 'country/panama/index.html',
+    'Grenada': 'country/grenada/index.html',
+    'Trinidad and Tobago': 'country/trinidad/index.html',
+    'Barbados': 'country/barbados/index.html',
+    'Saint Lucia': 'country/saintlucia/index.html',
+    'Saint Vincent and the Grenadines': 'country/saintvincent/index.html',
+    'Dominica': 'country/dominica/index.html',
+    'Antigua and Barbuda': 'country/antigua/index.html',
+    'Saint Kitts and Nevis': 'country/saintkitts/index.html',
+    'Bahamas': 'country/bahamas/index.html',
+    'Fiji': 'country/fiji/index.html',
+    'Papua New Guinea': 'country/papua/index.html',
+    'Solomon Islands': 'country/solomon/index.html',
+    'Vanuatu': 'country/vanuatu/index.html',
+    'Samoa': 'country/samoa/index.html',
+    'Tonga': 'country/tonga/index.html',
+    'Kiribati': 'country/kiribati/index.html',
+    'Tuvalu': 'country/tuvalu/index.html',
+    'Nauru': 'country/nauru/index.html',
+    'Palau': 'country/palau/index.html',
+    'Marshall Islands': 'country/marshall/index.html',
+    'Micronesia': 'country/micronesia/index.html',
+    'Guam': 'country/guam/index.html',
+    'Northern Mariana Islands': 'country/mariana/index.html',
+    'American Samoa': 'country/americansamoa/index.html',
+    'Cook Islands': 'country/cook/index.html',
+    'Niue': 'country/niue/index.html',
+    'Tokelau': 'country/tokelau/index.html',
+    'Pitcairn Islands': 'country/pitcairn/index.html',
+    'Wallis and Futuna': 'country/wallis/index.html',
+    'French Polynesia': 'country/frenchpolynesia/index.html',
+    'New Caledonia': 'country/newcaledonia/index.html',
+    'Norfolk Island': 'country/norfolk/index.html',
+    'Christmas Island': 'country/christmas/index.html',
+    'Cocos (Keeling) Islands': 'country/cocos/index.html',
+    'Heard Island and McDonald Islands': 'country/heard/index.html',
+    'Antarctica': 'country/antarctica/index.html',
+    'Greenland': 'country/greenland/index.html',
+    'Faroe Islands': 'country/faroe/index.html',
+    'Svalbard': 'country/svalbard/index.html',
+    'Jan Mayen': 'country/janmayen/index.html',
+    'Bouvet Island': 'country/bouvet/index.html',
+    'South Georgia and the South Sandwich Islands': 'country/southgeorgia/index.html',
+};
 
-    (function() {
-        'use strict';
+// --- Country Chinese Names ---
+const countryNamesCN = {
+    'Thailand': '泰国', 'Japan': '日本', 'Singapore': '新加坡', 'Indonesia': '印度尼西亚',
+    'Vietnam': '越南', 'Malaysia': '马来西亚', 'Philippines': '菲律宾', 'South Korea': '韩国',
+    'Georgia': '格鲁吉亚', 'Kazakhstan': '哈萨克斯坦', 'Nepal': '尼泊尔', 'Sri Lanka': '斯里兰卡',
+    'Mongolia': '蒙古', 'Portugal': '葡萄牙', 'Spain': '西班牙', 'Germany': '德国',
+    'France': '法国', 'Netherlands': '荷兰', 'United Kingdom': '英国', 'Switzerland': '瑞士',
+    'Austria': '奥地利', 'Greece': '希腊', 'Croatia': '克罗地亚', 'Estonia': '爱沙尼亚',
+    'Cyprus': '塞浦路斯', 'Iceland': '冰岛', 'Norway': '挪威', 'Denmark': '丹麦',
+    'Ireland': '爱尔兰', 'Turkey': '土耳其', 'United Arab Emirates': '阿联酋', 'Qatar': '卡塔尔',
+    'Morocco': '摩洛哥', 'United States of America': '美国', 'Canada': '加拿大', 'Mexico': '墨西哥',
+    'Brazil': '巴西', 'Chile': '智利', 'Argentina': '阿根廷', 'Australia': '澳大利亚',
+    'New Zealand': '新西兰', 'Hong Kong': '香港', 'Macao': '澳门', 'India': '印度',
+    'Russia': '俄罗斯', 'Poland': '波兰', 'Czech Republic': '捷克', 'Hungary': '匈牙利',
+    'Italy': '意大利', 'Sweden': '瑞典', 'Finland': '芬兰', 'Belgium': '比利时',
+    'Ukraine': '乌克兰', 'Romania': '罗马尼亚', 'Bulgaria': '保加利亚', 'Serbia': '塞尔维亚',
+    'Slovenia': '斯洛文尼亚', 'Slovakia': '斯洛伐克', 'Lithuania': '立陶宛', 'Latvia': '拉脱维亚',
+    'Belarus': '白俄罗斯', 'Moldova': '摩尔多瓦', 'Bosnia and Herzegovina': '波黑',
+    'North Macedonia': '北马其顿', 'Albania': '阿尔巴尼亚', 'Montenegro': '黑山',
+    'Egypt': '埃及', 'South Africa': '南非', 'Kenya': '肯尼亚', 'Nigeria': '尼日利亚',
+    'Ghana': '加纳', 'Israel': '以色列', 'Jordan': '约旦', 'Saudi Arabia': '沙特阿拉伯',
+    'Kuwait': '科威特', 'Bahrain': '巴林', 'Oman': '阿曼', 'Iraq': '伊拉克',
+    'Iran': '伊朗', 'Syria': '叙利亚', 'Yemen': '也门', 'Afghanistan': '阿富汗',
+    'Uzbekistan': '乌兹别克斯坦', 'Kyrgyzstan': '吉尔吉斯斯坦', 'Tajikistan': '塔吉克斯坦',
+    'Turkmenistan': '土库曼斯坦', 'Azerbaijan': '阿塞拜疆', 'Armenia': '亚美尼亚',
+    'Colombia': '哥伦比亚', 'Peru': '秘鲁', 'Ecuador': '厄瓜多尔', 'Uruguay': '乌拉圭',
+    'Paraguay': '巴拉圭', 'Bolivia': '玻利维亚', 'Venezuela': '委内瑞拉', 'Guyana': '圭亚那',
+    'Suriname': '苏里南', 'Cuba': '古巴', 'Jamaica': '牙买加', 'Haiti': '海地',
+    'Dominican Republic': '多米尼加', 'Puerto Rico': '波多黎各', 'Guatemala': '危地马拉',
+    'Belize': '伯利兹', 'El Salvador': '萨尔瓦多', 'Honduras': '洪都拉斯',
+    'Nicaragua': '尼加拉瓜', 'Costa Rica': '哥斯达黎加', 'Panama': '巴拿马',
+    'Grenada': '格林纳达', 'Trinidad and Tobago': '特立尼达和多巴哥', 'Barbados': '巴巴多斯',
+    'Saint Lucia': '圣卢西亚', 'Saint Vincent and the Grenadines': '圣文森特和格林纳丁斯',
+    'Dominica': '多米尼克', 'Antigua and Barbuda': '安提瓜和巴布达',
+    'Saint Kitts and Nevis': '圣基茨和尼维斯', 'Bahamas': '巴哈马', 'Fiji': '斐济',
+    'Papua New Guinea': '巴布亚新几内亚', 'Solomon Islands': '所罗门群岛',
+    'Vanuatu': '瓦努阿图', 'Samoa': '萨摩亚', 'Tonga': '汤加', 'Kiribati': '基里巴斯',
+    'Tuvalu': '图瓦卢', 'Nauru': '瑙鲁', 'Palau': '帕劳', 'Marshall Islands': '马绍尔群岛',
+    'Micronesia': '密克罗尼西亚', 'Guam': '关岛', 'Northern Mariana Islands': '北马里亚纳群岛',
+    'American Samoa': '美属萨摩亚', 'Cook Islands': '库克群岛', 'Niue': '纽埃',
+    'Tokelau': '托克劳', 'Pitcairn Islands': '皮特凯恩群岛',
+    'Wallis and Futuna': '瓦利斯和富图纳', 'French Polynesia': '法属波利尼西亚',
+    'New Caledonia': '新喀里多尼亚', 'Norfolk Island': '诺福克岛',
+    'Christmas Island': '圣诞岛', 'Cocos (Keeling) Islands': '科科斯群岛',
+    'Heard Island and McDonald Islands': '赫德岛和麦克唐纳群岛',
+    'Antarctica': '南极洲', 'Greenland': '格陵兰', 'Faroe Islands': '法罗群岛',
+    'Svalbard': '斯瓦尔巴', 'Jan Mayen': '扬马延', 'Bouvet Island': '布韦岛',
+    'South Georgia and the South Sandwich Islands': '南乔治亚和南桑威奇群岛',
+};
 
-        // SCROLL REVEAL — fade in + slide up
-        function initScrollReveal() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('visible');
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        }
+// --- Initialize Globe ---
+(function initGlobe() {
+    if (typeof Globe === 'undefined' || typeof topojson === 'undefined') {
+        setTimeout(initGlobe, 100);
+        return;
+    }
 
-        // Count up — animated number counter
-        function initCountUp() {
-            const counters = document.querySelectorAll('.count-up');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const el = entry.target;
-                        const target = parseInt(el.dataset.count);
-                        const suffix = el.dataset.suffix || '';
-                        const duration = 800;
-                        const start = performance.now();
-                        function update(now) {
-                            const elapsed = now - start;
-                            const progress = Math.min(elapsed / duration, 1);
-                            const eased = 1 - Math.pow(1 - progress, 3);
-                            el.textContent = Math.floor(eased * target) + suffix;
-                            if (progress < 1) requestAnimationFrame(update);
-                        }
-                        requestAnimationFrame(update);
-                        observer.unobserve(el);
-                    }
-                });
-            }, { threshold: 0.5 });
-            counters.forEach(c => observer.observe(c));
-        }
+    const globeContainer = document.getElementById('globe-viz');
+    if (!globeContainer) return;
 
-        // Header scroll background
-        function initHeaderScroll() {
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) header.classList.add('header-scrolled');
-                else header.classList.remove('header-scrolled');
-            }, { passive: true });
-        }
+    const world = Globe()(globeContainer)
+        .backgroundColor('rgba(0,0,0,0)')
+        .globeImageUrl(null)
+        .showAtmosphere(false)
+        .showGraticules(false);
 
-        // Mobile menu
-        function initMobileMenu() {
-            const toggle = document.getElementById('menuToggle');
-            const menu = document.getElementById('mobileMenu');
-            const overlay = document.getElementById('mobileOverlay');
-            if (!toggle || !menu || !overlay) return;
-            let isOpen = false;
-            function open() { isOpen = true; menu.classList.add('open'); overlay.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; }
-            function close() { isOpen = false; menu.classList.remove('open'); overlay.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
-            toggle.addEventListener('click', () => isOpen ? close() : open());
-            overlay.addEventListener('click', close);
-            menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
-        }
+    // Configure camera
+    world.camera().position.z = 280;
 
-        // Data freshness
-        (async function() {
-            try {
-                const res = await fetch('api/stats.json', { cache: 'no-cache' });
-                const data = await res.json();
-                const updated = data.updated_at || data.last_updated;
-                if (updated) {
-                    const date = new Date(updated);
-                    const str = date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
-                    const el = document.getElementById('dataFreshness');
-                    if (el) el.textContent = '数据更新于 ' + str;
-                }
-            } catch (e) {
-                const el = document.getElementById('dataFreshness');
-                if (el) {
-                    const now = new Date();
-                    const str = now.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
-                    el.textContent = '数据更新于 ' + str;
-                }
-            }
-        })();
+    // Auto-rotate
+    world.controls().autoRotate = true;
+    world.controls().autoRotateSpeed = 0.8;
+    world.controls().enableZoom = false;
+    world.controls().minDistance = 200;
+    world.controls().maxDistance = 400;
 
-        // Country filters
-        (function() {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const regionTabs = document.querySelectorAll('.region-tab');
-            const allCards = document.querySelectorAll('.country-card');
-            const regionSections = document.querySelectorAll('.region-section');
-            let activeFilter = 'all', activeRegion = 'all';
-            function applyFilters() {
-                allCards.forEach(card => {
-                    const visa = card.dataset.visa;
-                    const region = card.dataset.region;
-                    card.style.display = (activeFilter === 'all' || visa === activeFilter) && (activeRegion === 'all' || region === activeRegion) ? '' : 'none';
-                });
-                regionSections.forEach(section => {
-                    section.style.display = section.querySelectorAll('.country-card:not([style*="display: none"])').length > 0 ? '' : 'none';
-                });
-            }
-            filterBtns.forEach(btn => btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                activeFilter = btn.dataset.filter;
-                applyFilters();
-            }));
-            regionTabs.forEach(tab => tab.addEventListener('click', () => {
-                regionTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                activeRegion = tab.dataset.region;
-                applyFilters();
-            }));
-        })();
+    let hoveredCountry = null;
+    const NAVY = '#002F6C';
+    const RED  = '#FE0000';
 
-        // Load articles
-        (async function() {
-            try {
-                const res = await fetch('articles/articles.json');
-                const data = await res.json();
-                const articles = data.slice(0, 3);
-                const grid = document.getElementById('home-articles-grid');
-                if (!grid) return;
-                grid.innerHTML = articles.map(a => `
-                    <a href="articles/${a.slug}/index.html" class="article-card">
-                        <div class="article-tags">
-                            ${a.tags.map(t => '<span class="article-tag">' + t + '</span>').join('')}
-                        </div>
-                        <h3>${a.title}</h3>
-                        <p>${a.description || a.summary || ""}</p>
-                        <span class="article-date">${a.date}</span>
-                    </a>
-                `).join('');
-            } catch (e) {
-                const grid = document.getElementById('home-articles-grid');
-                if (grid) grid.innerHTML = '<p style="color: var(--text-tertiary); text-align: center; padding: 24px;">暂无文章</p>';
-            }
-        })();
+    // Fetch world topology data
+    fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+        .then(res => res.json())
+        .then(topoJson => {
+            const countries = topojson.feature(topoJson, topoJson.objects.countries);
 
-        // Parallax
-        function initParallax() {
-            const slow = document.querySelectorAll('.parallax-slow');
-            const medium = document.querySelectorAll('.parallax-medium');
-            let ticking = false;
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    requestAnimationFrame(() => {
-                        const y = window.scrollY;
-                        slow.forEach(el => el.style.transform = 'translateY(' + (y * 0.05) + 'px)');
-                        medium.forEach(el => el.style.transform = 'translateY(' + (y * 0.1) + 'px)');
-                        ticking = false;
+            world
+                .hexPolygonsData(countries.features)
+                .hexPolygonResolution(3)
+                .hexPolygonMargin(0.35)
+                .hexPolygonAltitude(0.01)
+                .hexPolygonColor(d => {
+                    const name = d.properties.NAME || d.properties.NAME_EN || d.properties.ADMIN;
+                    return name === hoveredCountry ? RED : NAVY;
+                })
+                .hexPolygonLabel(d => {
+                    const name = d.properties.NAME || d.properties.NAME_EN || d.properties.ADMIN;
+                    const cn = countryNamesCN[name] || name;
+                    return `<div class="globe-tooltip">${cn}</div>`;
+                })
+                .onHexPolygonHover((d, prevD) => {
+                    const name = d ? (d.properties.NAME || d.properties.NAME_EN || d.properties.ADMIN) : null;
+                    hoveredCountry = name;
+                    world.hexPolygonColor(f => {
+                        const n = f.properties.NAME || f.properties.NAME_EN || f.properties.ADMIN;
+                        return n === hoveredCountry ? RED : NAVY;
                     });
-                    ticking = true;
-                }
-            }, { passive: true });
-        }
-
-        // Text reveal
-        function initTextReveal() {
-            const lines = document.querySelectorAll('.text-reveal-line');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
+                })
+                .onHexPolygonClick(d => {
+                    const name = d.properties.NAME || d.properties.NAME_EN || d.properties.ADMIN;
+                    const route = countryRoutes[name];
+                    if (route) {
+                        window.location.href = route;
+                    } else {
+                        const cn = countryNamesCN[name] || name;
+                        // Create a styled toast notification
+                        showToast(`${cn}：该国家指南正在撰写中...`);
                     }
                 });
-            }, { threshold: 0.3 });
-            lines.forEach(line => observer.observe(line));
-        }
-
-        // Initialize all
-        document.addEventListener('DOMContentLoaded', () => {
-            initScrollReveal();
-            initCountUp();
-            initHeaderScroll();
-            initMobileMenu();
-            initParallax();
-            initTextReveal();
+        })
+        .catch(err => {
+            console.error('Failed to load globe data:', err);
+            globeContainer.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-tertiary);"><p>3D 地球加载中...</p></div>';
         });
+
+    function showToast(message) {
+        // Remove existing toast
+        const existing = document.getElementById('globe-toast');
+        if (existing) existing.remove();
+
+        const toast = document.createElement('div');
+        toast.id = 'globe-toast';
+        toast.style.cssText = `
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: #FE0000;
+            color: #FFFFFF;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(254, 0, 0, 0.3);
+            z-index: 10000;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            white-space: nowrap;
+        `;
+        toast.textContent = message;
+        document.body.appendChild(toast);
+
+        // Animate in
+        requestAnimationFrame(() => {
+            toast.style.opacity = '1';
+            toast.style.transform = 'translateX(-50%) translateY(0)';
+        });
+
+        // Remove after 2.5s
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateX(-50%) translateY(20px)';
+            setTimeout(() => toast.remove(), 300);
+        }, 2500);
+    }
+})();
+
+// ============================================================
+// Core Site Interactions (preserved from original)
+// ============================================================
+
+(function() {
+    'use strict';
+
+    // SCROLL REVEAL
+    function initScrollReveal() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+
+    // COUNT UP
+    function initCountUp() {
+        const counters = document.querySelectorAll('.count-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.count);
+                    const suffix = el.dataset.suffix || '';
+                    const duration = 800;
+                    const start = performance.now();
+                    function update(now) {
+                        const elapsed = now - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        el.textContent = Math.floor(eased * target) + suffix;
+                        if (progress < 1) requestAnimationFrame(update);
+                    }
+                    requestAnimationFrame(update);
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(c => observer.observe(c));
+    }
+
+    // HEADER SCROLL
+    function initHeaderScroll() {
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) header.classList.add('header-scrolled');
+            else header.classList.remove('header-scrolled');
+        }, { passive: true });
+    }
+
+    // MOBILE MENU
+    function initMobileMenu() {
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('mobileOverlay');
+        if (!toggle || !menu || !overlay) return;
+        let isOpen = false;
+        function open() { isOpen = true; menu.classList.add('open'); overlay.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; }
+        function close() { isOpen = false; menu.classList.remove('open'); overlay.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
+        toggle.addEventListener('click', () => isOpen ? close() : open());
+        overlay.addEventListener('click', close);
+        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    }
+
+    // DATA FRESHNESS
+    (async function() {
+        try {
+            const res = await fetch('api/stats.json', { cache: 'no-cache' });
+            const data = await res.json();
+            const updated = data.updated_at || data.last_updated;
+            if (updated) {
+                const date = new Date(updated);
+                const str = date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+                const el = document.getElementById('dataFreshness');
+                if (el) el.textContent = '数据更新于 ' + str;
+            }
+        } catch (e) {
+            const el = document.getElementById('dataFreshness');
+            if (el) {
+                const now = new Date();
+                const str = now.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+                el.textContent = '数据更新于 ' + str;
+            }
+        }
     })();
-    
-    </script>
-    <script src="motion.js" defer></script>
+
+    // COUNTRY FILTERS
+    (function() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const regionTabs = document.querySelectorAll('.region-tab');
+        const allCards = document.querySelectorAll('.country-card');
+        const regionSections = document.querySelectorAll('.region-section');
+        let activeFilter = 'all', activeRegion = 'all';
+        function applyFilters() {
+            allCards.forEach(card => {
+                const visa = card.dataset.visa;
+                const region = card.dataset.region;
+                card.style.display = (activeFilter === 'all' || visa === activeFilter) && (activeRegion === 'all' || region === activeRegion) ? '' : 'none';
+            });
+            regionSections.forEach(section => {
+                section.style.display = section.querySelectorAll('.country-card:not([style*="display: none"])').length > 0 ? '' : 'none';
+            });
+        }
+        filterBtns.forEach(btn => btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeFilter = btn.dataset.filter;
+            applyFilters();
+        }));
+        regionTabs.forEach(tab => tab.addEventListener('click', () => {
+            regionTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            activeRegion = tab.dataset.region;
+            applyFilters();
+        }));
+    })();
+
+    // LOAD ARTICLES
+    (async function() {
+        try {
+            const res = await fetch('articles/articles.json');
+            const data = await res.json();
+            const articles = data.slice(0, 3);
+            const grid = document.getElementById('home-articles-grid');
+            if (!grid) return;
+            grid.innerHTML = articles.map(a => `
+                <a href="articles/${a.slug}/index.html" class="article-card">
+                    <div class="article-tags">
+                        ${a.tags.map(t => '<span class="article-tag">' + t + '</span>').join('')}
+                    </div>
+                    <h3>${a.title}</h3>
+                    <p>${a.description || a.summary || ""}</p>
+                    <span class="article-date">${a.date}</span>
+                </a>
+            `).join('');
+        } catch (e) {
+            const grid = document.getElementById('home-articles-grid');
+            if (grid) grid.innerHTML = '<p style="color: var(--text-tertiary); text-align: center; padding: 24px;">暂无文章</p>';
+        }
+    })();
+
+    // Initialize all
+    document.addEventListener('DOMContentLoaded', () => {
+        initScrollReveal();
+        initCountUp();
+        initHeaderScroll();
+        initMobileMenu();
+    });
+})();
+</script>
+<script src="motion.js" defer></script>
 </body>
 </html>
