@@ -398,34 +398,7 @@
         </div>
     </footer>
 
-<script>
-(function() {
-    'use strict';
-    function initHeaderScroll() {
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) header.classList.add('header-scrolled');
-            else header.classList.remove('header-scrolled');
-        }, { passive: true });
-    }
-    function initMobileMenu() {
-        const toggle = document.getElementById('menuToggle');
-        const menu = document.getElementById('mobileMenu');
-        const overlay = document.getElementById('mobileOverlay');
-        if (!toggle || !menu || !overlay) return;
-        let isOpen = false;
-        function open() { isOpen = true; menu.classList.add('open'); overlay.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; }
-        function close() { isOpen = false; menu.classList.remove('open'); overlay.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
-        toggle.addEventListener('click', () => isOpen ? close() : open());
-        overlay.addEventListener('click', close);
-        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-        initHeaderScroll();
-        initMobileMenu();
-    });
-})();
-</script>
+
 <script src="../../motion.js" defer></script>
 </body>
 </html>
