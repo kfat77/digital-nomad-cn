@@ -31,14 +31,14 @@
     starCount: isMobile ? 600 : 1800,
     arcSegments: isMobile ? 60 : 120,
     colors: {
-      ocean: 0x0B1426,
-      oceanEmissive: 0x061228,
-      dotBase: new THREE.Color(0x00D4FF),
-      dotHover: new THREE.Color(0x39FF14),
-      atmosphereInner: new THREE.Color(0x001844),
-      atmosphereOuter: new THREE.Color(0x00CCFF),
-      arc: new THREE.Color(0x00D4FF),
-      star: new THREE.Color(0xAABBCF)
+      ocean: 0xE8ECF2,
+      oceanEmissive: 0xF5F7FA,
+      dotBase: new THREE.Color(0x002F6C),
+      dotHover: new THREE.Color(0xFE0000),
+      atmosphereInner: new THREE.Color(0xE6EEF8),
+      atmosphereOuter: new THREE.Color(0x002F6C),
+      arc: new THREE.Color(0x002F6C),
+      star: new THREE.Color(0x8899AA)
     }
   };
 
@@ -442,14 +442,15 @@
       float dist  = length(center);
       if (dist > 0.5) discard;
 
-      // Soft radial falloff for glow
+      // Soft radial falloff
       float glow = 1.0 - smoothstep(0.0, 0.5, dist);
 
       // Bright core
-      float core = 1.0 - smoothstep(0.0, 0.12, dist);
+      float core = 1.0 - smoothstep(0.0, 0.15, dist);
 
-      vec3 finalColor = vColor * (0.35 + glow * 0.45 + core * 0.55);
-      float finalAlpha = vAlpha * glow;
+      // Light theme: darker, more opaque dots
+      vec3 finalColor = vColor * (0.6 + core * 0.8);
+      float finalAlpha = vAlpha * glow * 0.9;
 
       gl_FragColor = vec4(finalColor, finalAlpha);
     }
@@ -476,10 +477,11 @@
 
     void main() {
       vec3 viewDir = normalize(-vPosition);
-      float fresnel = pow(1.0 - dot(viewDir, vNormal), 2.8);
+      float fresnel = pow(1.0 - dot(viewDir, vNormal), 3.0);
 
       vec3 color = mix(uColorInner, uColorOuter, fresnel);
-      float alpha = fresnel * 0.55;
+      // Light theme: very subtle atmosphere
+      float alpha = fresnel * 0.25;
 
       gl_FragColor = vec4(color, alpha);
     }
@@ -512,8 +514,8 @@
       // Fade at both ends
       float endFade = smoothstep(0.0, 0.03, vProgress) * smoothstep(1.0, 0.97, vProgress);
 
-      vec3 finalColor = uColor + vec3(intensity * 0.6);
-      float alpha = intensity * endFade * 0.85;
+      vec3 finalColor = uColor * (1.0 + intensity * 0.5);
+      float alpha = intensity * endFade * 0.7;
 
       gl_FragColor = vec4(finalColor, alpha);
     }
@@ -549,7 +551,8 @@
       if (dist > 0.5) discard;
 
       float alpha = (1.0 - smoothstep(0.0, 0.5, dist)) * vAlpha;
-      gl_FragColor = vec4(0.65, 0.75, 0.9, alpha * 0.8);
+      // Light theme: dark gray stars visible on white
+      gl_FragColor = vec4(0.45, 0.50, 0.58, alpha * 0.6);
     }
   `;
 
@@ -675,8 +678,8 @@
       this.tooltip.style.cssText = `
         position:absolute;
         top:0;left:0;
-        background:rgba(6,14,35,0.92);
-        color:#00D4FF;
+        background:#FFFFFF;
+        color:#002F6C;
         padding:10px 16px;
         border-radius:8px;
         font-size:13px;
@@ -685,9 +688,8 @@
         pointer-events:none;
         opacity:0;
         transition:opacity 0.2s ease;
-        border:1px solid rgba(0,212,255,0.25);
-        box-shadow:0 4px 24px rgba(0,0,0,0.4),0 0 12px rgba(0,212,255,0.1);
-        backdrop-filter:blur(10px);
+        border:1px solid rgba(0,47,108,0.12);
+        box-shadow:0 4px 20px rgba(0,0,0,0.12);
         z-index:1000;
         white-space:nowrap;
         transform:translate(-50%,-130%);
@@ -723,7 +725,7 @@
         vertexShader:   STAR_VERTEX_SHADER,
         fragmentShader: STAR_FRAGMENT_SHADER,
         transparent: true,
-        blending: THREE.AdditiveBlending,
+        blending: THREE.NormalBlending,
         depthWrite: false
       });
 
@@ -849,7 +851,7 @@
         vertexShader:   DOT_VERTEX_SHADER,
         fragmentShader: DOT_FRAGMENT_SHADER,
         transparent: true,
-        blending: THREE.AdditiveBlending,
+        blending: THREE.NormalBlending,
         depthWrite: false
       });
 
@@ -925,7 +927,7 @@
         vertexShader:   ATMOSPHERE_VERTEX_SHADER,
         fragmentShader: ATMOSPHERE_FRAGMENT_SHADER,
         transparent: true,
-        blending: THREE.AdditiveBlending,
+        blending: THREE.NormalBlending,
         side: THREE.BackSide,
         depthWrite: false
       });
@@ -937,13 +939,13 @@
       const glowGeo = new THREE.SphereGeometry(CONFIG.radius + 2, 64, 64);
       const glowMat = new THREE.ShaderMaterial({
         uniforms: {
-          uColorInner: { value: new THREE.Color(0x001a44) },
-          uColorOuter: { value: new THREE.Color(0x0088ff) }
+          uColorInner: { value: new THREE.Color(0xE6EEF8) },
+          uColorOuter: { value: new THREE.Color(0x002F6C) }
         },
         vertexShader:   ATMOSPHERE_VERTEX_SHADER,
         fragmentShader: ATMOSPHERE_FRAGMENT_SHADER,
         transparent: true,
-        blending: THREE.AdditiveBlending,
+        blending: THREE.NormalBlending,
         side: THREE.BackSide,
         depthWrite: false
       });
@@ -1036,13 +1038,13 @@
         bottom:32px;
         left:50%;
         transform:translateX(-50%) translateY(20px);
-        background:#00D4FF;
-        color:#030712;
+        background:#FE0000;
+        color:#FFFFFF;
         padding:12px 24px;
         border-radius:8px;
         font-size:14px;
         font-weight:700;
-        box-shadow:0 4px 24px rgba(0,212,255,0.35);
+        box-shadow:0 4px 20px rgba(254,0,0,0.25);
         z-index:10000;
         opacity:0;
         transition:all 0.3s ease;
@@ -1091,8 +1093,8 @@
           const dot = this.dotData[this.hoveredIndex];
           if (dot && dot.cityName) {
             this.tooltip.innerHTML = `
-              <div style="color:#fff;font-size:12px;margin-bottom:2px;opacity:0.7;">${dot.country || ''}</div>
-              <div style="color:#00D4FF;font-size:14px;font-weight:700;">${dot.cityName}</div>
+              <div style="color:#5A6A7A;font-size:12px;margin-bottom:2px;">${dot.country || ''}</div>
+              <div style="color:#002F6C;font-size:14px;font-weight:700;">${dot.cityName}</div>
             `;
             this.tooltip.style.opacity = '1';
           } else {
