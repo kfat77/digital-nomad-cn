@@ -668,6 +668,21 @@
   ];
 
   /* ========================================================================
+     4B. GEOGRAPHIC BORDER OUTLINES (coastlines + country borders)
+     ======================================================================== */
+
+  const GEO_OUTLINES = [
+    // === NORTH AMERICA COASTLINE ===
+    { type: 'coast', color: 0xD2B48C, points: [
+      [71,-156],[71,-140],[70,-130],[65,-120],[60,-140],[58,-135],[55,-130],[49,-123],[45,-124],[40,-124],[35,-121],[32,-117],[28,-115],[25,-97],[22,-106],[19,-105],[16,-96],[15,-92],[16,-85],[18,-88],[21,-87],[24,-80],[25,-80],[26,-82],[28,-82],[30,-84],[30,-88],[29,-89],[30,-90],[29,-94],[28,-95],[26,-97],[25,-100],[22,-106],[19,-105],[15,-105],[12,-102],[15,-96],[19,-96],[21,-90],[18,-88],[15,-92],[14,-83],[12,-87],[10,-85],[8,-83],[8,-78],[5,-77],[7,-72],[9,-73],[11,-74],[12,-72],[14,-61],[14,-60],[16,-61],[18,-65],[18,-72],[19,-72],[19,-75],[21,-73],[22,-74],[21,-77],[22,-80],[24,-80],[25,-77],[27,-80],[28,-82],[26,-82],[25,-80],[22,-80],[21,-87],[22,-106],[25,-97],[28,-115],[32,-117],[35,-121],[40,-124],[45,-124],[49,-123],[55,-130],[58,-135],[60,-140],[65,-140],[70,-140],[71,-156]
+    ]},
+    // US-Canada border
+    { type: 'border', color: 0xC9A86C, points: [
+      [49,-123],[49,-120],[49,-117],[49,-114],[49,-111],[49,-108],[49,-105],[49,-102],[49,-99],[49,-96],[49,-95],[49,-94],[49,-93],[49,-92],[49,-91],[49,-90],[49,-89],[49,-88],[49,-87],[49,-86],[49,-85],[49,-84],[49,-83],[49,-82],[49,-81],[49,-80],[49,-79],[49,-78],[49,-77],[49,-76],[49,-75],[49,-74],[49,-73],[49,-72],[49,-71],[49,-70],[49,-69],[49,-68],[49,-67],[49,-66],[49,-65],[49,-64],[49,-63],[49,-62],[49,-61],[49,-60],[49,-59],[49,-58],[49,-57],[49,-56],[49,-55],[49,-54],[49,-53],[49,-52],[49,-51],[49,-50],[49,-49],[49,-48],[49,-47],[49,-46],[49,-45],[49,-44],[49,-43],[49,-42],[49,-41],[49,-40],[49,-39],[49,-38],[49,-37],[49,-36],[49,-35],[49,-34],[49,-33],[49,-32],[49,-31],[49,-30],[49,-29],[49,-28],[49,-27],[49,-26],[49,-25],[49,-24],[49,-23],[49,-22],[49,-21],[49,-20],[49,-19],[49,-18],[49,-17],[49,-16],[49,-15],[49,-14],[49,-13],[49,-12],[49,-11],[49,-10],[49,-9],[49,-8],[49,-7],[49,-6],[49,-5],[49,-4],[49,-3],[49,-2],[49,-1],[49,0],[49,1],[49,2],[49,3],[49,4],[49,5],[49,6],[49,7],[49,8],[49,9],[49,10],[49,11],[49,12],[49,13],[49,14],[49,15],[49,16],[49,17],[49,18],[49,19],[49,20],[49,21],[49,22],[49,23],[49,24],[49,25],[49,26],[49,27],[49,28],[49,29],[49,30],[49,31],[49,32],[49,33],[49,34],[49,35],[49,36],[49,37],[49,38],[49,39],[49,40],[49,41],[49,42],[49,43],[49,44],[49,45],[49,46],[49,47],[49,48],[49,49],[49,50],[49,51],[49,52],[49,53],[49,54],[49,55],[49,56],[49,57],[49,58],[49,59],[49,60],[49,61],[49,62],[49,63],[49,64],[49,65],[49,66],[49,67],[49,68],[49,69],[49,70],[49,71],[49,72],[49,73],[49,74],[49,75],[49,76],[49,77],[49,78],[49,79],[49,80],[49,81],[49,82],[49,83],[49,84],[49,85],[49,86],[49,87],[49,88],[49,89],[49,90],[49,91],[49,92],[49,93],[49,94],[49,95],[49,96],[49,97],[49,98],[49,99],[49,100],[49,101],[49,102],[49,103],[49,104],[49,105],[49,106],[49,107],[49,108],[49,109],[49,110],[49,111],[49,112],[49,113],[49,114],[49,115],[49,116],[49,117],[49,118],[49,119],[49,120],[49,121],[49,122],[49,123],[49,124],[49,125],[49,126],[49,127],[49,128],[49,129],[49,130],[49,131],[49,132],[49,133],[49,134],[49,135],[49,136],[49,137],[49,138],[49,139],[49,140],[49,141],[49,142],[49,143],[49,144],[49,145],[49,146],[49,147],[49,148],[49,149],[49,150],[49,151],[49,152],[49,153],[49,154],[49,155],[49,156],[49,157],[49,158],[49,159],[49,160],[49,161],[49,162],[49,163],[49,164],[49,165],[49,166],[49,167],[49,168],[49,169],[49,170],[49,171],[49,172],[49,173],[49,174],[49,175],[49,176],[49,177],[49,178],[49,179],[49,180],[49,181],[49,182],[49,183],[49,184],[49,185],[49,186],[49,187],[49,188],[49,189],[49,190],[49,191],[49,192],[49,193],[49,194],[49,195],[49,196],[49,197],[49,198],[49,199],[49,200]
+    ]}
+  ];
+
+  /* ========================================================================
      5. UTILITY FUNCTIONS
      ======================================================================== */
 
@@ -712,13 +727,13 @@
       vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
       gl_Position = projectionMatrix * mvPosition;
 
-      // Size with distance attenuation
-      float pointSize = aSize * breath * uPixelRatio * 5.5;
+      // Ambient particles: very small, subtle glow
+      float pointSize = aSize * breath * uPixelRatio * 2.5;
       pointSize *= (300.0 / -mvPosition.z);
       pointSize *= (1.0 + isHovered * 2.5);
-      gl_PointSize = max(pointSize, 2.0);
+      gl_PointSize = max(pointSize, 1.0);
 
-      vAlpha = 0.80 + breath * 0.15 + isHovered * 0.35;
+      vAlpha = 0.55 + breath * 0.12 + isHovered * 0.35;
     }
   `;
 
@@ -737,9 +752,9 @@
       // Bright core
       float core = 1.0 - smoothstep(0.0, 0.08, dist);
 
-      // Earth theme: vivid illuminated tan/gold dots on deep ocean
-      vec3 finalColor = vColor * (2.0 + core * 3.0);
-      float finalAlpha = vAlpha * glow * 1.5;
+      // Ambient theme: subtle warm glow, not dominant
+      vec3 finalColor = vColor * (1.2 + core * 1.5);
+      float finalAlpha = vAlpha * glow * 0.9;
 
       gl_FragColor = vec4(finalColor, finalAlpha);
     }
@@ -769,8 +784,8 @@
       float fresnel = pow(1.0 - dot(viewDir, vNormal), 3.0);
 
       vec3 color = mix(uColorInner, uColorOuter, fresnel);
-      // Earth theme: more vivid atmospheric rim glow
-      float alpha = fresnel * 0.55;
+      // Subtle ocean-blue atmospheric glow for transparent background
+      float alpha = fresnel * 0.35;
 
       gl_FragColor = vec4(color, alpha);
     }
@@ -803,8 +818,8 @@
       // Fade at both ends
       float endFade = smoothstep(0.0, 0.03, vProgress) * smoothstep(1.0, 0.97, vProgress);
 
-      vec3 finalColor = uColor * (2.0 + intensity * 1.5);
-      float alpha = intensity * endFade * 0.95;
+      vec3 finalColor = uColor * (1.2 + intensity * 0.8);
+      float alpha = intensity * endFade * 0.55;
 
       gl_FragColor = vec4(finalColor, alpha);
     }
@@ -898,7 +913,7 @@
       this.setupLights();
       this.createTooltip();
       this.createStars();
-      this.createGlobeBase();
+      this.createBorders();
       this.createDots();
       this.createArcs();
       this.createAtmosphere();
@@ -1023,118 +1038,74 @@
     }
 
     /* ------------------------------------------------------------------ */
-    createGlobeBase() {
-      // Vibrant deep ocean blue — clearly visible illuminated ocean
-      const geometry = new THREE.SphereGeometry(CONFIG.radius - 0.5, 64, 64);
-      const material = new THREE.MeshBasicMaterial({
-        color: 0x004080,
-        transparent: true,
-        opacity: 0.45,
-        depthWrite: false
+    createBorders() {
+      // Transparent ocean base — no solid fill, just subtle blue glow via atmosphere
+      const borderGroup = new THREE.Group();
+
+      GEO_OUTLINES.forEach(border => {
+        const points = border.points.map(p => latLngToVector3(p[0], p[1], CONFIG.radius));
+        const geometry = new THREE.BufferGeometry().setFromPoints(points);
+        const material = new THREE.LineBasicMaterial({
+          color: border.color,
+          transparent: true,
+          opacity: border.type === 'coast' ? 0.85 : 0.65,
+          linewidth: 1
+        });
+        const line = new THREE.Line(geometry, material);
+        borderGroup.add(line);
       });
-      this.oceanSphere = new THREE.Mesh(geometry, material);
-      this.globeGroup.add(this.oceanSphere);
+
+      this.globeGroup.add(borderGroup);
+    }
+
+    /* ------------------------------------------------------------------ */
+    createGlobeBase() {
+      // REMOVED: no solid dark sphere — transparent background only
     }
 
     /* ------------------------------------------------------------------ */
     createDots() {
       const dotData = [];
 
-      // Helper: add a cluster of particles around a position
-      const addCluster = (pos, count, spread, baseSize, baseColor, country, cityName) => {
-        for (let i = 0; i < count; i++) {
-          const offset = new THREE.Vector3(
-            (Math.random() - 0.5) * spread,
-            (Math.random() - 0.5) * spread,
-            (Math.random() - 0.5) * spread
-          );
-          const clusterPos = pos.clone().add(offset).normalize().multiplyScalar(CONFIG.radius);
+      // Ambient decorative particles only — small, sparse, do not obstruct borders
+      const ambientCount = isMobile ? 300 : 800;
+      for (let i = 0; i < ambientCount; i++) {
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(2 * Math.random() - 1);
+        const pos = new THREE.Vector3(
+          CONFIG.radius * Math.sin(phi) * Math.cos(theta),
+          CONFIG.radius * Math.cos(phi),
+          CONFIG.radius * Math.sin(phi) * Math.sin(theta)
+        );
 
-          // Earth-tone variation: warm browns, golds, slight green for forests
-          const hueShift = (Math.random() - 0.5) * 0.06;
-          const satShift = (Math.random() - 0.5) * 0.15;
-          const lightShift = (Math.random() - 0.5) * 0.12;
-          const color = baseColor.clone();
-          color.offsetHSL(hueShift, satShift, lightShift);
+        // Very small particles: warm gold/tan for land, subtle blue for ocean
+        const isOcean = Math.random() < 0.3;
+        const color = isOcean
+          ? new THREE.Color(0x4488AA).multiplyScalar(0.4 + Math.random() * 0.4)
+          : CONFIG.colors.dotBase.clone().multiplyScalar(0.5 + Math.random() * 0.5);
 
-          dotData.push({
-            position: clusterPos,
-            size: baseSize * (0.6 + Math.random() * 0.8),
-            color: color,
-            phase: Math.random(),
-            country: country,
-            cityName: cityName
-          });
-        }
-      };
-
-      // === 1. LAND SEEDS — continent-wide particle distribution ===
-      LAND_SEEDS.forEach(seed => {
-        const pos = latLngToVector3(seed.lat, seed.lng, CONFIG.radius);
-        // Warm earth tones with variation per continent
-        const baseColor = CONFIG.colors.dotBase.clone();
-        addCluster(pos, seed.count, seed.spread, 0.8, baseColor, null, null);
-      });
-
-      // === 2. CITIES — brighter highlight points on land ===
-      CITIES.forEach(city => {
-        const pos = latLngToVector3(city.lat, city.lng, CONFIG.radius);
-
-        // Main city dot: brighter, slightly larger
-        const cityColor = CONFIG.colors.dotBase.clone().offsetHSL(0, 0.08, 0.1);
         dotData.push({
           position: pos,
-          size: city.size * 1.2,
-          color: cityColor,
+          size: 0.15 + Math.random() * 0.35,  // very small
+          color: color,
+          phase: Math.random(),
+          country: null,
+          cityName: null
+        });
+      }
+
+      // City highlight dots — tiny bright markers
+      CITIES.forEach(city => {
+        const pos = latLngToVector3(city.lat, city.lng, CONFIG.radius);
+        dotData.push({
+          position: pos,
+          size: city.size * 0.5,  // much smaller
+          color: CONFIG.colors.dotBase.clone().offsetHSL(0, 0.1, 0.15),
           phase: Math.random(),
           country: city.country,
           cityName: city.name
         });
-
-        // City cluster: tighter spread, brighter
-        addCluster(pos, Math.floor(city.size * 5) + 4, city.size * 1.8, 0.7, cityColor, city.country, null);
       });
-
-      // === 3. OCEAN PARTICLES — sparse deep blue dots for ocean texture ===
-      const oceanBudget = Math.floor(CONFIG.dotCount * 0.08);
-      const oceanColor = new THREE.Color(0x003366);
-      for (let i = 0; i < oceanBudget; i++) {
-        const theta = Math.random() * Math.PI * 2;
-        const phi = Math.acos(2 * Math.random() - 1);
-        const pos = new THREE.Vector3(
-          CONFIG.radius * Math.sin(phi) * Math.cos(theta),
-          CONFIG.radius * Math.cos(phi),
-          CONFIG.radius * Math.sin(phi) * Math.sin(theta)
-        );
-        dotData.push({
-          position: pos,
-          size: 0.2 + Math.random() * 0.4,
-          color: oceanColor.clone().multiplyScalar(0.5 + Math.random() * 0.5),
-          phase: Math.random(),
-          country: null,
-          cityName: null
-        });
-      }
-
-      // === 4. RANDOM DECORATIVE FILL ===
-      while (dotData.length < CONFIG.dotCount) {
-        const theta = Math.random() * Math.PI * 2;
-        const phi = Math.acos(2 * Math.random() - 1);
-        const pos = new THREE.Vector3(
-          CONFIG.radius * Math.sin(phi) * Math.cos(theta),
-          CONFIG.radius * Math.cos(phi),
-          CONFIG.radius * Math.sin(phi) * Math.sin(theta)
-        );
-
-        dotData.push({
-          position: pos,
-          size: 0.3 + Math.random() * 0.6,
-          color: CONFIG.colors.dotBase.clone().multiplyScalar(0.5 + Math.random() * 0.5),
-          phase: Math.random(),
-          country: null,
-          cityName: null
-        });
-      }
 
       // Build BufferGeometry
       const geometry = new THREE.BufferGeometry();
@@ -1143,7 +1114,7 @@
       const sizes     = new Float32Array(dotData.length);
       const phases    = new Float32Array(dotData.length);
 
-      this.dotData = dotData; // Keep for raycasting lookup
+      this.dotData = dotData;
 
       for (let i = 0; i < dotData.length; i++) {
         const d = dotData[i];
