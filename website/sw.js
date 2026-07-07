@@ -1,7 +1,7 @@
 // Service Worker for Digital Nomad Guide PWA
 // Cache-first strategy with network fallback + offline page + background sync
 
-const CACHE_VERSION = 'v93';
+const CACHE_VERSION = 'v94';
 const STATIC_CACHE = `dn-static-${CACHE_VERSION}`;
 const DATA_CACHE = `dn-data-${CACHE_VERSION}`;
 const API_CACHE = `dn-api-${CACHE_VERSION}`;
