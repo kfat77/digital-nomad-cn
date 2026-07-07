@@ -424,7 +424,7 @@
       gl_Position = projectionMatrix * mvPosition;
 
       // Size with distance attenuation
-      float pointSize = aSize * breath * uPixelRatio * 7.0;
+      float pointSize = aSize * breath * uPixelRatio * 4.5;
       pointSize *= (300.0 / -mvPosition.z);
       pointSize *= (1.0 + isHovered * 2.5);
       gl_PointSize = max(pointSize, 2.0);
@@ -740,7 +740,8 @@
       const material = new THREE.MeshBasicMaterial({
         color: 0xF5F7FA,
         transparent: true,
-        opacity: 0.35
+        opacity: 0.25,
+        depthWrite: false
       });
       this.oceanSphere = new THREE.Mesh(geometry, material);
       this.globeGroup.add(this.oceanSphere);
@@ -765,8 +766,8 @@
         });
 
         // Cluster dots around city to simulate land mass
-        const clusterCount = Math.floor(city.size * 5) + 3;
-        const spread = city.size * 2.5;
+        const clusterCount = Math.floor(city.size * 6) + 5;
+        const spread = city.size * 2.0;
 
         for (let i = 0; i < clusterCount; i++) {
           const offset = new THREE.Vector3(
@@ -783,7 +784,7 @@
 
           dotData.push({
             position: clusterPos,
-            size: 0.6 + Math.random() * 1.2,
+            size: 0.5 + Math.random() * 1.0,
             color: color,
             phase: Math.random(),
             country: city.country,
@@ -804,7 +805,7 @@
 
         dotData.push({
           position: pos,
-          size: 0.4 + Math.random() * 0.8,
+          size: 0.3 + Math.random() * 0.6,
           color: CONFIG.colors.dotBase.clone().multiplyScalar(0.5 + Math.random() * 0.5),
           phase: Math.random(),
           country: null,
