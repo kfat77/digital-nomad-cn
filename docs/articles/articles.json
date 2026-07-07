@@ -28,6 +28,21 @@
     "image": "/images/og/securities-guide.png"
   },
   {
+    "slug": "giffgaff-lumoza-guide",
+    "title": "Giffgaff 英国卡完全使用指南（图解版）",
+    "description": "从插卡前设置到激活完成、保号规则、问题排查的完整图解教程，覆盖漫游资费、语音信箱关闭、余额查询、5英镑奖励等全部细节",
+    "date": "2026-07-09",
+    "tags": [
+      "电话卡",
+      "giffgaff",
+      "英国",
+      "保号",
+      "激活教程",
+      "图解"
+    ],
+    "image": "/images/og/giffgaff-lumoza-guide.png"
+  },
+  {
     "slug": "digital-nomad-city-ranking-2026",
     "title": "2026 全球数字游民城市排名 TOP 20",
     "description": "基于 122 个城市数据的多维度算法排名，覆盖生活成本、网速、安全、联合办公等核心指标",
