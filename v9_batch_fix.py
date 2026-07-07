@@ -1,4 +1,169 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+"""
+Digital Nomad CN v9 Batch Fix Script
+- Fix trending module bug in index.html
+- Update color scheme to Red-White-Blue
+- Remove dark mode completely
+- Rewrite securities-guide page
+- Sync docs/ -> website/
+"""
+
+import os
+import re
+import shutil
+from pathlib import Path
+
+PROJECT_ROOT = Path("C:/Users/22617/Documents/kimi/workspace/digital-nomad-cn")
+DOCS = PROJECT_ROOT / "docs"
+WEBSITE = PROJECT_ROOT / "website"
+
+# ============================================================================
+# 1. Fix trending module bug in index.html
+# ============================================================================
+
+def fix_trending_bug(filepath):
+    """Fix the broken closing tag in trending section."""
+    content = filepath.read_text(encoding='utf-8')
+    # The bug: <div class="trending-score">82</a> should be </div></a>
+    old = '<div class="trending-score">82</a>'
+    new = '<div class="trending-score">82</div>\n                </a>'
+    if old in content:
+        content = content.replace(old, new)
+        filepath.write_text(content, encoding='utf-8')
+        print(f"  Fixed trending bug: {filepath}")
+        return True
+    return False
+
+# ============================================================================
+# 2. Update CSS: Red-White-Blue color scheme + Remove dark mode
+# ============================================================================
+
+def update_css(filepath):
+    """Update CSS color variables and remove dark mode code."""
+    content = filepath.read_text(encoding='utf-8')
+    original = content
+    changes = []
+
+    # ---- Color scheme changes: Red-White-Blue ----
+    
+    # Text secondary: gray -> deep navy blue
+    if '--text-secondary: #6B7280;' in content:
+        content = content.replace('--text-secondary: #6B7280;', '--text-secondary: #1E3A5F;')
+        changes.append("text-secondary: #6B7280 -> #1E3A5F")
+    
+    # Text tertiary: gray -> medium blue
+    if '--text-tertiary: #9CA3AF;' in content:
+        content = content.replace('--text-tertiary: #9CA3AF;', '--text-tertiary: #4A6FA5;')
+        changes.append("text-tertiary: #9CA3AF -> #4A6FA5")
+    
+    # Border: gray -> light blue-gray
+    if '--border: #E5E7EB;' in content:
+        content = content.replace('--border: #E5E7EB;', '--border: #D6E4F0;')
+        changes.append("border: #E5E7EB -> #D6E4F0")
+    
+    # Border light
+    if '--border-light: #ECECEC;' in content:
+        content = content.replace('--border-light: #ECECEC;', '--border-light: #E8F0F8;')
+        changes.append("border-light: #ECECEC -> #E8F0F8")
+    
+    # Border hover
+    if '--border-hover: #D1D5DB;' in content:
+        content = content.replace('--border-hover: #D1D5DB;', '--border-hover: #B8D4E8;')
+        changes.append("border-hover: #D1D5DB -> #B8D4E8")
+    
+    # Text gradient: red only -> red to blue
+    old_gradient = 'background: linear-gradient(135deg, var(--brand) 0%, var(--brand-hover) 100%);'
+    new_gradient = 'background: linear-gradient(135deg, var(--brand) 0%, var(--info) 100%);'
+    if old_gradient in content:
+        content = content.replace(old_gradient, new_gradient)
+        changes.append("text-gradient: red-only -> red-to-blue")
+
+    # Hero bg: add blue radial gradient alongside red
+    old_hero_after = """    background: radial-gradient(circle, rgba(220, 38, 38, 0.04) 0%, transparent 70%);"""
+    new_hero_after = """    background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);"""
+    if old_hero_after in content:
+        content = content.replace(old_hero_after, new_hero_after)
+        changes.append("hero-bg::after: red -> blue")
+
+    # ---- Remove dark mode CSS blocks ----
+    
+    # Remove [data-theme="dark"] body block (around line 2435)
+    dark_body_pattern = r'/\* =+\s+Legacy Compatibility.*?\*/\s*\n\[data-theme="dark"\] body\s*\{[^}]*\}'
+    if re.search(dark_body_pattern, content, re.DOTALL):
+        content = re.sub(dark_body_pattern, '', content, flags=re.DOTALL)
+        changes.append("Removed [data-theme='dark'] body block")
+    
+    # Remove [data-theme="dark"] :root block (around line 5162)
+    dark_root_pattern = r'/\* Dark mode overrides for legacy compatibility \*/\s*\n\[data-theme="dark"\] :root\s*\{[^}]*\}'
+    if re.search(dark_root_pattern, content, re.DOTALL):
+        content = re.sub(dark_root_pattern, '', content, flags=re.DOTALL)
+        changes.append("Removed [data-theme='dark'] :root block")
+    
+    # Remove html:not([data-theme]) block
+    notheme_pattern = r'/\* Ensure light theme by default \*/\s*\nhtml:not\(\[data-theme\]\)\s*\{[^}]*\}'
+    if re.search(notheme_pattern, content, re.DOTALL):
+        content = re.sub(notheme_pattern, '', content, flags=re.DOTALL)
+        changes.append("Removed html:not([data-theme]) block")
+
+    # Remove .theme-toggle styles
+    theme_toggle_pattern = r'\.theme-toggle\s*\{[^}]*\}\s*\.theme-toggle:hover\s*\{[^}]*\}'
+    if re.search(theme_toggle_pattern, content, re.DOTALL):
+        content = re.sub(theme_toggle_pattern, '', content, flags=re.DOTALL)
+        changes.append("Removed .theme-toggle styles")
+
+    # Remove theme-toggle from selectors list
+    content = content.replace('.theme-toggle, ', '')
+    content = content.replace(', .theme-toggle', '')
+    content = content.replace('.theme-toggle', '')
+
+    if content != original:
+        filepath.write_text(content, encoding='utf-8')
+        print(f"  Updated CSS: {filepath}")
+        for c in changes:
+            print(f"    - {c}")
+        return True
+    return False
+
+# ============================================================================
+# 3. Batch update HTML files: Remove dark mode attributes
+# ============================================================================
+
+def batch_update_html(root_dir):
+    """Update all HTML files: remove data-theme='dark', clean up theme attributes."""
+    html_files = list(root_dir.rglob('*.html'))
+    fixed_count = 0
+    
+    for filepath in html_files:
+        content = filepath.read_text(encoding='utf-8')
+        original = content
+        
+        # Remove data-theme="dark" -> set to light (or remove entirely)
+        content = re.sub(r'\s*data-theme="dark"', '', content)
+        
+        # Also remove data-theme="light" to keep HTML clean (we only have light now)
+        content = re.sub(r'\s*data-theme="light"', '', content)
+        
+        # Remove theme-toggle buttons
+        # Match various patterns of theme toggle buttons
+        content = re.sub(r'<button[^>]*class="[^"]*theme-toggle[^"]*"[^>]*>.*?</button>\s*', '', content, flags=re.DOTALL)
+        
+        # Remove any inline scripts related to theme toggling
+        # Look for scripts containing "theme" "dark" "light" toggling
+        theme_script_pattern = r'<script>[^<]*?(?:theme|dark|light|toggle)[^<]*?</script>'
+        content = re.sub(theme_script_pattern, '', content, flags=re.DOTALL | re.IGNORECASE)
+        
+        if content != original:
+            filepath.write_text(content, encoding='utf-8')
+            fixed_count += 1
+    
+    print(f"  Updated {fixed_count} HTML files in {root_dir}")
+    return fixed_count
+
+# ============================================================================
+# 4. Rewrite securities-guide page
+# ============================================================================
+
+SECURITIES_GUIDE_HTML = '''<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -398,7 +563,107 @@
         </div>
     </footer>
 
-
+<script>
+(function() {
+    'use strict';
+    function initHeaderScroll() {
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) header.classList.add('header-scrolled');
+            else header.classList.remove('header-scrolled');
+        }, { passive: true });
+    }
+    function initMobileMenu() {
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('mobileOverlay');
+        if (!toggle || !menu || !overlay) return;
+        let isOpen = false;
+        function open() { isOpen = true; menu.classList.add('open'); overlay.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; }
+        function close() { isOpen = false; menu.classList.remove('open'); overlay.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
+        toggle.addEventListener('click', () => isOpen ? close() : open());
+        overlay.addEventListener('click', close);
+        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        initHeaderScroll();
+        initMobileMenu();
+    });
+})();
+</script>
 <script src="../../motion.js" defer></script>
 </body>
-</html>
+</html>'''
+
+def rewrite_securities_guide():
+    """Rewrite securities-guide with main site design system."""
+    filepath = DOCS / "articles" / "securities-guide" / "index.html"
+    filepath.write_text(SECURITIES_GUIDE_HTML, encoding='utf-8')
+    print(f"  Rewrote securities-guide: {filepath}")
+    return True
+
+# ============================================================================
+# 5. Sync docs/ -> website/
+# ============================================================================
+
+def sync_to_website():
+    """Sync modified files from docs/ to website/."""
+    files_to_sync = [
+        "index.html",
+        "style.css",
+        "articles/securities-guide/index.html",
+    ]
+    
+    synced = 0
+    for rel_path in files_to_sync:
+        src = DOCS / rel_path
+        dst = WEBSITE / rel_path
+        if src.exists():
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(src, dst)
+            synced += 1
+            print(f"  Synced: {rel_path}")
+    
+    # Also sync all HTML files that were batch-updated
+    # We'll use a simpler approach: sync the entire docs tree for the modified files
+    return synced
+
+# ============================================================================
+# Main execution
+# ============================================================================
+
+def main():
+    print("=" * 60)
+    print("Digital Nomad CN v9 Batch Fix")
+    print("=" * 60)
+    
+    # 1. Fix trending bug in both index.html files
+    print("\n[1/5] Fixing trending module bug...")
+    fix_trending_bug(DOCS / "index.html")
+    fix_trending_bug(WEBSITE / "index.html")
+    
+    # 2. Update CSS in both locations
+    print("\n[2/5] Updating CSS (Red-White-Blue + Remove dark mode)...")
+    update_css(DOCS / "style.css")
+    
+    # 3. Batch update HTML files
+    print("\n[3/5] Batch updating HTML files (remove dark mode attrs)...")
+    batch_update_html(DOCS)
+    
+    # 4. Rewrite securities-guide
+    print("\n[4/5] Rewriting securities-guide page...")
+    rewrite_securities_guide()
+    
+    # 5. Sync to website/
+    print("\n[5/5] Syncing to website/...")
+    sync_to_website()
+    
+    # Also batch update website/ HTML files
+    batch_update_html(WEBSITE)
+    
+    print("\n" + "=" * 60)
+    print("All done! Review changes before committing.")
+    print("=" * 60)
+
+if __name__ == "__main__":
+    main()

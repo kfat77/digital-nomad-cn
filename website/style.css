@@ -18,8 +18,8 @@
 
     /* Text */
     --text-primary: #111111;
-    --text-secondary: #6B7280;
-    --text-tertiary: #9CA3AF;
+    --text-secondary: #1E3A5F;
+    --text-tertiary: #4A6FA5;
     --text-inverse: #FFFFFF;
     --text-placeholder: #9CA3AF;
 
@@ -39,9 +39,9 @@
     --info-soft: #EFF6FF;
 
     /* Borders & Dividers */
-    --border: #E5E7EB;
-    --border-light: #ECECEC;
-    --border-hover: #D1D5DB;
+    --border: #D6E4F0;
+    --border-light: #E8F0F8;
+    --border-hover: #B8D4E8;
     --border-focus: #DC2626;
     --divider: #ECECEC;
 
@@ -236,7 +236,7 @@ p {
 }
 
 .text-gradient {
-    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-hover) 100%);
+    background: linear-gradient(135deg, var(--brand) 0%, var(--info) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -373,26 +373,7 @@ p {
     height: 18px;
 }
 
-.theme-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-full);
-    border: 1px solid var(--border);
-    background: var(--bg-primary);
-    color: var(--text-secondary);
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    font-size: 16px;
-}
 
-.theme-toggle:hover {
-    background: var(--bg-surface);
-    color: var(--text-primary);
-    border-color: var(--border-hover);
-}
 
 .mobile-menu-btn {
     display: none;
@@ -480,7 +461,7 @@ p {
     right: -10%;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(220, 38, 38, 0.04) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
     border-radius: 50%;
 }
 
@@ -2370,7 +2351,7 @@ p {
    ============================================ */
 
 @media print {
-    .header, .footer, .hero-cta, .theme-toggle, .mobile-menu-btn, .reading-progress, .share-bar, .modal, .hero-scroll, .filter-tabs, .region-tabs {
+    .header, .footer, .hero-cta, .mobile-menu-btn, .reading-progress, .share-bar, .modal, .hero-scroll, .filter-tabs, .region-tabs {
         display: none !important;
     }
 
@@ -2427,15 +2408,7 @@ p {
     }
 }
 
-/* ============================================
-   Legacy Compatibility — Dark Theme Override
-   (Ensures light theme takes precedence)
-   ============================================ */
 
-[data-theme="dark"] body {
-    background: var(--bg-primary);
-    color: var(--text-primary);
-}
 /* ============================================
    Missing Classes — Light Theme Adaptation
    ============================================ */
@@ -5158,28 +5131,9 @@ summary:hover {
     .print-break-inside { page-break-inside: avoid; }
 }
 
-/* Dark mode overrides for legacy compatibility */
-[data-theme="dark"] :root {
-    --bg: #111111;
-    --bg-card: #1a1a1a;
-    --bg-card-hover: #242424;
-    --bg-hero: #0a0a0a;
-    --bg-muted: #1a1a1a;
-    --foreground: #f0f0f0;
-    --foreground-inverse: #111111;
-    --muted: #888888;
-    --muted-light: #555555;
-    --accent: #00BFFF;
-    --accent-light: rgba(0, 191, 255, 0.1);
-    --accent-hover: #33CCFF;
-    --border: rgba(255, 255, 255, 0.08);
-    --shadow-card-hover: 0 8px 24px -4px rgba(0, 0, 0, 0.3);
-}
 
-/* Ensure light theme by default */
-html:not([data-theme]) {
-    color-scheme: light;
-}
+
+
 
 /* ============================================
    CRITICAL FIXES — Design Review Improvements
@@ -5993,7 +5947,7 @@ html:not([data-theme]) {
    ============================================ */
 
 @media print {
-    .header, .footer, .hero-cta, .theme-toggle, .mobile-menu-btn, 
+    .header, .footer, .hero-cta, .mobile-menu-btn, 
     .reading-progress, .share-bar, .modal, .hero-scroll, 
     .filter-tabs, .region-tabs, .particle-container, .grid-motion {
         display: none !important;
@@ -6042,7 +5996,7 @@ html:not([data-theme]) {
 .hero-bg::before {
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(220, 38, 38, 0.04) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
 }
 
 .hero-bg::after {
