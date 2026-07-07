@@ -812,7 +812,7 @@
                             ${a.tags.map(t => '<span class="article-tag">' + t + '</span>').join('')}
                         </div>
                         <h3>${a.title}</h3>
-                        <p>${a.summary}</p>
+                        <p>${a.description || a.summary || ""}</p>
                         <span class="article-date">${a.date}</span>
                     </a>
                 `).join('');
@@ -856,14 +856,6 @@
 
         // Initialize all
         document.addEventListener('DOMContentLoaded', () => {
-            initParticles();
-            initGridMotion();
-            initBlurText();
-            initDecryptText();
-            initTiltCards();
-            initSpotlightCards();
-            initMagnetButtons();
-            initStaggerLists();
             initScrollReveal();
             initCountUp();
             initHeaderScroll();
