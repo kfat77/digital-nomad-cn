@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="light">
+<html lang="zh-CN" data-theme="light" class="js-enabled">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap"></noscript>
-    <link rel="stylesheet" href="style.css?v=5" fetchpriority="high">
+    <link rel="stylesheet" href="style.css?v=6" fetchpriority="high">
 </head>
 <body>
 
@@ -565,7 +565,7 @@
             const container = document.getElementById('particleContainer');
             if (!container) return;
             const isMobile = window.matchMedia('(max-width: 768px)').matches;
-            const count = isMobile ? 30 : 80;
+            const count = isMobile ? 15 : 40;
             const sizes = ['particle-small', 'particle-medium', 'particle-large'];
             for (let i = 0; i < count; i++) {
                 const p = document.createElement('div');
@@ -584,7 +584,7 @@
             if (!container) return;
             const isMobile = window.matchMedia('(max-width: 768px)').matches;
             if (isMobile) return; // skip on mobile for performance
-            const hLines = 12, vLines = 12;
+            const hLines = 8, vLines = 8;
             for (let i = 0; i < hLines; i++) {
                 const line = document.createElement('div');
                 line.className = 'grid-line-h';
@@ -617,7 +617,7 @@
                 const originalText = el.dataset.text || el.textContent;
                 const targetChars = originalText.split('');
                 let iteration = 0;
-                const duration = 1500;
+                const duration = 800;
                 const start = performance.now();
                 el.textContent = targetChars.map(() => chars[Math.floor(Math.random() * chars.length)]).join('');
                 function update(now) {
@@ -731,7 +731,7 @@
                         const el = entry.target;
                         const target = parseInt(el.dataset.count);
                         const suffix = el.dataset.suffix || '';
-                        const duration = 1500;
+                        const duration = 800;
                         const start = performance.now();
                         function update(now) {
                             const elapsed = now - start;
@@ -785,7 +785,11 @@
                 }
             } catch (e) {
                 const el = document.getElementById('dataFreshness');
-                if (el) el.textContent = '';
+                if (el) {
+                    const now = new Date();
+                    const str = now.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+                    el.textContent = '数据更新于 ' + str;
+                }
             }
         })();
 
@@ -840,7 +844,7 @@
                 `).join('');
             } catch (e) {
                 const grid = document.getElementById('home-articles-grid');
-                if (grid) grid.innerHTML = '<p style="color: var(--text-tertiary); text-align: center; padding: 24px;">文章加载中...</p>';
+                if (grid) grid.innerHTML = '<p style="color: var(--text-tertiary); text-align: center; padding: 24px;">暂无文章</p>';
             }
         })();
 
