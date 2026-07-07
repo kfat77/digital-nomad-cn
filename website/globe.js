@@ -1014,7 +1014,7 @@
         vertexShader:   STAR_VERTEX_SHADER,
         fragmentShader: STAR_FRAGMENT_SHADER,
         transparent: true,
-        blending: THREE.NormalBlending,
+        blending: THREE.AdditiveBlending,
         depthWrite: false
       });
 
@@ -1024,12 +1024,12 @@
 
     /* ------------------------------------------------------------------ */
     createGlobeBase() {
-      // Vibrant deep ocean blue base sphere — clearly visible blue ocean
+      // Vibrant deep ocean blue — clearly visible illuminated ocean
       const geometry = new THREE.SphereGeometry(CONFIG.radius - 0.5, 64, 64);
       const material = new THREE.MeshBasicMaterial({
-        color: 0x003366,
+        color: 0x004080,
         transparent: true,
-        opacity: 0.65,
+        opacity: 0.45,
         depthWrite: false
       });
       this.oceanSphere = new THREE.Mesh(geometry, material);
@@ -1173,7 +1173,7 @@
         vertexShader:   DOT_VERTEX_SHADER,
         fragmentShader: DOT_FRAGMENT_SHADER,
         transparent: true,
-        blending: THREE.NormalBlending,
+        blending: THREE.AdditiveBlending,
         depthWrite: false
       });
 
