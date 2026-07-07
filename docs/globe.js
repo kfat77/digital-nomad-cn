@@ -609,7 +609,7 @@
       this.setupLights();
       this.createTooltip();
       this.createStars();
-      this.createGlobeBase(); this.oceanSphere.visible = false;
+      this.createGlobeBase();
       this.createDots();
       this.createArcs();
       this.createAtmosphere();
@@ -735,13 +735,12 @@
 
     /* ------------------------------------------------------------------ */
     createGlobeBase() {
-      // Dark ocean sphere — NOT pure black
+      // Ultra-subtle frosted-glass sphere for particle contrast on light theme
       const geometry = new THREE.SphereGeometry(CONFIG.radius - 0.5, 64, 64);
       const material = new THREE.MeshBasicMaterial({
-        color: 0xE8ECF2,
-        wireframe: true,
+        color: 0xF5F7FA,
         transparent: true,
-        opacity: 0.15
+        opacity: 0.35
       });
       this.oceanSphere = new THREE.Mesh(geometry, material);
       this.globeGroup.add(this.oceanSphere);
