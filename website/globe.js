@@ -609,7 +609,7 @@
       this.setupLights();
       this.createTooltip();
       this.createStars();
-      this.createGlobeBase();
+      this.createGlobeBase(); this.oceanSphere.visible = false;
       this.createDots();
       this.createArcs();
       this.createAtmosphere();
