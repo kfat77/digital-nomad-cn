@@ -940,8 +940,8 @@
 
     /* ------------------------------------------------------------------ */
     setupLights() {
-      // Ambient: warm base for illuminated earth
-      const ambient = new THREE.AmbientLight(0x1a3a5c, 2.5);
+      // Ambient: brighter warm base for illuminated earth
+      const ambient = new THREE.AmbientLight(0x2a5a8c, 3.0);
       this.scene.add(ambient);
 
       // Directional: warm sunlight from top-left
@@ -1024,12 +1024,12 @@
 
     /* ------------------------------------------------------------------ */
     createGlobeBase() {
-      // Luminous deep ocean blue base sphere for vivid earth look
+      // Vibrant deep ocean blue base sphere — clearly visible blue ocean
       const geometry = new THREE.SphereGeometry(CONFIG.radius - 0.5, 64, 64);
       const material = new THREE.MeshBasicMaterial({
-        color: 0x001840,
+        color: 0x003366,
         transparent: true,
-        opacity: 0.75,
+        opacity: 0.65,
         depthWrite: false
       });
       this.oceanSphere = new THREE.Mesh(geometry, material);
