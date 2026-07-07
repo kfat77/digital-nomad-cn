@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
         <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/articles/">
     <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/articles/">
@@ -26,7 +26,7 @@
     <header class="header">
         <div class="header-inner">
             <a href="../" class="logo">
-                <span class="logo-icon">◈</span>
+                <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
                 <span>数字游民指南</span>
             </a>
             <nav class="main-nav">
@@ -52,12 +52,37 @@
         <div class="articles-grid" id="articles-grid"></div>
     </main>
 
-    <footer class="footer" style="margin-top: 60px;">
-        <div class="footer-inner">
-            <p> 数字游民指南 · 开源全球流动数据平台</p>
-            <p><a href="https://github.com/kfat77/digital-nomad-cn">GitHub</a> · </p>
+    <footer class="footer">
+    <div class="footer-main">
+        <div class="footer-brand">
+            <div class="footer-brand-name">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                <span>数字游民指南</span>
+            </div>
+            <p>面向中国国内用户的数字游民基础设施一站式攻略。100 国数据、50+ 签证、122 城市，全部开源。</p>
         </div>
-    </footer>
+        <div class="footer-links">
+            <div class="footer-col">
+                <h4>数据</h4>
+                <a href="country/">国家数据库</a>
+                <a href="visa/">签证数据库</a>
+                <a href="compare/">国家对比</a>
+                <a href="search/">搜索</a>
+            </div>
+            <div class="footer-col">
+                <h4>指南</h4>
+                <a href="articles/digital-nomad-banking-guide/">银行卡</a>
+                <a href="articles/giffgaff-guide-2026/">电话卡</a>
+                <a href="articles/securities-guide/">证券账户</a>
+                <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>本内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议共享</p>
+        <p>内容仅供学习交流，不构成投资、法律或移民建议</p>
+    </div>
+</footer>
 
     <script>
         fetch('articles.json')
@@ -81,5 +106,6 @@
             });
     </script>
   <script src="../lang-switcher.js" defer></script>
+    <script src="../motion.js" defer></script>
 </body>
 </html>

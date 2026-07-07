@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
     <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/country/">
     <link rel="alternate" hreflang="x-default" href="https://kfat77.github.io/digital-nomad-cn/country/">
@@ -10,12 +10,12 @@
 <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/country/">
 <link rel="stylesheet" href="../style.css?v=7">
 <style>
-.country-hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 20px 40px; text-align: center; }
-.country-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-.country-hero p { opacity: 0.9; max-width: 600px; margin: 0 auto; }
-.filters { background: #f8fafc; padding: 20px; border-bottom: 1px solid #e2e8f0; }
+.country-hero { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 120px 20px 60px; text-align: center; }
+.country-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--text-primary); }
+.country-hero p { color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+.filters { background: var(--bg-surface); padding: 20px; border-bottom: 1px solid #e2e8f0; }
 .filters-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-.filters select, .filters input { padding: 0.5rem 1rem; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.9rem; }
+.filters select, .filters input { padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 8px; font-size: 0.9rem; }
 .country-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
 </style>
     <link rel="preload" href="../../world-geo.json" as="fetch" crossorigin type="application/json">
@@ -23,7 +23,7 @@
 <body>
 <header class="header">
     <div class="header-inner">
-        <a href="../" class="logo"><span class="logo-icon">◈</span><span>数字游民指南</span></a>
+        <a href="../" class="logo"><span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><span>数字游民指南</span></a>
         <nav class="main-nav">
             <a href="./">国家</a>
             <a href="../visa/">签证</a>
@@ -34,11 +34,11 @@
         <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
     </div>
 </header>
-<nav class="breadcrumb" style="padding: 1rem 20px; max-width: 1200px; margin: 0 auto; font-size: 0.9rem; color: #64748b;">
-<a href="../" style="color: #2563eb; text-decoration: none;">首页</a> › 国家数据库
+<nav class="breadcrumb" style="padding: 1rem 20px; max-width: 1200px; margin: 0 auto; font-size: 0.9rem; color: var(--text-secondary);">
+<a href="../" style="color: var(--brand); text-decoration: none;">首页</a> › 国家数据库
 </nav>
 <header class="country-hero">
-<h1>🌍 数字游民国家数据库</h1>
+<h1>数字游民国家数据库</h1>
 <p>60 个精选数字游民目的地，签证、成本、安全、网络全覆盖。按数字游民评分排序。</p>
 </header>
 <div class="filters">
@@ -50,7 +50,7 @@
 </div>
 <div class="country-grid">
 
-        <a href="portugal.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="portugal.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">葡萄牙</h3>
@@ -69,7 +69,7 @@
             </div>
         </a>
         
-        <a href="singapore.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="singapore.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">新加坡</h3>
@@ -88,7 +88,7 @@
             </div>
         </a>
         
-        <a href="japan.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="japan.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">日本</h3>
@@ -107,7 +107,7 @@
             </div>
         </a>
         
-        <a href="spain.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="spain.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">西班牙</h3>
@@ -126,7 +126,7 @@
             </div>
         </a>
         
-        <a href="thailand.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="thailand.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">泰国</h3>
@@ -145,7 +145,7 @@
             </div>
         </a>
         
-        <a href="uae.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="uae.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">阿联酋</h3>
@@ -164,7 +164,7 @@
             </div>
         </a>
         
-        <a href="georgia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="georgia.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">格鲁吉亚</h3>
@@ -183,7 +183,7 @@
             </div>
         </a>
         
-        <a href="hongkong.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="hongkong.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">香港</h3>
@@ -202,7 +202,7 @@
             </div>
         </a>
         
-        <a href="netherlands.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="netherlands.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">荷兰</h3>
@@ -221,7 +221,7 @@
             </div>
         </a>
         
-        <a href="cyprus.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="cyprus.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">塞浦路斯</h3>
@@ -240,7 +240,7 @@
             </div>
         </a>
         
-        <a href="estonia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="estonia.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">爱沙尼亚</h3>
@@ -259,7 +259,7 @@
             </div>
         </a>
         
-        <a href="hungary.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="hungary.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">匈牙利</h3>
@@ -278,7 +278,7 @@
             </div>
         </a>
         
-        <a href="norway.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="norway.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">挪威</h3>
@@ -297,7 +297,7 @@
             </div>
         </a>
         
-        <a href="southkorea.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="southkorea.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">韩国</h3>
@@ -316,7 +316,7 @@
             </div>
         </a>
         
-        <a href="sweden.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="sweden.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">瑞典</h3>
@@ -335,7 +335,7 @@
             </div>
         </a>
         
-        <a href="australia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="australia.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">澳大利亚</h3>
@@ -354,7 +354,7 @@
             </div>
         </a>
         
-        <a href="czech.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="czech.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">捷克</h3>
@@ -373,7 +373,7 @@
             </div>
         </a>
         
-        <a href="germany.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="germany.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">德国</h3>
@@ -392,7 +392,7 @@
             </div>
         </a>
         
-        <a href="greece.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="greece.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">希腊</h3>
@@ -411,7 +411,7 @@
             </div>
         </a>
         
-        <a href="iceland.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="iceland.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">冰岛</h3>
@@ -430,7 +430,7 @@
             </div>
         </a>
         
-        <a href="malaysia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="malaysia.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">马来西亚</h3>
@@ -449,7 +449,7 @@
             </div>
         </a>
         
-        <a href="canada.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="canada.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">加拿大</h3>
@@ -468,7 +468,7 @@
             </div>
         </a>
         
-        <a href="denmark.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="denmark.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">丹麦</h3>
@@ -487,7 +487,7 @@
             </div>
         </a>
         
-        <a href="france.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="france.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">法国</h3>
@@ -506,7 +506,7 @@
             </div>
         </a>
         
-        <a href="austria.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="austria.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">奥地利</h3>
@@ -525,7 +525,7 @@
             </div>
         </a>
         
-        <a href="indonesia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="indonesia.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">印度尼西亚</h3>
@@ -544,7 +544,7 @@
             </div>
         </a>
         
-        <a href="ireland.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="ireland.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">爱尔兰</h3>
@@ -563,7 +563,7 @@
             </div>
         </a>
         
-        <a href="morocco.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="morocco.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">摩洛哥</h3>
@@ -582,7 +582,7 @@
             </div>
         </a>
         
-        <a href="newzealand.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="newzealand.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">新西兰</h3>
@@ -601,7 +601,7 @@
             </div>
         </a>
         
-        <a href="poland.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="poland.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">波兰</h3>
@@ -620,7 +620,7 @@
             </div>
         </a>
         
-        <a href="croatia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="croatia.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">克罗地亚</h3>
@@ -639,7 +639,7 @@
             </div>
         </a>
         
-        <a href="israel.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="israel.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">以色列</h3>
@@ -658,7 +658,7 @@
             </div>
         </a>
         
-        <a href="kazakhstan.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="kazakhstan.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">哈萨克斯坦</h3>
@@ -677,7 +677,7 @@
             </div>
         </a>
         
-        <a href="switzerland.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="switzerland.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">瑞士</h3>
@@ -696,7 +696,7 @@
             </div>
         </a>
         
-        <a href="uk.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="uk.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">英国</h3>
@@ -715,7 +715,7 @@
             </div>
         </a>
         
-        <a href="vietnam.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="vietnam.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">越南</h3>
@@ -734,7 +734,7 @@
             </div>
         </a>
         
-        <a href="philippines.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="philippines.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">菲律宾</h3>
@@ -753,7 +753,7 @@
             </div>
         </a>
         
-        <a href="romania.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="romania.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">罗马尼亚</h3>
@@ -772,7 +772,7 @@
             </div>
         </a>
         
-        <a href="turkey.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="turkey.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">土耳其</h3>
@@ -791,7 +791,7 @@
             </div>
         </a>
         
-        <a href="bulgaria.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="bulgaria.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">保加利亚</h3>
@@ -810,7 +810,7 @@
             </div>
         </a>
         
-        <a href="srilanka.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="srilanka.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">斯里兰卡</h3>
@@ -829,7 +829,7 @@
             </div>
         </a>
         
-        <a href="chile.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="chile.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">智利</h3>
@@ -848,7 +848,7 @@
             </div>
         </a>
         
-        <a href="mexico.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="mexico.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">墨西哥</h3>
@@ -867,7 +867,7 @@
             </div>
         </a>
         
-        <a href="mongolia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="mongolia.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">蒙古</h3>
@@ -886,7 +886,7 @@
             </div>
         </a>
         
-        <a href="qatar.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="qatar.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">卡塔尔</h3>
@@ -905,7 +905,7 @@
             </div>
         </a>
         
-        <a href="usa.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="usa.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">美国</h3>
@@ -924,7 +924,7 @@
             </div>
         </a>
         
-        <a href="armenia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="armenia.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">亚美尼亚</h3>
@@ -943,7 +943,7 @@
             </div>
         </a>
         
-        <a href="nepal.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="nepal.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">尼泊尔</h3>
@@ -962,7 +962,7 @@
             </div>
         </a>
         
-        <a href="brazil.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="brazil.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">巴西</h3>
@@ -981,7 +981,7 @@
             </div>
         </a>
         
-        <a href="colombia.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="colombia.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">哥伦比亚</h3>
@@ -1000,7 +1000,7 @@
             </div>
         </a>
         
-        <a href="azerbaijan.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="azerbaijan.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">阿塞拜疆</h3>
@@ -1019,7 +1019,7 @@
             </div>
         </a>
         
-        <a href="argentina.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="argentina.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">阿根廷</h3>
@@ -1038,7 +1038,7 @@
             </div>
         </a>
         
-        <a href="peru.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="peru.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">秘鲁</h3>
@@ -1057,7 +1057,7 @@
             </div>
         </a>
         
-        <a href="south_africa.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="south_africa.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">南非</h3>
@@ -1076,7 +1076,7 @@
             </div>
         </a>
         
-        <a href="uzbekistan.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="uzbekistan.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">乌兹别克斯坦</h3>
@@ -1095,7 +1095,7 @@
             </div>
         </a>
         
-        <a href="kenya.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="kenya.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">肯尼亚</h3>
@@ -1114,7 +1114,7 @@
             </div>
         </a>
         
-        <a href="macao.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="macao.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">澳门</h3>
@@ -1133,7 +1133,7 @@
             </div>
         </a>
         
-        <a href="india.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="india.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">印度</h3>
@@ -1152,7 +1152,7 @@
             </div>
         </a>
         
-        <a href="egypt.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="egypt.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">埃及</h3>
@@ -1171,7 +1171,7 @@
             </div>
         </a>
         
-        <a href="ghana.html" class="country-card" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
+        <a href="ghana.html" class="country-card">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
                 <div>
                     <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">加纳</h3>
@@ -1191,7 +1191,37 @@
         </a>
         
 </div>
-<footer style="background:var(--bg-secondary);color:var(--text-secondary);padding:40px 20px;text-align:center;border-top:1px solid var(--border);"><p>© 2026 数字游民指南 | 面向中国用户的全球流动基础设施</p></footer>
+<footer class="footer">
+    <div class="footer-main">
+        <div class="footer-brand">
+            <div class="footer-brand-name">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                <span>数字游民指南</span>
+            </div>
+            <p>面向中国国内用户的数字游民基础设施一站式攻略。100 国数据、50+ 签证、122 城市，全部开源。</p>
+        </div>
+        <div class="footer-links">
+            <div class="footer-col">
+                <h4>数据</h4>
+                <a href="country/">国家数据库</a>
+                <a href="visa/">签证数据库</a>
+                <a href="compare/">国家对比</a>
+                <a href="search/">搜索</a>
+            </div>
+            <div class="footer-col">
+                <h4>指南</h4>
+                <a href="articles/digital-nomad-banking-guide/">银行卡</a>
+                <a href="articles/giffgaff-guide-2026/">电话卡</a>
+                <a href="articles/securities-guide/">证券账户</a>
+                <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>本内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议共享</p>
+        <p>内容仅供学习交流，不构成投资、法律或移民建议</p>
+    </div>
+</footer>
 <script>
 const cards = document.querySelectorAll('.country-card');
 document.getElementById('search').addEventListener('input', (e) => {
@@ -1200,5 +1230,6 @@ document.getElementById('search').addEventListener('input', (e) => {
 });
 </script>
   <script src="../lang-switcher.js" defer></script>
+    <script src="../motion.js" defer></script>
 </body>
 </html>
