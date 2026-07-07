@@ -20,9 +20,16 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap"></noscript>
     <link rel="stylesheet" href="style.css?v=9" fetchpriority="high">
 
-    <!-- 3D Globe Dependencies -->
-    <script src="https://unpkg.com/three@0.160.0/build/three.min.js" defer></script>
-    <script src="globe.js?v=9" defer></script>
+    <!-- 3D Globe Dependencies — ES Module with Import Map -->
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+    </script>
+    <script type="module" src="globe.js?v=10"></script>
 
     <!-- Theme Override: White / Black / Navy / Red -->
     <style>
