@@ -713,7 +713,7 @@
       gl_Position = projectionMatrix * mvPosition;
 
       // Size with distance attenuation
-      float pointSize = aSize * breath * uPixelRatio * 4.5;
+      float pointSize = aSize * breath * uPixelRatio * 5.5;
       pointSize *= (300.0 / -mvPosition.z);
       pointSize *= (1.0 + isHovered * 2.5);
       gl_PointSize = max(pointSize, 2.0);
@@ -738,8 +738,8 @@
       float core = 1.0 - smoothstep(0.0, 0.08, dist);
 
       // Earth theme: vivid illuminated tan/gold dots on deep ocean
-      vec3 finalColor = vColor * (1.5 + core * 2.0);
-      float finalAlpha = vAlpha * glow * 1.3;
+      vec3 finalColor = vColor * (2.0 + core * 3.0);
+      float finalAlpha = vAlpha * glow * 1.5;
 
       gl_FragColor = vec4(finalColor, finalAlpha);
     }
@@ -769,8 +769,8 @@
       float fresnel = pow(1.0 - dot(viewDir, vNormal), 3.0);
 
       vec3 color = mix(uColorInner, uColorOuter, fresnel);
-      // Earth theme: vivid atmospheric rim glow
-      float alpha = fresnel * 0.45;
+      // Earth theme: more vivid atmospheric rim glow
+      float alpha = fresnel * 0.55;
 
       gl_FragColor = vec4(color, alpha);
     }
@@ -803,8 +803,8 @@
       // Fade at both ends
       float endFade = smoothstep(0.0, 0.03, vProgress) * smoothstep(1.0, 0.97, vProgress);
 
-      vec3 finalColor = uColor * (1.5 + intensity * 1.0);
-      float alpha = intensity * endFade * 0.85;
+      vec3 finalColor = uColor * (2.0 + intensity * 1.5);
+      float alpha = intensity * endFade * 0.95;
 
       gl_FragColor = vec4(finalColor, alpha);
     }
@@ -1024,12 +1024,12 @@
 
     /* ------------------------------------------------------------------ */
     createGlobeBase() {
-      // Deep ocean blue base sphere for realistic earth look
+      // Luminous deep ocean blue base sphere for vivid earth look
       const geometry = new THREE.SphereGeometry(CONFIG.radius - 0.5, 64, 64);
       const material = new THREE.MeshBasicMaterial({
-        color: 0x000D1A,
+        color: 0x001840,
         transparent: true,
-        opacity: 0.92,
+        opacity: 0.75,
         depthWrite: false
       });
       this.oceanSphere = new THREE.Mesh(geometry, material);
