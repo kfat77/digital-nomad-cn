@@ -19,8 +19,8 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "lint": "eslint . --ext .ts,.js",
-    "lint:fix": "eslint . --ext .ts,.js --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit"
   },
   "keywords": [
@@ -38,6 +38,7 @@
     "node": ">=20.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.4",
     "@playwright/test": "^1.61.1",
     "@types/node": "^22.20.1",
     "@vitest/coverage-v8": "^2.1.9",
@@ -45,6 +46,7 @@
     "ajv-formats": "^3.0.1",
     "earcut": "^3.2.3",
     "eslint": "^9.39.4",
+    "globals": "^16.1.0",
     "typescript": "^5.9.3",
     "vitest": "^2.1.9"
   }
