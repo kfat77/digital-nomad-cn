@@ -1,4 +1,4 @@
-export type RouteHandler = (request: Request, params: Record<string, string>) => Promise<Response>;
+export type RouteHandler = (request: Request, params: Record<string, string>) => Response | Promise<Response>;
 
 interface Route {
   method: string;
