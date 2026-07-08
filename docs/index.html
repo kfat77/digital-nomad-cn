@@ -13,14 +13,14 @@
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
-    <meta name="theme-color" content="#FFFFFF">
+    <meta name="theme-color" content="#0a0e1a">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap"></noscript>
     <link rel="stylesheet" href="style.css?v=9" fetchpriority="high">
 
-    <!-- 3D Globe Dependencies — ES Module with Import Map -->
+    <!-- 3D Globe Dependencies -->
     <script type="importmap">
     {
       "imports": {
@@ -31,32 +31,152 @@
     </script>
     <script type="module" src="globe.js?v=11"></script>
 
-    <!-- Theme Override: White / Black / Navy / Red -->
+    <!-- Particle Digital Universe Theme -->
     <style>
     /* ============================================
-       Theme Override — White Navy Red
+       Particle Universe — Dark Sci-Fi Theme
        ============================================ */
     :root {
-        --bg-primary: #FFFFFF;
-        --bg-secondary: #FAFBFC;
-        --bg-surface: #F5F7FA;
-        --bg-hover: #EDF1F5;
-        --text-primary: #000000;
-        --text-secondary: #1A1A2E;
-        --text-tertiary: #5A6A7A;
-        --text-inverse: #FFFFFF;
-        --brand: #002F6C;
-        --brand-hover: #001F4C;
-        --brand-soft: #E6EEF8;
-        --brand-glow: rgba(0, 47, 108, 0.12);
-        --accent: #FE0000;
-        --accent-soft: #FFE6E6;
-        --accent-glow: rgba(254, 0, 0, 0.15);
-        --border: #DDE3EC;
-        --border-light: #E8ECF2;
-        --border-hover: #B8C4D8;
-        --info: #002F6C;
-        --info-soft: #E6EEF8;
+        --bg-primary: #0a0e1a;
+        --bg-secondary: #0d1321;
+        --bg-surface: rgba(15, 23, 42, 0.6);
+        --bg-hover: rgba(30, 41, 59, 0.8);
+        --bg-pressed: rgba(51, 65, 85, 0.9);
+        --bg-elevated: rgba(15, 23, 42, 0.8);
+
+        --text-primary: #f0f4f8;
+        --text-secondary: #94a3b8;
+        --text-tertiary: #64748b;
+        --text-inverse: #0a0e1a;
+        --text-placeholder: #475569;
+
+        --brand: #38bdf8;
+        --brand-hover: #7dd3fc;
+        --brand-soft: rgba(56, 189, 248, 0.15);
+        --brand-glow: rgba(56, 189, 248, 0.3);
+        --brand-glow-strong: rgba(56, 189, 248, 0.5);
+
+        --accent: #a78bfa;
+        --accent-soft: rgba(167, 139, 250, 0.15);
+        --accent-glow: rgba(167, 139, 250, 0.3);
+
+        --particle-primary: #38bdf8;
+        --particle-secondary: #a78bfa;
+        --particle-tertiary: #22d3ee;
+
+        --success: #4ade80;
+        --success-soft: rgba(74, 222, 128, 0.15);
+        --warning: #fbbf24;
+        --warning-soft: rgba(251, 191, 36, 0.15);
+        --info: #38bdf8;
+        --info-soft: rgba(56, 189, 248, 0.15);
+
+        --border: rgba(148, 163, 184, 0.15);
+        --border-light: rgba(148, 163, 184, 0.08);
+        --border-hover: rgba(56, 189, 248, 0.3);
+        --border-focus: var(--brand);
+        --divider: rgba(148, 163, 184, 0.1);
+
+        --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+        --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+        --shadow-card-hover: 0 8px 24px -4px rgba(0, 0, 0, 0.5), 0 4px 8px -2px rgba(0, 0, 0, 0.3);
+        --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.2), 0 0 40px rgba(56, 189, 248, 0.1);
+        --shadow-glow-strong: 0 0 30px rgba(56, 189, 248, 0.3), 0 0 60px rgba(56, 189, 248, 0.15);
+        --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+
+        --glass-bg: rgba(15, 23, 42, 0.4);
+        --glass-border: rgba(148, 163, 184, 0.15);
+        --glass-highlight: rgba(255, 255, 255, 0.05);
+
+        --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+        --font-mono: "SF Mono", "SFMono-Regular", ui-monospace, Monaco, "Fira Code", "Cascadia Code", monospace;
+
+        --text-xs: 0.75rem;
+        --text-sm: 0.875rem;
+        --text-base: 1rem;
+        --text-lg: 1.125rem;
+        --text-xl: 1.25rem;
+        --text-2xl: 1.5rem;
+        --text-3xl: 1.875rem;
+        --text-4xl: 2.25rem;
+        --text-5xl: 3rem;
+        --text-6xl: 3.75rem;
+
+        --leading-tight: 1.25;
+        --leading-snug: 1.375;
+        --leading-normal: 1.5;
+        --leading-relaxed: 1.625;
+        --leading-loose: 2;
+
+        --tracking-tight: -0.025em;
+        --tracking-normal: 0;
+        --tracking-wide: 0.025em;
+        --tracking-wider: 0.05em;
+
+        --space-1: 0.25rem;
+        --space-2: 0.5rem;
+        --space-3: 0.75rem;
+        --space-4: 1rem;
+        --space-5: 1.25rem;
+        --space-6: 1.5rem;
+        --space-8: 2rem;
+        --space-10: 2.5rem;
+        --space-12: 3rem;
+        --space-16: 4rem;
+        --space-20: 5rem;
+        --space-24: 6rem;
+        --space-32: 8rem;
+
+        --radius-sm: 4px;
+        --radius-md: 6px;
+        --radius-lg: 8px;
+        --radius-xl: 12px;
+        --radius-2xl: 16px;
+        --radius-3xl: 24px;
+        --radius-full: 9999px;
+
+        --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-normal: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-slow: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+        --container-max: 1200px;
+        --container-narrow: 720px;
+        --nav-height: 64px;
+        --section-gap: var(--space-24);
+        --grid-gap: var(--space-5);
+    }
+
+    /* ============================================
+       Base & Global
+       ============================================ */
+    *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+
+    body {
+        font-family: var(--font-sans);
+        font-size: var(--text-base);
+        line-height: var(--leading-relaxed);
+        color: var(--text-primary);
+        background: var(--bg-primary);
+        min-height: 100vh;
+        overflow-x: hidden;
     }
 
     ::selection {
@@ -64,11 +184,455 @@
         color: var(--brand);
     }
 
-    /* Globe Hero */
+    :focus-visible {
+        outline: 2px solid var(--brand);
+        outline-offset: 2px;
+        border-radius: var(--radius-sm);
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        transition: color var(--transition-fast);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+        background: var(--bg-secondary);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: rgba(148, 163, 184, 0.3);
+        border-radius: var(--radius-full);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgba(148, 163, 184, 0.5);
+    }
+
+    /* ============================================
+       Particle Canvas Layer
+       ============================================ */
+    #particle-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* ============================================
+       Typography
+       ============================================ */
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+        line-height: var(--leading-tight);
+        letter-spacing: var(--tracking-tight);
+        color: var(--text-primary);
+        text-wrap: balance;
+    }
+
+    h1 { font-size: var(--text-5xl); }
+    h2 { font-size: var(--text-4xl); }
+    h3 { font-size: var(--text-3xl); }
+    h4 { font-size: var(--text-2xl); }
+    h5 { font-size: var(--text-xl); }
+    h6 { font-size: var(--text-lg); }
+
+    @media (max-width: 768px) {
+        h1 { font-size: var(--text-4xl); }
+        h2 { font-size: var(--text-3xl); }
+        h3 { font-size: var(--text-2xl); }
+        h4 { font-size: var(--text-xl); }
+    }
+
+    p {
+        text-wrap: pretty;
+        color: var(--text-secondary);
+    }
+
+    .lead {
+        font-size: var(--text-xl);
+        line-height: var(--leading-relaxed);
+        color: var(--text-secondary);
+        max-width: 640px;
+    }
+
+    .label {
+        font-size: var(--text-xs);
+        font-weight: 600;
+        letter-spacing: var(--tracking-wider);
+        text-transform: uppercase;
+        color: var(--brand);
+    }
+
+    .text-gradient {
+        background: linear-gradient(135deg, var(--brand) 0%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* ============================================
+       Layout Utilities
+       ============================================ */
+    .container {
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+        position: relative;
+        z-index: 1;
+    }
+
+    .container-narrow {
+        max-width: var(--container-narrow);
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+        position: relative;
+        z-index: 1;
+    }
+
+    .section {
+        padding: var(--space-24) 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+        .section {
+            padding: var(--space-16) 0;
+        }
+        .container {
+            padding: 0 var(--space-4);
+        }
+    }
+
+    /* ============================================
+       Header & Navigation
+       ============================================ */
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        height: var(--nav-height);
+        background: rgba(10, 14, 26, 0.7);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border-bottom: 1px solid var(--border-light);
+        transition: box-shadow var(--transition-slow), background var(--transition-slow);
+    }
+
+    .header-scrolled {
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        background: rgba(10, 14, 26, 0.9);
+        border-bottom-color: var(--border);
+    }
+
+    .header-inner {
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header-logo {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-weight: 700;
+        font-size: var(--text-lg);
+        color: var(--text-primary);
+        transition: all var(--transition-fast);
+    }
+
+    .header-logo:hover {
+        color: var(--brand);
+    }
+
+    .header-logo-icon {
+        width: 28px;
+        height: 28px;
+        color: var(--brand);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header-logo-icon svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .header-nav {
+        display: flex;
+        align-items: center;
+        gap: var(--space-1);
+    }
+
+    .header-nav a {
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--text-sm);
+        font-weight: 500;
+        color: var(--text-secondary);
+        border-radius: var(--radius-md);
+        transition: all var(--transition-fast);
+        position: relative;
+    }
+
+    .header-nav a:hover {
+        color: var(--text-primary);
+        background: var(--glass-bg);
+    }
+
+    .header-nav a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--brand), transparent);
+        transition: all var(--transition-normal);
+        transform: translateX(-50%);
+    }
+
+    .header-nav a:hover::after {
+        width: 60%;
+    }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+    }
+
+    .header-icon-btn {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-md);
+        color: var(--text-secondary);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+    }
+
+    .header-icon-btn:hover {
+        color: var(--text-primary);
+        background: var(--glass-bg);
+    }
+
+    .header-icon-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .header-nav {
+            display: none;
+        }
+        .menu-toggle {
+            display: flex;
+        }
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 998;
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-normal);
+        backdrop-filter: blur(4px);
+    }
+
+    .mobile-menu-overlay.open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 100vh;
+        background: var(--bg-secondary);
+        border-left: 1px solid var(--border);
+        z-index: 999;
+        padding: calc(var(--nav-height) + var(--space-6)) var(--space-6) var(--space-6);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        transform: translateX(100%);
+        transition: transform var(--transition-slow);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .mobile-menu.open {
+        transform: translateX(0);
+    }
+
+    .mobile-menu a {
+        padding: var(--space-3) var(--space-4);
+        font-size: var(--text-base);
+        font-weight: 500;
+        color: var(--text-secondary);
+        border-radius: var(--radius-lg);
+        transition: all var(--transition-fast);
+    }
+
+    .mobile-menu a:hover {
+        color: var(--brand);
+        background: var(--brand-soft);
+    }
+
+    /* ============================================
+       Buttons
+       ============================================ */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-2);
+        padding: var(--space-3) var(--space-5);
+        font-size: var(--text-sm);
+        font-weight: 600;
+        border-radius: var(--radius-lg);
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: all var(--transition-normal);
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        opacity: 0;
+        transition: opacity var(--transition-normal);
+    }
+
+    .btn:hover::before {
+        opacity: 1;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--brand), var(--accent));
+        color: var(--text-inverse);
+        border: none;
+        box-shadow: var(--shadow-glow);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-glow-strong);
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: var(--text-secondary);
+        border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+        color: var(--text-primary);
+        border-color: var(--border-hover);
+        background: var(--glass-bg);
+    }
+
+    .btn-lg {
+        padding: var(--space-4) var(--space-6);
+        font-size: var(--text-base);
+    }
+
+    .btn-navy {
+        background: linear-gradient(135deg, #1e3a5f, #0f4c81);
+        color: var(--text-inverse);
+        border: none;
+        box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+    }
+
+    .btn-navy:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 30px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn-red-outline {
+        background: transparent;
+        color: #f87171;
+        border: 1px solid rgba(248, 113, 113, 0.3);
+    }
+
+    .btn-red-outline:hover {
+        background: rgba(248, 113, 113, 0.1);
+        border-color: rgba(248, 113, 113, 0.5);
+        color: #fca5a5;
+    }
+
+    /* ============================================
+       Glass Card
+       ============================================ */
+    .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-xl);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        transition: all var(--transition-slow);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .glass-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--glass-highlight), transparent);
+    }
+
+    .glass-card:hover {
+        border-color: var(--border-hover);
+        box-shadow: var(--shadow-glow), 0 8px 30px rgba(0, 0, 0, 0.4);
+        transform: translateY(-2px);
+    }
+
+    /* ============================================
+       Globe Hero Section
+       ============================================ */
     .globe-hero {
         position: relative;
         min-height: 100vh;
-        background: var(--bg-primary);
         display: flex;
         align-items: center;
         overflow: hidden;
@@ -105,7 +669,8 @@
         padding: var(--space-2) var(--space-4);
         background: var(--brand-soft);
         border-radius: var(--radius-full);
-        border: 1px solid rgba(0, 47, 108, 0.08);
+        border: 1px solid rgba(56, 189, 248, 0.15);
+        backdrop-filter: blur(10px);
     }
 
     .globe-hero-label-dot {
@@ -114,6 +679,12 @@
         background: var(--brand);
         border-radius: 50%;
         animation: pulse-dot 2s ease-in-out infinite;
+        box-shadow: 0 0 8px var(--brand);
+    }
+
+    @keyframes pulse-dot {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.5; transform: scale(0.8); }
     }
 
     .globe-hero-title {
@@ -123,6 +694,7 @@
         letter-spacing: var(--tracking-tight);
         color: var(--text-primary);
         margin-bottom: var(--space-6);
+        text-shadow: 0 0 40px rgba(56, 189, 248, 0.15);
     }
 
     .globe-hero-title .accent-line {
@@ -159,80 +731,12 @@
         outline: none !important;
     }
 
-    /* Globe tooltip */
-    .globe-tooltip {
-        background: #FFFFFF !important;
-        color: #000000 !important;
-        padding: 8px 14px !important;
-        border-radius: 8px !important;
-        font-size: 14px !important;
-        font-weight: 600 !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
-        border: 1px solid var(--border) !important;
-        pointer-events: none !important;
-        white-space: nowrap !important;
+    .hero-freshness {
+        margin-top: var(--space-6);
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
     }
 
-    .globe-tooltip::after {
-        display: none !important;
-    }
-
-    /* Custom buttons for new theme */
-    .btn-navy {
-        background: var(--brand);
-        color: var(--text-inverse);
-        border-color: var(--brand);
-    }
-    .btn-navy:hover {
-        background: var(--brand-hover);
-        border-color: var(--brand-hover);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 16px rgba(0, 47, 108, 0.3);
-    }
-
-    .btn-red-outline {
-        background: transparent;
-        color: var(--accent);
-        border-color: var(--accent);
-    }
-    .btn-red-outline:hover {
-        background: var(--accent-soft);
-        color: var(--accent);
-        transform: translateY(-1px);
-    }
-
-    /* Stats bar override */
-    .stats-bar {
-        background: var(--bg-secondary);
-        border-top: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
-    }
-
-    .stat-num {
-        color: var(--brand);
-    }
-
-    /* Section title accent */
-    .section-title .text-gradient {
-        background: linear-gradient(135deg, var(--brand) 0%, var(--info) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    /* Hero background subtle grid */
-    .globe-hero::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image:
-            linear-gradient(rgba(0, 47, 108, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 47, 108, 0.03) 1px, transparent 1px);
-        background-size: 60px 60px;
-        pointer-events: none;
-    }
-
-    /* Mobile responsive */
     @media (max-width: 1024px) {
         .globe-hero-inner {
             grid-template-columns: 1fr;
@@ -261,32 +765,864 @@
             font-size: var(--text-3xl);
         }
     }
+
+    /* ============================================
+       Stats Bar
+       ============================================ */
+    .stats-bar {
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px) saturate(180%);
+        -webkit-backdrop-filter: blur(12px) saturate(180%);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        position: relative;
+        z-index: 1;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-6);
+        padding: var(--space-8) var(--space-6);
+    }
+
+    .stat-item {
+        text-align: center;
+        padding: var(--space-4);
+        border-radius: var(--radius-lg);
+        transition: all var(--transition-slow);
+    }
+
+    .stat-item:hover {
+        background: var(--glass-bg);
+    }
+
+    .stat-num {
+        font-size: var(--text-4xl);
+        font-weight: 800;
+        color: var(--brand);
+        line-height: 1;
+        margin-bottom: var(--space-2);
+        text-shadow: 0 0 20px var(--brand-glow);
+    }
+
+    .stat-label {
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+        font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+        .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+            padding: var(--space-6) var(--space-4);
+        }
+    }
+
+    /* ============================================
+       Section Headers
+       ============================================ */
+    .section-header {
+        text-align: center;
+        margin-bottom: var(--space-12);
+        max-width: 640px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-title {
+        font-size: var(--text-3xl);
+        font-weight: 800;
+        margin-bottom: var(--space-4);
+        color: var(--text-primary);
+    }
+
+    .section-desc {
+        font-size: var(--text-lg);
+        color: var(--text-secondary);
+    }
+
+    /* ============================================
+       Infrastructure Cards
+       ============================================ */
+    .infra-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-6);
+    }
+
+    .infra-card {
+        display: flex;
+        flex-direction: column;
+        padding: var(--space-8);
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .infra-card-icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-lg);
+        background: var(--brand-soft);
+        color: var(--brand);
+        margin-bottom: var(--space-5);
+        box-shadow: 0 0 15px var(--brand-glow);
+    }
+
+    .infra-card-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .infra-card h3 {
+        font-size: var(--text-xl);
+        font-weight: 700;
+        margin-bottom: var(--space-3);
+        color: var(--text-primary);
+    }
+
+    .infra-card > p {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        margin-bottom: var(--space-5);
+        flex: 1;
+    }
+
+    .infra-card-list {
+        list-style: none;
+        margin-bottom: var(--space-5);
+    }
+
+    .infra-card-list li {
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+        padding: var(--space-1) 0;
+        position: relative;
+        padding-left: var(--space-4);
+    }
+
+    .infra-card-list li::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: var(--brand);
+    }
+
+    .infra-card-link {
+        font-size: var(--text-sm);
+        font-weight: 600;
+        color: var(--brand);
+        transition: all var(--transition-fast);
+    }
+
+    .infra-card:hover .infra-card-link {
+        color: var(--brand-hover);
+    }
+
+    @media (max-width: 1024px) {
+        .infra-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .infra-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* ============================================
+       Trending Destinations
+       ============================================ */
+    .trending-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+    }
+
+    .trending-card {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+        padding: var(--space-5);
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .trending-rank {
+        font-size: var(--text-2xl);
+        font-weight: 800;
+        color: var(--brand);
+        width: 40px;
+        text-align: center;
+        text-shadow: 0 0 10px var(--brand-glow);
+    }
+
+    .trending-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .trending-info h4 {
+        font-size: var(--text-base);
+        font-weight: 700;
+        margin-bottom: var(--space-1);
+        color: var(--text-primary);
+    }
+
+    .trending-metrics {
+        display: flex;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+        margin-bottom: var(--space-2);
+    }
+
+    .trending-metrics span {
+        font-size: var(--text-xs);
+        color: var(--text-tertiary);
+        background: var(--bg-secondary);
+        padding: 2px 8px;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border-light);
+    }
+
+    .trending-score {
+        font-size: var(--text-xl);
+        font-weight: 800;
+        color: var(--accent);
+        text-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    @media (max-width: 768px) {
+        .trending-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* ============================================
+       Country Grid & Filters
+       ============================================ */
+    .filters-bar {
+        display: flex;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: var(--space-6);
+    }
+
+    .filter-btn {
+        padding: var(--space-2) var(--space-4);
+        font-size: var(--text-sm);
+        font-weight: 500;
+        border-radius: var(--radius-full);
+        border: 1px solid var(--border);
+        background: var(--glass-bg);
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        backdrop-filter: blur(8px);
+    }
+
+    .filter-btn:hover {
+        border-color: var(--border-hover);
+        color: var(--text-primary);
+        background: var(--bg-hover);
+    }
+
+    .filter-btn.active {
+        background: var(--brand-soft);
+        color: var(--brand);
+        border-color: var(--brand);
+        box-shadow: 0 0 15px var(--brand-glow);
+    }
+
+    .region-tabs {
+        display: flex;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: var(--space-8);
+    }
+
+    .region-tab {
+        padding: var(--space-2) var(--space-4);
+        font-size: var(--text-sm);
+        font-weight: 500;
+        border-radius: var(--radius-full);
+        border: 1px solid var(--border);
+        background: var(--glass-bg);
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        backdrop-filter: blur(8px);
+    }
+
+    .region-tab:hover {
+        border-color: var(--border-hover);
+        color: var(--text-primary);
+    }
+
+    .region-tab.active {
+        background: var(--brand-soft);
+        color: var(--brand);
+        border-color: var(--brand);
+        box-shadow: 0 0 15px var(--brand-glow);
+    }
+
+    .region-tab span {
+        margin-left: 4px;
+        opacity: 0.7;
+    }
+
+    .region-section {
+        margin-bottom: var(--space-8);
+    }
+
+    .region-title {
+        font-size: var(--text-xl);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: var(--space-4);
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+    }
+
+    .region-count {
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+        font-weight: 500;
+    }
+
+    .country-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: var(--space-4);
+    }
+
+    .country-card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        padding: var(--space-5);
+    }
+
+    .country-card-header {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        margin-bottom: var(--space-4);
+    }
+
+    .country-flag {
+        font-size: var(--text-2xl);
+        line-height: 1;
+    }
+
+    .country-meta {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .country-meta h4 {
+        font-size: var(--text-base);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 2px;
+    }
+
+    .country-score {
+        font-size: var(--text-sm);
+        font-weight: 700;
+        color: var(--accent);
+    }
+
+    .country-new-badge {
+        font-size: var(--text-xs);
+        font-weight: 600;
+        color: var(--brand);
+        background: var(--brand-soft);
+        padding: 2px 8px;
+        border-radius: var(--radius-sm);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .country-card-body {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+    }
+
+    .country-badge {
+        font-size: var(--text-xs);
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: var(--radius-sm);
+    }
+
+    .badge-success {
+        color: var(--success);
+        background: var(--success-soft);
+        border: 1px solid rgba(74, 222, 128, 0.2);
+    }
+
+    .badge-info {
+        color: var(--info);
+        background: var(--info-soft);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .badge-danger {
+        color: #f87171;
+        background: rgba(248, 113, 113, 0.15);
+        border: 1px solid rgba(248, 113, 113, 0.2);
+    }
+
+    .country-metric {
+        font-size: var(--text-xs);
+        color: var(--text-tertiary);
+        background: var(--bg-secondary);
+        padding: 2px 8px;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border-light);
+    }
+
+    /* ============================================
+       Tools Grid
+       ============================================ */
+    .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-6);
+    }
+
+    .tool-card {
+        display: flex;
+        flex-direction: column;
+        padding: var(--space-8);
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .tool-icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-lg);
+        background: var(--accent-soft);
+        color: var(--accent);
+        margin-bottom: var(--space-5);
+        box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    .tool-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .tool-card h3 {
+        font-size: var(--text-xl);
+        font-weight: 700;
+        margin-bottom: var(--space-3);
+        color: var(--text-primary);
+    }
+
+    .tool-card > p {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        margin-bottom: var(--space-5);
+        flex: 1;
+    }
+
+    .tool-link {
+        font-size: var(--text-sm);
+        font-weight: 600;
+        color: var(--brand);
+        transition: all var(--transition-fast);
+    }
+
+    .tool-card:hover .tool-link {
+        color: var(--brand-hover);
+    }
+
+    @media (max-width: 1024px) {
+        .tools-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .tools-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* ============================================
+       Articles
+       ============================================ */
+    .articles-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--space-8);
+    }
+
+    .articles-header h2 {
+        font-size: var(--text-3xl);
+        font-weight: 800;
+        color: var(--text-primary);
+    }
+
+    .articles-header a {
+        font-size: var(--text-sm);
+        font-weight: 600;
+        color: var(--brand);
+        transition: all var(--transition-fast);
+    }
+
+    .articles-header a:hover {
+        color: var(--brand-hover);
+    }
+
+    .articles-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-6);
+    }
+
+    .article-card {
+        display: flex;
+        flex-direction: column;
+        padding: var(--space-6);
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .article-tags {
+        display: flex;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+        margin-bottom: var(--space-3);
+    }
+
+    .article-tag {
+        font-size: var(--text-xs);
+        font-weight: 600;
+        color: var(--brand);
+        background: var(--brand-soft);
+        padding: 2px 10px;
+        border-radius: var(--radius-full);
+        border: 1px solid rgba(56, 189, 248, 0.15);
+    }
+
+    .article-card h3 {
+        font-size: var(--text-lg);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: var(--space-2);
+    }
+
+    .article-card > p {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        margin-bottom: var(--space-3);
+        flex: 1;
+    }
+
+    .article-date {
+        font-size: var(--text-xs);
+        color: var(--text-tertiary);
+    }
+
+    @media (max-width: 1024px) {
+        .articles-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .articles-grid {
+            grid-template-columns: 1fr;
+        }
+        .articles-header {
+            flex-direction: column;
+            gap: var(--space-3);
+            align-items: flex-start;
+        }
+    }
+
+    /* ============================================
+       Divider
+       ============================================ */
+    .divider {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--divider), transparent);
+        margin: 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* ============================================
+       Footer
+       ============================================ */
+    .footer {
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border);
+        padding: var(--space-16) 0 var(--space-8);
+        position: relative;
+        z-index: 1;
+    }
+
+    .footer-main {
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: var(--space-12);
+        margin-bottom: var(--space-12);
+    }
+
+    .footer-brand-name {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-weight: 700;
+        font-size: var(--text-lg);
+        color: var(--text-primary);
+        margin-bottom: var(--space-4);
+    }
+
+    .footer-brand-name svg {
+        width: 24px;
+        height: 24px;
+        color: var(--brand);
+    }
+
+    .footer-brand > p {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        margin-bottom: var(--space-6);
+        max-width: 360px;
+    }
+
+    .footer-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        padding: var(--space-3) var(--space-5);
+        background: var(--glass-bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        font-size: var(--text-sm);
+        font-weight: 600;
+        color: var(--text-primary);
+        transition: all var(--transition-fast);
+    }
+
+    .footer-cta:hover {
+        border-color: var(--border-hover);
+        background: var(--bg-hover);
+    }
+
+    .footer-cta svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .footer-links {
+        display: contents;
+    }
+
+    .footer-col h4 {
+        font-size: var(--text-sm);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: var(--space-4);
+        letter-spacing: var(--tracking-wide);
+        text-transform: uppercase;
+    }
+
+    .footer-col a {
+        display: block;
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        padding: var(--space-2) 0;
+        transition: all var(--transition-fast);
+    }
+
+    .footer-col a:hover {
+        color: var(--brand);
+    }
+
+    .footer-bottom {
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: var(--space-6) var(--space-6) 0;
+        border-top: 1px solid var(--divider);
+        text-align: center;
+    }
+
+    .footer-bottom p {
+        font-size: var(--text-xs);
+        color: var(--text-tertiary);
+        margin-bottom: var(--space-2);
+    }
+
+    .footer-bottom a {
+        color: var(--text-secondary);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+
+    .footer-bottom a:hover {
+        color: var(--brand);
+    }
+
+    @media (max-width: 768px) {
+        .footer-main {
+            grid-template-columns: 1fr;
+            gap: var(--space-8);
+        }
+    }
+
+    /* ============================================
+       Scroll Reveal Animations
+       ============================================ */
+    .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+    }
+
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    .stagger-children .stagger-item {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+    }
+
+    .stagger-children.visible .stagger-item {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .stagger-children.visible .stagger-item:nth-child(1) { transition-delay: 0.05s; }
+    .stagger-children.visible .stagger-item:nth-child(2) { transition-delay: 0.1s; }
+    .stagger-children.visible .stagger-item:nth-child(3) { transition-delay: 0.15s; }
+    .stagger-children.visible .stagger-item:nth-child(4) { transition-delay: 0.2s; }
+    .stagger-children.visible .stagger-item:nth-child(5) { transition-delay: 0.25s; }
+    .stagger-children.visible .stagger-item:nth-child(6) { transition-delay: 0.3s; }
+    .stagger-children.visible .stagger-item:nth-child(7) { transition-delay: 0.35s; }
+    .stagger-children.visible .stagger-item:nth-child(8) { transition-delay: 0.4s; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+        .reveal, .stagger-children .stagger-item {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+        html {
+            scroll-behavior: auto;
+        }
+    }
+
+    /* ============================================
+       Globe Tooltip
+       ============================================ */
+    .globe-tooltip {
+        background: var(--bg-secondary) !important;
+        color: var(--text-primary) !important;
+        padding: 8px 14px !important;
+        border-radius: 8px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        box-shadow: var(--shadow-lg) !important;
+        border: 1px solid var(--border) !important;
+        pointer-events: none !important;
+        white-space: nowrap !important;
+    }
+
+    .globe-tooltip::after {
+        display: none !important;
+    }
+
+    /* ============================================
+       Reading Progress
+       ============================================ */
+    .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: linear-gradient(90deg, var(--brand), var(--accent));
+        z-index: 1001;
+        transition: width 0.1s linear;
+        box-shadow: 0 0 10px var(--brand-glow);
+    }
+
+    /* ============================================
+       Particle ambient glow on hero
+       ============================================ */
+    .globe-hero::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 600px;
+        height: 600px;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+    }
     </style>
 </head>
 <body>
+    <!-- Particle Canvas Background -->
+    <canvas id="particle-canvas"></canvas>
 
     <!-- Header -->
     <header class="header" id="header">
-        <a href="#" class="header-logo">
-            <span class="header-logo-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-            </span>
-            <span>数字游民指南</span>
-        </a>
-        <nav class="header-nav" aria-label="主导航">
-            <a href="country/">国家</a>
-            <a href="visa/">签证</a>
-            <a href="articles/">文章</a>
-            <a href="compare/">对比</a>
-            <a href="search/">搜索</a>
-        </nav>
-        <div class="header-actions">
-            <a href="https://github.com/kfat77/digital-nomad-cn" class="header-icon-btn" target="_blank" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        <div class="header-inner">
+            <a href="#" class="header-logo">
+                <span class="header-logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                </span>
+                <span>数字游民指南</span>
             </a>
-            <button class="menu-toggle header-icon-btn" aria-label="打开菜单" id="menuToggle" aria-expanded="false">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-            </button>
+            <nav class="header-nav" aria-label="主导航">
+                <a href="country/">国家</a>
+                <a href="visa/">签证</a>
+                <a href="articles/">文章</a>
+                <a href="compare/">对比</a>
+                <a href="search/">搜索</a>
+            </nav>
+            <div class="header-actions">
+                <a href="https://github.com/kfat77/digital-nomad-cn" class="header-icon-btn" target="_blank" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <button class="menu-toggle header-icon-btn" aria-label="打开菜单" id="menuToggle" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -316,11 +1652,11 @@
                     从新加坡到里斯本，我们为每座数字游民目的地建立了档案。点击地球上的国家，探索完整数据与签证攻略。
                 </p>
                 <div class="globe-hero-cta">
-                    <a href="#country-grid" class="btn btn-primary btn-lg btn-navy">探索国家</a>
-                    <a href="compare/" class="btn btn-outline btn-lg btn-red-outline">国家对比</a>
+                    <a href="#country-grid" class="btn btn-primary btn-lg">探索国家</a>
+                    <a href="compare/" class="btn btn-outline btn-lg">国家对比</a>
                     <a href="https://github.com/kfat77/digital-nomad-cn" class="btn btn-outline btn-lg" target="_blank">查看源码</a>
                 </div>
-                <p class="hero-freshness" id="dataFreshness" style="margin-top:var(--space-6); font-size:var(--text-sm); color:var(--text-tertiary);">数据加载中...</p>
+                <p class="hero-freshness" id="dataFreshness">数据加载中...</p>
             </div>
             <div class="globe-container">
                 <div id="globe-viz"></div>
@@ -358,7 +1694,7 @@
                 <p class="section-desc">银行卡、电话卡、证券账户——这三个基础设施弄好了，去任何地方都不会慌。</p>
             </div>
             <div class="infra-grid">
-                <a href="articles/digital-nomad-banking-guide/" class="infra-card reveal">
+                <a href="articles/digital-nomad-banking-guide/" class="infra-card glass-card reveal">
                     <div class="infra-card-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
                     </div>
@@ -372,7 +1708,7 @@
                     </ul>
                     <span class="infra-card-link">查看攻略 →</span>
                 </a>
-                <a href="articles/giffgaff-guide-2026/" class="infra-card reveal reveal-delay-1">
+                <a href="articles/giffgaff-guide-2026/" class="infra-card glass-card reveal reveal-delay-1">
                     <div class="infra-card-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
                     </div>
@@ -386,7 +1722,7 @@
                     </ul>
                     <span class="infra-card-link">查看攻略 →</span>
                 </a>
-                <a href="articles/securities-guide/" class="infra-card reveal reveal-delay-2">
+                <a href="articles/securities-guide/" class="infra-card glass-card reveal reveal-delay-2">
                     <div class="infra-card-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                     </div>
@@ -413,8 +1749,8 @@
                 <h2 class="section-title">热门目的地</h2>
                 <p class="section-desc">综合生活成本、安全、网速和社区活跃度，目前排名靠前的数字游民城市。</p>
             </div>
-            <div class="trending-grid stagger-list" id="trendingGrid">
-                <a href="country/singapore/index.html" class="trending-card stagger-item">
+            <div class="trending-grid stagger-children" id="trendingGrid">
+                <a href="country/singapore/index.html" class="trending-card glass-card stagger-item">
                     <div class="trending-rank">1</div>
                     <div class="trending-info">
                         <h4>新加坡</h4>
@@ -423,7 +1759,7 @@
                     </div>
                     <div class="trending-score">88</div>
                 </a>
-                <a href="country/portugal/index.html" class="trending-card stagger-item">
+                <a href="country/portugal/index.html" class="trending-card glass-card stagger-item">
                     <div class="trending-rank">2</div>
                     <div class="trending-info">
                         <h4>葡萄牙</h4>
@@ -432,7 +1768,7 @@
                     </div>
                     <div class="trending-score">88</div>
                 </a>
-                <a href="country/japan/index.html" class="trending-card stagger-item">
+                <a href="country/japan/index.html" class="trending-card glass-card stagger-item">
                     <div class="trending-rank">3</div>
                     <div class="trending-info">
                         <h4>日本</h4>
@@ -441,7 +1777,7 @@
                     </div>
                     <div class="trending-score">87</div>
                 </a>
-                <a href="country/spain/index.html" class="trending-card stagger-item">
+                <a href="country/spain/index.html" class="trending-card glass-card stagger-item">
                     <div class="trending-rank">4</div>
                     <div class="trending-info">
                         <h4>西班牙</h4>
@@ -450,7 +1786,7 @@
                     </div>
                     <div class="trending-score">86</div>
                 </a>
-                <a href="country/thailand/index.html" class="trending-card stagger-item">
+                <a href="country/thailand/index.html" class="trending-card glass-card stagger-item">
                     <div class="trending-rank">5</div>
                     <div class="trending-info">
                         <h4>泰国</h4>
@@ -459,7 +1795,7 @@
                     </div>
                     <div class="trending-score">85</div>
                 </a>
-                <a href="country/uae/index.html" class="trending-card stagger-item">
+                <a href="country/uae/index.html" class="trending-card glass-card stagger-item">
                     <div class="trending-rank">6</div>
                     <div class="trending-info">
                         <h4>阿联酋</h4>
@@ -468,8 +1804,7 @@
                     </div>
                     <div class="trending-score">85</div>
                 </a>
-                
-                <a href="country/netherlands/index.html" class="trending-card stagger-item">
+                <a href="country/netherlands/index.html" class="trending-card glass-card stagger-item">
                     <div class="trending-rank">8</div>
                     <div class="trending-info">
                         <h4>荷兰</h4>
@@ -510,76 +1845,71 @@
                 <button class="region-tab" data-region="middle_east">中东 <span>1</span></button>
             </div>
             <div class="country-grid-wrapper" id="countryGridWrapper">
-                <!-- Asia -->
                 <div class="region-section" id="region-asia">
                     <h3 class="region-title">亚洲 <span class="region-count">15</span></h3>
                     <div class="country-grid">
-                        <a href="country/indonesia/index.html" class="country-card" data-region="asia" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇮🇩</span><div class="country-meta"><h4>印度尼西亚</h4><span class="country-score">76</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 32</span><span class="country-metric">网速 25</span></div></a>
-                        <a href="country/kazakhstan/index.html" class="country-card" data-region="asia" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇰🇿</span><div class="country-meta"><h4>哈萨克斯坦</h4><span class="country-score">75</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 30</span><span class="country-metric">网速 40</span></div></a>
-                        
-                        <a href="country/srilanka/index.html" class="country-card" data-region="asia" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇱🇰</span><div class="country-meta"><h4>斯里兰卡</h4><span class="country-score">73</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 25</span><span class="country-metric">网速 20</span></div></a>
-                        <a href="country/singapore/index.html" class="country-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇸🇬</span><div class="country-meta"><h4>新加坡</h4><span class="country-score">88</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 95</span><span class="country-metric">网速 280</span></div></a>
-                        <a href="country/japan/index.html" class="country-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇯🇵</span><div class="country-meta"><h4>日本</h4><span class="country-score">87</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 85</span><span class="country-metric">网速 185</span></div></a>
-                        
-                        <a href="country/thailand/index.html" class="country-card" data-region="asia" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇹🇭</span><div class="country-meta"><h4>泰国</h4><span class="country-score">85</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 45</span><span class="country-metric">网速 200</span></div></a>
-                        <a href="country/macao/index.html" class="country-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇲🇴</span><div class="country-meta"><h4>澳门</h4><span class="country-score">65</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 70</span><span class="country-metric">网速 180</span></div></a>
-                        <a href="country/philippines/index.html" class="country-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇵🇭</span><div class="country-meta"><h4>菲律宾</h4><span class="country-score">74</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 35</span><span class="country-metric">网速 30</span></div></a>
-                        <a href="country/mongolia/index.html" class="country-card" data-region="asia" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇳</span><div class="country-meta"><h4>蒙古</h4><span class="country-score">72</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 28</span><span class="country-metric">网速 20</span></div></a>
-                        <a href="country/vietnam/index.html" class="country-card" data-region="asia" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇻🇳</span><div class="country-meta"><h4>越南</h4><span class="country-score">75</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 35</span><span class="country-metric">网速 120</span></div></a>
-                        <a href="country/southkorea/index.html" class="country-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇰🇷</span><div class="country-meta"><h4>韩国</h4><span class="country-score">80</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 220</span></div></a>
-                        <a href="country/hongkong/index.html" class="country-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇭🇰</span><div class="country-meta"><h4>香港</h4><span class="country-score">82</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 85</span><span class="country-metric">网速 250</span></div></a>
-                        <a href="country/malaysia/index.html" class="country-card" data-region="asia" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇾</span><div class="country-meta"><h4>马来西亚</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 40</span><span class="country-metric">网速 150</span></div></a>
+                        <a href="country/indonesia/index.html" class="country-card glass-card" data-region="asia" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇮🇩</span><div class="country-meta"><h4>印度尼西亚</h4><span class="country-score">76</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 32</span><span class="country-metric">网速 25</span></div></a>
+                        <a href="country/kazakhstan/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇰🇿</span><div class="country-meta"><h4>哈萨克斯坦</h4><span class="country-score">75</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 30</span><span class="country-metric">网速 40</span></div></a>
+                        <a href="country/srilanka/index.html" class="country-card glass-card" data-region="asia" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇱🇰</span><div class="country-meta"><h4>斯里兰卡</h4><span class="country-score">73</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 25</span><span class="country-metric">网速 20</span></div></a>
+                        <a href="country/singapore/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇸🇬</span><div class="country-meta"><h4>新加坡</h4><span class="country-score">88</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 95</span><span class="country-metric">网速 280</span></div></a>
+                        <a href="country/japan/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇯🇵</span><div class="country-meta"><h4>日本</h4><span class="country-score">87</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 85</span><span class="country-metric">网速 185</span></div></a>
+                        <a href="country/thailand/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇹🇭</span><div class="country-meta"><h4>泰国</h4><span class="country-score">85</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 45</span><span class="country-metric">网速 200</span></div></a>
+                        <a href="country/macao/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇲🇴</span><div class="country-meta"><h4>澳门</h4><span class="country-score">65</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 70</span><span class="country-metric">网速 180</span></div></a>
+                        <a href="country/philippines/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇵🇭</span><div class="country-meta"><h4>菲律宾</h4><span class="country-score">74</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 35</span><span class="country-metric">网速 30</span></div></a>
+                        <a href="country/mongolia/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇳</span><div class="country-meta"><h4>蒙古</h4><span class="country-score">72</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 28</span><span class="country-metric">网速 20</span></div></a>
+                        <a href="country/vietnam/index.html" class="country-card glass-card" data-region="asia" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇻🇳</span><div class="country-meta"><h4>越南</h4><span class="country-score">75</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 35</span><span class="country-metric">网速 120</span></div></a>
+                        <a href="country/southkorea/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇰🇷</span><div class="country-meta"><h4>韩国</h4><span class="country-score">80</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 220</span></div></a>
+                        <a href="country/hongkong/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇭🇰</span><div class="country-meta"><h4>香港</h4><span class="country-score">82</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 85</span><span class="country-metric">网速 250</span></div></a>
+                        <a href="country/malaysia/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇾</span><div class="country-meta"><h4>马来西亚</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 40</span><span class="country-metric">网速 150</span></div></a>
                     </div>
                 </div>
-                <!-- Europe -->
                 <div class="region-section" id="region-europe">
                     <h3 class="region-title">欧洲 <span class="region-count">17</span></h3>
                     <div class="country-grid">
-                        <a href="country/denmark/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇩🇰</span><div class="country-meta"><h4>丹麦</h4><span class="country-score">77</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 82</span><span class="country-metric">网速 150</span></div></a>
-                        <a href="country/croatia/index.html" class="country-card" data-region="europe" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇭🇷</span><div class="country-meta"><h4>克罗地亚</h4><span class="country-score">75</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 48</span><span class="country-metric">网速 55</span></div></a>
-                        <a href="country/iceland/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇮🇸</span><div class="country-meta"><h4>冰岛</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 85</span><span class="country-metric">网速 200</span></div></a>
-                        <a href="country/turkey/index.html" class="country-card" data-region="europe" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇹🇷</span><div class="country-meta"><h4>土耳其</h4><span class="country-score">74</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 32</span><span class="country-metric">网速 35</span></div></a>
-                        <a href="country/cyprus/index.html" class="country-card" data-region="europe" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇨🇾</span><div class="country-meta"><h4>塞浦路斯</h4><span class="country-score">80</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 55</span><span class="country-metric">网速 50</span></div></a>
-                        <a href="country/austria/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇦🇹</span><div class="country-meta"><h4>奥地利</h4><span class="country-score">76</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 70</span><span class="country-metric">网速 80</span></div></a>
-                        <a href="country/greece/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇬🇷</span><div class="country-meta"><h4>希腊</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 52</span><span class="country-metric">网速 45</span></div></a>
-                        <a href="country/germany/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇩🇪</span><div class="country-meta"><h4>德国</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 72</span><span class="country-metric">网速 120</span></div></a>
-                        <a href="country/norway/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇳🇴</span><div class="country-meta"><h4>挪威</h4><span class="country-score">80</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 88</span><span class="country-metric">网速 180</span></div></a>
-                        <a href="country/france/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇫🇷</span><div class="country-meta"><h4>法国</h4><span class="country-score">77</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 75</span><span class="country-metric">网速 130</span></div></a>
-                        <a href="country/ireland/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇮🇪</span><div class="country-meta"><h4>爱尔兰</h4><span class="country-score">76</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 120</span></div></a>
-                        <a href="country/estonia/index.html" class="country-card" data-region="europe" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇪🇪</span><div class="country-meta"><h4>爱沙尼亚</h4><span class="country-score">80</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 60</span><span class="country-metric">网速 100</span></div></a>
-                        <a href="country/switzerland/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇨🇭</span><div class="country-meta"><h4>瑞士</h4><span class="country-score">75</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 95</span><span class="country-metric">网速 170</span></div></a>
-                        <a href="country/uk/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇬🇧</span><div class="country-meta"><h4>英国</h4><span class="country-score">75</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 80</span><span class="country-metric">网速 110</span></div></a>
-                        <a href="country/netherlands/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇳🇱</span><div class="country-meta"><h4>荷兰</h4><span class="country-score">82</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 180</span></div></a>
-                        <a href="country/portugal/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇵🇹</span><div class="country-meta"><h4>葡萄牙</h4><span class="country-score">88</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 55</span><span class="country-metric">网速 150</span></div></a>
-                        <a href="country/spain/index.html" class="country-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇪🇸</span><div class="country-meta"><h4>西班牙</h4><span class="country-score">86</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 58</span><span class="country-metric">网速 170</span></div></a>
+                        <a href="country/denmark/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇩🇰</span><div class="country-meta"><h4>丹麦</h4><span class="country-score">77</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 82</span><span class="country-metric">网速 150</span></div></a>
+                        <a href="country/croatia/index.html" class="country-card glass-card" data-region="europe" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇭🇷</span><div class="country-meta"><h4>克罗地亚</h4><span class="country-score">75</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 48</span><span class="country-metric">网速 55</span></div></a>
+                        <a href="country/iceland/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇮🇸</span><div class="country-meta"><h4>冰岛</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 85</span><span class="country-metric">网速 200</span></div></a>
+                        <a href="country/turkey/index.html" class="country-card glass-card" data-region="europe" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇹🇷</span><div class="country-meta"><h4>土耳其</h4><span class="country-score">74</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 32</span><span class="country-metric">网速 35</span></div></a>
+                        <a href="country/cyprus/index.html" class="country-card glass-card" data-region="europe" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇨🇾</span><div class="country-meta"><h4>塞浦路斯</h4><span class="country-score">80</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 55</span><span class="country-metric">网速 50</span></div></a>
+                        <a href="country/austria/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇦🇹</span><div class="country-meta"><h4>奥地利</h4><span class="country-score">76</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 70</span><span class="country-metric">网速 80</span></div></a>
+                        <a href="country/greece/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇬🇷</span><div class="country-meta"><h4>希腊</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 52</span><span class="country-metric">网速 45</span></div></a>
+                        <a href="country/germany/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇩🇪</span><div class="country-meta"><h4>德国</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 72</span><span class="country-metric">网速 120</span></div></a>
+                        <a href="country/norway/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇳🇴</span><div class="country-meta"><h4>挪威</h4><span class="country-score">80</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 88</span><span class="country-metric">网速 180</span></div></a>
+                        <a href="country/france/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇫🇷</span><div class="country-meta"><h4>法国</h4><span class="country-score">77</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 75</span><span class="country-metric">网速 130</span></div></a>
+                        <a href="country/ireland/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇮🇪</span><div class="country-meta"><h4>爱尔兰</h4><span class="country-score">76</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 120</span></div></a>
+                        <a href="country/estonia/index.html" class="country-card glass-card" data-region="europe" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇪🇪</span><div class="country-meta"><h4>爱沙尼亚</h4><span class="country-score">80</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 60</span><span class="country-metric">网速 100</span></div></a>
+                        <a href="country/switzerland/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇨🇭</span><div class="country-meta"><h4>瑞士</h4><span class="country-score">75</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 95</span><span class="country-metric">网速 170</span></div></a>
+                        <a href="country/uk/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇬🇧</span><div class="country-meta"><h4>英国</h4><span class="country-score">75</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 80</span><span class="country-metric">网速 110</span></div></a>
+                        <a href="country/netherlands/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇳🇱</span><div class="country-meta"><h4>荷兰</h4><span class="country-score">82</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 180</span></div></a>
+                        <a href="country/portugal/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇵🇹</span><div class="country-meta"><h4>葡萄牙</h4><span class="country-score">88</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 55</span><span class="country-metric">网速 150</span></div></a>
+                        <a href="country/spain/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇪🇸</span><div class="country-meta"><h4>西班牙</h4><span class="country-score">86</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 58</span><span class="country-metric">网速 170</span></div></a>
                     </div>
                 </div>
-                <!-- Other regions condensed -->
                 <div class="region-section" id="region-americas_north">
                     <h3 class="region-title">北美 <span class="region-count">3</span></h3>
                     <div class="country-grid">
-                        <a href="country/canada/index.html" class="country-card" data-region="americas_north" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇨🇦</span><div class="country-meta"><h4>加拿大</h4><span class="country-score">77</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 75</span><span class="country-metric">网速 170</span></div></a>
-                        <a href="country/mexico/index.html" class="country-card" data-region="americas_north" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇲🇽</span><div class="country-meta"><h4>墨西哥</h4><span class="country-score">72</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 38</span><span class="country-metric">网速 40</span></div></a>
-                        <a href="country/usa/index.html" class="country-card" data-region="americas_north" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇺🇸</span><div class="country-meta"><h4>美国</h4><span class="country-score">72</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 88</span><span class="country-metric">网速 250</span></div></a>
+                        <a href="country/canada/index.html" class="country-card glass-card" data-region="americas_north" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇨🇦</span><div class="country-meta"><h4>加拿大</h4><span class="country-score">77</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 75</span><span class="country-metric">网速 170</span></div></a>
+                        <a href="country/mexico/index.html" class="country-card glass-card" data-region="americas_north" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇲🇽</span><div class="country-meta"><h4>墨西哥</h4><span class="country-score">72</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 38</span><span class="country-metric">网速 40</span></div></a>
+                        <a href="country/usa/index.html" class="country-card glass-card" data-region="americas_north" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇺🇸</span><div class="country-meta"><h4>美国</h4><span class="country-score">72</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 88</span><span class="country-metric">网速 250</span></div></a>
                     </div>
                 </div>
                 <div class="region-section" id="region-oceania">
                     <h3 class="region-title">大洋洲 <span class="region-count">2</span></h3>
                     <div class="country-grid">
-                        <a href="country/newzealand/index.html" class="country-card" data-region="oceania" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇳🇿</span><div class="country-meta"><h4>新西兰</h4><span class="country-score">76</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 150</span></div></a>
-                        <a href="country/australia/index.html" class="country-card" data-region="oceania" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇦🇺</span><div class="country-meta"><h4>澳大利亚</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 82</span><span class="country-metric">网速 80</span></div></a>
+                        <a href="country/newzealand/index.html" class="country-card glass-card" data-region="oceania" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇳🇿</span><div class="country-meta"><h4>新西兰</h4><span class="country-score">76</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 150</span></div></a>
+                        <a href="country/australia/index.html" class="country-card glass-card" data-region="oceania" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇦🇺</span><div class="country-meta"><h4>澳大利亚</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 82</span><span class="country-metric">网速 80</span></div></a>
                     </div>
                 </div>
                 <div class="region-section" id="region-africa">
                     <h3 class="region-title">非洲 <span class="region-count">1</span></h3>
                     <div class="country-grid">
-                        <a href="country/morocco/index.html" class="country-card" data-region="africa" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇦</span><div class="country-meta"><h4>摩洛哥</h4><span class="country-score">76</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 30</span><span class="country-metric">网速 25</span></div></a>
+                        <a href="country/morocco/index.html" class="country-card glass-card" data-region="africa" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇦</span><div class="country-meta"><h4>摩洛哥</h4><span class="country-score">76</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 30</span><span class="country-metric">网速 25</span></div></a>
                     </div>
                 </div>
                 <div class="region-section" id="region-middle_east">
                     <h3 class="region-title">中东 <span class="region-count">1</span></h3>
                     <div class="country-grid">
-                        <a href="country/uae/index.html" class="country-card" data-region="middle_east" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇦🇪</span><div class="country-meta"><h4>阿联酋</h4><span class="country-score">85</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 70</span><span class="country-metric">网速 300</span></div></a>
+                        <a href="country/uae/index.html" class="country-card glass-card" data-region="middle_east" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇦🇪</span><div class="country-meta"><h4>阿联酋</h4><span class="country-score">85</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 70</span><span class="country-metric">网速 300</span></div></a>
                     </div>
                 </div>
             </div>
@@ -596,7 +1926,7 @@
                 <p class="section-desc">从对比到搜索，从路线规划到数据下载——用工具代替猜测。</p>
             </div>
             <div class="tools-grid">
-                <a href="compare/" class="tool-card reveal">
+                <a href="compare/" class="tool-card glass-card reveal">
                     <div class="tool-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
                     </div>
@@ -604,7 +1934,7 @@
                     <p>同时对比 2-3 个国家的生活成本、安全、网速、签证等全维度指标。</p>
                     <span class="tool-link">开始对比 →</span>
                 </a>
-                <a href="routes/" class="tool-card reveal reveal-delay-1">
+                <a href="routes/" class="tool-card glass-card reveal reveal-delay-1">
                     <div class="tool-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 21 18 21 6 8 18 1 6"/><line x1="1" y1="6" x2="8" y2="18"/><line x1="21" y1="6" x2="16" y2="18"/></svg>
                     </div>
@@ -612,7 +1942,7 @@
                     <p>东南亚环、欧洲申根、地中海三大经典数字游民路线。</p>
                     <span class="tool-link">查看路线 →</span>
                 </a>
-                <a href="search/" class="tool-card reveal reveal-delay-2">
+                <a href="search/" class="tool-card glass-card reveal reveal-delay-2">
                     <div class="tool-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                     </div>
@@ -620,7 +1950,7 @@
                     <p>模糊搜索 76 项国家与城市数据，支持拼音、关键词、标签匹配。</p>
                     <span class="tool-link">立即搜索 →</span>
                 </a>
-                <a href="https://github.com/kfat77/digital-nomad-cn" class="tool-card reveal reveal-delay-3" target="_blank">
+                <a href="https://github.com/kfat77/digital-nomad-cn" class="tool-card glass-card reveal reveal-delay-3" target="_blank">
                     <div class="tool-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
                     </div>
@@ -684,13 +2014,224 @@
 
 <script>
 // ============================================================
-// 3D Globe — Auto-initialized by globe.js
+// Particle Universe Animation System
 // ============================================================
-// The DigitalGlobe class in globe.js handles all initialization
-// when THREE.js is loaded. No manual init needed here.
+(function() {
+    'use strict';
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let width, height;
+    let particles = [];
+    let mouse = { x: null, y: null, active: false };
+    let animationId;
+    let lastTime = 0;
+
+    const PARTICLE_COUNT = 180;
+    const CONNECTION_DISTANCE = 120;
+    const MOUSE_RADIUS = 200;
+    const MOUSE_FORCE = 0.8;
+
+    const COLORS = [
+        { r: 56, g: 189, b: 248 },   // cyan
+        { r: 167, g: 139, b: 250 },  // purple
+        { r: 34, g: 211, b: 238 },   // teal
+        { r: 96, g: 165, b: 250 },   // blue
+        { r: 192, g: 132, b: 252 },  // light purple
+    ];
+
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width * Math.min(window.devicePixelRatio, 2);
+        canvas.height = height * Math.min(window.devicePixelRatio, 2);
+        ctx.scale(Math.min(window.devicePixelRatio, 2), Math.min(window.devicePixelRatio, 2));
+    }
+
+    class Particle {
+        constructor() {
+            this.reset(true);
+        }
+
+        reset(randomize = false) {
+            this.x = randomize ? Math.random() * width : -10;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 0.6;
+            this.vy = (Math.random() - 0.5) * 0.6;
+            this.radius = Math.random() * 1.5 + 0.5;
+            this.baseRadius = this.radius;
+            this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+            this.alpha = Math.random() * 0.5 + 0.3;
+            this.baseAlpha = this.alpha;
+            this.pulseSpeed = Math.random() * 0.02 + 0.01;
+            this.pulsePhase = Math.random() * Math.PI * 2;
+            this.mass = this.radius * 0.5;
+        }
+
+        update(time) {
+            // Pulse effect
+            this.pulsePhase += this.pulseSpeed;
+            this.radius = this.baseRadius + Math.sin(this.pulsePhase) * 0.3;
+            this.alpha = this.baseAlpha + Math.sin(this.pulsePhase * 0.7) * 0.15;
+
+            // Mouse interaction
+            if (mouse.active) {
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < MOUSE_RADIUS) {
+                    const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS;
+                    const angle = Math.atan2(dy, dx);
+                    // Gentle attraction
+                    this.vx += Math.cos(angle) * force * MOUSE_FORCE * 0.02;
+                    this.vy += Math.sin(angle) * force * MOUSE_FORCE * 0.02;
+                    this.alpha = Math.min(1, this.baseAlpha + force * 0.4);
+                    this.radius = this.baseRadius + force * 1.5;
+                }
+            }
+
+            // Apply velocity with slight damping
+            this.vx *= 0.995;
+            this.vy *= 0.995;
+
+            // Add gentle drift
+            this.vx += (Math.random() - 0.5) * 0.01;
+            this.vy += (Math.random() - 0.5) * 0.01;
+
+            this.x += this.vx;
+            this.y += this.vy;
+
+            // Wrap around edges
+            if (this.x < -10) this.x = width + 10;
+            if (this.x > width + 10) this.x = -10;
+            if (this.y < -10) this.y = height + 10;
+            if (this.y > height + 10) this.y = -10;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.alpha})`;
+            ctx.fill();
+
+            // Glow effect for larger particles
+            if (this.radius > 1.2) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius * 3, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.alpha * 0.08})`;
+                ctx.fill();
+            }
+        }
+    }
+
+    function initParticles() {
+        particles = [];
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function drawConnections() {
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < CONNECTION_DISTANCE) {
+                    const opacity = (1 - dist / CONNECTION_DISTANCE) * 0.15;
+                    const avgColor = {
+                        r: (particles[i].color.r + particles[j].color.r) / 2,
+                        g: (particles[i].color.g + particles[j].color.g) / 2,
+                        b: (particles[i].color.b + particles[j].color.b) / 2
+                    };
+
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(${avgColor.r}, ${avgColor.g}, ${avgColor.b}, ${opacity})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+
+            // Connect to mouse
+            if (mouse.active) {
+                const dx = particles[i].x - mouse.x;
+                const dy = particles[i].y - mouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < MOUSE_RADIUS * 1.5) {
+                    const opacity = (1 - dist / (MOUSE_RADIUS * 1.5)) * 0.2;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(mouse.x, mouse.y);
+                    ctx.strokeStyle = `rgba(56, 189, 248, ${opacity})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function animate(time) {
+        ctx.clearRect(0, 0, width, height);
+
+        // Draw connections first (behind particles)
+        drawConnections();
+
+        // Update and draw particles
+        particles.forEach(p => {
+            p.update(time);
+            p.draw();
+        });
+
+        animationId = requestAnimationFrame(animate);
+    }
+
+    // Mouse events
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        mouse.active = true;
+    });
+
+    window.addEventListener('mouseleave', () => {
+        mouse.active = false;
+    });
+
+    // Touch support
+    window.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) {
+            mouse.x = e.touches[0].clientX;
+            mouse.y = e.touches[0].clientY;
+            mouse.active = true;
+        }
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+        mouse.active = false;
+    });
+
+    // Resize
+    window.addEventListener('resize', () => {
+        resize();
+        initParticles();
+    });
+
+    // Initialize
+    resize();
+    initParticles();
+    animate(0);
+})();
 
 // ============================================================
-// Core Site Interactions (preserved from original)
+// Core Site Interactions (Preserved from Original)
 // ============================================================
 
 (function() {
@@ -698,12 +2239,33 @@
 
     // SCROLL REVEAL
     function initScrollReveal() {
+        const revealElements = document.querySelectorAll('.reveal');
+        const staggerContainers = document.querySelectorAll('.stagger-children');
+
+        if (revealElements.length === 0 && staggerContainers.length === 0) return;
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) {
+            revealElements.forEach(el => el.classList.add('visible'));
+            staggerContainers.forEach(el => el.classList.add('visible'));
+            return;
+        }
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }, {
+            root: null,
+            rootMargin: '0px 0px -60px 0px',
+            threshold: 0.1
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+        staggerContainers.forEach(el => observer.observe(el));
     }
 
     // COUNT UP
@@ -753,6 +2315,18 @@
         toggle.addEventListener('click', () => isOpen ? close() : open());
         overlay.addEventListener('click', close);
         menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    }
+
+    // READING PROGRESS
+    function initReadingProgress() {
+        const progress = document.querySelector('.reading-progress');
+        if (!progress) return;
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = (scrollTop / docHeight) * 100;
+            progress.style.width = pct + '%';
+        }, { passive: true });
     }
 
     // DATA FRESHNESS
@@ -817,7 +2391,7 @@
             const grid = document.getElementById('home-articles-grid');
             if (!grid) return;
             grid.innerHTML = articles.map(a => `
-                <a href="articles/${a.slug}/index.html" class="article-card">
+                <a href="articles/${a.slug}/index.html" class="article-card glass-card">
                     <div class="article-tags">
                         ${a.tags.map(t => '<span class="article-tag">' + t + '</span>').join('')}
                     </div>
@@ -838,9 +2412,11 @@
         initCountUp();
         initHeaderScroll();
         initMobileMenu();
+        initReadingProgress();
     });
 })();
 </script>
-<script src="motion.js" defer></script>
+<script src="motion.js" defer=""></script>
+<div class="reading-progress"></div>
 </body>
 </html>
