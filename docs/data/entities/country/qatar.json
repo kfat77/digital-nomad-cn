@@ -1,0 +1,61 @@
+{
+  "id": "qatar",
+  "name": "卡塔尔",
+  "name_en": "Qatar",
+  "name_local": "قطر",
+  "code_iso_3166_1": "QA",
+  "code_iso_3166_3": "QAT",
+  "region": "middle_east",
+  "sub_region": "middle_east",
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": false,
+  "coordinates": {
+    "lat": 25.2854,
+    "lon": 51.531
+  },
+  "timezone": [
+    "Asia/Qatar"
+  ],
+  "currency": [
+    {
+      "code": "QAR",
+      "name": "卡塔尔里亚尔",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "ar",
+      "name": "阿拉伯语",
+      "is_official": true
+    },
+    {
+      "code": "en",
+      "name": "英语",
+      "is_official": false
+    }
+  ],
+  "population": 2700000,
+  "area_km2": 11586,
+  "gdp_per_capita_usd": 88000,
+  "hdi": 0.855,
+  "safety_index": 82,
+  "internet_speed_avg_mbps": 120,
+  "cost_of_living_index": 78,
+  "rent_index": 55,
+  "china_passport_visa_status": "visa_free",
+  "china_passport_visa_note": "中国公民免签入境30天",
+  "digital_nomad_score": 72,
+  "tags": [
+    "middle_east",
+    "luxury",
+    "modern",
+    "desert",
+    "safe"
+  ],
+  "status": "published",
+  "updated_at": "2026-07-05T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025",
+  "flag_emoji": "🇶🇦",
+  "chinese_passport_visa_status": "免签（30天）"
+}

@@ -34,10 +34,10 @@
   "area_km2": 505990,
   "gdp_per_capita_usd": 30000,
   "hdi": 0.905,
-  "safety_index": 70.0,
+  "safety_index": 70,
   "internet_speed_avg_mbps": 170,
-  "cost_of_living_index": 58.0,
-  "rent_index": 32.0,
+  "cost_of_living_index": 58,
+  "rent_index": 32,
   "china_passport_visa_status": "visa_required",
   "china_passport_visa_note": "数字游民签证、非盈利签证、黄金签证",
   "digital_nomad_score": 86,
@@ -50,6 +50,8 @@
     "europe"
   ],
   "status": "published",
-  "updated_at": "2026-01-15T00:00:00Z",
-  "source": "Numbeo 2026, World Bank 2025, Spain Immigration"
+  "updated_at": "2026-07-05T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025, Spain Immigration",
+  "flag_emoji": "🇪🇸",
+  "chinese_passport_visa_status": "需签证（申根）"
 }

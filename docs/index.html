@@ -3,17 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>数字游民指南 — 42国全球数字游民数据平台</title>
-    <meta name="description" content="面向中国用户的全球数字游民一站式数据平台，覆盖42个国家、50+签证类型、34个数字游民城市。提供生活成本、安全指数、网速评分、签证政策等结构化数据，以及国家对比、路线规划、搜索工具。">
-    <meta property="og:title" content="数字游民指南 — 42国全球数字游民数据平台">
-    <meta property="og:description" content="覆盖42个国家、50+签证类型、34个数字游民城市的结构化数据平台">
+    <title>数字游民指南 — 60国全球数字游民数据平台</title>
+    <meta name="description" content="面向中国用户的全球数字游民一站式数据平台，覆盖60个国家、50+签证类型、122个数字游民城市。提供生活成本、安全指数、网速评分、签证政策等结构化数据，以及国家对比、路线规划、搜索工具。">
+    <meta property="og:title" content="数字游民指南 — 60国全球数字游民数据平台">
+    <meta property="og:description" content="覆盖60个国家、50+签证类型、122个数字游民城市的结构化数据平台">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kfat77.github.io/digital-nomad-cn/">
     <meta property="og:image" content="https://kfat77.github.io/digital-nomad-cn/images/og/homepage.png">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <meta name="theme-color" content="#000000">
+    <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/">
+    <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/">
+    <link rel="alternate" type="application/rss+xml" title="数字游民指南 — RSS Feed" href="https://kfat77.github.io/digital-nomad-cn/rss.xml">
+    <link rel="stylesheet" href="style.css?v=2" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"数字游民指南是什么？","acceptedAnswer":{"@type":"Answer","text":"数字游民指南是一个面向中国用户的开源全球数字游民数据平台，覆盖60个国家、50+签证类型、122个数字游民城市，提供生活成本、安全指数、网速评分、签证政策等结构化数据。"}},
+    {"@type":"Question","name":"中国护照持有者可以去哪些国家做数字游民？","acceptedAnswer":{"@type":"Answer","text":"中国护照持有者可以选择免签国家（如泰国、格鲁吉亚、阿联酋等）、电子签国家（如越南、土耳其等），或申请数字游民签证（如葡萄牙、西班牙等21个国家提供）。"}},
+    {"@type":"Question","name":"数字游民的生活成本大概是多少？","acceptedAnswer":{"@type":"Answer","text":"根据目的地不同，数字游民月生活成本从500美元到5000美元以上不等。东南亚通常在800-1500美元/月，欧洲在1500-2500美元/月。"}},
+    {"@type":"Question","name":"什么是数字游民签证？","acceptedAnswer":{"@type":"Answer","text":"数字游民签证是一种允许远程工作者在外国长期居留的签证类型。目前全球有21个国家提供此类签证，通常要求稳定的远程收入来源。"}},
+    {"@type":"Question","name":"这个平台的数据是免费的吗？","acceptedAnswer":{"@type":"Answer","text":"是的，所有数据完全开源免费。项目采用CC BY-NC-SA 4.0协议共享数据，代码采用MIT协议。"}}
+  ]
+}</script>
 </head>
 <body>
     <!-- Header -->
@@ -27,25 +46,45 @@
                 <a href="country/">国家</a>
                 <a href="visa/">签证</a>
                 <a href="city/">城市</a>
+                <a href="articles/">文章</a>
                 <a href="compare/">对比</a>
                 <a href="routes/">路线</a>
                 <a href="search/">搜索</a>
+                <a href="assistant/">AI助手</a>
+                <a href="community/">社区</a>
+                <a href="faq/">FAQ</a>
+                <a href="dashboard/">数据</a>
+                <a href="recommend/">推荐</a>
                 <a href="#country-grid">国家库</a>
-                <a href="#tools">工具</a>
+                <a href="tools/">工具</a>
             </nav>
             <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
+                <span id="github-stars">Star</span>
             </a>
+            <a href="en/" class="github-btn" style="margin-left: 8px; background: #f5f5f5; color: #000000; padding: 6px 12px; border: 1px solid #e5e5e5; font-size: 0.875rem;">English</a><button class="theme-toggle" aria-label="切换主题" title="切换主题">🌙</button><button class="mobile-menu-btn" aria-label="打开菜单" aria-expanded="false">☰</button>
         </div>
     </header>
+
+    <script>
+        // Fetch GitHub star count
+        fetch('https://api.github.com/repos/kfat77/digital-nomad-cn')
+            .then(r => r.json())
+            .then(data => {
+                const stars = data.stargazers_count;
+                if (stars !== undefined) {
+                    document.getElementById('github-stars').textContent = `⭐ ${stars}`;
+                }
+            })
+            .catch(() => {});
+    </script>
 
     <!-- Hero -->
     <section class="hero" id="hero">
         <div class="hero-content">
             <div class="hero-tag">
                 <span class="hero-tag-dot"></span>
-                42 国 · 50+ 签证 · 34 城市 · 开源数据
+                60 国 · 50+ 签证 · 122 城市 · 开源数据
             </div>
             <h1 class="hero-title">
                 全球数字游民<br><span class="hero-title-accent">一站式数据平台</span>
@@ -53,21 +92,74 @@
             <p class="hero-desc">
                 面向中国用户的结构化数字游民数据库。生活成本、安全指数、网速评分、签证政策——所有数据开源、可对比、可搜索。
             </p>
+            <div class="share-target" style="margin-top: 16px;"></div>
             <div class="hero-btns">
-                <a href="#country-grid" class="btn btn-primary">探索 42 国</a>
+                <a href="#country-grid" class="btn btn-primary">探索 60 国</a>
                 <a href="compare/" class="btn btn-secondary">国家对比</a>
                 <a href="https://github.com/kfat77/digital-nomad-cn" class="btn btn-secondary" target="_blank">查看源码</a>
             </div>
+            <p class="hero-freshness" id="dataFreshness" style="margin-top:16px;font-size:13px;color:var(--muted);opacity:0.8;">数据加载中...</p>
         </div>
     </section>
+
+    <!-- 核心基础设施 -->
+    <section class="core-infra-section" id="core-infra">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">核心基础设施</span>
+                <h2 class="section-title">数字游民三大基石</h2>
+                <p class="section-desc">境外银行卡、海外电话卡、全球证券账户——数字游民出海必备的基础设施</p>
+            </div>
+            <div class="core-infra-grid">
+                <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/bank-cards" class="core-infra-card" target="_blank">
+                    <div class="core-infra-icon">💳</div>
+                    <h3>银行卡</h3>
+                    <p>香港汇丰/中银/众安/蚂蚁四卡策略，新加坡 OCBC 远程开户，澳门蚂蚁银行 0 门槛开户</p>
+                    <ul class="core-infra-list">
+                        <li>汇丰/中银/众安/蚂蚁四卡策略</li>
+                        <li>澳门蚂蚁银行 — 0门槛开户</li>
+                        <li>OCBC 新加坡远程开户</li>
+                        <li>Wise 多币种账户注册</li>
+                    </ul>
+                    <span class="core-infra-link">查看攻略 →</span>
+                </a>
+                <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/phone-cards" class="core-infra-card" target="_blank">
+                    <div class="core-infra-icon">📱</div>
+                    <h3>电话卡</h3>
+                    <p>海外实体卡与 eSIM 购买激活教程，低成本保号方案，全球漫游与接收验证码</p>
+                    <ul class="core-infra-list">
+                        <li>Giffgaff 英国卡完整指南</li>
+                        <li>Club SIM 每年仅 6 港币保号</li>
+                        <li>Ultra Mobile 美国保号方案</li>
+                        <li>eSIM 全球流量卡选购</li>
+                    </ul>
+                    <span class="core-infra-link">查看攻略 →</span>
+                </a>
+                <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/securities" class="core-infra-card" target="_blank">
+                    <div class="core-infra-icon">📈</div>
+                    <h3>证券账户</h3>
+                    <p>美股/港股/全球券商开户指南，入金路径规划，CRS 合规与税务优化</p>
+                    <ul class="core-infra-list">
+                        <li>盈透证券 20 分钟开户教程</li>
+                        <li>嘉信理财 0元开户，不走CRS</li>
+                        <li>FSMOne 内地用户可用方案</li>
+                        <li>券商入金最优路径</li>
+                    </ul>
+                    <span class="core-infra-link">查看攻略 →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
 
     <!-- 3D 交互地球 -->
     <section class="globe-section" id="globe">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">全球探索</span>
-                <h2 class="section-title">点击标记，探索全球数字游民目的地</h2>
-                <p class="section-desc">42 个国家与地区的数据标注，鼠标悬停高亮，点击查看完整攻略</p>
+                <h2 class="section-title">点击国家板块，探索全球数字游民目的地</h2>
+                <p class="section-desc">60 个国家与地区的真实地理轮廓，鼠标悬停高亮区域板块，点击进入完整国家数据页</p>
             </div>
             <div class="globe-container">
                 <div id="globe-canvas-wrapper"></div>
@@ -75,7 +167,7 @@
                 <div class="globe-overlay">
                     <div class="globe-hint">
                         <span class="globe-hint-icon">🖱️</span>
-                        <span>拖拽旋转 · 滚轮缩放 · 点击标记查看详情</span>
+                        <span>拖拽旋转 · 滚轮缩放 · 点击国家板块查看详情</span>
                     </div>
                 </div>
                 <div class="globe-sidebar" id="globeSidebar"></div>
@@ -101,7 +193,7 @@
     <section class="stats-bar">
         <div class="stats-grid">
             <div class="stat-item">
-                <div class="stat-num" data-count="42">0</div>
+                <div class="stat-num" data-count="60">0</div>
                 <div class="stat-label">个国家/地区</div>
                 <div class="stat-desc">结构化数据 + 评分体系</div>
             </div>
@@ -111,7 +203,7 @@
                 <div class="stat-desc">数字游民签证全覆盖</div>
             </div>
             <div class="stat-item">
-                <div class="stat-num" data-count="34">0</div>
+                <div class="stat-num" data-count="122">0</div>
                 <div class="stat-label">个数字游民城市</div>
                 <div class="stat-desc">生活成本、安全、网速</div>
             </div>
@@ -130,7 +222,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">国家数据库</span>
-                <h2 class="section-title">42 国数字游民目的地</h2>
+                <h2 class="section-title">60 国数字游民目的地</h2>
                 <p class="section-desc">按地区浏览，或按签证类型筛选。点击卡片查看完整国家数据页。</p>
             </div>
             
@@ -146,7 +238,7 @@
             
             <!-- Region Tabs -->
             <div class="region-tabs">
-                <button class="region-tab active" data-region="all">全部 <span>42</span></button>
+                <button class="region-tab active" data-region="all">全部 <span>60</span></button>
                 <button class="region-tab" data-region="asia">亚洲 <span>15</span></button>
                 <button class="region-tab" data-region="europe">欧洲 <span>17</span></button>
                 <button class="region-tab" data-region="americas_north">北美 <span>3</span></button>
@@ -255,7 +347,7 @@
                 <a href="https://github.com/kfat77/digital-nomad-cn" class="tool-card" target="_blank">
                     <span class="tool-icon">📊</span>
                     <h3>数据下载</h3>
-                    <p>42 国 JSON 原始数据，开放 API，自由使用与二次开发</p>
+                    <p>60 国 JSON 原始数据，开放 API，自由使用与二次开发</p>
                     <span class="tool-link">获取数据 →</span>
                 </a>
             </div>
@@ -383,13 +475,43 @@
         </div>
     </section>
 
+    <section class="latest-articles-section" id="latest-articles">
+        <div class="latest-articles-header">
+            <h2>📰 最新文章</h2>
+            <a href="articles/">查看全部 →</a>
+        </div>
+        <div class="articles-grid" id="home-articles-grid"></div>
+    </section>
+
+    <script>
+        fetch('articles/articles.json')
+            .then(r => r.json())
+            .then(articles => {
+                const grid = document.getElementById('home-articles-grid');
+                grid.innerHTML = articles.slice(0, 3).map(a => {
+                    const tags = a.tags.map(t => `<span class="article-tag">${t}</span>`).join('');
+                    return `
+                        <a href="articles/${a.slug}/" class="article-card">
+                            <div class="article-card-tags">${tags}</div>
+                            <h2>${a.title}</h2>
+                            <p>${a.description}</p>
+                            <div class="article-card-meta">${a.date}</div>
+                        </a>
+                    `;
+                }).join('');
+            })
+            .catch(() => {
+                document.getElementById('home-articles-grid').innerHTML = '';
+            });
+    </script>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-main">
             <div class="footer-brand">
                 <span class="logo-icon">◈</span>
                 <span class="logo-text">数字游民指南</span>
-                <p>面向中国国内用户的数字游民基础设施一站式攻略。42 国数据、50+ 签证、34 城市，全部开源。</p>
+                <p>面向中国国内用户的数字游民基础设施一站式攻略。60 国数据、50+ 签证、122 城市，全部开源。</p>
             </div>
             <div class="footer-links">
                 <div class="footer-col">
@@ -400,6 +522,9 @@
                     <a href="compare/">国家对比</a>
                     <a href="routes/">路线规划</a>
                     <a href="search/">搜索</a>
+                    <a href="assistant/">AI助手</a>
+                <a href="community/">社区</a>
+                    <a href="recommend/">推荐</a>
                 </div>
                 <div class="footer-col">
                     <h4>指南</h4>
@@ -415,17 +540,97 @@
                     <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub 仓库</a>
                     <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/CONTRIBUTING.md" target="_blank">贡献指南</a>
                     <a href="https://github.com/kfat77/digital-nomad-cn/issues" target="_blank">提交 Issue</a>
+                    <a href="api/">开放 API</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>本内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议共享</p>
+            <p>本内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议共享 · <a href="privacy/">隐私政策</a> · <a href="journey/">你的足迹</a></p>
             <p>内容仅供学习交流，不构成投资、法律或移民建议</p>
+            <p style="margin-top: 12px;">
+                <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank" style="background: #000; color: #fff; padding: 8px 16px; text-decoration: none; font-weight: 600; display: inline-block;">
+                    ⭐ 在 GitHub 上 Star 这个项目
+                </a>
+            </p>
         </div>
     </footer>
 
-    <script src="countries-data.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-    <script src="app.js"></script>
+    <script src="countries-data.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
+    <script src="app.js" defer></script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js').catch(() => {});
+        });
+    }
+    // Data freshness badge
+    (async function() {
+        try {
+            const res = await fetch('api/stats.json', {cache: 'no-cache'});
+            const data = await res.json();
+            const updated = data.updated_at || data.last_updated;
+            if (updated) {
+                const date = new Date(updated);
+                const str = date.toLocaleDateString('zh-CN', {year:'numeric', month:'long', day:'numeric'});
+                document.getElementById('dataFreshness').textContent = '数据更新于 ' + str;
+            }
+        } catch(e) {
+            document.getElementById('dataFreshness').textContent = '';
+        }
+    })();
+    </script>
+<script>
+    // Core Web Vitals observer
+    (function() {
+        if (!('PerformanceObserver' in window)) return;
+        const metrics = {};
+        function sendMetric(name, value) {
+            if (window.DNAnalytics) {
+                DNAnalytics.trackEvent('cwv', { metric: name, value: Math.round(value) });
+            }
+        }
+        try {
+            new PerformanceObserver(function(list) {
+                for (const entry of list.getEntries()) {
+                    if (entry.entryType === 'largest-contentful-paint') {
+                        metrics.lcp = entry.startTime;
+                        sendMetric('LCP', entry.startTime);
+                    }
+                    if (entry.entryType === 'layout-shift' && !entry.hadRecentInput) {
+                        metrics.cls = (metrics.cls || 0) + entry.value;
+                    }
+                    if (entry.entryType === 'first-input') {
+                        sendMetric('FID', entry.processingStart - entry.startTime);
+                    }
+                    if (entry.entryType === 'event') {
+                        const duration = entry.processingEnd - entry.startTime;
+                        if (!metrics.inp || duration > metrics.inp) metrics.inp = duration;
+                    }
+                }
+            }).observe({ type: 'largest-contentful-paint', buffered: true });
+            new PerformanceObserver(function(list) {
+                for (const entry of list.getEntries()) {
+                    if (entry.entryType === 'layout-shift' && !entry.hadRecentInput) {
+                        metrics.cls = (metrics.cls || 0) + entry.value;
+                    }
+                }
+            }).observe({ type: 'layout-shift', buffered: true });
+            new PerformanceObserver(function(list) {
+                for (const entry of list.getEntries()) {
+                    sendMetric('FID', entry.processingStart - entry.startTime);
+                }
+            }).observe({ type: 'first-input', buffered: true });
+            window.addEventListener('visibilitychange', function() {
+                if (document.visibilityState === 'hidden' && metrics.cls !== undefined) {
+                    sendMetric('CLS', Math.round(metrics.cls * 1000) / 1000);
+                }
+            });
+        } catch (e) {}
+    })();
+    </script>
+<script src="analytics.js" defer></script>
+<script src="share.js" defer></script>
+<script src="theme.js"></script>
 </body>
 </html>

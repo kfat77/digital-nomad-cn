@@ -1,0 +1,32 @@
+{
+  "id": "brno",
+  "name": "布尔诺",
+  "name_en": "Brno",
+  "country_id": "czech",
+  "country_name": "捷克",
+  "digital_nomad_score": 82,
+  "cost_of_living_index": 38,
+  "rent_index": 18,
+  "safety_index": 88,
+  "internet_speed_avg_mbps": 70,
+  "coworking_spaces": 30,
+  "coworking_score": 75,
+  "climate": "温带大陆",
+  "avg_temp_c": 10,
+  "rainy_season": "5-6月",
+  "english_level": "高",
+  "chinese_community_size": "小",
+  "neighborhoods": [
+    "市中心",
+    "Veveří"
+  ],
+  "food_scene": "传统捷克菜、啤酒",
+  "nightlife": "酒吧街、俱乐部",
+  "transportation": "电车/巴士",
+  "walkability": 85,
+  "bike_friendly": 80,
+  "description": "捷克第二城，科技中心，生活节奏比布拉格更慢。",
+  "status": "published",
+  "updated_at": "2026-07-06T00:00:00Z",
+  "source": "Numbeo 2026, Nomad List, Local Research"
+}

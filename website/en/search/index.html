@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search — 42 Countries + 34 Cities Digital Nomad Data</title>
+    <meta name="description" content="Search global digital nomad destinations, cities, and visa information. Fuzzy search across 76 country and city data points.">
+    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/en/search/">
+    <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/search/">
+    <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/search/">
+    <link rel="stylesheet" href="../../style.css?v=2">
+    <link rel="manifest" href="../../manifest.json">
+    <link rel="icon" type="image/svg+xml" href="../../icons/favicon.svg">
+    <link rel="apple-touch-icon" href="../../icons/icon-192.png">
+    <meta name="theme-color" content="#3b82f6">
+    <style>
+        .search-hero { background: var(--bg-hero); border-bottom: 1px solid var(--border); padding: 120px 0 60px; text-align: center; }
+        .search-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.03em; }
+        .search-hero p { color: var(--muted); max-width: 600px; margin: 0 auto 32px; font-size: 18px; }
+        .search-section { padding: 40px 24px; max-width: 900px; margin: 0 auto; }
+        .search-box { position: relative; margin-bottom: 24px; }
+        .search-box input { width: 100%; padding: 16px 24px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--bg); color: var(--foreground); font-size: 16px; outline: none; transition: var(--transition); font-family: var(--font-sans); }
+        .search-box input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-light); }
+        .search-box input::placeholder { color: var(--muted-light); }
+        .search-stats { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; color: var(--muted); font-size: 14px; }
+        .results { display: grid; gap: 12px; }
+        .result-card { display: flex; align-items: center; gap: 16px; padding: 16px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); transition: var(--transition); text-decoration: none; color: var(--foreground); }
+        .result-card:hover { box-shadow: var(--shadow-card-hover); border-color: var(--accent); transform: translateY(-2px); }
+        .result-icon { font-size: 28px; width: 50px; text-align: center; }
+        .result-body { flex: 1; }
+        .result-title { font-size: 16px; font-weight: 600; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+        .result-type { font-size: 11px; padding: 2px 8px; border-radius: var(--radius-full); background: var(--bg-card); color: var(--muted); text-transform: uppercase; }
+        .result-meta { font-size: 13px; color: var(--muted); display: flex; gap: 16px; flex-wrap: wrap; }
+        .result-score { font-size: 20px; font-weight: 800; color: var(--accent); min-width: 50px; text-align: right; }
+        .no-results { text-align: center; color: var(--muted); padding: 60px 20px; }
+        .filters { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+        .filter-btn { padding: 8px 16px; border-radius: var(--radius-full); border: 1px solid var(--border); background: var(--bg); color: var(--muted); font-size: 13px; cursor: pointer; transition: var(--transition); font-family: var(--font-sans); }
+        .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+        mark.highlight { background: var(--accent-light); color: var(--accent); border-radius: 3px; padding: 0 2px; }
+        @media (max-width: 640px) { .result-card { flex-direction: column; align-items: flex-start; } .result-score { text-align: left; } }
+    .lang-switch { margin-left: 12px; font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border-light); transition: all 0.2s; }
+    .lang-switch:hover { color: var(--foreground); background: var(--background-elevated); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../" class="logo"><span class="logo-icon">◈</span><span>Digital Nomad Guide</span></a>
+            <nav class="main-nav">
+                <a href="../">Home</a>
+                <a href="../countries/">Countries</a>
+                <a href="../visas/">Visas</a>
+                <a href="../cities/">Cities</a>
+                <a href="../articles/">Articles</a>
+                <a href="../compare/">Compare</a>
+                <a href="../routes/">Routes</a>
+                <a href="./">Search</a>
+                <a href="../assistant/">Assistant</a>
+                <a href="../recommend/">Recommend</a>
+            </nav>
+            <div class="header-actions">
+                <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
+                <a href="../../search/" class="lang-switch" title="Switch to Chinese">中文</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="search-hero">
+        <div class="hero-content">
+            <div class="hero-tag"><span class="hero-tag-dot"></span>Fuzzy Search · Keyword Matching</div>
+            <h1 class="hero-title">🔍 Global<br><span class="hero-title-accent">Data Search</span></h1>
+            <p class="hero-desc">Search countries, cities, and visa information — 76 data points in total</p>
+        </div>
+    </section>
+
+    <section class="search-section">
+        <div class="search-stats">
+            <span>🌍 42 Countries</span>
+            <span>🏙️ 34 Cities</span>
+        </div>
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="country">Countries</button>
+            <button class="filter-btn" data-filter="city">Cities</button>
+        </div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search countries, cities, or keywords... (e.g., Thailand, digital nomad visa, low cost)" autocomplete="off">
+        </div>
+        <div class="results" id="results"></div>
+    </section>
+
+    <footer class="footer" style="margin-top: 0;">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Digital Nomad Guide</span>
+                <p>42 countries, 50+ visas, 34 cities — all open source.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Core</h4>
+                    <a href="../countries/">Countries</a>
+                    <a href="../visas/">Visas</a>
+                    <a href="../cities/">Cities</a>
+                    <a href="../compare/">Compare</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Community</h4>
+                    <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a>
+                    <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> | For educational purposes only</p>
+        </div>
+    </footer>
+
+    <script>
+const SEARCH_INDEX = [
+{"id": "denmark", "title": "Denmark", "subtitle": "丹麦", "type": "country", "url": "country/denmark/index.html", "score": 77, "tags": "北欧, 申根, 自行车, 乐高, hygge", "region": "europe", "visa": "visa_required", "cost": 82, "safety": 84, "internet": 150},
+{"id": "croatia", "title": "Croatia", "subtitle": "克罗地亚", "type": "country", "url": "country/croatia/index.html", "score": 75, "tags": "申根区, 地中海, 数字游民签证, 海滨生活, 欧盟", "region": "europe", "visa": "evisa", "cost": 48, "safety": 78, "internet": 55},
+{"id": "iceland", "title": "Iceland", "subtitle": "冰岛", "type": "country", "url": "country/iceland/index.html", "score": 78, "tags": "北欧, 数字游民签证, 极光, 火山, 温泉", "region": "europe", "visa": "visa_required", "cost": 85, "safety": 88, "internet": 200},
+{"id": "canada", "title": "Canada", "subtitle": "加拿大", "type": "country", "url": "country/canada/index.html", "score": 77, "tags": "english, immigration_friendly, nature, americas, high_quality", "region": "americas_north", "visa": "visa_required", "cost": 75.0, "safety": 65.0, "internet": 170},
+{"id": "indonesia", "title": "Indonesia", "subtitle": "印度尼西亚", "type": "country", "url": "country/indonesia/index.html", "score": 76, "tags": "东南亚, 海岛, 低成本, 数字游民签证, 冲浪", "region": "asia", "visa": "evisa", "cost": 32, "safety": 58, "internet": 25},
+{"id": "kazakhstan", "title": "Kazakhstan", "subtitle": "哈萨克斯坦", "type": "country", "url": "country/kazakhstan/index.html", "score": 75, "tags": "中亚, 免签, 丝绸之路, 草原, 航天", "region": "asia", "visa": "visa_free", "cost": 30, "safety": 72, "internet": 40},
+{"id": "turkey", "title": "Turkey", "subtitle": "土耳其", "type": "country", "url": "country/turkey/index.html", "score": 74, "tags": "欧亚, 数字游民签证, 历史, 美食, 海滩", "region": "europe", "visa": "evisa", "cost": 32, "safety": 50, "internet": 35},
+{"id": "cyprus", "title": "Cyprus", "subtitle": "塞浦路斯", "type": "country", "url": "country/cyprus/index.html", "score": 80, "tags": "欧盟, 地中海, 数字游民签证, 税务优惠, 海岛", "region": "europe", "visa": "evisa", "cost": 55, "safety": 82, "internet": 50},
+{"id": "mexico", "title": "Mexico", "subtitle": "墨西哥", "type": "country", "url": "country/mexico/index.html", "score": 72, "tags": "北美, 低成本, 数字游民社区, 海滨生活, 美食", "region": "americas_north", "visa": "evisa", "cost": 38, "safety": 45, "internet": 40},
+{"id": "austria", "title": "Austria", "subtitle": "奥地利", "type": "country", "url": "country/austria/index.html", "score": 76, "tags": "欧洲, 申根, 数字游民签证, 阿尔卑斯, 音乐", "region": "europe", "visa": "visa_required", "cost": 70, "safety": 83, "internet": 80},
+{"id": "nepal", "title": "Nepal", "subtitle": "尼泊尔", "type": "country", "url": "country/nepal/index.html", "score": 71, "tags": "南亚, 免签, 喜马拉雅, 徒步, 佛教", "region": "asia", "visa": "visa_free", "cost": 22, "safety": 65, "internet": 15},
+{"id": "brazil", "title": "Brazil", "subtitle": "巴西", "type": "country", "url": "country/brazil/index.html", "score": 70, "tags": "南美, 数字游民签证, 海滩, 桑巴, 足球", "region": "americas_south", "visa": "visa_required", "cost": 40, "safety": 42, "internet": 55},
+{"id": "greece", "title": "Greece", "subtitle": "希腊", "type": "country", "url": "country/greece/index.html", "score": 78, "tags": "申根区, 地中海, 数字游民签证, 欧盟, 海岛", "region": "europe", "visa": "visa_required", "cost": 52, "safety": 76, "internet": 45},
+{"id": "germany", "title": "Germany", "subtitle": "德国", "type": "country", "url": "country/germany/index.html", "score": 78, "tags": "eu, high_quality, startup, strong_economy, europe", "region": "europe", "visa": "visa_required", "cost": 72.0, "safety": 75.0, "internet": 120},
+{"id": "norway", "title": "Norway", "subtitle": "挪威", "type": "country", "url": "country/norway/index.html", "score": 80, "tags": "北欧, 数字游民签证, 极光, 峡湾, 高福利", "region": "europe", "visa": "visa_required", "cost": 88, "safety": 85, "internet": 180},
+{"id": "morocco", "title": "Morocco", "subtitle": "摩洛哥", "type": "country", "url": "country/morocco/index.html", "score": 76, "tags": "非洲, 免签, 撒哈拉, 古城, 冲浪", "region": "africa", "visa": "visa_free", "cost": 30, "safety": 58, "internet": 25},
+{"id": "srilanka", "title": "Sri Lanka", "subtitle": "斯里兰卡", "type": "country", "url": "country/srilanka/index.html", "score": 73, "tags": "南亚, 数字游民签证, 茶园, 佛教, 海滩", "region": "asia", "visa": "evisa", "cost": 25, "safety": 60, "internet": 20},
+{"id": "singapore", "title": "Singapore", "subtitle": "新加坡", "type": "country", "url": "country/singapore/index.html", "score": 88, "tags": "financial_hub, startup_hub, asia, safe, english", "region": "asia", "visa": "visa_required", "cost": 95.0, "safety": 91.0, "internet": 280},
+{"id": "newzealand", "title": "New Zealand", "subtitle": "新西兰", "type": "country", "url": "country/newzealand/index.html", "score": 76, "tags": "english, nature, whv, oceania, work_life_balance", "region": "oceania", "visa": "visa_required", "cost": 78.0, "safety": 70.0, "internet": 150},
+{"id": "japan", "title": "Japan", "subtitle": "日本", "type": "country", "url": "country/japan/index.html", "score": 87, "tags": "culture, safe, high_quality, nomad_visa, asia", "region": "asia", "visa": "visa_required", "cost": 85.0, "safety": 92.0, "internet": 185},
+{"id": "chile", "title": "Chile", "subtitle": "智利", "type": "country", "url": "country/chile/index.html", "score": 72, "tags": "南美, 数字游民签证, 葡萄酒, 安第斯山脉, 滑雪", "region": "americas_south", "visa": "visa_required", "cost": 45, "safety": 55, "internet": 80},
+{"id": "georgia", "title": "Georgia", "subtitle": "格鲁吉亚", "type": "country", "url": "country/georgia/index.html", "score": 82, "tags": "免签, 低成本, 欧洲风情, 高加索, 葡萄酒", "region": "asia", "visa": "visa_free", "cost": 28, "safety": 72, "internet": 35},
+{"id": "france", "title": "France", "subtitle": "法国", "type": "country", "url": "country/france/index.html", "score": 77, "tags": "eu, culture, art, startup, europe", "region": "europe", "visa": "visa_required", "cost": 75.0, "safety": 65.0, "internet": 130},
+{"id": "thailand", "title": "Thailand", "subtitle": "泰国", "type": "country", "url": "country/thailand/index.html", "score": 85, "tags": "cheap, friendly, nomad_hub, tropical, nomad_visa", "region": "asia", "visa": "visa_free", "cost": 45.0, "safety": 65.0, "internet": 200},
+{"id": "australia", "title": "Australia", "subtitle": "澳大利亚", "type": "country", "url": "country/australia/index.html", "score": 78, "tags": "english, high_quality, nature, whv, oceania", "region": "oceania", "visa": "visa_required", "cost": 82.0, "safety": 75.0, "internet": 80},
+{"id": "macao", "title": "Macao", "subtitle": "澳门", "type": "country", "url": "country/macao/index.html", "score": 65, "tags": "casino, tax_haven, asia, free_port", "region": "asia", "visa": "visa_required", "cost": 70.0, "safety": 85.0, "internet": 180},
+{"id": "ireland", "title": "Ireland", "subtitle": "爱尔兰", "type": "country", "url": "country/ireland/index.html", "score": 76, "tags": "欧洲, 数字游民签证, 英语, 翡翠岛, 啤酒", "region": "europe", "visa": "visa_required", "cost": 78, "safety": 82, "internet": 120},
+{"id": "estonia", "title": "Estonia", "subtitle": "爱沙尼亚", "type": "country", "url": "country/estonia/index.html", "score": 80, "tags": "digital, e_residency, eu, nomad_visa, startup, europe", "region": "europe", "visa": "evisa", "cost": 60.0, "safety": 78.0, "internet": 100},
+{"id": "switzerland", "title": "Switzerland", "subtitle": "瑞士", "type": "country", "url": "country/switzerland/index.html", "score": 75, "tags": "欧洲, 申根, 阿尔卑斯, 滑雪, 高福利", "region": "europe", "visa": "visa_required", "cost": 95, "safety": 88, "internet": 170},
+{"id": "usa", "title": "United States", "subtitle": "美国", "type": "country", "url": "country/usa/index.html", "score": 72, "tags": "startup_hub, high_salary, diverse, americas", "region": "americas_north", "visa": "visa_required", "cost": 88.0, "safety": 50.0, "internet": 250},
+{"id": "uk", "title": "United Kingdom", "subtitle": "英国", "type": "country", "url": "country/uk/index.html", "score": 75, "tags": "english, financial_hub, culture, europe", "region": "europe", "visa": "visa_required", "cost": 80.0, "safety": 60.0, "internet": 110},
+{"id": "netherlands", "title": "Netherlands", "subtitle": "荷兰", "type": "country", "url": "country/netherlands/index.html", "score": 82, "tags": "eu, english_friendly, startup, bike, europe", "region": "europe", "visa": "visa_required", "cost": 78.0, "safety": 72.0, "internet": 180},
+{"id": "philippines", "title": "Philippines", "subtitle": "菲律宾", "type": "country", "url": "country/philippines/index.html", "score": 74, "tags": "东南亚, 英语, 低成本, 海岛, 潜水", "region": "asia", "visa": "visa_required", "cost": 35, "safety": 55, "internet": 30},
+{"id": "portugal", "title": "Portugal", "subtitle": "葡萄牙", "type": "country", "url": "country/portugal/index.html", "score": 88, "tags": "cheap, eu, nomad_visa, sunny, safe, europe", "region": "europe", "visa": "visa_required", "cost": 55.0, "safety": 72.0, "internet": 150},
+{"id": "mongolia", "title": "Mongolia", "subtitle": "蒙古", "type": "country", "url": "country/mongolia/index.html", "score": 72, "tags": "东亚, 免签, 数字游民签证, 草原, 游牧文化", "region": "asia", "visa": "visa_free", "cost": 28, "safety": 70, "internet": 20},
+{"id": "spain", "title": "Spain", "subtitle": "西班牙", "type": "country", "url": "country/spain/index.html", "score": 86, "tags": "cheap, eu, nomad_visa, sunny, culture, europe", "region": "europe", "visa": "visa_required", "cost": 58.0, "safety": 70.0, "internet": 170},
+{"id": "vietnam", "title": "Vietnam", "subtitle": "越南", "type": "country", "url": "country/vietnam/index.html", "score": 75, "tags": "cheap, startup_hub, growing, asia", "region": "asia", "visa": "evisa", "cost": 35.0, "safety": 60.0, "internet": 120},
+{"id": "argentina", "title": "Argentina", "subtitle": "阿根廷", "type": "country", "url": "country/argentina/index.html", "score": 68, "tags": "南美, 探戈, 低成本, 牛排, 足球", "region": "americas_south", "visa": "evisa", "cost": 35, "safety": 45, "internet": 30},
+{"id": "uae", "title": "United Arab Emirates", "subtitle": "阿联酋", "type": "country", "url": "country/uae/index.html", "score": 85, "tags": "tax_free, luxury, modern, nomad_visa, middle_east", "region": "middle_east", "visa": "visa_free", "cost": 70.0, "safety": 88.0, "internet": 300},
+{"id": "southkorea", "title": "South Korea", "subtitle": "韩国", "type": "country", "url": "country/southkorea/index.html", "score": 80, "tags": "technology, fast_internet, culture, nomad_visa, asia", "region": "asia", "visa": "visa_required", "cost": 78.0, "safety": 88.0, "internet": 220},
+{"id": "hongkong", "title": "Hong Kong", "subtitle": "香港", "type": "country", "url": "country/hongkong/index.html", "score": 82, "tags": "financial_hub, asia, gateway, no_tax_on_foreign_income", "region": "asia", "visa": "visa_required", "cost": 85.0, "safety": 78.3, "internet": 250},
+{"id": "malaysia", "title": "Malaysia", "subtitle": "马来西亚", "type": "country", "url": "country/malaysia/index.html", "score": 78, "tags": "cheap, english, multicultural, mm2h, asia", "region": "asia", "visa": "visa_free", "cost": 40.0, "safety": 55.0, "internet": 150},
+{"id": "armenia", "title": "Armenia", "subtitle": "亚美尼亚", "type": "country", "url": "country/armenia/index.html", "score": 71, "tags": "asia, cheap, history, mountains, culture", "region": "asia", "visa": "visa_free", "cost": 38.0, "safety": 70.0, "internet": 60},
+{"id": "azerbaijan", "title": "Azerbaijan", "subtitle": "阿塞拜疆", "type": "country", "url": "country/azerbaijan/index.html", "score": 69, "tags": "asia, cheap, oil, modern, culture", "region": "asia", "visa": "evisa", "cost": 42.0, "safety": 68.0, "internet": 55},
+{"id": "bulgaria", "title": "Bulgaria", "subtitle": "保加利亚", "type": "country", "url": "country/bulgaria/index.html", "score": 73, "tags": "cheap, eu, nature, history, mountains, europe", "region": "europe", "visa": "visa_required", "cost": 40.0, "safety": 65.0, "internet": 90},
+{"id": "colombia", "title": "Colombia", "subtitle": "哥伦比亚", "type": "country", "url": "country/colombia/index.html", "score": 70, "tags": "americas, cheap, coffee, nature, nomad_hub", "region": "americas_south", "visa": "visa_required", "cost": 40.0, "safety": 50.0, "internet": 65},
+{"id": "czech", "title": "Czech Republic", "subtitle": "捷克", "type": "country", "url": "country/czech/index.html", "score": 78, "tags": "cheap, eu, culture, history, beer, europe", "region": "europe", "visa": "visa_required", "cost": 55.0, "safety": 75.0, "internet": 120},
+{"id": "egypt", "title": "Egypt", "subtitle": "埃及", "type": "country", "url": "country/egypt/index.html", "score": 63, "tags": "africa, history, ancient, cheap, culture", "region": "africa", "visa": "evisa", "cost": 30.0, "safety": 52.0, "internet": 45},
+{"id": "ghana", "title": "Ghana", "subtitle": "加纳", "type": "country", "url": "country/ghana/index.html", "score": 62, "tags": "africa, culture, friendly, beach, gold", "region": "africa", "visa": "visa_required", "cost": 38.0, "safety": 60.0, "internet": 35},
+{"id": "hungary", "title": "Hungary", "subtitle": "匈牙利", "type": "country", "url": "country/hungary/index.html", "score": 80, "tags": "cheap, eu, culture, thermal_baths, nomad_visa, europe", "region": "europe", "visa": "visa_required", "cost": 48.0, "safety": 70.0, "internet": 110},
+{"id": "india", "title": "India", "subtitle": "印度", "type": "country", "url": "country/india/index.html", "score": 64, "tags": "asia, cheap, tech, culture, food", "region": "asia", "visa": "evisa", "cost": 28.0, "safety": 55.0, "internet": 50},
+{"id": "israel", "title": "Israel", "subtitle": "以色列", "type": "country", "url": "country/israel/index.html", "score": 75, "tags": "middle_east, startup, tech, beach, innovation", "region": "middle_east", "visa": "visa_required", "cost": 80.0, "safety": 65.0, "internet": 130},
+{"id": "kenya", "title": "Kenya", "subtitle": "肯尼亚", "type": "country", "url": "country/kenya/index.html", "score": 65, "tags": "africa, nature, safari, wildlife, adventure", "region": "africa", "visa": "evisa", "cost": 35.0, "safety": 50.0, "internet": 40},
+{"id": "peru", "title": "Peru", "subtitle": "秘鲁", "type": "country", "url": "country/peru/index.html", "score": 68, "tags": "americas, cheap, history, mountains, food", "region": "americas_south", "visa": "visa_required", "cost": 38.0, "safety": 55.0, "internet": 55},
+{"id": "poland", "title": "Poland", "subtitle": "波兰", "type": "country", "url": "country/poland/index.html", "score": 76, "tags": "cheap, eu, culture, history, startup, europe", "region": "europe", "visa": "visa_required", "cost": 45.0, "safety": 72.0, "internet": 100},
+{"id": "qatar", "title": "Qatar", "subtitle": "卡塔尔", "type": "country", "url": "country/qatar/index.html", "score": 72, "tags": "middle_east, luxury, modern, desert, safe", "region": "middle_east", "visa": "visa_free", "cost": 78.0, "safety": 82.0, "internet": 120},
+{"id": "romania", "title": "Romania", "subtitle": "罗马尼亚", "type": "country", "url": "country/romania/index.html", "score": 74, "tags": "cheap, eu, nature, history, mountains, europe", "region": "europe", "visa": "visa_required", "cost": 42.0, "safety": 68.0, "internet": 95},
+{"id": "south_africa", "title": "South Africa", "subtitle": "南非", "type": "country", "url": "country/south_africa/index.html", "score": 68, "tags": "africa, nature, beach, wine, adventure", "region": "africa", "visa": "visa_required", "cost": 45.0, "safety": 55.0, "internet": 50},
+{"id": "sweden", "title": "Sweden", "subtitle": "瑞典", "type": "country", "url": "country/sweden/index.html", "score": 79, "tags": "high_quality, eu, nature, innovation, safe, europe", "region": "europe", "visa": "visa_required", "cost": 85.0, "safety": 80.0, "internet": 140},
+{"id": "uzbekistan", "title": "Uzbekistan", "subtitle": "乌兹别克斯坦", "type": "country", "url": "country/uzbekistan/index.html", "score": 66, "tags": "asia, cheap, silk_road, history, culture", "region": "asia", "visa": "visa_free", "cost": 32.0, "safety": 72.0, "internet": 45}
+];
+    const fuseOptions = {
+        keys: [{ name: 'title', weight: 0.5 }, { name: 'subtitle', weight: 0.3 }, { name: 'tags', weight: 0.15 }, { name: 'region', weight: 0.05 }],
+        threshold: 0.4, includeScore: true, includeMatches: true,
+    };
+    let fuse = null; let currentFilter = 'all';
+    function initFuse() {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js';
+        script.onload = () => {
+            fuse = new Fuse(SEARCH_INDEX, fuseOptions);
+            const urlParams = new URLSearchParams(window.location.search);
+            const q = urlParams.get('q');
+            if (q) { document.getElementById('searchInput').value = q; doSearch(q); }
+        };
+        document.head.appendChild(script);
+    }
+    function getTypeIcon(type) { return type === 'country' ? '🌍' : '🏙️'; }
+    function getTypeLabel(type) { return type === 'country' ? 'Country' : 'City'; }
+    function highlightText(text, matches) {
+        if (!matches || matches.length === 0) return text;
+        let result = text;
+        const indices = [];
+        for (const m of matches) { for (const [start, end] of m.indices) { indices.push({start, end}); } }
+        indices.sort((a,b) => b.start - a.start);
+        for (const {start, end} of indices) {
+            result = result.slice(0, start) + '<mark class="highlight">' + result.slice(start, end + 1) + '</mark>' + result.slice(end + 1);
+        }
+        return result;
+    }
+    function doSearch(query) {
+        const resultsDiv = document.getElementById('results');
+        if (!query.trim()) { resultsDiv.innerHTML = '<div class="no-results">Enter keywords to start searching</div>'; return; }
+        if (!fuse) return;
+        const results = fuse.search(query).slice(0, 20);
+        if (results.length === 0) { resultsDiv.innerHTML = '<div class="no-results">No matching results found. Try different keywords.</div>'; return; }
+        let html = '';
+        for (const r of results) {
+            const item = r.item;
+            if (currentFilter !== 'all' && item.type !== currentFilter) continue;
+            // For English: subtitle is English name, title is Chinese name
+            const titleEn = highlightText(item.subtitle, r.matches?.filter(m => m.key === 'subtitle'));
+            const titleZh = highlightText(item.title, r.matches?.filter(m => m.key === 'title'));
+            html += `<a href="../../${item.url}" class="result-card">
+                <div class="result-icon">${getTypeIcon(item.type)}</div>
+                <div class="result-body">
+                    <div class="result-title">${titleEn} <span class="result-type">${getTypeLabel(item.type)}</span></div>
+                    <div class="result-meta">${titleZh ? titleZh + ' · ' : ''}💰 ${item.cost} · 🛡️ ${item.safety} · 🌐 ${item.internet}Mbps${item.tags ? ' · ' + item.tags : ''}</div>
+                </div>
+                <div class="result-score">${item.score}</div>
+            </a>`;
+        }
+        resultsDiv.innerHTML = html || '<div class="no-results">No matches under current filter</div>';
+    }
+    document.getElementById('searchInput').addEventListener('input', (e) => { doSearch(e.target.value); });
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentFilter = btn.dataset.filter;
+            doSearch(document.getElementById('searchInput').value);
+        });
+    });
+    initFuse();
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('../../sw.js').catch(() => {});
+        });
+    }
+    </script>
+</body>
+</html>

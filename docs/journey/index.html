@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你的足迹 — 数字游民指南</title>
+    <meta name="description" content="查看你在数字游民指南上的浏览足迹，完全本地存储，隐私优先。">
+    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/journey/">
+    <link rel="stylesheet" href="../style.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../" class="logo">
+                <span class="logo-icon">◈</span>
+                <span>数字游民指南</span>
+            </a>
+            <nav class="main-nav">
+                <a href="../country/">国家</a>
+                <a href="../visa/">签证</a>
+                <a href="../city/">城市</a>
+                <a href="../articles/">文章</a>
+                <a href="../compare/">对比</a>
+                <a href="../routes/">路线</a>
+                <a href="../search/">搜索</a>
+                <a href="../assistant/">AI助手</a>
+                <a href="../community/">社区</a>
+            </nav>
+            <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
+            <button class="theme-toggle" aria-label="切换主题" title="切换主题">🌙</button>
+        </div>
+    </header>
+
+    <main style="padding: 120px 24px 80px; max-width: 900px; margin: 0 auto;">
+        <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; text-align: center;">👣 你的足迹</h1>
+        <p style="text-align: center; color: var(--muted); margin-bottom: 3rem;">这些数据仅存储在你的浏览器中，永远不会上传到任何服务器</p>
+
+        <div id="stats-container">
+            <div style="text-align: center; padding: 60px 24px; color: var(--muted);">
+                <p>正在加载你的本地数据...</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <button id="clear-btn" class="btn btn-secondary" style="display: none;">清除所有足迹数据</button>
+        </div>
+    </main>
+
+    <footer class="footer" style="margin-top: 60px;">
+        <div class="footer-inner" style="max-width: 1200px; margin: 0 auto; padding: 40px 24px; text-align: center;">
+            <p> 数字游民指南 · 开源全球流动数据平台</p>
+            <p><a href="https://github.com/kfat77/digital-nomad-cn">GitHub</a> · <a href="../">首页</a> · <a href="../privacy/">隐私政策</a></p>
+        </div>
+    </footer>
+
+    <script src="../theme.js"></script>
+    <script>
+    (function() {
+        const container = document.getElementById('stats-container');
+        const clearBtn = document.getElementById('clear-btn');
+
+        function render() {
+            const raw = localStorage.getItem('dn-local-metrics');
+            if (!raw) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 60px 24px; background: var(--bg-card); border: 1px dashed var(--border); border-radius: var(--radius);">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">📭</div>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">暂无足迹数据</h3>
+                        <p style="color: var(--muted);">浏览更多页面后，你的足迹将显示在这里</p>
+                    </div>
+                `;
+                clearBtn.style.display = 'none';
+                return;
+            }
+
+            try {
+                const data = JSON.parse(raw);
+                const events = data.events || [];
+                const pageviews = events.filter(e => e.event === 'pageview');
+                const countries = events.filter(e => e.event === 'country_click').map(e => e.data?.country).filter(Boolean);
+                const searches = events.filter(e => e.event === 'search');
+                const uniquePaths = [...new Set(pageviews.map(e => e.data?.path).filter(Boolean))];
+
+                const countryCounts = {};
+                countries.forEach(c => { countryCounts[c] = (countryCounts[c] || 0) + 1; });
+                const topCountries = Object.entries(countryCounts).sort((a,b) => b[1]-a[1]).slice(0,5);
+
+                const since = data.since ? new Date(data.since).toLocaleDateString('zh-CN') : '未知';
+
+                container.innerHTML = `
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--accent);">${pageviews.length}</div>
+                            <div style="font-size: 0.85rem; color: var(--muted);">页面浏览</div>
+                        </div>
+                        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--accent);">${uniquePaths.length}</div>
+                            <div style="font-size: 0.85rem; color: var(--muted);">浏览过的页面</div>
+                        </div>
+                        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--accent);">${countries.length}</div>
+                            <div style="font-size: 0.85rem; color: var(--muted);">国家点击</div>
+                        </div>
+                        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--accent);">${searches.length}</div>
+                            <div style="font-size: 0.85rem; color: var(--muted);">搜索次数</div>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem;">
+                            <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">📍 最近浏览的页面</h3>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                ${uniquePaths.slice(-5).reverse().map(p => `<li style="padding: 6px 0; border-bottom: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; word-break: break-all;">${p}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem;">
+                            <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">🌍 最感兴趣的国家</h3>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                ${topCountries.length ? topCountries.map(([c,n]) => `<li style="padding: 6px 0; border-bottom: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between;"><span>${c}</span><span style="color: var(--accent); font-weight: 600;">${n}</span></li>`).join('') : '<li style="color: var(--muted);">暂无数据</li>'}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p style="text-align: center; color: var(--muted-light); font-size: 0.8rem; margin-top: 1.5rem;">数据始于 ${since}</p>
+                `;
+                clearBtn.style.display = 'inline-block';
+            } catch (e) {
+                container.innerHTML = `<p style="text-align: center; color: var(--danger);">数据解析错误</p>`;
+            }
+        }
+
+        render();
+
+        clearBtn.addEventListener('click', function() {
+            if (confirm('确定要清除所有本地足迹数据吗？此操作不可撤销。')) {
+                localStorage.removeItem('dn-local-metrics');
+                render();
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

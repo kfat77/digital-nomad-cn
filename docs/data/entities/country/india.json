@@ -1,0 +1,61 @@
+{
+  "id": "india",
+  "name": "印度",
+  "name_en": "India",
+  "name_local": "भारत",
+  "code_iso_3166_1": "IN",
+  "code_iso_3166_3": "IND",
+  "region": "asia",
+  "sub_region": "south_asia",
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": false,
+  "coordinates": {
+    "lat": 28.6139,
+    "lon": 77.209
+  },
+  "timezone": [
+    "Asia/Kolkata"
+  ],
+  "currency": [
+    {
+      "code": "INR",
+      "name": "印度卢比",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "hi",
+      "name": "印地语",
+      "is_official": true
+    },
+    {
+      "code": "en",
+      "name": "英语",
+      "is_official": true
+    }
+  ],
+  "population": 1400000000,
+  "area_km2": 3287263,
+  "gdp_per_capita_usd": 2500,
+  "hdi": 0.644,
+  "safety_index": 55,
+  "internet_speed_avg_mbps": 50,
+  "cost_of_living_index": 28,
+  "rent_index": 8,
+  "china_passport_visa_status": "evisa",
+  "china_passport_visa_note": "电子签e-Visa可在线申请",
+  "digital_nomad_score": 64,
+  "tags": [
+    "asia",
+    "cheap",
+    "tech",
+    "culture",
+    "food"
+  ],
+  "status": "published",
+  "updated_at": "2026-07-05T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025",
+  "flag_emoji": "🇮🇳",
+  "chinese_passport_visa_status": "电子签（60天）"
+}

@@ -3,457 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>数字游民签证数据库 - 20+国家签证完全指南</title>
-    <meta name="description" content="面向中国护照的数字游民签证数据库：20+国家签证类型、数字游民签证、申请条件、费用、材料清单、官方链接全覆盖。">
-    <meta name="keywords" content="数字游民签证, 中国护照签证, 数字游民签证申请, 远程工作签证, 全球数字游民签证">
-    <meta property="og:title" content="数字游民签证数据库 - 20+国家签证指南">
-    <meta property="og:description" content="中国护照持有者的全球签证攻略：免签、电子签、数字游民签证、工作签证全解析。">
+    <title>签证数据库 — 42国数字游民签证完全指南</title>
+    <meta name="description" content="面向中国护照的数字游民签证数据库：42个国家签证类型、数字游民签证、申请条件、费用、材料清单全覆盖。">
     <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/visa/">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/visa/">
+    <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/visas/">
+    <link rel="stylesheet" href="../style.css?v=2">
     <style>
-        .visa-hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: white; padding: 80px 20px 40px; text-align: center; }
-        .visa-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .visa-hero p { opacity: 0.9; max-width: 600px; margin: 0 auto; }
-        .stats-bar { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
-        .stats-bar .item { text-align: center; }
-        .stats-bar .value { font-size: 1.5rem; font-weight: 700; }
-        .stats-bar .label { font-size: 0.8rem; opacity: 0.8; }
-        .filters { background: #f8fafc; padding: 20px; border-bottom: 1px solid #e2e8f0; }
-        .filters-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; align-items: center; }
-        .filters select, .filters input { padding: 0.6rem 1rem; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.9rem; background: white; }
-        .country-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
-        .highlight-section { background: #f0fdf4; padding: 40px 20px; max-width: 1200px; margin: 0 auto; border-radius: 12px; }
-        .highlight-section h2 { color: #166534; text-align: center; margin-bottom: 1.5rem; }
-        .dn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
-        .dn-card { background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; }
-        .dn-card h4 { margin: 0 0 0.5rem; color: #1e293b; }
-        .dn-card a { color: #166534; text-decoration: none; font-weight: 600; }
+        .visa-hero { background: var(--bg-hero); border-bottom: 1px solid var(--border); padding: 120px 0 60px; text-align: center; }
+        .visa-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.03em; }
+        .visa-hero p { color: var(--muted); max-width: 600px; margin: 0 auto 24px; font-size: 18px; }
+        .visa-stats { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+        .visa-stats .item { text-align: center; }
+        .visa-stats .value { font-size: 32px; font-weight: 700; color: var(--foreground); }
+        .visa-stats .label { font-size: 14px; color: var(--muted); }
     </style>
 </head>
 <body>
-    <nav style="padding: 1rem 20px; max-width: 1200px; margin: 0 auto; font-size: 0.9rem; color: #64748b;">
-        <a href="../" style="color: #2563eb; text-decoration: none;">首页</a> › 签证数据库
-    </nav>
-    
-    <header class="visa-hero">
-        <h1>🛂 数字游民签证数据库</h1>
-        <p>20+ 个国家的签证完全指南，中国护照持有者的全球签证攻略</p>
-        <div class="stats-bar">
-            <div class="item"><div class="value">20</div><div class="label">覆盖国家</div></div>
-            <div class="item"><div class="value">7</div><div class="label">数字游民签证</div></div>
-            <div class="item"><div class="value">3</div><div class="label">免签</div></div>
-            <div class="item"><div class="value">50+</div><div class="label">签证类型</div></div>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../" class="logo"><span class="logo-icon">◈</span><span>数字游民指南</span></a>
+            <nav class="main-nav">
+                <a href="../">首页</a>
+                <a href="../country/">国家</a>
+                <a href="./">签证</a>
+                <a href="../city/">城市</a>
+                <a href="../articles/">文章</a>
+                <a href="../compare/">对比</a>
+                <a href="../routes/">路线</a>
+                <a href="../search/">搜索</a>
+                <a href="../assistant/">AI助手</a>
+                <a href="../recommend/">推荐</a>
+            </nav>
+            <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
+            <a href="../en/visas/" class="github-btn" style="margin-left:8px;background:rgba(59,130,246,0.15);color:#3b82f6;">English</a>
         </div>
     </header>
-    
-    <div class="filters">
-        <div class="filters-inner">
-            <select id="status-filter">
-                <option value="">所有签证状态</option>
-                <option value="免签">免签</option>
-                <option value="需签证">需签证</option>
-            </select>
-            <select id="dn-filter">
-                <option value="">所有类型</option>
-                <option value="has_dn">有数字游民签证</option>
-            </select>
-            <input type="text" id="search" placeholder="搜索国家...">
-            <span id="count" style="color:#64748b;font-size:0.85rem;">显示 20 个国家</span>
-        </div>
-    </div>
-    
-    <div class="country-grid" id="grid">
-        
-        <a href="portugal.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">葡萄牙</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Portugal</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">📝</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 3 种签证</div>
-                <div>需签证</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                <span style="padding:0.25rem 0.75rem;background:#f3e8ff;color:#7c3aed;border-radius:50px;font-size:0.75rem;font-weight:600;">🌍 数字游民签证</span>
-            </div>
-        </a>
-        
-        <a href="singapore.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">新加坡</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Singapore</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">📝</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 2 种签证</div>
-                <div>需签证</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                
-            </div>
-        </a>
-        
-        <a href="japan.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">日本</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Japan</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">📝</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 3 种签证</div>
-                <div>需签证</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                <span style="padding:0.25rem 0.75rem;background:#f3e8ff;color:#7c3aed;border-radius:50px;font-size:0.75rem;font-weight:600;">🌍 数字游民签证</span>
-            </div>
-        </a>
-        
-        <a href="spain.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">西班牙</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Spain</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">📝</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 3 种签证</div>
-                <div>需签证</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                <span style="padding:0.25rem 0.75rem;background:#f3e8ff;color:#7c3aed;border-radius:50px;font-size:0.75rem;font-weight:600;">🌍 数字游民签证</span>
-            </div>
-        </a>
-        
-        <a href="thailand.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">泰国</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Thailand</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">✅</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 3 种签证</div>
-                <div>免签</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                <span style="padding:0.25rem 0.75rem;background:#f3e8ff;color:#7c3aed;border-radius:50px;font-size:0.75rem;font-weight:600;">🌍 数字游民签证</span>
-            </div>
-        </a>
-        
-        <a href="uae.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">阿联酋</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">United Arab Emirates</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">✅</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 3 种签证</div>
-                <div>免签</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                <span style="padding:0.25rem 0.75rem;background:#f3e8ff;color:#7c3aed;border-radius:50px;font-size:0.75rem;font-weight:600;">🌍 数字游民签证</span>
-            </div>
-        </a>
-        
-        <a href="hongkong.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">香港</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Hong Kong</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">📝</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 3 种签证</div>
-                <div>需签证</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                
-            </div>
-        </a>
-        
-        <a href="netherlands.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">荷兰</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Netherlands</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">📝</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 3 种签证</div>
-                <div>需签证</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                
-            </div>
-        </a>
-        
-        <a href="estonia.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">爱沙尼亚</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Estonia</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">📝</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 3 种签证</div>
-                <div>需签证</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                <span style="padding:0.25rem 0.75rem;background:#f3e8ff;color:#7c3aed;border-radius:50px;font-size:0.75rem;font-weight:600;">🌍 数字游民签证</span>
-            </div>
-        </a>
-        
-        <a href="southkorea.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">韩国</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">South Korea</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">✅</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 3 种签证</div>
-                <div>免签</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                <span style="padding:0.25rem 0.75rem;background:#f3e8ff;color:#7c3aed;border-radius:50px;font-size:0.75rem;font-weight:600;">🌍 数字游民签证</span>
-            </div>
-        </a>
-        
-        <a href="australia.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">澳大利亚</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Australia</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">📝</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 3 种签证</div>
-                <div>需签证</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                
-            </div>
-        </a>
-        
-        <a href="germany.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">德国</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Germany</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">📝</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 3 种签证</div>
-                <div>需签证</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                
-            </div>
-        </a>
-        
-        <a href="malaysia.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">马来西亚</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Malaysia</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">✅</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 2 种签证</div>
-                <div>免签</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                
-            </div>
-        </a>
-        
-        <a href="canada.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">加拿大</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Canada</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">📝</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 3 种签证</div>
-                <div>需签证</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                
-            </div>
-        </a>
-        
-        <a href="france.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">法国</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">France</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">📝</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 2 种签证</div>
-                <div>需签证</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                
-            </div>
-        </a>
-        
-        <a href="newzealand.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">新西兰</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">New Zealand</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">📝</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 2 种签证</div>
-                <div>需签证</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                
-            </div>
-        </a>
-        
-        <a href="uk.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">英国</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">United Kingdom</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">📝</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 2 种签证</div>
-                <div>需签证</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                
-            </div>
-        </a>
-        
-        <a href="vietnam.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">越南</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Vietnam</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">📝</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 2 种签证</div>
-                <div>需签证</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                
-            </div>
-        </a>
-        
-        <a href="usa.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">美国</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">United States</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">📝</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 3 种签证</div>
-                <div>需签证</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                
-            </div>
-        </a>
-        
-        <a href="macao.html" style="text-decoration:none;color:inherit;display:block;background:white;border-radius:12px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e2e8f0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)';">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                <div>
-                    <h3 style="margin:0;font-size:1.25rem;color:#1e293b;">澳门</h3>
-                    <p style="margin:0.25rem 0 0;color:#64748b;font-size:0.9rem;">Macao</p>
-                </div>
-                <span style="font-size:1.5rem;font-weight:700;color:#2563eb;">📝</span>
-            </div>
-            <div style="display:flex;gap:1rem;font-size:0.85rem;color:#64748b;margin-bottom:1rem;">
-                <div>📋 1 种签证</div>
-                <div>需签证</div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.25rem;">
-                
-            </div>
-        </a>
-        
-    </div>
-    
-    <div style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
-        <div class="highlight-section">
-            <h2>🌍 已有数字游民签证的国家</h2>
-            <div class="dn-grid">
-                <div class="dn-card"><h4>葡萄牙</h4><a href="portugal.html">查看签证详情 →</a></div><div class="dn-card"><h4>日本</h4><a href="japan.html">查看签证详情 →</a></div><div class="dn-card"><h4>西班牙</h4><a href="spain.html">查看签证详情 →</a></div><div class="dn-card"><h4>泰国</h4><a href="thailand.html">查看签证详情 →</a></div><div class="dn-card"><h4>阿联酋</h4><a href="uae.html">查看签证详情 →</a></div><div class="dn-card"><h4>爱沙尼亚</h4><a href="estonia.html">查看签证详情 →</a></div><div class="dn-card"><h4>韩国</h4><a href="southkorea.html">查看签证详情 →</a></div>
+
+    <section class="visa-hero">
+        <div class="hero-content">
+            <div class="hero-tag"><span class="hero-tag-dot"></span>60 国 · 签证政策</div>
+            <h1 class="hero-title">🛂 数字游民<br><span class="hero-title-accent">签证数据库</span></h1>
+            <p class="hero-desc">面向中国护照的全球签证攻略，免签、电子签、数字游民签证全覆盖</p>
+            <div class="visa-stats">
+                <div class="item"><div class="value">60</div><div class="label">覆盖国家</div></div>
+                <div class="item"><div class="value">20</div><div class="label">数字游民签证</div></div>
+                <div class="item"><div class="value">11</div><div class="label">免签</div></div>
+                <div class="item"><div class="value">50+</div><div class="label">签证类型</div></div>
             </div>
         </div>
-    </div>
-    
-    <footer style="background:#1e293b;color:#94a3b8;padding:40px 20px;text-align:center;">
-        <p>© 2026 数字游民指南 | 面向中国用户的全球流动基础设施</p>
-        <p style="margin-top:0.5rem;font-size:0.9rem;">
-            <a href="../" style="color:#64748b;">首页</a> |
-            <a href="https://github.com/kfat77/digital-nomad-cn" style="color:#64748b;" target="_blank">GitHub</a> |
-            <a href="../country/" style="color:#64748b;">国家数据库</a>
-        </p>
+    </section>
+
+    <section class="country-grid-section">
+        <div class="container">
+            <div class="visa-filters">
+                <button class="visa-filter active" data-filter="all">全部</button>
+                <button class="visa-filter" data-filter="visa_free">🛂 免签</button>
+                <button class="visa-filter" data-filter="evisa">📋 电子签</button>
+                <button class="visa-filter" data-filter="visa_required">📝 需签证</button>
+                <button class="visa-filter" data-filter="nomad">💻 数字游民签证</button>
+            </div>
+            <div class="country-grid" style="margin-top: 32px;">
+<a href="singapore.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>新加坡</h4><span class="country-score">88 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="portugal.html" class="country-card" data-status="visa_required" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>葡萄牙</h4><span class="country-score">88 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="japan.html" class="country-card" data-status="visa_required" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>日本</h4><span class="country-score">87 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="spain.html" class="country-card" data-status="visa_required" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>西班牙</h4><span class="country-score">86 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="thailand.html" class="country-card" data-status="visa_free" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>泰国</h4><span class="country-score">85 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="uae.html" class="country-card" data-status="visa_free" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>阿联酋</h4><span class="country-score">85 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="georgia.html" class="country-card" data-status="visa_free" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>格鲁吉亚</h4><span class="country-score">82 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span></div></a>
+<a href="netherlands.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>荷兰</h4><span class="country-score">82 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="hongkong.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>香港</h4><span class="country-score">82 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="cyprus.html" class="country-card" data-status="evisa" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>塞浦路斯</h4><span class="country-score">80 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="norway.html" class="country-card" data-status="visa_required" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>挪威</h4><span class="country-score">80 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="estonia.html" class="country-card" data-status="evisa" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>爱沙尼亚</h4><span class="country-score">80 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="southkorea.html" class="country-card" data-status="visa_required" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>韩国</h4><span class="country-score">80 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="hungary.html" class="country-card" data-status="visa_required" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>匈牙利</h4><span class="country-score">80 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="sweden.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>瑞典</h4><span class="country-score">79 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="iceland.html" class="country-card" data-status="visa_required" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>冰岛</h4><span class="country-score">78 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="greece.html" class="country-card" data-status="visa_required" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>希腊</h4><span class="country-score">78 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="germany.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>德国</h4><span class="country-score">78 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="australia.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>澳大利亚</h4><span class="country-score">78 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="malaysia.html" class="country-card" data-status="visa_free" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>马来西亚</h4><span class="country-score">78 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span></div></a>
+<a href="czech.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>捷克</h4><span class="country-score">78 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="denmark.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>丹麦</h4><span class="country-score">77 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="canada.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>加拿大</h4><span class="country-score">77 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="france.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>法国</h4><span class="country-score">77 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="indonesia.html" class="country-card" data-status="evisa" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>印度尼西亚</h4><span class="country-score">76 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="austria.html" class="country-card" data-status="visa_required" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>奥地利</h4><span class="country-score">76 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="morocco.html" class="country-card" data-status="visa_free" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>摩洛哥</h4><span class="country-score">76 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span></div></a>
+<a href="newzealand.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>新西兰</h4><span class="country-score">76 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="ireland.html" class="country-card" data-status="visa_required" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>爱尔兰</h4><span class="country-score">76 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="poland.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>波兰</h4><span class="country-score">76 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="croatia.html" class="country-card" data-status="evisa" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>克罗地亚</h4><span class="country-score">75 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="kazakhstan.html" class="country-card" data-status="visa_free" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>哈萨克斯坦</h4><span class="country-score">75 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span></div></a>
+<a href="switzerland.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>瑞士</h4><span class="country-score">75 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="uk.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>英国</h4><span class="country-score">75 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="vietnam.html" class="country-card" data-status="evisa" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>越南</h4><span class="country-score">75 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span></div></a>
+<a href="israel.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>以色列</h4><span class="country-score">75 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="turkey.html" class="country-card" data-status="evisa" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>土耳其</h4><span class="country-score">74 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="philippines.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>菲律宾</h4><span class="country-score">74 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="romania.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>罗马尼亚</h4><span class="country-score">74 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="srilanka.html" class="country-card" data-status="evisa" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>斯里兰卡</h4><span class="country-score">73 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="bulgaria.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>保加利亚</h4><span class="country-score">73 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="mexico.html" class="country-card" data-status="evisa" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>墨西哥</h4><span class="country-score">72 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span></div></a>
+<a href="chile.html" class="country-card" data-status="visa_required" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>智利</h4><span class="country-score">72 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="usa.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>美国</h4><span class="country-score">72 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="mongolia.html" class="country-card" data-status="visa_free" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>蒙古</h4><span class="country-score">72 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="qatar.html" class="country-card" data-status="visa_free" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>卡塔尔</h4><span class="country-score">72 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span></div></a>
+<a href="nepal.html" class="country-card" data-status="visa_free" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>尼泊尔</h4><span class="country-score">71 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span></div></a>
+<a href="armenia.html" class="country-card" data-status="visa_free" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>亚美尼亚</h4><span class="country-score">71 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span></div></a>
+<a href="brazil.html" class="country-card" data-status="visa_required" data-dn="yes"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>巴西</h4><span class="country-score">70 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span> <span class="tag tag-dn">🌍 数字游民签证</span></div></a>
+<a href="colombia.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>哥伦比亚</h4><span class="country-score">70 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="azerbaijan.html" class="country-card" data-status="evisa" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>阿塞拜疆</h4><span class="country-score">69 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span></div></a>
+<a href="argentina.html" class="country-card" data-status="evisa" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>阿根廷</h4><span class="country-score">68 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span></div></a>
+<a href="peru.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>秘鲁</h4><span class="country-score">68 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="south_africa.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>南非</h4><span class="country-score">68 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="uzbekistan.html" class="country-card" data-status="visa_free" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>乌兹别克斯坦</h4><span class="country-score">66 分</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span></div></a>
+<a href="macao.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>澳门</h4><span class="country-score">65 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+<a href="kenya.html" class="country-card" data-status="evisa" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>肯尼亚</h4><span class="country-score">65 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span></div></a>
+<a href="india.html" class="country-card" data-status="evisa" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>印度</h4><span class="country-score">64 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span></div></a>
+<a href="egypt.html" class="country-card" data-status="evisa" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>埃及</h4><span class="country-score">63 分</span></div></div><div class="country-card-body"><span class="country-visa badge-primary">电子签</span></div></a>
+<a href="ghana.html" class="country-card" data-status="visa_required" data-dn="no"><div class="country-card-header"><span class="country-flag">🏳️</span><div class="country-meta"><h4>加纳</h4><span class="country-score">62 分</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span></div></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="margin-top: 0;">
+        <div class="footer-main">
+            <div class="footer-brand"><span class="logo-icon">◈</span><span class="logo-text">数字游民指南</span><p>42 国数据、50+ 签证、34 城市，全部开源。</p></div>
+            <div class="footer-links">
+                <div class="footer-col"><h4>核心内容</h4><a href="../country/">国家数据库</a><a href="./">签证数据库</a><a href="../city/">城市数据库</a><a href="../compare/">国家对比</a></div>
+                <div class="footer-col"><h4>社区</h4><a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>CC BY-NC-SA 4.0 | 内容仅供学习交流</p></div>
     </footer>
-    
+
     <script>
-        const cards = document.querySelectorAll('.country-grid > a');
-        const statusFilter = document.getElementById('status-filter');
-        const dnFilter = document.getElementById('dn-filter');
-        const searchInput = document.getElementById('search');
-        const countLabel = document.getElementById('count');
-        
-        function filter() {
-            const status = statusFilter.value;
-            const dn = dnFilter.value;
-            const query = searchInput.value.toLowerCase();
-            let visible = 0;
-            
-            cards.forEach(card => {
-                const text = card.textContent;
-                const matchStatus = !status || text.includes(status);
-                const matchDn = !dn || (dn === 'has_dn' && text.includes('数字游民签证'));
-                const matchQuery = !query || text.toLowerCase().includes(query);
-                
-                const show = matchStatus && matchDn && matchQuery;
-                card.style.display = show ? 'block' : 'none';
-                if (show) visible++;
+    document.querySelectorAll('.visa-filter').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.visa-filter').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const filter = this.dataset.filter;
+            document.querySelectorAll('.country-card').forEach(card => {
+                if (filter === 'all') { card.classList.remove('hidden'); }
+                else if (filter === 'nomad') { card.dataset.dn === 'yes' ? card.classList.remove('hidden') : card.classList.add('hidden'); }
+                else { card.dataset.status === filter ? card.classList.remove('hidden') : card.classList.add('hidden'); }
             });
-            
-            countLabel.textContent = `显示 ${visible} 个国家`;
-        }
-        
-        statusFilter.addEventListener('change', filter);
-        dnFilter.addEventListener('change', filter);
-        searchInput.addEventListener('input', filter);
+        });
+    });
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('../sw.js').catch(() => {});
+        });
+    }
     </script>
 </body>
 </html>

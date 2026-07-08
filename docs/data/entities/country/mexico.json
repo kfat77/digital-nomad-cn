@@ -10,10 +10,32 @@
   "is_special_admin_region": false,
   "is_digital_nomad_friendly": true,
   "has_digital_nomad_visa": false,
-  "coordinates": {"lat": 23.6345, "lon": -102.5528},
-  "timezone": ["America/Mexico_City"],
-  "currency": [{"code": "MXN", "name": "墨西哥比索", "is_primary": true}],
-  "languages": [{"code": "es", "name": "西班牙语", "is_official": true}, {"code": "en", "name": "英语", "is_official": false}],
+  "coordinates": {
+    "lat": 23.6345,
+    "lon": -102.5528
+  },
+  "timezone": [
+    "America/Mexico_City"
+  ],
+  "currency": [
+    {
+      "code": "MXN",
+      "name": "墨西哥比索",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "es",
+      "name": "西班牙语",
+      "is_official": true
+    },
+    {
+      "code": "en",
+      "name": "英语",
+      "is_official": false
+    }
+  ],
   "population": 130000000,
   "area_km2": 1964375,
   "gdp_per_capita_usd": 11000,
@@ -25,8 +47,16 @@
   "china_passport_visa_status": "evisa",
   "china_passport_visa_note": "可在线申请电子签证，或在特定情况下免签入境（持有美国/加拿大/申根签证）",
   "digital_nomad_score": 72,
-  "tags": ["北美", "低成本", "数字游民社区", "海滨生活", "美食"],
+  "tags": [
+    "北美",
+    "低成本",
+    "数字游民社区",
+    "海滨生活",
+    "美食"
+  ],
   "status": "published",
-  "updated_at": "2026-01-15",
-  "source": "Numbeo, World Bank, 墨西哥外交部"
+  "updated_at": "2026-07-05T00:00:00Z",
+  "source": "Numbeo, World Bank, 墨西哥外交部",
+  "flag_emoji": "🇲🇽",
+  "chinese_passport_visa_status": "需签证（持美/加/申根/日签可免签）"
 }

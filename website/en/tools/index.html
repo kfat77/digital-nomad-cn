@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools — Digital Nomad Guide</title>
+    <meta name="description" content="Interactive digital nomad tools: cost calculator, visa eligibility checker, and more. Based on real-time data from 60 countries.">
+    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/en/tools/">
+    <link rel="stylesheet" href="../../style.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .tools-hero { background: var(--bg-hero); border-bottom: 1px solid var(--border); padding: 120px 0 40px; text-align: center; }
+        .tools-hero h1 { font-size: 40px; font-weight: 800; margin-bottom: 12px; }
+        .tools-hero p { color: var(--muted); max-width: 600px; margin: 0 auto 32px; font-size: 18px; }
+        .tool-section { max-width: 900px; margin: 0 auto; padding: 60px 24px; border-bottom: 1px solid var(--border); }
+        .tool-section:last-child { border-bottom: none; }
+        .tool-section h2 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .tool-section .desc { color: var(--muted); margin-bottom: 24px; font-size: 15px; }
+        .calc-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .calc-form label { display: block; font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.03em; }
+        .calc-form select, .calc-form input { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--foreground); font-size: 14px; }
+        .calc-form select:focus, .calc-form input:focus { outline: none; border-color: var(--accent); }
+        .calc-result { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; display: none; }
+        .calc-result.active { display: block; }
+        .calc-result .total { font-size: 32px; font-weight: 800; color: var(--accent); }
+        .calc-breakdown { margin-top: 16px; }
+        .calc-breakdown .row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+        .visa-checker { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+        .visa-checker .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+        .visa-checker .card h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+        .visa-checker .card label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+        .visa-checker .card input, .visa-checker .card select { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--foreground); font-size: 14px; margin-bottom: 12px; }
+        .visa-result { margin-top: 12px; padding: 12px; border-radius: var(--radius); font-size: 14px; font-weight: 600; display: none; }
+        .visa-result.eligible { background: rgba(34,197,94,0.1); color: #22c55e; border: 1px solid rgba(34,197,94,0.3); display: block; }
+        .visa-result.ineligible { background: rgba(239,68,68,0.1); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); display: block; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../" class="logo"><span class="logo-icon">◈</span><span>Digital Nomad Guide</span></a>
+            <nav class="main-nav">
+                <a href="../country/">Countries</a><a href="../visa/">Visa</a><a href="../city/">Cities</a>
+                <a href="../articles/">Articles</a><a href="../compare/">Compare</a><a href="../routes/">Routes</a>
+                <a href="../search/">Search</a><a href="../assistant/">AI</a><a href="../community/">Community</a>
+            </nav>
+            <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
+            <button class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
+            <button class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+        </div>
+    </header>
+
+    <section class="tools-hero">
+        <h1>🛠️ Tools</h1>
+        <p>Interactive calculators based on real-time data from 60 countries</p>
+    </section>
+
+    <section class="tool-section">
+        <h2>💰 Cost Calculator</h2>
+        <p class="desc">Select destination and lifestyle preferences to estimate monthly costs</p>
+        <div class="calc-form">
+            <div>
+                <label>Destination</label>
+                <select id="calc-country">
+                    <option value="">Select country...</option>
+                </select>
+            </div>
+            <div>
+                <label>Accommodation</label>
+                <select id="calc-accommodation">
+                    <option value="budget">Budget (shared / studio)</option>
+                    <option value="mid">Comfort (1-bedroom)</option>
+                    <option value="luxury">Luxury (high-end)</option>
+                </select>
+            </div>
+            <div>
+                <label>Food Preference</label>
+                <select id="calc-food">
+                    <option value="local">Mostly local / home cooking</option>
+                    <option value="mix">Mixed (half cooking, half dining)</option>
+                    <option value="western">Mostly western / international</option>
+                </select>
+            </div>
+            <div>
+                <label>Coworking</label>
+                <select id="calc-coworking">
+                    <option value="no">Not needed</option>
+                    <option value="yes">Monthly pass</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn btn-primary" onclick="calculateCost()">Calculate Monthly Cost</button>
+
+        <div id="calc-result" class="calc-result">
+            <div>Estimated Monthly Cost</div>
+            <div class="total" id="calc-total">$0</div>
+            <div class="calc-breakdown" id="calc-breakdown"></div>
+        </div>
+    </section>
+
+    <section class="tool-section">
+        <h2>🛂 Digital Nomad Visa Eligibility</h2>
+        <p class="desc">Quick check if you qualify for a digital nomad visa in your target country</p>
+        <div class="visa-checker">
+            <div class="card">
+                <h3>Basic Information</h3>
+                <label>Target Country</label>
+                <select id="visa-country">
+                    <option value="">Select country...</option>
+                    <option value="portugal">🇵🇹 Portugal</option>
+                    <option value="spain">🇪🇸 Spain</option>
+                    <option value="croatia">🇭🇷 Croatia</option>
+                    <option value="estonia">🇪🇪 Estonia</option>
+                    <option value="malta">🇲🇹 Malta</option>
+                    <option value="greece">🇬🇷 Greece</option>
+                    <option value="hungary">🇭🇺 Hungary</option>
+                    <option value="czech">🇨🇿 Czech Republic</option>
+                    <option value="romania">🇷🇴 Romania</option>
+                    <option value="cyprus">🇨🇾 Cyprus</option>
+                    <option value="latvia">🇱🇻 Latvia</option>
+                    <option value="iceland">🇮🇸 Iceland</option>
+                    <option value="dubai">🇦🇪 Dubai</option>
+                    <option value="cayman">🇰🇾 Cayman Islands</option>
+                    <option value="barbados">🇧🇧 Barbados</option>
+                    <option value="bermuda">🇧🇲 Bermuda</option>
+                    <option value="mauritius">🇲🇺 Mauritius</option>
+                    <option value="seychelles">🇸🇨 Seychelles</option>
+                    <option value="namibia">🇳🇦 Namibia</option>
+                    <option value="costa_rica">🇨🇷 Costa Rica</option>
+                    <option value="mexico">🇲🇽 Mexico</option>
+                    <option value="panama">🇵🇦 Panama</option>
+                    <option value="argentina">🇦🇷 Argentina</option>
+                    <option value="ecuador">🇪🇨 Ecuador</option>
+                    <option value="brazil">🇧🇷 Brazil</option>
+                </select>
+                <label>Monthly Income (USD)</label>
+                <input type="number" id="visa-income" placeholder="e.g. 3000" min="0">
+                <label>Work Type</label>
+                <select id="visa-work">
+                    <option value="remote">Remote employee</option>
+                    <option value="freelance">Freelancer / self-employed</option>
+                    <option value="business">Business owner</option>
+                    <option value="passive">Passive income / investment</option>
+                </select>
+                <button class="btn btn-primary" style="width:100%;margin-top:8px;" onclick="checkVisa()">Check Eligibility</button>
+                <div id="visa-result" class="visa-result"></div>
+            </div>
+            <div class="card">
+                <h3>📋 Common Requirements</h3>
+                <p style="color:var(--muted);font-size:13px;line-height:1.7;margin:0;">
+                    Most digital nomad visas require:<br><br>
+                    ✅ Proof of stable remote income<br>
+                    ✅ Monthly income above minimum threshold (typically $1,500–$5,000)<br>
+                    ✅ Health insurance coverage<br>
+                    ✅ Clean criminal record<br>
+                    ✅ Valid passport (usually 6+ months remaining)<br><br>
+                    Note: Specific policies vary by country. This tool is for reference only.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="margin-top: 0;">
+        <div class="footer-inner" style="max-width: 1200px; margin: 0 auto; padding: 40px 24px; text-align: center;">
+            <p> Digital Nomad Guide · Open-Source Global Mobility Data Platform</p>
+            <p><a href="https://github.com/kfat77/digital-nomad-cn">GitHub</a> · <a href="../">Home</a> · <a href="../privacy/">Privacy</a></p>
+        </div>
+    </footer>
+
+    <script src="../../theme.js"></script>
+    <script src="../../analytics.js" defer></script>
+    <script>
+    let countriesData = [];
+
+    fetch('../../api/countries.json')
+        .then(r => r.json())
+        .then(data => {
+            countriesData = data.data || [];
+            const select = document.getElementById('calc-country');
+            countriesData.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c.id;
+                opt.textContent = c.flag_emoji + ' ' + c.name_en;
+                select.appendChild(opt);
+            });
+        });
+
+    function calculateCost() {
+        const cid = document.getElementById('calc-country').value;
+        const acc = document.getElementById('calc-accommodation').value;
+        const food = document.getElementById('calc-food').value;
+        const coworking = document.getElementById('calc-coworking').value;
+
+        const country = countriesData.find(c => c.id === cid);
+        if (!country) { alert('Please select a destination'); return; }
+
+        const rentLow = country.monthly_rent_usd_low || 400;
+        const rentHigh = country.monthly_rent_usd_high || 1200;
+        const foodDaily = country.food_cost_usd_daily || 15;
+        const transport = country.transport_cost_usd_monthly || 50;
+
+        let rent = rentLow;
+        if (acc === 'mid') rent = (rentLow + rentHigh) / 2;
+        if (acc === 'luxury') rent = rentHigh;
+
+        let foodCost = foodDaily * 30;
+        if (food === 'mix') foodCost *= 1.3;
+        if (food === 'western') foodCost *= 1.8;
+
+        let coworkingCost = 0;
+        if (coworking === 'yes') coworkingCost = 150;
+
+        const total = Math.round(rent + foodCost + transport + coworkingCost);
+
+        document.getElementById('calc-total').textContent = '$' + total.toLocaleString();
+        document.getElementById('calc-breakdown').innerHTML = `
+            <div class="row"><span>🏠 Accommodation</span><span>$${Math.round(rent)}</span></div>
+            <div class="row"><span>🍜 Food</span><span>$${Math.round(foodCost)}</span></div>
+            <div class="row"><span>🚌 Transport</span><span>$${transport}</span></div>
+            ${coworkingCost ? `<div class="row"><span>🏢 Coworking</span><span>$${coworkingCost}</span></div>` : ''}
+        `;
+        document.getElementById('calc-result').classList.add('active');
+        if (window.DNAnalytics) DNAnalytics.trackEvent('tool_cost_calculator', { country: cid, total: total });
+    }
+
+    const visaRequirements = {
+        'portugal': { minIncome: 3040, name: 'Portugal' },
+        'spain': { minIncome: 2000, name: 'Spain' },
+        'croatia': { minIncome: 2300, name: 'Croatia' },
+        'estonia': { minIncome: 3504, name: 'Estonia' },
+        'malta': { minIncome: 2700, name: 'Malta' },
+        'greece': { minIncome: 3500, name: 'Greece' },
+        'hungary': { minIncome: 2000, name: 'Hungary' },
+        'czech': { minIncome: 2740, name: 'Czech Republic' },
+        'romania': { minIncome: 3700, name: 'Romania' },
+        'cyprus': { minIncome: 3500, name: 'Cyprus' },
+        'latvia': { minIncome: 2800, name: 'Latvia' },
+        'iceland': { minIncome: 7000, name: 'Iceland' },
+        'dubai': { minIncome: 3500, name: 'Dubai' },
+        'cayman': { minIncome: 5000, name: 'Cayman Islands' },
+        'barbados': { minIncome: 50000, name: 'Barbados' },
+        'bermuda': { minIncome: 50000, name: 'Bermuda' },
+        'mauritius': { minIncome: 1500, name: 'Mauritius' },
+        'seychelles': { minIncome: 0, name: 'Seychelles' },
+        'namibia': { minIncome: 2000, name: 'Namibia' },
+        'costa_rica': { minIncome: 3000, name: 'Costa Rica' },
+        'mexico': { minIncome: 1600, name: 'Mexico' },
+        'panama': { minIncome: 3000, name: 'Panama' },
+        'argentina': { minIncome: 500, name: 'Argentina' },
+        'ecuador': { minIncome: 1300, name: 'Ecuador' },
+        'brazil': { minIncome: 1500, name: 'Brazil' }
+    };
+
+    function checkVisa() {
+        const country = document.getElementById('visa-country').value;
+        const income = parseInt(document.getElementById('visa-income').value) || 0;
+        const result = document.getElementById('visa-result');
+
+        if (!country) { alert('Please select a target country'); return; }
+        if (!income) { alert('Please enter your monthly income'); return; }
+
+        const req = visaRequirements[country];
+        if (!req) { alert('This country is not yet supported'); return; }
+
+        const eligible = income >= req.minIncome;
+        result.className = 'visa-result ' + (eligible ? 'eligible' : 'ineligible');
+        result.innerHTML = eligible
+            ? `✅ You meet the basic income requirement for ${req.name} (minimum $${req.minIncome.toLocaleString()}/month)`
+            : `❌ Your income may not meet ${req.name}'s requirement (minimum $${req.minIncome.toLocaleString()}/month)`;
+        if (window.DNAnalytics) DNAnalytics.trackEvent('tool_visa_checker', { country: country, eligible: eligible, income: income });
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面未找到 — 数字游民指南</title>
+    <meta name="description" content="你访问的页面不存在。探索数字游民指南的 60 个国家、122 个城市和丰富的数字游民资源。">
+    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/404.html">
+    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        .error-page { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 120px 24px 80px; text-align: center; }
+        .error-code { font-size: 120px; font-weight: 800; color: var(--accent); line-height: 1; letter-spacing: -0.05em; margin-bottom: 16px; }
+        .error-title { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+        .error-desc { color: var(--muted); font-size: 16px; max-width: 480px; margin: 0 auto 32px; line-height: 1.7; }
+        .error-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 48px; }
+        .error-suggestions { max-width: 600px; width: 100%; }
+        .error-suggestions h3 { font-size: 16px; font-weight: 600; margin-bottom: 16px; color: var(--muted); }
+        .suggestion-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+        .suggestion-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; text-align: left; transition: var(--transition); text-decoration: none; color: var(--foreground); }
+        .suggestion-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .suggestion-card .emoji { font-size: 24px; margin-bottom: 8px; }
+        .suggestion-card .title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+        .suggestion-card .desc { font-size: 12px; color: var(--muted); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="./" class="logo"><span class="logo-icon">◈</span><span>数字游民指南</span></a>
+            <nav class="main-nav">
+                <a href="country/">国家</a><a href="visa/">签证</a><a href="city/">城市</a>
+                <a href="articles/">文章</a><a href="compare/">对比</a><a href="search/">搜索</a>
+            </nav>
+            <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
+            <button class="theme-toggle" aria-label="切换主题" title="切换主题">🌙</button>
+            <button class="mobile-menu-btn" aria-label="打开菜单" aria-expanded="false">☰</button>
+        </div>
+    </header>
+
+    <main class="error-page">
+        <div class="error-code">404</div>
+        <h1 class="error-title">页面未找到</h1>
+        <p class="error-desc">你访问的页面可能已经移动、删除或从未存在过。不过别担心，数字游民的世界很大，这里有很多值得探索的内容。</p>
+        <div class="error-actions">
+            <a href="./" class="btn btn-primary">🏠 返回首页</a>
+            <a href="search/" class="btn btn-secondary">🔍 搜索内容</a>
+            <a href="country/" class="btn btn-secondary">🌍 浏览国家</a>
+        </div>
+
+        <div class="error-suggestions">
+            <h3>推荐探索</h3>
+            <div class="suggestion-grid">
+                <a href="country/portugal/" class="suggestion-card">
+                    <div class="emoji">🇵🇹</div>
+                    <div class="title">葡萄牙指南</div>
+                    <div class="desc">D7 签证 + 低生活成本</div>
+                </a>
+                <a href="country/thailand/" class="suggestion-card">
+                    <div class="emoji">🇹🇭</div>
+                    <div class="title">泰国指南</div>
+                    <div class="desc">免签 + 极低生活成本</div>
+                </a>
+                <a href="articles/" class="suggestion-card">
+                    <div class="emoji">📚</div>
+                    <div class="title">专题文章</div>
+                    <div class="desc">签证、成本、路线规划</div>
+                </a>
+                <a href="compare/" class="suggestion-card">
+                    <div class="emoji">📊</div>
+                    <div class="title">国家对比</div>
+                    <div class="desc">并排比较不同目的地</div>
+                </a>
+                <a href="api/" class="suggestion-card">
+                    <div class="emoji">🤖</div>
+                    <div class="title">开放 API</div>
+                    <div class="desc">60 国结构化数据</div>
+                </a>
+                <a href="community/" class="suggestion-card">
+                    <div class="emoji">🌐</div>
+                    <div class="title">加入社区</div>
+                    <div class="desc">贡献数据、分享经验</div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" style="margin-top: 0;">
+        <div class="footer-inner" style="max-width: 1200px; margin: 0 auto; padding: 40px 24px; text-align: center;">
+            <p> 数字游民指南 · 开源全球流动数据平台</p>
+            <p><a href="https://github.com/kfat77/digital-nomad-cn">GitHub</a> · <a href="./">首页</a> · <a href="privacy/">隐私政策</a></p>
+        </div>
+    </footer>
+
+    <script src="theme.js"></script>
+    <script src="analytics.js" defer></script>
+</body>
+</html>

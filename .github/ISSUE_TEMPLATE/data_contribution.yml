@@ -1,0 +1,69 @@
+name: 🌍 数据贡献
+description: 提交新的国家/城市数据、数据纠错或更新建议
+title: "[Data] "
+labels: ["data", "good first issue"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢贡献数据！这是最受欢迎的贡献类型之一。
+        
+        **快速数据贡献指南**：
+        - 添加新国家：参考 `website/data/schemas/country-detail.json`
+        - 添加新城市：参考 `website/data/schemas/city-detail.json`
+        - 数据纠错：请提供可信来源链接
+        - 深度字段（v1.2）：healthcare_quality, english_proficiency, monthly_rent_usd_low/high, food_cost_usd_daily, transport_cost_usd_monthly, coworking_spaces_count, local_tax_rate, pros, cons, ideal_for, best_neighborhoods
+  - type: dropdown
+    id: type
+    attributes:
+      label: 贡献类型
+      options:
+        - 添加新国家数据
+        - 添加新城市数据
+        - 纠正现有数据
+        - 更新过时数据
+        - 其他
+    validations:
+      required: true
+  - type: input
+    id: entity
+    attributes:
+      label: 国家 / 城市名称
+      description: 你要贡献数据的目标国家或城市
+      placeholder: 例如：葡萄牙 / 里斯本
+    validations:
+      required: true
+  - type: textarea
+    id: data
+    attributes:
+      label: 数据内容
+      description: |
+        请提供具体的数据字段和值。
+        如果是 JSON 格式，请直接贴入；如果是文本描述，请清晰列出。
+      placeholder: |
+        {
+          "digital_nomad_score": 88,
+          "wifi_speed": 150,
+          "cost_of_living_index": 55
+        }
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: 数据来源
+      description: 请提供数据的可信来源链接（官方统计、权威报告等）
+      placeholder: |
+        - Numbeo 生活成本指数: https://www.numbeo.com/cost-of-living/
+        - Speedtest 全球网速指数: https://www.speedtest.net/global-index
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 我提供的数据来自公开可信来源
+          required: true
+        - label: 我愿意在 CC BY-NC-SA 4.0 协议下共享这些数据
+          required: true
