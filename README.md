@@ -1,7 +1,7 @@
-# 🌍 Global Mobility Infrastructure
+# 🌍 Global Mobility Open Infrastructure
 
 <p align="center">
-  <strong>中国护照，全球生活 — 数字化全球流动基础设施</strong>
+  <strong>全球最大的中文 Global Mobility 开放数据基础设施</strong>
 </p>
 
 <p align="center">
@@ -15,10 +15,16 @@
     <img src="https://img.shields.io/github/issues/kfat77/digital-nomad-cn?style=flat&color=ef4444&label=Issues" alt="GitHub Issues">
   </a>
   <a href="https://github.com/kfat77/digital-nomad-cn/actions">
-    <img src="https://github.com/kfat77/digital-nomad-cn/actions/workflows/data-update.yml/badge.svg" alt="CI/CD">
+    <img src="https://img.shields.io/badge/CI-Data_Validation-22c55e?style=flat" alt="CI">
   </a>
   <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT%20%2B%20CC%20BY--NC--SA%204.0-3b82f6?style=flat" alt="License">
+    <img src="https://img.shields.io/badge/License-MIT-3b82f6?style=flat" alt="License">
+  </a>
+  <a href="https://github.com/kfat77/digital-nomad-cn/releases">
+    <img src="https://img.shields.io/badge/Open_Data-v2.0.0-f59e0b?style=flat" alt="Open Data">
+  </a>
+  <a href="https://www.npmjs.com/package/@digital-nomad-cn/sdk">
+    <img src="https://img.shields.io/badge/npm-@digital--nomad--cn/sdk-cb3837?style=flat" alt="npm SDK">
   </a>
   <br>
   <a href="https://kfat77.github.io/digital-nomad-cn/">
@@ -26,20 +32,52 @@
   </a>
 </p>
 
+<p align="center">
+  <a href="https://kfat77.github.io/digital-nomad-cn/">🚀 快速开始：访问网站</a> •
+  <a href="https://kfat77.github.io/digital-nomad-cn/country/">🌍 国家数据库</a> •
+  <a href="https://kfat77.github.io/digital-nomad-cn/visa/">🛂 签证数据库</a> •
+  <a href="https://kfat77.github.io/digital-nomad-cn/compare/">📊 国家对比</a> •
+  <a href="https://kfat77.github.io/digital-nomad-cn/search/">🔍 搜索</a> •
+  <a href="https://kfat77.github.io/digital-nomad-cn/articles/">📚 文章</a>
+</p>
+
 ---
 
-## 🎯 这是什么？
+## 🚀 快速开始
 
-**Global Mobility Infrastructure** 是一个**开源、数据驱动、社区共建**的全球流动信息平台，专为持有中国护照的人群设计。
+> 数字游民出海前必做的三件事：银行卡、电话卡、证券账户
 
-> 🎯 **目标**：让每一个中国人都能拥有全球流动的完整信息和工具，打破信息垄断。
+| 基础准备 | 链接 | 说明 |
+|----------|------|------|
+| 💳 银行卡 | [出海银行卡完整指南](https://kfat77.github.io/digital-nomad-cn/articles/digital-nomad-banking-guide/) | 香港汇丰/中银/众安/蚂蚁四卡策略 + OCBC 远程开户 |
+| 📱 电话卡 | [海外电话卡与 eSIM 攻略](https://kfat77.github.io/digital-nomad-cn/articles/giffgaff-guide-2026/) | Giffgaff/Club SIM/Ultra Mobile 保号 + eSIM 全球流量 |
+| 📈 证券账户 | [全球证券账户开户指南](https://kfat77.github.io/digital-nomad-cn/articles/securities-guide/) | 盈透/嘉信/FSMOne 开户 + 入金路径 + CRS 合规 |
+
+👉 **[点击访问完整网站](https://kfat77.github.io/digital-nomad-cn/)**
+
+---
+
+## 🎯 项目愿景
+
+> **Data First · API First · AI First · Open Source First · Developer First**
+
+这个项目正在从"一个优秀的网站"进化为"全球最大的中文 Global Mobility Open Infrastructure"。
+
+### 核心转变
+
+| | V1（过去） | V2（现在） |
+|---|---|---|
+| **核心资产** | HTML 页面 | **结构化数据 + API + 社区** |
+| **数据位置** | 嵌入在 JS 中 | **独立的 `datasets/` + `schemas/`** |
+| **消费者** | 网站访问者 | **AI Agent / 开发者 / 网站 / App** |
+| **存在性** | 网站消失 = 项目消失 | **网站只是消费者之一** |
 
 ### 为什么这个项目重要？
 
 - **信息垄断**：全球流动信息长期被英语世界垄断，中文用户缺乏系统、可信的数据来源
-- **数据开源**：所有数据完全开源（CC BY-NC-SA 4.0），任何人可验证、改进、复用
-- **AI 就绪**：结构化 JSON API + llms.txt，AI Agent 可直接调用我们的数据基础设施
-- **社区共建**：60 国 × 122 城的数据，由社区共同维护，确保准确和时效
+- **数据开源**：所有数据完全开源（MIT + CC BY-SA 4.0），任何人可验证、改进、复用
+- **AI 就绪**：结构化 JSON Schema + MCP Server，ChatGPT/Claude/Cursor 可直接调用
+- **社区共建**：数据由社区共同维护，确保准确和时效
 
 ---
 
@@ -47,18 +85,141 @@
 
 | 数据类型 | 数量 | 状态 | 说明 |
 |----------|------|------|------|
-| 🌍 国家 | **60** | ✅ 持续扩展 | 覆盖亚洲、欧洲、北美、南美、大洋洲、中东、非洲 |
-| 🏙️ 城市 | **122** | ✅ 持续扩展 | 数字游民热门城市优先 |
-| 🛂 签证数据 | **60** | ✅ 持续扩展 | 中国护照签证政策 + 数字游民签证（60 国全覆盖） |
-| 🗺️ 数字游民路线 | **3** | ✅ 已上线 | 东南亚、欧洲申根、地中海 |
-| 📊 对比工具 | **60** | ✅ 已上线 | 31 国对比 + 29 城对比，12 维度指标 |
-| 🔍 搜索 | **242** | ✅ 已上线 | 60 国 + 122 城 + 60 对比页模糊搜索 |
-| 📝 文章 | **15** | ✅ 持续扩展 | 数据驱动的深度文章 + 指南 + 对比分析（中英双语） |
-| 🔌 数据 API | **5** | ✅ v1.2 | 静态 JSON API，AI Agent 可直接调用 |
-| 🌙 深色模式 | ✅ | ✅ 已上线 | 系统偏好检测 + 手动切换 + localStorage 持久化 |
-| 📱 移动端 | ✅ | ✅ 已上线 | 汉堡菜单 + 响应式导航 + 触摸优化 |
-| 📊 分析系统 | ✅ | ✅ 已上线 | 隐私优先分析，支持 GoatCounter/Plausible/自定义 |
-| 🚀 性能优化 | ✅ | ✅ 已上线 | Core Web Vitals 监控 + 资源预加载 + JS 延迟加载 |
+| 🌍 国家 | **100** | ✅ 已结构化 | 覆盖 15 个区域，完整 JSON Schema |
+| 📋 Schema | **1** | ✅ 稳定 | country.schema.json (draft-07) |
+| 🔄 数据同步 | ✅ | ✅ 自动 | datasets/ → website/ 单向同步 |
+| ✅ 数据校验 | ✅ | ✅ CI | GitHub Actions 自动 Schema 校验 |
+| 🏙️ 城市 | **122** | 🚧 待结构化 | 将逐步迁移到 datasets/ |
+| 🛂 签证数据 | **100** | 🚧 待完善 | 基础框架就绪，内容持续补充 |
+
+---
+
+## 🚀 Open Data 发布
+
+本项目的数据集已通过以下渠道发布：
+
+| 渠道 | 链接 | 说明 |
+|------|------|------|
+| **GitHub Releases** | [Releases](https://github.com/kfat77/digital-nomad-cn/releases) | 版本化数据集下载 |
+| **Raw JSON** | `datasets/countries.json` | 直接读取 |
+| **REST API** | `https://api.digital-nomad.cn/v1/countries` | 实时 API |
+| **GraphQL** | `https://api.digital-nomad.cn/graphql` | 灵活查询 |
+| **npm SDK** | `@digital-nomad-cn/sdk` | TypeScript SDK |
+| **MCP Server** | `@digital-nomad-cn/mcp` | Claude/Cursor AI Agent |
+
+### 引用本数据集
+
+```bibtex
+@dataset{digital_nomad_cn_2026,
+  author = {{Digital Nomad CN Contributors}},
+  title = {Digital Nomad CN — Global Mobility Open Dataset},
+  year = {2026},
+  version = {2.0.0},
+  url = {https://github.com/kfat77/digital-nomad-cn}
+}
+```
+
+---
+
+## 🤖 MCP Server (AI Agent 集成)
+
+让 ChatGPT、Claude、Cursor、Windsurf 直接查询全球数字游民数据：
+
+```json
+// Claude Desktop / Cursor / Windsurf 配置
+{
+  "mcpServers": {
+    "digital-nomad": {
+      "command": "npx",
+      "args": ["-y", "@digital-nomad-cn/mcp@latest"]
+    }
+  }
+}
+```
+
+**可用工具**（6 个）：
+- `nomad_search_countries` — 搜索国家
+- `nomad_get_country` — 获取国家详情
+- `nomad_list_regions` — 列出所有区域
+- `nomad_compare_countries` — 对比国家
+- `nomad_recommend` — 智能推荐
+- `nomad_get_stats` — 数据集统计
+
+详细文档：[packages/mcp-server/README.md](packages/mcp-server/README.md)
+
+---
+
+## 🏗️ V2 架构
+
+```
+digital-nomad-cn/
+│
+├── 📁 schemas/              # ⭐ 数据定义（核心资产）
+│   ├── country.schema.json  # JSON Schema (draft-07)
+│   └── README.md
+│
+├── 📁 datasets/             # ⭐ 数据集（核心资产）
+│   ├── index.json           # 数据总索引
+│   ├── countries.json       # 100 国结构化数据
+│   ├── visa-official-links.json
+│   └── README.md
+│
+├── 📁 api/                  # ⭐ API 服务
+│   ├── src/
+│   │   ├── index.ts         # REST + GraphQL 入口
+│   │   ├── graphql/         # GraphQL 实现
+│   │   └── routes/          # REST 路由
+│   └── wrangler.toml        # Cloudflare Workers
+│
+├── 📁 packages/             # ⭐ SDK / MCP 包
+│   ├── js-sdk/              # @digital-nomad-cn/sdk
+│   └── mcp-server/          # @digital-nomad-cn/mcp (NEW)
+│
+├── 📁 website/              # 网站（消费者之一）
+│   ├── index.html           # 首页
+│   ├── countries-data.js    # 由 datasets/ 自动生成
+│   └── ...
+│
+├── 📁 architecture/         # 架构文档
+│   └── v2/                  # V2 完整架构设计
+│       ├── 01-philosophy.md
+│       ├── 02-modules.md
+│       ├── 03-data-layer/   # 18 个 Schema 定义
+│       ├── 04-api-layer.md  # REST/GraphQL/MCP 设计
+│       ├── 05-github-structure.md
+│       ├── 06-open-source-ecosystem.md
+│       ├── 07-ai-capabilities.md
+│       └── 08-roadmap.md
+│
+├── 📁 .github/workflows/    # CI/CD
+│   ├── data-validation.yml  # PR 自动数据校验
+│   └── build-deploy.yml     # 自动构建部署
+│
+├── 📁 scripts/              # 自动化脚本
+│   ├── extract-data.js      # 提取数据
+│   ├── validate-data.js     # Schema 校验
+│   └── sync-data-to-website.js
+│
+├── CITATION.cff             # 学术引用
+├── datapackage.json         # 数据包标准
+├── package.json
+├── README.md
+└── LICENSE
+```
+
+### 数据流
+
+```
+datasets/countries.json  ←── 唯一真相源
+         │
+         │ npm run sync:data
+         ▼
+website/countries-data.js ←── 自动生成，禁止手动编辑
+         │
+         │ npm run build
+         ▼
+docs/                     ←── GitHub Pages 部署
+```
 
 ---
 
@@ -68,278 +229,115 @@
 
 👉 **[https://kfat77.github.io/digital-nomad-cn/](https://kfat77.github.io/digital-nomad-cn/)**
 
-### 本地运行
+### 开发者使用
 
 ```bash
+# 1. 克隆仓库
 git clone https://github.com/kfat77/digital-nomad-cn.git
-cd digital-nomad-cn/website
-python -m http.server 8080
-# 打开 http://localhost:8080
+cd digital-nomad-cn
+
+# 2. 安装依赖
+npm install
+
+# 3. 校验数据
+npm run validate
+
+# 4. 同步数据到网站
+npm run sync:data
+
+# 5. 构建
+npm run build
+```
+
+### 直接读取数据
+
+```javascript
+// 读取结构化数据
+const countries = require('./datasets/countries.json');
+
+// 查找泰国
+const thailand = countries.find(c => c.id === 'thailand');
+console.log(thailand.name.zh);  // "泰国"
+console.log(thailand.region);    // "southeast-asia"
+```
+
+### 使用 SDK
+
+```bash
+npm install @digital-nomad-cn/sdk
+```
+
+```typescript
+import { NomadClient } from '@digital-nomad-cn/sdk';
+
+const client = new NomadClient();
+
+// 获取所有国家
+const countries = await client.listCountries();
+
+// 获取特定国家
+const thailand = await client.getCountry('thailand');
+
+// 搜索
+const results = await client.search('东南亚 签证');
 ```
 
 ---
 
-## ✨ 核心功能
+## 🤝 如何贡献数据
 
-### 🌍 国家详情页
-- 60 个国家完整数据：签证、生活成本、网络、安全、HDI、GDP
-- **12 个深度字段**（v1.2）：医疗质量、英语普及、租金范围、餐饮/交通成本、税率、优势/劣势、推荐社区
-- **ECharts 雷达图**：7 维度综合评分可视化
-- **全球对比条形图**：vs 全球平均值
-- **相似目的地推荐**：基于相似度算法推荐 4 个相关国家
-- **面包屑 Schema.org**：提升搜索引擎结果展示
-- **社交分享**：X/Twitter、LinkedIn、复制链接、原生分享
-
-### 🏙️ 城市数据
-- 122 个数字游民热门城市
-- 生活成本、安全指数、网络速度、数字游民评分
-
-### 🛂 签证信息
-- 中国护照签证政策：免签、落地签、电子签、需签证
-- 60 国签证档案：免签、落地签、电子签、需签证
-- 数字游民签证状态标识
-
-### 📊 国家对比工具
-- 同时对比 2-4 个国家
-- 12 个指标：评分、成本、安全、网速、HDI、GDP、签证、租金等
-- 可视化进度条 + 排名图表
-- 一键预设：东南亚、欧洲、数字游民友好、中国免签
-
-### 🔍 站内搜索
-- fuse.js 客户端模糊搜索
-- 182 条数据（国家+城市）实时搜索
-- 关键词高亮、类型筛选、URL 参数支持
-
-### 🌐 英文版网站
-- 完整的英文界面：首页、国家库、签证库、城市库、对比、搜索、路线
-- **122 英文城市详情页** + **60 英文国家详情页** + **60 英文对比页**
-- 双语导航切换（中文 / English）
-- `hreflang` 标签支持，502 页全站 SEO 国际化
-- 所有数据展示英文国家/城市名称
-
-### 🤖 智能推荐引擎
-- 回答 5 个问题，获得基于 60 国数据的个性化目的地推荐
-- 5 维度匹配：预算、签证、网速、安全、地区
-- 加权评分算法，Top 5 推荐 + 匹配理由
-- 前三名对比表格
-- 中英双语版本
-
-### 📝 数据驱动文章
-- 3 篇深度数据文章：免签指南、数字游民排名、签证完全指南
-- 基于 60 国/122 城实时数据自动生成，确保信息一致性
-- Article Schema.org 结构化标记，提升 AI Search 可见度
-
-### 🗺️ 数字游民路线
-- 3 条经典路线：东南亚环线、欧洲申根环、地中海慢游
-- 含时间线、预算估算、签证串联策略、交通建议
-
-### 🔌 开放数据 API
-- 5 个静态 JSON 端点：国家、城市、签证、统计、清单
-- **API v1.2**：新增 12 个深度字段（医疗、英语、租金、税率等）
-- **API 文档页面**：交互式代码示例（JS/Python/cURL）、版本变更日志
-- **llms.txt**：AI Agent 机器可读站点描述
-- 零后端依赖，AI Agent 可直接调用
-- JSON Schema 定义，数据格式标准化
-- 使用条款：CC BY-NC-SA 4.0
-
-### 🌙 深色模式与用户体验
-- 系统偏好自动检测 + 手动切换按钮
-- localStorage 持久化，刷新后保持偏好
-- 文章页打印样式优化
-- 阅读进度条（文章页面滚动指示器）
-
-### 📱 移动端优化
-- 汉堡菜单导航（900px 以下断点）
-- 响应式布局适配
-- 触摸友好的交互元素
-
-### 📊 隐私优先分析
-- 尊重 Do Not Track（DNT）
-- 默认完全关闭，可配置 GoatCounter/Plausible/自定义端点
-- 本地 "你的足迹" 页面：完全浏览器本地存储的浏览统计
-- Core Web Vitals 实时监控（LCP、CLS、FID）
-
-### 🚀 性能优化
-- `fetchpriority="high"` 关键资源优先加载
-- `dns-prefetch` + `preconnect` CDN 资源预连接
-- 非关键 JS 延迟加载（defer）
-- Service Worker 缓存策略（v48）
-
-### 📱 PWA 离线支持
-- 渐进式 Web 应用，可安装到主屏幕
-- Service Worker 缓存全部核心页面 + CDN 资源
-- 离线可浏览：推荐引擎、搜索、国家库、签证库
-- 中英双语版本均支持离线
-- 主题色 #3b82f6，适配 Android/iOS 安装体验
-
-### 🤖 AI 签证助手
-- 基于 Google Gemini（gemini-2.0-flash）的智能咨询
-- 60 国数据作为系统上下文，回答基于真实数据
-- 5 个快速问题按钮，一键获取常见咨询
-- API Key 存储在浏览器 localStorage，完全隐私保护
-- 支持签证推荐、国家对比、路线规划等咨询
-- 中英双语版本
-
-### 📊 自动化数据更新
-- 每月自动抓取全球汇率数据（exchangerate-api.com）
-- 异常检测：自动标记汇率/成本/安全指数的剧烈变化
-- 数据新鲜度徽章：首页实时显示最后更新时间
-- GitHub Actions 全自动工作流
-- 检测到异常时自动创建 GitHub Issue 提醒维护者
-
-### 🌐 3D 交互地球
-- Three.js 渲染地球，标注 60 个国家
-- 点击标记直接跳转国家详情页
-- 鼠标悬停高亮，自动旋转
-
----
-
-## 🏗️ 项目架构
-
-```
-digital-nomad-cn/
-├── 📁 website/              # 主站源码
-│   ├── index.html           # 首页（3D 地球）
-│   ├── country/             # 国家页面（60 个）
-│   ├── city/                # 城市页面（122 个）
-│   ├── visa/                # 签证页面（60 个）
-│   ├── compare/             # 对比工具（60 个：31 国 + 29 城）
-│   ├── en/                  # 英文版完整镜像
-│   │   ├── city/            # 122 英文城市详情页
-│   │   ├── country/         # 60 英文国家详情页
-│   │   ├── compare/         # 60 英文对比页
-│   │   └── ...              # 英文版首页/列表/搜索/路线等
-│   ├── search/              # 站内搜索（242 条数据）
-│   ├── routes/              # 数字游民路线
-│   ├── api/                 # 开放数据 API（静态 JSON）
-│   │   ├── countries.json   # 60 国数据聚合
-│   │   ├── cities.json      # 122 城数据聚合
-│   │   ├── visas.json       # 60 签证数据聚合
-│   │   ├── stats.json       # 统计摘要
-│   │   ├── manifest.json    # AI Agent 发现接口
-│   │   └── index.html       # API 文档页面
-│   ├── data/                # 结构化数据
-│   │   ├── schemas/         # JSON Schema 定义
-│   │   └── entities/        # 实体数据（country, city, visa）
-│   ├── scripts/             # 页面生成脚本
-│   │   ├── generator.py     # 统一生成器（country/visa/city）
-│   │   ├── country-template.html
-│   │   └── generate-country-pages.py
-│   └── images/og/           # Open Graph 预览图（60 张）
-│
-├── 📁 docs/                 # GitHub Pages 部署目录
-│   └── (与 website/ 同步)
-│
-├── 📁 .github/
-│   ├── workflows/           # CI/CD 自动化
-│   │   ├── data-update.yml    # 月度数据更新 + 异常检测
-│   │   └── sync-to-docs.yml   # 自动同步 website/ → docs/
-│   └── ISSUE_TEMPLATE/    # 议题模板
-│
-├── 📁 docs/ (repo)        # 项目文档
-│   ├── ARCHITECTURE.md
-│   ├── DATA_ARCHITECTURE.md
-│   ├── SEO_ARCHITECTURE.md
-│   ├── AI_ARCHITECTURE.md
-│   └── GROWTH_STRATEGY.md
-│
-├── README.md
-├── CONTRIBUTING.md
-└── LICENSE
-```
-
----
-
-## 🛠️ 技术栈
-
-| 层级 | 技术 | 说明 |
-|------|------|------|
-| **前端** | 纯静态 HTML + Vanilla JS | 极致性能，无框架依赖 |
-| **3D** | Three.js | 首页交互地球 |
-| **图表** | ECharts | 雷达图、数据可视化 |
-| **搜索** | fuse.js | 客户端模糊搜索 |
-| **生成** | Python + Jinja-like | 静态页面生成 |
-| **部署** | GitHub Pages | 自动部署 |
-| **数据** | JSON + JSON Schema | 结构化 + 可验证 |
-| **CI/CD** | GitHub Actions | 数据变更自动构建部署 |
-
----
-
-## 🤝 如何贡献
-
-### 贡献方式
-
-| 方式 | 适合人群 | 难度 | 时间 |
-|------|----------|------|------|
-| 🐛 提交 Issue | 任何人 | ⭐ | 5 分钟 |
-| 🔧 数据纠错 | 有经验者 | ⭐⭐ | 15 分钟 |
-| 🌍 添加国家数据 | 研究者 | ⭐⭐⭐ | 1-2 小时 |
-| 🏙️ 添加城市数据 | 本地居民 | ⭐⭐ | 30 分钟 |
-| 💻 改进生成器 | 开发者 | ⭐⭐⭐⭐ | 2-4 小时 |
-| 🎨 设计优化 | 设计师 | ⭐⭐⭐ | 2-4 小时 |
-
-### 快速贡献流程
+### 贡献流程（V2）
 
 ```bash
 # 1. Fork 仓库
-# 2. 克隆你的 Fork
-git clone https://github.com/YOUR_USERNAME/digital-nomad-cn.git
 
-# 3. 创建分支
-git checkout -b add-country-romania
+# 2. 修改数据
+# 编辑 datasets/countries.json
+# （数据必须符合 schemas/country.schema.json）
 
-# 4. 添加数据
-# 编辑 website/data/entities/country/romania.json
-# （参考 website/data/schemas/country-detail.json）
+# 3. 校验数据
+npm run validate
 
-# 5. 运行生成器
-cd website/scripts
-python generate-country-pages.py
+# 4. 同步到网站
+npm run sync:data
 
-# 6. 提交
-git add .
-git commit -m "data: add Romania country data"
-git push origin add-country-romania
-
-# 7. 提交 Pull Request
+# 5. 提交 PR
+git add datasets/ website/countries-data.js
+git commit -m "data: update Thailand visa info"
+git push origin your-branch
 ```
+
+### 数据规范
+
+- 所有数据必须符合国家 JSON Schema
+- 数据变更必须通过 `npm run validate` 校验
+- 网站文件由脚本自动生成，**禁止手动编辑**
 
 完整贡献指南：[CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
 
-## 📅 路线图
+## 📅 V2 Roadmap
 
-| 阶段 | 目标 | 状态 |
-|------|------|------|
-| ✅ 国家详情页 | 60 国 + 雷达图 + 相似推荐 | 已完成 |
-| ✅ 数据对比 | 4 国对比 + 12 指标 | 已完成 |
-| ✅ 搜索 + 路线 | fuse.js 搜索 + 3 条路线 | 已完成 |
-| ✅ 扩展数据 | 新增 18 国，累计 60 国 | 已完成 |
-| ✅ 数据 API | 5 个静态 JSON 端点，开放 AI 调用 | 已完成 |
-| ✅ 英文版 | 首页/国家/签证/城市/对比/搜索/路线 | 已完成 |
-| ✅ 智能推荐 | 5 维匹配问卷 + 加权评分 + 中英双语 | 已完成 |
-| ✅ PWA | 离线缓存、Service Worker、可安装到主屏幕 | 已完成 |
-| ✅ AI 助手 | Gemini 驱动的签证咨询 + 中英双语 | 已完成 |
-| ✅ 自动化数据 | 月度汇率更新 + 异常检测 + GitHub Actions | 已完成 |
-| ✅ 更多城市 | 扩展至 120+ 城市 | 已完成 |
-| ✅ 英文详情页 | 122 城 + 60 国详情页，中英双语对等 | 已完成 |
-| ✅ 英文对比页 | 31 国对比 + 29 城对比，60 个英文对比页 | 已完成 |
-| ✅ 数据质量 | 60 国签证数据补全 + 全站统计修复 + 浮点精度 | 已完成 |
-| ✅ 多语言 SEO | 485 页 hreflang 标签 + 502 URL 站点地图 | 已完成 |
-| ✅ 文章系统 | 数据驱动文章生成 + 3 篇首发 | 已完成 |
-| ✅ AI Search 就绪 | FAQPage Schema + llms.txt + robots.txt AI 爬虫规则 | 已完成 |
-| ✅ 社区参与 | 社区页面 + GitHub Star CTA + 贡献入口 | 已完成 |
-| ✅ 分析系统 | 隐私优先 analytics.js + 足迹页面 + CWV 监控 | 已完成 |
-| ✅ 性能优化 | fetchpriority + preconnect + defer + CWV observer | 已完成 |
-| ✅ 国家深度指南 | 12 新字段 + 5 试点页面（成本明细、优势劣势、推荐社区） | 已完成 |
-| ✅ API 文档 | 增强版文档 + 代码标签页 + 变更日志 + LLM 上下文 | 已完成 |
-| ✅ 移动端导航 | 汉堡菜单 + 响应式导航 + 触摸优化 | 已完成 |
-| ✅ 社交分享 | share.js（X/Twitter, LinkedIn, 复制, 原生分享） | 已完成 |
-| ✅ SEO 完善 | 自定义 404 页面 + 面包屑 Schema + 内部链接优化 | 已完成 |
-| 📋 社区功能 | 用户评论、评分、经验分享 | 计划中 |
+| 阶段 | 里程碑 | 目标 | 状态 |
+|------|--------|------|------|
+| **Phase 0** | M1 | Schema 体系建立 | ✅ 完成 |
+| **Phase 0** | M2 | 数据层抽离（61国） | ✅ 完成 |
+| **Phase 0** | M3 | 目录重构 + 自动管道 | ✅ 完成 |
+| **Phase 1** | M4 | REST API v1 | ✅ 完成 |
+| **Phase 1** | M5 | JS SDK 发布 | ✅ 完成 |
+| **Phase 1** | M6 | 社区建设启动 | ✅ 完成 |
+| **Phase 1** | M7 | 数据扩展到100国 | ✅ 完成 |
+| **Phase 1** | M8 | 自动化管道完善 | ✅ 完成 |
+| **Phase 1** | M9 | 开源生态初建 | ✅ 完成 |
+| **Phase 1** | M10 | GraphQL API v1 | ✅ 完成 |
+| **Phase 1** | M11 | Open Data 发布 | ✅ 完成 |
+| **Phase 2** | M12 | Year 1 总结 | 📋 计划 |
+| **Phase 2** | **M13** | **MCP Server** | 🚧 **进行中** |
+| **Phase 2** | M14 | Embedding 系统 | 📋 计划 |
+| **Phase 2** | M15 | RAG 系统 | 📋 计划 |
 
-完整路线图：[36MONTH_ROADMAP.md](docs/36MONTH_ROADMAP.md)
+完整路线图：[architecture/v2/08-roadmap.md](architecture/v2/08-roadmap.md)
 
 ---
 
@@ -350,31 +348,6 @@ git push origin add-country-romania
     <img src="https://api.star-history.com/svg?repos=kfat77/digital-nomad-cn&type=Date" alt="Star History Chart" width="600">
   </a>
 </p>
-
----
-
-## 👥 Contributors
-
-感谢所有为这个项目做出贡献的人！
-
-<p align="center">
-  <a href="https://github.com/kfat77/digital-nomad-cn/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=kfat77/digital-nomad-cn" alt="Contributors" />
-  </a>
-</p>
-
-<a href="https://github.com/kfat77/digital-nomad-cn/issues/new">成为第一个贡献者 →</a>
-
----
-
-## 💖 赞助
-
-你的支持将用于：
-- 🌍 数据 API 与数据库成本
-- 📊 数据更新与验证
-- 👥 社区运营与活动
-
-[成为赞助者](https://github.com/sponsors/kfat77)
 
 ---
 

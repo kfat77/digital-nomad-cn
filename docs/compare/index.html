@@ -9,10 +9,14 @@
     <link rel="manifest" href="../manifest.json">
     <link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
     <link rel="apple-touch-icon" href="../icons/icon-192.png">
-    <meta name="theme-color" content="#3b82f6">
+    <meta name="theme-color" content="#FFFFFF">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/compare/">
     <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/compare/">
-    <link rel="stylesheet" href="../style.css?v=2">
+    <link rel="alternate" hreflang="x-default" href="https://kfat77.github.io/digital-nomad-cn/compare/"><link rel="stylesheet" href="../style.css?v=7">
     <style>
         .compare-hero { background: var(--bg-hero); border-bottom: 1px solid var(--border); padding: 120px 0 60px; text-align: center; }
         .compare-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.03em; }
@@ -66,12 +70,10 @@
 <body>
     <header class="header">
         <div class="header-inner">
-            <a href="../" class="logo"><span class="logo-icon">◈</span><span>数字游民指南</span></a>
+            <a href="../" class="logo"><span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><span>数字游民指南</span></a>
             <nav class="main-nav">
-                <a href="../">首页</a><a href="../country/">国家</a><a href="../visa/">签证</a><a href="../city/">城市</a>
-                <a href="../articles/">文章</a>
-                <a href="./">对比</a><a href="../routes/">路线</a><a href="../search/">搜索</a><a href="../assistant/">AI助手</a><a href="../recommend/">推荐</a>
-            </nav>
+                <a href="../country/">国家</a><a href="../visa/">签证</a><a href="../articles/">文章</a>
+                <a href="./">对比</a><a href="../search/">搜索</a></nav>
             <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
             <a href="../en/compare/" class="github-btn" style="margin-left:8px;background:rgba(59,130,246,0.15);color:#3b82f6;">English</a>
         </div>
@@ -80,7 +82,7 @@
     <section class="compare-hero">
         <div class="hero-content">
             <div class="hero-tag"><span class="hero-tag-dot"></span>数据驱动决策</div>
-            <h1 class="hero-title">⚖️ 国家<br><span class="hero-title-accent">对比工具</span></h1>
+            <h1 class="hero-title">国家<br><span class="hero-title-accent">对比工具</span></h1>
             <p class="hero-desc">选择 2-4 个国家，一键对比生活成本、签证政策、数字游民友好度等关键指标</p>
         </div>
     </section>
@@ -105,16 +107,37 @@
         <div id="results"></div>
     </section>
 
-    <footer class="footer" style="margin-top: 0;">
-        <div class="footer-main">
-            <div class="footer-brand"><span class="logo-icon">◈</span><span class="logo-text">数字游民指南</span><p>60 国数据、签证、122 城市，全部开源。</p></div>
-            <div class="footer-links">
-                <div class="footer-col"><h4>核心内容</h4><a href="../country/">国家数据库</a><a href="../visa/">签证数据库</a><a href="../city/">城市数据库</a><a href="./">国家对比</a></div>
-                <div class="footer-col"><h4>社区</h4><a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a></div>
+    <footer class="footer">
+    <div class="footer-main">
+        <div class="footer-brand">
+            <div class="footer-brand-name">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                <span>数字游民指南</span>
+            </div>
+            <p>面向中国国内用户的数字游民基础设施一站式攻略。100 国数据、50+ 签证、122 城市，全部开源。</p>
+        </div>
+        <div class="footer-links">
+            <div class="footer-col">
+                <h4>数据</h4>
+                <a href="../country/">国家数据库</a>
+                <a href="../visa/">签证数据库</a>
+                <a href="../compare/">国家对比</a>
+                <a href="../search/">搜索</a>
+            </div>
+            <div class="footer-col">
+                <h4>指南</h4>
+                <a href="../articles/digital-nomad-banking-guide/">银行卡</a>
+                <a href="../articles/giffgaff-guide-2026/">电话卡</a>
+                <a href="../articles/securities-guide/">证券账户</a>
+                <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a>
             </div>
         </div>
-        <div class="footer-bottom"><p>CC BY-NC-SA 4.0 | 内容仅供学习交流</p></div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+        <p>本内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议共享</p>
+        <p>内容仅供学习交流，不构成投资、法律或移民建议</p>
+    </div>
+</footer>
 
     <script>
     const countryData = {
@@ -1177,5 +1200,7 @@
         });
     }
     </script>
+  <script src="../lang-switcher.js" defer></script>
+    <script src="../motion.js" defer></script>
 </body>
 </html>

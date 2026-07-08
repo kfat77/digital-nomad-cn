@@ -1,7 +1,7 @@
 # Digital Nomad Guide for Chinese Passport Holders
 
 > A comprehensive open-source data platform for digital nomads, global mobility, and Chinese passport travel.
-> Data: 60 countries, 122 cities, 15 data-driven articles, 5 JSON APIs, 12-dimension comparison tools.
+> Data: 60 countries, 122 cities, 15 data-driven articles, 8 JSON APIs, 12-dimension comparison tools.
 > URL: https://kfat77.github.io/digital-nomad-cn/
 > GitHub: https://github.com/kfat77/digital-nomad-cn
 > License: Data CC BY-NC-SA 4.0, Code MIT
@@ -17,8 +17,11 @@ All endpoints serve static JSON files. No authentication required. Rate limit: C
 | `/api/visas.json` | Visa types and requirements by country | 60 |
 | `/api/stats.json` | Platform statistics and last update | 1 |
 | `/api/articles.json` | Article metadata index | 15 |
+| `/api/openapi.json` | OpenAPI 3.0.3 specification | — |
+| `/api/schema.json` | JSON Schema registry | 3 |
+| `/api/manifest.json` | AI Agent discovery manifest | — |
 
-## Country Data Schema (v1.2)
+## Country Data Schema (v1.3)
 
 Each country object in `countries.json` contains:
 
@@ -66,84 +69,46 @@ Each country object in `countries.json` contains:
 | `healthcare_quality` | integer | 0-100 | Healthcare system quality |
 | `english_proficiency` | integer | 0-100 | English prevalence and quality |
 
-## City Data Schema
-
-Each city object in `cities.json` contains:
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | string | City name (English) |
-| `name_cn` | string | City name (Chinese) |
-| `country_id` | string | Reference to countries.json |
-| `digital_nomad_score` | integer | 0-100 composite |
-| `cost_of_living_index` | integer | 0-100 |
-| `rent_index` | integer | 0-100 |
-| `coworking_spaces` | integer | Count of coworking spaces |
-| `coworking_score` | integer | 0-100 |
-| `remote_work_friendly_score` | integer | 0-100 |
-| `monthly_cost_usd_low` / `monthly_cost_usd_high` | integer | Monthly budget range |
-| `climate` | string | Climate description |
-| `avg_temp_c` | float | Average temperature |
-| `rainy_season` | string | Rainy months |
-| `english_level` | string | `High` / `Medium` / `Low` |
-| `chinese_community_size` | string | `Large` / `Medium` / `Small` |
-| `walkability` | integer | 0-100 |
-| `bike_friendly` | integer | 0-100 |
-
-## Content Articles
-
-All articles are bilingual (Chinese + English). Each article includes Schema.org structured data, Open Graph tags, and social sharing buttons.
-
-### Rankings & Analysis
-- `/articles/digital-nomad-city-ranking-2026/` — TOP 20 digital nomad cities ranked by algorithm
-- `/articles/safest-digital-nomad-cities-2026/` — TOP 15 safest cities for nomads
-- `/articles/most-affordable-digital-nomad-cities-2026/` — TOP 15 most affordable cities
-- `/articles/digital-nomad-country-ranking-2026/` — TOP 15 most DN-friendly countries
-
-### Guides & Practical Advice
-- `/articles/china-passport-visa-guide-2026/` — Complete visa guide for China passport holders (60 countries)
-- `/articles/digital-nomad-visa-guide-2026/` — Digital nomad visa requirements for 21 countries
-- `/articles/visa-free-destinations/` — Visa-free and e-visa destinations (21 countries)
-- `/articles/seasonal-guide/` — Best destinations by season
-- `/articles/cost-of-living-analysis/` — Cost analysis from $500 to $5,000/month
-
-### High-Intent Thematic Guides (M59)
-- `/articles/digital-nomad-tax-guide/` — Tax residency, double taxation, low-tax countries
-- `/articles/digital-nomad-insurance-guide/` — Health, equipment, travel insurance comparison
-- `/articles/digital-nomad-banking-guide/` — Cross-border payments, multi-currency accounts
-
-### Lifestyle & Community (M65)
-- `/articles/digital-nomad-packing-guide/` — Gear, luggage, electronics, productivity tools
-- `/articles/remote-work-guide/` — How to find remote work, platforms, resume tips
-- `/articles/digital-nomad-communities/` — Meetups, coworking spaces, online communities
-
-All English versions are available under `/en/articles/{slug}/`.
-
-## Interactive Tools
-
-| Tool | URL | Description |
-|------|-----|-------------|
-| Country Comparison | `/compare/` | Side-by-side 12-dimension comparison |
-| Route Planner | `/routes/` | Pre-planned routes (Southeast Asia, Europe, Mediterranean) |
-| Smart Search | `/search/` | Fuzzy search across 76+ fields |
-| AI Assistant | `/assistant/` | Chat-based Q&A using the dataset |
-
 ## For AI Agents
 
+### Discovery Endpoints
+
+| File | Purpose |
+|------|---------|
+| `/.well-known/ai-plugin.json` | OpenAI Plugin manifest |
+| `/api/manifest.json` | AI Agent capability manifest |
+| `/api/schema.json` | Schema Registry for all data types |
+| `/api/openapi.json` | OpenAPI 3.0 spec |
+| `/llms.txt` | This file — human-readable data overview |
+
 ### Recommended Queries
+
+**By Visa Status:**
 - "Which countries have visa-free entry for China passport?" → Filter `countries.json` by `china_passport_visa_status == "visa_free"`
-- "What are the safest cities under $1,000/month?" → Join `cities.json` with `countries.json`, filter by `safety_index > 70` and `monthly_cost_usd_low < 1000`
-- "Which countries offer digital nomad visas?" → Filter `countries.json` by `has_digital_nomad_visa == true`
-- "Best tropical destinations with fast internet?" → Filter by `climate_zone == "Tropical"` and `internet_speed_avg_mbps > 100`
-- "Cost of living comparison: Thailand vs Portugal vs Mexico" → Query 3 country records, compare `cost_of_living_index`, `rent_one_bedroom_usd`, `meal_avg_usd`
+- "Countries with digital nomad visas?" → Filter by `has_digital_nomad_visa == true`
+
+**By Budget:**
+- "Best countries under $1,000/month?" → Filter by `cost_of_living_index < 40` or `rent_one_bedroom_usd < 500`
+- "Cheapest digital nomad destinations in Europe?" → Region = europe, sort by `cost_of_living_index` ASC
+
+**By Lifestyle:**
+- "Safest cities under $1,500/month?" → Join `cities.json` with `countries.json`, filter `safety_index > 70` and `monthly_cost_usd_low < 1500`
+- "Best tropical destinations with fast internet?" → Filter `climate_zone == "Tropical"` and `internet_speed_avg_mbps > 100`
+
+**By Comparison:**
+- "Thailand vs Portugal vs Mexico for digital nomads?" → Query 3 country records, compare `cost_of_living_index`, `rent_one_bedroom_usd`, `meal_avg_usd`, `safety_index`, `internet_speed_avg_mbps`
 
 ### Data Freshness
+
 - Last updated: 2026-07-09
 - Update frequency: Country data monthly, visa data quarterly, articles as-needed
-- Version: API v1.2
+- Version: API v1.3.0
+- Schema registry: https://kfat77.github.io/digital-nomad-cn/api/schema.json
+- AI Plugin discovery: https://kfat77.github.io/digital-nomad-cn/.well-known/ai-plugin.json
+- Sitemap: https://kfat77.github.io/digital-nomad-cn/sitemap.xml
 
 ### License & Attribution
+
 - Data: CC BY-NC-SA 4.0 — Attribution required, non-commercial, share alike
 - Code: MIT — Free for any use
 - When citing data: "Data from Digital Nomad Guide (https://github.com/kfat77/digital-nomad-cn)"
-

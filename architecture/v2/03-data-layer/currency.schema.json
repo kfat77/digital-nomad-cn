@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/kfat77/digital-nomad-cn/schemas/v2/living/currency.schema.json",
+  "title": "Currency",
+  "description": "货币与汇率数据。",
+  "version": "2.0.0",
+  "type": "object",
+  "required": ["country", "currency", "metadata"],
+  "properties": {
+    "country": { "type": "string" },
+    "currency": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "name": { "type": "string" },
+        "symbol": { "type": "string" }
+      }
+    },
+    "exchangeRate": {
+      "type": "object",
+      "properties": {
+        "toUSD": { "type": "number" },
+        "toCNY": { "type": "number" },
+        "toEUR": { "type": "number" },
+        "lastUpdated": { "type": "string", "format": "date-time" }
+      }
+    },
+    "stability": {
+      "type": "string",
+      "enum": ["very-stable", "stable", "volatile", "hyperinflation"]
+    },
+    "capitalControls": {
+      "type": "boolean",
+      "description": "是否有外汇管制"
+    },
+    "cashSociety": {
+      "type": "boolean",
+      "description": "是否以现金为主"
+    },
+    "cryptoFriendly": {
+      "type": "boolean",
+      "description": "对加密货币是否友好"
+    },
+    "paymentMethods": {
+      "type": "object",
+      "properties": {
+        "cash": { "type": "boolean" },
+        "creditCard": { "type": "boolean" },
+        "debitCard": { "type": "boolean" },
+        "mobilePayment": { "type": "boolean" },
+        "qrCodePayment": { "type": "boolean" },
+        "unionpay": { "type": "boolean" },
+        "alipay": { "type": "boolean" },
+        "wechatPay": { "type": "boolean" }
+      }
+    },
+    "atmAccessibility": {
+      "type": "object",
+      "properties": {
+        "widespread": { "type": "boolean" },
+        "foreignCardAccepted": { "type": "boolean" },
+        "fees": {
+          "type": "object",
+          "properties": {
+            "localBank": { "type": "integer" },
+            "foreignCard": { "type": "integer" },
+            "currency": { "type": "string", "pattern": "^[A-Z]{3}$" }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["version", "lastUpdated"],
+      "properties": {
+        "version": { "type": "string" },
+        "lastUpdated": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

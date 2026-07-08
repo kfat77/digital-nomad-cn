@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+type: dataset
+title: "Digital Nomad CN — Global Mobility Open Dataset"
+abstract: "A comprehensive open dataset covering 100+ countries for digital nomads and global mobility, including visa policies, cost of living, internet quality, and nomad-friendliness scores."
+authors:
+  - family-names: "Digital Nomad CN"
+    given-names: "Contributors"
+repository-code: "https://github.com/kfat77/digital-nomad-cn"
+url: "https://kfat77.github.io/digital-nomad-cn/"
+license: CC-BY-SA-4.0
+version: 2.0.0
+date-released: 2026-07-07
+keywords:
+  - digital-nomad
+  - global-mobility
+  - visa-data
+  - cost-of-living
+  - remote-work
+  - open-data
+  - china-passport
+  - travel
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.placeholder
+    description: "Zenodo DOI (pending registration)"

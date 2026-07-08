@@ -1,12 +1,13 @@
 // Service Worker for Digital Nomad Guide PWA
-// Cache-first strategy with network fallback
+// Cache-first strategy with network fallback + offline page + background sync
 
-const CACHE_VERSION = 'v57';
+const CACHE_VERSION = 'v98';
 const STATIC_CACHE = `dn-static-${CACHE_VERSION}`;
 const DATA_CACHE = `dn-data-${CACHE_VERSION}`;
 const API_CACHE = `dn-api-${CACHE_VERSION}`;
+const IMAGE_CACHE = `dn-images-${CACHE_VERSION}`;
 
-// Core pages to pre-cache ( Chinese + English )
+// Core pages to pre-cache (Chinese + English)
 const CORE_PAGES = [
   '/digital-nomad-cn/',
   '/digital-nomad-cn/index.html',
@@ -14,6 +15,9 @@ const CORE_PAGES = [
   '/digital-nomad-cn/app.js',
   '/digital-nomad-cn/countries-data.js',
   '/digital-nomad-cn/manifest.json',
+  '/digital-nomad-cn/theme.js',
+  '/digital-nomad-cn/lang-switcher.js',
+  '/digital-nomad-cn/offline.html',
   '/digital-nomad-cn/country/',
   '/digital-nomad-cn/country/index.html',
   '/digital-nomad-cn/visa/',
@@ -28,6 +32,10 @@ const CORE_PAGES = [
   '/digital-nomad-cn/routes/index.html',
   '/digital-nomad-cn/recommend/',
   '/digital-nomad-cn/recommend/index.html',
+  '/digital-nomad-cn/assistant/',
+  '/digital-nomad-cn/assistant/index.html',
+  '/digital-nomad-cn/roadmap/',
+  '/digital-nomad-cn/roadmap/index.html',
   '/digital-nomad-cn/en/',
   '/digital-nomad-cn/en/index.html',
   '/digital-nomad-cn/en/app-en.js',
@@ -45,10 +53,10 @@ const CORE_PAGES = [
   '/digital-nomad-cn/en/routes/index.html',
   '/digital-nomad-cn/en/recommend/',
   '/digital-nomad-cn/en/recommend/index.html',
-  '/digital-nomad-cn/assistant/',
-  '/digital-nomad-cn/assistant/index.html',
   '/digital-nomad-cn/en/assistant/',
   '/digital-nomad-cn/en/assistant/index.html',
+  '/digital-nomad-cn/en/roadmap/',
+  '/digital-nomad-cn/en/roadmap/index.html',
   // CDN assets
   'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js',
   'https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js',
@@ -63,8 +71,6 @@ const API_ENDPOINTS = [
   '/digital-nomad-cn/api/visas.json',
   '/digital-nomad-cn/api/stats.json',
   '/digital-nomad-cn/api/manifest.json',
-  '/digital-nomad-cn/data/updated-at.json',
-  '/digital-nomad-cn/data/exchange-rates.json',
 ];
 
 // Install: pre-cache core pages
@@ -82,7 +88,7 @@ self.addEventListener('activate', event => {
     caches.keys().then(keys =>
       Promise.all(
         keys.map(key => {
-          if (key !== STATIC_CACHE && key !== DATA_CACHE && key !== API_CACHE) {
+          if (!key.startsWith(`dn-`) || !key.endsWith(`-${CACHE_VERSION}`)) {
             return caches.delete(key);
           }
         })
@@ -96,37 +102,47 @@ self.addEventListener('fetch', event => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Skip non-GET requests and Chrome extensions
   if (request.method !== 'GET') return;
   if (url.protocol === 'chrome-extension:') return;
 
   // API endpoints: stale-while-revalidate
-  if (API_ENDPOINTS.some(path => url.pathname.includes(path.split('/').pop()))) {
+  if (API_ENDPOINTS.some(path => url.pathname.endsWith(path.split('/').pop()))) {
     event.respondWith(staleWhileRevalidate(request, API_CACHE));
     return;
   }
 
-  // Static assets: cache-first, network fallback
+  // Images: cache with limit
+  if (isImage(url)) {
+    event.respondWith(cacheWithLimit(request, IMAGE_CACHE, 100));
+    return;
+  }
+
+  // Static assets: cache-first
   if (isStaticAsset(url)) {
     event.respondWith(cacheFirst(request, STATIC_CACHE));
     return;
   }
 
-  // HTML pages: cache-first, network fallback (offline fallback to index.html)
+  // HTML pages: cache-first with offline fallback
   if (request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html')) {
     event.respondWith(
-      cacheFirstWithFallback(request, STATIC_CACHE, '/digital-nomad-cn/index.html')
+      cacheFirstWithOfflineFallback(request, STATIC_CACHE)
     );
     return;
   }
 
-  // Default: network-first with cache fallback
+  // Default: network-first
   event.respondWith(networkFirst(request, STATIC_CACHE));
 });
 
 function isStaticAsset(url) {
-  const staticExts = ['.css', '.js', '.json', '.png', '.jpg', '.jpeg', '.svg', '.woff', '.woff2', '.ttf'];
-  return staticExts.some(ext => url.pathname.endsWith(ext)) || url.host === 'fonts.googleapis.com';
+  const staticExts = ['.css', '.js', '.json', '.woff', '.woff2', '.ttf'];
+  return staticExts.some(ext => url.pathname.endsWith(ext)) || url.host === 'fonts.googleapis.com' || url.host === 'fonts.gstatic.com';
+}
+
+function isImage(url) {
+  const imgExts = ['.png', '.jpg', '.jpeg', '.svg', '.webp', '.gif'];
+  return imgExts.some(ext => url.pathname.endsWith(ext));
 }
 
 async function cacheFirst(request, cacheName) {
@@ -142,7 +158,7 @@ async function cacheFirst(request, cacheName) {
   }
 }
 
-async function cacheFirstWithFallback(request, cacheName, fallbackUrl) {
+async function cacheFirstWithOfflineFallback(request, cacheName) {
   const cache = await caches.open(cacheName);
   const cached = await cache.match(request);
   if (cached) return cached;
@@ -151,7 +167,10 @@ async function cacheFirstWithFallback(request, cacheName, fallbackUrl) {
     if (response.ok) cache.put(request, response.clone());
     return response;
   } catch (e) {
-    const fallback = await cache.match(fallbackUrl);
+    // Return offline page for HTML requests
+    const offlinePage = await cache.match('/digital-nomad-cn/offline.html');
+    if (offlinePage) return offlinePage;
+    const fallback = await cache.match('/digital-nomad-cn/index.html');
     return fallback || new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain' } });
   }
 }
@@ -178,9 +197,45 @@ async function staleWhileRevalidate(request, cacheName) {
   return cached || fetchPromise;
 }
 
-// Message handler for manual cache updates
+async function cacheWithLimit(request, cacheName, maxItems) {
+  const cache = await caches.open(cacheName);
+  const cached = await cache.match(request);
+  if (cached) return cached;
+  try {
+    const response = await fetch(request);
+    if (response.ok) {
+      // Clean up old cache entries if over limit
+      const keys = await cache.keys();
+      if (keys.length >= maxItems) {
+        await cache.delete(keys[0]);
+      }
+      cache.put(request, response.clone());
+    }
+    return response;
+  } catch (e) {
+    return cached || new Response('', { status: 204 });
+  }
+}
+
+// Background sync for offline form submissions
+self.addEventListener('sync', event => {
+  if (event.tag === 'sync-data') {
+    event.waitUntil(syncPendingData());
+  }
+});
+
+async function syncPendingData() {
+  // Placeholder for background sync logic
+  // Could be used to sync offline country data updates
+  console.log('[SW] Background sync triggered');
+}
+
+// Message handler for manual cache updates and skipWaiting
 self.addEventListener('message', event => {
   if (event.data === 'skipWaiting') {
     self.skipWaiting();
+  }
+  if (event.data === 'getCacheVersion') {
+    event.ports[0].postMessage(CACHE_VERSION);
   }
 });

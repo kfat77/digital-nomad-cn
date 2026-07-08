@@ -9,10 +9,10 @@
     <meta property="og:description" content="Philippines: Visa Required | Cost 35 | Safety 55 | Internet 30Mbps">
     <meta property="og:image" content="https://kfat77.github.io/digital-nomad-cn/images/og/philippines.png">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/en/country/philippines/">
     <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/country/philippines/">
     <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/country/philippines/">
-    <link rel="stylesheet" href="../../style.css?v=2">
+    <link rel="alternate" hreflang="x-default" href="https://kfat77.github.io/digital-nomad-cn/country/philippines/">
+    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/en/country/philippines/"><link rel="stylesheet" href="../../../style.css?v=7">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <style>
@@ -62,6 +62,17 @@
         .text-muted { color: var(--muted); }
         @media (max-width: 1024px) { .country-stats-row { grid-template-columns: repeat(2, 1fr); } .country-grid-3, .country-grid-4 { grid-template-columns: repeat(2, 1fr); } .related-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 640px) { .country-hero-inner { flex-direction: column; } .country-stats-row { grid-template-columns: 1fr; } .country-grid-3, .country-grid-4 { grid-template-columns: 1fr; } .related-grid { grid-template-columns: 1fr; } .visa-card { flex-direction: column; text-align: center; } }
+    
+        .freshness-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; padding: 0.25rem 0.6rem; border-radius: var(--radius-full); font-weight: 500; }
+        .freshness-badge.fresh { background: rgba(34,197,94,0.15); color: #16a34a; }
+        .freshness-badge.aging { background: rgba(234,179,8,0.15); color: #ca8a04; }
+        .freshness-badge.warning { background: rgba(249,115,22,0.15); color: #ea580c; }
+        .freshness-badge.stale { background: rgba(239,68,68,0.15); color: #dc2626; }
+        .freshness-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+        .freshness-badge.fresh::before { background: #16a34a; }
+        .freshness-badge.aging::before { background: #ca8a04; }
+        .freshness-badge.warning::before { background: #ea580c; }
+        .freshness-badge.stale::before { background: #dc2626; }
     </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Country","name":"Philippines","alternateName":"菲律宾","description":"Philippines digital nomad guide","geo":{"@type":"GeoCoordinates","latitude":0,"longitude":0},"additionalProperty":[{"@type":"PropertyValue","name":"Digital Nomad Score","value":74},{"@type":"PropertyValue","name":"Cost of Living","value":35},{"@type":"PropertyValue","name":"Safety Index","value":55},{"@type":"PropertyValue","name":"Internet Speed","value":"30 Mbps"}]}</script>
 <script type="application/ld+json">{
@@ -73,11 +84,12 @@
     {"@type": "ListItem", "position": 3, "name": "Philippines", "item": "https://kfat77.github.io/digital-nomad-cn/en/country/philippines/"}
   ]
 }</script>
+    <link rel="preload" href="../../world-geo.json" as="fetch" crossorigin type="application/json">
 </head>
 <body>
     <header class="header">
         <div class="header-inner">
-            <a href="../../" class="logo"><span class="logo-icon">◈</span><span>Digital Nomad Guide</span></a>
+            <a href="../../" class="logo"><span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><span>Digital Nomad Guide</span></a>
             <nav class="main-nav">
                 <a href="../../">Home</a>
                 <a href="../../country/">Countries</a>
@@ -88,7 +100,6 @@
                 <a href="../../search/">Search</a>
             </nav>
             <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
-            <button class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
             <button class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
         </div>
     </header>
@@ -106,6 +117,7 @@
                     <span class="badge badge-warning">🛡️ Moderate</span>
                     <span class="badge badge-danger">🌐 Slow</span>
                 </div>
+                    <span class="freshness-badge fresh">数据更新于 2026-07-06 (刚刚)</span>
                 <button class="share-btn" onclick="sharePage()">🔗 Share</button>
             </div>
         </div>
@@ -189,7 +201,7 @@
     <footer class="footer" style="margin-top: 0;">
         <div class="footer-main">
             <div class="footer-brand">
-                <span class="logo-icon">◈</span>
+                <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
                 <span class="logo-text">Digital Nomad Guide</span>
                 <p>60 countries, 50+ visas, 122 cities — all open source.</p>
             </div>
@@ -378,5 +390,7 @@
         });
         window.addEventListener('resize', () => radarChart.resize());
     </script>
+  <script src="../../../lang-switcher.js" defer></script>
+    <script src="../../../motion.js" defer></script>
 </body>
 </html>

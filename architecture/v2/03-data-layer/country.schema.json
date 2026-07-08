@@ -1,0 +1,182 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/kfat77/digital-nomad-cn/schemas/v2/core/country.schema.json",
+  "title": "Country",
+  "description": "国家/地区基础信息定义。所有其他数据类型的核心锚点。",
+  "version": "2.0.0",
+  "type": "object",
+  "required": ["id", "name", "region", "status", "metadata"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "国家/地区唯一标识符，使用ISO 3166-1 alpha-3或自定义slug",
+      "examples": ["thailand", "japan", "portugal", "taiwan"],
+      "pattern": "^[a-z][a-z0-9-]+$"
+    },
+    "iso": {
+      "type": "object",
+      "description": "ISO标准代码",
+      "properties": {
+        "alpha2": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "alpha3": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "numeric": { "type": "string", "pattern": "^[0-9]{3}$" }
+      },
+      "required": ["alpha2", "alpha3"]
+    },
+    "name": {
+      "type": "object",
+      "description": "多语言名称",
+      "required": ["zh", "en"],
+      "properties": {
+        "zh": { "type": "string", "description": "中文名称" },
+        "en": { "type": "string", "description": "英文名称" },
+        "local": { "type": "string", "description": "当地语言名称" }
+      }
+    },
+    "region": {
+      "type": "string",
+      "description": "所属区域",
+      "enum": [
+        "east-asia", "southeast-asia", "south-asia", "central-asia",
+        "western-europe", "eastern-europe", "northern-europe", "southern-europe",
+        "north-america", "central-america", "south-america", "caribbean",
+        "oceania", "middle-east", "africa", "central-america"
+      ]
+    },
+    "subregion": {
+      "type": "string",
+      "description": "子区域",
+      "examples": ["indochina", "balkans", "nordic", "benelux"]
+    },
+    "capital": {
+      "type": "string",
+      "description": "首都城市ID（引用city.schema.json）"
+    },
+    "population": {
+      "type": "integer",
+      "description": "人口数量",
+      "minimum": 0
+    },
+    "area": {
+      "type": "object",
+      "description": "面积信息",
+      "properties": {
+        "total": { "type": "integer", "description": "总面积（平方公里）" },
+        "land": { "type": "integer" },
+        "water": { "type": "integer" }
+      }
+    },
+    "coordinates": {
+      "type": "object",
+      "description": "地理坐标",
+      "properties": {
+        "latitude": { "type": "number", "minimum": -90, "maximum": 90 },
+        "longitude": { "type": "number", "minimum": -180, "maximum": 180 }
+      }
+    },
+    "timezone": {
+      "type": "array",
+      "description": "时区列表",
+      "items": { "type": "string", "examples": ["UTC+7", "UTC+9", "UTC+0"] }
+    },
+    "currency": {
+      "type": "object",
+      "description": "官方货币",
+      "properties": {
+        "code": { "type": "string", "pattern": "^[A-Z]{3}$", "examples": ["THB", "JPY", "EUR"] },
+        "name": { "type": "string" },
+        "symbol": { "type": "string" }
+      }
+    },
+    "languages": {
+      "type": "array",
+      "description": "官方语言",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": { "type": "string", "examples": ["zh", "en", "th", "ja"] },
+          "name": { "type": "string" },
+          "isOfficial": { "type": "boolean" }
+        }
+      }
+    },
+    "drivingSide": {
+      "type": "string",
+      "enum": ["left", "right"],
+      "description": "驾驶方向"
+    },
+    "callingCode": {
+      "type": "array",
+      "description": "国际电话区号",
+      "items": { "type": "string", "examples": ["+66", "+81", "+351"] }
+    },
+    "flag": {
+      "type": "string",
+      "description": "国旗emoji",
+      "examples": ["🇹🇭", "🇯🇵", "🇵🇹"]
+    },
+    "tags": {
+      "type": "array",
+      "description": "标签分类",
+      "items": {
+        "type": "string",
+        "enum": [
+          "digital-nomad-friendly", "low-cost", "high-quality-life",
+          "tax-friendly", "visa-friendly", "english-friendly",
+          "family-friendly", "lgbt-friendly", "pet-friendly",
+          "beach", "mountain", "city", "rural",
+          "tropical", "temperate", "cold",
+          "schengen", "asean", "eu", "commonwealth"
+        ]
+      }
+    },
+    "status": {
+      "type": "string",
+      "description": "数据状态",
+      "enum": ["active", "draft", "deprecated", "pending-review"],
+      "default": "draft"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "元数据",
+      "required": ["version", "lastUpdated", "contributors"],
+      "properties": {
+        "version": { "type": "string", "description": "数据版本" },
+        "lastUpdated": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "contributors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "github": { "type": "string" },
+              "name": { "type": "string" },
+              "role": { "type": "string", "enum": ["author", "maintainer", "contributor", "reviewer"] }
+            }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "description": "数据来源",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string", "format": "uri" },
+              "type": { "type": "string", "enum": ["official", "third-party", "crowdsourced", "estimate"] }
+            }
+          }
+        },
+        "dataQuality": {
+          "type": "object",
+          "properties": {
+            "completeness": { "type": "integer", "minimum": 0, "maximum": 100, "description": "完整度评分" },
+            "accuracy": { "type": "integer", "minimum": 0, "maximum": 100, "description": "准确度评分" },
+            "freshness": { "type": "integer", "minimum": 0, "maximum": 100, "description": "新鲜度评分" }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {}
+}

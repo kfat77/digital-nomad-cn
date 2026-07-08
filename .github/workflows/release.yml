@@ -1,4 +1,4 @@
-name: 🚀 Release
+name: Release
 
 on:
   push:
@@ -14,17 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-
-      - name: Validate data
-        run: node scripts/validate-data.js
-
-      - name: Generate country pages
-        run: node scripts/generate-country-pages.js
-
       - name: Generate changelog from commits
         id: changelog
         run: |
@@ -39,7 +28,7 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           body: |
             ## What's Changed

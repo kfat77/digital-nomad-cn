@@ -1,0 +1,10 @@
+name = "digital-nomad-api"
+main = "src/index.ts"
+compatibility_date = "2024-06-14"
+
+# 环境变量（生产环境在 Cloudflare Dashboard 设置）
+[env.production]
+name = "digital-nomad-api"
+
+[env.staging]
+name = "digital-nomad-api-staging"

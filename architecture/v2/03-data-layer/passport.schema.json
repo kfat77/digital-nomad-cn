@@ -1,0 +1,119 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/kfat77/digital-nomad-cn/schemas/v2/mobility/passport.schema.json",
+  "title": "Passport",
+  "description": "护照免签强度数据。按护照国家对定义，描述持有该护照可免签/落地签/需签的国家。",
+  "version": "2.0.0",
+  "type": "object",
+  "required": ["passportCountry", "rankings", "destinations", "metadata"],
+  "properties": {
+    "passportCountry": {
+      "type": "string",
+      "description": "护照国家ID（引用country.schema.json）",
+      "examples": ["china", "hong-kong", "taiwan", "singapore", "japan"]
+    },
+    "passportType": {
+      "type": "string",
+      "description": "护照类型",
+      "enum": ["ordinary", "diplomatic", "official", "special"],
+      "default": "ordinary"
+    },
+    "rankings": {
+      "type": "object",
+      "description": "全球排名",
+      "properties": {
+        "henleyIndex": {
+          "type": "integer",
+          "description": "Henley Passport Index排名"
+        },
+        "visaFreeScore": {
+          "type": "integer",
+          "description": "免签分数（Henley Index计算方式）",
+          "minimum": 0
+        },
+        "totalDestinations": {
+          "type": "integer",
+          "description": "可入境目的地总数"
+        },
+        "rankingYear": {
+          "type": "integer",
+          "description": "排名年份"
+        }
+      }
+    },
+    "destinations": {
+      "type": "array",
+      "description": "所有目的地的签证要求",
+      "items": {
+        "type": "object",
+        "required": ["country", "requirement"],
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "目的地国家ID"
+          },
+          "requirement": {
+            "type": "string",
+            "enum": [
+              "visa-free",
+              "visa-on-arrival",
+              "e-visa",
+              "visa-required",
+              "eta",
+              "entry-permit",
+              "travel-authorization",
+              "no-admission"
+            ]
+          },
+          "duration": {
+            "type": "object",
+            "properties": {
+              "days": { "type": "integer" },
+              "months": { "type": "integer" },
+              "notes": { "type": "string" }
+            }
+          },
+          "conditions": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "特殊条件",
+            "examples": ["passport-valid-6-months", "return-ticket", "proof-of-funds"]
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "description": "统计摘要（自动生成）",
+      "properties": {
+        "visaFree": { "type": "integer" },
+        "visaOnArrival": { "type": "integer" },
+        "eVisa": { "type": "integer" },
+        "visaRequired": { "type": "integer" },
+        "total": { "type": "integer" }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["version", "lastUpdated"],
+      "properties": {
+        "version": { "type": "string" },
+        "lastUpdated": { "type": "string", "format": "date-time" },
+        "dataSource": {
+          "type": "string",
+          "enum": ["henley-index", "official", "crowdsourced"]
+        },
+        "contributors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "github": { "type": "string" },
+              "name": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

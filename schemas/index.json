@@ -1,0 +1,52 @@
+{
+  "version": "2.0.0",
+  "lastUpdated": "2026-07-07T00:00:00Z",
+  "description": "Schema 注册表 - 定义所有数据结构的 JSON Schema",
+  "schemas": {
+    "country": {
+      "file": "country.schema.json",
+      "version": "2.0.0",
+      "description": "国家/地区基础信息",
+      "status": "stable",
+      "entities": ["country"]
+    }
+  },
+  "planned": [
+    {
+      "name": "city",
+      "description": "城市数据",
+      "priority": "high",
+      "target": "2026-Q3"
+    },
+    {
+      "name": "visa",
+      "description": "签证政策",
+      "priority": "high",
+      "target": "2026-Q3"
+    },
+    {
+      "name": "tax",
+      "description": "税务规则",
+      "priority": "medium",
+      "target": "2026-Q4"
+    },
+    {
+      "name": "cost",
+      "description": "生活成本",
+      "priority": "medium",
+      "target": "2026-Q4"
+    },
+    {
+      "name": "internet",
+      "description": "网络质量",
+      "priority": "medium",
+      "target": "2026-Q4"
+    },
+    {
+      "name": "safety",
+      "description": "安全指数",
+      "priority": "low",
+      "target": "2027-Q1"
+    }
+  ]
+}

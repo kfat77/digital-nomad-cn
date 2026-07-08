@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "数字游民指南",
+  "name_for_model": "digital_nomad_guide_cn",
+  "description_for_human": "全球数字游民一站式开放数据平台，覆盖60个国家、122个城市的结构化数据，包括签证政策、生活成本、安全指数、网速评分等。",
+  "description_for_model": "An open data infrastructure for digital nomads and global mobility. Provides structured JSON data covering 60 countries and 122 cities, including visa policies, cost of living, safety indices, internet speed scores, and nomad-friendliness ratings. No authentication required. All data is licensed under CC BY-NC-SA 4.0.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://kfat77.github.io/digital-nomad-cn/api/openapi.json"
+  },
+  "logo_url": "https://kfat77.github.io/digital-nomad-cn/icons/icon-192.png",
+  "contact_email": "",
+  "legal_info_url": "https://kfat77.github.io/digital-nomad-cn/privacy/"
+}

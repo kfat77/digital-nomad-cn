@@ -1,0 +1,107 @@
+{
+  "asia": {
+    "title": "亚洲",
+    "countries": [
+      {
+        "name": "香港",
+        "flag": "🇭🇰",
+        "link": "https://www.immd.gov.hk/hkt/visa/visit_transit.html"
+      },
+      {
+        "name": "澳门",
+        "flag": "🇲🇴",
+        "link": "https://www.dsi.gov.mo/"
+      },
+      {
+        "name": "日本",
+        "flag": "🇯🇵",
+        "link": "https://www.mofa.go.jp/j_info/visit/visa/"
+      },
+      {
+        "name": "韩国",
+        "flag": "🇰🇷",
+        "link": "https://www.visa.go.kr/"
+      },
+      {
+        "name": "新加坡",
+        "flag": "🇸🇬",
+        "link": "https://www.ica.gov.sg/enter-transit-depart/entry_requirements"
+      },
+      {
+        "name": "泰国",
+        "flag": "🇹🇭",
+        "link": "https://www.thaiembassy.com/travel-to-thailand/visa-requirements"
+      },
+      {
+        "name": "越南",
+        "flag": "🇻🇳",
+        "link": "https://evisa.xuatnhapcanh.gov.vn/"
+      },
+      {
+        "name": "马来西亚",
+        "flag": "🇲🇾",
+        "link": "https://www.imi.gov.my/portal/en/"
+      }
+    ]
+  },
+  "oceania": {
+    "title": "大洋洲",
+    "countries": [
+      {
+        "name": "澳大利亚",
+        "flag": "🇦🇺",
+        "link": "https://immi.homeaffairs.gov.au/"
+      },
+      {
+        "name": "新西兰",
+        "flag": "🇳🇿",
+        "link": "https://www.immigration.govt.nz/"
+      }
+    ]
+  },
+  "americas": {
+    "title": "美洲",
+    "countries": [
+      {
+        "name": "美国",
+        "flag": "🇺🇸",
+        "link": "https://travel.state.gov/content/travel/en/us-visas.html"
+      },
+      {
+        "name": "加拿大",
+        "flag": "🇨🇦",
+        "link": "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html"
+      }
+    ]
+  },
+  "europe": {
+    "title": "欧洲",
+    "countries": [
+      {
+        "name": "申根签证",
+        "flag": "🇪🇺",
+        "link": "https://www.schengenvisainfo.com/"
+      },
+      {
+        "name": "英国",
+        "flag": "🇬🇧",
+        "link": "https://www.gov.uk/government/organisations/uk-visas-and-immigration"
+      },
+      {
+        "name": "葡萄牙",
+        "flag": "🇵🇹",
+        "link": "https://www.sef.pt/"
+      },
+      {
+        "name": "西班牙",
+        "flag": "🇪🇸",
+        "link": "https://www.exteriores.gob.es/Consulados/hongkong/en/ServiciosConsulares/Paginas/Consular/Visados-nacionales.aspx"
+      },
+      {
+        "name": "爱沙尼亚",
+        "flag": "🇪🇪",
+        "link": "https://www.politsei.ee/en/"
+      }
+    ]
+  }
+}

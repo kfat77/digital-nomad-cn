@@ -10,18 +10,23 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kfat77.github.io/digital-nomad-cn/en/">
     <meta property="og:image" content="https://kfat77.github.io/digital-nomad-cn/images/og/homepage.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/">
-    <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/">
-    <link rel="alternate" type="application/rss+xml" title="Digital Nomad Guide — RSS Feed" href="https://kfat77.github.io/digital-nomad-cn/en/rss.xml">
-    <link rel="stylesheet" href="../style.css?v=2" fetchpriority="high">
+    <meta name="twitter:card" content="summary_large_image"><link rel="alternate" type="application/rss+xml" title="Digital Nomad Guide — RSS Feed" href="https://kfat77.github.io/digital-nomad-cn/en/rss.xml">
+    <link rel="stylesheet" href="../style.css?v=7" fetchpriority="high">
     <link rel="manifest" href="../manifest.json">
     <link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
     <link rel="apple-touch-icon" href="../icons/icon-192.png">
-    <meta name="theme-color" content="#3b82f6">
+    <meta name="theme-color" content="#FFFFFF">
+    <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/index.html">
+    <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/">
+    <link rel="alternate" hreflang="x-default" href="https://kfat77.github.io/digital-nomad-cn/index.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap"></noscript>
     <style>
         .lang-switch { margin-left: 12px; font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border-light); transition: all 0.2s; }
         .lang-switch:hover { color: var(--foreground); background: var(--background-elevated); }
@@ -43,7 +48,7 @@
     <header class="header">
         <div class="header-inner">
             <a href="#" class="logo">
-                <span class="logo-icon">◈</span>
+                <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
                 <span>Digital Nomad Guide</span>
             </a>
             <nav class="main-nav">
@@ -455,7 +460,7 @@
     <footer class="footer">
         <div class="footer-main">
             <div class="footer-brand">
-                <span class="logo-icon">◈</span>
+                <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
                 <span class="logo-text">Digital Nomad Guide</span>
                 <p>Open-source digital nomad infrastructure for Chinese passport holders. 60-country data, 50+ visas, 122 cities — all open source.</p>
             </div>
@@ -494,7 +499,7 @@
     </footer>
 
     <script src="../countries-data.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer fetchpriority="low"></script>
     <script src="app-en.js" defer></script>
     <script>
     if ('serviceWorker' in navigator) {
@@ -570,5 +575,9 @@
 <script src="../analytics.js" defer></script>
 <script src="../share.js" defer></script>
 <script src="../theme.js"></script>
+  <script src="../lang-switcher.js" defer></script>
+  <script src="../mobile-nav.js" defer></script>
+  <script src="../perf-monitor.js" defer></script>
+    <script src="../motion.js" defer></script>
 </body>
 </html>

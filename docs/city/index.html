@@ -5,42 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>城市数据库 — 122个全球数字游民城市</title>
     <meta name="description" content="122个全球数字游民城市完整指南：生活成本、安全指数、网络速度、联合办公、气候、美食。覆盖亚洲、欧洲、北美、大洋洲、中东、非洲、南美。">
-    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/city/">
-    <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/city/index.html">
-    <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/city/index.html">
-    <link rel="manifest" href="../manifest.json">
+    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/city/"><link rel="manifest" href="../manifest.json">
     <link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
     <link rel="apple-touch-icon" href="../icons/icon-192.png">
-    <meta name="theme-color" content="#3b82f6">
-            <link rel="stylesheet" href="../style.css?v=2">
+    <meta name="theme-color" content="#FFFFFF">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/city/">
+    <link rel="alternate" hreflang="x-default" href="https://kfat77.github.io/digital-nomad-cn/city/">
+            <link rel="stylesheet" href="../style.css?v=7">
     <style>
-        .city-hero { background: var(--bg-hero); border-bottom: 1px solid var(--border); padding: 120px 0 60px; text-align: center; }
+        .city-hero { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 120px 0 60px; text-align: center; }
         .city-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.03em; }
-        .city-hero p { color: var(--muted); max-width: 600px; margin: 0 auto 24px; font-size: 18px; }
+        .city-hero p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 24px; font-size: 18px; }
         .city-stats { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
         .city-stats .item { text-align: center; }
-        .city-stats .value { font-size: 32px; font-weight: 700; color: var(--foreground); }
-        .city-stats .label { font-size: 14px; color: var(--muted); }
+        .city-stats .value { font-size: 32px; font-weight: 700; color: var(--text-primary); }
+        .city-stats .label { font-size: 14px; color: var(--text-secondary); }
         .city-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 32px; }
-        .city-card { display: flex; flex-direction: column; padding: 20px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; color: var(--foreground); transition: var(--transition); }
-        .city-card:hover { box-shadow: var(--shadow-card-hover); border-color: var(--accent); transform: translateY(-2px); }
+        .city-card { display: flex; flex-direction: column; padding: 20px; background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; color: var(--text-primary); transition: var(--transition); }
+        .city-card:hover { box-shadow: var(--shadow-card-hover); border-color: var(--brand); transform: translateY(-2px); }
         .city-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
         .city-info h4 { font-size: 16px; font-weight: 700; margin: 0 0 4px; }
-        .city-sub { font-size: 13px; color: var(--muted); }
-        .city-score { font-size: 24px; font-weight: 800; color: var(--accent); }
-        .city-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+        .city-sub { font-size: 13px; color: var(--text-secondary); }
+        .city-score { font-size: 24px; font-weight: 800; color: var(--brand); }
+        .city-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; }
         .city-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-        .city-tags .tag { padding: 3px 10px; background: var(--bg-card); border-radius: var(--radius-full); font-size: 12px; color: var(--muted); }
+        .city-tags .tag { padding: 3px 10px; background: var(--bg-card); border-radius: var(--radius-full); font-size: 12px; color: var(--text-secondary); }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="header-inner">
-            <a href="../" class="logo"><span class="logo-icon">◈</span><span>数字游民指南</span></a>
+            <a href="../" class="logo"><span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><span>数字游民指南</span></a>
             <nav class="main-nav">
-                <a href="../">首页</a><a href="../country/">国家</a><a href="../visa/">签证</a><a href="./">城市</a>
-                <a href="../compare/">对比</a><a href="../routes/">路线</a><a href="../search/">搜索</a><a href="../assistant/">AI助手</a><a href="../recommend/">推荐</a>
-            </nav>
+                <a href="../country/">国家</a><a href="../visa/">签证</a><a href="../compare/">对比</a><a href="../search/">搜索</a></nav>
             <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
             <a href="../en/cities/" class="github-btn" style="margin-left:8px;background:rgba(59,130,246,0.15);color:#3b82f6;">English</a>
         </div>
@@ -49,7 +50,7 @@
     <section class="city-hero">
         <div class="hero-content">
             <div class="hero-tag"><span class="hero-tag-dot"></span>122 城 · 数字游民</div>
-            <h1 class="hero-title">🏙️ 数字游民<br><span class="hero-title-accent">城市数据库</span></h1>
+            <h1 class="hero-title">数字游民<br><span class="hero-title-accent">城市数据库</span></h1>
             <p class="hero-desc">122 个全球数字游民城市，生活成本、安全、网速、联合办公全覆盖</p>
             <div class="city-stats">
                 <div class="item"><div class="value">122</div><div class="label">覆盖城市</div></div>
@@ -67,16 +68,37 @@
         </div>
     </section>
 
-    <footer class="footer" style="margin-top: 0;">
-        <div class="footer-main">
-            <div class="footer-brand"><span class="logo-icon">◈</span><span class="logo-text">数字游民指南</span><p>60 国数据、签证、122 城市，全部开源。</p></div>
-            <div class="footer-links">
-                <div class="footer-col"><h4>核心内容</h4><a href="../country/">国家数据库</a><a href="../visa/">签证数据库</a><a href="./">城市数据库</a></div>
-                <div class="footer-col"><h4>社区</h4><a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a></div>
+    <footer class="footer">
+    <div class="footer-main">
+        <div class="footer-brand">
+            <div class="footer-brand-name">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                <span>数字游民指南</span>
+            </div>
+            <p>面向中国国内用户的数字游民基础设施一站式攻略。100 国数据、50+ 签证、122 城市，全部开源。</p>
+        </div>
+        <div class="footer-links">
+            <div class="footer-col">
+                <h4>数据</h4>
+                <a href="country/">国家数据库</a>
+                <a href="visa/">签证数据库</a>
+                <a href="compare/">国家对比</a>
+                <a href="search/">搜索</a>
+            </div>
+            <div class="footer-col">
+                <h4>指南</h4>
+                <a href="articles/digital-nomad-banking-guide/">银行卡</a>
+                <a href="articles/giffgaff-guide-2026/">电话卡</a>
+                <a href="articles/securities-guide/">证券账户</a>
+                <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a>
             </div>
         </div>
-        <div class="footer-bottom"><p>CC BY-NC-SA 4.0 | 内容仅供学习交流</p></div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+        <p>本内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议共享</p>
+        <p>内容仅供学习交流，不构成投资、法律或移民建议</p>
+    </div>
+</footer>
     <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
@@ -84,5 +106,7 @@
         });
     }
     </script>
+  <script src="../lang-switcher.js" defer></script>
+    <script src="../motion.js" defer></script>
 </body>
 </html>
