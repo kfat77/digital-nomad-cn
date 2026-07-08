@@ -10,7 +10,7 @@
     "resolveJsonModule": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "types": ["@cloudflare/workers-types"]
+    "noEmit": true
   },
   "include": ["src/**/*"]
 }
