@@ -1,0 +1,59 @@
+{
+  "id": "uae",
+  "name": "阿联酋",
+  "name_en": "United Arab Emirates",
+  "name_local": "الإمارات العربية المتحدة",
+  "code_iso_3166_1": "AE",
+  "code_iso_3166_3": "ARE",
+  "region": "middle_east",
+  "sub_region": "western_asia",
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": true,
+  "coordinates": {
+    "lat": 23.4241,
+    "lon": 53.8478
+  },
+  "timezone": [
+    "Asia/Dubai"
+  ],
+  "currency": [
+    {
+      "code": "AED",
+      "name": "阿联酋迪拉姆",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "ar",
+      "name": "阿拉伯语",
+      "is_official": true
+    },
+    {
+      "code": "en",
+      "name": "English",
+      "is_official": false
+    }
+  ],
+  "population": 9991000,
+  "area_km2": 83600,
+  "gdp_per_capita_usd": 43000,
+  "hdi": 0.911,
+  "safety_index": 88.0,
+  "internet_speed_avg_mbps": 300,
+  "cost_of_living_index": 70.0,
+  "rent_index": 55.0,
+  "china_passport_visa_status": "visa_free",
+  "china_passport_visa_note": "免签30天；可延期",
+  "digital_nomad_score": 85,
+  "tags": [
+    "tax_free",
+    "luxury",
+    "modern",
+    "nomad_visa",
+    "middle_east"
+  ],
+  "status": "published",
+  "updated_at": "2026-01-15T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025, UAE Immigration"
+}

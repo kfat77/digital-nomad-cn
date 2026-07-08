@@ -1,0 +1,72 @@
+name: Generate & Deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'website/data/**'
+      - 'website/scripts/**'
+      - 'website/*.html'
+      - 'website/*.js'
+      - 'website/*.css'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate static pages
+        run: |
+          cd website
+          python scripts/generator.py all
+
+      - name: Copy to docs
+        run: |
+          rm -rf docs/*
+          cp -r website/* docs/
+          # Preserve .git
+          if [ -d docs/.git ]; then rm -rf docs/.git; fi
+
+      - name: Commit generated pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --cached --quiet || git commit -m "Auto-generate pages from data [skip ci]"
+          git push origin main
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

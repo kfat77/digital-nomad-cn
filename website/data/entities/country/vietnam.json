@@ -1,0 +1,53 @@
+{
+  "id": "vietnam",
+  "name": "越南",
+  "name_en": "Vietnam",
+  "name_local": "Việt Nam",
+  "code_iso_3166_1": "VN",
+  "code_iso_3166_3": "VNM",
+  "region": "asia",
+  "sub_region": "southeast_asia",
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": false,
+  "coordinates": {
+    "lat": 14.0583,
+    "lon": 108.2772
+  },
+  "timezone": [
+    "Asia/Ho_Chi_Minh"
+  ],
+  "currency": [
+    {
+      "code": "VND",
+      "name": "越南盾",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "vi",
+      "name": "越南语",
+      "is_official": true
+    }
+  ],
+  "population": 98858000,
+  "area_km2": 331210,
+  "gdp_per_capita_usd": 4200,
+  "hdi": 0.703,
+  "safety_index": 60.0,
+  "internet_speed_avg_mbps": 120,
+  "cost_of_living_index": 35.0,
+  "rent_index": 15.0,
+  "china_passport_visa_status": "evisa",
+  "china_passport_visa_note": "电子签90天单次/多次",
+  "digital_nomad_score": 75,
+  "tags": [
+    "cheap",
+    "startup_hub",
+    "growing",
+    "asia"
+  ],
+  "status": "published",
+  "updated_at": "2026-01-15T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025, Vietnam Immigration"
+}

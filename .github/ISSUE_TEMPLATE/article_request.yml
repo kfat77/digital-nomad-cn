@@ -1,0 +1,60 @@
+name: 📝 Article Request
+description: Request a new article or guide
+title: "[Article] "
+labels: ["content", "article", "triage"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Proposed Title
+      placeholder: "Portugal D7 Visa: Complete Guide from Application to Residency"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Visa Guide
+        - Country Guide
+        - City Guide
+        - Cost of Living
+        - Tax Guide
+        - Remote Work
+        - Tool Tutorial
+        - Experience Story
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: outline
+    attributes:
+      label: Suggested Outline
+      description: What topics should the article cover?
+      placeholder: |
+        1. Introduction to D7 visa
+        2. Eligibility requirements
+        3. Required documents
+        4. Step-by-step application process
+        5. Timeline and costs
+        6. After approval: SEF appointment
+        7. Renewal and path to citizenship
+    validations:
+      required: true
+
+  - type: textarea
+    id: author
+    attributes:
+      label: Are you willing to write this?
+      description: If yes, briefly describe your experience with this topic
+      placeholder: "I have applied for and received the D7 visa. I can share my full experience..."
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have searched and this article does not already exist
+          required: true

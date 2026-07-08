@@ -1,0 +1,100 @@
+{
+  "country_id": "japan",
+  "country_name": "日本",
+  "updated_at": "2026-01-15T00:00:00Z",
+  "source": "日本外务省, 日本驻华大使馆",
+  "visa_types": [
+    {
+      "id": "jp_tourist_single",
+      "type": "visa_required",
+      "name": "单次旅游签证",
+      "name_en": "Japan Tourist Visa (Single Entry)",
+      "duration": "15天",
+      "validity": "3个月",
+      "extendable": false,
+      "fee_usd": 0,
+      "processing_days": 5,
+      "application_method": "agent",
+      "requirements": [
+        "通过指定旅行社申请",
+        "有效护照",
+        "往返机票",
+        "酒店预订",
+        "资金证明"
+      ],
+      "documents": [
+        "护照",
+        "照片",
+        "申请表",
+        "户口本",
+        "在职证明",
+        "银行流水",
+        "行程单"
+      ],
+      "official_url": "https://www.cn.emb-japan.go.jp/itpr_zh/visa.html",
+      "china_passport_eligible": true,
+      "notes": "必须通过日本大使馆指定旅行社申请，不可个人递签",
+      "is_recommended_for_digital_nomad": true
+    },
+    {
+      "id": "jp_tourist_multiple",
+      "type": "visa_required",
+      "name": "多次旅游签证",
+      "name_en": "Japan Tourist Visa (Multiple Entry)",
+      "duration": "90天/次",
+      "validity": "3年或5年",
+      "extendable": false,
+      "fee_usd": 0,
+      "processing_days": 5,
+      "application_method": "agent",
+      "requirements": [
+        "通过指定旅行社申请",
+        "有一定经济能力",
+        "有赴日记录更佳"
+      ],
+      "documents": [
+        "护照",
+        "照片",
+        "申请表",
+        "户口本",
+        "在职证明",
+        "银行流水",
+        "税单"
+      ],
+      "official_url": "https://www.cn.emb-japan.go.jp/itpr_zh/visa.html",
+      "china_passport_eligible": true,
+      "notes": "3年多次：需年收入20万+；5年多次：需年收入50万+",
+      "is_recommended_for_digital_nomad": true
+    },
+    {
+      "id": "jp_digital_nomad",
+      "type": "digital_nomad_visa",
+      "name": "数字游民签证（特定活动）",
+      "name_en": "Japan Digital Nomad Visa",
+      "duration": "6个月",
+      "validity": "6个月",
+      "extendable": false,
+      "fee_usd": 0,
+      "processing_days": 30,
+      "application_method": "embassy",
+      "requirements": [
+        "年收入1000万日元+（约48万人民币）",
+        "加入民间医疗保险",
+        "无犯罪记录"
+      ],
+      "documents": [
+        "护照",
+        "照片",
+        "申请表",
+        "收入证明",
+        "税单",
+        "保险证明",
+        "远程工作合同"
+      ],
+      "official_url": "https://www.mofa.go.jp/",
+      "china_passport_eligible": true,
+      "notes": "2024年3月推出，面向49个国家和地区（含中国），需在日本大使馆申请",
+      "is_recommended_for_digital_nomad": true
+    }
+  ]
+}

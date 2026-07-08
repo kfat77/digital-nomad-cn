@@ -1,84 +1,247 @@
-# 数字游民指南 🇨🇳
+# 🌍 Global Mobility Infrastructure
 
-> 面向中国国内用户的数字游民基础设施一站式攻略
-> 银行卡 · 电话卡 · 证券账户 · 身份规划 · 工具与资源
+<p align="center">
+  <strong>中国护照，全球生活 — 数字化全球流动基础设施</strong>
+</p>
 
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-
-## 📋 项目简介
-
-本项目是一个面向**中国国内用户**的实用指南合集，帮助希望拓展全球生活、工作、投资能力的数字游民群体，系统性地解决跨境金融基础设施和身份规划问题。
-
-核心覆盖五大模块：
-
-| 模块 | 说明 | 状态 |
-|------|------|------|
-| 💳 [银行卡](./docs/bank-cards/) | 香港、新加坡等境外银行账户开设攻略 | 🟢 已完成 |
-| 📱 [电话卡](./docs/phone-cards/) | 海外实体/eSIM卡购买、激活与保号教程 | 🟢 已完成 |
-| 📈 [证券账户](./docs/securities/) | 美股/港股/全球券商开户与使用指南 | 🟢 已完成 |
-| 🏛️ [身份规划](./docs/identity/) | 香港/澳门/日本/东南亚/大洋洲移民路径 | 🟢 已完成 |
-| 🛠️ [工具与资源](./docs/tools/) | 远程工作、跨境支付、AI订阅、数字游民基建 | 🟢 已完成 |
-
-## 🚀 快速导航
-
-### 银行卡
-- [香港银行卡开户总攻略](./docs/bank-cards/hong-kong.md) — 汇丰、中银、众安、天星、蚂蚁、WeLab、渣打、工银亚洲
-- [新加坡银行卡开户](./docs/bank-cards/singapore.md) — 华侨、星展（待补充）
-
-### 电话卡
-- [Giffgaff 英国手机卡完全指南](./docs/phone-cards/giffgaff.md) — 购买 + 激活 + 充值 + 保号全流程
-- [香港 Club SIM / SoSIM](./docs/phone-cards/hong-kong.md) — 短期/长期方案
-- [美国 Ultra Mobile / T-Mobile](./docs/phone-cards/us-ultramobile.md) — 保号方案（待补充）
-
-### 证券账户
-- [盈透证券（IBKR）开户教程](./docs/securities/ibkr.md) — 20分钟搞定，身份证可开，全球150+市场
-- [长桥证券 / 富途牛牛](./docs/securities/hong-kong-broker.md) — 港美股券商（待补充）
-
-### 身份规划
-- [🇭🇰 香港身份获取全攻略](./docs/identity/hong-kong.md) — 优才、高才通、专才、投资移民
-- [🇲🇴 澳门身份获取指南](./docs/identity/macao.md) — 第三期人才引进计划（2025-2026）
-- [🇯🇵 日本移民指南](./docs/identity/japan.md) — 经营管理签、高度人才签、工签（含2025年新政）
-- [🌴 东南亚移民指南](./docs/identity/southeast-asia.md) — 泰国、马来西亚、新加坡、印尼
-- [🌏 大洋洲移民指南](./docs/identity/oceania.md) — 澳大利亚、新西兰技术/雇主担保
-- [🌍 其他热门路径](./docs/identity/other-pathways.md) — 韩国、土耳其、西班牙、葡萄牙、美国、加拿大
-
-### 工具与资源
-- [远程工作资源指南](./docs/tools/remote-work.md) — 62+ 求职网站、面试准备、数字游民社区
-- [爱沙尼亚 e-Residency](./docs/tools/e-residency.md) — 欧盟数字身份、远程注册公司
-- [数字游民基建清单](./docs/tools/digital-kit.md) — 银行、支付、通讯、工具、身份等 15 类基建
-- [AI 订阅与虚拟 U 卡](./docs/tools/ai-subscription.md) — 解决 AI 产品订阅、8 款虚拟 U 卡对比
-
-## 🗺️ 为什么需要这些？
-
-| 场景 | 解决方案 | 工具 |
-|------|---------|------|
-| 境外消费/旅游无手续费 | 香港银行卡 | 💳 |
-| 接收海外验证码/注册服务 | 海外电话卡 | 📱 |
-| 投资美股/港股/全球ETF | 境外证券账户 | 📈 |
-| 全球免签通行、子女教育 | 香港/澳门身份 | 🏛️ |
-| 长期海外居住、资产配置 | 日本/东南亚/大洋洲身份 | 🏛️ |
-| 找远程工作 | 全球远程工作平台 | 🛠️ |
-| 注册欧盟公司 | 爱沙尼亚 e-Residency | 🛠️ |
-| 订阅 ChatGPT/Claude | 虚拟 U 卡 / 香港信用卡 | 🛠️ |
-| 资金自由兑换/跨境转账 | 香港银行 + 券商 | 💳📈 |
-| 长期保号，维持海外身份 | 低成本电话卡 | 📱 |
-
-## ⚠️ 免责声明
-
-1. 本指南内容仅供学习交流，不构成任何投资、法律或移民建议。
-2. 开户、投资、移民均有风险，请自行评估并承担相应风险。
-3. 各金融机构、各国政策随时可能调整，请以官方最新信息为准。
-4. 跨境金融活动和移民申请需遵守中国相关法律法规。
-5. 建议咨询持牌专业人士（律师、会计师、移民顾问）获取个性化建议。
-
-## 🤝 贡献指南
-
-欢迎补充经验、修正错误、提交 PR！详见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
-
-## 📜 协议
-
-本内容采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 协议共享 — 可自由传播、修改，但需署名、非商业使用、保持相同协议。
+<p align="center">
+  <a href="https://github.com/kfat77/digital-nomad-cn/stargazers">
+    <img src="https://img.shields.io/github/stars/kfat77/digital-nomad-cn?style=flat&color=3b82f6&label=Stars" alt="GitHub Stars">
+  </a>
+  <a href="https://github.com/kfat77/digital-nomad-cn/network/members">
+    <img src="https://img.shields.io/github/forks/kfat77/digital-nomad-cn?style=flat&color=3b82f6&label=Forks" alt="GitHub Forks">
+  </a>
+  <a href="https://github.com/kfat77/digital-nomad-cn/issues">
+    <img src="https://img.shields.io/github/issues/kfat77/digital-nomad-cn?style=flat&color=ef4444&label=Issues" alt="GitHub Issues">
+  </a>
+  <a href="https://github.com/kfat77/digital-nomad-cn/actions">
+    <img src="https://github.com/kfat77/digital-nomad-cn/actions/workflows/generate-and-deploy.yml/badge.svg" alt="CI/CD">
+  </a>
+  <br>
+  <a href="https://kfat77.github.io/digital-nomad-cn/">
+    <img src="https://img.shields.io/badge/🌐_Live_Site-Visit_Now-3b82f6?style=flat" alt="Live Site">
+  </a>
+</p>
 
 ---
 
-> 🌏 世界很大，信息应该自由流动。愿每位数字游民都能轻松拥有全球通行能力。
+## 🎯 这是什么？
+
+**Global Mobility Infrastructure** 是一个**开源、数据驱动、社区共建**的全球流动信息平台，专为持有中国护照的人群设计。
+
+> 🎯 **目标**：让每一个中国人都能拥有全球流动的完整信息和工具，打破信息垄断。
+
+---
+
+## 📊 当前数据覆盖
+
+| 数据类型 | 数量 | 状态 | 说明 |
+|----------|------|------|------|
+| 🌍 国家 | **27** | ✅ 持续扩展 | 覆盖亚洲、欧洲、北美、大洋洲、中东 |
+| 🏙️ 城市 | **34** | ✅ 持续扩展 | 数字游民热门城市优先 |
+| 🛂 签证数据 | **27** | ✅ 与国家对齐 | 中国护照签证政策全覆盖 |
+| 🗺️ 数字游民路线 | **3** | ✅ 已上线 | 东南亚、欧洲申根、地中海 |
+| 📊 对比工具 | **1** | ✅ 已上线 | 4国对比，12维度指标 |
+| 🔍 搜索 | **61** | ✅ 已上线 | 国家+城市模糊搜索 |
+
+---
+
+## 🚀 快速开始
+
+### 在线访问
+
+👉 **[https://kfat77.github.io/digital-nomad-cn/](https://kfat77.github.io/digital-nomad-cn/)**
+
+### 本地运行
+
+```bash
+git clone https://github.com/kfat77/digital-nomad-cn.git
+cd digital-nomad-cn/website
+python -m http.server 8080
+# 打开 http://localhost:8080
+```
+
+---
+
+## ✨ 核心功能
+
+### 🌍 国家详情页
+- 27 个国家完整数据：签证、生活成本、网络、安全、HDI、GDP
+- **ECharts 雷达图**：7 维度综合评分可视化
+- **全球对比条形图**：vs 全球平均值
+- **相似目的地推荐**：基于相似度算法推荐 4 个相关国家
+
+### 🏙️ 城市数据
+- 34 个数字游民热门城市
+- 生活成本、安全指数、网络速度、数字游民评分
+
+### 🛂 签证信息
+- 中国护照签证政策：免签、落地签、电子签、需签证
+- 数字游民签证状态标识
+
+### 📊 国家对比工具
+- 同时对比 2-4 个国家
+- 12 个指标：评分、成本、安全、网速、HDI、GDP、签证、租金等
+- 可视化进度条 + 排名图表
+- 一键预设：东南亚、欧洲、数字游民友好、中国免签
+
+### 🔍 站内搜索
+- fuse.js 客户端模糊搜索
+- 61 条数据（国家+城市）实时搜索
+- 关键词高亮、类型筛选、URL 参数支持
+
+### 🗺️ 数字游民路线
+- 3 条经典路线：东南亚环线、欧洲申根环、地中海慢游
+- 含时间线、预算估算、签证串联策略、交通建议
+
+### 🌐 3D 交互地球
+- Three.js 渲染地球，标注 27 个国家
+- 点击标记直接跳转国家详情页
+- 鼠标悬停高亮，自动旋转
+
+---
+
+## 🏗️ 项目架构
+
+```
+digital-nomad-cn/
+├── 📁 website/              # 主站源码
+│   ├── index.html           # 首页（3D 地球）
+│   ├── country/             # 国家页面（27 个）
+│   ├── city/                # 城市页面（34 个）
+│   ├── visa/                # 签证页面（27 个）
+│   ├── compare/             # 国家对比工具
+│   ├── search/              # 站内搜索
+│   ├── routes/              # 数字游民路线
+│   ├── data/                # 结构化数据
+│   │   ├── schemas/         # JSON Schema 定义
+│   │   └── entities/        # 实体数据（country, city, visa）
+│   ├── scripts/             # 页面生成脚本
+│   │   ├── generator.py     # 统一生成器（country/visa/city）
+│   │   ├── country-template.html
+│   │   └── generate-country-pages.py
+│   └── images/og/           # Open Graph 预览图（27 张）
+│
+├── 📁 docs/                 # GitHub Pages 部署目录
+│   └── (与 website/ 同步)
+│
+├── 📁 .github/
+│   ├── workflows/           # CI/CD 自动化
+│   │   └── generate-and-deploy.yml
+│   └── ISSUE_TEMPLATE/    # 议题模板
+│
+├── 📁 docs/ (repo)        # 项目文档
+│   ├── ARCHITECTURE.md
+│   ├── DATA_ARCHITECTURE.md
+│   ├── SEO_ARCHITECTURE.md
+│   ├── AI_ARCHITECTURE.md
+│   └── GROWTH_STRATEGY.md
+│
+├── README.md
+├── CONTRIBUTING.md
+└── LICENSE
+```
+
+---
+
+## 🛠️ 技术栈
+
+| 层级 | 技术 | 说明 |
+|------|------|------|
+| **前端** | 纯静态 HTML + Vanilla JS | 极致性能，无框架依赖 |
+| **3D** | Three.js | 首页交互地球 |
+| **图表** | ECharts | 雷达图、数据可视化 |
+| **搜索** | fuse.js | 客户端模糊搜索 |
+| **生成** | Python + Jinja-like | 静态页面生成 |
+| **部署** | GitHub Pages | 自动部署 |
+| **数据** | JSON + JSON Schema | 结构化 + 可验证 |
+| **CI/CD** | GitHub Actions | 数据变更自动构建部署 |
+
+---
+
+## 🤝 如何贡献
+
+### 贡献方式
+
+| 方式 | 适合人群 | 难度 | 时间 |
+|------|----------|------|------|
+| 🐛 提交 Issue | 任何人 | ⭐ | 5 分钟 |
+| 🔧 数据纠错 | 有经验者 | ⭐⭐ | 15 分钟 |
+| 🌍 添加国家数据 | 研究者 | ⭐⭐⭐ | 1-2 小时 |
+| 🏙️ 添加城市数据 | 本地居民 | ⭐⭐ | 30 分钟 |
+| 💻 改进生成器 | 开发者 | ⭐⭐⭐⭐ | 2-4 小时 |
+| 🎨 设计优化 | 设计师 | ⭐⭐⭐ | 2-4 小时 |
+
+### 快速贡献流程
+
+```bash
+# 1. Fork 仓库
+# 2. 克隆你的 Fork
+git clone https://github.com/YOUR_USERNAME/digital-nomad-cn.git
+
+# 3. 创建分支
+git checkout -b add-country-romania
+
+# 4. 添加数据
+# 编辑 website/data/entities/country/romania.json
+# （参考 website/data/schemas/country-detail.json）
+
+# 5. 运行生成器
+cd website/scripts
+python generate-country-pages.py
+
+# 6. 提交
+git add .
+git commit -m "data: add Romania country data"
+git push origin add-country-romania
+
+# 7. 提交 Pull Request
+```
+
+完整贡献指南：[CONTRIBUTING.md](CONTRIBUTING.md)
+
+---
+
+## 📅 路线图
+
+| 阶段 | 目标 | 状态 |
+|------|------|------|
+| ✅ 国家详情页 | 27 国 + 雷达图 + 相似推荐 | 已完成 |
+| ✅ 数据对比 | 4 国对比 + 12 指标 | 已完成 |
+| ✅ 搜索 + 路线 | fuse.js 搜索 + 3 条路线 | 已完成 |
+| 🔄 扩展数据 | 新增 20+ 国家、50+ 城市 | 进行中 |
+| 📋 多语言 | 英文版网站 | 计划中 |
+| 📋 API 开放 | REST API 供第三方调用 | 计划中 |
+| 📋 AI 集成 | 智能推荐、签证助手 | 计划中 |
+
+完整路线图：[36MONTH_ROADMAP.md](docs/36MONTH_ROADMAP.md)
+
+---
+
+## 💖 赞助
+
+你的支持将用于：
+- 🌍 数据 API 与数据库成本
+- 📊 数据更新与验证
+- 👥 社区运营与活动
+
+[成为赞助者](https://github.com/sponsors/kfat77)
+
+---
+
+## 📄 许可证
+
+- 内容（数据、文章）：[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+- 代码：[MIT](https://opensource.org/licenses/MIT)
+
+---
+
+<p align="center">
+  <strong>Made with ❤️ for the Chinese global mobility community</strong>
+</p>
+
+<p align="center">
+  <a href="https://github.com/kfat77/digital-nomad-cn">
+    <img src="https://img.shields.io/badge/⭐_Star_This_Repo-If_You_Find_It_Helpful-3b82f6?style=flat" alt="Star This Repo">
+  </a>
+</p>

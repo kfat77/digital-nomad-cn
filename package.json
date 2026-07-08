@@ -1,0 +1,54 @@
+{
+  "name": "global-mobility-infrastructure",
+  "version": "1.0.0",
+  "description": "数字化全球流动基础设施 — 中国护照，全球生活",
+  "homepage": "https://kfat77.github.io/digital-nomad-cn/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kfat77/digital-nomad-cn.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kfat77/digital-nomad-cn/issues"
+  },
+  "license": "MIT",
+  "author": "Global Mobility Infrastructure Contributors",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run generate && npm run sync-docs",
+    "generate": "node scripts/generate-pages.js",
+    "sync-docs": "node scripts/sync-docs.js",
+    "validate": "npm run validate:schema && npm run validate:integrity",
+    "validate:schema": "node scripts/validate-schema.js",
+    "validate:integrity": "node scripts/validate-integrity.js",
+    "validate:links": "node scripts/validate-links.js",
+    "validate:freshness": "node scripts/check-freshness.js",
+    "validate:report": "node scripts/generate-report.js",
+    "sync:rates": "node scripts/sync-exchange-rates.js",
+    "sync:jobs": "node scripts/sync-remote-jobs.js",
+    "sync:visa": "node scripts/sync-visa-policies.js",
+    "test": "node scripts/run-tests.js",
+    "lint": "eslint website/**/*.js && stylelint website/**/*.css",
+    "format": "prettier --write \"website/**/*.{js,css,json,md}\""
+  },
+  "devDependencies": {
+    "vite": "^6.0.0",
+    "eslint": "^9.0.0",
+    "stylelint": "^16.0.0",
+    "prettier": "^3.0.0",
+    "ajv": "^8.12.0",
+    "glob": "^11.0.0"
+  },
+  "keywords": [
+    "digital-nomad",
+    "visa",
+    "global-mobility",
+    "remote-work",
+    "cost-of-living",
+    "china-passport",
+    "open-data",
+    "travel"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
