@@ -13,7 +13,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
-    <meta name="theme-color" content="#0a0e1a">
+    <meta name="theme-color" content="#FFFFFF">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -31,66 +31,64 @@
     </script>
     <script type="module" src="globe.js?v=11"></script>
 
-    <!-- Particle Digital Universe Theme -->
+    <!-- Bright Theme — Red / White / Blue / Black -->
     <style>
     /* ============================================
-       Particle Universe — Dark Sci-Fi Theme
+       Bright Particle Theme — Red / White / Blue / Black
+       Black for text only
        ============================================ */
     :root {
-        --bg-primary: #0a0e1a;
-        --bg-secondary: #0d1321;
-        --bg-surface: rgba(15, 23, 42, 0.6);
-        --bg-hover: rgba(30, 41, 59, 0.8);
-        --bg-pressed: rgba(51, 65, 85, 0.9);
-        --bg-elevated: rgba(15, 23, 42, 0.8);
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8fafc;
+        --bg-surface: #f1f5f9;
+        --bg-hover: #e2e8f0;
+        --bg-pressed: #cbd5e1;
+        --bg-elevated: #ffffff;
 
-        --text-primary: #f0f4f8;
-        --text-secondary: #94a3b8;
+        --text-primary: #0f172a;
+        --text-secondary: #334155;
         --text-tertiary: #64748b;
-        --text-inverse: #0a0e1a;
-        --text-placeholder: #475569;
+        --text-inverse: #ffffff;
+        --text-placeholder: #94a3b8;
 
-        --brand: #38bdf8;
-        --brand-hover: #7dd3fc;
-        --brand-soft: rgba(56, 189, 248, 0.15);
-        --brand-glow: rgba(56, 189, 248, 0.3);
-        --brand-glow-strong: rgba(56, 189, 248, 0.5);
+        --brand: #DC2626;
+        --brand-hover: #B91C1C;
+        --brand-soft: #FEF2F2;
+        --brand-glow: rgba(220, 38, 38, 0.2);
+        --brand-glow-strong: rgba(220, 38, 38, 0.35);
 
-        --accent: #a78bfa;
-        --accent-soft: rgba(167, 139, 250, 0.15);
-        --accent-glow: rgba(167, 139, 250, 0.3);
+        --accent: #1E3A5F;
+        --accent-hover: #0F2540;
+        --accent-soft: #EFF6FF;
+        --accent-glow: rgba(30, 58, 95, 0.2);
 
-        --particle-primary: #38bdf8;
-        --particle-secondary: #a78bfa;
-        --particle-tertiary: #22d3ee;
+        --success: #16A34A;
+        --success-soft: #DCFCE7;
+        --warning: #EA580C;
+        --warning-soft: #FFF7ED;
+        --info: #2563EB;
+        --info-soft: #EFF6FF;
 
-        --success: #4ade80;
-        --success-soft: rgba(74, 222, 128, 0.15);
-        --warning: #fbbf24;
-        --warning-soft: rgba(251, 191, 36, 0.15);
-        --info: #38bdf8;
-        --info-soft: rgba(56, 189, 248, 0.15);
+        --border: #e2e8f0;
+        --border-light: #f1f5f9;
+        --border-hover: #bfdbfe;
+        --border-focus: #DC2626;
+        --divider: #e2e8f0;
 
-        --border: rgba(148, 163, 184, 0.15);
-        --border-light: rgba(148, 163, 184, 0.08);
-        --border-hover: rgba(56, 189, 248, 0.3);
-        --border-focus: var(--brand);
-        --divider: rgba(148, 163, 184, 0.1);
+        --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+        --shadow-card-hover: 0 8px 24px -4px rgba(0, 0, 0, 0.08), 0 4px 8px -2px rgba(0, 0, 0, 0.04);
+        --shadow-red-glow: 0 0 20px rgba(220, 38, 38, 0.15), 0 4px 12px rgba(220, 38, 38, 0.1);
+        --shadow-blue-glow: 0 0 20px rgba(30, 58, 95, 0.15), 0 4px 12px rgba(30, 58, 95, 0.1);
+        --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.04);
 
-        --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
-        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
-        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
-        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
-        --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
-        --shadow-card-hover: 0 8px 24px -4px rgba(0, 0, 0, 0.5), 0 4px 8px -2px rgba(0, 0, 0, 0.3);
-        --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.2), 0 0 40px rgba(56, 189, 248, 0.1);
-        --shadow-glow-strong: 0 0 30px rgba(56, 189, 248, 0.3), 0 0 60px rgba(56, 189, 248, 0.15);
-        --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.3);
-
-        --glass-bg: rgba(15, 23, 42, 0.4);
-        --glass-border: rgba(148, 163, 184, 0.15);
-        --glass-highlight: rgba(255, 255, 255, 0.05);
+        --glass-bg: rgba(255, 255, 255, 0.7);
+        --glass-border: rgba(226, 232, 240, 0.8);
+        --glass-highlight: rgba(255, 255, 255, 0.9);
 
         --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
         --font-mono: "SF Mono", "SFMono-Regular", ui-monospace, Monaco, "Fira Code", "Cascadia Code", monospace;
@@ -153,9 +151,6 @@
         --grid-gap: var(--space-5);
     }
 
-    /* ============================================
-       Base & Global
-       ============================================ */
     *, *::before, *::after {
         margin: 0;
         padding: 0;
@@ -202,7 +197,6 @@
         transition: color var(--transition-fast);
     }
 
-    /* Scrollbar */
     ::-webkit-scrollbar {
         width: 6px;
     }
@@ -210,16 +204,13 @@
         background: var(--bg-secondary);
     }
     ::-webkit-scrollbar-thumb {
-        background: rgba(148, 163, 184, 0.3);
+        background: #cbd5e1;
         border-radius: var(--radius-full);
     }
     ::-webkit-scrollbar-thumb:hover {
-        background: rgba(148, 163, 184, 0.5);
+        background: #94a3b8;
     }
 
-    /* ============================================
-       Particle Canvas Layer
-       ============================================ */
     #particle-canvas {
         position: fixed;
         top: 0;
@@ -230,9 +221,6 @@
         pointer-events: none;
     }
 
-    /* ============================================
-       Typography
-       ============================================ */
     h1, h2, h3, h4, h5, h6 {
         font-weight: 700;
         line-height: var(--leading-tight);
@@ -282,9 +270,6 @@
         background-clip: text;
     }
 
-    /* ============================================
-       Layout Utilities
-       ============================================ */
     .container {
         max-width: var(--container-max);
         margin: 0 auto;
@@ -316,9 +301,6 @@
         }
     }
 
-    /* ============================================
-       Header & Navigation
-       ============================================ */
     .header {
         position: fixed;
         top: 0;
@@ -326,7 +308,7 @@
         right: 0;
         z-index: 1000;
         height: var(--nav-height);
-        background: rgba(10, 14, 26, 0.7);
+        background: rgba(255, 255, 255, 0.85);
         backdrop-filter: blur(20px) saturate(180%);
         -webkit-backdrop-filter: blur(20px) saturate(180%);
         border-bottom: 1px solid var(--border-light);
@@ -334,9 +316,8 @@
     }
 
     .header-scrolled {
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-        background: rgba(10, 14, 26, 0.9);
-        border-bottom-color: var(--border);
+        box-shadow: var(--shadow-sm);
+        background: rgba(255, 255, 255, 0.95);
     }
 
     .header-inner {
@@ -395,7 +376,7 @@
 
     .header-nav a:hover {
         color: var(--text-primary);
-        background: var(--glass-bg);
+        background: var(--bg-surface);
     }
 
     .header-nav a::after {
@@ -436,7 +417,7 @@
 
     .header-icon-btn:hover {
         color: var(--text-primary);
-        background: var(--glass-bg);
+        background: var(--bg-surface);
     }
 
     .header-icon-btn svg {
@@ -457,11 +438,10 @@
         }
     }
 
-    /* Mobile Menu */
     .mobile-menu-overlay {
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.3);
         z-index: 998;
         opacity: 0;
         visibility: hidden;
@@ -480,7 +460,7 @@
         right: 0;
         width: 280px;
         height: 100vh;
-        background: var(--bg-secondary);
+        background: var(--bg-primary);
         border-left: 1px solid var(--border);
         z-index: 999;
         padding: calc(var(--nav-height) + var(--space-6)) var(--space-6) var(--space-6);
@@ -489,7 +469,7 @@
         gap: var(--space-2);
         transform: translateX(100%);
         transition: transform var(--transition-slow);
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
     }
 
     .mobile-menu.open {
@@ -510,9 +490,6 @@
         background: var(--brand-soft);
     }
 
-    /* ============================================
-       Buttons
-       ============================================ */
     .btn {
         display: inline-flex;
         align-items: center;
@@ -534,7 +511,7 @@
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.15), transparent);
         opacity: 0;
         transition: opacity var(--transition-normal);
     }
@@ -544,15 +521,15 @@
     }
 
     .btn-primary {
-        background: linear-gradient(135deg, var(--brand), var(--accent));
+        background: linear-gradient(135deg, var(--brand), var(--brand-hover));
         color: var(--text-inverse);
         border: none;
-        box-shadow: var(--shadow-glow);
+        box-shadow: var(--shadow-red-glow);
     }
 
     .btn-primary:hover {
         transform: translateY(-2px);
-        box-shadow: var(--shadow-glow-strong);
+        box-shadow: 0 0 30px rgba(220, 38, 38, 0.25), 0 8px 20px rgba(220, 38, 38, 0.15);
     }
 
     .btn-outline {
@@ -564,7 +541,7 @@
     .btn-outline:hover {
         color: var(--text-primary);
         border-color: var(--border-hover);
-        background: var(--glass-bg);
+        background: var(--bg-surface);
     }
 
     .btn-lg {
@@ -573,39 +550,36 @@
     }
 
     .btn-navy {
-        background: linear-gradient(135deg, #1e3a5f, #0f4c81);
+        background: linear-gradient(135deg, var(--accent), var(--accent-hover));
         color: var(--text-inverse);
         border: none;
-        box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+        box-shadow: var(--shadow-blue-glow);
     }
 
     .btn-navy:hover {
         transform: translateY(-2px);
-        box-shadow: 0 0 30px rgba(56, 189, 248, 0.35);
+        box-shadow: 0 0 30px rgba(30, 58, 95, 0.25), 0 8px 20px rgba(30, 58, 95, 0.15);
     }
 
     .btn-red-outline {
         background: transparent;
-        color: #f87171;
-        border: 1px solid rgba(248, 113, 113, 0.3);
+        color: var(--brand);
+        border: 1px solid var(--brand);
     }
 
     .btn-red-outline:hover {
-        background: rgba(248, 113, 113, 0.1);
-        border-color: rgba(248, 113, 113, 0.5);
-        color: #fca5a5;
+        background: var(--brand-soft);
+        color: var(--brand-hover);
+        border-color: var(--brand-hover);
     }
 
-    /* ============================================
-       Glass Card
-       ============================================ */
     .glass-card {
         background: var(--glass-bg);
         backdrop-filter: blur(16px) saturate(180%);
         -webkit-backdrop-filter: blur(16px) saturate(180%);
         border: 1px solid var(--glass-border);
         border-radius: var(--radius-xl);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        box-shadow: var(--shadow-card);
         transition: all var(--transition-slow);
         position: relative;
         overflow: hidden;
@@ -622,14 +596,11 @@
     }
 
     .glass-card:hover {
-        border-color: var(--border-hover);
-        box-shadow: var(--shadow-glow), 0 8px 30px rgba(0, 0, 0, 0.4);
+        border-color: var(--brand);
+        box-shadow: var(--shadow-red-glow), var(--shadow-card-hover);
         transform: translateY(-2px);
     }
 
-    /* ============================================
-       Globe Hero Section
-       ============================================ */
     .globe-hero {
         position: relative;
         min-height: 100vh;
@@ -637,6 +608,7 @@
         align-items: center;
         overflow: hidden;
         padding-top: var(--nav-height);
+        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
     }
 
     .globe-hero-inner {
@@ -669,7 +641,7 @@
         padding: var(--space-2) var(--space-4);
         background: var(--brand-soft);
         border-radius: var(--radius-full);
-        border: 1px solid rgba(56, 189, 248, 0.15);
+        border: 1px solid rgba(220, 38, 38, 0.1);
         backdrop-filter: blur(10px);
     }
 
@@ -679,7 +651,7 @@
         background: var(--brand);
         border-radius: 50%;
         animation: pulse-dot 2s ease-in-out infinite;
-        box-shadow: 0 0 8px var(--brand);
+        box-shadow: 0 0 8px var(--brand-glow);
     }
 
     @keyframes pulse-dot {
@@ -694,12 +666,11 @@
         letter-spacing: var(--tracking-tight);
         color: var(--text-primary);
         margin-bottom: var(--space-6);
-        text-shadow: 0 0 40px rgba(56, 189, 248, 0.15);
     }
 
     .globe-hero-title .accent-line {
         display: block;
-        color: var(--brand);
+        color: var(--accent);
     }
 
     .globe-hero-desc {
@@ -766,13 +737,8 @@
         }
     }
 
-    /* ============================================
-       Stats Bar
-       ============================================ */
     .stats-bar {
-        background: var(--glass-bg);
-        backdrop-filter: blur(12px) saturate(180%);
-        -webkit-backdrop-filter: blur(12px) saturate(180%);
+        background: var(--bg-secondary);
         border-top: 1px solid var(--border);
         border-bottom: 1px solid var(--border);
         position: relative;
@@ -794,7 +760,8 @@
     }
 
     .stat-item:hover {
-        background: var(--glass-bg);
+        background: var(--bg-surface);
+        box-shadow: var(--shadow-sm);
     }
 
     .stat-num {
@@ -803,7 +770,6 @@
         color: var(--brand);
         line-height: 1;
         margin-bottom: var(--space-2);
-        text-shadow: 0 0 20px var(--brand-glow);
     }
 
     .stat-label {
@@ -820,9 +786,6 @@
         }
     }
 
-    /* ============================================
-       Section Headers
-       ============================================ */
     .section-header {
         text-align: center;
         margin-bottom: var(--space-12);
@@ -843,9 +806,6 @@
         color: var(--text-secondary);
     }
 
-    /* ============================================
-       Infrastructure Cards
-       ============================================ */
     .infra-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -935,9 +895,6 @@
         }
     }
 
-    /* ============================================
-       Trending Destinations
-       ============================================ */
     .trending-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -959,7 +916,6 @@
         color: var(--brand);
         width: 40px;
         text-align: center;
-        text-shadow: 0 0 10px var(--brand-glow);
     }
 
     .trending-info {
@@ -984,7 +940,7 @@
     .trending-metrics span {
         font-size: var(--text-xs);
         color: var(--text-tertiary);
-        background: var(--bg-secondary);
+        background: var(--bg-surface);
         padding: 2px 8px;
         border-radius: var(--radius-sm);
         border: 1px solid var(--border-light);
@@ -994,7 +950,6 @@
         font-size: var(--text-xl);
         font-weight: 800;
         color: var(--accent);
-        text-shadow: 0 0 10px var(--accent-glow);
     }
 
     @media (max-width: 768px) {
@@ -1003,9 +958,6 @@
         }
     }
 
-    /* ============================================
-       Country Grid & Filters
-       ============================================ */
     .filters-bar {
         display: flex;
         gap: var(--space-2);
@@ -1020,17 +972,16 @@
         font-weight: 500;
         border-radius: var(--radius-full);
         border: 1px solid var(--border);
-        background: var(--glass-bg);
+        background: var(--bg-primary);
         color: var(--text-secondary);
         cursor: pointer;
         transition: all var(--transition-fast);
-        backdrop-filter: blur(8px);
     }
 
     .filter-btn:hover {
-        border-color: var(--border-hover);
-        color: var(--text-primary);
-        background: var(--bg-hover);
+        border-color: var(--brand);
+        color: var(--brand);
+        background: var(--brand-soft);
     }
 
     .filter-btn.active {
@@ -1054,23 +1005,23 @@
         font-weight: 500;
         border-radius: var(--radius-full);
         border: 1px solid var(--border);
-        background: var(--glass-bg);
+        background: var(--bg-primary);
         color: var(--text-secondary);
         cursor: pointer;
         transition: all var(--transition-fast);
-        backdrop-filter: blur(8px);
     }
 
     .region-tab:hover {
-        border-color: var(--border-hover);
-        color: var(--text-primary);
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent-soft);
     }
 
     .region-tab.active {
-        background: var(--brand-soft);
-        color: var(--brand);
-        border-color: var(--brand);
-        box-shadow: 0 0 15px var(--brand-glow);
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-color: var(--accent);
+        box-shadow: 0 0 15px var(--accent-glow);
     }
 
     .region-tab span {
@@ -1148,7 +1099,7 @@
         background: var(--brand-soft);
         padding: 2px 8px;
         border-radius: var(--radius-sm);
-        border: 1px solid rgba(56, 189, 248, 0.2);
+        border: 1px solid rgba(220, 38, 38, 0.15);
     }
 
     .country-card-body {
@@ -1168,33 +1119,30 @@
     .badge-success {
         color: var(--success);
         background: var(--success-soft);
-        border: 1px solid rgba(74, 222, 128, 0.2);
+        border: 1px solid rgba(22, 163, 74, 0.2);
     }
 
     .badge-info {
         color: var(--info);
         background: var(--info-soft);
-        border: 1px solid rgba(56, 189, 248, 0.2);
+        border: 1px solid rgba(37, 99, 235, 0.2);
     }
 
     .badge-danger {
-        color: #f87171;
-        background: rgba(248, 113, 113, 0.15);
-        border: 1px solid rgba(248, 113, 113, 0.2);
+        color: var(--brand);
+        background: var(--brand-soft);
+        border: 1px solid rgba(220, 38, 38, 0.2);
     }
 
     .country-metric {
         font-size: var(--text-xs);
         color: var(--text-tertiary);
-        background: var(--bg-secondary);
+        background: var(--bg-surface);
         padding: 2px 8px;
         border-radius: var(--radius-sm);
         border: 1px solid var(--border-light);
     }
 
-    /* ============================================
-       Tools Grid
-       ============================================ */
     .tools-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -1264,9 +1212,6 @@
         }
     }
 
-    /* ============================================
-       Articles
-       ============================================ */
     .articles-header {
         display: flex;
         justify-content: space-between;
@@ -1319,7 +1264,7 @@
         background: var(--brand-soft);
         padding: 2px 10px;
         border-radius: var(--radius-full);
-        border: 1px solid rgba(56, 189, 248, 0.15);
+        border: 1px solid rgba(220, 38, 38, 0.15);
     }
 
     .article-card h3 {
@@ -1358,9 +1303,6 @@
         }
     }
 
-    /* ============================================
-       Divider
-       ============================================ */
     .divider {
         height: 1px;
         background: linear-gradient(90deg, transparent, var(--divider), transparent);
@@ -1369,9 +1311,6 @@
         z-index: 1;
     }
 
-    /* ============================================
-       Footer
-       ============================================ */
     .footer {
         background: var(--bg-secondary);
         border-top: 1px solid var(--border);
@@ -1418,7 +1357,7 @@
         align-items: center;
         gap: var(--space-2);
         padding: var(--space-3) var(--space-5);
-        background: var(--glass-bg);
+        background: var(--bg-primary);
         border: 1px solid var(--border);
         border-radius: var(--radius-lg);
         font-size: var(--text-sm);
@@ -1428,8 +1367,9 @@
     }
 
     .footer-cta:hover {
-        border-color: var(--border-hover);
-        background: var(--bg-hover);
+        border-color: var(--brand);
+        background: var(--brand-soft);
+        color: var(--brand);
     }
 
     .footer-cta svg {
@@ -1493,9 +1433,6 @@
         }
     }
 
-    /* ============================================
-       Scroll Reveal Animations
-       ============================================ */
     .reveal {
         opacity: 0;
         transform: translateY(24px);
@@ -1531,7 +1468,6 @@
     .stagger-children.visible .stagger-item:nth-child(7) { transition-delay: 0.35s; }
     .stagger-children.visible .stagger-item:nth-child(8) { transition-delay: 0.4s; }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
         .reveal, .stagger-children .stagger-item {
             opacity: 1;
@@ -1543,11 +1479,8 @@
         }
     }
 
-    /* ============================================
-       Globe Tooltip
-       ============================================ */
     .globe-tooltip {
-        background: var(--bg-secondary) !important;
+        background: var(--bg-primary) !important;
         color: var(--text-primary) !important;
         padding: 8px 14px !important;
         border-radius: 8px !important;
@@ -1563,9 +1496,6 @@
         display: none !important;
     }
 
-    /* ============================================
-       Reading Progress
-       ============================================ */
     .reading-progress {
         position: fixed;
         top: 0;
@@ -1575,31 +1505,12 @@
         background: linear-gradient(90deg, var(--brand), var(--accent));
         z-index: 1001;
         transition: width 0.1s linear;
-        box-shadow: 0 0 10px var(--brand-glow);
-    }
-
-    /* ============================================
-       Particle ambient glow on hero
-       ============================================ */
-    .globe-hero::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 600px;
-        height: 600px;
-        transform: translate(-50%, -50%);
-        background: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%);
-        pointer-events: none;
-        z-index: 0;
     }
     </style>
 </head>
 <body>
-    <!-- Particle Canvas Background -->
     <canvas id="particle-canvas"></canvas>
 
-    <!-- Header -->
     <header class="header" id="header">
         <div class="header-inner">
             <a href="#" class="header-logo">
@@ -1617,7 +1528,7 @@
             </nav>
             <div class="header-actions">
                 <a href="https://github.com/kfat77/digital-nomad-cn" class="header-icon-btn" target="_blank" aria-label="GitHub">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                 </a>
                 <button class="menu-toggle header-icon-btn" aria-label="打开菜单" id="menuToggle" aria-expanded="false">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -1636,7 +1547,6 @@
         <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a>
     </nav>
 
-    <!-- Globe Hero -->
     <section class="globe-hero" id="hero">
         <div class="globe-hero-inner">
             <div class="globe-hero-text">
@@ -1664,7 +1574,6 @@
         </div>
     </section>
 
-    <!-- Stats Bar -->
     <section class="stats-bar" id="stats">
         <div class="stats-grid container">
             <div class="stat-item reveal">
@@ -1686,7 +1595,6 @@
         </div>
     </section>
 
-    <!-- Core Infrastructure -->
     <section class="section" id="core-infra">
         <div class="container">
             <div class="section-header reveal">
@@ -1742,7 +1650,6 @@
 
     <div class="divider"></div>
 
-    <!-- Trending Destinations -->
     <section class="section" id="trending">
         <div class="container">
             <div class="section-header reveal">
@@ -1819,7 +1726,6 @@
 
     <div class="divider"></div>
 
-    <!-- Country Grid -->
     <section class="section" id="country-grid">
         <div class="container">
             <div class="section-header reveal">
@@ -1918,7 +1824,6 @@
 
     <div class="divider"></div>
 
-    <!-- Tools -->
     <section class="section" id="tools">
         <div class="container">
             <div class="section-header reveal">
@@ -1964,7 +1869,6 @@
 
     <div class="divider"></div>
 
-    <!-- Latest Articles -->
     <section class="section" id="latest-articles">
         <div class="container">
             <div class="articles-header reveal">
@@ -1975,7 +1879,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-main">
             <div class="footer-brand">
@@ -1985,7 +1888,7 @@
                 </div>
                 <p>面向中国国内用户的数字游民基础设施一站式攻略。100 国数据、50+ 签证、122 城市，全部开源。</p>
                 <a href="https://github.com/kfat77/digital-nomad-cn" class="footer-cta" target="_blank">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                     在 GitHub 上 Star 这个项目
                 </a>
             </div>
@@ -2013,9 +1916,6 @@
     </footer>
 
 <script>
-// ============================================================
-// Particle Universe Animation System
-// ============================================================
 (function() {
     'use strict';
 
@@ -2029,7 +1929,6 @@
     let particles = [];
     let mouse = { x: null, y: null, active: false };
     let animationId;
-    let lastTime = 0;
 
     const PARTICLE_COUNT = 180;
     const CONNECTION_DISTANCE = 120;
@@ -2037,11 +1936,11 @@
     const MOUSE_FORCE = 0.8;
 
     const COLORS = [
-        { r: 56, g: 189, b: 248 },   // cyan
-        { r: 167, g: 139, b: 250 },  // purple
-        { r: 34, g: 211, b: 238 },   // teal
-        { r: 96, g: 165, b: 250 },   // blue
-        { r: 192, g: 132, b: 252 },  // light purple
+        { r: 220, g: 38, b: 38 },    // red
+        { r: 30, g: 58, b: 95 },     // dark blue
+        { r: 239, g: 68, b: 68 },    // light red
+        { r: 59, g: 130, b: 246 },   // blue
+        { r: 185, g: 28, b: 28 },    // deep red
     ];
 
     function resize() {
@@ -2065,7 +1964,7 @@
             this.radius = Math.random() * 1.5 + 0.5;
             this.baseRadius = this.radius;
             this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
-            this.alpha = Math.random() * 0.5 + 0.3;
+            this.alpha = Math.random() * 0.4 + 0.25;
             this.baseAlpha = this.alpha;
             this.pulseSpeed = Math.random() * 0.02 + 0.01;
             this.pulsePhase = Math.random() * Math.PI * 2;
@@ -2073,12 +1972,10 @@
         }
 
         update(time) {
-            // Pulse effect
             this.pulsePhase += this.pulseSpeed;
             this.radius = this.baseRadius + Math.sin(this.pulsePhase) * 0.3;
             this.alpha = this.baseAlpha + Math.sin(this.pulsePhase * 0.7) * 0.15;
 
-            // Mouse interaction
             if (mouse.active) {
                 const dx = mouse.x - this.x;
                 const dy = mouse.y - this.y;
@@ -2087,26 +1984,21 @@
                 if (dist < MOUSE_RADIUS) {
                     const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS;
                     const angle = Math.atan2(dy, dx);
-                    // Gentle attraction
                     this.vx += Math.cos(angle) * force * MOUSE_FORCE * 0.02;
                     this.vy += Math.sin(angle) * force * MOUSE_FORCE * 0.02;
-                    this.alpha = Math.min(1, this.baseAlpha + force * 0.4);
+                    this.alpha = Math.min(0.8, this.baseAlpha + force * 0.3);
                     this.radius = this.baseRadius + force * 1.5;
                 }
             }
 
-            // Apply velocity with slight damping
             this.vx *= 0.995;
             this.vy *= 0.995;
-
-            // Add gentle drift
             this.vx += (Math.random() - 0.5) * 0.01;
             this.vy += (Math.random() - 0.5) * 0.01;
 
             this.x += this.vx;
             this.y += this.vy;
 
-            // Wrap around edges
             if (this.x < -10) this.x = width + 10;
             if (this.x > width + 10) this.x = -10;
             if (this.y < -10) this.y = height + 10;
@@ -2119,11 +2011,10 @@
             ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.alpha})`;
             ctx.fill();
 
-            // Glow effect for larger particles
             if (this.radius > 1.2) {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius * 3, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.alpha * 0.08})`;
+                ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.alpha * 0.06})`;
                 ctx.fill();
             }
         }
@@ -2144,7 +2035,7 @@
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
                 if (dist < CONNECTION_DISTANCE) {
-                    const opacity = (1 - dist / CONNECTION_DISTANCE) * 0.15;
+                    const opacity = (1 - dist / CONNECTION_DISTANCE) * 0.12;
                     const avgColor = {
                         r: (particles[i].color.r + particles[j].color.r) / 2,
                         g: (particles[i].color.g + particles[j].color.g) / 2,
@@ -2160,18 +2051,17 @@
                 }
             }
 
-            // Connect to mouse
             if (mouse.active) {
                 const dx = particles[i].x - mouse.x;
                 const dy = particles[i].y - mouse.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
                 if (dist < MOUSE_RADIUS * 1.5) {
-                    const opacity = (1 - dist / (MOUSE_RADIUS * 1.5)) * 0.2;
+                    const opacity = (1 - dist / (MOUSE_RADIUS * 1.5)) * 0.15;
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(mouse.x, mouse.y);
-                    ctx.strokeStyle = `rgba(56, 189, 248, ${opacity})`;
+                    ctx.strokeStyle = `rgba(220, 38, 38, ${opacity})`;
                     ctx.lineWidth = 0.5;
                     ctx.stroke();
                 }
@@ -2181,20 +2071,14 @@
 
     function animate(time) {
         ctx.clearRect(0, 0, width, height);
-
-        // Draw connections first (behind particles)
         drawConnections();
-
-        // Update and draw particles
         particles.forEach(p => {
             p.update(time);
             p.draw();
         });
-
         animationId = requestAnimationFrame(animate);
     }
 
-    // Mouse events
     window.addEventListener('mousemove', (e) => {
         mouse.x = e.clientX;
         mouse.y = e.clientY;
@@ -2205,7 +2089,6 @@
         mouse.active = false;
     });
 
-    // Touch support
     window.addEventListener('touchmove', (e) => {
         if (e.touches.length > 0) {
             mouse.x = e.touches[0].clientX;
@@ -2218,26 +2101,19 @@
         mouse.active = false;
     });
 
-    // Resize
     window.addEventListener('resize', () => {
         resize();
         initParticles();
     });
 
-    // Initialize
     resize();
     initParticles();
     animate(0);
 })();
 
-// ============================================================
-// Core Site Interactions (Preserved from Original)
-// ============================================================
-
 (function() {
     'use strict';
 
-    // SCROLL REVEAL
     function initScrollReveal() {
         const revealElements = document.querySelectorAll('.reveal');
         const staggerContainers = document.querySelectorAll('.stagger-children');
@@ -2268,7 +2144,6 @@
         staggerContainers.forEach(el => observer.observe(el));
     }
 
-    // COUNT UP
     function initCountUp() {
         const counters = document.querySelectorAll('.count-up');
         const observer = new IntersectionObserver((entries) => {
@@ -2294,7 +2169,6 @@
         counters.forEach(c => observer.observe(c));
     }
 
-    // HEADER SCROLL
     function initHeaderScroll() {
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
@@ -2303,7 +2177,6 @@
         }, { passive: true });
     }
 
-    // MOBILE MENU
     function initMobileMenu() {
         const toggle = document.getElementById('menuToggle');
         const menu = document.getElementById('mobileMenu');
@@ -2317,7 +2190,6 @@
         menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
     }
 
-    // READING PROGRESS
     function initReadingProgress() {
         const progress = document.querySelector('.reading-progress');
         if (!progress) return;
@@ -2329,7 +2201,6 @@
         }, { passive: true });
     }
 
-    // DATA FRESHNESS
     (async function() {
         try {
             const res = await fetch('api/stats.json', { cache: 'no-cache' });
@@ -2351,7 +2222,6 @@
         }
     })();
 
-    // COUNTRY FILTERS
     (function() {
         const filterBtns = document.querySelectorAll('.filter-btn');
         const regionTabs = document.querySelectorAll('.region-tab');
@@ -2382,7 +2252,6 @@
         }));
     })();
 
-    // LOAD ARTICLES
     (async function() {
         try {
             const res = await fetch('articles/articles.json');
@@ -2406,7 +2275,6 @@
         }
     })();
 
-    // Initialize all
     document.addEventListener('DOMContentLoaded', () => {
         initScrollReveal();
         initCountUp();
