@@ -1,0 +1,48 @@
+name: 📊 Data Validation
+
+on:
+  push:
+    paths:
+      - 'website/data/**'
+  pull_request:
+    paths:
+      - 'website/data/**'
+
+jobs:
+  validate:
+    name: Validate Data Changes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate JSON Schema
+        run: npm run validate:schema
+
+      - name: Validate Data Integrity
+        run: npm run validate:integrity
+
+      - name: Validate Links
+        run: npm run validate:links
+
+      - name: Check Data Freshness
+        run: npm run validate:freshness
+
+      - name: Generate Validation Report
+        if: always()
+        run: npm run validate:report
+
+      - name: Upload Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-report
+          path: reports/validation.json

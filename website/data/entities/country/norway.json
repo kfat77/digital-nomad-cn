@@ -1,0 +1,60 @@
+{
+  "id": "norway",
+  "name": "挪威",
+  "name_en": "Norway",
+  "name_local": "Norge",
+  "code_iso_3166_1": "NO",
+  "code_iso_3166_3": "NOR",
+  "region": "europe",
+  "sub_region": "北欧",
+  "is_special_admin_region": false,
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": true,
+  "coordinates": {
+    "lat": 60.472,
+    "lon": 8.4689
+  },
+  "timezone": [
+    "Europe/Oslo"
+  ],
+  "currency": [
+    {
+      "code": "NOK",
+      "name": "挪威克朗",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "no",
+      "name": "挪威语",
+      "is_official": true
+    },
+    {
+      "code": "en",
+      "name": "英语",
+      "is_official": false
+    }
+  ],
+  "population": 5500000,
+  "area_km2": 385207,
+  "gdp_per_capita_usd": 90000,
+  "hdi": 0.966,
+  "safety_index": 85,
+  "internet_speed_avg_mbps": 180,
+  "cost_of_living_index": 88,
+  "rent_index": 55,
+  "china_passport_visa_status": "visa_required",
+  "china_passport_visa_note": "需提前申请申根签证。挪威提供独立承包商签证（Independent Contractor Visa）",
+  "digital_nomad_score": 80,
+  "tags": [
+    "北欧",
+    "数字游民签证",
+    "极光",
+    "峡湾",
+    "高福利"
+  ],
+  "status": "published",
+  "updated_at": "2026-01-15",
+  "source": "Numbeo, World Bank"
+}

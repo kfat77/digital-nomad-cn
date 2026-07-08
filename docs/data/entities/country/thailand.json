@@ -1,0 +1,54 @@
+{
+  "id": "thailand",
+  "name": "泰国",
+  "name_en": "Thailand",
+  "name_local": "ประเทศไทย",
+  "code_iso_3166_1": "TH",
+  "code_iso_3166_3": "THA",
+  "region": "asia",
+  "sub_region": "southeast_asia",
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": true,
+  "coordinates": {
+    "lat": 15.87,
+    "lon": 100.9925
+  },
+  "timezone": [
+    "Asia/Bangkok"
+  ],
+  "currency": [
+    {
+      "code": "THB",
+      "name": "泰铢",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "th",
+      "name": "泰语",
+      "is_official": true
+    }
+  ],
+  "population": 70078000,
+  "area_km2": 513120,
+  "gdp_per_capita_usd": 7500,
+  "hdi": 0.8,
+  "safety_index": 65.0,
+  "internet_speed_avg_mbps": 200,
+  "cost_of_living_index": 45.0,
+  "rent_index": 20.0,
+  "china_passport_visa_status": "visa_free",
+  "china_passport_visa_note": "免签60天，可延期30天",
+  "digital_nomad_score": 85,
+  "tags": [
+    "cheap",
+    "friendly",
+    "nomad_hub",
+    "tropical",
+    "nomad_visa"
+  ],
+  "status": "published",
+  "updated_at": "2026-01-15T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025, Thai Immigration"
+}

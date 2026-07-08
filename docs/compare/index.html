@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>国家对比工具 - Global Mobility Infrastructure</title>
+<meta name="description" content="数字游民国家对比工具：对比生活成本、签证政策、网速、安全指数等关键指标，找到最适合你的目的地。">
+<meta name="keywords" content="数字游民,国家对比,生活成本,签证政策,全球流动,Remote Work">
+<meta property="og:title" content="国家对比工具 - Global Mobility Infrastructure">
+<meta property="og:description" content="一键对比20+个国家的数字游民友好度、生活成本、签证政策">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://digital-nomad-cn.com/compare/">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1a73e8;
+  --primary-light:#4285f4;
+  --accent:#00d4aa;
+  --dark:#0a0e27;
+  --dark-light:#161b33;
+  --text:#e2e8f0;
+  --text-dim:#8892b0;
+  --border:rgba(255,255,255,0.1);
+  --card-bg:rgba(10,14,39,0.8);
+  --success:#00d4aa;
+  --warning:#f59e0b;
+  --danger:#ef4444;
+  --gradient:linear-gradient(135deg,#1a73e8,#00d4aa);
+}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;
+  background:var(--dark);color:var(--text);line-height:1.6;overflow-x:hidden;
+  background:radial-gradient(ellipse at top,#1a73e830 0%,transparent 70%),radial-gradient(ellipse at bottom,#00d4aa20 0%,transparent 70%),var(--dark);
+}
+.container{max-width:1400px;margin:0 auto;padding:0 20px}
+header{
+  background:rgba(10,14,39,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;
+}
+.header-inner{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+.logo{font-size:1.5rem;font-weight:700;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:1.5rem}
+.nav-links a{color:var(--text-dim);text-decoration:none;font-size:0.95rem;transition:color 0.3s}
+.nav-links a:hover{color:var(--accent)}
+.hero{padding:3rem 0;text-align:center}
+.hero h1{font-size:2.5rem;margin-bottom:0.5rem}
+.hero p{color:var(--text-dim);font-size:1.1rem;max-width:600px;margin:0 auto}
+.compare-section{padding:2rem 0 4rem}
+.selector-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+.country-selector{display:flex;flex-direction:column;gap:0.5rem}
+.country-selector label{font-size:0.85rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.05em}
+.country-selector select{
+  padding:0.8rem 1.2rem;border-radius:8px;border:1px solid var(--border);background:var(--card-bg);color:var(--text);font-size:1rem;min-width:200px;cursor:pointer;outline:none;transition:border-color 0.3s;
+}
+.country-selector select:focus{border-color:var(--primary)}
+.compare-btn{
+  padding:0.8rem 2rem;border-radius:8px;border:none;background:var(--gradient);color:#fff;font-size:1rem;font-weight:600;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;align-self:flex-end;margin-bottom:0;
+}
+.compare-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,212,170,0.3)}
+.comparison-table{width:100%;border-collapse:collapse;margin-top:2rem}
+.comparison-table th,.comparison-table td{padding:1rem 1.5rem;text-align:left;border-bottom:1px solid var(--border)}
+.comparison-table th{color:var(--text-dim);font-weight:600;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em}
+.comparison-table th:first-child{width:25%}
+.comparison-table td{font-size:0.95rem}
+.comparison-table tr:hover{background:rgba(255,255,255,0.03)}
+.comparison-table .country-name{display:flex;align-items:center;gap:0.75rem;font-weight:600;font-size:1.05rem}
+.comparison-table .country-name .flag{font-size:1.5rem}
+.comparison-table .score{display:inline-flex;align-items:center;gap:0.5rem}
+.score-bar{width:80px;height:6px;border-radius:3px;background:rgba(255,255,255,0.1);overflow:hidden}
+.score-bar-fill{height:100%;border-radius:3px;background:var(--gradient);transition:width 0.5s}
+.badge{
+  display:inline-block;padding:0.25rem 0.75rem;border-radius:20px;font-size:0.75rem;font-weight:600;
+}
+.badge-visa-free{background:rgba(0,212,170,0.15);color:var(--success)}
+.badge-visa-on-arrival{background:rgba(245,158,11,0.15);color:var(--warning)}
+.badge-visa-required{background:rgba(239,68,68,0.15);color:var(--danger)}
+.badge-dnv-yes{background:rgba(0,212,170,0.15);color:var(--success)}
+.badge-dnv-no{background:rgba(255,255,255,0.05);color:var(--text-dim)}
+.metric-cell{display:flex;align-items:center;gap:0.75rem}
+.metric-value{font-weight:600}
+.metric-bar{flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,0.08);overflow:hidden;max-width:120px}
+.metric-bar-fill{height:100%;border-radius:4px;transition:width 0.5s}
+.highlight-best{background:rgba(0,212,170,0.08)}
+.highlight-worst{background:rgba(239,68,68,0.05)}
+.region-tag{display:inline-block;padding:0.2rem 0.6rem;border-radius:12px;font-size:0.75rem;background:rgba(255,255,255,0.05);color:var(--text-dim)}
+.charts-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
+.chart-card{
+  background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:1.5rem;backdrop-filter:blur(10px);
+}
+.chart-card h3{font-size:1rem;margin-bottom:1rem;color:var(--text-dim)}
+.bar-chart{display:flex;flex-direction:column;gap:0.75rem}
+.bar-item{display:flex;align-items:center;gap:0.75rem}
+.bar-label{width:100px;font-size:0.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-track{flex:1;height:20px;border-radius:10px;background:rgba(255,255,255,0.05);overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:10px;transition:width 0.8s ease-out}
+.bar-value{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:0.75rem;font-weight:600}
+.reset-btn{
+  padding:0.5rem 1.2rem;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text-dim);font-size:0.9rem;cursor:pointer;transition:all 0.3s;
+}
+.reset-btn:hover{border-color:var(--accent);color:var(--accent)}
+.top-controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:1rem}
+.preselect-btns{display:flex;gap:0.5rem;flex-wrap:wrap}
+.preselect-btns button{
+  padding:0.4rem 0.8rem;border-radius:6px;border:1px solid var(--border);background:var(--card-bg);color:var(--text-dim);font-size:0.8rem;cursor:pointer;transition:all 0.3s;
+}
+.preselect-btns button:hover{border-color:var(--primary);color:var(--primary)}
+.preselect-btns button.active{border-color:var(--primary);color:var(--primary);background:rgba(26,115,232,0.1)}
+.radar-wrap{display:flex;justify-content:center;align-items:center;height:300px}
+.radar-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:1rem}
+.radar-legend-item{display:flex;align-items:center;gap:0.4rem;font-size:0.8rem}
+.radar-legend-dot{width:10px;height:10px;border-radius:50%}
+@media(max-width:768px){
+  .hero h1{font-size:1.8rem}
+  .comparison-table{font-size:0.85rem}
+  .comparison-table th,.comparison-table td{padding:0.6rem}
+  .selector-row{flex-direction:column;align-items:center}
+  .compare-btn{width:100%;max-width:300px}
+}
+footer{
+  border-top:1px solid var(--border);padding:2rem 0;text-align:center;color:var(--text-dim);font-size:0.85rem;margin-top:3rem;
+}
+</style>
+</head>
+<body>
+<header><div class="container"><div class="header-inner"><div class="logo">Global Mobility Infrastructure</div><nav class="nav-links"><a href="/">首页</a><a href="/country/">国家</a><a href="/visa/">签证</a><a href="/city/">城市</a></nav></div></div></header>
+<section class="hero"><div class="container"><h1>国家对比工具</h1><p>选择多个国家，一键对比生活成本、签证政策、数字游民友好度等关键指标</p></div></section>
+<section class="compare-section"><div class="container">
+<div class="top-controls">
+  <div class="preselect-btns">
+    <button data-set="seasia">东南亚</button>
+    <button data-set="europe">欧洲</button>
+    <button data-set="nomad">数字游民友好</button>
+    <button data-set="visa-free">中国免签</button>
+  </div>
+  <button class="reset-btn" onclick="resetAll()">重置选择</button>
+</div>
+<div class="selector-row" id="selectorRow">
+  <div class="country-selector"><label>国家 1</label><select id="sel0"><option value="">选择国家</option></select></div>
+  <div class="country-selector"><label>国家 2</label><select id="sel1"><option value="">选择国家</option></select></div>
+  <div class="country-selector"><label>国家 3</label><select id="sel2"><option value="">选择国家</option></select></div>
+  <div class="country-selector"><label>国家 4</label><select id="sel3"><option value="">选择国家</option></select></div>
+  <button class="compare-btn" onclick="compare()">开始对比</button>
+</div>
+<div id="results"></div>
+</div></section>
+<footer><div class="container">Global Mobility Infrastructure  2024 | 中国护照，全球生活</div></footer>
+<script>
+const countryData = {
+  "australia": {
+    "id": "australia",
+    "name": "澳大利亚",
+    "name_en": "Australia",
+    "digital_nomad_score": 78,
+    "cost_of_living_index": 82.0,
+    "rent_index": 50.0,
+    "safety_index": 75.0,
+    "internet_speed_avg_mbps": 80,
+    "gdp_per_capita_usd": 63000,
+    "hdi": 0.946,
+    "china_passport_visa_status": "visa_required",
+    "china_passport_visa_note": "旅游签证600类别，可在线申请；WHV 462 抽签制",
+    "has_digital_nomad_visa": false,
+    "currency": [
+      {
+        "code": "AUD",
+        "name": "澳元",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "en",
+        "name": "English",
+        "is_official": true
+      }
+    ],
+    "region": "oceania"
+  },
+  "canada": {
+    "id": "canada",
+    "name": "加拿大",
+    "name_en": "Canada",
+    "digital_nomad_score": 77,
+    "cost_of_living_index": 75.0,
+    "rent_index": 45.0,
+    "safety_index": 65.0,
+    "internet_speed_avg_mbps": 170,
+    "gdp_per_capita_usd": 53000,
+    "hdi": 0.936,
+    "china_passport_visa_status": "visa_required",
+    "china_passport_visa_note": "旅游签证可在线申请；EE快速通道技术移民",
+    "has_digital_nomad_visa": false,
+    "currency": [
+      {
+        "code": "CAD",
+        "name": "加元",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "en",
+        "name": "English",
+        "is_official": true
+      },
+      {
+        "code": "fr",
+        "name": "French",
+        "is_official": true
+      }
+    ],
+    "region": "americas_north"
+  },
+  "estonia": {
+    "id": "estonia",
+    "name": "爱沙尼亚",
+    "name_en": "Estonia",
+    "digital_nomad_score": 80,
+    "cost_of_living_index": 60.0,
+    "rent_index": 25.0,
+    "safety_index": 78.0,
+    "internet_speed_avg_mbps": 100,
+    "gdp_per_capita_usd": 30000,
+    "hdi": 0.89,
+    "china_passport_visa_status": "evisa",
+    "china_passport_visa_note": "电子签申根入境；e-Residency数字公民；数字游民签证",
+    "has_digital_nomad_visa": true,
+    "currency": [
+      {
+        "code": "EUR",
+        "name": "欧元",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "et",
+        "name": "爱沙尼亚语",
+        "is_official": true
+      }
+    ],
+    "region": "europe"
+  },
+  "france": {
+    "id": "france",
+    "name": "法国",
+    "name_en": "France",
+    "digital_nomad_score": 77,
+    "cost_of_living_index": 75.0,
+    "rent_index": 45.0,
+    "safety_index": 65.0,
+    "internet_speed_avg_mbps": 130,
+    "gdp_per_capita_usd": 43000,
+    "hdi": 0.903,
+    "china_passport_visa_status": "visa_required",
+    "china_passport_visa_note": "申根签证C类；工作签证需雇主担保",
+    "has_digital_nomad_visa": false,
+    "currency": [
+      {
+        "code": "EUR",
+        "name": "欧元",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "fr",
+        "name": "法语",
+        "is_official": true
+      }
+    ],
+    "region": "europe"
+  },
+  "germany": {
+    "id": "germany",
+    "name": "德国",
+    "name_en": "Germany",
+    "digital_nomad_score": 78,
+    "cost_of_living_index": 72.0,
+    "rent_index": 40.0,
+    "safety_index": 75.0,
+    "internet_speed_avg_mbps": 120,
+    "gdp_per_capita_usd": 51000,
+    "hdi": 0.95,
+    "china_passport_visa_status": "visa_required",
+    "china_passport_visa_note": "申根签证C类；工作签证/蓝卡需雇主担保",
+    "has_digital_nomad_visa": false,
+    "currency": [
+      {
+        "code": "EUR",
+        "name": "欧元",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "de",
+        "name": "德语",
+        "is_official": true
+      }
+    ],
+    "region": "europe"
+  },
+  "hongkong": {
+    "id": "hongkong",
+    "name": "香港",
+    "name_en": "Hong Kong",
+    "digital_nomad_score": 82,
+    "cost_of_living_index": 85.0,
+    "rent_index": 80.0,
+    "safety_index": 78.3,
+    "internet_speed_avg_mbps": 250,
+    "gdp_per_capita_usd": 49000,
+    "hdi": 0.952,
+    "china_passport_visa_status": "visa_required",
+    "china_passport_visa_note": "港澳通行证 + 签注",
+    "has_digital_nomad_visa": false,
+    "currency": [
+      {
+        "code": "HKD",
+        "name": "港币",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "zh",
+        "name": "中文",
+        "is_official": true
+      },
+      {
+        "code": "en",
+        "name": "English",
+        "is_official": true
+      }
+    ],
+    "region": "asia"
+  },
+  "japan": {
+    "id": "japan",
+    "name": "日本",
+    "name_en": "Japan",
+    "digital_nomad_score": 87,
+    "cost_of_living_index": 85.0,
+    "rent_index": 45.0,
+    "safety_index": 92.0,
+    "internet_speed_avg_mbps": 185,
+    "gdp_per_capita_usd": 39285,
+    "hdi": 0.92,
+    "china_passport_visa_status": "visa_required",
+    "china_passport_visa_note": "旅游签证需通过指定旅行社申请，单次/多次可选",
+    "has_digital_nomad_visa": true,
+    "currency": [
+      {
+        "code": "JPY",
+        "name": "日元",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "ja",
+        "name": "日语",
+        "is_official": true
+      }
+    ],
+    "region": "asia"
+  },
+  "macao": {
+    "id": "macao",
+    "name": "澳门",
+    "name_en": "Macao",
+    "digital_nomad_score": 65,
+    "cost_of_living_index": 70.0,
+    "rent_index": 55.0,
+    "safety_index": 85.0,
+    "internet_speed_avg_mbps": 180,
+    "gdp_per_capita_usd": 43000,
+    "hdi": 0.914,
+    "china_passport_visa_status": "visa_required",
+    "china_passport_visa_note": "港澳通行证 + 签注",
+    "has_digital_nomad_visa": false,
+    "currency": [
+      {
+        "code": "MOP",
+        "name": "澳门元",
+        "is_primary": true
+      },
+      {
+        "code": "HKD",
+        "name": "港币",
+        "is_primary": false
+      }
+    ],
+    "languages": [
+      {
+        "code": "zh",
+        "name": "中文",
+        "is_official": true
+      },
+      {
+        "code": "pt",
+        "name": "Portuguese",
+        "is_official": true
+      }
+    ],
+    "region": "asia"
+  },
+  "malaysia": {
+    "id": "malaysia",
+    "name": "马来西亚",
+    "name_en": "Malaysia",
+    "digital_nomad_score": 78,
+    "cost_of_living_index": 40.0,
+    "rent_index": 18.0,
+    "safety_index": 55.0,
+    "internet_speed_avg_mbps": 150,
+    "gdp_per_capita_usd": 12000,
+    "hdi": 0.803,
+    "china_passport_visa_status": "visa_free",
+    "china_passport_visa_note": "免签30天",
+    "has_digital_nomad_visa": false,
+    "currency": [
+      {
+        "code": "MYR",
+        "name": "马来西亚林吉特",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "ms",
+        "name": "马来语",
+        "is_official": true
+      },
+      {
+        "code": "en",
+        "name": "English",
+        "is_official": true
+      },
+      {
+        "code": "zh",
+        "name": "中文",
+        "is_official": false
+      }
+    ],
+    "region": "asia"
+  },
+  "netherlands": {
+    "id": "netherlands",
+    "name": "荷兰",
+    "name_en": "Netherlands",
+    "digital_nomad_score": 82,
+    "cost_of_living_index": 78.0,
+    "rent_index": 50.0,
+    "safety_index": 72.0,
+    "internet_speed_avg_mbps": 180,
+    "gdp_per_capita_usd": 57000,
+    "hdi": 0.946,
+    "china_passport_visa_status": "visa_required",
+    "china_passport_visa_note": "申根签证C类；高技能移民签证；创业签证",
+    "has_digital_nomad_visa": false,
+    "currency": [
+      {
+        "code": "EUR",
+        "name": "欧元",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "nl",
+        "name": "荷兰语",
+        "is_official": true
+      },
+      {
+        "code": "en",
+        "name": "English",
+        "is_official": false
+      }
+    ],
+    "region": "europe"
+  },
+  "newzealand": {
+    "id": "newzealand",
+    "name": "新西兰",
+    "name_en": "New Zealand",
+    "digital_nomad_score": 76,
+    "cost_of_living_index": 78.0,
+    "rent_index": 45.0,
+    "safety_index": 70.0,
+    "internet_speed_avg_mbps": 150,
+    "gdp_per_capita_usd": 47000,
+    "hdi": 0.937,
+    "china_passport_visa_status": "visa_required",
+    "china_passport_visa_note": "WHV 1000名额/年，先到先得；旅游签证可在线申请",
+    "has_digital_nomad_visa": false,
+    "currency": [
+      {
+        "code": "NZD",
+        "name": "新西兰元",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "en",
+        "name": "English",
+        "is_official": true
+      },
+      {
+        "code": "mi",
+        "name": "Māori",
+        "is_official": true
+      }
+    ],
+    "region": "oceania"
+  },
+  "portugal": {
+    "id": "portugal",
+    "name": "葡萄牙",
+    "name_en": "Portugal",
+    "digital_nomad_score": 88,
+    "cost_of_living_index": 55.0,
+    "rent_index": 30.0,
+    "safety_index": 72.0,
+    "internet_speed_avg_mbps": 150,
+    "gdp_per_capita_usd": 25000,
+    "hdi": 0.866,
+    "china_passport_visa_status": "visa_required",
+    "china_passport_visa_note": "D7数字游民签证、黄金签证",
+    "has_digital_nomad_visa": true,
+    "currency": [
+      {
+        "code": "EUR",
+        "name": "欧元",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "pt",
+        "name": "葡萄牙语",
+        "is_official": true
+      }
+    ],
+    "region": "europe"
+  },
+  "singapore": {
+    "id": "singapore",
+    "name": "新加坡",
+    "name_en": "Singapore",
+    "digital_nomad_score": 88,
+    "cost_of_living_index": 95.0,
+    "rent_index": 85.0,
+    "safety_index": 91.0,
+    "internet_speed_avg_mbps": 280,
+    "gdp_per_capita_usd": 82800,
+    "hdi": 0.939,
+    "china_passport_visa_status": "visa_required",
+    "china_passport_visa_note": "需提前申请签证，可通过VFS或旅行社",
+    "has_digital_nomad_visa": false,
+    "currency": [
+      {
+        "code": "SGD",
+        "name": "新加坡元",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "en",
+        "name": "English",
+        "is_official": true
+      },
+      {
+        "code": "zh",
+        "name": "中文",
+        "is_official": true
+      },
+      {
+        "code": "ms",
+        "name": "Malay",
+        "is_official": true
+      },
+      {
+        "code": "ta",
+        "name": "Tamil",
+        "is_official": true
+      }
+    ],
+    "region": "asia"
+  },
+  "southkorea": {
+    "id": "southkorea",
+    "name": "韩国",
+    "name_en": "South Korea",
+    "digital_nomad_score": 80,
+    "cost_of_living_index": 78.0,
+    "rent_index": 35.0,
+    "safety_index": 88.0,
+    "internet_speed_avg_mbps": 220,
+    "gdp_per_capita_usd": 34900,
+    "hdi": 0.925,
+    "china_passport_visa_status": "visa_required",
+    "china_passport_visa_note": "济州岛免签30天，其余需申请签证",
+    "has_digital_nomad_visa": true,
+    "currency": [
+      {
+        "code": "KRW",
+        "name": "韩元",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "ko",
+        "name": "韩语",
+        "is_official": true
+      }
+    ],
+    "region": "asia"
+  },
+  "spain": {
+    "id": "spain",
+    "name": "西班牙",
+    "name_en": "Spain",
+    "digital_nomad_score": 86,
+    "cost_of_living_index": 58.0,
+    "rent_index": 32.0,
+    "safety_index": 70.0,
+    "internet_speed_avg_mbps": 170,
+    "gdp_per_capita_usd": 30000,
+    "hdi": 0.905,
+    "china_passport_visa_status": "visa_required",
+    "china_passport_visa_note": "数字游民签证、非盈利签证、黄金签证",
+    "has_digital_nomad_visa": true,
+    "currency": [
+      {
+        "code": "EUR",
+        "name": "欧元",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "es",
+        "name": "西班牙语",
+        "is_official": true
+      }
+    ],
+    "region": "europe"
+  },
+  "thailand": {
+    "id": "thailand",
+    "name": "泰国",
+    "name_en": "Thailand",
+    "digital_nomad_score": 85,
+    "cost_of_living_index": 45.0,
+    "rent_index": 20.0,
+    "safety_index": 65.0,
+    "internet_speed_avg_mbps": 200,
+    "gdp_per_capita_usd": 7500,
+    "hdi": 0.8,
+    "china_passport_visa_status": "visa_free",
+    "china_passport_visa_note": "免签60天，可延期30天",
+    "has_digital_nomad_visa": true,
+    "currency": [
+      {
+        "code": "THB",
+        "name": "泰铢",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "th",
+        "name": "泰语",
+        "is_official": true
+      }
+    ],
+    "region": "asia"
+  },
+  "uae": {
+    "id": "uae",
+    "name": "阿联酋",
+    "name_en": "United Arab Emirates",
+    "digital_nomad_score": 85,
+    "cost_of_living_index": 70.0,
+    "rent_index": 55.0,
+    "safety_index": 88.0,
+    "internet_speed_avg_mbps": 300,
+    "gdp_per_capita_usd": 43000,
+    "hdi": 0.911,
+    "china_passport_visa_status": "visa_free",
+    "china_passport_visa_note": "免签30天；可延期",
+    "has_digital_nomad_visa": true,
+    "currency": [
+      {
+        "code": "AED",
+        "name": "阿联酋迪拉姆",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "ar",
+        "name": "阿拉伯语",
+        "is_official": true
+      },
+      {
+        "code": "en",
+        "name": "English",
+        "is_official": false
+      }
+    ],
+    "region": "middle_east"
+  },
+  "uk": {
+    "id": "uk",
+    "name": "英国",
+    "name_en": "United Kingdom",
+    "digital_nomad_score": 75,
+    "cost_of_living_index": 80.0,
+    "rent_index": 55.0,
+    "safety_index": 60.0,
+    "internet_speed_avg_mbps": 110,
+    "gdp_per_capita_usd": 46000,
+    "hdi": 0.94,
+    "china_passport_visa_status": "visa_required",
+    "china_passport_visa_note": "旅游签证2/5/10年多次，需在线申请",
+    "has_digital_nomad_visa": false,
+    "currency": [
+      {
+        "code": "GBP",
+        "name": "英镑",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "en",
+        "name": "English",
+        "is_official": true
+      }
+    ],
+    "region": "europe"
+  },
+  "usa": {
+    "id": "usa",
+    "name": "美国",
+    "name_en": "United States",
+    "digital_nomad_score": 72,
+    "cost_of_living_index": 88.0,
+    "rent_index": 65.0,
+    "safety_index": 50.0,
+    "internet_speed_avg_mbps": 250,
+    "gdp_per_capita_usd": 76300,
+    "hdi": 0.921,
+    "china_passport_visa_status": "visa_required",
+    "china_passport_visa_note": "B1/B2 10年多次，需面签；H1B 抽签制",
+    "has_digital_nomad_visa": false,
+    "currency": [
+      {
+        "code": "USD",
+        "name": "美元",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "en",
+        "name": "English",
+        "is_official": false
+      }
+    ],
+    "region": "americas_north"
+  },
+  "vietnam": {
+    "id": "vietnam",
+    "name": "越南",
+    "name_en": "Vietnam",
+    "digital_nomad_score": 75,
+    "cost_of_living_index": 35.0,
+    "rent_index": 15.0,
+    "safety_index": 60.0,
+    "internet_speed_avg_mbps": 120,
+    "gdp_per_capita_usd": 4200,
+    "hdi": 0.703,
+    "china_passport_visa_status": "evisa",
+    "china_passport_visa_note": "电子签90天单次/多次",
+    "has_digital_nomad_visa": false,
+    "currency": [
+      {
+        "code": "VND",
+        "name": "越南盾",
+        "is_primary": true
+      }
+    ],
+    "languages": [
+      {
+        "code": "vi",
+        "name": "越南语",
+        "is_official": true
+      }
+    ],
+    "region": "asia"
+  }
+};
+const presets = {
+  seasia: ['thailand','malaysia','singapore','indonesia','philippines','vietnam'],
+  europe: ['portugal','spain','germany','netherlands','estonia','croatia','greece','cyprus'],
+  nomad: ['portugal','spain','estonia','croatia','greece','cyprus','uae','malaysia','thailand'],
+  'visa-free': ['singapore','thailand','malaysia','uae']
+};
+function initSelectors(){
+  const opts = Object.values(countryData).sort((a,b)=>a.name.localeCompare(b.name,'zh'));
+  [0,1,2,3].forEach(i=>{
+    const sel = document.getElementById('sel'+i);
+    opts.forEach(c=>{ const o=document.createElement('option');o.value=c.id;o.textContent=c.name;sel.appendChild(o); });
+  });
+}
+function getFlag(id){
+  const map = {thailand:'🇹🇭',japan:'🇯🇵',singapore:'🇸🇬',malaysia:'🇲🇾',indonesia:'🇮🇩',philippines:'🇵🇭',vietnam:'🇻🇳',portugal:'🇵🇹',spain:'🇪🇸',germany:'🇩🇪',netherlands:'🇳🇱',estonia:'🇪🇪',croatia:'🇭🇷',greece:'🇬🇷',cyprus:'🇨🇾',uae:'🇦🇪',georgia:'🇬🇪',mexico:'🇲🇽',costa_rica:'🇨🇷',colombia:'🇨🇴'};
+  return map[id]||'🏳️';
+}
+function getColor(i){
+  const colors=['#1a73e8','#00d4aa','#f59e0b','#ef4444','#8b5cf6','#ec4899'];
+  return colors[i%colors.length];
+}
+function getVisaBadge(status){
+  if(status==='免签')return '<span class="badge badge-visa-free">免签</span>';
+  if(status==='落地签/电子签')return '<span class="badge badge-visa-on-arrival">落地签</span>';
+  return '<span class="badge badge-visa-required">需签证</span>';
+}
+function getDNVBadge(has){
+  return has?'<span class="badge badge-dnv-yes">✓ 有</span>':'<span class="badge badge-dnv-no">—</span>';
+}
+function compare(){
+  const selected = [0,1,2,3].map(i=>document.getElementById('sel'+i).value).filter(v=>v);
+  if(selected.length<2){alert('请至少选择2个国家');return;}
+  const results = selected.map(id=>countryData[id]);
+  const maxCost = Math.max(...results.map(c=>c.cost_of_living_index||0));
+  const maxRent = Math.max(...results.map(c=>c.rent_index||0));
+  const maxGDP = Math.max(...results.map(c=>c.gdp_per_capita_usd||0));
+  const maxNet = Math.max(...results.map(c=>c.internet_speed_avg_mbps||0));
+  const maxHDI = Math.max(...results.map(c=>c.hdi||0));
+  const maxScore = Math.max(...results.map(c=>c.digital_nomad_score||0));
+  const maxSafety = Math.max(...results.map(c=>c.safety_index||0));
+  
+  // Table
+  let html = '<table class="comparison-table"><thead><tr><th>指标</th>';
+  results.forEach(c=>{ html+=`<th><div class="country-name"><span class="flag">${getFlag(c.id)}</span>${c.name}</div></th>`; });
+  html += '</tr></thead><tbody>';
+  
+  const rows = [
+    {label:'数字游民评分',key:'digital_nomad_score',max:maxScore,type:'score'},
+    {label:'生活成本指数',key:'cost_of_living_index',max:maxCost,type:'cost'},
+    {label:'租金指数',key:'rent_index',max:maxRent,type:'cost'},
+    {label:'安全指数',key:'safety_index',max:maxSafety,type:'score'},
+    {label:'平均网速 (Mbps)',key:'internet_speed_avg_mbps',max:maxNet,type:'net'},
+    {label:'人均GDP (USD)',key:'gdp_per_capita_usd',max:maxGDP,type:'money'},
+    {label:'HDI',key:'hdi',max:maxHDI,type:'score'},
+    {label:'中国护照签证',key:'china_passport_visa_status',type:'visa'},
+    {label:'数字游民签证',key:'has_digital_nomad_visa',type:'dnv'},
+    {label:'货币',key:'currency',type:'text'},
+    {label:'官方语言',key:'languages',type:'text'},
+    {label:'地区',key:'region',type:'region'},
+  ];
+  
+  rows.forEach(row=>{
+    html += `<tr><td>${row.label}</td>`;
+    results.forEach(c=>{
+      let val = c[row.key];
+      if(row.type==='score'){
+        const pct = row.max?((val||0)/row.max*100):0;
+        html += `<td><div class="metric-cell"><span class="metric-value">${val||'—'}</span><div class="metric-bar"><div class="metric-bar-fill" style="width:${pct}%;background:${getColor(results.indexOf(c))}"></div></div></div></td>`;
+      }else if(row.type==='cost'){
+        const pct = row.max?((val||0)/row.max*100):0;
+        html += `<td><div class="metric-cell"><span class="metric-value">${val||'—'}</span><div class="metric-bar"><div class="metric-bar-fill" style="width:${pct}%;background:${pct>80?'#ef4444':pct>50?'#f59e0b':'#00d4aa'}"></div></div></div></td>`;
+      }else if(row.type==='net'){
+        const pct = row.max?((val||0)/row.max*100):0;
+        html += `<td><div class="metric-cell"><span class="metric-value">${val||'—'}</span><div class="metric-bar"><div class="metric-bar-fill" style="width:${pct}%;background:${pct>60?'#00d4aa':'#f59e0b'}"></div></div></div></td>`;
+      }else if(row.type==='money'){
+        html += `<td><span class="metric-value">$${(val||0).toLocaleString()}</span></td>`;
+      }else if(row.type==='visa'){
+        html += `<td>${getVisaBadge(val)}<br><small style="color:var(--text-dim);font-size:0.8rem">${c.china_passport_visa_note||''}</small></td>`;
+      }else if(row.type==='dnv'){
+        html += `<td>${getDNVBadge(val)}</td>`;
+      }else if(row.type==='region'){
+        html += `<td><span class="region-tag">${val}</span></td>`;
+      }else{
+        html += `<td>${Array.isArray(val)?val.join(', '):val}</td>`;
+      }
+    });
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  
+  // Charts
+  html += '<div class="charts-row">';
+  
+  // Digital Nomad Score Chart
+  html += '<div class="chart-card"><h3>数字游民友好度</h3><div class="bar-chart">';
+  const sortedScore = [...results].sort((a,b)=>(b.digital_nomad_score||0)-(a.digital_nomad_score||0));
+  sortedScore.forEach((c,i)=>{
+    const pct = maxScore?(c.digital_nomad_score||0)/maxScore*100:0;
+    html += `<div class="bar-item"><span class="bar-label">${getFlag(c.id)} ${c.name}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${getColor(results.indexOf(c))}"></div><span class="bar-value">${c.digital_nomad_score||'—'}</span></div></div>`;
+  });
+  html += '</div></div>';
+  
+  // Cost of Living Chart
+  html += '<div class="chart-card"><h3>生活成本对比</h3><div class="bar-chart">';
+  const sortedCost = [...results].sort((a,b)=>(b.cost_of_living_index||0)-(a.cost_of_living_index||0));
+  sortedCost.forEach(c=>{
+    const pct = maxCost?(c.cost_of_living_index||0)/maxCost*100:0;
+    html += `<div class="bar-item"><span class="bar-label">${getFlag(c.id)} ${c.name}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${pct>80?'#ef4444':pct>50?'#f59e0b':'#00d4aa'}"></div><span class="bar-value">${c.cost_of_living_index||'—'}</span></div></div>`;
+  });
+  html += '</div></div>';
+  
+  // Internet Speed Chart
+  html += '<div class="chart-card"><h3>网速对比 (Mbps)</h3><div class="bar-chart">';
+  const sortedNet = [...results].sort((a,b)=>(b.internet_speed_avg_mbps||0)-(a.internet_speed_avg_mbps||0));
+  sortedNet.forEach(c=>{
+    const pct = maxNet?(c.internet_speed_avg_mbps||0)/maxNet*100:0;
+    html += `<div class="bar-item"><span class="bar-label">${getFlag(c.id)} ${c.name}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${getColor(results.indexOf(c))}"></div><span class="bar-value">${c.internet_speed_avg_mbps||'—'}</span></div></div>`;
+  });
+  html += '</div></div>';
+  
+  // Safety Chart
+  html += '<div class="chart-card"><h3>安全指数</h3><div class="bar-chart">';
+  const sortedSafe = [...results].sort((a,b)=>(b.safety_index||0)-(a.safety_index||0));
+  sortedSafe.forEach(c=>{
+    const pct = maxSafety?(c.safety_index||0)/maxSafety*100:0;
+    html += `<div class="bar-item"><span class="bar-label">${getFlag(c.id)} ${c.name}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${getColor(results.indexOf(c))}"></div><span class="bar-value">${c.safety_index||'—'}</span></div></div>`;
+  });
+  html += '</div></div>';
+  
+  html += '</div>';
+  
+  document.getElementById('results').innerHTML = html;
+  document.querySelectorAll('.metric-bar-fill,.bar-fill').forEach(el=>{const w=el.style.width;el.style.width='0';setTimeout(()=>el.style.width=w,50);});
+}
+function resetAll(){
+  [0,1,2,3].forEach(i=>document.getElementById('sel'+i).value='');
+  document.getElementById('results').innerHTML='';
+}
+document.querySelectorAll('.preselect-btns button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.preselect-btns button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const set = presets[btn.dataset.set];
+    if(!set)return;
+    [0,1,2,3].forEach(i=>{
+      const sel = document.getElementById('sel'+i);
+      sel.value = set[i]||'';
+    });
+    compare();
+  });
+});
+initSelectors();
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "country_id": "macao",
+  "country_name": "澳门",
+  "updated_at": "2026-01-15T00:00:00Z",
+  "source": "澳门治安警察局",
+  "visa_types": [
+    {
+      "id": "mo_entry_permit",
+      "type": "special_permit",
+      "name": "港澳通行证 + 澳门签注",
+      "name_en": "Entry Permit for Macao",
+      "duration": "7-90天",
+      "validity": "3个月-1年",
+      "extendable": false,
+      "fee_usd": 15,
+      "processing_days": 7,
+      "application_method": "online",
+      "requirements": [
+        "有效中国护照",
+        "港澳通行证",
+        "澳门签注"
+      ],
+      "documents": [
+        "身份证",
+        "户口本",
+        "照片",
+        "申请表"
+      ],
+      "official_url": "https://www.fsm.gov.mo/psp/cht/psp_v1.html",
+      "china_passport_eligible": true,
+      "notes": "内地居民必须持港澳通行证+有效签注入境澳门",
+      "is_recommended_for_digital_nomad": false
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "ireland",
+  "name": "爱尔兰",
+  "name_en": "Ireland",
+  "name_local": "Éire",
+  "code_iso_3166_1": "IE",
+  "code_iso_3166_3": "IRL",
+  "region": "europe",
+  "sub_region": "西欧",
+  "is_special_admin_region": false,
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": true,
+  "coordinates": {
+    "lat": 53.1424,
+    "lon": -7.6921
+  },
+  "timezone": [
+    "Europe/Dublin"
+  ],
+  "currency": [
+    {
+      "code": "EUR",
+      "name": "欧元",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "en",
+      "name": "英语",
+      "is_official": true
+    },
+    {
+      "code": "ga",
+      "name": "爱尔兰语",
+      "is_official": true
+    }
+  ],
+  "population": 5000000,
+  "area_km2": 70273,
+  "gdp_per_capita_usd": 100000,
+  "hdi": 0.955,
+  "safety_index": 82,
+  "internet_speed_avg_mbps": 120,
+  "cost_of_living_index": 78,
+  "rent_index": 50,
+  "china_passport_visa_status": "visa_required",
+  "china_passport_visa_note": "需提前申请签证。爱尔兰提供数字游民签证（Stamp 1A）",
+  "digital_nomad_score": 76,
+  "tags": [
+    "欧洲",
+    "数字游民签证",
+    "英语",
+    "翡翠岛",
+    "啤酒"
+  ],
+  "status": "published",
+  "updated_at": "2026-01-15",
+  "source": "Numbeo, World Bank"
+}

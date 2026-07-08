@@ -1,0 +1,68 @@
+{
+  "country_id": "malaysia",
+  "country_name": "马来西亚",
+  "updated_at": "2026-01-15T00:00:00Z",
+  "source": "马来西亚移民局, 马来西亚驻华大使馆",
+  "visa_types": [
+    {
+      "id": "my_visa_free",
+      "type": "visa_free",
+      "name": "免签入境",
+      "name_en": "Malaysia Visa-Free Entry",
+      "duration": "30天",
+      "validity": "30天",
+      "extendable": false,
+      "fee_usd": 0,
+      "processing_days": 0,
+      "application_method": "on_arrival",
+      "requirements": [
+        "有效护照（6个月以上）",
+        "回程机票",
+        "酒店预订",
+        "资金证明"
+      ],
+      "documents": [
+        "护照",
+        "往返机票",
+        "酒店预订"
+      ],
+      "official_url": "https://www.imi.gov.my/",
+      "china_passport_eligible": true,
+      "notes": "免签30天，不可延期。频繁入境可能面临边境审查",
+      "is_recommended_for_digital_nomad": true
+    },
+    {
+      "id": "my_mm2h",
+      "type": "special_permit",
+      "name": "第二家园计划（MM2H）",
+      "name_en": "Malaysia My Second Home",
+      "duration": "5-20年",
+      "validity": "5-20年",
+      "extendable": true,
+      "extend_duration": "5-20年",
+      "fee_usd": 5000,
+      "processing_days": 90,
+      "application_method": "agent",
+      "requirements": [
+        "35岁以上",
+        "月收入约4万马币+（约6万人民币）",
+        "存款100万马币（约150万人民币）",
+        "马来西亚政府指定保险公司医疗保险"
+      ],
+      "documents": [
+        "护照",
+        "照片",
+        "申请表",
+        "收入证明",
+        "存款证明",
+        "无犯罪记录证明",
+        "体检报告",
+        "保险证明"
+      ],
+      "official_url": "https://mm2h.gov.my/",
+      "china_passport_eligible": true,
+      "notes": "长期居留计划，可携配偶及子女，可在马来西亚经商但不可受雇（需额外申请工作许可）",
+      "is_recommended_for_digital_nomad": true
+    }
+  ]
+}

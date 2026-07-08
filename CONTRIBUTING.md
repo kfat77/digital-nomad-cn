@@ -1,41 +1,95 @@
-# 贡献指南
+# Contributing to Global Mobility Infrastructure
 
-感谢你对「数字游民指南」项目的关注！
+感谢您对 Global Mobility Infrastructure 项目的兴趣！本指南将帮助您快速参与贡献。
 
-## 🎯 如何贡献
+## 目录
 
-### 提交内容更新
-- 发现银行政策变更、开户门槛变化？直接提交 PR 修改
-- 有成功/失败的开户经验？在对应页面底部补充「社区经验」章节
-- 某个流程已经过时？提交 Issue 标记更新
-
-### 新增模块或页面
-项目计划逐步扩展以下内容：
-- 各国数字游民签证指南
-- 海外保险配置
-- 跨境支付工具对比（Wise / Revolut / 熊猫速汇等）
-- 加密货币合规出入金通道
-- 税务筹划基础（CRS、FATCA 相关）
-
-### 内容规范
-- 使用 Markdown 格式
-- 截图请隐去敏感信息（姓名、证件号、卡号等）
-- 引用外部文章需标注来源链接
-- 按时间标注信息更新日期
-
-## 📬 提交方式
-
-1. Fork 本仓库
-2. 修改或新增文件
-3. 提交 Pull Request，简要说明变更内容
-4. 维护者审核后合并
-
-## ⚠️ 重要提醒
-
-- 不要提交包含个人隐私的截图或文件
-- 不要包含任何机构的内部联系方式或"灰色渠道"
-- 所有内容应基于公开信息或个人合法经验
+- [数据贡献](#数据贡献)
+- [代码贡献](#代码贡献)
+- [提交规范](#提交规范)
+- [PR 流程](#pr-流程)
 
 ---
 
-如有疑问，欢迎通过 GitHub Issue 讨论。
+## 数据贡献
+
+### 添加新国家
+
+1. 复制模板文件创建新国家 JSON
+2. 按照 `website/data/schemas/country-detail.json` 填写数据
+3. 在 `website/scripts/generate-country-pages.py` 的 `COST_ESTIMATES` 中添加成本估算
+4. 运行生成器生成页面
+5. 提交 PR
+
+**必填字段：**
+- `id`: 唯一标识符（小写，用下划线分隔空格）
+- `name`: 中文名
+- `name_en`: 英文名
+- `name_local`: 本地语言名
+- `code_iso_3166_1`: ISO 3166-1 alpha-2 代码
+- `region`: 地区（asia/europe/americas_north/americas_south/oceania/africa/middle_east）
+- `coordinates`: {lat, lon}
+- `timezone`: 时区数组
+- `currency`: [{code, name, is_primary}]
+- `languages`: [{code, name, is_official}]
+- `population`: 整数
+- `area_km2`: 整数
+- `gdp_per_capita_usd`: 整数
+- `hdi`: 0-1 浮点数
+- `safety_index`: 数字
+- `internet_speed_avg_mbps`: 数字
+- `cost_of_living_index`: 数字
+- `rent_index`: 数字
+- `china_passport_visa_status`: visa_free/visa_on_arrival/evisa/visa_required/eta/special_permit
+- `china_passport_visa_note`: 字符串
+- `digital_nomad_score`: 0-100 整数
+- `tags`: 标签数组
+- `status`: published/draft/archived
+- `updated_at`: 日期字符串
+
+### 数据更新
+
+发现数据过时？直接编辑对应的 JSON 文件并提交 PR。
+
+---
+
+## 代码贡献
+
+### 生成器改进
+
+`website/scripts/generate-country-pages.py` 是核心生成器，支持：
+- 国家页面生成
+- 相似度计算
+- 成本估算内联
+
+### 页面模板
+
+`website/scripts/country-template.html` 使用 `{{placeholder}}` 替换机制。
+
+---
+
+## 提交规范
+
+```
+data: update Thailand visa fee (2026-01)
+feat: add country comparison tool
+fix: correct Singapore safety index
+refactor: unify page generator
+```
+
+---
+
+## PR 流程
+
+1. Fork 仓库
+2. 创建 feature 分支
+3. 修改并测试
+4. 提交 PR 到 main 分支
+5. 等待 Review（通常 24-48 小时）
+
+---
+
+## 联系我们
+
+- [Issues](https://github.com/kfat77/digital-nomad-cn/issues)
+- [Discussions](https://github.com/kfat77/digital-nomad-cn/discussions)

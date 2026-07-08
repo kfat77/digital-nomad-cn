@@ -1,0 +1,54 @@
+{
+  "id": "southkorea",
+  "name": "韩国",
+  "name_en": "South Korea",
+  "name_local": "대한민국",
+  "code_iso_3166_1": "KR",
+  "code_iso_3166_3": "KOR",
+  "region": "asia",
+  "sub_region": "east_asia",
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": true,
+  "coordinates": {
+    "lat": 35.9078,
+    "lon": 127.7669
+  },
+  "timezone": [
+    "Asia/Seoul"
+  ],
+  "currency": [
+    {
+      "code": "KRW",
+      "name": "韩元",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "ko",
+      "name": "韩语",
+      "is_official": true
+    }
+  ],
+  "population": 51780000,
+  "area_km2": 100210,
+  "gdp_per_capita_usd": 34900,
+  "hdi": 0.925,
+  "safety_index": 88.0,
+  "internet_speed_avg_mbps": 220,
+  "cost_of_living_index": 78.0,
+  "rent_index": 35.0,
+  "china_passport_visa_status": "visa_required",
+  "china_passport_visa_note": "济州岛免签30天，其余需申请签证",
+  "digital_nomad_score": 80,
+  "tags": [
+    "technology",
+    "fast_internet",
+    "culture",
+    "nomad_visa",
+    "asia"
+  ],
+  "status": "published",
+  "updated_at": "2026-01-15T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025, Korean Immigration"
+}

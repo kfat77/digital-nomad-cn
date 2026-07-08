@@ -1,0 +1,698 @@
+Amber分子动力学模拟主要参数设置 
+生物科学与工程学院  
+鄢仁祥 博士、副研究员  
+邮箱：yanrenxiang@fzu.edu.cn 
+ 
+分子动力学MD分析 
+
+运行环境的准备 
+Linux系统的
+准备 
+安装Nvidia 
+显卡驱动 
+安装Cuda 
+Toolkit软件 
+安装
+Amber22或
+以上版本 
+运行分子动
+力模拟 
+准备这个环境需要考
+虑不同软件版本之间
+的兼容性、环境变量
+的设置等问题。 
+动力学模拟可视化软件VMD 
+
+QM/MM(量子力学/分子动力学)模拟 
+• 分子力学(MM)方法是将原子视为一个整体，不考虑核外的电子分布的影响，
+量子力学(QM)方法考虑了核外电子。 
+• 分子动力学软件Amber可以进行QM/MM混合模拟，所得到的轨迹也可以用
+QM/MM混合的方法计算自由能。 
+• 且QM比MM耗时，一般而言体系中QM部分原子不要超过80-100个。 
+酶催化反应 
+
+Amber分子动力学模拟 
+本章主要分为以下三个体系进行讲解： 
+(1)蛋白质-小分子复合物分子动力学模拟 
+(2)蛋白质-蛋白质复合物分子动力学模拟 
+(3)膜蛋白分子动力学模拟 
+ 
+蛋白质-小分子复合物模拟 
+1.前期数据准备 
+蛋白质：需要去氢。对接后形成的复合物格式为pdbqt，可以用Chimera软件
+(或者其他软件)打开pdb文件，选中蛋白单体，去氢，write pdb。 
+配体：加氢，write pdb，各自保存用于小分子模板文件生成。 
+也可以用Amber自带的pdb4amber处理 
+结构，例如通过命令： 
+pdb4amber –i raw.pdb –o new.pdb 
+1.2位置信息重新编号 
+蛋白质的位置从1-483(结束位置) 
+底物的位置484(蛋白结束位置+1) 
+中间不要有空的区域。 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+…… 
+…… 
+复合物PDB 
+文件格式 
+蛋白质-小分子复合物模拟 
+2.环境变量设置 
+source amber18/amber.sh 可将该命令写入linux系统用户的.bashrc文件中，这样
+每次登陆将自动运行。 
+3.小分子模板和力场文件、拓扑文件等生成 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+source leaprc.protein.ff14SB 
+source leaprc.water.tip3p 
+source leaprc.gaff2 
+loadAmberParams NADH.frcmod 
+loadAmberPrep NADH.prep 
+p=loadpdb A18.8-NADH.pdb 
+A=loadpdb A18.8withoutNADH.pdb 
+mol=loadpdb NADH.pdb 
+saveamberparm p p.top p.crd 
+saveamberparm A A18.8.top A18.8.crd 
+saveamberparm mol NADH.top NADH.crd 
+charge p 
+addIons p Na+ 0 
+addIons p Cl- 0  
+solvateOct p TIP3PBOX 12.0 
+saveamberparm p p_wat.top p_wat.crd 
+quit 
+命令1： 
+antechamber -i NADH.pdb -fi pdb -o NADH.prep -fo prepi -c bcc -nc 0 
+命令2： 
+parmchk2 -i NADH.prep -f prepi -o NADH.frcmod 
+命令3： 
+tleap -f myleap.in 
+-   
+蛋白质-小分子复合物模拟 
+source leaprc.protein.ff14SB：加载Amber的蛋白质力场ff14SB，适用于模拟蛋白质。 
+source leaprc.water.tip3p：加载TIP3P水模型力场参数，用于后续水分子和溶剂化。 
+source leaprc.gaff2：加载GAFF2(General Amber Force Field 2)力场，用于小分子配体或非标准残基。 
+loadAmberParams NADH.frcmod：加载自定义的NADH分子参数文件，补充GAFF2未覆盖的力场参数。 
+loadAmberPrep NADH.prep：加载NADH的预处理文件(prep)，定义分子的拓扑结构和原子类型。 
+p=loadpdb A18.8-NADH.pdb：加载包含蛋白质A18.8和NADH复合物的PDB文件，保存到变量p。 
+A=loadpdb A18.8withoutNADH.pdb：加载仅含蛋白质(不含NADH)的PDB文件，保存到变量A。 
+mol=loadpdb NADH.pdb：加载单独的NADH分子PDB文件，保存到变量mol。 
+saveamberparm p p.top p.crd：将复合物p保存为Amber格式的拓扑文件p.top和坐标文件p.crd。 
+saveamberparm A A18.8.top A18.8.crd：将纯蛋白质A保存为拓扑和坐标文件。 
+saveamberparm mol NADH.top NADH.crd：将单独的NADH保存为拓扑和坐标文件。 
+charge p：计算复合物p的净电荷(输出到屏幕，用于后续中和体系)。 
+addIons p Na+ 0：根据charge p的结果，添加钠离子(Na+)使体系电荷归零(0表示中性化)。 
+solvateOct p TIP3PBOX 12.0：用TIP3P水分子在八面体(Oct)盒子中溶剂化复合物，水盒子边界距离溶质12A。 
+saveamberparm p p_wat.top p_wat.crd：将溶剂化后的复合物保存为新的拓扑和坐标文件(_wat后缀表示含水)。 
+蛋白质-小分子复合物模拟 
+4.体系能量最小化 
+sander -O -i min1.in -o min1.out -p p_wat.top -c p_wat.crd -r min1.rst -ref 
+p_wat.crd 
+sander -O -i min2.in -o min2.out -p p_wat.top -c min1.rst -r min2.rst -ref min1.rst 
+sander -O -i min3.in -o min3.out -p p_wat.top -c min2.rst -r min3.rst 
+ 
+ 
+ 
+ 
+ 
+sander -O -i min1.in -o min1.out -p p_wat.top -c p_wat.crd -r min1.rst -ref p_wat.crd 
+使用
+sander进
+行能量最
+小化。也
+可以使用
+pmemd。 
+覆盖
+重名
+文件。 
+控制文
+件为
+min1.in 
+Log输出 输入的拓
+扑文件为 
+p_wat.top 
+Restart文
+件记录体
+系等坐标
+信息 
+输入的坐
+标文件为 
+p_wat.crd 
+参考的坐
+标文件 
+pmemd.cuda是GPU加速的版本，速度会比CPU版本快10倍以上。 
+蛋白质-小分子复合物模拟 
+4.1 min1.in内容 
+energy minimization stage 1 
+ &cntrl 
+  imin=1, maxcyc=5000, ncyc=2500, 
+  cut=10.0, ntb=1, 
+  ntc=1, ntf=1, 
+  ntpr=10, 
+  ntr=1, 
+  restraintmask=':1-483', 
+  restraint_wt=2.0 
+ / 
+ 
+ 
+ 
+ 
+ 
+imin=1：启用能量最小化(imin=1表示进行
+最小化，=0表示动力学模拟)。 
+maxcyc=5000：最大最小化步数(共5000
+步)。 
+ncyc=2500：前ncyc步使用最速下降法
+(Steepest Descent，适合初始粗优化)，后
+续步数(2501-5000)切换为共轭梯度法
+(Conjugate Gradient，适合精细优化)。 
+ntr=1:启用位置约束(=1表示对部分原子施
+加约束，需配合restraintmask和
+restraint_wt）。 
+restraintmask=‘:1-483’:约束的原子选择掩
+码(此处约束残基1到483的所有氨基酸，
+一般是整个蛋白)。 
+ 
+ 
+ 
+ 
+蛋白质-小分子复合物模拟 
+4.2 min2.in内容 
+ energy minimization stage 2 
+ &cntrl 
+  imin=1, maxcyc=5000, ncyc=2500, 
+  cut=10.0, ntb=1, 
+  ntc=1, ntf=1, 
+  ntpr=10, 
+  ntr=1, 
+  restraintmask=':1-483@CA,N,C', 
+  restraint_wt=2.0 
+ / 
+ 
+ 
+ 
+ 
+restraintmask=':1-483@CA,N,C' 
+约束的原子选择：:1-483 → 残基 1 到 
+483(通常是蛋白质部分)@CA,N,C → 仅约
+束 主链原子(α-碳、氮、羰基碳)，允许侧
+链自由移动。(Stage 1 约束了整个蛋白，
+而 Stage 2 仅约束主链，放宽了限制。） 
+restraint_wt=2.0 
+约束力的权重（单位：kcal/mol·A2)。 
+ 
+ 
+ 
+ 
+蛋白质-小分子复合物模拟 
+4.3 min3.in内容 
+ energy minimization stage 3 
+ &cntrl 
+  imin=1, maxcyc=5000, ncyc=2500, 
+  cut=10.0, ntb=1, 
+  ntc=1, ntf=1, 
+  ntpr=10, 
+ / 
+ 
+ 
+ 
+移除了所有位置约束(ntr=0，默认不写)，
+允许整个体系(蛋白质、配体、水分子、
+离子等)完全自由优化。 
+ 
+ 
+蛋白质-小分子复合物模拟 
+• 5.体系加热 
+• sander -O -i heat.in -o heat.out -p p_wat.top -c min3.rst -r heat.rst -ref 
+min3.rst -x heat.mdcrd 
+sander -O -i heat.in -o heat.out -p p_wat.top -c min3.rst -r heat.rst -ref min3.rst -x heat.mdcrd 
+使用
+sander进
+行能量最
+小化。也
+可以使用
+pmemd。 
+覆盖
+重名
+文件。 
+控制文
+件为 
+Log输出 输入的拓
+扑文件为 
+p_wat.top 
+Restart文
+件记录体
+系等坐标
+信息 
+参考的坐
+标文件 
+产生的MD 
+轨迹文件 
+输入的坐
+标文件 
+pmemd.cuda是GPU加速的版本 
+蛋白质-小分子复合物模拟 
+heating 
+ &cntrl 
+  imin=0,irest=0,ntx=1, 
+  nstlim=25000,dt=0.002, 
+  ntc=2,ntf=2, 
+  cut=8.0, ntb=1, 
+  ntxo=1, 
+  ntpr=100, ntwx=500, 
+  ntt=3, gamma_ln=2.0, 
+  tempi=0.0, temp0=300.0, 
+  ntr=1, restraintmask=':1-483', 
+  restraint_wt=1.0, 
+  nmropt=1 
+ / 
+ &wt TYPE='TEMP0', istep1=0, istep2=25000, 
+  value1=0.1, value2=300.0, / 
+ &wt type='REST', istep1=0,istep2=5000,value1=0.1, 
+            value2=1.0,  / 
+ &wt type='REST', istep1=5001,istep2=25000,value1=1.0, 
+            value2=1.0,  / 
+ &wt TYPE='END' / 
+ 
+ 
+这段代码是加热(Heating)阶段的输入文件，用于将体
+系从0K逐步升温至300K，同时保持蛋白质的轻微约
+束，防止结构变形。imin=0：关闭能量最小化，启用
+分子动力学模拟。irest=0：不使用重启文件(从头开始
+模拟)。ntx=1：输入坐标文件(.crd)仅包含初始坐标，
+不包含速度。ntxo=1：输出坐标文件(.crd)为 ASCII 格
+式(=2 为二进制)。TYPE=‘TEMP0’：控制目标温度 
+temp0。istep1=0, istep2=25000：从第 0 步到 25000 步
+线性升温。value1=0.1, value2=300.0：温度从 0.1K → 
+300K(避免直接从0K突变)。 
+TYPE=‘REST’：控制约束力 restraint_wt。前 5000 步：
+约束力从 0.1 → 1.0 kcal/mol·A2(避免初始结构剧烈变
+化）。后 20000 步：保持约束力 1.0(防止蛋白质在升
+温过程中变形)。 
+ 
+ 
+ 
+蛋白质-小分子复合物模拟 
+• 6.density 
+• 密度平衡阶段(Density Equilibration)的输入文件，主要用于在 恒定压力
+NPT 系综 下调整体系的 密度，使其达到实验值(如水的密度 ~1 g/cm) 
+• sander -O -i density.in -o density.out -p p_wat.top -c heat.rst -r density.rst -ref 
+heat.rst -x density.mdcrd 
+蛋白质-小分子复合物模拟 
+density 
+ &cntrl 
+  imin=0,irest=1,ntx=5, 
+  nstlim=25000,dt=0.002, 
+  ntc=2,ntf=2,ntxo=1, 
+  cut=8.0, ntb=2, ntp=1, taup=1.0, 
+  ntpr=500, ntwx=500, 
+  ntt=3, gamma_ln=2.0, 
+  temp0=300.0, 
+  ntr=1, restraintmask=':1-483', 
+  restraint_wt=2.0, 
+  nmropt=1 
+ / 
+ &wt type='REST', istep1=0,istep2=5000,value1=0.1, 
+            value2=1.0,  / 
+ &wt type='REST', istep1=5001,istep2=25000,value1=1.0, 
+            value2=1.0,  / 
+ &wt TYPE='END' / 
+ LISTOUT=POUT 
+ 
+这ntb=2恒定压力(NPT)模拟(盒子大小可调整)。 
+ntp=1使用各向同性压力耦合(适用于液体/溶液体系)。 
+taup=1.0压力弛豫时间 1.0 ps(控制压力调整速度)。 
+ 
+ntr=1：启用位置约束(=1 表示对部分原子施加约束)。 
+restraintmask=‘:1-483’：约束残基 1-483(通常是蛋白质
+部分)。 
+restraint_wt=2.0：约束力权重 2.0 kcal/mol· A2(比加热
+阶段更强) 
+ 
+ 
+蛋白质-小分子复合物模拟 
+• 7.平衡 
+• sander -O -i equil.in -o equil.out -p p_wat.top -c heat.rst -r equil.rst -ref 
+heat.rst -x equil.mdcrd 
+蛋白质-小分子复合物模拟 
+equil 
+ &cntrl 
+  imin=0,irest=1,ntx=5, 
+  nstlim=2500,dt=0.002, 
+  ntc=2,ntf=2, 
+  cut=8.0, ntb=2, ntp=1, taup=2.0, 
+  ntpr=1000, ntwx=1000,ntxo=1, 
+  ntt=3, gamma_ln=2.0, 
+  temp0=300.0,iwrap=1, 
+  ntr=1, restraintmask=':1-483', 
+  restraint_wt=0.1, 
+  nmropt=1 
+ / 
+ &wt type='REST', istep1=0,istep2=50000,value1=0.1, 
+            value2=0.5,  / 
+ &wt type='REST', istep1=50001,istep2=250000,value1=0.5, 
+            value2=0.5,  / 
+ &wt TYPE='END' / 
+ LISTOUT=POUT 
+这段代码是 Amber平衡阶段的典型配置，通过 弱约束
+下的NPT模拟，确保体系在进入生产模拟前达到充分
+的平衡状态。关键点包括： 
+逐步降低约束力(避免结构突变)。 
+较长的弛豫时间(taup=2.0ps)确保压力平稳调整。 
+ 
+前50000步：约束力从 0.1 → 0.5 kcal/mol·A2(逐步增强，
+避免突变)。 
+后200000步：保持约束力 0.5(进一步稳定蛋白质结构)。 
+ 
+蛋白质-小分子复合物模拟 
+• 8.产出 
+• sander -O -i prod.in -o prod1.out -p p_wat.top -c equil.rst -r prod1.rst -x 
+prod1.mdcrd 
+• sander -O -i prod.in -o prod2.out -p p_wat.top -c prod1.rst -r prod2.rst -x 
+prod2.mdcrd 
+• sander -O -i prod.in -o prod3.out -p p_wat.top -c prod2.rst -r prod3.rst -x 
+prod3.mdcrd 
+• sander -O -i prod.in -o prod4.out -p p_wat.top -c prod3.rst -r prod4.rst -x 
+prod4.mdcrd 
+ 
+• 如果安装了cuda，sander可以用pmemd.cuda代替，这样可以提高运行速度。 
+蛋白质-小分子复合物模拟 
+prod.in 
+1 ns MD 
+ &cntrl 
+  imin=0,irest=1,ntx=5, 
+  nstlim=500000,dt=0.002, 
+  ntc=2,ntf=2,iwrap=1, 
+  cut=8.0, ntb=2, ntp=1, taup=2.0, 
+  ntpr=2000, ntwx=2000,ntxo=1, 
+  ntt=3, gamma_ln=2.0, 
+  temp0=300.0 
+ / 
+ LISTOUT=POUT 
+• 标准的无约束生产模拟，特点包括： 
+• 完全自由：移除所有人为约束，体系自然演化。 
+• 高效输出：稀疏保存轨迹(4 ps/帧)，平衡数据量与存
+储。 
+• 生理条件：NPT系综(300K, 1bar)模拟生物体系。 
+• 兼容性：可直接用于后续MM-PBSA等分析。 
+计算整体结构波动RMSD以及氨基酸波动RMSF 
+• 计算rmsd和rmsf 
+• cpptraj -p p_wat.top -i rmsd.cpptraj 
+ 
+ trajin prod1.mdcrd 
+ trajin prod2.mdcrd 
+ autoimage 
+ rms first out rmsd.dat @CA,C,N time 1.0 
+ atomicfluct out rmsf.dat @CA,C,N byres 
+ strip :Na+ 
+ strip :WAT 
+ trajout prod12.pdb 
+总能量计算和细分项能量分解 
+ python MMPBSA.py -O -i mmpbsa_decomp.in -o MMPBSA.dat -do 
+MMPBSA_DECOMP.dat -sp p_wat.top -cp p.top -rp A18.8.top  -lp NADH.top -y 
+prod1.mdcrd 
+ 
+ mmpbsa_decomp.in 
+Per-residue GB and PB decomposition 
+&general 
+   endframe=50, verbose=1, keep_files=2, 
+/ 
+&gb 
+  igb=5, saltcon=0.100, 
+/ 
+&pb 
+  istrng=0.100,inp=1 
+/ 
+&decomp 
+  idecomp=1, print_res="1-483;484" 
+  dec_verbose=1, 
+/ 
+动力学模拟中的能量分解 
+能量分解：把总能量细分为不同的组成能
+量，以及把整个复合物的能量分解到每个
+氨基酸上，从中找出关键氨基酸。 
+Ligand2亲和力更好 
+Energies MD1 MD2 
+范德华力 (VDWAALS) -19.21 -17.04 
+静电势能 (EEL) -5.98 -36.51 
+极性溶剂化自由能 (EPB) 14.56 34.81 
+非极性溶剂化自由能 (ENPOLAR) -1.84 -1.68 
+分子力学项 (GGAS) -25.19 -53.56 
+分子溶剂化项 (GSOLV) 12.71 33.12 
+结合自由能总值 (TOTAL) -12.48 -20.43 
+动力学模拟中的能量分解 
+• 能量分解，MMPBSA.dat文件里的总的能量项 
+• Differences (Complex - Receptor - Ligand): 
+• Energy Component      Average              Std. Dev.   Std. Err. of Mean 
+• -------------------------------------------------------------------------------  
+• VDWAALS               -29.2385               3.4677              0.4904 
+• EEL                           -82.2877               9.1464              1.2935 
+• EGB                           93.9434                6.9671              0.9853 
+• ESURF                       -6.4243                0.2861              0.0405 
+• DELTA G gas          -111.5262               7.9964              1.1309 
+• DELTA G solv           87.5191                6.8696              0.9715 
+• DELTA TOTAL         -24.0071               4.5905              0.6492 
+ 
+动力学模拟中的能量分解 
+• 能量分解，MMPBSA.dat文件里的总的能量项 
+• 能量项的物理意义 
+ 能量项 物理意义 
+VDW AALS 范德华相互作用能(Lennard-Jones势)，负值表示有利的疏水/堆积作用 
+EEL 静电相互作用能(Coulomb势)，负值表示有利的电荷/偶极相互作用 
+EGB 极性溶剂化能(广义Born模型)，正值表示去溶剂化惩罚(削弱静电相互作用) 
+ESURF 非极性溶剂化能(基于SASA)，负值表示疏水效应有利 
+DELTA-G-gas 气相结合能(直接相互作用) 
+DELTA-G-solv 溶剂化自由能(溶剂效应) 
+DELTA-TOTAL 总结合自由能(最终预测值) 
+能量分解到每个氨基酸 
+
+能量分解到每个氨基酸 
+• open(IN,"MMPBSA_DECOMP.dat.txt")||die "can not open 
+MMPBSA_DECOMP.dat"; 
+• while($line=<IN>){ 
+•  chomp($line); 
+•  @wds = split(/\,/,$line); 
+•  $len = @wds; 
+•  $s = $wds[$len-6] + $wds[$len-9] + $wds[$len-12] + $wds[$len-15] + 
+$wds[$len-18]; 
+•  @new = split(/\s+/,$wds[0]); 
+•  print "$new[1]$new[0] $s vs $wds[$len-3]\n"; 
+• } 
+• close IN; 
+ 
+蛋白质-蛋白质复合物分子动力学模拟 
+ 
+ 
+ 
+ 
+第二部分：蛋白质-蛋白质复合物分子动力学模拟 
+蛋白质-蛋白质复合物模拟 
+1.前期数据准备 
+蛋白质：需要去氢。也可以用Amber
+自带的pdb4amber处理 
+结构，例如通过命令： 
+pdb4amber –i raw.pdb –o new.pdb 
+1.2位置信息重新编号 
+蛋白质A的位置从A链的1-247(结束位
+置) 
+蛋白质B的位置从B链的284开始。 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+…… 
+
+Leap文件 
+• source leaprc.protein.ff14SB 
+• source leaprc.water.tip3p 
+• source leaprc.gaff       
+• source leaprc.phosaa10  
+• complex = loadpdb complex.pdb 
+• saveamberparm complex complex.prmtop.dry complex.inpcrd.dry 
+• solvatebox complex TIP3PBOX 12.0 
+• charge complex   
+• addions complex Na+ 1 
+• addions complex Cl- 0 
+• saveamberparm complex complex.prmtop complex.inpcrd 
+• savepdb complex complex_solvated.pdb 
+ 
+• proteinA = loadpdb proteinA.pdb 
+• saveAmberParm proteinA proteinA.prmtop proteinA.inpcrd 
+ 
+• proteinB = loadpdb proteinB.pdb 
+• saveAmberParm proteinB proteinB.prmtop proteinB.inpcrd 
+ 
+• quit 
+ 
+蛋白质-蛋白质复合物模拟 
+2.环境变量设置 
+source amber18/amber.sh 可将该命令写入linux
+系统用户的.bashrc文件中，这样每次登陆将
+自动运行。 
+3.分别生成proteinA、proteinB以及复合物
+proteinA-proteinB的拓扑文件等生成 
+ 
+运行命令 
+tleap -f ppi.leap 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+source leaprc.protein.ff14SB 
+source leaprc.water.tip3p 
+source leaprc.gaff       
+source leaprc.phosaa10  
+complex = loadpdb complex.pdb 
+saveamberparm complex complex.prmtop.dry 
+complex.inpcrd.dry 
+solvatebox complex TIP3PBOX 12.0 
+charge complex   
+addions complex Na+ 1 
+addions complex Cl- 0 
+saveamberparm complex complex.prmtop 
+complex.inpcrd 
+savepdb complex complex_solvated.pdb 
+ 
+proteinA = loadpdb proteinA.pdb 
+saveAmberParm proteinA proteinA.prmtop 
+proteinA.inpcrd 
+ 
+proteinB = loadpdb proteinB.pdb 
+saveAmberParm proteinB proteinB.prmtop 
+proteinB.inpcrd 
+quit 
+-   
+蛋白质-蛋白质复合物模拟 
+4.体系能量最小化 
+sander -O -i min1.in -o min1.out  -p complex.prmtop -c complex.inpcrd -r min1.rst -
+ref complex.inpcrd 
+sander -O -i min2.in -o min2.out  -p complex.prmtop -c min1.rst -r min2.rst 
+ 
+ 
+ 
+ 
+ 
+蛋白质-蛋白质复合物模拟 
+加热体系： 
+sander -O -i heat.in -o heat.out  -p complex.prmtop -c min2.rst -r heat.rst -ref 
+min2.rst`; 
+平衡体系： 
+sander -O -i eq1.in  -o eq1.out   -p complex.prmtop -c heat.rst -r eq1.rst -ref heat.rst 
+sander -O -i eq2.in  -o eq2.out   -p complex.prmtop -c eq1.rst  -r eq2.rst 
+采样： 
+sander -O -i prod.in -o prod1.out -p complex.prmtop -c eq2.rst  -r prod1.rst -x 
+prod1.mdcrd 
+蛋白质-蛋白质复合物模拟 
+采样： 
+sander -O -i prod.in -o prod1.out -p complex.prmtop -c eq2.rst  -r prod1.rst -x 
+prod1.mdcrd 
+for($cur=2;$cur<=50;$cur++){ 
+        $pre=$cur-1; 
+        $cmd="sander -O -i prod.in -o prod$cur.out -p complex.prmtop -c prod$pre.rst 
+-r prod$cur.rst -x prod$cur.mdcrd"; 
+        print "$cmd\n"; 
+        print `$cmd`; 
+} 
+计算整体结构波动RMSD以及氨基酸波动RMSF 
+• 计算rmsd和rmsf 
+• cpptraj -p complex.prmtop -i rmsd.cpptraj 
+ 
+ trajin prod1.mdcrd 
+ trajin prod2.mdcrd 
+ autoimage 
+ rms first out rmsd.dat @CA,C,N time 1.0 
+ atomicfluct out rmsf.dat @CA,C,N byres 
+ strip :Na+ 
+ strip :WAT 
+ trajout prod12.pdb 
+蛋白质-蛋白质复合物模拟 
+能量分解： 
+MMPBSA.py -O -i mmpbsa_decomp4.in -o MMPBSA.dat -do 
+MMPBSA_DECOMP.dat -sp complex.prmtop   -cp  complex.prmtop.dry  -rp 
+proteinA.prmtop  -lp proteinB.prmtop -y prod[1-5].mdcrd 
+ 
+ 
+mmpbsa_decomp4.in文件内容 
+Per-residue GB and PB decomposition 
+&general 
+   startframe=1, endframe=500, interval=10, verbose=1, keep_files=2,  
+/ 
+&gb 
+  igb=5, saltcon=0.100, 
+/ 
+&pb 
+  istrng=0.100,inp=1, 
+/ 
+&decomp 
+  idecomp=1, print_res="1-247;248-494", 
+  dec_verbose=1,  
+/ 
+ 
+ 
+动力学模拟中的能量分解 
+• 能量分解，MMPBSA.dat文件里的总的能量项 
+• Differences (Complex - Receptor - Ligand): 
+• Energy Component            Average              Std. Dev.   Std. Err. of Mean 
+• -------------------------------------------------------------------------------  
+• VDWAALS                   -192.3891               7.3538              4.2457 
+• EEL                               -466.9985               61.0004             35.2186 
+• EGB                                555.9740               47.6920             27.5350 
+• ESURF                          -26.8823                 1.0246              0.5915 
+• DELTA G gas                -659.3876               62.6077             36.1466 
+• DELTA G solv                529.0917               46.6777             26.9494 
+• DELTA TOTAL            -130.2959               16.0653              9.2753 
+蛋白质-蛋白质复合物模拟能量分解 
+MMPBSA_DECOMP.dat文件 
+ 
+ 
+ 
+ 
+第三部分：膜蛋白分子动力学模拟 
+膜蛋白的分子动力学模拟 
+通过以下命令产生蛋白的膜的信息 
+$AMBERHOME/bin/packmol-memgen --pdb ../tleap/complex_solute.pdb --lipids 
+POPC:CHL1 --ratio 9:1 --preoriented --salt --salt_c Na+ --saltcon 0.15 --dist 10 --
+dist_wat 15 --notprotonate –nottrim 
+ 
+其中complex_solute.pdb 为PDB文件输入到OPM网站后，预测膜方向得到的
+PDB文件，其中Z轴方向为膜的方向。 
+ 
+增强采样分子动力学模拟 
+• 常见的增强采用策略是引入外部作用力(偏置势能)，引导模拟向构象空间的
+特定区域进行采样，具体技术包括：拉伸分子动力学模拟(SMD)、伞形采样
+(US)以及自适应偏置力(ABF)。 
+分子动力学后记 
+默认参考构象可以选第一帧构象，不建议选能量最小化的构象，因为
+动力学中能量最小化那一步是因为程序添加了水溶剂分子，可能导致
+原子距离过近，所以才做能量最小化，此时还未加入温度条件，因为
+加入温度条件后的结构可能会有些变化，因此使用能量最小化结构作
+为参考构象不一定准确。而采样的第一帧构象已经经过了升温，平衡，
+属于在设定的温度和压力下比较稳定的构象了，因此拿这个构象比较
+是相对合理的。PDB里面的晶体结构有好些解析的条件并不符合我们
+要模拟的温度和压力，因此直接拿来作为参考构象也不一定合适。 

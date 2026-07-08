@@ -1,0 +1,33 @@
+{
+  "id": "penang",
+  "name": "槟城",
+  "name_en": "Penang",
+  "country_id": "malaysia",
+  "country_name": "马来西亚",
+  "digital_nomad_score": 78,
+  "cost_of_living_index": 35,
+  "rent_index": 12,
+  "safety_index": 60,
+  "internet_speed_avg_mbps": 120,
+  "coworking_spaces": 25,
+  "coworking_score": 60,
+  "climate": "热带雨林",
+  "avg_temp_c": 28,
+  "rainy_season": "4-5月, 9-11月",
+  "english_level": "高",
+  "chinese_community_size": "大",
+  "neighborhoods": [
+    "乔治市",
+    "Gurney",
+    "Tanjung Bungah"
+  ],
+  "food_scene": "槟城小吃，炒粿条，叻沙，煎蕊",
+  "nightlife": "乔治市",
+  "transportation": "巴士/Grab/租车",
+  "walkability": 70,
+  "bike_friendly": 55,
+  "description": "文化遗产城市，美食天堂，生活成本极低，适合悠闲的数字游民。",
+  "status": "published",
+  "updated_at": "2026-01-15T00:00:00Z",
+  "source": "Numbeo 2026"
+}

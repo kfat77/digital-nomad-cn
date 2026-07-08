@@ -1,0 +1,95 @@
+{
+  "country_id": "thailand",
+  "country_name": "泰国",
+  "updated_at": "2026-01-15T00:00:00Z",
+  "source": "泰国移民局, 泰国驻华大使馆",
+  "visa_types": [
+    {
+      "id": "th_visa_free",
+      "type": "visa_free",
+      "name": "免签入境（永久免签）",
+      "name_en": "Thailand Visa-Free Entry",
+      "duration": "60天",
+      "validity": "60天",
+      "extendable": true,
+      "extend_duration": "30天",
+      "fee_usd": 0,
+      "processing_days": 0,
+      "application_method": "on_arrival",
+      "requirements": [
+        "有效护照（6个月以上）",
+        "回程机票",
+        "酒店预订",
+        "资金证明（1万泰铢/人或2万泰铢/家庭）"
+      ],
+      "documents": [
+        "护照",
+        "往返机票",
+        "酒店预订",
+        "资金证明"
+      ],
+      "official_url": "https://www.immigration.go.th/",
+      "china_passport_eligible": true,
+      "notes": "2024年3月起永久免签60天，可在移民局延期30天（1900泰铢）",
+      "is_recommended_for_digital_nomad": true
+    },
+    {
+      "id": "th_dtv",
+      "type": "digital_nomad_visa",
+      "name": "数字游民签证（DTV）",
+      "name_en": "Thailand Destination Thailand Visa",
+      "duration": "5年",
+      "validity": "5年（每次入境180天）",
+      "extendable": true,
+      "extend_duration": "180天（境外入境刷新）",
+      "fee_usd": 300,
+      "processing_days": 30,
+      "application_method": "embassy",
+      "requirements": [
+        "年收入约100万泰铢（约20万人民币）或存款50万泰铢",
+        "远程工作/自由职业证明",
+        "泰国工作合同或活动邀请（如泰拳、烹饪、医疗）"
+      ],
+      "documents": [
+        "护照",
+        "照片",
+        "申请表",
+        "收入证明或存款证明",
+        "远程工作合同",
+        "健康保险"
+      ],
+      "official_url": "https://www.thaievisa.go.th/",
+      "china_passport_eligible": true,
+      "notes": "2024年7月推出，有效期5年，每次入境可停留180天，可延期一次180天。可在泰国工作/学习特定活动",
+      "is_recommended_for_digital_nomad": true
+    },
+    {
+      "id": "th_elite",
+      "type": "special_permit",
+      "name": "泰国精英签证（Thailand Privilege）",
+      "name_en": "Thailand Elite Visa",
+      "duration": "5-20年",
+      "validity": "5-20年",
+      "extendable": false,
+      "fee_usd": 25000,
+      "processing_days": 60,
+      "application_method": "agent",
+      "requirements": [
+        "支付会员费",
+        "无犯罪记录",
+        "无年龄限制"
+      ],
+      "documents": [
+        "护照",
+        "照片",
+        "申请表",
+        "无犯罪记录证明",
+        "资金证明"
+      ],
+      "official_url": "https://www.thailandprivilege.co.th/",
+      "china_passport_eligible": true,
+      "notes": "长期居留签证，费用5年约2.5万美元，包含机场贵宾服务等福利",
+      "is_recommended_for_digital_nomad": false
+    }
+  ]
+}

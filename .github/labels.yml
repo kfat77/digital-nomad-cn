@@ -1,0 +1,95 @@
+- name: "bug"
+  color: "ef4444"
+  description: "Something isn't working"
+
+- name: "data"
+  color: "3b82f6"
+  description: "Data related issues and updates"
+
+- name: "enhancement"
+  color: "22c55e"
+  description: "New feature or request"
+
+- name: "content"
+  color: "f59e0b"
+  description: "Articles, guides, and documentation"
+
+- name: "article"
+  color: "a855f7"
+  description: "New article request or submission"
+
+- name: "good first issue"
+  color: "22c55e"
+  description: "Good for newcomers"
+
+- name: "help wanted"
+  color: "f97316"
+  description: "Extra attention is needed"
+
+- name: "triage"
+  color: "94a3b8"
+  description: "Needs review and categorization"
+
+- name: "question"
+  color: "06b6d4"
+  description: "Further information is requested"
+
+- name: "duplicate"
+  color: "64748b"
+  description: "This issue or PR already exists"
+
+- name: "invalid"
+  color: "dc2626"
+  description: "This doesn't seem right"
+
+- name: "wontfix"
+  color: "525252"
+  description: "This won't be worked on"
+
+- name: "hacktoberfest"
+  color: "ff6b00"
+  description: "Good for Hacktoberfest"
+
+- name: "hacktoberfest-accepted"
+  color: "ff6b00"
+  description: "Accepted for Hacktoberfest"
+
+- name: "breaking change"
+  color: "dc2626"
+  description: "Changes that break backward compatibility"
+
+- name: "dependencies"
+  color: "0366d6"
+  description: "Pull requests that update a dependency file"
+
+- name: "documentation"
+  color: "0075ca"
+  description: "Improvements or additions to documentation"
+
+- name: "performance"
+  color: "f59e0b"
+  description: "Performance improvements"
+
+- name: "security"
+  color: "dc2626"
+  description: "Security related issues"
+
+- name: "ui"
+  color: "ec4899"
+  description: "UI/UX improvements"
+
+- name: "infrastructure"
+  color: "6366f1"
+  description: "Build, CI/CD, deployment"
+
+- name: "seo"
+  color: "10b981"
+  description: "Search engine optimization"
+
+- name: "mobile"
+  color: "8b5cf6"
+  description: "Mobile related issues"
+
+- name: "a11y"
+  color: "06b6d4"
+  description: "Accessibility improvements"

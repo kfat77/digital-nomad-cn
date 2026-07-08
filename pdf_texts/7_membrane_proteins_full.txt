@@ -1,0 +1,980 @@
+膜蛋白结构基础 
+生物科学与工程学院  
+鄢仁祥 博士、副研究员  
+邮箱：yanrenxiang@fzu.edu.cn 
+
+蛋白质的分类 
+球蛋白                                          膜蛋白                                       抗体 
+
+膜蛋白的重要性 
+膜蛋白在生物体内有重要作用，例
+如是一类关键的药物靶标蛋白。 
+
+ 
+
+ 
+
+膜蛋白结构 
+膜外区 
+跨膜区 膜内区 
+在软件中，一般把跨膜区的厚度设置为20-40A之间。 
+关于膜蛋白的“迷信” 
+• 膜蛋白曾经被认为是结构生物学研究的禁区，直到1985年第一个膜蛋白的高分辨率
+结构问世才打破了这种迷信。第一个蛋白质高分辨率结构发表于1960年，第一个
+膜蛋白高分辨率结构发表于1985年。整整晚了25年。 
+ 
+• 但传统观念仍然认为只有极特殊的膜蛋白才可以结晶。膜蛋白对于结构生物学家从
+禁区变成了雷区，敢于去尝试膜蛋白的结构生物学家仍然少之又少。 
+ 
+• 从1985年到2003年的19年间，新颖膜蛋白结构只有75个，平均每年不到4个新结构，
+并且大部分是直接从动植物组织中提取、纯化的内源性蛋白结晶而来，即在生物体
+内表达量大、生化性质稳定的膜蛋白。 
+膜蛋白结构的数量增长 
+ 
+Cumulative Unique Membrane Protein Structures by Year.  
+Data from http://blanco.biomol.uci.edu/mpstruc/query. 
+膜蛋白 
+• 生物膜所含的蛋白叫膜蛋白，
+是生物膜功能的主要承担者。
+膜蛋白是指能够结合或整合
+到细胞或细胞器的膜上的蛋
+白质的总称。 
+• 生物膜中主要有三种脂质：
+磷脂、糖脂、胆固醇。 
+• 在真核生物中，固醇类物种
+(例如胆固醇)普遍存在，并
+在调节膜的有序性方面发挥
+重要作用；但在原核生物细
+胞内的膜系统中，通常确实
+或占比极少。 
+ 
+
+膜蛋白 
+ 
+
+外膜蛋白 
+几乎所有外膜蛋白通过独特的“β-桶”结构固定在跨膜区上。外膜蛋白β-桶
+形成封闭的反平行β片，外膜蛋白第一条跨膜β折叠和最后一个跨膜β折叠
+通过氢键将其固定在一起。 
+ 
+其结构是高度稳定的两亲
+性结构，8至36条跨膜β折
+叠片，具有交替的疏水性
+脂质表面和亲水性氨基酸 
+膜蛋白 
+跨膜区 
+资料1：1895年，欧文顿选用500多种化学物质对植物细胞膜的通透性进行上
+万次的研究，发现:凡是易溶于脂类的物质，也容易穿过膜；反之，不易溶于
+脂类的物质，也不容易穿过膜。 
+ 
+资料2： 1897年，Crigins和Hedin用红细胞做实验，同样也证明分子的通透
+性与其在脂类中的溶解度有关。 
+结论：细胞膜中含有脂质 
+细胞膜的化学组成和分子结构 
+磷脂分子 
+疏水性尾部 
+亲水性头部 
+极性头 
+非极性头 
+磷脂具有两亲性(ampliphilicity)： 
+极性头部和非极性尾部。 
+磷
+脂
+分
+子 
+Hydrophobic core 
+Hydrophilic Surfaces 
+细
+胞
+膜
+的
+成
+分 
+脂质(磷脂最丰富)   大约占50% 
+ 
+蛋白质                           大约占40% 
+ 
+糖类                         大约占2%—10% 
+蛋白质在细胞膜行使功能时起着重要作用。 
+功能越复杂的细胞膜，蛋白质的种类和数量越多。 
+主
+要
+成
+分 
+    细胞质与外界相隔的一层薄膜，又叫质膜；细胞内由膜构成的结
+构其成分基本相近，因此又把细胞中的所有膜统称为生物膜。 
+ 
+生物膜特点： 
+    ①脂类 
+       蛋白分子 
+ 
+    ②蛋白质分子镶嵌于脂双层中，执行膜的各种功能 
+非共价键 
+ 5nm厚 
+连续的脂双层 
+细胞膜(Cell Membrane) 
+1970年荧光标记的小鼠细胞和人细胞融合实验 
+小鼠细胞 
+绿色荧光染料
+标记的膜蛋白 
+细胞融合 40min 
+37 ℃ 
+ 
+  
+杂交细胞 红色荧光染料
+标记的膜蛋白 
+人细胞 
+细胞膜具有流动性。 
+ 1972年，桑格和尼克森在新的观察和实验证据的基础上，提出了流
+动镶嵌模型。 
+
+原始海洋景观 
+1.将细胞与外界分隔开 
+        膜的出现是生命起源
+过程中至关重要的阶段。 
+ 
+ 
+        细胞膜保障了细胞内
+部环境的相对稳定。 
+细胞膜的功能 
+ 
+细
+胞
+膜
+的
+功
+能 
+将细胞与外界环境分开，保证细胞内部环
+境的相对稳定 
+ 
+控制物质进出细胞 
+ 
+进行细胞之间的信息交流 
+ 
+细
+胞
+膜
+的
+结
+构 
+决定 
+细胞膜的功能特点：具有选择透过性 
+膜蛋白的功能 
+膜蛋白的主要功能： 
+• 膜蛋白可作为“载体”而将物质转运进出细胞。 
+• 有些膜蛋白是激素或其他化学物质的专一受体，如甲状腺细胞上有接
+受来自脑垂体的促甲状腺素的受体。 
+• 膜表面还有各种酶，使专一的化学反应能在膜上进行，如内质网膜上
+的能催化磷脂的合成等。 
+• 细胞的识别功能也决定于膜表面的蛋白质。这些蛋白常常是表面抗原。 
+膜蛋白的功能 
+
+EXTRACELLULAR 
+FLUID 
+Channel protein Solute 
+CYTOPLASM 
+Carrier protein Solute 
+      Cytoplasmic Na+ bonds to 
+the sodium-potassium pump 
+CYTOPLASM Na+ 
+[Na+] low 
+[K+] high 
+Na+ 
+Na+ 
+EXTRACELLULAR 
+FLUID 
+[Na+] high 
+[K+] low 
+Na+ 
+Na+ 
+Na+ 
+ATP 
+ADP 
+P 
+      Na+ binding stimulates 
+phosphorylation by ATP. 
+Na+ 
+Na+ 
+Na+ 
+      Phosphorylation causes 
+the protein to change its 
+conformation, expelling Na+ 
+to the outside. 
+P 
+      Extracellular K+ binds 
+to the protein, triggering 
+release of the phosphate 
+group. 
+P 
+P 
+      Loss of the phosphate 
+restores the protein’s 
+original conformation. 
+      K+ is released and Na+ 
+sites are receptive again; 
+the cycle repeats. 
+Diffusion Facilitated diffusion 
+Passive transport 
+ATP 
+Active transport 
+乳糖输运蛋白3D结构 
+乳糖 
+细胞质 
+外周胞质 
+乳糖 
+几种动态过程 
+ 
+
+几种动态过程 
+Ligand-Gated Channels When the ligand, in this case the neurotransmitter acetylcholine, 
+binds to a specific location on the extracellular surface of the channel protein, the pore 
+opens to allow select ions through. The ions, in this case, are cations of sodium, calcium, 
+and potassium. 
+几种动态过程 
+ Mechanically Gated Channels When a mechanical change occurs in the surrounding 
+tissue, such as pressure or touch, the channel is physically opened. Thermoreceptors work 
+on a similar principle. When the local tissue temperature changes, the protein reacts by 
+physically opening the channel. 
+几种动态过程 
+A voltage-gated channel is a channel that responds to changes in the electrical properties 
+of the membrane in which it is embedded. Normally, the inner portion of the membrane 
+is at a negative voltage. When that voltage becomes less negative, the channel begins to 
+allow ions to cross the membrane.  
+几种动态过程 
+A leakage channel is randomly gated, meaning that it opens and closes at random, hence the 
+reference to leaking. There is no actual event that opens the channel; instead, it has an 
+intrinsic rate of switching between the open and closed states. Leakage channels contribute to 
+the resting transmembrane voltage of the excitable membrane. 
+
+胞外-5'-核苷酸酶(e5NT) 
+• e5NT酶天然地锚定在细胞膜上 
+• e5NT通过C-末端结构域的相互
+作用采用二聚体排列 
+• e5NT在开放和闭合构象中结晶，
+表明结构域旋转高达114° 
+
+膜蛋白的跨膜螺旋预测 
+ 
+
+膜蛋白实验研究的难点 
+DNA 表达系统 
+纯化和 
+结晶 3D结构 功能分析 
+膜蛋白难以在表达系统中表达，以及纯化和结晶也比较困难。 
+因此，有必要通过计算的方法研究膜蛋白。 
+跨膜蛋白与膜蛋白的区别 
+• Trans-membrane proteins versus  membrane proteins 
+• 跨膜蛋白(Trans-membrane)穿过膜两侧至少1次，穿过膜的部分有一个共价
+连接脂肪酸链。而膜蛋白则不一定，有可能就是一部分在膜的一侧有接触。 
+ 
+图片来自 http://www.ncbi.nlm.nih.gov/books/NBK26878/figure/A1892/?report=objectonly 
+ 
+Membrane-anchored proteins 
+疏水氨基酸 
+侧链 
+Non-MP MP 
+Learning Process of 
+Traditional Machine Learning 
+Learning Process of 
+Transfer Learning 
+Non-MP MP 
+Insufficient training sample for MPs 
+Transfer learning from non-MP to MP 
+ 
+De novo folding of membrane proteins 
+ComplexContact 
+常用蛋白质跨膜区域分析工具 
+工具 网站 备注 
+DAS http://www.sbc.su.se/~miklos/DAS/ 用Dense Alignment Surface（DAS）
+算法来预测无同源家族的蛋白跨
+膜区 
+HMMTOP http://www.enzim.hu/hmmtop/ 由Enzymology研究所开发的蛋白
+质跨膜区和拓扑结构预测程序 
+SOSUI http://bp.nuap.nagoya-u.ac.jp/sosui/ 由Nagoya大学开发一个具有图形
+显示跨膜区的程序 
+TMAP http://bioinfo.limbo.ifm.liu.se/tmap/ 基于多序列比对来预测跨膜区的
+程序 
+TMHMM http://www.cbs.dtu.dk/services/TMHMM-2.0 基于HMM方法的蛋白质跨膜区预
+测工具 
+TMpred http://www.ch.embnet.org/software/TMPRED_form.ht
+ml 
+基于对TMbase数据库的统计分析
+来预测蛋白质跨膜区和跨膜方向 
+TopPred http://bioweb.pasteur.fr/seqanal/interfaces/toppred.html 是一个位于法国的蛋白质拓扑结
+构预测程序 
+膜蛋白相关软件 
+方法 主要内容 网址 
+TMHMM 基于隐马尔科夫模型的跨膜区预测算法。 www.cbs.dtu.dk/services/TMHMM-2.0 
+HMMTOP 基于隐马尔科夫模型的跨膜区预测算法，与
+TMHMM方法类似。 
+www.enzim.hu/hmmtop 
+PHDhtm 基于人工神经元网络模型的跨膜区预测算法。 npsa-prabi.ibcp.fr/cgi-
+bin/npsa_automat.pl?page=/NPSA/npsa
+_htm.html 
+MEMSAT-SVM 基于支持向量机的跨膜区预测算法。 bioinf.cs.ucl.ac.uk/psipred 
+TOPCONS 组合算法。 topcons.cbr.su.se 
+SPOCTOPUS 另一种组合算法。 octopus.cbr.su.se 
+BOMP BOMP方法通过计算外膜蛋白的碳末端的序列模式
+(Pattern)及其跨膜区的氨基酸组成的打分方法来识
+别外膜蛋白。 
+services.cbu.uib.no/tools/bomp  
+Hhomp 基于 HHomp软件作者的研究，大部分的外膜蛋白
+都有共同的祖先。因此可以用序列相似性的搜索算
+法来识别外膜蛋白。 
+toolkit.tuebingen.mpg.de/hhomp  
+PROFtmb PROFtmb方法采用进化信息、结构信息及隐马尔可
+夫模型来识别外膜蛋白。 
+rostlab.org/owiki/index.php/Proftmb  
+两种跨膜蛋白的主要类型 
+ 
+
+膜蛋白的跨膜区疏水性 
+
+膜蛋白疏水性指标 
+亲水用负值表示，疏水用正
+值表示。 
+可以通过网站绘制亲水性图，
+根据亲疏水性图推测跨膜区。
+网址：
+https://web.expasy.org/prots
+cale/ 
+ 
+从亲疏水区的分布来预测膜
+蛋白的跨膜区。 
+蛋白质疏水性分析 
+比较3个蛋白的疏水性，可以把图片合并为一张图片。 
+
+Kyte-Doolittle疏水性指标 
+三字母 单字母 分子量 侧链 Kyte-Doolittle Chothia 
+Ala A 89 -CH3 1.8 0.2 
+Cys C 121 -CH2SH 2.5 0.22 
+Asp D 133 -CH2COOH -3.5 0.04 
+Glu E 147 -CH2CH2COOH -3.5 0.03 
+Phe F 165 -CH2C6H5 2.8 0.14 
+Gly G 75 -H -0.4 0.18 
+His H 155 -CH2-C3H3N2 -3.2 0.02 
+Ile I 131 -CH(CH3)CH2CH3 4.5 0.19 
+Lys K 146 -(CH2)4NH2 -3.9 0 
+Leu L 131 -CH2CH(CH3)2 3.8 0.16 
+Met M 149 -CH2CH2SCH3 1.9 0.11 
+Asn N 132 -CH2CONH2 -3.5 0.03 
+Pro P 115 -CH2CH2CH2- -1.6 0.04 
+Gln Q 146 -CH2CH2CONH2 -3.5 0.01 
+Arg R 174 -(CH2)3NH-
+C(NH)NH2 -4.5 0 
+Ser S 105 -CH2OH -0.8 0.08 
+Thr T 119 -CH(OH)CH3 -0.7 0.08 
+Val V 117 -CH(CH3)2 4.2 0.18 
+Trp W 204 -CH2C8H6N -0.9 0.04 
+Tyr Y 181 -CH2-C6H4OH -1.3 0.03 
+Kyte-Doolittle疏水性指标 
+MNGTEGPNFYVPFSNKTGVVRSPFEAPQYYLAEPWQ 
+Window size=9 
+MNGTEGPNFYVPFSNKTGVVRSPFEAPQYYLAEPWQ 
+取出“YVPFSNKTG”片段，把该片段中每个氨基酸的Kyte-Doolittle指标相加， 
+并取平均值，得到的数值就是S这个氨基酸在该蛋白中的疏水值。 
+MNGTEGPNFYVPFSNKTGVVRSPFEAPQYYLAEPWQ 
+MNGTEGPNFYVPFSNKTGVVRSPFEAPQYYLAEPWQ 
+取出“MNGTEGP”片段，把该片段中每个氨基酸的Kyte-Doolittle指标相加， 
+并取平均值，得到的数值就是S这个氨基酸在该蛋白中的疏水值。 
+疏水性指标 
+蛋白质的结构特点一般为：亲水表面、疏水核心。活性口袋中的活性位点一
+般为疏水性的。因此，可以根据疏水性指标进行活性位点分析。疏水区域是
+相互作用的核心区域。 
+Uniprot数据库跨膜区数据 
+跨膜区数据 
+ 序列文件 
+若序列文件为从PDB文件中获得，而该PDB文件中一些区域没有数据，导致跨膜数据无法
+直接映射到序列文件上，那么该怎么办？ 
+HMM (Hidden Markov Models)  
+Which parts of the sequence are 
+• in the cytoplasm? 
+• embedded in the membrane (TM-helices)?‏ 
+• outside? 
+Rule-of-thumb says amino acids in the TM 
+helices are hydrophobic – but there are 
+exceptions 
+TMHMM predicts topology from sequence using 
+a statistical model 
+TMHMM: predicting the topology of α-helix transmembrane proteins  
+TMHMM 
+膜外区 跨膜区 
+膜内区 
+1 
+NCBI上获得 
+序列信息，对 
+序列跨膜区进行预测 
+采用TMHMM2.0方法
+进行跨膜区预测。类似
+的方法有HMMTOP。 
+跨膜区 
+跨膜区 膜内区 膜外区 
+膜内区 膜外区 
+TMHMM2.0 
+预测结果中， 
+不同颜色代表不同的区域 
+膜蛋白建模 
+依赖于模板建模是一种常用的研究膜蛋白体系的模拟手段 
+1. 同源蛋白序列搜索 
+2. 跨膜区TM的预测 
+3. 序列比对 
+4. 结构模建：骨架的构建， 
+loop区及侧链的模拟 
+5. 模型优化 
+6. 模型评价 
+7. 生物膜的添加及位置调整 
+模型优化：消除初始模型中的结构不合理区，比如键长过长，键角过大，原子
+间存在触碰等。 
+
+膜蛋白建模 
+
+膜蛋白同源建模 
+• 基本步骤与球蛋白一致 
+ 
+• 在序列比对(Profile-Profile alignment)打分项中应加入跨膜信息，这样也
+许可以提高建模精度。 
+CHARMM-GUI 
+CHARMM-GUI是一个能够交互构建复杂模拟的输入模型，模型可用于
+GROMACS、AMBER。CHARMM-GUI的开发项目已被广泛用于各种目的，
+现在包含许多不同的模块。 
+
+Packmol  
+Packmol是一个免费的、很有价值的构建分子动力学模拟初始结构的工具，非
+常流行。简单来说就是由用户提供一种或多种分子的结构文件，并且设定一
+些约束条件，Packmol就会把各种分子按照设定将指定数目的分子堆积到满足
+要求的区域中。 
+
+膜蛋白研究实例：一种准确的G蛋白偶联受体预测算法 
+G蛋白偶联受体 
+• G蛋白偶联受体(G Protein-Coupled Receptor， GPCR),是一大类膜蛋白受体的统称。这
+类受体的共同点是其立体结构中都有七个跨膜α螺旋。 
+• 多巴胺受体为 G蛋白偶联受体 
+• 许多药物的靶标都为GPCR 
+ 
+ 
+Protein: 2J4Y Chains: A and B. 
+ 
+任何一个新颖的GPCR膜蛋白的结构都会引起生命科 
+学研究领域的高度关注，无一例外发表在Nature、 
+Science或Cell这三种公认的国际最权威学术杂志上。 
+1 
+3 2 
+预测算法 
+ 
+• 任务一：从蛋白质组中把GPCR蛋白筛选出来 
+ 
+• 任务二：定位GPCR蛋白的跨膜区 
+ 
+ 
+数据集的收集 
+PDB UniProtKB 
+ 
+55 structurally known 
+GPCRs 
+ 
+Aligning 
+ 
+2,222 GPCRs 
+BLAST e-value<0.01 
+ 
+ 
+558 GPCRs 
+ 
+BLAST e-value>0.01 
+721 non-GPCRs  
+membrane proteins 
+Removing redundancies at 95% sequence identity 
+ 
+1,697 GPCRs 
+BLAST e-value<0.01 
+ 
+ 
+492 GPCRs 
+ 
+504 non-GPCRs  
+membrane proteins 
+SCOPe 
+ 
+2014 globular 
+families 
+ Training dataset Test datasets 
+准备模型的输入参数 
+Psi-blast 
+通过PSI-BLAST比对结果，可以获得序列每个氨基酸突变为其他氨基酸的概率 
+准备模型的输入参数 
+Window=7 
+输入参数归一化到[0, 1]，对每一个同时对每一个氨基酸进行编码，跨膜区氨基酸编码为 
+(1, 0), 非跨膜区氨基酸编码为(0, 1)。 
+Machine learning does not  
+require normalization of input vectors; 
+ however, normalization could  
+improve performance. 
+GPCR的跨膜区预测算法 
+基于neural network的预测模型 
+Rumelhart et al  1986 Learning representations by back-
+propagating errors. Nature. 323 (6088): 533–536 
+PDB: 4J4Q 
+GPCR识别 
+Input 
+Features 
+M 
+O 
+Hidden layer Input layer Output layer 
+Probabilities of 
+membranes by  
+the first NN  
+M 
+O 
+f(M) 
+f(O) 
+膜蛋白识别中的分类问题 
+Actual GPCR Actual non-GPCR 
+Classified as GPCR TP FP 
+Classified as non-GPCR FN TN 
+把膜蛋白看做正样本其余类别的蛋白质定义为负样本 
+性能评价指标 
+
+GPCR识别算法 
+• Transmembrane region (Trans-GPCR) 
+ 
+• Profile-Profile alignment (PPA) 
+ 
+• Secondary structure element alignment (SSEA) 
+ 
+基于比对的方法识别GPCR 
+>Query sequence 
+MKKFSLI….. 
+Output : 
+ Generate the top  hits  
+ the confident levels are suggested 
+  Alignment are also generated 
+GPCR Database 
+… 
+ 
+methods: 
+ PPA: profile-to-profile alignment 
+ SSEA: secondary structure element alignment 
+ 
+Score
+Confident level 
+PPA & SSEA 
+H E A G A W G H E E 
+P -2 -9 -17 -25 -33 -41 -49 -57 -65 -73 
+A -10 -3 -5 -13 -21 -29 -37 -45 -53 -61 
+W -18 -11 -6 -7 -15 -10 -18 -26 -34 -42 
+H -16 -18 -13 -8 -9 -17 -12 -10 -18 -26 
+E -24 -11 -19 -15 -9 -12 -19 -12 -5 -13 
+A -32 -19 -7 -15 -11 -12 -12 -20 -13 -6 
+E -40 -27 -15 -9 -16 -14 -14 -12 -15 -8 
+Profile-Profile alignment 
+ >Sequence A 
+ HEAGAWGHEE 
+ >Sequence B 
+ PAWHEAE 
+PSI-BLAST 
+PSI-BLAST 
+           A  R  N  D  C  Q  E  G  H  I  L  K  M  F  P  S  T  W  Y  V 
+    1 H   -2  0  1 -1 -3  0  0 -2  8 -3 -3 -1 -2 -1 -2 -1 -2 -2  2 -3 
+    2 E   -1  0  0  2 -4  2  5 -2  0 -3 -3  1 -2 -3 -1  0 -1 -3 -2 -2 
+    3 A    4 -1 -2 -2  0 -1 -1  0 -2 -1 -1 -1 -1 -2 -1  1  0 -3 -2  0 
+    4 G    0 -2  0 -1 -2 -2 -2  6 -2 -4 -4 -2 -3 -3 -2  0 -2 -2 -3 -3 
+    5 A    4 -1 -2 -2  0 -1 -1  0 -2 -1 -1 -1 -1 -2 -1  1  0 -3 -2  0 
+    6 W   -3 -3 -4 -4 -2 -2 -3 -2 -2 -3 -2 -3 -1  1 -4 -3 -2 10  2 -3 
+    7 G    0 -2  0 -1 -2 -2 -2  6 -2 -4 -4 -2 -3 -3 -2  0 -2 -2 -3 -3 
+    8 H   -2  0  1 -1 -3  0  0 -2  8 -3 -3 -1 -2 -1 -2 -1 -2 -2  2 -3 
+    9 E   -1  0  0  2 -4  2  5 -2  0 -3 -3  1 -2 -3 -1  0 -1 -3 -2 -2 
+   10 E   -1  0  0  2 -4  2  5 -2  0 -3 -3  1 -2 -3 -1  0 -1 -3 -2 -2 
+           A  R  N  D  C  Q  E  G  H  I  L  K  M  F  P  S  T  W  Y  V 
+    1 P   -1 -2 -2 -1 -3 -1 -1 -2 -2 -3 -3 -1 -2 -4  7 -1 -1 -4 -3 -2 
+    2 A    4 -1 -2 -2  0 -1 -1  0 -2 -1 -1 -1 -1 -2 -1  1  0 -3 -2  0 
+    3 W   -3 -3 -4 -4 -2 -2 -3 -2 -2 -3 -2 -3 -1  1 -4 -3 -2 11  2 -3 
+    4 H   -2  0  1 -1 -3  0  0 -2  8 -3 -3 -1 -2 -1 -2 -1 -2 -2  2 -3 
+    5 E   -1  0  0  2 -4  2  5 -2  0 -3 -3  1 -2 -3 -1  0 -1 -3 -2 -2 
+    6 A    4 -1 -2 -2  0 -1 -1  0 -2 -1 -1 -1 -1 -2 -1  1  0 -3 -2  0 
+    7 E   -1  0  0  2 -4  2  5 -2  0 -3 -3  1 -2 -3 -1  0 -1 -3 -2 -2 
+Scoring function & gap 
+penalty 
+Profile B 
+Profile A 
+Dynamic 
+programming 
+HEAGAWGHE-E 
+-PA--W-HEAE 
+Scoring functions 
+Dot product 
+Pearson’s correlation coefficient 
+Log averaget 
+PICASSO 
+Jensen-Shannon divergence 
+… 
+Gap penalties 
+Constant gap penalty 
+Affine gap penalty 
+Variable gap penalty 
+… 
+Structural information 
+secondary structure 
+solvent accessibility 
+backbone angle 
+… 
+Profile-Profile alignment 
+序列谱比对项 二级结构比对项 
+二级结构元素比对识别GPCR 
+ 
+PDB: 4J4Q 
+T. Przytycka, et al,  
+Nature structural biology, 1999 
+
+A first level of structural organization. 
+Provides rigidity. 
+The structural form adopted by each amino-acid residue: 
+• H: helix ( alpha ) 
+• E: extended ( beta strand ) 
+• T: turn ( often Proline ) 
+• C: coil ( random, unstructured ) 
+Secondary structures of MP 
+• Stretches of residues in H conformation are helical SSEs. 
+• Stretches of residues in E conformation are beta-strand SSEs. 
+• Stretches of residues in C conformation are loops or coil. 
+• Turns (T) are isolated residues, usually Proline or Glycine. 
+• Other notation (in 3 states): L for all but H,E. 
+ Secondary structure elements (SSE): 
+• Example: 
+one helix, one beta strand, three loops 
+Primary:      MSEGEDDFPRKRTPWCFDDEHMC 
+Secondary: CCHHHHHHCCCCEEEEEECCCCC 
+Secondary Structure Elements 
+Secondary structure element alignment (SSEA) based descriptor 
+1cem -H--CECECHCHCECHCHCHCHCHCHCECECECHCH---- 
+1qazA EHCHCEC--HCH--CHCHCHCHCHCH--C-H-CHCHCECE 
+1cem (D-glucanohydrolase catalytic domain) 
+1qazA (Alginate lyase) Seq ID is only 11%,  
+Using CE, the RMSD for superimposed structures is 4.3Å , and the Z-score is 
+5.6.  
+SSEA score is 0.7041 
+ The similar secondary structure topology may correspond to the same fold. 
+ The prediction performance is relatively practical. (The prediction accuracy of PSIPRED is close to 80%). 
+ Flowchart：two protein sequences -> predict their secondary structures  ->  Secondary structure element alignment  ->  Alignment 
+score is employed as a descriptor. 
+Introduction 
+ 
+Example 
+ 
+A JA V A source code and stand-alone program that implements the SSEA algorithm is available at: 
+http://protein.cau.edu.cn/pdbs/SSEA.tar.gz  
+  
+package 
+ 
+Secondary structure element alignment 
+• 蛋白质二级结构元素比对方法最早是由Przytycka及其同事在《Nature 
+structural biology》杂志上发表并被用于蛋白质分类。 
+ 
+• 后来学术界也出现了专门实现SSEA算法的二级结构比对服务器。 
+Flowchart of SSEA-GPCR method 
+GPCR SS 
+Non-GPCR  
+SS 
+Protein SS 
+PSI-PRED 
+SSEA 
+SSEA_Scoremax,GPCR SSEA 
+SSEA_Scoremax,non-GPCR 
+Pred_Score = SSEA Scoremax,GPCR - SSEA Scoremax,non-GPCR 
+A query protein is predicted as GPCR is Pred_Score is bigger than 0, else it is predicted as non-GPCR. 
+综合性的方法识别GPCR 
+序列谱比对 跨膜区信息 二级结构元素比对 
+w1、w2、w3为相应的权重项，用于平衡各个打分项。 
+Iden-Combined = w1PPA_gpcr + w2Trans_gpcr + w3SSEA_gpcr 
+GPCR的跨膜区预测算法比较 
+不同方法之间互补性较好 
+GPCR识别测试 
+0.1 
+TPR=TP/(TP+FN) 
+ 
+FPR=FP/(FP+TN) 
+ 
+两类分类： 
+区分GPCR与非GPCR蛋白 
+PPA区分GPCR和其他类型蛋白 
+
+存在问题及进一步的工作 
+• 训练数据来源于Uniprot, 其中包含实验数据、专家注释的数据、以及
+预测的数据。随着实验数据的不断积累，需要更新训练模型所使用的
+数据 
+ 
+• 与现有方法比运行时间会更长，3~5分钟/每个序列 
+ 
+• 寻找具有互补性的输入参数是提高预测精度的可行途径之一(下一步工
+作) 
+ 
+• 准确预测GPCR的结构与功能(下一步工作) 
+ 
+膜的形成 
+膜的形成机制的探讨 
+亚油酸 
+磷脂 
+Protein modeling example 
+• Motivation: a supporting project for an enzyme lab 
+• Time spent：4 weeks 
+• Initial data: a protein sequence with 2,000 residues 
+• Needed results: Accurate model of the 3D structure and dock it to three ligands. 
+ 
+The flowchart of the modeling 
+ 
+
+The model procedure 
+• Find a predicted structure in AlphaFold database 
+• Select the structure as the template 
+• Using homology modeling in Discovery Studio to build the model using the 
+selected template 
+The model by using AlphaFold database 
+Binding pocket I consists of two sequence segments, including residues 916 to 956 and residues 1534 to 
+1559 .These two sequence segments consist of one cavity in the structure.  
+Binding pocket II consists of another two sequence segments, including residues 246 to 286 and residues 1003 
+to 1029. 
+
+The model by Rosetta 
+Binding pocket I consists of two sequence segments, including residues 916 to 956 and residues 1534 to 1559 
+.These two sequence segments consist of one cavity in the structure.  
+Binding pocket II consists of another two sequence segments, including residues 246 to 286 and residues 1003 
+to 1029. 
+The sequence was submitted to the web site 
+(https://robetta.bakerlab.org) 
+and get a model 
+Template from PDB database 
+ 
+
+Model using template from PDB 
+ 
+segment1 segment2 segment1 
+segment2 
+Binding pocket I consists of two sequence segments, including residues 916 to 956 and residues 1534 to 1559 
+.These two sequence segments consist of one cavity in the structure.  Binding pocket II consists of another two 
+sequence segments, including residues 246 to 286 and residues 1003 to 1029 . 
+Final model 
+• Several models from PDB, Rosetta, Swissmodel and AlphaFold were tested. 
+Finally, a model using a template structure from AlphaFold database was used, 
+and the model fits the experimental data well. 
+• The model was further used in docking and interaction analyses. 
+Dock ligands to the model in the binding pocket I  
+ 
+
+ 
+Dock ligands to the model in the binding pocket II  
+Interaction analysis 
+ 
+Binding pocket I Binding pocket II 
+Transmembrane region 
+The model also fit the transmembrane regions by experimental data well 
+TM regions 
+Ion  
+channel 
+Potential problems 
+• We did not test protein 3D prediction servers as many as possible.  
+• When we find a suitable model using AlphaFold database, and then we stop 
+model the structure using other servers. 
+• This modeling project was funded by an enzyme lab of other University and we 
+have already submitted the data to the lab. The lab can do more in-depth analysis 
+by themselves. 
+ 
+ 
+Possible questions 
+• Q1. Why do not use Alphafold program directly to predict the model ? 
+• Answer: we do not have a Linux server with GPU to setup the AlphaFold program. 
+Meanwhile, the global sequence identity between our target sequence and the 
+template from AlphaFold database is higher than 92%. Therefore, the model using 
+the template is very similar to that using AlphaFold program directly. 
+ 
+Possible questions 
+• Q2. Are mutations for enzyme improvement widely used ? 
+• Answer: Yes. We are studying several enzymes and effective mutations were 
+found and several manuscripts were in prepared. More importantly, simple 
+mutations can be easily implemented in practice. We can randomly mutate many 
+sites of an enzyme and then select effective mutations. Then, computational 
+methods can be used to explain the results. 
+ 
+OPM server 
+
+膜蛋白分子动力学模拟：膜的方向确定 
+• 默认膜方向:膜平面默认情况
+下，脂质双层膜位于XY平面
+(即Z轴为膜的法线方向)。 
+• 溶质(如蛋白质)的坐标会基
+于此平面调整，膜的法向平
+行于Z轴。 
+• 膜中心：膜的中心通常与体
+系的几何中心重合(或根据溶
+质位置偏移)。 
+• 把PDB文件提交到OPM网站
+https://opm.phar.umich.edu/，
+可以调整好坐标文件，这样
+在动力学模拟中直接使用。 
+这为OPM网站处理 
+后的蛋白质,有跨膜位置信息 
+• OPM网站下载下俩的结构，膜平面一定是与XY平面平行的，水只会出现在
+膜蛋白的Z轴上。 
+
+膜蛋白分子动力学模拟：膜的构建 
+• 在Amber中通过以下命令构建膜 
+• packmol-memgen --pdb complex_solute.pdb --lipids 
+POPC:CHL1 --ratio 9:1 --preoriented --salt --salt_c Na+ --
+saltcon 0.15 --dist 10 --dist_wat 15 --notprotonate –nottrim 
+• 从 complex_solute.pdb 读取的溶质(如蛋白质)。 
+• 由 POPC 和胆固醇(9:1)组成的脂质双层膜。 
+• 0.15 M 的 Na+盐溶液(阴离子默认Cl-)。 
+• 溶质与膜间距10，水层厚度15。 
+细菌视紫红质 ----光驱动的物质跨膜输运 
+ 嗜盐杆菌质膜上的质子泵以7次跨膜螺旋方式存在 
+      分子中含有一个光吸收基团 retinal (视黄醛 ) 
+• 与脊椎类动物眼睛的光受体细胞中rhodopsin（ 视紫质, 视网膜紫质）中发现的光吸收基团相同 
+ 视黄醛共价连接于一个 lysine 残基 
+视黄醛 lysine 
+胞外 
+胞内 Asp96 
+Asp8
+5 
+Lys21
+6 
+细菌视紫红质工作机理 
+• 当吸收一个光子时，视黄醛发生一个构
+型转变 (反式 - 顺式) 
+• 构型转变引起视紫质分子发生一系列微
+小构象变化, 导致一个质子从胞内转移到
+胞外  
+• 在日光下，细菌视紫红质 每秒可转运数
+百个质子 
+• 线粒体及叶绿体中H+-ATP ase利用由光
+驱动形成的跨膜质子梯度和H+流出的能
+量将ADP和磷酸合成ATP，为生物提供
+能量。 
+ 
+视黄醛的构型转变 
+反式 
+顺式 
+吸收光子 
+Bacteriorhodopsin-质子传递链 
+胞内 
+胞外 
+Asp 
+Lys 
+H+ 
+Bacteriorhodopsin-质子传递机制 
+胞内 
+胞外 
+反式 顺式 
+吸收光子 
+质子从胞内转移到胞外  
+胞内 
+胞外 
+水通道三维结构 (含8个螺旋,  PDB AQP1) (Sui et al, Nature 414：872, 2001) 
+
+水通道三维结构 
+细胞质 
+胞外 
+水通道选择性 
+• 通道最狭窄处(constriction area) 直径为2.8 Å(~一个水分
+子直径 4 Å )。 
+• 分子通过时必须脱水 
+• 脱水的分子需形成配位复合物，补偿脱水消耗的能量 
+• 离子不能形成等效配位复合物  不能通过通道 
+• H2O与周围基团形成氢键  可通过通道 
+ 
+
+水通道选择性 
+ 为什么质子化H3O+ 
+     不能通过？ 
+ 通道的中央有 带正电残基
+（R197, R206） 
+ 静电排斥作用将带正电荷
+H3O+阻挡 
+ 通道还含有 带负电的残基 ,
+静电排斥作用将带负电的
+离子阻挡 
+葡萄糖输运蛋白Glut1 
+• 葡萄糖是生物最重要、最基本的能量来源，也是人脑和神经系统最主要的供能物质。 
+• glucose代谢第一步是进入细胞，但亲水的葡萄糖自身无法穿过细胞膜进入到细胞内发挥
+作用，必须依靠转运蛋白来完成。 
+• glucose转运蛋白Glut镶嵌于细胞膜上，将glucose从胞外转运到胞内。 
+• Glut1 将葡萄糖从血液中输运到红细胞中，并负责供应葡萄糖到大脑和其他器官。 
+• 输运沿浓度梯度进行， 是载体介导的被动输运 
+• 葡萄糖输运过程是可逆的 
+• 血液到细胞 
+• 细胞到血液 
+• 例：饥饿时，肝细胞合成葡萄糖，输送到血液 
+ 
+ GLUT1几乎存在于人体每一个细胞中 ，是大脑、神经系统、肌肉等组织器官中最重要的葡萄糖
+转运蛋白，对于维持人的正常生理功能极为重要。 
+ GLUT1功能缺陷将使细胞对葡萄糖吸收不足而导致大脑萎缩 、智力低下、发育迟缓，并会因葡
+萄糖不能及时为人体利用消耗而导致血糖浓度异常升高。 
+ GLUT1在癌细胞新陈代谢过程中发挥着重要功能。    
+         癌细胞需要消耗超量葡萄糖才能维持其生长扩增， 
+     GLUT1在细胞中显著过量往往意味着有癌变发生。 
+GLUT1蛋白的重要功能 
+        一旦确定了GLUT1组成、结构和工作机理，就有可能通过调控它实现葡
+萄糖转运的人工干预， 
+        既可以增加正常细胞内葡萄糖供应达到治疗相关疾病的目的 ，又可以通
+过阻断对癌细胞的葡萄糖供应而抑制癌细胞。 
+研究GLUT1蛋白结构的重要意义 
+葡萄糖输运蛋白的结构模型 
+红血球细胞膜 
+12
+个
+跨
+膜
+螺
+旋 
+N
+端
+和
+C
+端
+两
+个
+结
+构
+域 
+
+GLUT1呈现经典的MFS家族折叠方式： 
+    12个跨膜螺旋组成N端和C端两个结构域。 
+    两个结构域之间的腔孔朝向胞内区，该结构呈现向内开放构象 
+ GLUT1在胞内可溶区具有一个由4个α螺旋组成的结构域   
+    (IC1-4，ICH domain)，该序列只在MFS糖转运蛋白亚家族中  
+   (Sugar porter subfamily）观察到。 
+    ICH domain 是该亚家族蛋白特有的结构特征。  
+GLUT1蛋白的结构特征 
+• 利用GLUT1的晶体结构可精确地定位与疾病相关的突变氨基酸，揭示其致病机理： 
+•       30多个突变氨基酸基本集中于三个区域： 
+•      底物结合区域、胞外门控区、胞内门控区， 
+•      突变或影响了底物识别，或影响转运蛋白的构象变化。 
+•      晶体结构有助于理解这些致病突变的分子机理。 
+• 基于GLUT1的结构信息，有可能对GLUT1进行人工干预，作为相关疾病诊断或者药物
+开发的潜在靶点。 
+测定GLUT1蛋白结构的意义 
+GLUT1蛋白的工作模型 
+胞外 
+胞内 
+外开放构象 内开放构象 
+glucose 
+glucose 
+底物结合区域、胞外门控区、胞内门控区  
+胞内门控区 
+胞外门控区 
+Glucose  binding site 
+高glucose浓度 
+低glucose浓度 
+向胞外开 向胞内开 
+P L PL
+ProteinKits软件包膜蛋白相关命令 
+• 跨膜区预测命令行 
+perl run.pl -hydro seq.fasta 9 
+• 参数：seq.fasta是输入的序列名称；9是窗口大小（默认值），窗口大小可
+以调整。 
+• 结果文件：hydropathy.Chothia.txt和hydropathy.KyteDoolittle.txt。在这些
+数据基础上，可以通过matlab或者R语言等绘图软件进行蛋白质疏水性图形
+绘制。疏水性越高的氨基酸这个指标越高，一般认为标度值大于0代表氨基
+酸疏水，小于0代表氨基酸亲水。蛋白质的结构特点一般为：亲水表面、疏
+水核心。活性口袋中的活性位点一般为疏水性的。因此，可以根据疏水性指
+标进行活性位点分析。疏水区域是相互作用的核心区域。 
+ 
+ 
+ 
