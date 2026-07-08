@@ -3,260 +3,1853 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>数字游民指南 — 60国全球数字游民数据平台</title>
-    <meta name="description" content="面向中国用户的全球数字游民一站式数据平台，覆盖60个国家、50+签证类型、122个数字游民城市。提供生活成本、安全指数、网速评分、签证政策等结构化数据，以及国家对比、路线规划、搜索工具。">
-    <meta property="og:title" content="数字游民指南 — 60国全球数字游民数据平台">
-    <meta property="og:description" content="覆盖60个国家、50+签证类型、122个数字游民城市的结构化数据平台">
+    <title>数字游民指南 — 全球数字游民数据平台</title>
+    <meta name="description" content="一个面向中文使用者的全球数字游民数据项目，覆盖100个国家、50+签证类型、122个数字游民城市。">
+    <meta property="og:title" content="数字游民指南">
+    <meta property="og:description" content="全球数字游民目的地数据库">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kfat77.github.io/digital-nomad-cn/">
-    <meta property="og:image" content="https://kfat77.github.io/digital-nomad-cn/images/og/homepage.png">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
-    <meta name="theme-color" content="#000000">
-    <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/">
-    <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/">
-    <link rel="alternate" type="application/rss+xml" title="数字游民指南 — RSS Feed" href="https://kfat77.github.io/digital-nomad-cn/rss.xml">
-    <link rel="stylesheet" href="style.css?v=2" fetchpriority="high">
+    <meta name="theme-color" content="#FFFFFF">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-<script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type":"Question","name":"数字游民指南是什么？","acceptedAnswer":{"@type":"Answer","text":"数字游民指南是一个面向中国用户的开源全球数字游民数据平台，覆盖60个国家、50+签证类型、122个数字游民城市，提供生活成本、安全指数、网速评分、签证政策等结构化数据。"}},
-    {"@type":"Question","name":"中国护照持有者可以去哪些国家做数字游民？","acceptedAnswer":{"@type":"Answer","text":"中国护照持有者可以选择免签国家（如泰国、格鲁吉亚、阿联酋等）、电子签国家（如越南、土耳其等），或申请数字游民签证（如葡萄牙、西班牙等21个国家提供）。"}},
-    {"@type":"Question","name":"数字游民的生活成本大概是多少？","acceptedAnswer":{"@type":"Answer","text":"根据目的地不同，数字游民月生活成本从500美元到5000美元以上不等。东南亚通常在800-1500美元/月，欧洲在1500-2500美元/月。"}},
-    {"@type":"Question","name":"什么是数字游民签证？","acceptedAnswer":{"@type":"Answer","text":"数字游民签证是一种允许远程工作者在外国长期居留的签证类型。目前全球有21个国家提供此类签证，通常要求稳定的远程收入来源。"}},
-    {"@type":"Question","name":"这个平台的数据是免费的吗？","acceptedAnswer":{"@type":"Answer","text":"是的，所有数据完全开源免费。项目采用CC BY-NC-SA 4.0协议共享数据，代码采用MIT协议。"}}
-  ]
-}</script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap"></noscript>
+    <link rel="stylesheet" href="style.css?v=10" fetchpriority="high">
+
+    <!-- 3D Globe Dependencies -->
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+    </script>
+    <script type="module" src="globe.js?v=11"></script>
+
+    <!-- Bright Theme — Red / White / Blue / Black -->
+    <style>
+    /* ============================================
+       Bright Particle Theme — Red / White / Blue / Black
+       Black for text only
+       ============================================ */
+    :root {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8fafc;
+        --bg-surface: #f1f5f9;
+        --bg-hover: #e2e8f0;
+        --bg-pressed: #cbd5e1;
+        --bg-elevated: #ffffff;
+
+        --text-primary: #0f172a;
+        --text-secondary: #334155;
+        --text-tertiary: #64748b;
+        --text-inverse: #ffffff;
+        --text-placeholder: #94a3b8;
+
+        --brand: #DC2626;
+        --brand-hover: #B91C1C;
+        --brand-soft: #FEF2F2;
+        --brand-glow: rgba(220, 38, 38, 0.2);
+        --brand-glow-strong: rgba(220, 38, 38, 0.35);
+
+        --accent: #1E3A5F;
+        --accent-hover: #0F2540;
+        --accent-soft: #EFF6FF;
+        --accent-glow: rgba(30, 58, 95, 0.2);
+
+        --success: #16A34A;
+        --success-soft: #DCFCE7;
+        --warning: #EA580C;
+        --warning-soft: #FFF7ED;
+        --info: #2563EB;
+        --info-soft: #EFF6FF;
+
+        --border: #e2e8f0;
+        --border-light: #f1f5f9;
+        --border-hover: #bfdbfe;
+        --border-focus: #DC2626;
+        --divider: #e2e8f0;
+
+        --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+        --shadow-card-hover: 0 8px 24px -4px rgba(0, 0, 0, 0.08), 0 4px 8px -2px rgba(0, 0, 0, 0.04);
+        --shadow-red-glow: 0 0 20px rgba(220, 38, 38, 0.15), 0 4px 12px rgba(220, 38, 38, 0.1);
+        --shadow-blue-glow: 0 0 20px rgba(30, 58, 95, 0.15), 0 4px 12px rgba(30, 58, 95, 0.1);
+        --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+
+        --glass-bg: rgba(255, 255, 255, 0.7);
+        --glass-border: rgba(226, 232, 240, 0.8);
+        --glass-highlight: rgba(255, 255, 255, 0.9);
+
+        --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+        --font-mono: "SF Mono", "SFMono-Regular", ui-monospace, Monaco, "Fira Code", "Cascadia Code", monospace;
+
+        --text-xs: 0.75rem;
+        --text-sm: 0.875rem;
+        --text-base: 1rem;
+        --text-lg: 1.125rem;
+        --text-xl: 1.25rem;
+        --text-2xl: 1.5rem;
+        --text-3xl: 1.875rem;
+        --text-4xl: 2.25rem;
+        --text-5xl: 3rem;
+        --text-6xl: 3.75rem;
+
+        --leading-tight: 1.25;
+        --leading-snug: 1.375;
+        --leading-normal: 1.5;
+        --leading-relaxed: 1.625;
+        --leading-loose: 2;
+
+        --tracking-tight: -0.025em;
+        --tracking-normal: 0;
+        --tracking-wide: 0.025em;
+        --tracking-wider: 0.05em;
+
+        --space-1: 0.25rem;
+        --space-2: 0.5rem;
+        --space-3: 0.75rem;
+        --space-4: 1rem;
+        --space-5: 1.25rem;
+        --space-6: 1.5rem;
+        --space-8: 2rem;
+        --space-10: 2.5rem;
+        --space-12: 3rem;
+        --space-16: 4rem;
+        --space-20: 5rem;
+        --space-24: 6rem;
+        --space-32: 8rem;
+
+        --radius-sm: 4px;
+        --radius-md: 6px;
+        --radius-lg: 8px;
+        --radius-xl: 12px;
+        --radius-2xl: 16px;
+        --radius-3xl: 24px;
+        --radius-full: 9999px;
+
+        --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-normal: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-slow: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+        --container-max: 1200px;
+        --container-narrow: 720px;
+        --nav-height: 64px;
+        --section-gap: var(--space-24);
+        --grid-gap: var(--space-5);
+    }
+
+    /* ============================================
+       Base & Global
+       ============================================ */
+    *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+
+    body {
+        font-family: var(--font-sans);
+        font-size: var(--text-base);
+        line-height: var(--leading-relaxed);
+        color: var(--text-primary);
+        background: var(--bg-primary);
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    ::selection {
+        background: var(--brand-soft);
+        color: var(--brand);
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--brand);
+        outline-offset: 2px;
+        border-radius: var(--radius-sm);
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        transition: color var(--transition-fast);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+        background: var(--bg-secondary);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: var(--radius-full);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+    }
+
+    /* ============================================
+       Particle Canvas Layer — Bright Background
+       ============================================ */
+    #particle-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* ============================================
+       Typography — BLACK for text
+       ============================================ */
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+        line-height: var(--leading-tight);
+        letter-spacing: var(--tracking-tight);
+        color: var(--text-primary);
+        text-wrap: balance;
+    }
+
+    h1 { font-size: var(--text-5xl); }
+    h2 { font-size: var(--text-4xl); }
+    h3 { font-size: var(--text-3xl); }
+    h4 { font-size: var(--text-2xl); }
+    h5 { font-size: var(--text-xl); }
+    h6 { font-size: var(--text-lg); }
+
+    @media (max-width: 768px) {
+        h1 { font-size: var(--text-4xl); }
+        h2 { font-size: var(--text-3xl); }
+        h3 { font-size: var(--text-2xl); }
+        h4 { font-size: var(--text-xl); }
+    }
+
+    p {
+        text-wrap: pretty;
+        color: var(--text-secondary);
+    }
+
+    .lead {
+        font-size: var(--text-xl);
+        line-height: var(--leading-relaxed);
+        color: var(--text-secondary);
+        max-width: 640px;
+    }
+
+    .label {
+        font-size: var(--text-xs);
+        font-weight: 600;
+        letter-spacing: var(--tracking-wider);
+        text-transform: uppercase;
+        color: var(--brand);
+    }
+
+    .text-gradient {
+        background: linear-gradient(135deg, var(--brand) 0%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* ============================================
+       Layout Utilities
+       ============================================ */
+    .container {
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+        position: relative;
+        z-index: 1;
+    }
+
+    .container-narrow {
+        max-width: var(--container-narrow);
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+        position: relative;
+        z-index: 1;
+    }
+
+    .section {
+        padding: var(--space-24) 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+        .section {
+            padding: var(--space-16) 0;
+        }
+        .container {
+            padding: 0 var(--space-4);
+        }
+    }
+
+    /* ============================================
+       Header & Navigation — White with blur
+       ============================================ */
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        height: var(--nav-height);
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border-bottom: 1px solid var(--border-light);
+        transition: box-shadow var(--transition-slow), background var(--transition-slow);
+    }
+
+    .header-scrolled {
+        box-shadow: var(--shadow-sm);
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .header-inner {
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header-logo {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-weight: 700;
+        font-size: var(--text-lg);
+        color: var(--text-primary);
+        transition: all var(--transition-fast);
+    }
+
+    .header-logo:hover {
+        color: var(--brand);
+    }
+
+    .header-logo-icon {
+        width: 28px;
+        height: 28px;
+        color: var(--brand);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header-logo-icon svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .header-nav {
+        display: flex;
+        align-items: center;
+        gap: var(--space-1);
+    }
+
+    .header-nav a {
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--text-sm);
+        font-weight: 500;
+        color: var(--text-secondary);
+        border-radius: var(--radius-md);
+        transition: all var(--transition-fast);
+        position: relative;
+    }
+
+    .header-nav a:hover {
+        color: var(--text-primary);
+        background: var(--bg-surface);
+    }
+
+    .header-nav a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--brand), transparent);
+        transition: all var(--transition-normal);
+        transform: translateX(-50%);
+    }
+
+    .header-nav a:hover::after {
+        width: 60%;
+    }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+    }
+
+    .header-icon-btn {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-md);
+        color: var(--text-secondary);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+    }
+
+    .header-icon-btn:hover {
+        color: var(--text-primary);
+        background: var(--bg-surface);
+    }
+
+    .header-icon-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .header-nav {
+            display: none;
+        }
+        .menu-toggle {
+            display: flex;
+        }
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 998;
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-normal);
+        backdrop-filter: blur(4px);
+    }
+
+    .mobile-menu-overlay.open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: auto; /* FIX: override style.css left:0 */
+        width: 280px;
+        height: 100vh;
+        background: var(--bg-primary);
+        border-left: 1px solid var(--border);
+        z-index: 999;
+        padding: calc(var(--nav-height) + var(--space-6)) var(--space-6) var(--space-6);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        transform: translateX(100%);
+        transition: transform var(--transition-slow);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-menu.open {
+        transform: translateX(0);
+    }
+
+    .mobile-menu a {
+        padding: var(--space-3) var(--space-4);
+        font-size: var(--text-base);
+        font-weight: 500;
+        color: var(--text-secondary);
+        border-radius: var(--radius-lg);
+        transition: all var(--transition-fast);
+    }
+
+    .mobile-menu a:hover {
+        color: var(--brand);
+        background: var(--brand-soft);
+    }
+
+    /* ============================================
+       Buttons — Red & Blue
+       ============================================ */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-2);
+        padding: var(--space-3) var(--space-5);
+        font-size: var(--text-sm);
+        font-weight: 600;
+        border-radius: var(--radius-lg);
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: all var(--transition-normal);
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+        opacity: 0;
+        transition: opacity var(--transition-normal);
+    }
+
+    .btn:hover::before {
+        opacity: 1;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--brand), var(--brand-hover));
+        color: var(--text-inverse);
+        border: none;
+        box-shadow: var(--shadow-red-glow);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 30px rgba(220, 38, 38, 0.25), 0 8px 20px rgba(220, 38, 38, 0.15);
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: var(--text-secondary);
+        border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+        color: var(--text-primary);
+        border-color: var(--border-hover);
+        background: var(--bg-surface);
+    }
+
+    .btn-lg {
+        padding: var(--space-4) var(--space-6);
+        font-size: var(--text-base);
+    }
+
+    .btn-navy {
+        background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+        color: var(--text-inverse);
+        border: none;
+        box-shadow: var(--shadow-blue-glow);
+    }
+
+    .btn-navy:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 30px rgba(30, 58, 95, 0.25), 0 8px 20px rgba(30, 58, 95, 0.15);
+    }
+
+    .btn-red-outline {
+        background: transparent;
+        color: var(--brand);
+        border: 1px solid var(--brand);
+    }
+
+    .btn-red-outline:hover {
+        background: var(--brand-soft);
+        color: var(--brand-hover);
+        border-color: var(--brand-hover);
+    }
+
+    /* ============================================
+       Glass Card — White on bright
+       ============================================ */
+    .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-card);
+        transition: all var(--transition-slow);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .glass-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--glass-highlight), transparent);
+    }
+
+    .glass-card:hover {
+        border-color: var(--brand);
+        box-shadow: var(--shadow-red-glow), var(--shadow-card-hover);
+        transform: translateY(-2px);
+    }
+
+    /* ============================================
+       Globe Hero Section — Bright
+       ============================================ */
+    .globe-hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        padding-top: var(--nav-height);
+        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+    }
+
+    .globe-hero-inner {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+        gap: var(--space-12);
+        align-items: center;
+        min-height: calc(100vh - var(--nav-height));
+    }
+
+    .globe-hero-text {
+        z-index: 2;
+        max-width: 520px;
+    }
+
+    .globe-hero-label {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-size: var(--text-xs);
+        font-weight: 600;
+        letter-spacing: var(--tracking-wider);
+        text-transform: uppercase;
+        color: var(--brand);
+        margin-bottom: var(--space-6);
+        padding: var(--space-2) var(--space-4);
+        background: var(--brand-soft);
+        border-radius: var(--radius-full);
+        border: 1px solid rgba(220, 38, 38, 0.1);
+        backdrop-filter: blur(10px);
+    }
+
+    .globe-hero-label-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--brand);
+        border-radius: 50%;
+        animation: pulse-dot 2s ease-in-out infinite;
+        box-shadow: 0 0 8px var(--brand-glow);
+    }
+
+    @keyframes pulse-dot {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .globe-hero-title {
+        font-size: clamp(2.5rem, 5vw, 3.75rem);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: var(--tracking-tight);
+        color: var(--text-primary);
+        margin-bottom: var(--space-6);
+    }
+
+    .globe-hero-title .accent-line {
+        display: block;
+        color: var(--accent);
+    }
+
+    .globe-hero-desc {
+        font-size: var(--text-lg);
+        color: var(--text-secondary);
+        line-height: var(--leading-relaxed);
+        margin-bottom: var(--space-8);
+    }
+
+    .globe-hero-cta {
+        display: flex;
+        gap: var(--space-3);
+        flex-wrap: wrap;
+    }
+
+    .globe-container {
+        position: relative;
+        width: 100%;
+        height: 600px;
+        z-index: 1;
+    }
+
+    #globe-viz {
+        width: 100%;
+        height: 100%;
+    }
+
+    .globe-container canvas {
+        outline: none !important;
+    }
+
+    .hero-freshness {
+        margin-top: var(--space-6);
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+    }
+
+    @media (max-width: 1024px) {
+        .globe-hero-inner {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: var(--space-8);
+            padding-top: var(--space-12);
+            padding-bottom: var(--space-12);
+        }
+        .globe-hero-text {
+            max-width: 100%;
+        }
+        .globe-hero-cta {
+            justify-content: center;
+        }
+        .globe-container {
+            height: 400px;
+            order: -1;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .globe-container {
+            height: 320px;
+        }
+        .globe-hero-title {
+            font-size: var(--text-3xl);
+        }
+    }
+
+    /* ============================================
+       Stats Bar — Bright
+       ============================================ */
+    .stats-bar {
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        position: relative;
+        z-index: 1;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-6);
+        padding: var(--space-8) var(--space-6);
+    }
+
+    .stat-item {
+        text-align: center;
+        padding: var(--space-4);
+        border-radius: var(--radius-lg);
+        transition: all var(--transition-slow);
+    }
+
+    .stat-item:hover {
+        background: var(--bg-surface);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .stat-num {
+        font-size: var(--text-4xl);
+        font-weight: 800;
+        color: var(--brand);
+        line-height: 1;
+        margin-bottom: var(--space-2);
+    }
+
+    .stat-label {
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+        font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+        .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+            padding: var(--space-6) var(--space-4);
+        }
+    }
+
+    /* ============================================
+       Section Headers
+       ============================================ */
+    .section-header {
+        text-align: center;
+        margin-bottom: var(--space-12);
+        max-width: 640px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-title {
+        font-size: var(--text-3xl);
+        font-weight: 800;
+        margin-bottom: var(--space-4);
+        color: var(--text-primary);
+    }
+
+    .section-desc {
+        font-size: var(--text-lg);
+        color: var(--text-secondary);
+    }
+
+    /* ============================================
+       Infrastructure Cards
+       ============================================ */
+    .infra-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-6);
+    }
+
+    .infra-card {
+        display: flex;
+        flex-direction: column;
+        padding: var(--space-8);
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .infra-card-icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-lg);
+        background: var(--brand-soft);
+        color: var(--brand);
+        margin-bottom: var(--space-5);
+        box-shadow: 0 0 15px var(--brand-glow);
+    }
+
+    .infra-card-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .infra-card h3 {
+        font-size: var(--text-xl);
+        font-weight: 700;
+        margin-bottom: var(--space-3);
+        color: var(--text-primary);
+    }
+
+    .infra-card > p {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        margin-bottom: var(--space-5);
+        flex: 1;
+    }
+
+    .infra-card-list {
+        list-style: none;
+        margin-bottom: var(--space-5);
+    }
+
+    .infra-card-list li {
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+        padding: var(--space-1) 0;
+        position: relative;
+        padding-left: var(--space-4);
+    }
+
+    .infra-card-list li::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: var(--brand);
+    }
+
+    .infra-card-link {
+        font-size: var(--text-sm);
+        font-weight: 600;
+        color: var(--brand);
+        transition: all var(--transition-fast);
+    }
+
+    .infra-card:hover .infra-card-link {
+        color: var(--brand-hover);
+    }
+
+    @media (max-width: 1024px) {
+        .infra-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .infra-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* ============================================
+       Trending Destinations
+       ============================================ */
+    .trending-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+    }
+
+    .trending-card {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+        padding: var(--space-5);
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .trending-rank {
+        font-size: var(--text-2xl);
+        font-weight: 800;
+        color: var(--brand);
+        width: 40px;
+        text-align: center;
+    }
+
+    .trending-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .trending-info h4 {
+        font-size: var(--text-base);
+        font-weight: 700;
+        margin-bottom: var(--space-1);
+        color: var(--text-primary);
+    }
+
+    .trending-metrics {
+        display: flex;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+        margin-bottom: var(--space-2);
+    }
+
+    .trending-metrics span {
+        font-size: var(--text-xs);
+        color: var(--text-tertiary);
+        background: var(--bg-surface);
+        padding: 2px 8px;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border-light);
+    }
+
+    .trending-score {
+        font-size: var(--text-xl);
+        font-weight: 800;
+        color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+        .trending-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* ============================================
+       Country Grid & Filters
+       ============================================ */
+    .filters-bar {
+        display: flex;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: var(--space-6);
+    }
+
+    .filter-btn {
+        padding: var(--space-2) var(--space-4);
+        font-size: var(--text-sm);
+        font-weight: 500;
+        border-radius: var(--radius-full);
+        border: 1px solid var(--border);
+        background: var(--bg-primary);
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+    }
+
+    .filter-btn:hover {
+        border-color: var(--brand);
+        color: var(--brand);
+        background: var(--brand-soft);
+    }
+
+    .filter-btn.active {
+        background: var(--brand-soft);
+        color: var(--brand);
+        border-color: var(--brand);
+        box-shadow: 0 0 15px var(--brand-glow);
+    }
+
+    .region-tabs {
+        display: flex;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: var(--space-8);
+    }
+
+    .region-tab {
+        padding: var(--space-2) var(--space-4);
+        font-size: var(--text-sm);
+        font-weight: 500;
+        border-radius: var(--radius-full);
+        border: 1px solid var(--border);
+        background: var(--bg-primary);
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+    }
+
+    .region-tab:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .region-tab.active {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-color: var(--accent);
+        box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    .region-tab span {
+        margin-left: 4px;
+        opacity: 0.7;
+    }
+
+    .region-section {
+        margin-bottom: var(--space-8);
+    }
+
+    .region-title {
+        font-size: var(--text-xl);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: var(--space-4);
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+    }
+
+    .region-count {
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+        font-weight: 500;
+    }
+
+    .country-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: var(--space-4);
+    }
+
+    .country-card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        padding: var(--space-5);
+    }
+
+    .country-card-header {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        margin-bottom: var(--space-4);
+    }
+
+    .country-flag {
+        font-size: var(--text-2xl);
+        line-height: 1;
+    }
+
+    .country-meta {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .country-meta h4 {
+        font-size: var(--text-base);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 2px;
+    }
+
+    .country-score {
+        font-size: var(--text-sm);
+        font-weight: 700;
+        color: var(--accent);
+    }
+
+    .country-new-badge {
+        font-size: var(--text-xs);
+        font-weight: 600;
+        color: var(--brand);
+        background: var(--brand-soft);
+        padding: 2px 8px;
+        border-radius: var(--radius-sm);
+        border: 1px solid rgba(220, 38, 38, 0.15);
+    }
+
+    .country-card-body {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+    }
+
+    .country-badge {
+        font-size: var(--text-xs);
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: var(--radius-sm);
+    }
+
+    .badge-success {
+        color: var(--success);
+        background: var(--success-soft);
+        border: 1px solid rgba(22, 163, 74, 0.2);
+    }
+
+    .badge-info {
+        color: var(--info);
+        background: var(--info-soft);
+        border: 1px solid rgba(37, 99, 235, 0.2);
+    }
+
+    .badge-danger {
+        color: var(--brand);
+        background: var(--brand-soft);
+        border: 1px solid rgba(220, 38, 38, 0.2);
+    }
+
+    .country-metric {
+        font-size: var(--text-xs);
+        color: var(--text-tertiary);
+        background: var(--bg-surface);
+        padding: 2px 8px;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border-light);
+    }
+
+    /* ============================================
+       Tools Grid
+       ============================================ */
+    .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-6);
+    }
+
+    .tool-card {
+        display: flex;
+        flex-direction: column;
+        padding: var(--space-8);
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .tool-icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-lg);
+        background: var(--accent-soft);
+        color: var(--accent);
+        margin-bottom: var(--space-5);
+        box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    .tool-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .tool-card h3 {
+        font-size: var(--text-xl);
+        font-weight: 700;
+        margin-bottom: var(--space-3);
+        color: var(--text-primary);
+    }
+
+    .tool-card > p {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        margin-bottom: var(--space-5);
+        flex: 1;
+    }
+
+    .tool-link {
+        font-size: var(--text-sm);
+        font-weight: 600;
+        color: var(--brand);
+        transition: all var(--transition-fast);
+    }
+
+    .tool-card:hover .tool-link {
+        color: var(--brand-hover);
+    }
+
+    @media (max-width: 1024px) {
+        .tools-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .tools-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* ============================================
+       Articles
+       ============================================ */
+    .articles-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--space-8);
+    }
+
+    .articles-header h2 {
+        font-size: var(--text-3xl);
+        font-weight: 800;
+        color: var(--text-primary);
+    }
+
+    .articles-header a {
+        font-size: var(--text-sm);
+        font-weight: 600;
+        color: var(--brand);
+        transition: all var(--transition-fast);
+    }
+
+    .articles-header a:hover {
+        color: var(--brand-hover);
+    }
+
+    .articles-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-6);
+    }
+
+    .article-card {
+        display: flex;
+        flex-direction: column;
+        padding: var(--space-6);
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .article-tags {
+        display: flex;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+        margin-bottom: var(--space-3);
+    }
+
+    .article-tag {
+        font-size: var(--text-xs);
+        font-weight: 600;
+        color: var(--brand);
+        background: var(--brand-soft);
+        padding: 2px 10px;
+        border-radius: var(--radius-full);
+        border: 1px solid rgba(220, 38, 38, 0.15);
+    }
+
+    .article-card h3 {
+        font-size: var(--text-lg);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: var(--space-2);
+    }
+
+    .article-card > p {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        margin-bottom: var(--space-3);
+        flex: 1;
+    }
+
+    .article-date {
+        font-size: var(--text-xs);
+        color: var(--text-tertiary);
+    }
+
+    @media (max-width: 1024px) {
+        .articles-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .articles-grid {
+            grid-template-columns: 1fr;
+        }
+        .articles-header {
+            flex-direction: column;
+            gap: var(--space-3);
+            align-items: flex-start;
+        }
+    }
+
+    /* ============================================
+       Divider
+       ============================================ */
+    .divider {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--divider), transparent);
+        margin: 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* ============================================
+       Footer
+       ============================================ */
+    .footer {
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border);
+        padding: var(--space-16) 0 var(--space-8);
+        position: relative;
+        z-index: 1;
+    }
+
+    .footer-main {
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: var(--space-12);
+        margin-bottom: var(--space-12);
+    }
+
+    .footer-brand-name {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-weight: 700;
+        font-size: var(--text-lg);
+        color: var(--text-primary);
+        margin-bottom: var(--space-4);
+    }
+
+    .footer-brand-name svg {
+        width: 24px;
+        height: 24px;
+        color: var(--brand);
+    }
+
+    .footer-brand > p {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        margin-bottom: var(--space-6);
+        max-width: 360px;
+    }
+
+    .footer-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        padding: var(--space-3) var(--space-5);
+        background: var(--bg-primary);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        font-size: var(--text-sm);
+        font-weight: 600;
+        color: var(--text-primary);
+        transition: all var(--transition-fast);
+    }
+
+    .footer-cta:hover {
+        border-color: var(--brand);
+        background: var(--brand-soft);
+        color: var(--brand);
+    }
+
+    .footer-cta svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .footer-links {
+        display: contents;
+    }
+
+    .footer-col h4 {
+        font-size: var(--text-sm);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: var(--space-4);
+        letter-spacing: var(--tracking-wide);
+        text-transform: uppercase;
+    }
+
+    .footer-col a {
+        display: block;
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        padding: var(--space-2) 0;
+        transition: all var(--transition-fast);
+    }
+
+    .footer-col a:hover {
+        color: var(--brand);
+    }
+
+    .footer-bottom {
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: var(--space-6) var(--space-6) 0;
+        border-top: 1px solid var(--divider);
+        text-align: center;
+    }
+
+    .footer-bottom p {
+        font-size: var(--text-xs);
+        color: var(--text-tertiary);
+        margin-bottom: var(--space-2);
+    }
+
+    .footer-bottom a {
+        color: var(--text-secondary);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+
+    .footer-bottom a:hover {
+        color: var(--brand);
+    }
+
+    @media (max-width: 768px) {
+        .footer-main {
+            grid-template-columns: 1fr;
+            gap: var(--space-8);
+        }
+    }
+
+    /* ============================================
+       Scroll Reveal Animations
+       ============================================ */
+    .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+    }
+
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    .stagger-children .stagger-item {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+    }
+
+    .stagger-children.visible .stagger-item {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .stagger-children.visible .stagger-item:nth-child(1) { transition-delay: 0.05s; }
+    .stagger-children.visible .stagger-item:nth-child(2) { transition-delay: 0.1s; }
+    .stagger-children.visible .stagger-item:nth-child(3) { transition-delay: 0.15s; }
+    .stagger-children.visible .stagger-item:nth-child(4) { transition-delay: 0.2s; }
+    .stagger-children.visible .stagger-item:nth-child(5) { transition-delay: 0.25s; }
+    .stagger-children.visible .stagger-item:nth-child(6) { transition-delay: 0.3s; }
+    .stagger-children.visible .stagger-item:nth-child(7) { transition-delay: 0.35s; }
+    .stagger-children.visible .stagger-item:nth-child(8) { transition-delay: 0.4s; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+        .reveal, .stagger-children .stagger-item {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+        html {
+            scroll-behavior: auto;
+        }
+    }
+
+    /* ============================================
+       Globe Tooltip
+       ============================================ */
+    .globe-tooltip {
+        background: var(--bg-primary) !important;
+        color: var(--text-primary) !important;
+        padding: 8px 14px !important;
+        border-radius: 8px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        box-shadow: var(--shadow-lg) !important;
+        border: 1px solid var(--border) !important;
+        pointer-events: none !important;
+        white-space: nowrap !important;
+    }
+
+    .globe-tooltip::after {
+        display: none !important;
+    }
+
+    /* ============================================
+       Reading Progress
+       ============================================ */
+    .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: linear-gradient(90deg, var(--brand), var(--accent));
+        z-index: 1001;
+        transition: width 0.1s linear;
+    }
+    
+    /* Quick Start Bar */
+    .quick-start-bar {
+        background: linear-gradient(135deg, var(--brand-soft) 0%, var(--accent-soft) 100%);
+        border-bottom: 1px solid var(--border);
+        padding: var(--space-6) 0;
+        position: sticky;
+        top: var(--nav-height);
+        z-index: 90;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+    .quick-start-inner {
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-6);
+        flex-wrap: wrap;
+    }
+    .quick-start-label {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-weight: 700;
+        font-size: var(--text-sm);
+        color: var(--text-primary);
+        white-space: nowrap;
+    }
+    .quick-start-icon {
+        font-size: var(--text-lg);
+    }
+    .quick-start-links {
+        display: flex;
+        gap: var(--space-3);
+        flex-wrap: wrap;
+    }
+    .quick-start-btn {
+        padding: var(--space-2) var(--space-4);
+        font-size: var(--text-sm);
+        font-weight: 600;
+        border-radius: var(--radius-lg);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-1);
+        transition: all var(--transition-fast);
+        white-space: nowrap;
+    }
+    .quick-start-btn.primary {
+        background: var(--brand);
+        color: var(--text-inverse);
+        box-shadow: var(--shadow-red-glow);
+    }
+    .quick-start-btn.primary:hover {
+        background: var(--brand-hover);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-red-glow), 0 4px 12px rgba(220, 38, 38, 0.2);
+    }
+    .quick-start-btn.secondary {
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-sm);
+    }
+    .quick-start-btn.secondary:hover {
+        background: var(--bg-hover);
+        border-color: var(--border-hover);
+        transform: translateY(-1px);
+    }
+    @media (max-width: 768px) {
+        .quick-start-inner {
+            justify-content: center;
+            gap: var(--space-3);
+        }
+        .quick-start-label {
+            width: 100%;
+            justify-content: center;
+        }
+        .quick-start-links {
+            justify-content: center;
+        }
+        .quick-start-bar {
+            position: relative;
+            top: auto;
+        }
+    }
+
+    /* Country data row */
+    .country-data-row {
+        display: flex;
+        gap: var(--space-2);
+        margin-top: var(--space-3);
+        padding-top: var(--space-3);
+        border-top: 1px solid var(--border-light);
+        flex-wrap: wrap;
+    }
+    .data-item {
+        font-size: var(--text-xs);
+        color: var(--text-tertiary);
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        white-space: nowrap;
+    }
+
+    /* Trending mini data */
+    .trending-data-mini {
+        display: flex;
+        gap: var(--space-3);
+        margin-top: var(--space-2);
+        font-size: var(--text-xs);
+        color: var(--text-tertiary);
+    }
+    </style>
 </head>
 <body>
+    <style>
+    /* Override style.css mobile-menu left:0 */
+    .mobile-menu { left: auto !important; }
+    </style>
+
+    <!-- Particle Canvas Background — Red & Blue on White -->
+    <canvas id="particle-canvas"></canvas>
+
     <!-- Header -->
-    <header class="header">
+    <header class="header" id="header">
         <div class="header-inner">
-            <a href="#" class="logo">
-                <span class="logo-icon">◈</span>
+            <a href="#" class="header-logo">
+                <span class="header-logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                </span>
                 <span>数字游民指南</span>
             </a>
-            <nav class="main-nav">
+            <nav class="header-nav" aria-label="主导航">
                 <a href="country/">国家</a>
                 <a href="visa/">签证</a>
-                <a href="city/">城市</a>
                 <a href="articles/">文章</a>
                 <a href="compare/">对比</a>
-                <a href="routes/">路线</a>
                 <a href="search/">搜索</a>
-                <a href="assistant/">AI助手</a>
-                <a href="community/">社区</a>
-                <a href="faq/">FAQ</a>
-                <a href="dashboard/">数据</a>
-                <a href="recommend/">推荐</a>
-                <a href="#country-grid">国家库</a>
-                <a href="tools/">工具</a>
             </nav>
-            <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                <span id="github-stars">Star</span>
-            </a>
-            <a href="en/" class="github-btn" style="margin-left: 8px; background: #f5f5f5; color: #000000; padding: 6px 12px; border: 1px solid #e5e5e5; font-size: 0.875rem;">English</a><button class="theme-toggle" aria-label="切换主题" title="切换主题">🌙</button><button class="mobile-menu-btn" aria-label="打开菜单" aria-expanded="false">☰</button>
+            <div class="header-actions">
+                <a href="https://github.com/kfat77/digital-nomad-cn" class="header-icon-btn" target="_blank" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <button class="menu-toggle header-icon-btn" aria-label="打开菜单" id="menuToggle" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
         </div>
     </header>
 
-    <script>
-        // Fetch GitHub star count
-        fetch('https://api.github.com/repos/kfat77/digital-nomad-cn')
-            .then(r => r.json())
-            .then(data => {
-                const stars = data.stargazers_count;
-                if (stars !== undefined) {
-                    document.getElementById('github-stars').textContent = `⭐ ${stars}`;
-                }
-            })
-            .catch(() => {});
-    </script>
-
-    <!-- Hero -->
-    <section class="hero" id="hero">
-        <div class="hero-content">
-            <div class="hero-tag">
-                <span class="hero-tag-dot"></span>
-                60 国 · 50+ 签证 · 122 城市 · 开源数据
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="移动端菜单">
+        <a href="country/">国家数据库</a>
+        <a href="visa/">签证数据库</a>
+        <a href="articles/">文章</a>
+        <a href="compare/">国家对比</a>
+        <a href="search/">搜索</a>
+        <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a>
+    </nav>
+    <!-- Quick Start Bar -->
+    <div class="quick-start-bar" id="quick-start">
+        <div class="quick-start-inner">
+            <div class="quick-start-label">
+                <span class="quick-start-icon">⚡</span>
+                <span>快速开始</span>
             </div>
-            <h1 class="hero-title">
-                全球数字游民<br><span class="hero-title-accent">一站式数据平台</span>
-            </h1>
-            <p class="hero-desc">
-                面向中国用户的结构化数字游民数据库。生活成本、安全指数、网速评分、签证政策——所有数据开源、可对比、可搜索。
-            </p>
-            <div class="share-target" style="margin-top: 16px;"></div>
-            <div class="hero-btns">
-                <a href="#country-grid" class="btn btn-primary">探索 60 国</a>
-                <a href="compare/" class="btn btn-secondary">国家对比</a>
-                <a href="https://github.com/kfat77/digital-nomad-cn" class="btn btn-secondary" target="_blank">查看源码</a>
+            <div class="quick-start-links">
+                <a href="country/" class="quick-start-btn primary">🌏 国家数据库</a>
+                <a href="visa/" class="quick-start-btn primary">🛂 签证数据库</a>
+                <a href="compare/" class="quick-start-btn secondary">📊 国家对比</a>
+                <a href="search/" class="quick-start-btn secondary">🔍 搜索</a>
+                <a href="articles/" class="quick-start-btn secondary">📚 文章</a>
             </div>
-            <p class="hero-freshness" id="dataFreshness" style="margin-top:16px;font-size:13px;color:var(--muted);opacity:0.8;">数据加载中...</p>
-        </div>
-    </section>
-
-    <!-- 核心基础设施 -->
-    <section class="core-infra-section" id="core-infra">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">核心基础设施</span>
-                <h2 class="section-title">数字游民三大基石</h2>
-                <p class="section-desc">境外银行卡、海外电话卡、全球证券账户——数字游民出海必备的基础设施</p>
-            </div>
-            <div class="core-infra-grid">
-                <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/bank-cards" class="core-infra-card" target="_blank">
-                    <div class="core-infra-icon">💳</div>
-                    <h3>银行卡</h3>
-                    <p>香港汇丰/中银/众安/蚂蚁四卡策略，新加坡 OCBC 远程开户，澳门蚂蚁银行 0 门槛开户</p>
-                    <ul class="core-infra-list">
-                        <li>汇丰/中银/众安/蚂蚁四卡策略</li>
-                        <li>澳门蚂蚁银行 — 0门槛开户</li>
-                        <li>OCBC 新加坡远程开户</li>
-                        <li>Wise 多币种账户注册</li>
-                    </ul>
-                    <span class="core-infra-link">查看攻略 →</span>
-                </a>
-                <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/phone-cards" class="core-infra-card" target="_blank">
-                    <div class="core-infra-icon">📱</div>
-                    <h3>电话卡</h3>
-                    <p>海外实体卡与 eSIM 购买激活教程，低成本保号方案，全球漫游与接收验证码</p>
-                    <ul class="core-infra-list">
-                        <li>Giffgaff 英国卡完整指南</li>
-                        <li>Club SIM 每年仅 6 港币保号</li>
-                        <li>Ultra Mobile 美国保号方案</li>
-                        <li>eSIM 全球流量卡选购</li>
-                    </ul>
-                    <span class="core-infra-link">查看攻略 →</span>
-                </a>
-                <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/securities" class="core-infra-card" target="_blank">
-                    <div class="core-infra-icon">📈</div>
-                    <h3>证券账户</h3>
-                    <p>美股/港股/全球券商开户指南，入金路径规划，CRS 合规与税务优化</p>
-                    <ul class="core-infra-list">
-                        <li>盈透证券 20 分钟开户教程</li>
-                        <li>嘉信理财 0元开户，不走CRS</li>
-                        <li>FSMOne 内地用户可用方案</li>
-                        <li>券商入金最优路径</li>
-                    </ul>
-                    <span class="core-infra-link">查看攻略 →</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- 3D 交互地球 -->
-    <section class="globe-section" id="globe">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">全球探索</span>
-                <h2 class="section-title">点击国家板块，探索全球数字游民目的地</h2>
-                <p class="section-desc">60 个国家与地区的真实地理轮廓，鼠标悬停高亮区域板块，点击进入完整国家数据页</p>
-            </div>
-            <div class="globe-container">
-                <div id="globe-canvas-wrapper"></div>
-                <div class="globe-tooltip" id="globeTooltip"></div>
-                <div class="globe-overlay">
-                    <div class="globe-hint">
-                        <span class="globe-hint-icon">🖱️</span>
-                        <span>拖拽旋转 · 滚轮缩放 · 点击国家板块查看详情</span>
-                    </div>
-                </div>
-                <div class="globe-sidebar" id="globeSidebar"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 国家信息弹窗 -->
-    <div class="country-modal" id="countryModal">
-        <div class="country-modal-backdrop"></div>
-        <div class="country-modal-content">
-            <button class="country-modal-close" aria-label="关闭">&times;</button>
-            <div class="country-modal-header">
-                <span class="country-modal-flag" id="modalFlag"></span>
-                <h3 id="modalTitle"></h3>
-                <span class="country-modal-subtitle" id="modalSubtitle"></span>
-            </div>
-            <div class="country-modal-body" id="modalBody"></div>
         </div>
     </div>
 
-    <!-- Stats Bar -->
-    <section class="stats-bar">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-num" data-count="60">0</div>
-                <div class="stat-label">个国家/地区</div>
-                <div class="stat-desc">结构化数据 + 评分体系</div>
+    <!-- Globe Hero -->
+    <section class="globe-hero" id="hero">
+        <div class="globe-hero-inner">
+            <div class="globe-hero-text">
+                <div class="globe-hero-label">
+                    <span class="globe-hero-label-dot"></span>
+                    100 个国家 · 50+ 签证 · 122 座城市 — 全部开源
+                </div>
+                <h1 class="globe-hero-title">
+                    全球数字游民<br>
+                    <span class="accent-line">一站式数据平台</span>
+                </h1>
+                <p class="globe-hero-desc">
+                    从新加坡到里斯本，我们为每座数字游民目的地建立了档案。点击地球上的国家，探索完整数据与签证攻略。
+                </p>
+                <div class="globe-hero-cta">
+                    <a href="#country-grid" class="btn btn-primary btn-lg">探索国家</a>
+                    <a href="compare/" class="btn btn-outline btn-lg">国家对比</a>
+                    <a href="https://github.com/kfat77/digital-nomad-cn" class="btn btn-outline btn-lg" target="_blank">查看源码</a>
+                </div>
+                <p class="hero-freshness" id="dataFreshness">数据加载中...</p>
             </div>
-            <div class="stat-item">
-                <div class="stat-num" data-count="50">0</div>
-                <div class="stat-label">+ 签证类型</div>
-                <div class="stat-desc">数字游民签证全覆盖</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-num" data-count="122">0</div>
-                <div class="stat-label">个数字游民城市</div>
-                <div class="stat-desc">生活成本、安全、网速</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-num" data-count="100">0</div>
-                <div class="stat-label">% 开源</div>
-                <div class="stat-desc">CC BY-NC-SA 4.0</div>
+            <div class="globe-container">
+                <div id="globe-viz"></div>
             </div>
         </div>
     </section>
 
-    <div class="divider"></div>
+    <!-- Stats Bar -->
+    <section class="stats-bar" id="stats">
+        <div class="stats-grid container">
+            <div class="stat-item reveal">
+                <div class="stat-num count-up" data-count="100">0</div>
+                <div class="stat-label">国家 / 地区</div>
+            </div>
+            <div class="stat-item reveal reveal-delay-1">
+                <div class="stat-num count-up" data-count="50">0</div>
+                <div class="stat-label">签证类型</div>
+            </div>
+            <div class="stat-item reveal reveal-delay-2">
+                <div class="stat-num count-up" data-count="122">0</div>
+                <div class="stat-label">数字游民城市</div>
+            </div>
+            <div class="stat-item reveal reveal-delay-3">
+                <div class="stat-num count-up" data-count="100" data-suffix="%">0</div>
+                <div class="stat-label">开源数据</div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Country Grid by Region -->
-    <section class="country-grid-section" id="country-grid">
+    <!-- Core Infrastructure -->
+    <section class="section" id="core-infra">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">国家数据库</span>
-                <h2 class="section-title">60 国数字游民目的地</h2>
-                <p class="section-desc">按地区浏览，或按签证类型筛选。点击卡片查看完整国家数据页。</p>
+            <div class="section-header reveal">
+                <h2 class="section-title">出海前需要准备的三件事</h2>
+                <p class="section-desc">银行卡、电话卡、证券账户——这三个基础设施弄好了，去任何地方都不会慌。</p>
             </div>
-            
-            <!-- Visa Filters -->
-            <div class="visa-filters">
-                <button class="visa-filter active" data-filter="all">全部</button>
-                <button class="visa-filter" data-filter="visa_free">🛂 免签</button>
-                <button class="visa-filter" data-filter="evisa">📋 电子签</button>
-                <button class="visa-filter" data-filter="visa_on_arrival">🛬 落地签</button>
-                <button class="visa-filter" data-filter="visa_required">📝 需签证</button>
-                <button class="visa-filter" data-filter="nomad">💻 数字游民签证</button>
-            </div>
-            
-            <!-- Region Tabs -->
-            <div class="region-tabs">
-                <button class="region-tab active" data-region="all">全部 <span>60</span></button>
-                <button class="region-tab" data-region="asia">亚洲 <span>15</span></button>
-                <button class="region-tab" data-region="europe">欧洲 <span>17</span></button>
-                <button class="region-tab" data-region="americas_north">北美 <span>3</span></button>
-                <button class="region-tab" data-region="americas_south">南美 <span>3</span></button>
-                <button class="region-tab" data-region="oceania">大洋洲 <span>2</span></button>
-                <button class="region-tab" data-region="africa">非洲 <span>1</span></button>
-                <button class="region-tab" data-region="middle_east">中东 <span>1</span></button>
-            </div>
-            
-            <!-- Country Grid -->
-            <div class="country-grid-wrapper">
-                <div class="region-section" id="region-asia"><h3 class="region-title">亚洲 <span class="region-count">15</span></h3><div class="country-grid"><a href="country/indonesia/index.html" class="country-card" data-region="asia" data-visa="evisa" data-score="76" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇮🇩</span><div class="country-meta"><h4>印度尼西亚</h4><span class="country-score">76</span></div></div><div class="country-card-body"><span class="country-visa badge-info">电子签</span><span class="country-metric">💰 32</span><span class="country-metric">🌐 25 Mbps</span></div></a><a href="country/kazakhstan/index.html" class="country-card" data-region="asia" data-visa="visa_free" data-score="75" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇰🇿</span><div class="country-meta"><h4>哈萨克斯坦</h4><span class="country-score">75</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 30</span><span class="country-metric">🌐 40 Mbps</span></div></a><a href="country/nepal/index.html" class="country-card" data-region="asia" data-visa="visa_free" data-score="71" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇳🇵</span><div class="country-meta"><h4>尼泊尔</h4><span class="country-score">71</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 22</span><span class="country-metric">🌐 15 Mbps</span></div></a><a href="country/srilanka/index.html" class="country-card" data-region="asia" data-visa="evisa" data-score="73" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇱🇰</span><div class="country-meta"><h4>斯里兰卡</h4><span class="country-score">73</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-visa badge-info">电子签</span><span class="country-metric">💰 25</span><span class="country-metric">🌐 20 Mbps</span></div></a><a href="country/singapore/index.html" class="country-card" data-region="asia" data-visa="visa_required" data-score="88" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇸🇬</span><div class="country-meta"><h4>新加坡</h4><span class="country-score">88</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 95.0</span><span class="country-metric">🌐 280 Mbps</span></div></a><a href="country/japan/index.html" class="country-card" data-region="asia" data-visa="visa_required" data-score="87" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇯🇵</span><div class="country-meta"><h4>日本</h4><span class="country-score">87</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 85.0</span><span class="country-metric">🌐 185 Mbps</span></div></a><a href="country/georgia/index.html" class="country-card" data-region="asia" data-visa="visa_free" data-score="82" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇬🇪</span><div class="country-meta"><h4>格鲁吉亚</h4><span class="country-score">82</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 28</span><span class="country-metric">🌐 35 Mbps</span></div></a><a href="country/thailand/index.html" class="country-card" data-region="asia" data-visa="visa_free" data-score="85" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇹🇭</span><div class="country-meta"><h4>泰国</h4><span class="country-score">85</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 45.0</span><span class="country-metric">🌐 200 Mbps</span></div></a><a href="country/macao/index.html" class="country-card" data-region="asia" data-visa="visa_required" data-score="65" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇲🇴</span><div class="country-meta"><h4>澳门</h4><span class="country-score">65</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 70.0</span><span class="country-metric">🌐 180 Mbps</span></div></a><a href="country/philippines/index.html" class="country-card" data-region="asia" data-visa="visa_required" data-score="74" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇵🇭</span><div class="country-meta"><h4>菲律宾</h4><span class="country-score">74</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 35</span><span class="country-metric">🌐 30 Mbps</span></div></a><a href="country/mongolia/index.html" class="country-card" data-region="asia" data-visa="visa_free" data-score="72" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇲🇳</span><div class="country-meta"><h4>蒙古</h4><span class="country-score">72</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 28</span><span class="country-metric">🌐 20 Mbps</span></div></a><a href="country/vietnam/index.html" class="country-card" data-region="asia" data-visa="evisa" data-score="75" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇻🇳</span><div class="country-meta"><h4>越南</h4><span class="country-score">75</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-visa badge-info">电子签</span><span class="country-metric">💰 35.0</span><span class="country-metric">🌐 120 Mbps</span></div></a><a href="country/southkorea/index.html" class="country-card" data-region="asia" data-visa="visa_required" data-score="80" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇰🇷</span><div class="country-meta"><h4>韩国</h4><span class="country-score">80</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 78.0</span><span class="country-metric">🌐 220 Mbps</span></div></a><a href="country/hongkong/index.html" class="country-card" data-region="asia" data-visa="visa_required" data-score="82" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇭🇰</span><div class="country-meta"><h4>香港</h4><span class="country-score">82</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 85.0</span><span class="country-metric">🌐 250 Mbps</span></div></a><a href="country/malaysia/index.html" class="country-card" data-region="asia" data-visa="visa_free" data-score="78" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇲🇾</span><div class="country-meta"><h4>马来西亚</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 40.0</span><span class="country-metric">🌐 150 Mbps</span></div></a></div></div>
-<div class="region-section" id="region-europe"><h3 class="region-title">欧洲 <span class="region-count">17</span></h3><div class="country-grid"><a href="country/denmark/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="77" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇩🇰</span><div class="country-meta"><h4>丹麦</h4><span class="country-score">77</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 82</span><span class="country-metric">🌐 150 Mbps</span></div></a><a href="country/croatia/index.html" class="country-card" data-region="europe" data-visa="evisa" data-score="75" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇭🇷</span><div class="country-meta"><h4>克罗地亚</h4><span class="country-score">75</span></div></div><div class="country-card-body"><span class="country-visa badge-info">电子签</span><span class="country-metric">💰 48</span><span class="country-metric">🌐 55 Mbps</span></div></a><a href="country/iceland/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="78" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇮🇸</span><div class="country-meta"><h4>冰岛</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 85</span><span class="country-metric">🌐 200 Mbps</span></div></a><a href="country/turkey/index.html" class="country-card" data-region="europe" data-visa="evisa" data-score="74" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇹🇷</span><div class="country-meta"><h4>土耳其</h4><span class="country-score">74</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-visa badge-info">电子签</span><span class="country-metric">💰 32</span><span class="country-metric">🌐 35 Mbps</span></div></a><a href="country/cyprus/index.html" class="country-card" data-region="europe" data-visa="evisa" data-score="80" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇨🇾</span><div class="country-meta"><h4>塞浦路斯</h4><span class="country-score">80</span></div></div><div class="country-card-body"><span class="country-visa badge-info">电子签</span><span class="country-metric">💰 55</span><span class="country-metric">🌐 50 Mbps</span></div></a><a href="country/austria/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="76" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇦🇹</span><div class="country-meta"><h4>奥地利</h4><span class="country-score">76</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 70</span><span class="country-metric">🌐 80 Mbps</span></div></a><a href="country/greece/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="78" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇬🇷</span><div class="country-meta"><h4>希腊</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 52</span><span class="country-metric">🌐 45 Mbps</span></div></a><a href="country/germany/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="78" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇩🇪</span><div class="country-meta"><h4>德国</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 72.0</span><span class="country-metric">🌐 120 Mbps</span></div></a><a href="country/norway/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="80" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇳🇴</span><div class="country-meta"><h4>挪威</h4><span class="country-score">80</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 88</span><span class="country-metric">🌐 180 Mbps</span></div></a><a href="country/france/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="77" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇫🇷</span><div class="country-meta"><h4>法国</h4><span class="country-score">77</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 75.0</span><span class="country-metric">🌐 130 Mbps</span></div></a><a href="country/ireland/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="76" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇮🇪</span><div class="country-meta"><h4>爱尔兰</h4><span class="country-score">76</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 78</span><span class="country-metric">🌐 120 Mbps</span></div></a><a href="country/estonia/index.html" class="country-card" data-region="europe" data-visa="evisa" data-score="80" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇪🇪</span><div class="country-meta"><h4>爱沙尼亚</h4><span class="country-score">80</span></div></div><div class="country-card-body"><span class="country-visa badge-info">电子签</span><span class="country-metric">💰 60.0</span><span class="country-metric">🌐 100 Mbps</span></div></a><a href="country/switzerland/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="75" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇨🇭</span><div class="country-meta"><h4>瑞士</h4><span class="country-score">75</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 95</span><span class="country-metric">🌐 170 Mbps</span></div></a><a href="country/uk/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="75" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇬🇧</span><div class="country-meta"><h4>英国</h4><span class="country-score">75</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 80.0</span><span class="country-metric">🌐 110 Mbps</span></div></a><a href="country/netherlands/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="82" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇳🇱</span><div class="country-meta"><h4>荷兰</h4><span class="country-score">82</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 78.0</span><span class="country-metric">🌐 180 Mbps</span></div></a><a href="country/portugal/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="88" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇵🇹</span><div class="country-meta"><h4>葡萄牙</h4><span class="country-score">88</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 55.0</span><span class="country-metric">🌐 150 Mbps</span></div></a><a href="country/spain/index.html" class="country-card" data-region="europe" data-visa="visa_required" data-score="86" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇪🇸</span><div class="country-meta"><h4>西班牙</h4><span class="country-score">86</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 58.0</span><span class="country-metric">🌐 170 Mbps</span></div></a></div></div>
-<div class="region-section" id="region-americas_north"><h3 class="region-title">北美 <span class="region-count">3</span></h3><div class="country-grid"><a href="country/canada/index.html" class="country-card" data-region="americas_north" data-visa="visa_required" data-score="77" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇨🇦</span><div class="country-meta"><h4>加拿大</h4><span class="country-score">77</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 75.0</span><span class="country-metric">🌐 170 Mbps</span></div></a><a href="country/mexico/index.html" class="country-card" data-region="americas_north" data-visa="evisa" data-score="72" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇲🇽</span><div class="country-meta"><h4>墨西哥</h4><span class="country-score">72</span></div></div><div class="country-card-body"><span class="country-visa badge-info">电子签</span><span class="country-metric">💰 38</span><span class="country-metric">🌐 40 Mbps</span></div></a><a href="country/usa/index.html" class="country-card" data-region="americas_north" data-visa="visa_required" data-score="72" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇺🇸</span><div class="country-meta"><h4>美国</h4><span class="country-score">72</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 88.0</span><span class="country-metric">🌐 250 Mbps</span></div></a></div></div>
-<div class="region-section" id="region-americas_south"><h3 class="region-title">南美 <span class="region-count">3</span></h3><div class="country-grid"><a href="country/brazil/index.html" class="country-card" data-region="americas_south" data-visa="visa_required" data-score="70" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇧🇷</span><div class="country-meta"><h4>巴西</h4><span class="country-score">70</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 40</span><span class="country-metric">🌐 55 Mbps</span></div></a><a href="country/chile/index.html" class="country-card" data-region="americas_south" data-visa="visa_required" data-score="72" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇨🇱</span><div class="country-meta"><h4>智利</h4><span class="country-score">72</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 45</span><span class="country-metric">🌐 80 Mbps</span></div></a><a href="country/argentina/index.html" class="country-card" data-region="americas_south" data-visa="evisa" data-score="68" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇦🇷</span><div class="country-meta"><h4>阿根廷</h4><span class="country-score">68</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-visa badge-info">电子签</span><span class="country-metric">💰 35</span><span class="country-metric">🌐 30 Mbps</span></div></a></div></div>
-<div class="region-section" id="region-oceania"><h3 class="region-title">大洋洲 <span class="region-count">2</span></h3><div class="country-grid"><a href="country/newzealand/index.html" class="country-card" data-region="oceania" data-visa="visa_required" data-score="76" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇳🇿</span><div class="country-meta"><h4>新西兰</h4><span class="country-score">76</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 78.0</span><span class="country-metric">🌐 150 Mbps</span></div></a><a href="country/australia/index.html" class="country-card" data-region="oceania" data-visa="visa_required" data-score="78" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇦🇺</span><div class="country-meta"><h4>澳大利亚</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-visa badge-danger">需签证</span><span class="country-metric">💰 82.0</span><span class="country-metric">🌐 80 Mbps</span></div></a></div></div>
-<div class="region-section" id="region-africa"><h3 class="region-title">非洲 <span class="region-count">1</span></h3><div class="country-grid"><a href="country/morocco/index.html" class="country-card" data-region="africa" data-visa="visa_free" data-score="76" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇲🇦</span><div class="country-meta"><h4>摩洛哥</h4><span class="country-score">76</span></div><span class="country-new-badge">NEW</span></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 30</span><span class="country-metric">🌐 25 Mbps</span></div></a></div></div>
-<div class="region-section" id="region-middle_east"><h3 class="region-title">中东 <span class="region-count">1</span></h3><div class="country-grid"><a href="country/uae/index.html" class="country-card" data-region="middle_east" data-visa="visa_free" data-score="85" data-has-nomad-visa="false"><div class="country-card-header"><span class="country-flag">🇦🇪</span><div class="country-meta"><h4>阿联酋</h4><span class="country-score">85</span></div></div><div class="country-card-body"><span class="country-visa badge-success">免签</span><span class="country-metric">💰 70.0</span><span class="country-metric">🌐 300 Mbps</span></div></a></div></div>
+            <div class="infra-grid">
+                <a href="articles/digital-nomad-banking-guide/" class="infra-card glass-card reveal">
+                    <div class="infra-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                    </div>
+                    <h3>银行卡</h3>
+                    <p>香港汇丰、中银、众安、蚂蚁四卡策略，新加坡 OCBC 远程开户，澳门蚂蚁银行零门槛。</p>
+                    <ul class="infra-card-list">
+                        <li>四卡策略完整方案</li>
+                        <li>澳门蚂蚁银行开户</li>
+                        <li>OCBC 远程开户</li>
+                        <li>Wise 多币种账户</li>
+                    </ul>
+                    <span class="infra-card-link">查看攻略 →</span>
+                </a>
+                <a href="articles/giffgaff-guide-2026/" class="infra-card glass-card reveal reveal-delay-1">
+                    <div class="infra-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                    </div>
+                    <h3>电话卡</h3>
+                    <p>海外实体卡与 eSIM 购买教程，低成本保号方案，全球漫游与接收验证码。</p>
+                    <ul class="infra-card-list">
+                        <li>Giffgaff 英国卡</li>
+                        <li>Club SIM 每年 6 港币保号</li>
+                        <li>Ultra Mobile 美国保号</li>
+                        <li>eSIM 全球流量卡</li>
+                    </ul>
+                    <span class="infra-card-link">查看攻略 →</span>
+                </a>
+                <a href="articles/securities-guide/" class="infra-card glass-card reveal reveal-delay-2">
+                    <div class="infra-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <h3>证券账户</h3>
+                    <p>美股、港股、全球券商开户，入金路径规划，CRS 合规与税务优化。</p>
+                    <ul class="infra-card-list">
+                        <li>盈透证券 20 分钟开户</li>
+                        <li>嘉信理财零元开户</li>
+                        <li>FSMOne 内地可用方案</li>
+                        <li>券商入金最优路径</li>
+                    </ul>
+                    <span class="infra-card-link">查看攻略 →</span>
+                </a>
             </div>
         </div>
     </section>
@@ -264,90 +1857,129 @@
     <div class="divider"></div>
 
     <!-- Trending Destinations -->
-    <section class="trending-section" id="trending">
+    <section class="section" id="trending">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">热门推荐</span>
-                <h2 class="section-title">数字游民热门目的地 TOP 8</h2>
-                <p class="section-desc">综合生活成本、安全指数、网速、社区活跃度评出的最佳数字游民目的地</p>
+            <div class="section-header reveal">
+                <h2 class="section-title">热门目的地</h2>
+                <p class="section-desc">综合生活成本、安全、网速和社区活跃度，目前排名靠前的数字游民城市。</p>
             </div>
-            <div class="trending-grid">
-                <a href="country/singapore/index.html" class="trending-card"><div class="trending-rank">1</div><div class="trending-flag">🇸🇬</div><div class="trending-info"><h4>新加坡</h4><div class="trending-metrics"><span>💰 95.0</span><span>🌐 280</span><span>🛡️ 91.0</span></div><span class="trending-visa badge-danger">需签证</span></div><div class="trending-score">88</div></a>
-<a href="country/portugal/index.html" class="trending-card"><div class="trending-rank">2</div><div class="trending-flag">🇵🇹</div><div class="trending-info"><h4>葡萄牙</h4><div class="trending-metrics"><span>💰 55.0</span><span>🌐 150</span><span>🛡️ 72.0</span></div><span class="trending-visa badge-danger">需签证</span></div><div class="trending-score">88</div></a>
-<a href="country/japan/index.html" class="trending-card"><div class="trending-rank">3</div><div class="trending-flag">🇯🇵</div><div class="trending-info"><h4>日本</h4><div class="trending-metrics"><span>💰 85.0</span><span>🌐 185</span><span>🛡️ 92.0</span></div><span class="trending-visa badge-danger">需签证</span></div><div class="trending-score">87</div></a>
-<a href="country/spain/index.html" class="trending-card"><div class="trending-rank">4</div><div class="trending-flag">🇪🇸</div><div class="trending-info"><h4>西班牙</h4><div class="trending-metrics"><span>💰 58.0</span><span>🌐 170</span><span>🛡️ 70.0</span></div><span class="trending-visa badge-danger">需签证</span></div><div class="trending-score">86</div></a>
-<a href="country/thailand/index.html" class="trending-card"><div class="trending-rank">5</div><div class="trending-flag">🇹🇭</div><div class="trending-info"><h4>泰国</h4><div class="trending-metrics"><span>💰 45.0</span><span>🌐 200</span><span>🛡️ 65.0</span></div><span class="trending-visa badge-success">免签</span></div><div class="trending-score">85</div></a>
-<a href="country/uae/index.html" class="trending-card"><div class="trending-rank">6</div><div class="trending-flag">🇦🇪</div><div class="trending-info"><h4>阿联酋</h4><div class="trending-metrics"><span>💰 70.0</span><span>🌐 300</span><span>🛡️ 88.0</span></div><span class="trending-visa badge-success">免签</span></div><div class="trending-score">85</div></a>
-<a href="country/georgia/index.html" class="trending-card"><div class="trending-rank">7</div><div class="trending-flag">🇬🇪</div><div class="trending-info"><h4>格鲁吉亚</h4><div class="trending-metrics"><span>💰 28</span><span>🌐 35</span><span>🛡️ 72</span></div><span class="trending-visa badge-success">免签</span></div><div class="trending-score">82</div></a>
-<a href="country/netherlands/index.html" class="trending-card"><div class="trending-rank">8</div><div class="trending-flag">🇳🇱</div><div class="trending-info"><h4>荷兰</h4><div class="trending-metrics"><span>💰 78.0</span><span>🌐 180</span><span>🛡️ 72.0</span></div><span class="trending-visa badge-danger">需签证</span></div><div class="trending-score">82</div></a>
+            <div class="trending-grid stagger-children" id="trendingGrid">
+<a href="country/singapore/index.html" class="trending-card glass-card stagger-item"><div class="trending-rank">1</div><div class="trending-info"><h4>新加坡</h4><div class="trending-metrics"><span>生活成本 95</span><span>网速 280</span><span>安全 91</span></div><span class="country-badge badge-danger">需签证</span><div class="trending-data-mini"><span>👥 604万</span><span>💰 94,897美元</span></div></div><div class="trending-score">88</div></a>
+<a href="country/portugal/index.html" class="trending-card glass-card stagger-item"><div class="trending-rank">2</div><div class="trending-info"><h4>葡萄牙</h4><div class="trending-metrics"><span>生活成本 55</span><span>网速 150</span><span>安全 72</span></div><span class="country-badge badge-danger">需签证</span><div class="trending-data-mini"><span>👥 1,069万</span><span>💰 29,328美元</span></div></div><div class="trending-score">88</div></a>
+<a href="country/japan/index.html" class="trending-card glass-card stagger-item"><div class="trending-rank">3</div><div class="trending-info"><h4>日本</h4><div class="trending-metrics"><span>生活成本 85</span><span>网速 185</span><span>安全 92</span></div><span class="country-badge badge-danger">需签证</span><div class="trending-data-mini"><span>👥 1.24亿</span><span>💰 33,797美元</span></div></div><div class="trending-score">87</div></a>
+<a href="country/spain/index.html" class="trending-card glass-card stagger-item"><div class="trending-rank">4</div><div class="trending-info"><h4>西班牙</h4><div class="trending-metrics"><span>生活成本 58</span><span>网速 170</span><span>安全 70</span></div><span class="country-badge badge-danger">需签证</span><div class="trending-data-mini"><span>👥 4,885万</span><span>💰 35,327美元</span></div></div><div class="trending-score">86</div></a>
+<a href="country/thailand/index.html" class="trending-card glass-card stagger-item"><div class="trending-rank">5</div><div class="trending-info"><h4>泰国</h4><div class="trending-metrics"><span>生活成本 45</span><span>网速 200</span><span>安全 65</span></div><span class="country-badge badge-success">免签</span><div class="trending-data-mini"><span>👥 7,167万</span><span>💰 7,387美元</span></div></div><div class="trending-score">85</div></a>
+<a href="country/uae/index.html" class="trending-card glass-card stagger-item"><div class="trending-rank">6</div><div class="trending-info"><h4>阿联酋</h4><div class="trending-metrics"><span>生活成本 70</span><span>网速 300</span><span>安全 88</span></div><span class="country-badge badge-success">免签</span><div class="trending-data-mini"><span>👥 1,099万</span><span>💰 50,274美元</span></div></div><div class="trending-score">85</div></a>
+<a href="country/netherlands/index.html" class="trending-card glass-card stagger-item"><div class="trending-rank">8</div><div class="trending-info"><h4>荷兰</h4><div class="trending-metrics"><span>生活成本 78</span><span>网速 180</span><span>安全 72</span></div><span class="country-badge badge-danger">需签证</span><div class="trending-data-mini"><span>👥 1,799万</span><span>💰 67,465美元</span></div></div><div class="trending-score">82</div></a>
             </div>
         </div>
     </section>
 
     <div class="divider"></div>
 
-    <!-- New Arrivals -->
-    <section class="new-arrivals-section" id="new-arrivals">
+<div class="divider"></div>
+
+    <!-- Country Grid -->
+    <section class="section" id="country-grid">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">新上线</span>
-                <h2 class="section-title">最新加入数据库</h2>
-                <p class="section-desc">最近新增 16 个国家与地区，覆盖南美、非洲、北欧、中欧等新兴数字游民目的地</p>
+            <div class="section-header reveal">
+                <h2 class="section-title">国家数据库</h2>
+                <p class="section-desc">37 个数字游民目的地，数据来自世界银行 2024。人口、面积、人均GDP、签证、生活成本、网速一键对比。</p>
             </div>
-            <div class="new-arrivals-grid">
-                <a href="country/denmark/index.html" class="new-card"><span class="new-flag">🇩🇰</span><div class="new-info"><h4>丹麦</h4><span class="new-score">77 分</span><span class="new-visa badge-danger">需签证</span></div></a>
-<a href="country/kazakhstan/index.html" class="new-card"><span class="new-flag">🇰🇿</span><div class="new-info"><h4>哈萨克斯坦</h4><span class="new-score">75 分</span><span class="new-visa badge-success">免签</span></div></a>
-<a href="country/turkey/index.html" class="new-card"><span class="new-flag">🇹🇷</span><div class="new-info"><h4>土耳其</h4><span class="new-score">74 分</span><span class="new-visa badge-info">电子签</span></div></a>
-<a href="country/austria/index.html" class="new-card"><span class="new-flag">🇦🇹</span><div class="new-info"><h4>奥地利</h4><span class="new-score">76 分</span><span class="new-visa badge-danger">需签证</span></div></a>
-<a href="country/nepal/index.html" class="new-card"><span class="new-flag">🇳🇵</span><div class="new-info"><h4>尼泊尔</h4><span class="new-score">71 分</span><span class="new-visa badge-success">免签</span></div></a>
-<a href="country/brazil/index.html" class="new-card"><span class="new-flag">🇧🇷</span><div class="new-info"><h4>巴西</h4><span class="new-score">70 分</span><span class="new-visa badge-danger">需签证</span></div></a>
-<a href="country/norway/index.html" class="new-card"><span class="new-flag">🇳🇴</span><div class="new-info"><h4>挪威</h4><span class="new-score">80 分</span><span class="new-visa badge-danger">需签证</span></div></a>
-<a href="country/morocco/index.html" class="new-card"><span class="new-flag">🇲🇦</span><div class="new-info"><h4>摩洛哥</h4><span class="new-score">76 分</span><span class="new-visa badge-success">免签</span></div></a>
-<a href="country/srilanka/index.html" class="new-card"><span class="new-flag">🇱🇰</span><div class="new-info"><h4>斯里兰卡</h4><span class="new-score">73 分</span><span class="new-visa badge-info">电子签</span></div></a>
-<a href="country/chile/index.html" class="new-card"><span class="new-flag">🇨🇱</span><div class="new-info"><h4>智利</h4><span class="new-score">72 分</span><span class="new-visa badge-danger">需签证</span></div></a>
-<a href="country/macao/index.html" class="new-card"><span class="new-flag">🇲🇴</span><div class="new-info"><h4>澳门</h4><span class="new-score">65 分</span><span class="new-visa badge-danger">需签证</span></div></a>
-<a href="country/switzerland/index.html" class="new-card"><span class="new-flag">🇨🇭</span><div class="new-info"><h4>瑞士</h4><span class="new-score">75 分</span><span class="new-visa badge-danger">需签证</span></div></a>
-<a href="country/mongolia/index.html" class="new-card"><span class="new-flag">🇲🇳</span><div class="new-info"><h4>蒙古</h4><span class="new-score">72 分</span><span class="new-visa badge-success">免签</span></div></a>
-<a href="country/vietnam/index.html" class="new-card"><span class="new-flag">🇻🇳</span><div class="new-info"><h4>越南</h4><span class="new-score">75 分</span><span class="new-visa badge-info">电子签</span></div></a>
-<a href="country/argentina/index.html" class="new-card"><span class="new-flag">🇦🇷</span><div class="new-info"><h4>阿根廷</h4><span class="new-score">68 分</span><span class="new-visa badge-info">电子签</span></div></a>
-<a href="country/southkorea/index.html" class="new-card"><span class="new-flag">🇰🇷</span><div class="new-info"><h4>韩国</h4><span class="new-score">80 分</span><span class="new-visa badge-danger">需签证</span></div></a>
+            <div class="filters-bar reveal">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="visa_free">免签</button>
+                <button class="filter-btn" data-filter="evisa">电子签</button>
+                <button class="filter-btn" data-filter="visa_required">需签证</button>
+            </div>
+            <div class="region-tabs reveal">
+                <button class="region-tab active" data-region="all">全部 <span>37</span></button>
+                <button class="region-tab" data-region="asia">亚洲 <span>13</span></button>
+                <button class="region-tab" data-region="europe">欧洲 <span>17</span></button>
+                <button class="region-tab" data-region="americas_north">北美 <span>3</span></button>
+                <button class="region-tab" data-region="oceania">大洋洲 <span>2</span></button>
+                <button class="region-tab" data-region="africa">非洲 <span>1</span></button>
+                <button class="region-tab" data-region="middle_east">中东 <span>1</span></button>
+            </div>
+            <div class="country-grid-wrapper" id="countryGridWrapper">
+                <div class="region-section" id="region-asia">
+                    <h3 class="region-title">亚洲 <span class="region-count">13</span></h3>
+                    <div class="country-grid">
+                        <a href="country/indonesia/index.html" class="country-card glass-card" data-region="asia" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇮🇩</span><div class="country-meta"><h4>印度尼西亚</h4><span class="country-score">76</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 32</span><span class="country-metric">网速 25</span></div><div class="country-data-row"><span class="data-item">👥 2.83亿</span><span class="data-item">📐 189.3万km²</span><span class="data-item">💰 4,925美元</span></div></a><a href="country/kazakhstan/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇰🇿</span><div class="country-meta"><h4>哈萨克斯坦</h4><span class="country-score">75</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 30</span><span class="country-metric">网速 40</span></div><div class="country-data-row"><span class="data-item">👥 2,059万</span><span class="data-item">📐 270.0万km²</span><span class="data-item">💰 14,155美元</span></div></a><a href="country/srilanka/index.html" class="country-card glass-card" data-region="asia" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇱🇰</span><div class="country-meta"><h4>斯里兰卡</h4><span class="country-score">73</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 25</span><span class="country-metric">网速 20</span></div><div class="country-data-row"><span class="data-item">👥 2,192万</span><span class="data-item">📐 6.2万km²</span><span class="data-item">💰 4,545美元</span></div></a><a href="country/singapore/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇸🇬</span><div class="country-meta"><h4>新加坡</h4><span class="country-score">88</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 95</span><span class="country-metric">网速 280</span></div><div class="country-data-row"><span class="data-item">👥 604万</span><span class="data-item">📐 718km²</span><span class="data-item">💰 94,897美元</span></div></a><a href="country/japan/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇯🇵</span><div class="country-meta"><h4>日本</h4><span class="country-score">87</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 85</span><span class="country-metric">网速 185</span></div><div class="country-data-row"><span class="data-item">👥 1.24亿</span><span class="data-item">📐 36.5万km²</span><span class="data-item">💰 33,797美元</span></div></a><a href="country/thailand/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇹🇭</span><div class="country-meta"><h4>泰国</h4><span class="country-score">85</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 45</span><span class="country-metric">网速 200</span></div><div class="country-data-row"><span class="data-item">👥 7,167万</span><span class="data-item">📐 51.1万km²</span><span class="data-item">💰 7,387美元</span></div></a><a href="country/macao/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇲🇴</span><div class="country-meta"><h4>澳门</h4><span class="country-score">65</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 70</span><span class="country-metric">网速 180</span></div><div class="country-data-row"><span class="data-item">👥 68.7万</span><span class="data-item">📐 33km²</span><span class="data-item">💰 72,005美元</span></div></a><a href="country/philippines/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇵🇭</span><div class="country-meta"><h4>菲律宾</h4><span class="country-score">74</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 35</span><span class="country-metric">网速 30</span></div><div class="country-data-row"><span class="data-item">👥 1.16亿</span><span class="data-item">📐 29.8万km²</span><span class="data-item">💰 3,985美元</span></div></a><a href="country/mongolia/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇳</span><div class="country-meta"><h4>蒙古</h4><span class="country-score">72</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 28</span><span class="country-metric">网速 20</span></div><div class="country-data-row"><span class="data-item">👥 352万</span><span class="data-item">📐 155.9万km²</span><span class="data-item">💰 6,751美元</span></div></a><a href="country/vietnam/index.html" class="country-card glass-card" data-region="asia" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇻🇳</span><div class="country-meta"><h4>越南</h4><span class="country-score">75</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 35</span><span class="country-metric">网速 120</span></div><div class="country-data-row"><span class="data-item">👥 1.01亿</span><span class="data-item">📐 31.3万km²</span><span class="data-item">💰 4,717美元</span></div></a><a href="country/southkorea/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇰🇷</span><div class="country-meta"><h4>韩国</h4><span class="country-score">80</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 220</span></div><div class="country-data-row"><span class="data-item">👥 5,175万</span><span class="data-item">📐 9.76万km²</span><span class="data-item">💰 36,239美元</span></div></a><a href="country/hongkong/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇭🇰</span><div class="country-meta"><h4>香港</h4><span class="country-score">82</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 85</span><span class="country-metric">网速 250</span></div><div class="country-data-row"><span class="data-item">👥 752万</span><span class="data-item">📐 1,050km²</span><span class="data-item">💰 54,275美元</span></div></a><a href="country/malaysia/index.html" class="country-card glass-card" data-region="asia" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇾</span><div class="country-meta"><h4>马来西亚</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 40</span><span class="country-metric">网速 150</span></div><div class="country-data-row"><span class="data-item">👥 3,556万</span><span class="data-item">📐 32.9万km²</span><span class="data-item">💰 11,874美元</span></div></a>
+                    </div>
+                </div>
+                <div class="region-section" id="region-europe">
+                    <h3 class="region-title">欧洲 <span class="region-count">17</span></h3>
+                    <div class="country-grid">
+                        <a href="country/denmark/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇩🇰</span><div class="country-meta"><h4>丹麦</h4><span class="country-score">77</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 82</span><span class="country-metric">网速 150</span></div><div class="country-data-row"><span class="data-item">👥 598万</span><span class="data-item">📐 4.0万km²</span><span class="data-item">💰 71,026美元</span></div></a><a href="country/croatia/index.html" class="country-card glass-card" data-region="europe" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇭🇷</span><div class="country-meta"><h4>克罗地亚</h4><span class="country-score">75</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 48</span><span class="country-metric">网速 55</span></div><div class="country-data-row"><span class="data-item">👥 387万</span><span class="data-item">📐 5.6万km²</span><span class="data-item">💰 24,050美元</span></div></a><a href="country/iceland/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇮🇸</span><div class="country-meta"><h4>冰岛</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 85</span><span class="country-metric">网速 200</span></div><div class="country-data-row"><span class="data-item">👥 39万</span><span class="data-item">📐 10.1万km²</span><span class="data-item">💰 85,863美元</span></div></a><a href="country/turkey/index.html" class="country-card glass-card" data-region="europe" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇹🇷</span><div class="country-meta"><h4>土耳其</h4><span class="country-score">74</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 32</span><span class="country-metric">网速 35</span></div><div class="country-data-row"><span class="data-item">👥 8,552万</span><span class="data-item">📐 77.0万km²</span><span class="data-item">💰 15,893美元</span></div></a><a href="country/cyprus/index.html" class="country-card glass-card" data-region="europe" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇨🇾</span><div class="country-meta"><h4>塞浦路斯</h4><span class="country-score">80</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 55</span><span class="country-metric">网速 50</span></div><div class="country-data-row"><span class="data-item">👥 136万</span><span class="data-item">📐 9,240km²</span><span class="data-item">💰 38,674美元</span></div></a><a href="country/austria/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇦🇹</span><div class="country-meta"><h4>奥地利</h4><span class="country-score">76</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 70</span><span class="country-metric">网速 80</span></div><div class="country-data-row"><span class="data-item">👥 918万</span><span class="data-item">📐 8.3万km²</span><span class="data-item">💰 58,269美元</span></div></a><a href="country/greece/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇬🇷</span><div class="country-meta"><h4>希腊</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 52</span><span class="country-metric">网速 45</span></div><div class="country-data-row"><span class="data-item">👥 1,041万</span><span class="data-item">📐 12.9万km²</span><span class="data-item">💰 24,626美元</span></div></a><a href="country/germany/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇩🇪</span><div class="country-meta"><h4>德国</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 72</span><span class="country-metric">网速 120</span></div><div class="country-data-row"><span class="data-item">👥 8,352万</span><span class="data-item">📐 34.9万km²</span><span class="data-item">💰 56,104美元</span></div></a><a href="country/norway/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇳🇴</span><div class="country-meta"><h4>挪威</h4><span class="country-score">80</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 88</span><span class="country-metric">网速 180</span></div><div class="country-data-row"><span class="data-item">👥 557万</span><span class="data-item">📐 36.4万km²</span><span class="data-item">💰 89,889美元</span></div></a><a href="country/france/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇫🇷</span><div class="country-meta"><h4>法国</h4><span class="country-score">77</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 75</span><span class="country-metric">网速 130</span></div><div class="country-data-row"><span class="data-item">👥 6,855万</span><span class="data-item">📐 53.9万km²</span><span class="data-item">💰 46,103美元</span></div></a><a href="country/ireland/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇮🇪</span><div class="country-meta"><h4>爱尔兰</h4><span class="country-score">76</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 120</span></div><div class="country-data-row"><span class="data-item">👥 540万</span><span class="data-item">📐 6.9万km²</span><span class="data-item">💰 112,895美元</span></div></a><a href="country/estonia/index.html" class="country-card glass-card" data-region="europe" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇪🇪</span><div class="country-meta"><h4>爱沙尼亚</h4><span class="country-score">80</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 60</span><span class="country-metric">网速 100</span></div><div class="country-data-row"><span class="data-item">👥 137万</span><span class="data-item">📐 4.3万km²</span><span class="data-item">💰 31,428美元</span></div></a><a href="country/switzerland/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇨🇭</span><div class="country-meta"><h4>瑞士</h4><span class="country-score">75</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 95</span><span class="country-metric">网速 170</span></div><div class="country-data-row"><span class="data-item">👥 901万</span><span class="data-item">📐 3.95万km²</span><span class="data-item">💰 107,702美元</span></div></a><a href="country/uk/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇬🇧</span><div class="country-meta"><h4>英国</h4><span class="country-score">75</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 80</span><span class="country-metric">网速 110</span></div><div class="country-data-row"><span class="data-item">👥 6,928万</span><span class="data-item">📐 24.2万km²</span><span class="data-item">💰 53,341美元</span></div></a><a href="country/netherlands/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇳🇱</span><div class="country-meta"><h4>荷兰</h4><span class="country-score">82</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 180</span></div><div class="country-data-row"><span class="data-item">👥 1,799万</span><span class="data-item">📐 3.37万km²</span><span class="data-item">💰 67,465美元</span></div></a><a href="country/portugal/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇵🇹</span><div class="country-meta"><h4>葡萄牙</h4><span class="country-score">88</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 55</span><span class="country-metric">网速 150</span></div><div class="country-data-row"><span class="data-item">👥 1,069万</span><span class="data-item">📐 9.16万km²</span><span class="data-item">💰 29,328美元</span></div></a><a href="country/spain/index.html" class="country-card glass-card" data-region="europe" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇪🇸</span><div class="country-meta"><h4>西班牙</h4><span class="country-score">86</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 58</span><span class="country-metric">网速 170</span></div><div class="country-data-row"><span class="data-item">👥 4,885万</span><span class="data-item">📐 50.0万km²</span><span class="data-item">💰 35,327美元</span></div></a>
+                    </div>
+                </div>
+                <div class="region-section" id="region-americas_north">
+                    <h3 class="region-title">北美 <span class="region-count">3</span></h3>
+                    <div class="country-grid">
+                        <a href="country/canada/index.html" class="country-card glass-card" data-region="americas_north" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇨🇦</span><div class="country-meta"><h4>加拿大</h4><span class="country-score">77</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 75</span><span class="country-metric">网速 170</span></div><div class="country-data-row"><span class="data-item">👥 4,126万</span><span class="data-item">📐 878.9万km²</span><span class="data-item">💰 55,016美元</span></div></a><a href="country/mexico/index.html" class="country-card glass-card" data-region="americas_north" data-visa="evisa"><div class="country-card-header"><span class="country-flag">🇲🇽</span><div class="country-meta"><h4>墨西哥</h4><span class="country-score">72</span></div></div><div class="country-card-body"><span class="country-badge badge-info">电子签</span><span class="country-metric">生活 38</span><span class="country-metric">网速 40</span></div><div class="country-data-row"><span class="data-item">👥 1.31亿</span><span class="data-item">📐 194.4万km²</span><span class="data-item">💰 13,988美元</span></div></a><a href="country/usa/index.html" class="country-card glass-card" data-region="americas_north" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇺🇸</span><div class="country-meta"><h4>美国</h4><span class="country-score">72</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 88</span><span class="country-metric">网速 250</span></div><div class="country-data-row"><span class="data-item">👥 3.40亿</span><span class="data-item">📐 914.7万km²</span><span class="data-item">💰 86,170美元</span></div></a>
+                    </div>
+                </div>
+                <div class="region-section" id="region-oceania">
+                    <h3 class="region-title">大洋洲 <span class="region-count">2</span></h3>
+                    <div class="country-grid">
+                        <a href="country/newzealand/index.html" class="country-card glass-card" data-region="oceania" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇳🇿</span><div class="country-meta"><h4>新西兰</h4><span class="country-score">76</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 78</span><span class="country-metric">网速 150</span></div><div class="country-data-row"><span class="data-item">👥 529万</span><span class="data-item">📐 26.3万km²</span><span class="data-item">💰 49,432美元</span></div></a><a href="country/australia/index.html" class="country-card glass-card" data-region="oceania" data-visa="visa_required"><div class="country-card-header"><span class="country-flag">🇦🇺</span><div class="country-meta"><h4>澳大利亚</h4><span class="country-score">78</span></div></div><div class="country-card-body"><span class="country-badge badge-danger">需签证</span><span class="country-metric">生活 82</span><span class="country-metric">网速 80</span></div><div class="country-data-row"><span class="data-item">👥 2,719万</span><span class="data-item">📐 769.2万km²</span><span class="data-item">💰 64,610美元</span></div></a>
+                    </div>
+                </div>
+                <div class="region-section" id="region-africa">
+                    <h3 class="region-title">非洲 <span class="region-count">1</span></h3>
+                    <div class="country-grid">
+                        <a href="country/morocco/index.html" class="country-card glass-card" data-region="africa" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇲🇦</span><div class="country-meta"><h4>摩洛哥</h4><span class="country-score">76</span></div><span class="country-new-badge">新</span></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 30</span><span class="country-metric">网速 25</span></div><div class="country-data-row"><span class="data-item">👥 3,808万</span><span class="data-item">📐 44.6万km²</span><span class="data-item">💰 4,153美元</span></div></a>
+                    </div>
+                </div>
+                <div class="region-section" id="region-middle_east">
+                    <h3 class="region-title">中东 <span class="region-count">1</span></h3>
+                    <div class="country-grid">
+                        <a href="country/uae/index.html" class="country-card glass-card" data-region="middle_east" data-visa="visa_free"><div class="country-card-header"><span class="country-flag">🇦🇪</span><div class="country-meta"><h4>阿联酋</h4><span class="country-score">85</span></div></div><div class="country-card-body"><span class="country-badge badge-success">免签</span><span class="country-metric">生活 70</span><span class="country-metric">网速 300</span></div><div class="country-data-row"><span class="data-item">👥 1,099万</span><span class="data-item">📐 7.10万km²</span><span class="data-item">💰 50,274美元</span></div></a>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </section><div class="divider"></div>
 
-    <div class="divider"></div>
-
-    <!-- Tools Showcase -->
-    <section class="tools-section" id="tools">
+    <!-- Tools -->
+    <section class="section" id="tools">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">实用工具</span>
-                <h2 class="section-title">数据驱动决策</h2>
-                <p class="section-desc">从对比到搜索，从路线到问答——让数据帮你选择下一站</p>
+            <div class="section-header reveal">
+                <h2 class="section-title">实用工具</h2>
+                <p class="section-desc">从对比到搜索，从路线规划到数据下载——用工具代替猜测。</p>
             </div>
             <div class="tools-grid">
-                <a href="compare/" class="tool-card">
-                    <span class="tool-icon">⚖️</span>
+                <a href="compare/" class="tool-card glass-card reveal">
+                    <div class="tool-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
                     <h3>国家对比</h3>
-                    <p>同时对比 2-3 个国家的生活成本、安全、网速、签证等全维度指标</p>
+                    <p>同时对比 2-3 个国家的生活成本、安全、网速、签证等全维度指标。</p>
                     <span class="tool-link">开始对比 →</span>
                 </a>
-                <a href="routes/" class="tool-card">
-                    <span class="tool-icon">🗺️</span>
+                <a href="routes/" class="tool-card glass-card reveal reveal-delay-1">
+                    <div class="tool-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 21 18 21 6 8 18 1 6"/><line x1="1" y1="6" x2="8" y2="18"/><line x1="21" y1="6" x2="16" y2="18"/></svg>
+                    </div>
                     <h3>路线规划</h3>
-                    <p>东南亚环、欧洲申根、地中海三大经典数字游民路线</p>
+                    <p>东南亚环、欧洲申根、地中海三大经典数字游民路线。</p>
                     <span class="tool-link">查看路线 →</span>
                 </a>
-                <a href="search/" class="tool-card">
-                    <span class="tool-icon">🔍</span>
+                <a href="search/" class="tool-card glass-card reveal reveal-delay-2">
+                    <div class="tool-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
                     <h3>智能搜索</h3>
-                    <p>模糊搜索 76 项国家与城市数据，支持拼音、关键词、标签匹配</p>
+                    <p>模糊搜索 76 项国家与城市数据，支持拼音、关键词、标签匹配。</p>
                     <span class="tool-link">立即搜索 →</span>
                 </a>
-                <a href="https://github.com/kfat77/digital-nomad-cn" class="tool-card" target="_blank">
-                    <span class="tool-icon">📊</span>
+                <a href="https://github.com/kfat77/digital-nomad-cn" class="tool-card glass-card reveal reveal-delay-3" target="_blank">
+                    <div class="tool-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
                     <h3>数据下载</h3>
-                    <p>60 国 JSON 原始数据，开放 API，自由使用与二次开发</p>
+                    <p>100 国 JSON 原始数据，开放 API，自由使用与二次开发。</p>
                     <span class="tool-link">获取数据 →</span>
                 </a>
             </div>
@@ -356,281 +1988,443 @@
 
     <div class="divider"></div>
 
-    <!-- Modules (kept but condensed) -->
-    <section class="modules" id="modules">
-        <div class="section-header">
-            <span class="section-tag">核心内容</span>
-            <h2 class="section-title">六大模块，覆盖数字游民全链路</h2>
-            <p class="section-desc">从金融基础设施到签证规划，从身份规划到数字游民工具</p>
-        </div>
-        <div class="modules-grid">
-            <div class="module-card">
-                <span class="module-icon">💳</span>
-                <div class="module-content">
-                    <h3>银行卡</h3>
-                    <p>香港、新加坡等境外银行账户开设攻略</p>
-                    <ul class="module-list">
-                        <li>汇丰/中银/众安/蚂蚁四卡策略</li>
-                        <li>澳门蚂蚁银行 — 0门槛开户</li>
-                        <li>OCBC 新加坡远程开户</li>
-                    </ul>
-                    <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/bank-cards" class="module-link" target="_blank">查看详情</a>
-                </div>
+    <!-- Latest Articles -->
+    <section class="section" id="latest-articles">
+        <div class="container">
+            <div class="articles-header reveal">
+                <h2>最新文章</h2>
+                <a href="articles/">查看全部 →</a>
             </div>
-            <div class="module-card">
-                <span class="module-icon">📱</span>
-                <div class="module-content">
-                    <h3>电话卡</h3>
-                    <p>海外实体/eSIM卡购买、激活与保号教程</p>
-                    <ul class="module-list">
-                        <li>Giffgaff 英国卡完整指南</li>
-                        <li>Club SIM 每年仅 6 港币保号</li>
-                        <li>Ultra Mobile 美国保号方案</li>
-                    </ul>
-                    <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/phone-cards" class="module-link" target="_blank">查看详情</a>
-                </div>
-            </div>
-            <div class="module-card">
-                <span class="module-icon">📈</span>
-                <div class="module-content">
-                    <h3>证券账户</h3>
-                    <p>美股/港股/全球券商开户与使用指南</p>
-                    <ul class="module-list">
-                        <li>盈透证券 20 分钟开户教程</li>
-                        <li>嘉信理财 0元开户，不走CRS</li>
-                        <li>FSMOne 内地用户可用方案</li>
-                    </ul>
-                    <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/securities" class="module-link" target="_blank">查看详情</a>
-                </div>
-            </div>
-            <div class="module-card">
-                <span class="module-icon">🏛️</span>
-                <div class="module-content">
-                    <h3>身份规划</h3>
-                    <p>全球移民路径与第二身份获取指南</p>
-                    <ul class="module-list">
-                        <li>香港高才通 1-2 个月获批</li>
-                        <li>日本高度人才 1 年拿永住</li>
-                        <li>葡萄牙 D7 五年拿欧盟护照</li>
-                    </ul>
-                    <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/identity" class="module-link" target="_blank">查看详情</a>
-                </div>
-            </div>
-            <div class="module-card">
-                <span class="module-icon">🛠️</span>
-                <div class="module-content">
-                    <h3>工具与资源</h3>
-                    <p>远程工作、跨境支付、AI 订阅与数字游民基建</p>
-                    <ul class="module-list">
-                        <li>62+ 远程工作求职平台</li>
-                        <li>爱沙尼亚 e-Residency 指南</li>
-                        <li>虚拟 U 卡解决 AI 订阅</li>
-                    </ul>
-                    <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/tools" class="module-link" target="_blank">查看详情</a>
-                </div>
-            </div>
-            <div class="module-card">
-                <span class="module-icon">🛂</span>
-                <div class="module-content">
-                    <h3>签证攻略</h3>
-                    <p>打工度假签证、数字游民签证、长期工作签证申请指南</p>
-                    <ul class="module-list">
-                        <li>澳洲 WHV 462 抽签制完整攻略</li>
-                        <li>香港优才计划 — 12项评核准则</li>
-                        <li>去香港工作的7大合法途径</li>
-                    </ul>
-                    <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/visa" class="module-link" target="_blank">查看详情</a>
-                </div>
-            </div>
+            <div class="articles-grid" id="home-articles-grid"></div>
         </div>
     </section>
-
-    <div class="divider"></div>
-
-    <!-- Quick Nav -->
-    <section class="quicknav" id="quicknav">
-        <div class="section-header">
-            <span class="section-tag">快速导航</span>
-            <h2 class="section-title">按需查找，直达目标</h2>
-        </div>
-        <div class="quicknav-grid">
-            <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/bank-cards/hong-kong.md" class="quicknav-item" target="_blank"><span class="qicon">🏦</span><span>香港银行卡开户</span></a>
-            <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/bank-cards/wise.md" class="quicknav-item" target="_blank"><span class="qicon">💱</span><span>Wise 注册</span></a>
-            <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/bank-cards/ocbc.md" class="quicknav-item" target="_blank"><span class="qicon">🏛️</span><span>OCBC 远程开户</span></a>
-            <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/phone-cards/giffgaff.md" class="quicknav-item" target="_blank"><span class="qicon">📲</span><span>Giffgaff 英国卡</span></a>
-            <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/phone-cards/hong-kong.md" class="quicknav-item" target="_blank"><span class="qicon">📞</span><span>Club SIM 保号</span></a>
-            <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/securities/ibkr.md" class="quicknav-item" target="_blank"><span class="qicon">📊</span><span>盈透证券开户</span></a>
-            <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/securities/schwab.md" class="quicknav-item" target="_blank"><span class="qicon">📈</span><span>嘉信理财开户</span></a>
-            <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/securities/hong-kong-broker.md" class="quicknav-item" target="_blank"><span class="qicon">📋</span><span>FSMOne 券商</span></a>
-            <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/hong-kong.md" class="quicknav-item" target="_blank"><span class="qicon">🛂</span><span>香港身份获取</span></a>
-            <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/japan.md" class="quicknav-item" target="_blank"><span class="qicon">🗾</span><span>日本移民指南</span></a>
-            <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/tools/remote-work.md" class="quicknav-item" target="_blank"><span class="qicon">💻</span><span>远程工作平台</span></a>
-            <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/tools/ai-subscription.md" class="quicknav-item" target="_blank"><span class="qicon">🤖</span><span>AI 订阅与 U 卡</span></a>
-            <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/visa/australia-whv.md" class="quicknav-item" target="_blank"><span class="qicon">🇦🇺</span><span>澳洲 WHV 攻略</span></a>
-            <a href="https://zhuanlan.zhihu.com/p/687695809" class="quicknav-item" target="_blank"><span class="qicon">🇭🇰</span><span>香港优才计划</span></a>
-            <a href="https://zhuanlan.zhihu.com/p/697122836" class="quicknav-item" target="_blank"><span class="qicon">💼</span><span>赴港工作7大途径</span></a>
-            <a href="https://zhuanlan.zhihu.com/p/2043115647786386108" class="quicknav-item" target="_blank"><span class="qicon">🇲🇴</span><span>澳门蚂蚁银行</span></a>
-            <a href="https://www.zhihu.com/question/1999636575890474485/answer/2049141084715066617" class="quicknav-item" target="_blank"><span class="qicon">🛂</span><span>护照免签趋势</span></a>
-            <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/docs/visa/new-zealand-whv.md" class="quicknav-item" target="_blank"><span class="qicon">🇳🇿</span><span>新西兰 WHV 攻略</span></a>
-        </div>
-    </section>
-
-    <section class="latest-articles-section" id="latest-articles">
-        <div class="latest-articles-header">
-            <h2>📰 最新文章</h2>
-            <a href="articles/">查看全部 →</a>
-        </div>
-        <div class="articles-grid" id="home-articles-grid"></div>
-    </section>
-
-    <script>
-        fetch('articles/articles.json')
-            .then(r => r.json())
-            .then(articles => {
-                const grid = document.getElementById('home-articles-grid');
-                grid.innerHTML = articles.slice(0, 3).map(a => {
-                    const tags = a.tags.map(t => `<span class="article-tag">${t}</span>`).join('');
-                    return `
-                        <a href="articles/${a.slug}/" class="article-card">
-                            <div class="article-card-tags">${tags}</div>
-                            <h2>${a.title}</h2>
-                            <p>${a.description}</p>
-                            <div class="article-card-meta">${a.date}</div>
-                        </a>
-                    `;
-                }).join('');
-            })
-            .catch(() => {
-                document.getElementById('home-articles-grid').innerHTML = '';
-            });
-    </script>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-main">
             <div class="footer-brand">
-                <span class="logo-icon">◈</span>
-                <span class="logo-text">数字游民指南</span>
-                <p>面向中国国内用户的数字游民基础设施一站式攻略。60 国数据、50+ 签证、122 城市，全部开源。</p>
+                <div class="footer-brand-name">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    <span>数字游民指南</span>
+                </div>
+                <p>面向中国国内用户的数字游民基础设施一站式攻略。100 国数据、50+ 签证、122 城市，全部开源。</p>
+                <a href="https://github.com/kfat77/digital-nomad-cn" class="footer-cta" target="_blank">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    在 GitHub 上 Star 这个项目
+                </a>
             </div>
             <div class="footer-links">
                 <div class="footer-col">
-                    <h4>核心内容</h4>
+                    <h4>数据</h4>
                     <a href="country/">国家数据库</a>
                     <a href="visa/">签证数据库</a>
-                    <a href="city/">城市数据库</a>
                     <a href="compare/">国家对比</a>
-                    <a href="routes/">路线规划</a>
                     <a href="search/">搜索</a>
-                    <a href="assistant/">AI助手</a>
-                <a href="community/">社区</a>
-                    <a href="recommend/">推荐</a>
                 </div>
                 <div class="footer-col">
                     <h4>指南</h4>
-                    <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/bank-cards" target="_blank">银行卡</a>
-                    <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/phone-cards" target="_blank">电话卡</a>
-                    <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/securities" target="_blank">证券账户</a>
-                    <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/identity" target="_blank">身份规划</a>
-                    <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/visa" target="_blank">签证攻略</a>
-                    <a href="https://github.com/kfat77/digital-nomad-cn/tree/main/docs/tools" target="_blank">工具资源</a>
-                </div>
-                <div class="footer-col">
-                    <h4>社区</h4>
-                    <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub 仓库</a>
-                    <a href="https://github.com/kfat77/digital-nomad-cn/blob/main/CONTRIBUTING.md" target="_blank">贡献指南</a>
-                    <a href="https://github.com/kfat77/digital-nomad-cn/issues" target="_blank">提交 Issue</a>
-                    <a href="api/">开放 API</a>
+                    <a href="articles/digital-nomad-banking-guide/">银行卡</a>
+                    <a href="articles/giffgaff-guide-2026/">电话卡</a>
+                    <a href="articles/securities-guide/">证券账户</a>
+                    <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
             <p>本内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议共享 · <a href="privacy/">隐私政策</a> · <a href="journey/">你的足迹</a></p>
             <p>内容仅供学习交流，不构成投资、法律或移民建议</p>
-            <p style="margin-top: 12px;">
-                <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank" style="background: #000; color: #fff; padding: 8px 16px; text-decoration: none; font-weight: 600; display: inline-block;">
-                    ⭐ 在 GitHub 上 Star 这个项目
-                </a>
-            </p>
         </div>
     </footer>
 
-    <script src="countries-data.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
-    <script src="app.js" defer></script>
-    <script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('sw.js').catch(() => {});
-        });
+<script>
+// ============================================================
+// Particle Universe Animation System — Red & Blue on White
+// ============================================================
+(function() {
+    'use strict';
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let width, height;
+    let particles = [];
+    let mouse = { x: null, y: null, active: false };
+    let animationId;
+
+    const PARTICLE_COUNT = 180;
+    const CONNECTION_DISTANCE = 120;
+    const MOUSE_RADIUS = 200;
+    const MOUSE_FORCE = 0.8;
+
+    // Red & Blue particle colors for bright background
+    const COLORS = [
+        { r: 220, g: 38, b: 38 },    // red
+        { r: 30, g: 58, b: 95 },     // dark blue
+        { r: 239, g: 68, b: 68 },    // light red
+        { r: 59, g: 130, b: 246 },   // blue
+        { r: 185, g: 28, b: 28 },    // deep red
+    ];
+
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width * Math.min(window.devicePixelRatio, 2);
+        canvas.height = height * Math.min(window.devicePixelRatio, 2);
+        ctx.scale(Math.min(window.devicePixelRatio, 2), Math.min(window.devicePixelRatio, 2));
     }
-    // Data freshness badge
+
+    class Particle {
+        constructor() {
+            this.reset(true);
+        }
+
+        reset(randomize = false) {
+            this.x = randomize ? Math.random() * width : -10;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 0.6;
+            this.vy = (Math.random() - 0.5) * 0.6;
+            this.radius = Math.random() * 1.5 + 0.5;
+            this.baseRadius = this.radius;
+            this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+            this.alpha = Math.random() * 0.4 + 0.25;
+            this.baseAlpha = this.alpha;
+            this.pulseSpeed = Math.random() * 0.02 + 0.01;
+            this.pulsePhase = Math.random() * Math.PI * 2;
+            this.mass = this.radius * 0.5;
+        }
+
+        update(time) {
+            // Pulse effect
+            this.pulsePhase += this.pulseSpeed;
+            this.radius = this.baseRadius + Math.sin(this.pulsePhase) * 0.3;
+            this.alpha = this.baseAlpha + Math.sin(this.pulsePhase * 0.7) * 0.15;
+
+            // Mouse interaction
+            if (mouse.active) {
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < MOUSE_RADIUS) {
+                    const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS;
+                    const angle = Math.atan2(dy, dx);
+                    this.vx += Math.cos(angle) * force * MOUSE_FORCE * 0.02;
+                    this.vy += Math.sin(angle) * force * MOUSE_FORCE * 0.02;
+                    this.alpha = Math.min(0.8, this.baseAlpha + force * 0.3);
+                    this.radius = this.baseRadius + force * 1.5;
+                }
+            }
+
+            this.vx *= 0.995;
+            this.vy *= 0.995;
+            this.vx += (Math.random() - 0.5) * 0.01;
+            this.vy += (Math.random() - 0.5) * 0.01;
+
+            this.x += this.vx;
+            this.y += this.vy;
+
+            if (this.x < -10) this.x = width + 10;
+            if (this.x > width + 10) this.x = -10;
+            if (this.y < -10) this.y = height + 10;
+            if (this.y > height + 10) this.y = -10;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.alpha})`;
+            ctx.fill();
+
+            if (this.radius > 1.2) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius * 3, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.alpha * 0.06})`;
+                ctx.fill();
+            }
+        }
+    }
+
+    function initParticles() {
+        particles = [];
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function drawConnections() {
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < CONNECTION_DISTANCE) {
+                    const opacity = (1 - dist / CONNECTION_DISTANCE) * 0.12;
+                    const avgColor = {
+                        r: (particles[i].color.r + particles[j].color.r) / 2,
+                        g: (particles[i].color.g + particles[j].color.g) / 2,
+                        b: (particles[i].color.b + particles[j].color.b) / 2
+                    };
+
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(${avgColor.r}, ${avgColor.g}, ${avgColor.b}, ${opacity})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+
+            if (mouse.active) {
+                const dx = particles[i].x - mouse.x;
+                const dy = particles[i].y - mouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < MOUSE_RADIUS * 1.5) {
+                    const opacity = (1 - dist / (MOUSE_RADIUS * 1.5)) * 0.15;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(mouse.x, mouse.y);
+                    ctx.strokeStyle = `rgba(220, 38, 38, ${opacity})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function animate(time) {
+        ctx.clearRect(0, 0, width, height);
+        drawConnections();
+        particles.forEach(p => {
+            p.update(time);
+            p.draw();
+        });
+        animationId = requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        mouse.active = true;
+    });
+
+    window.addEventListener('mouseleave', () => {
+        mouse.active = false;
+    });
+
+    window.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) {
+            mouse.x = e.touches[0].clientX;
+            mouse.y = e.touches[0].clientY;
+            mouse.active = true;
+        }
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+        mouse.active = false;
+    });
+
+    window.addEventListener('resize', () => {
+        resize();
+        initParticles();
+    });
+
+    resize();
+    initParticles();
+    animate(0);
+})();
+
+// ============================================================
+// Core Site Interactions (Preserved from Original)
+// ============================================================
+
+(function() {
+    'use strict';
+
+    // SCROLL REVEAL
+    function initScrollReveal() {
+        const revealElements = document.querySelectorAll('.reveal');
+        const staggerContainers = document.querySelectorAll('.stagger-children');
+
+        if (revealElements.length === 0 && staggerContainers.length === 0) return;
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) {
+            revealElements.forEach(el => el.classList.add('visible'));
+            staggerContainers.forEach(el => el.classList.add('visible'));
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px -60px 0px',
+            threshold: 0.1
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+        staggerContainers.forEach(el => observer.observe(el));
+    }
+
+    // COUNT UP
+    function initCountUp() {
+        const counters = document.querySelectorAll('.count-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.count);
+                    const suffix = el.dataset.suffix || '';
+                    const duration = 800;
+                    const start = performance.now();
+                    function update(now) {
+                        const elapsed = now - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        el.textContent = Math.floor(eased * target) + suffix;
+                        if (progress < 1) requestAnimationFrame(update);
+                    }
+                    requestAnimationFrame(update);
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(c => observer.observe(c));
+    }
+
+    // HEADER SCROLL
+    function initHeaderScroll() {
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) header.classList.add('header-scrolled');
+            else header.classList.remove('header-scrolled');
+        }, { passive: true });
+    }
+
+    // MOBILE MENU
+    function initMobileMenu() {
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('mobileOverlay');
+        if (!toggle || !menu || !overlay) return;
+        let isOpen = false;
+        function open() { isOpen = true; menu.classList.add('open'); overlay.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; }
+        function close() { isOpen = false; menu.classList.remove('open'); overlay.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
+        toggle.addEventListener('click', () => isOpen ? close() : open());
+        overlay.addEventListener('click', close);
+        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    }
+
+    // READING PROGRESS
+    function initReadingProgress() {
+        const progress = document.querySelector('.reading-progress');
+        if (!progress) return;
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = (scrollTop / docHeight) * 100;
+            progress.style.width = pct + '%';
+        }, { passive: true });
+    }
+
+    // DATA FRESHNESS
     (async function() {
         try {
-            const res = await fetch('api/stats.json', {cache: 'no-cache'});
+            const res = await fetch('api/stats.json', { cache: 'no-cache' });
             const data = await res.json();
             const updated = data.updated_at || data.last_updated;
             if (updated) {
                 const date = new Date(updated);
-                const str = date.toLocaleDateString('zh-CN', {year:'numeric', month:'long', day:'numeric'});
-                document.getElementById('dataFreshness').textContent = '数据更新于 ' + str;
+                const str = date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+                const el = document.getElementById('dataFreshness');
+                if (el) el.textContent = '数据更新于 ' + str;
             }
-        } catch(e) {
-            document.getElementById('dataFreshness').textContent = '';
+        } catch (e) {
+            const el = document.getElementById('dataFreshness');
+            if (el) {
+                const now = new Date();
+                const str = now.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+                el.textContent = '数据更新于 ' + str;
+            }
         }
     })();
-    </script>
-<script>
-    // Core Web Vitals observer
+
+    // COUNTRY FILTERS
     (function() {
-        if (!('PerformanceObserver' in window)) return;
-        const metrics = {};
-        function sendMetric(name, value) {
-            if (window.DNAnalytics) {
-                DNAnalytics.trackEvent('cwv', { metric: name, value: Math.round(value) });
-            }
-        }
-        try {
-            new PerformanceObserver(function(list) {
-                for (const entry of list.getEntries()) {
-                    if (entry.entryType === 'largest-contentful-paint') {
-                        metrics.lcp = entry.startTime;
-                        sendMetric('LCP', entry.startTime);
-                    }
-                    if (entry.entryType === 'layout-shift' && !entry.hadRecentInput) {
-                        metrics.cls = (metrics.cls || 0) + entry.value;
-                    }
-                    if (entry.entryType === 'first-input') {
-                        sendMetric('FID', entry.processingStart - entry.startTime);
-                    }
-                    if (entry.entryType === 'event') {
-                        const duration = entry.processingEnd - entry.startTime;
-                        if (!metrics.inp || duration > metrics.inp) metrics.inp = duration;
-                    }
-                }
-            }).observe({ type: 'largest-contentful-paint', buffered: true });
-            new PerformanceObserver(function(list) {
-                for (const entry of list.getEntries()) {
-                    if (entry.entryType === 'layout-shift' && !entry.hadRecentInput) {
-                        metrics.cls = (metrics.cls || 0) + entry.value;
-                    }
-                }
-            }).observe({ type: 'layout-shift', buffered: true });
-            new PerformanceObserver(function(list) {
-                for (const entry of list.getEntries()) {
-                    sendMetric('FID', entry.processingStart - entry.startTime);
-                }
-            }).observe({ type: 'first-input', buffered: true });
-            window.addEventListener('visibilitychange', function() {
-                if (document.visibilityState === 'hidden' && metrics.cls !== undefined) {
-                    sendMetric('CLS', Math.round(metrics.cls * 1000) / 1000);
-                }
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const regionTabs = document.querySelectorAll('.region-tab');
+        const allCards = document.querySelectorAll('.country-card');
+        const regionSections = document.querySelectorAll('.region-section');
+        let activeFilter = 'all', activeRegion = 'all';
+        function applyFilters() {
+            allCards.forEach(card => {
+                const visa = card.dataset.visa;
+                const region = card.dataset.region;
+                card.style.display = (activeFilter === 'all' || visa === activeFilter) && (activeRegion === 'all' || region === activeRegion) ? '' : 'none';
             });
-        } catch (e) {}
+            regionSections.forEach(section => {
+                section.style.display = section.querySelectorAll('.country-card:not([style*="display: none"])').length > 0 ? '' : 'none';
+            });
+        }
+        filterBtns.forEach(btn => btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeFilter = btn.dataset.filter;
+            applyFilters();
+        }));
+        regionTabs.forEach(tab => tab.addEventListener('click', () => {
+            regionTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            activeRegion = tab.dataset.region;
+            applyFilters();
+        }));
     })();
-    </script>
-<script src="analytics.js" defer></script>
-<script src="share.js" defer></script>
-<script src="theme.js"></script>
+
+    // LOAD ARTICLES
+    (async function() {
+        try {
+            const res = await fetch('articles/articles.json');
+            const data = await res.json();
+            const articles = data.slice(0, 3);
+            const grid = document.getElementById('home-articles-grid');
+            if (!grid) return;
+            grid.innerHTML = articles.map(a => `
+                <a href="articles/${a.slug}/index.html" class="article-card glass-card">
+                    <div class="article-tags">
+                        ${a.tags.map(t => '<span class="article-tag">' + t + '</span>').join('')}
+                    </div>
+                    <h3>${a.title}</h3>
+                    <p>${a.description || a.summary || ""}</p>
+                    <span class="article-date">${a.date}</span>
+                </a>
+            `).join('');
+        } catch (e) {
+            const grid = document.getElementById('home-articles-grid');
+            if (grid) grid.innerHTML = '<p style="color: var(--text-tertiary); text-align: center; padding: 24px;">暂无文章</p>';
+        }
+    })();
+
+    // Initialize all
+    document.addEventListener('DOMContentLoaded', () => {
+        initScrollReveal();
+        initCountUp();
+        initHeaderScroll();
+        initMobileMenu();
+        initReadingProgress();
+    });
+})();
+</script>
+<script src="motion.js" defer=""></script>
+<div class="reading-progress"></div>
 </body>
 </html>

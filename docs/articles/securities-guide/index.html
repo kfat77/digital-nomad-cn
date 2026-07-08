@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字游民证券账户开户指南 — 数字游民指南</title>
+    <meta name="description" content="面向中国数字游民的全球证券账户开户实操指南，覆盖盈透证券、嘉信理财、FSMOne等主流券商开户流程、入金路径与税务合规要点。">
+    <meta name="theme-color" content="#FFFFFF">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap"></noscript>
+    <link rel="stylesheet" href="../../style.css?v=8" fetchpriority="high">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="../../" class="logo">
+                <span class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                </span>
+                <span>数字游民指南</span>
+            </a>
+            <nav class="main-nav" aria-label="主导航">
+                <a href="../../">首页</a>
+                <a href="../../country/">国家</a>
+                <a href="../../visa/">签证</a>
+                <a href="../../articles/" class="active">文章</a>
+                <a href="../../compare/">对比</a>
+                <a href="../../search/">搜索</a>
+            </nav>
+            <div style="display:flex;align-items:center;gap:12px;">
+                <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank" aria-label="GitHub">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <button class="mobile-menu-btn" id="menuToggle" aria-label="打开菜单" aria-expanded="false">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="移动端菜单">
+        <a href="../../">首页</a>
+        <a href="../../country/">国家数据库</a>
+        <a href="../../visa/">签证数据库</a>
+        <a href="../../articles/">文章</a>
+        <a href="../../compare/">国家对比</a>
+        <a href="../../search/">搜索</a>
+    </nav>
+
+    <!-- Article Hero -->
+    <section class="hero" style="padding: calc(var(--nav-height) + var(--space-16)) 0 var(--space-16);">
+        <div class="hero-bg"></div>
+        <div class="hero-content" style="max-width: 720px;">
+            <div class="hero-label">
+                <span class="hero-label-dot"></span>
+                投资指南
+            </div>
+            <h1 class="hero-title" style="font-size: var(--text-4xl);">
+                数字游民证券账户<br><span class="text-gradient">开户完全指南</span>
+            </h1>
+            <p class="hero-desc" style="font-size: var(--text-lg);">
+                覆盖美股、港股、全球券商开户流程，入金路径规划，CRS 合规与税务优化要点。
+            </p>
+            <p class="hero-freshness">2026-07-09 · 阅读约 15 分钟</p>
+            <div style="display:flex;gap:8px;justify-content:center;margin-top:24px;flex-wrap:wrap;">
+                <span class="badge badge-brand">证券</span>
+                <span class="badge badge-info">美股</span>
+                <span class="badge badge-info">港股</span>
+                <span class="badge badge-neutral">数字游民</span>
+                <span class="badge badge-neutral">投资</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Article Body -->
+    <article class="section">
+        <div class="container-narrow">
+
+<blockquote style="border-left: 3px solid var(--info); padding-left: 20px; margin: 24px 0; color: var(--text-secondary); font-style: italic; background: var(--info-soft); padding: 20px 20px 20px 24px; border-radius: var(--radius-lg);">
+<p>面向中国数字游民的全球证券账户开户实操指南，覆盖美股、港股、A 股通及全球多市场投资。</p>
+</blockquote>
+
+<h2 style="margin-top: 0;">一、为什么数字游民需要海外证券账户</h2>
+
+<ul style="margin-bottom: 16px; padding-left: 24px;">
+<li><strong>跨境收入管理</strong>：自由职业者、远程工作者的收入多为美元/欧元，需要海外账户进行投资和保值</li>
+<li><strong>全球资产配置</strong>：分散单一市场风险，获取全球优质资产 exposure</li>
+<li><strong>汇率对冲</strong>：持有美元资产对冲人民币贬值风险</li>
+<li><strong>税务优化</strong>：合理利用不同司法管辖区的税务政策</li>
+</ul>
+
+<div class="divider"></div>
+
+<h2>二、主流券商对比</h2>
+
+<table class="comparison-table" style="width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;">
+<thead>
+<tr style="background: var(--bg-surface);"><th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 600;">券商</th><th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 600;">开户门槛</th><th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 600;">支持市场</th><th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 600;">手续费</th><th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 600;">入金方式</th><th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 600;">最佳人群</th></tr>
+</thead>
+<tbody>
+<tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 12px 16px;"><strong>盈透证券 (IBKR)</strong></td><td style="padding: 12px 16px;">低（$0最低）</td><td style="padding: 12px 16px;">全球 150+ 市场</td><td style="padding: 12px 16px;">低（每股$0.0035起）</td><td style="padding: 12px 16px;">电汇、Wise</td><td style="padding: 12px 16px;">专业交易者、全球投资者</td></tr>
+<tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 12px 16px;"><strong>嘉信理财 (Schwab)</strong></td><td style="padding: 12px 16px;">需美国地址/SSN</td><td style="padding: 12px 16px;">美股、ETF</td><td style="padding: 12px 16px;">免费（美股）</td><td style="padding: 12px 16px;">电汇、支票</td><td style="padding: 12px 16px;">美国长期居民</td></tr>
+<tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 12px 16px;"><strong>FSMOne</strong></td><td style="padding: 12px 16px;">低（新加坡）</td><td style="padding: 12px 16px;">港股、美股、新加坡</td><td style="padding: 12px 16px;">中等</td><td style="padding: 12px 16px;">新加坡银行转账</td><td style="padding: 12px 16px;">东南亚数字游民</td></tr>
+<tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 12px 16px;"><strong>长桥证券 (Longbridge)</strong></td><td style="padding: 12px 16px;">低（香港身份证）</td><td style="padding: 12px 16px;">港股、美股</td><td style="padding: 12px 16px;">低</td><td style="padding: 12px 16px;">香港银行转账</td><td style="padding: 12px 16px;">有香港身份的用户</td></tr>
+<tr><td style="padding: 12px 16px;"><strong>华盛通 (Huasheng)</strong></td><td style="padding: 12px 16px;">低</td><td style="padding: 12px 16px;">港股、美股</td><td style="padding: 12px 16px;">中等</td><td style="padding: 12px 16px;">大陆银行卡</td><td style="padding: 12px 16px;">大陆用户入门</td></tr>
+</tbody>
+</table>
+
+<div class="divider"></div>
+
+<h2>三、盈透证券 (Interactive Brokers) 开户详解</h2>
+
+<h3>3.1 为什么选择盈透</h3>
+
+<ul style="margin-bottom: 16px; padding-left: 24px;">
+<li><strong>全球市场覆盖</strong>：150+ 市场，33 个国家</li>
+<li><strong>最低交易成本</strong>：美股每股 $0.0035，最低 $0.35/单</li>
+<li><strong>货币自由</strong>：支持 23 种货币，实时换汇</li>
+<li><strong>无最低余额</strong>：个人账户无最低资金要求</li>
+<li><strong>强大的交易平台</strong>：Trader Workstation、WebTrader、移动端</li>
+</ul>
+
+<h3>3.2 开户流程（20分钟完成）</h3>
+
+<ol style="margin-bottom: 16px; padding-left: 24px;">
+<li>访问 <a href="https://www.interactivebrokers.com" target="_blank" style="color: var(--info); text-decoration: underline;">https://www.interactivebrokers.com</a></li>
+<li>点击 "Open Account"，选择 "Individual"</li>
+<li>填写个人信息：
+<ul style="margin: 8px 0;">
+<li><strong>税务居住地</strong>：中国（需要填写身份证号）</li>
+<li><strong>就业状态</strong>：Self-Employed / Freelancer</li>
+<li><strong>收入来源</strong>：Employment / Investment</li>
+<li><strong>净资产和收入</strong>：如实填写</li>
+</ul>
+</li>
+<li>投资经验评估（影响可交易产品权限）</li>
+<li>上传身份证明（护照或身份证）和地址证明（银行账单、水电费单）</li>
+<li>签署电子协议</li>
+<li>等待审核（通常 1-3 个工作日）</li>
+</ol>
+
+<h3>3.3 入金路径</h3>
+
+<div class="card card-flat" style="margin: 16px 0;">
+    <h4 style="margin: 0 0 12px 0; font-size: var(--text-base);">路径一：银行电汇（推荐）</h4>
+    <ul style="margin: 0; padding-left: 20px;">
+        <li>从国内银行购汇后电汇至 IBKR 的香港或美国账户</li>
+        <li>手续费：国内银行 $20-50 + 中间行 $10-30</li>
+        <li>到账时间：1-5 个工作日</li>
+    </ul>
+</div>
+
+<div class="card card-flat" style="margin: 16px 0;">
+    <h4 style="margin: 0 0 12px 0; font-size: var(--text-base);">路径二：Wise（TransferWise）</h4>
+    <ul style="margin: 0; padding-left: 20px;">
+        <li>先注册 Wise 账户，将人民币转换为美元</li>
+        <li>从 Wise 直接转账至 IBKR（Wise 提供美国/英国/欧洲本地账户）</li>
+        <li>手续费更低，到账更快</li>
+    </ul>
+</div>
+
+<div class="card card-flat" style="margin: 16px 0;">
+    <h4 style="margin: 0 0 12px 0; font-size: var(--text-base);">路径三：香港银行账户</h4>
+    <ul style="margin: 0; padding-left: 20px;">
+        <li>如果已有香港银行账户（汇丰/中银），直接网银转账至 IBKR</li>
+        <li>最便捷的入金方式</li>
+    </ul>
+</div>
+
+<h3>3.4 避坑提醒</h3>
+
+<div class="card" style="border-left: 3px solid var(--brand); margin: 24px 0;">
+    <ul style="margin: 0; padding-left: 20px;">
+        <li><strong>地址证明</strong>：IBKR 要求 3 个月内的地址证明，如果国内账单是中文，可能需要翻译</li>
+        <li><strong>税务表格</strong>：中国用户需要填写 W-8BEN 表格，享受中美税收协定优惠（股息税 10% 而非 30%）</li>
+        <li><strong>账户类型</strong>：选择 "Cash Account" 而非 "Margin Account"（避免杠杆风险）</li>
+        <li><strong>货币选择</strong>：入金时选择与转出银行相同的货币，避免多次换汇损失</li>
+    </ul>
+</div>
+
+<div class="divider"></div>
+
+<h2>四、嘉信理财 (Charles Schwab) 开户详解</h2>
+
+<h3>4.1 为什么选择嘉信</h3>
+
+<ul style="margin-bottom: 16px; padding-left: 24px;">
+<li><strong>美股/ETF 零佣金</strong>：在线交易美股和 ETF 完全免费</li>
+<li><strong>全球 ATM 报销</strong>：Schwab Debit Card 全球 ATM 取现手续费全额报销（数字游民神器）</li>
+<li><strong>优质客服</strong>：24/7 电话客服，支持中文</li>
+<li><strong>高利率支票账户</strong>：当前约 4.5% APY</li>
+</ul>
+
+<h3>4.2 开户条件</h3>
+
+<p>嘉信对非美国居民开户要求较严格：</p>
+<ul style="margin-bottom: 16px; padding-left: 24px;">
+<li>需要美国地址（可接受朋友/亲戚地址，或使用邮寄服务）</li>
+<li>或已有美国签证/居留身份</li>
+<li>部分用户通过国际账户（International Account）开户成功</li>
+</ul>
+
+<h3>4.3 开户流程</h3>
+
+<ol style="margin-bottom: 16px; padding-left: 24px;">
+<li>访问 <a href="https://www.schwab.com/international" target="_blank" style="color: var(--info); text-decoration: underline;">https://www.schwab.com/international</a></li>
+<li>选择 "Open an International Account"</li>
+<li>填写个人信息和税务信息</li>
+<li>邮寄或上传身份证明文件</li>
+<li>等待审核（通常 2-4 周）</li>
+</ol>
+
+<h3>4.4 嘉信借记卡（数字游民必备）</h3>
+
+<p>申请 Schwab Bank High Yield Investor Checking Account：</p>
+<ul style="margin-bottom: 16px; padding-left: 24px;">
+<li>无月费、无最低余额</li>
+<li>全球 Visa ATM 取现手续费全额报销</li>
+<li>无外币交易手续费 (FTF)</li>
+</ul>
+
+<div class="divider"></div>
+
+<h2>五、FSMOne 开户详解</h2>
+
+<h3>5.1 为什么选择 FSMOne</h3>
+
+<ul style="margin-bottom: 16px; padding-left: 24px;">
+<li><strong>新加坡监管</strong>：MAS 持牌，安全可靠</li>
+<li><strong>多元市场</strong>：新加坡、港股、美股、马来西亚、泰国等</li>
+<li><strong>低门槛</strong>：无最低资金要求</li>
+<li><strong>中文支持</strong>：全中文界面和客服</li>
+</ul>
+
+<h3>5.2 开户流程</h3>
+
+<ol style="margin-bottom: 16px; padding-left: 24px;">
+<li>访问 <a href="https://www.fsmone.com/sg" target="_blank" style="color: var(--info); text-decoration: underline;">https://www.fsmone.com/sg</a></li>
+<li>选择 "Open Account" → "Individual Account"</li>
+<li>选择 "Singapore Resident" 或 "Non-Resident"</li>
+<li>填写个人信息，上传护照和地址证明</li>
+<li>视频验证（部分情况）</li>
+<li>等待审核（通常 3-5 个工作日）</li>
+</ol>
+
+<h3>5.3 入金方式</h3>
+
+<ul style="margin-bottom: 16px; padding-left: 24px;">
+<li>新加坡银行 FAST 转账（即时到账）</li>
+<li>国际电汇（1-3 个工作日）</li>
+<li>新加坡支票</li>
+</ul>
+
+<div class="divider"></div>
+
+<h2>六、券商入金最优路径对比</h2>
+
+<table class="comparison-table" style="width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;">
+<thead>
+<tr style="background: var(--bg-surface);"><th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 600;">路径</th><th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 600;">适合人群</th><th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 600;">手续费</th><th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 600;">到账时间</th><th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 600;">便利性</th></tr>
+</thead>
+<tbody>
+<tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 12px 16px;"><strong>国内银行 → 电汇 → 券商</strong></td><td style="padding: 12px 16px;">所有人</td><td style="padding: 12px 16px;">较高（$30-80）</td><td style="padding: 12px 16px;">3-5 天</td><td style="padding: 12px 16px;">一般</td></tr>
+<tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 12px 16px;"><strong>国内银行 → 香港银行 → 券商</strong></td><td style="padding: 12px 16px;">有香港账户</td><td style="padding: 12px 16px;">中等</td><td style="padding: 12px 16px;">1-2 天</td><td style="padding: 12px 16px;">好</td></tr>
+<tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 12px 16px;"><strong>Wise → 券商</strong></td><td style="padding: 12px 16px;">有 Wise 账户</td><td style="padding: 12px 16px;">低（~0.5%）</td><td style="padding: 12px 16px;">1-2 天</td><td style="padding: 12px 16px;">很好</td></tr>
+<tr><td style="padding: 12px 16px;"><strong>香港银行 → 券商</strong></td><td style="padding: 12px 16px;">香港居民</td><td style="padding: 12px 16px;">低/免费</td><td style="padding: 12px 16px;">即时-1 天</td><td style="padding: 12px 16px;">最好</td></tr>
+</tbody>
+</table>
+
+<div class="divider"></div>
+
+<h2>七、数字游民投资组合建议</h2>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 24px 0;">
+    <div class="card" style="border-top: 3px solid var(--success);">
+        <h4 style="margin: 0 0 12px 0; color: var(--success);">保守型（低风险）</h4>
+        <ul style="margin: 0; padding-left: 20px; font-size: 14px;">
+            <li>40% 全球债券 ETF（如 BNDW）</li>
+            <li>30% 标普 500 ETF（如 VOO）</li>
+            <li>20% 全球股票 ETF（如 VT）</li>
+            <li>10% 现金或货币市场</li>
+        </ul>
+    </div>
+    <div class="card" style="border-top: 3px solid var(--info);">
+        <h4 style="margin: 0 0 12px 0; color: var(--info);">平衡型（中等风险）</h4>
+        <ul style="margin: 0; padding-left: 20px; font-size: 14px;">
+            <li>30% 标普 500 ETF（如 VOO）</li>
+            <li>20% 全球股票 ETF（如 VT）</li>
+            <li>20% 新兴市场 ETF（如 VWO）</li>
+            <li>15% 债券 ETF（如 BND）</li>
+            <li>15% 行业 ETF（如科技 QQQ）</li>
+        </ul>
+    </div>
+    <div class="card" style="border-top: 3px solid var(--brand);">
+        <h4 style="margin: 0 0 12px 0; color: var(--brand);">进取型（高风险）</h4>
+        <ul style="margin: 0; padding-left: 20px; font-size: 14px;">
+            <li>40% 科技股/成长型 ETF（如 QQQ、ARKK）</li>
+            <li>25% 全球股票 ETF（如 VT）</li>
+            <li>15% 新兴市场（如 VWO）</li>
+            <li>10% 个股（自己研究）</li>
+            <li>10% 加密货币/另类投资</li>
+        </ul>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<h2>八、税务合规要点</h2>
+
+<h3>8.1 中国税务居民</h3>
+<ul style="margin-bottom: 16px; padding-left: 24px;">
+<li>中国实行<strong>全球征税</strong>：税务居民需申报全球收入，包括海外投资收益</li>
+<li>每人每年 $50,000 购汇额度，但投资收益汇回不占用此额度</li>
+<li>建议保留所有交易记录和税务文件</li>
+</ul>
+
+<h3>8.2 美国预扣税 (W-8BEN)</h3>
+<ul style="margin-bottom: 16px; padding-left: 24px;">
+<li>填写 W-8BEN 后，美股股息预扣税从 30% 降至 10%（中美税收协定）</li>
+<li>资本利得（卖出股票盈利）不征收预扣税</li>
+<li>债券利息预扣税 10%</li>
+</ul>
+
+<h3>8.3 CRS（共同申报准则）</h3>
+<ul style="margin-bottom: 16px; padding-left: 24px;">
+<li>中国、香港、新加坡均已加入 CRS</li>
+<li>海外金融机构会向国内税务机关报告账户信息</li>
+<li>合规申报，避免税务风险</li>
+</ul>
+
+<div class="divider"></div>
+
+<h2>九、避坑指南</h2>
+
+<table class="comparison-table" style="width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;">
+<thead>
+<tr style="background: var(--bg-surface);"><th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 600;">坑点</th><th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 600;">解决方案</th></tr>
+</thead>
+<tbody>
+<tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 12px 16px;"><strong>地址证明不通过</strong></td><td style="padding: 12px 16px;">使用英文银行账单或信用卡账单</td></tr>
+<tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 12px 16px;"><strong>入金被退回</strong></td><td style="padding: 12px 16px;">确保汇款人姓名与券商账户完全一致</td></tr>
+<tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 12px 16px;"><strong>频繁交易被限制</strong></td><td style="padding: 12px 16px;">避免日内交易（PDT 规则需 $25,000）</td></tr>
+<tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 12px 16px;"><strong>税务表格过期</strong></td><td style="padding: 12px 16px;">W-8BEN 每 3 年更新一次，设置提醒</td></tr>
+<tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 12px 16px;"><strong>账户被冻结</strong></td><td style="padding: 12px 16px;">大额转账前通知券商，保留资金来源证明</td></tr>
+<tr><td style="padding: 12px 16px;"><strong>汇率损失</strong></td><td style="padding: 12px 16px;">入金时尽量选择与转出账户相同货币</td></tr>
+</tbody>
+</table>
+
+<div class="card" style="border: 1px solid var(--brand); background: var(--brand-soft); margin: 32px 0;">
+    <p style="margin: 0; color: var(--brand); font-weight: 500;"><strong>免责声明</strong>：本指南仅供学习交流，不构成投资建议。投资有风险，入市需谨慎。请根据自身的风险承受能力和投资目标做出决策。</p>
+</div>
+
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <div class="footer-brand-name">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    <span>数字游民指南</span>
+                </div>
+                <p>面向中国国内用户的数字游民基础设施一站式攻略。100 国数据、50+ 签证、122 城市，全部开源。</p>
+                <a href="https://github.com/kfat77/digital-nomad-cn" class="footer-cta" target="_blank">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    在 GitHub 上 Star 这个项目
+                </a>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>数据</h4>
+                    <a href="../../country/">国家数据库</a>
+                    <a href="../../visa/">签证数据库</a>
+                    <a href="../../compare/">国家对比</a>
+                    <a href="../../search/">搜索</a>
+                </div>
+                <div class="footer-col">
+                    <h4>指南</h4>
+                    <a href="../../articles/digital-nomad-banking-guide/">银行卡</a>
+                    <a href="../../articles/giffgaff-guide-2026/">电话卡</a>
+                    <a href="../../articles/securities-guide/">证券账户</a>
+                    <a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>本内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议共享 · <a href="../../privacy/">隐私政策</a> · <a href="../../journey/">你的足迹</a></p>
+            <p>内容仅供学习交流，不构成投资、法律或移民建议</p>
+        </div>
+    </footer>
+
+
+<script src="../../motion.js" defer></script>
+</body>
+</html>

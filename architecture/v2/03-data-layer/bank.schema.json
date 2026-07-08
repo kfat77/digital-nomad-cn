@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/kfat77/digital-nomad-cn/schemas/v2/infrastructure/bank.schema.json",
+  "title": "Bank",
+  "description": "银行开户数据。针对数字游民的银行开户指南。",
+  "version": "2.0.0",
+  "type": "object",
+  "required": ["country", "banks", "metadata"],
+  "properties": {
+    "country": { "type": "string" },
+    "general": {
+      "type": "object",
+      "description": "开户总体信息",
+      "properties": {
+        "foreignerCanOpen": { "type": "boolean" },
+        "difficulty": {
+          "type": "string",
+          "enum": ["very-easy", "easy", "moderate", "difficult", "very-difficult"]
+        },
+        "typicalRequirements": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "passport", "visa", "proof-of-address", "proof-of-income",
+              "local-phone", "local-tax-id", "reference-letter", "minimum-deposit"
+            ]
+          }
+        },
+        "digitalBanksAvailable": { "type": "boolean" },
+        "chineseBanksAvailable": { "type": "boolean" }
+      }
+    },
+    "banks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "foreignerFriendly"],
+        "properties": {
+          "name": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["traditional", "digital", "neobank", "offshore"]
+          },
+          "foreignerFriendly": { "type": "boolean" },
+          "chineseSupport": { "type": "boolean" },
+          "onlineApplication": { "type": "boolean" },
+          "requirements": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "fees": {
+            "type": "object",
+            "properties": {
+              "monthly": { "type": "integer" },
+              "atmDomestic": { "type": "integer" },
+              "atmForeign": { "type": "integer" },
+              "wireIncoming": { "type": "integer" },
+              "wireOutgoing": { "type": "integer" },
+              "currency": { "type": "string", "pattern": "^[A-Z]{3}$" }
+            }
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "multi-currency", "crypto-friendly", "free-atm-global",
+                "virtual-cards", "apple-pay", "google-pay",
+                "chinese-app", "english-support", "travel-insurance"
+              ]
+            }
+          },
+          "nomadReviews": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "rating": { "type": "integer", "minimum": 1, "maximum": 5 },
+                "comment": { "type": "string" },
+                "author": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["version", "lastUpdated"],
+      "properties": {
+        "version": { "type": "string" },
+        "lastUpdated": { "type": "string", "format": "date-time" },
+        "disclaimer": {
+          "type": "object",
+          "properties": {
+            "zh": { "type": "string" },
+            "en": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

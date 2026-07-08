@@ -45,9 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
         if (currentScroll > 50) {
-            header.style.borderColor = 'rgba(0,0,0,0.08)';
+            header.style.borderColor = 'rgba(255,255,255,0.08)';
         } else {
-            header.style.borderColor = 'rgba(0,0,0,0.04)';
+            header.style.borderColor = 'rgba(255,255,255,0.04)';
         }
         lastScroll = currentScroll;
     });
@@ -219,7 +219,7 @@ function initGlobe() {
 
     // Scene
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xfafafa);
+    scene.background = new THREE.Color(0x000000);
 
     // Camera
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
@@ -242,10 +242,10 @@ function initGlobe() {
     // 1. Wireframe sphere
     const wireGeo = new THREE.IcosahedronGeometry(earthRadius, 3);
     const wireMat = new THREE.MeshBasicMaterial({
-        color: 0xd0d5dd,
+        color: 0x00BFFF,
         wireframe: true,
         transparent: true,
-        opacity: 0.3
+        opacity: 0.15
     });
     const wireMesh = new THREE.Mesh(wireGeo, wireMat);
     earthGroup.add(wireMesh);
@@ -253,9 +253,9 @@ function initGlobe() {
     // 2. Inner solid sphere
     const innerGeo = new THREE.SphereGeometry(earthRadius * 0.98, 64, 64);
     const innerMat = new THREE.MeshBasicMaterial({
-        color: 0xf5f7fa,
+        color: 0x0a0a0a,
         transparent: true,
-        opacity: 0.5
+        opacity: 0.9
     });
     const innerMesh = new THREE.Mesh(innerGeo, innerMat);
     earthGroup.add(innerMesh);
@@ -263,9 +263,9 @@ function initGlobe() {
     // 3. Outer glow ring
     const ringGeo = new THREE.TorusGeometry(earthRadius * 1.15, 0.008, 16, 128);
     const ringMat = new THREE.MeshBasicMaterial({
-        color: 0x000000,
+        color: 0x00BFFF,
         transparent: true,
-        opacity: 0.2
+        opacity: 0.3
     });
     const ringMesh = new THREE.Mesh(ringGeo, ringMat);
     ringMesh.rotation.x = Math.PI / 2;
@@ -282,7 +282,7 @@ function initGlobe() {
         .then(geoData => {
             Object.entries(geoData).forEach(([key, data]) => {
                 const hasData = !!(window.COUNTRY_DATA && window.COUNTRY_DATA[key]);
-                const countryColor = hasData ? (window.COUNTRY_DATA[key].color || 0x2563eb) : 0xcccccc;
+                const countryColor = hasData ? (window.COUNTRY_DATA[key].color || 0xFF8C00) : 0x333333;
                 const colorObj = new THREE.Color(countryColor);
 
                 // Create triangle mesh (fill)
@@ -315,7 +315,7 @@ function initGlobe() {
                     lineGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
                     const lineMat = new THREE.LineBasicMaterial({
-                        color: hasData ? 0x8899aa : 0xbbbbbb,
+                        color: hasData ? 0x00BFFF : 0x333333,
                         transparent: true,
                         opacity: hasData ? 0.4 : 0.25
                     });
@@ -347,9 +347,9 @@ function initGlobe() {
 
         const dotGeo = new THREE.SphereGeometry(0.018, 16, 16);
         const dotMat = new THREE.MeshBasicMaterial({
-            color: country.color || 0x2563eb,
+            color: country.color || 0xFF8C00,
             transparent: true,
-            opacity: 0.6
+            opacity: 0.8
         });
         const dot = new THREE.Mesh(dotGeo, dotMat);
         dot.position.copy(pos);
@@ -360,9 +360,9 @@ function initGlobe() {
 
         const glowGeo = new THREE.RingGeometry(0.025, 0.035, 16);
         const glowMat = new THREE.MeshBasicMaterial({
-            color: country.color || 0x2563eb,
+            color: 0xFF8C00,
             transparent: true,
-            opacity: 0.25,
+            opacity: 0.4,
             side: THREE.DoubleSide
         });
         const glow = new THREE.Mesh(glowGeo, glowMat);
@@ -492,17 +492,17 @@ function initGlobe() {
             }
             if (prev.lines) {
                 const hasData = prev.mesh && prev.mesh.userData.hasData;
-                prev.lines.material.color.setHex(hasData ? 0x8899aa : 0xbbbbbb);
+                prev.lines.material.color.setHex(hasData ? 0x00BFFF : 0x333333);
                 prev.lines.material.opacity = hasData ? 0.4 : 0.25;
             }
         }
         const prevMarker = markerMap[key];
         if (prevMarker) {
             prevMarker.scale.setScalar(1);
-            prevMarker.material.opacity = 0.6;
+            prevMarker.material.opacity = 0.8;
             if (prevMarker.userData.glow) {
                 prevMarker.userData.glow.scale.setScalar(1);
-                prevMarker.userData.glow.material.opacity = 0.25;
+                prevMarker.userData.glow.material.opacity = 0.4;
             }
         }
         const prevItem = document.querySelector('.globe-sidebar-item[data-country="' + key + '"]');
@@ -516,10 +516,10 @@ function initGlobe() {
         if (curr) {
             if (curr.mesh) {
                 curr.mesh.material.opacity = hasData ? 0.5 : 0.15;
-                curr.mesh.material.color.setHex(hasData ? 0x3b82f6 : 0x999999);
+                curr.mesh.material.color.setHex(hasData ? 0x00BFFF : 0x999999);
             }
             if (curr.lines) {
-                curr.lines.material.color.setHex(hasData ? 0xffffff : 0xdddddd);
+                curr.lines.material.color.setHex(hasData ? 0x00BFFF : 0xdddddd);
                 curr.lines.material.opacity = hasData ? 0.9 : 0.5;
             }
         }
@@ -622,7 +622,7 @@ function initGlobe() {
         const time = Date.now() * 0.001;
         markers.forEach((m, i) => {
             if (m !== markerMap[hoveredCountry] && m.userData.glow) {
-                const pulse = Math.sin(time * 2 + i) * 0.1 + 0.25;
+                const pulse = Math.sin(time * 2 + i) * 0.1 + 0.4;
                 m.userData.glow.material.opacity = pulse;
             }
         });
@@ -713,7 +713,7 @@ function generateGlobeSidebar(markerMap, countryData) {
         html += `<div class="globe-sidebar-title">${regionName}</div>`;
         items.forEach(({ key, country }) => {
             const flag = flagEmoji[country.nameEn] || '🌐';
-            const colorHex = '#' + (country.color || 0x2563eb).toString(16).padStart(6, '0');
+            const colorHex = '#' + (country.color || 0xFF8C00).toString(16).padStart(6, '0');
             html += `
                 <div class="globe-sidebar-item" data-country="${key}">
                     <span class="flag">${flag}</span>
@@ -1005,4 +1005,3 @@ function initCountryGridFilters() {
 document.addEventListener('DOMContentLoaded', function() {
     initCountryGridFilters();
 });
-

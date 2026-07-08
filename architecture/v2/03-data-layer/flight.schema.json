@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/kfat77/digital-nomad-cn/schemas/v2/mobility/flight.schema.json",
+  "title": "Flight",
+  "description": "航线与机票参考数据。",
+  "version": "2.0.0",
+  "type": "object",
+  "required": ["routes", "metadata"],
+  "properties": {
+    "routes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "duration"],
+        "properties": {
+          "from": {
+            "type": "object",
+            "properties": {
+              "city": { "type": "string" },
+              "airport": { "type": "string", "description": "IATA代码" }
+            }
+          },
+          "to": {
+            "type": "object",
+            "properties": {
+              "city": { "type": "string" },
+              "airport": { "type": "string" }
+            }
+          },
+          "duration": {
+            "type": "object",
+            "properties": {
+              "hours": { "type": "integer" },
+              "minutes": { "type": "integer" }
+            }
+          },
+          "direct": { "type": "boolean" },
+          "priceRange": {
+            "type": "object",
+            "properties": {
+              "economy": {
+                "type": "object",
+                "properties": {
+                  "min": { "type": "integer" },
+                  "max": { "type": "integer" },
+                  "currency": { "type": "string", "pattern": "^[A-Z]{3}$" }
+                }
+              }
+            }
+          },
+          "airlines": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "frequency": {
+            "type": "string",
+            "enum": ["daily", "weekly", "seasonal"]
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["version", "lastUpdated"],
+      "properties": {
+        "version": { "type": "string" },
+        "lastUpdated": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}
