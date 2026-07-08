@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章 — 数字游民指南</title>
+    <meta name="description" content="数字游民指南数据驱动的深度文章：签证攻略、国家排名、生活成本分析等。">
+    <meta property="og:title" content="文章 — 数字游民指南">
+    <meta property="og:description" content="数据驱动的深度文章：签证攻略、国家排名、生活成本分析">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kfat77.github.io/digital-nomad-cn/articles/">
+    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/articles/">
+    <link rel="stylesheet" href="../style.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../" class="logo">
+                <span class="logo-icon">◈</span>
+                <span>数字游民指南</span>
+            </a>
+            <nav class="main-nav">
+                <a href="../country/">国家</a>
+                <a href="../visa/">签证</a>
+                <a href="../city/">城市</a>
+                <a href="../articles/">文章</a>
+                <a href="../compare/">对比</a>
+                <a href="../routes/">路线</a>
+                <a href="../search/">搜索</a>
+                <a href="../assistant/">AI助手</a>
+                <a href="../recommend/">推荐</a>
+            </nav>
+            <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
+        </div>
+    </header>
+
+    <main class="articles-list-page">
+        <div class="articles-list-header">
+            <h1>文章</h1>
+            <p>基于开源数据库生成的数据驱动深度文章</p>
+            <p style="margin-top:8px;font-size:0.9rem;"><a href="../rss.xml" style="color:#3b82f6;text-decoration:none;">📡 RSS 订阅</a></p>
+        </div>
+        <div class="articles-grid" id="articles-grid"></div>
+    </main>
+
+    <footer class="footer" style="margin-top: 60px;">
+        <div class="footer-inner">
+            <p> 数字游民指南 · 开源全球流动数据平台</p>
+            <p><a href="https://github.com/kfat77/digital-nomad-cn">GitHub</a> · <a href="../">首页</a></p>
+        </div>
+    </footer>
+
+    <script>
+        fetch('articles.json')
+            .then(r => r.json())
+            .then(articles => {
+                const grid = document.getElementById('articles-grid');
+                grid.innerHTML = articles.map(a => {
+                    const tags = a.tags.map(t => `<span class="article-tag">${t}</span>`).join('');
+                    return `
+                        <a href="${a.slug}/" class="article-card">
+                            <div class="article-card-tags">${tags}</div>
+                            <h2>${a.title}</h2>
+                            <p>${a.description}</p>
+                            <div class="article-card-meta">${a.date}</div>
+                        </a>
+                    `;
+                }).join('');
+            })
+            .catch(e => {
+                document.getElementById('articles-grid').innerHTML = '<p style="text-align:center;color:#94a3b8">加载文章失败，请刷新重试。</p>';
+            });
+    </script>
+</body>
+</html>

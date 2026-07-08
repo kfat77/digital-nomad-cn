@@ -1,12 +1,19 @@
-name: 🏗️ CI / Build and Deploy
+name: 🔄 CI / Build, Generate & Deploy
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
   pull_request:
     branches: [main]
-  schedule:
-    - cron: '0 0 * * *' # Daily at 00:00 UTC
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   validate:
@@ -18,76 +25,68 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
+          node-version: '24'
 
       - name: Validate JSON data
-        run: npm run validate
+        run: node scripts/validate-data.js
 
-      - name: Check data freshness
-        run: npm run check-freshness
+      - name: Validate country pages can be generated
+        run: node scripts/generate-country-pages.js
 
-  test:
-    name: Run Tests
+  generate-and-sync:
+    name: Generate Pages & Sync to Docs
     runs-on: ubuntu-latest
     needs: validate
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: '24'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Generate country pages
+        run: node scripts/generate-country-pages.js
 
-      - name: Run tests
-        run: npm test
+      - name: Bump SW cache version
+        run: node scripts/bump-sw-cache.js
 
-      - name: Check code quality
-        run: npm run lint
+      - name: Sync website to docs
+        run: node scripts/sync-to-docs.js
 
-  build:
-    name: Build Site
-    runs-on: ubuntu-latest
-    needs: [validate, test]
-    if: github.event_name != 'pull_request'
-    steps:
-      - uses: actions/checkout@v4
+      - name: Check for changes
+        id: check
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+            git diff --stat
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
+      - name: Commit and push generated changes
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "ci: auto-generate pages & bump SW cache [$(date -u +%Y-%m-%d %H:%M UTC)]
 
-      - name: Install dependencies
-        run: npm ci
+          - Regenerated country pages from latest JSON data
+          - Bumped Service Worker cache version
+          - Synced website/ to docs/ for GitHub Pages
 
-      - name: Generate static pages
-        run: npm run generate
-
-      - name: Build site
-        run: npm run build
-
-      - name: Upload build artifacts
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./docs
+          Automated by CI/CD pipeline."
+          git push
 
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    needs: build
+    needs: generate-and-sync
     if: github.ref == 'refs/heads/main'
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -95,46 +94,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  sync-data:
-    name: Sync External Data
-    runs-on: ubuntu-latest
-    if: github.event_name == 'schedule'
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Sync exchange rates
-        run: npm run sync:rates
-
-      - name: Sync remote jobs
-        run: npm run sync:jobs
-
-      - name: Sync visa policies
-        run: npm run sync:visa
-
-      - name: Check for changes
-        id: check
-        run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            echo "changed=true" >> $GITHUB_OUTPUT
-          else
-            echo "changed=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Commit and push changes
-        if: steps.check.outputs.changed == 'true'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "data: auto-sync external data [$(date -u +%Y-%m-%d)]"
-          git push
+          path: docs/

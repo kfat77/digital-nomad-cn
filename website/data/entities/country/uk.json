@@ -34,10 +34,10 @@
   "area_km2": 242495,
   "gdp_per_capita_usd": 46000,
   "hdi": 0.94,
-  "safety_index": 60.0,
+  "safety_index": 60,
   "internet_speed_avg_mbps": 110,
-  "cost_of_living_index": 80.0,
-  "rent_index": 55.0,
+  "cost_of_living_index": 80,
+  "rent_index": 55,
   "china_passport_visa_status": "visa_required",
   "china_passport_visa_note": "旅游签证2/5/10年多次，需在线申请",
   "digital_nomad_score": 75,
@@ -48,6 +48,8 @@
     "europe"
   ],
   "status": "published",
-  "updated_at": "2026-01-15T00:00:00Z",
-  "source": "Numbeo 2026, World Bank 2025, UK Gov"
+  "updated_at": "2026-07-05T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025, UK Gov",
+  "flag_emoji": "🇬🇧",
+  "chinese_passport_visa_status": "需签证"
 }

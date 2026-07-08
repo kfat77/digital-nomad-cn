@@ -1,0 +1,32 @@
+{
+  "id": "queenstown",
+  "name": "皇后镇",
+  "name_en": "Queenstown",
+  "country_id": "newzealand",
+  "country_name": "新西兰",
+  "digital_nomad_score": 78,
+  "cost_of_living_index": 75,
+  "rent_index": 40,
+  "safety_index": 88,
+  "internet_speed_avg_mbps": 60,
+  "coworking_spaces": 15,
+  "coworking_score": 65,
+  "climate": "温带海洋",
+  "avg_temp_c": 10,
+  "rainy_season": "全年",
+  "english_level": "极高",
+  "chinese_community_size": "小",
+  "neighborhoods": [
+    "市中心",
+    "Frankton"
+  ],
+  "food_scene": "Fergburger、新西兰菜、葡萄酒",
+  "nightlife": "酒吧、湖景餐厅",
+  "transportation": "巴士/出租车",
+  "walkability": 80,
+  "bike_friendly": 60,
+  "description": "世界冒险之都，绝美山湖，极限运动天堂，但成本高。",
+  "status": "published",
+  "updated_at": "2026-07-06T00:00:00Z",
+  "source": "Numbeo 2026, Nomad List, Local Research"
+}

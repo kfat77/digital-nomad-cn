@@ -1,6 +1,25 @@
 User-agent: *
 Allow: /
-Disallow: /scripts/
-Disallow: /data/
+Disallow: /assets/
 
+# AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Sitemap
 Sitemap: https://kfat77.github.io/digital-nomad-cn/sitemap.xml
+
+# LLM context file
+LLM-Context: https://kfat77.github.io/digital-nomad-cn/llms.txt

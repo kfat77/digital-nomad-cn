@@ -1,0 +1,32 @@
+{
+  "id": "salzburg",
+  "name": "萨尔茨堡",
+  "name_en": "Salzburg",
+  "country_id": "austria",
+  "country_name": "奥地利",
+  "digital_nomad_score": 72,
+  "cost_of_living_index": 65,
+  "rent_index": 40,
+  "safety_index": 92,
+  "internet_speed_avg_mbps": 70,
+  "coworking_spaces": 20,
+  "coworking_score": 60,
+  "climate": "温带大陆",
+  "avg_temp_c": 9,
+  "rainy_season": "夏季",
+  "english_level": "高",
+  "chinese_community_size": "小",
+  "neighborhoods": [
+    "老城区",
+    "Neustadt"
+  ],
+  "food_scene": "莫扎特巧克力球、奥地利传统菜",
+  "nightlife": "音乐会、传统酒吧",
+  "transportation": "巴士/步行",
+  "walkability": 85,
+  "bike_friendly": 75,
+  "description": "莫扎特故乡，阿尔卑斯山门户，风景绝美。",
+  "status": "published",
+  "updated_at": "2026-07-06T00:00:00Z",
+  "source": "Numbeo 2026, Nomad List, Local Research"
+}

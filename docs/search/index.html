@@ -1,156 +1,410 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>搜索 - Global Mobility Infrastructure</title>
-<meta name="description" content="搜索全球数字游民目的地、城市、签证信息。">
-<meta property="og:title" content="搜索 - Global Mobility Infrastructure">
-<meta property="og:description" content="搜索全球数字游民目的地、城市、签证信息">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://kfat77.github.io/digital-nomad-cn/search/">
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
-:root { --primary:#1a73e8; --accent:#00d4aa; --dark:#0a0e27; --text:#e2e8f0; --text-dim:#8892b0; --card-bg:rgba(10,14,39,0.8); --border:rgba(255,255,255,0.1); }
-body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--dark); color:var(--text); line-height:1.6; min-height:100vh; background:radial-gradient(ellipse at top,#1a73e820 0%,transparent 70%),radial-gradient(ellipse at bottom,#00d4aa15 0%,transparent 70%),var(--dark); }
-.container { max-width:900px; margin:0 auto; padding:40px 20px; }
-header { text-align:center; margin-bottom:40px; }
-header h1 { font-size:2.5rem; margin-bottom:0.5rem; }
-header p { color:var(--text-dim); font-size:1.1rem; }
-.search-box { position:relative; margin-bottom:30px; }
-.search-box input { width:100%; padding:16px 24px; border-radius:12px; border:1px solid var(--border); background:var(--card-bg); color:var(--text); font-size:1.1rem; outline:none; transition:border-color 0.3s; backdrop-filter:blur(10px); }
-.search-box input:focus { border-color:var(--primary); box-shadow:0 0 0 3px rgba(26,115,232,0.15); }
-.search-box input::placeholder { color:var(--text-dim); }
-.stats { display:flex; justify-content:center; gap:2rem; margin-bottom:20px; color:var(--text-dim); font-size:0.9rem; }
-.results { display:grid; gap:1rem; }
-.result-card { display:flex; align-items:center; gap:1rem; padding:1.2rem; background:var(--card-bg); border:1px solid var(--border); border-radius:12px; transition:transform 0.2s, box-shadow 0.2s; text-decoration:none; color:var(--text); }
-.result-card:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.2); border-color:var(--primary); }
-.result-icon { font-size:2rem; width:50px; text-align:center; }
-.result-body { flex:1; }
-.result-title { font-size:1.1rem; font-weight:600; margin-bottom:0.2rem; }
-.result-meta { font-size:0.85rem; color:var(--text-dim); display:flex; gap:1rem; flex-wrap:wrap; }
-.result-score { font-size:1.5rem; font-weight:700; color:var(--accent); min-width:50px; text-align:right; }
-.result-type { font-size:0.75rem; padding:0.2rem 0.6rem; border-radius:20px; background:rgba(255,255,255,0.05); color:var(--text-dim); text-transform:uppercase; }
-.no-results { text-align:center; color:var(--text-dim); padding:60px 20px; }
-.filters { display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap; margin-bottom:20px; }
-.filter-btn { padding:0.4rem 1rem; border-radius:20px; border:1px solid var(--border); background:var(--card-bg); color:var(--text-dim); font-size:0.85rem; cursor:pointer; transition:all 0.3s; }
-.filter-btn:hover, .filter-btn.active { border-color:var(--primary); color:var(--primary); background:rgba(26,115,232,0.1); }
-.highlight { background:rgba(0,212,170,0.2); color:var(--accent); border-radius:3px; padding:0 2px; }
-@media(max-width:600px) { header h1 { font-size:1.8rem; } .result-card { flex-direction:column; align-items:flex-start; } .result-score { text-align:left; } }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索 — 60国+34城数字游民数据</title>
+    <meta name="description" content="搜索全球数字游民目的地、城市、签证信息。支持模糊搜索，覆盖94条国家与城市数据。">
+    <link rel="canonical" href="https://kfat77.github.io/digital-nomad-cn/search/">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="alternate" hreflang="zh-CN" href="https://kfat77.github.io/digital-nomad-cn/search/">
+    <link rel="alternate" hreflang="en" href="https://kfat77.github.io/digital-nomad-cn/en/search/">
+    <link rel="stylesheet" href="../style.css?v=2">
+    <style>
+        .search-hero { background: var(--bg-hero); border-bottom: 1px solid var(--border); padding: 120px 0 60px; text-align: center; }
+        .search-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.03em; }
+        .search-hero p { color: var(--muted); max-width: 600px; margin: 0 auto 32px; font-size: 18px; }
+        .search-section { padding: 40px 24px; max-width: 900px; margin: 0 auto; }
+        .search-box { position: relative; margin-bottom: 24px; }
+        .search-box input { width: 100%; padding: 16px 24px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--bg); color: var(--foreground); font-size: 16px; outline: none; transition: var(--transition); font-family: var(--font-sans); }
+        .search-box input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-light); }
+        .search-box input::placeholder { color: var(--muted-light); }
+        .search-stats { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; color: var(--muted); font-size: 14px; }
+        .results { display: grid; gap: 12px; }
+        .result-card { display: flex; align-items: center; gap: 16px; padding: 16px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); transition: var(--transition); text-decoration: none; color: var(--foreground); }
+        .result-card:hover { box-shadow: var(--shadow-card-hover); border-color: var(--accent); transform: translateY(-2px); }
+        .result-icon { font-size: 28px; width: 50px; text-align: center; }
+        .result-body { flex: 1; }
+        .result-title { font-size: 16px; font-weight: 600; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+        .result-type { font-size: 11px; padding: 2px 8px; border-radius: var(--radius-full); background: var(--bg-card); color: var(--muted); text-transform: uppercase; }
+        .result-meta { font-size: 13px; color: var(--muted); display: flex; gap: 16px; flex-wrap: wrap; }
+        .result-score { font-size: 20px; font-weight: 800; color: var(--accent); min-width: 50px; text-align: right; }
+        .no-results { text-align: center; color: var(--muted); padding: 60px 20px; }
+        .filters { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+        .filter-btn { padding: 8px 16px; border-radius: var(--radius-full); border: 1px solid var(--border); background: var(--bg); color: var(--muted); font-size: 13px; cursor: pointer; transition: var(--transition); font-family: var(--font-sans); }
+        .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+        mark.highlight { background: var(--accent-light); color: var(--accent); border-radius: 3px; padding: 0 2px; }
+        @media (max-width: 640px) { .result-card { flex-direction: column; align-items: flex-start; } .result-score { text-align: left; } }
+    </style>
 </head>
 <body>
-<div class="container">
-<header>
-<h1>🔍 全局搜索</h1>
-<p>搜索国家、城市、签证信息 — 共 61 条数据</p>
-</header>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../" class="logo"><span class="logo-icon">◈</span><span>数字游民指南</span></a>
+            <nav class="main-nav">
+                <a href="../">首页</a><a href="../country/">国家</a><a href="../visa/">签证</a><a href="../city/">城市</a>
+                <a href="../articles/">文章</a>
+                <a href="../compare/">对比</a><a href="../routes/">路线</a><a href="./">搜索</a><a href="../assistant/">AI助手</a><a href="../recommend/">推荐</a>
+            </nav>
+            <a href="https://github.com/kfat77/digital-nomad-cn" class="github-btn" target="_blank">GitHub</a>
+            <a href="../en/search/" class="github-btn" style="margin-left:8px;background:rgba(59,130,246,0.15);color:#3b82f6;">English</a>
+        </div>
+    </header>
 
-<div class="stats">
-<span>🌍 27 个国家</span>
-<span>🏙️ 34 个城市</span>
-</div>
+    <section class="search-hero">
+        <div class="hero-content">
+            <div class="hero-tag"><span class="hero-tag-dot"></span>模糊搜索 · 关键词匹配</div>
+            <h1 class="hero-title">🔍 全局<br><span class="hero-title-accent">数据搜索</span></h1>
+            <p class="hero-desc">搜索国家、城市、签证信息 — 共 76 条数据</p>
+        </div>
+    </section>
 
-<div class="filters">
-<button class="filter-btn active" data-filter="all">全部</button>
-<button class="filter-btn" data-filter="country">国家</button>
-<button class="filter-btn" data-filter="city">城市</button>
-</div>
+    <section class="search-section">
+        <div class="search-stats">
+            <span>🌍 42 个国家</span>
+            <span>🏙️ 34 个城市</span>
+        </div>
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="country">国家</button>
+            <button class="filter-btn" data-filter="city">城市</button>
+        </div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="输入国家名、城市名或关键词...（例如：泰国、数字游民签证、低成本）" autocomplete="off">
+        </div>
+        <div class="results" id="results"></div>
+    </section>
 
-<div class="search-box">
-<input type="text" id="searchInput" placeholder="输入国家名、城市名或关键词...（例如：泰国、数字游民签证、低成本）" autocomplete="off">
-</div>
-
-<div class="results" id="results"></div>
-</div>
-
-<script>
-const SEARCH_INDEX = [{"id": "australia", "title": "澳大利亚", "subtitle": "Australia", "type": "country", "url": "country/australia.html", "score": 78, "tags": "english, high_quality, nature, whv, oceania", "region": "oceania", "visa": "visa_required", "cost": 82.0, "safety": 75.0, "internet": 80}, {"id": "canada", "title": "加拿大", "subtitle": "Canada", "type": "country", "url": "country/canada.html", "score": 77, "tags": "english, immigration_friendly, nature, americas, high_quality", "region": "americas_north", "visa": "visa_required", "cost": 75.0, "safety": 65.0, "internet": 170}, {"id": "croatia", "title": "克罗地亚", "subtitle": "Croatia", "type": "country", "url": "country/croatia.html", "score": 75, "tags": "申根区, 地中海, 数字游民签证, 海滨生活, 欧盟", "region": "europe", "visa": "evisa", "cost": 48, "safety": 78, "internet": 55}, {"id": "cyprus", "title": "塞浦路斯", "subtitle": "Cyprus", "type": "country", "url": "country/cyprus.html", "score": 80, "tags": "欧盟, 地中海, 数字游民签证, 税务优惠, 海岛", "region": "europe", "visa": "evisa", "cost": 55, "safety": 82, "internet": 50}, {"id": "estonia", "title": "爱沙尼亚", "subtitle": "Estonia", "type": "country", "url": "country/estonia.html", "score": 80, "tags": "digital, e_residency, eu, nomad_visa, startup, europe", "region": "europe", "visa": "evisa", "cost": 60.0, "safety": 78.0, "internet": 100}, {"id": "france", "title": "法国", "subtitle": "France", "type": "country", "url": "country/france.html", "score": 77, "tags": "eu, culture, art, startup, europe", "region": "europe", "visa": "visa_required", "cost": 75.0, "safety": 65.0, "internet": 130}, {"id": "georgia", "title": "格鲁吉亚", "subtitle": "Georgia", "type": "country", "url": "country/georgia.html", "score": 82, "tags": "免签, 低成本, 欧洲风情, 高加索, 葡萄酒", "region": "asia", "visa": "visa_free", "cost": 28, "safety": 72, "internet": 35}, {"id": "germany", "title": "德国", "subtitle": "Germany", "type": "country", "url": "country/germany.html", "score": 78, "tags": "eu, high_quality, startup, strong_economy, europe", "region": "europe", "visa": "visa_required", "cost": 72.0, "safety": 75.0, "internet": 120}, {"id": "greece", "title": "希腊", "subtitle": "Greece", "type": "country", "url": "country/greece.html", "score": 78, "tags": "申根区, 地中海, 数字游民签证, 欧盟, 海岛", "region": "europe", "visa": "visa_required", "cost": 52, "safety": 76, "internet": 45}, {"id": "hongkong", "title": "香港", "subtitle": "Hong Kong", "type": "country", "url": "country/hongkong.html", "score": 82, "tags": "financial_hub, asia, gateway, no_tax_on_foreign_income", "region": "asia", "visa": "visa_required", "cost": 85.0, "safety": 78.3, "internet": 250}, {"id": "indonesia", "title": "印度尼西亚", "subtitle": "Indonesia", "type": "country", "url": "country/indonesia.html", "score": 76, "tags": "东南亚, 海岛, 低成本, 数字游民签证, 冲浪", "region": "asia", "visa": "evisa", "cost": 32, "safety": 58, "internet": 25}, {"id": "japan", "title": "日本", "subtitle": "Japan", "type": "country", "url": "country/japan.html", "score": 87, "tags": "culture, safe, high_quality, nomad_visa, asia", "region": "asia", "visa": "visa_required", "cost": 85.0, "safety": 92.0, "internet": 185}, {"id": "macao", "title": "澳门", "subtitle": "Macao", "type": "country", "url": "country/macao.html", "score": 65, "tags": "casino, tax_haven, asia, free_port", "region": "asia", "visa": "visa_required", "cost": 70.0, "safety": 85.0, "internet": 180}, {"id": "malaysia", "title": "马来西亚", "subtitle": "Malaysia", "type": "country", "url": "country/malaysia.html", "score": 78, "tags": "cheap, english, multicultural, mm2h, asia", "region": "asia", "visa": "visa_free", "cost": 40.0, "safety": 55.0, "internet": 150}, {"id": "mexico", "title": "墨西哥", "subtitle": "Mexico", "type": "country", "url": "country/mexico.html", "score": 72, "tags": "北美, 低成本, 数字游民社区, 海滨生活, 美食", "region": "americas_north", "visa": "evisa", "cost": 38, "safety": 45, "internet": 40}, {"id": "netherlands", "title": "荷兰", "subtitle": "Netherlands", "type": "country", "url": "country/netherlands.html", "score": 82, "tags": "eu, english_friendly, startup, bike, europe", "region": "europe", "visa": "visa_required", "cost": 78.0, "safety": 72.0, "internet": 180}, {"id": "newzealand", "title": "新西兰", "subtitle": "New Zealand", "type": "country", "url": "country/newzealand.html", "score": 76, "tags": "english, nature, whv, oceania, work_life_balance", "region": "oceania", "visa": "visa_required", "cost": 78.0, "safety": 70.0, "internet": 150}, {"id": "philippines", "title": "菲律宾", "subtitle": "Philippines", "type": "country", "url": "country/philippines.html", "score": 74, "tags": "东南亚, 英语, 低成本, 海岛, 潜水", "region": "asia", "visa": "visa_required", "cost": 35, "safety": 55, "internet": 30}, {"id": "portugal", "title": "葡萄牙", "subtitle": "Portugal", "type": "country", "url": "country/portugal.html", "score": 88, "tags": "cheap, eu, nomad_visa, sunny, safe, europe", "region": "europe", "visa": "visa_required", "cost": 55.0, "safety": 72.0, "internet": 150}, {"id": "singapore", "title": "新加坡", "subtitle": "Singapore", "type": "country", "url": "country/singapore.html", "score": 88, "tags": "financial_hub, startup_hub, asia, safe, english", "region": "asia", "visa": "visa_required", "cost": 95.0, "safety": 91.0, "internet": 280}, {"id": "southkorea", "title": "韩国", "subtitle": "South Korea", "type": "country", "url": "country/southkorea.html", "score": 80, "tags": "technology, fast_internet, culture, nomad_visa, asia", "region": "asia", "visa": "visa_required", "cost": 78.0, "safety": 88.0, "internet": 220}, {"id": "spain", "title": "西班牙", "subtitle": "Spain", "type": "country", "url": "country/spain.html", "score": 86, "tags": "cheap, eu, nomad_visa, sunny, culture, europe", "region": "europe", "visa": "visa_required", "cost": 58.0, "safety": 70.0, "internet": 170}, {"id": "thailand", "title": "泰国", "subtitle": "Thailand", "type": "country", "url": "country/thailand.html", "score": 85, "tags": "cheap, friendly, nomad_hub, tropical, nomad_visa", "region": "asia", "visa": "visa_free", "cost": 45.0, "safety": 65.0, "internet": 200}, {"id": "uae", "title": "阿联酋", "subtitle": "United Arab Emirates", "type": "country", "url": "country/uae.html", "score": 85, "tags": "tax_free, luxury, modern, nomad_visa, middle_east", "region": "middle_east", "visa": "visa_free", "cost": 70.0, "safety": 88.0, "internet": 300}, {"id": "uk", "title": "英国", "subtitle": "United Kingdom", "type": "country", "url": "country/uk.html", "score": 75, "tags": "english, financial_hub, culture, europe", "region": "europe", "visa": "visa_required", "cost": 80.0, "safety": 60.0, "internet": 110}, {"id": "usa", "title": "美国", "subtitle": "United States", "type": "country", "url": "country/usa.html", "score": 72, "tags": "startup_hub, high_salary, diverse, americas", "region": "americas_north", "visa": "visa_required", "cost": 88.0, "safety": 50.0, "internet": 250}, {"id": "vietnam", "title": "越南", "subtitle": "Vietnam", "type": "country", "url": "country/vietnam.html", "score": 75, "tags": "cheap, startup_hub, growing, asia", "region": "asia", "visa": "evisa", "cost": 35.0, "safety": 60.0, "internet": 120}, {"id": "abudhabi", "title": "阿布扎比", "subtitle": "Abu Dhabi", "type": "city", "url": "city/abudhabi.html", "score": 78, "tags": "", "region": "", "visa": "", "cost": 72, "safety": 92, "internet": 250}, {"id": "amsterdam", "title": "阿姆斯特丹", "subtitle": "Amsterdam", "type": "city", "url": "city/amsterdam.html", "score": 85, "tags": "", "region": "", "visa": "", "cost": 85, "safety": 72, "internet": 180}, {"id": "auckland", "title": "奥克兰", "subtitle": "Auckland", "type": "city", "url": "city/auckland.html", "score": 78, "tags": "", "region": "", "visa": "", "cost": 82, "safety": 72, "internet": 140}, {"id": "bangkok", "title": "曼谷", "subtitle": "Bangkok", "type": "city", "url": "city/bangkok.html", "score": 88, "tags": "", "region": "", "visa": "", "cost": 48, "safety": 65, "internet": 200}, {"id": "barcelona", "title": "巴塞罗那", "subtitle": "Barcelona", "type": "city", "url": "city/barcelona.html", "score": 88, "tags": "", "region": "", "visa": "", "cost": 62, "safety": 70, "internet": 170}, {"id": "berlin", "title": "柏林", "subtitle": "Berlin", "type": "city", "url": "city/berlin.html", "score": 88, "tags": "", "region": "", "visa": "", "cost": 68, "safety": 72, "internet": 130}, {"id": "busan", "title": "釜山", "subtitle": "Busan", "type": "city", "url": "city/busan.html", "score": 78, "tags": "", "region": "", "visa": "", "cost": 65, "safety": 85, "internet": 180}, {"id": "chiangmai", "title": "清迈", "subtitle": "Chiang Mai", "type": "city", "url": "city/chiangmai.html", "score": 90, "tags": "", "region": "", "visa": "", "cost": 38, "safety": 70, "internet": 150}, {"id": "dubai", "title": "迪拜", "subtitle": "Dubai", "type": "city", "url": "city/dubai.html", "score": 85, "tags": "", "region": "", "visa": "", "cost": 78, "safety": 90, "internet": 300}, {"id": "hanoi", "title": "河内", "subtitle": "Hanoi", "type": "city", "url": "city/hanoi.html", "score": 78, "tags": "", "region": "", "visa": "", "cost": 35, "safety": 65, "internet": 110}, {"id": "hochiminh", "title": "胡志明市", "subtitle": "Ho Chi Minh City", "type": "city", "url": "city/hochiminh.html", "score": 82, "tags": "", "region": "", "visa": "", "cost": 38, "safety": 60, "internet": 130}, {"id": "hongkong-city", "title": "香港", "subtitle": "Hong Kong", "type": "city", "url": "city/hongkong-city.html", "score": 82, "tags": "", "region": "", "visa": "", "cost": 85, "safety": 78, "internet": 250}, {"id": "kualalumpur", "title": "吉隆坡", "subtitle": "Kuala Lumpur", "type": "city", "url": "city/kualalumpur.html", "score": 82, "tags": "", "region": "", "visa": "", "cost": 42, "safety": 55, "internet": 150}, {"id": "kyoto", "title": "京都", "subtitle": "Kyoto", "type": "city", "url": "city/kyoto.html", "score": 80, "tags": "", "region": "", "visa": "", "cost": 75, "safety": 93, "internet": 170}, {"id": "lisbon", "title": "里斯本", "subtitle": "Lisbon", "type": "city", "url": "city/lisbon.html", "score": 90, "tags": "", "region": "", "visa": "", "cost": 58, "safety": 75, "internet": 150}, {"id": "london", "title": "伦敦", "subtitle": "London", "type": "city", "url": "city/london.html", "score": 85, "tags": "", "region": "", "visa": "", "cost": 90, "safety": 65, "internet": 120}, {"id": "macao-city", "title": "澳门", "subtitle": "Macao", "type": "city", "url": "city/macao-city.html", "score": 65, "tags": "", "region": "", "visa": "", "cost": 70, "safety": 85, "internet": 180}, {"id": "madrid", "title": "马德里", "subtitle": "Madrid", "type": "city", "url": "city/madrid.html", "score": 85, "tags": "", "region": "", "visa": "", "cost": 60, "safety": 72, "internet": 160}, {"id": "melbourne", "title": "墨尔本", "subtitle": "Melbourne", "type": "city", "url": "city/melbourne.html", "score": 82, "tags": "", "region": "", "visa": "", "cost": 85, "safety": 75, "internet": 85}, {"id": "munich", "title": "慕尼黑", "subtitle": "Munich", "type": "city", "url": "city/munich.html", "score": 80, "tags": "", "region": "", "visa": "", "cost": 82, "safety": 80, "internet": 140}, {"id": "newyork", "title": "纽约", "subtitle": "New York", "type": "city", "url": "city/newyork.html", "score": 82, "tags": "", "region": "", "visa": "", "cost": 100, "safety": 55, "internet": 250}, {"id": "osaka", "title": "大阪", "subtitle": "Osaka", "type": "city", "url": "city/osaka.html", "score": 85, "tags": "", "region": "", "visa": "", "cost": 78, "safety": 92, "internet": 180}, {"id": "paris", "title": "巴黎", "subtitle": "Paris", "type": "city", "url": "city/paris.html", "score": 82, "tags": "", "region": "", "visa": "", "cost": 85, "safety": 60, "internet": 140}, {"id": "penang", "title": "槟城", "subtitle": "Penang", "type": "city", "url": "city/penang.html", "score": 78, "tags": "", "region": "", "visa": "", "cost": 35, "safety": 60, "internet": 120}, {"id": "phuket", "title": "普吉岛", "subtitle": "Phuket", "type": "city", "url": "city/phuket.html", "score": 80, "tags": "", "region": "", "visa": "", "cost": 55, "safety": 60, "internet": 120}, {"id": "porto", "title": "波尔图", "subtitle": "Porto", "type": "city", "url": "city/porto.html", "score": 85, "tags": "", "region": "", "visa": "", "cost": 50, "safety": 78, "internet": 130}, {"id": "sanfrancisco", "title": "旧金山", "subtitle": "San Francisco", "type": "city", "url": "city/sanfrancisco.html", "score": 78, "tags": "", "region": "", "visa": "", "cost": 105, "safety": 50, "internet": 280}, {"id": "seoul", "title": "首尔", "subtitle": "Seoul", "type": "city", "url": "city/seoul.html", "score": 85, "tags": "", "region": "", "visa": "", "cost": 78, "safety": 88, "internet": 220}, {"id": "singapore-city", "title": "新加坡", "subtitle": "Singapore", "type": "city", "url": "city/singapore-city.html", "score": 88, "tags": "", "region": "", "visa": "", "cost": 95, "safety": 91, "internet": 280}, {"id": "sydney", "title": "悉尼", "subtitle": "Sydney", "type": "city", "url": "city/sydney.html", "score": 80, "tags": "", "region": "", "visa": "", "cost": 88, "safety": 78, "internet": 90}, {"id": "tallinn", "title": "塔林", "subtitle": "Tallinn", "type": "city", "url": "city/tallinn.html", "score": 82, "tags": "", "region": "", "visa": "", "cost": 55, "safety": 82, "internet": 100}, {"id": "tokyo", "title": "东京", "subtitle": "Tokyo", "type": "city", "url": "city/tokyo.html", "score": 90, "tags": "", "region": "", "visa": "", "cost": 88, "safety": 95, "internet": 200}, {"id": "toronto", "title": "多伦多", "subtitle": "Toronto", "type": "city", "url": "city/toronto.html", "score": 80, "tags": "", "region": "", "visa": "", "cost": 80, "safety": 70, "internet": 160}, {"id": "vancouver", "title": "温哥华", "subtitle": "Vancouver", "type": "city", "url": "city/vancouver.html", "score": 82, "tags": "", "region": "", "visa": "", "cost": 85, "safety": 72, "internet": 150}];
-
-const fuseOptions = {
-    keys: [
-        { name: 'title', weight: 0.5 },
-        { name: 'subtitle', weight: 0.3 },
-        { name: 'tags', weight: 0.15 },
-        { name: 'region', weight: 0.05 }
-    ],
-    threshold: 0.4,
-    includeScore: true,
-    includeMatches: true,
-};
-
-let fuse = null;
-let currentFilter = 'all';
-
-function initFuse() {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js';
-    script.onload = () => {
-        fuse = new Fuse(SEARCH_INDEX, fuseOptions);
-        const urlParams = new URLSearchParams(window.location.search);
-        const q = urlParams.get('q');
-        if (q) {
-            document.getElementById('searchInput').value = q;
-            doSearch(q);
-        }
-    };
-    document.head.appendChild(script);
-}
-
-function getTypeIcon(type) {
-    return type === 'country' ? '🌍' : '🏙️';
-}
-function getTypeLabel(type) {
-    return type === 'country' ? '国家' : '城市';
-}
-function highlightText(text, matches) {
-    if (!matches || matches.length === 0) return text;
-    let result = text;
-    const indices = [];
-    for (const m of matches) {
-        for (const [start, end] of m.indices) {
-            indices.push({start, end});
-        }
-    }
-    indices.sort((a,b) => b.start - a.start);
-    for (const {start, end} of indices) {
-        result = result.slice(0, start) + '<mark class="highlight">' + result.slice(start, end + 1) + '</mark>' + result.slice(end + 1);
-    }
-    return result;
-}
-function doSearch(query) {
-    const resultsDiv = document.getElementById('results');
-    if (!query.trim()) { resultsDiv.innerHTML = '<div class="no-results">输入关键词开始搜索</div>'; return; }
-    if (!fuse) return;
-    const results = fuse.search(query).slice(0, 20);
-    if (results.length === 0) { resultsDiv.innerHTML = '<div class="no-results">未找到匹配结果，尝试其他关键词</div>'; return; }
-    let html = '';
-    for (const r of results) {
-        const item = r.item;
-        if (currentFilter !== 'all' && item.type !== currentFilter) continue;
-        const title = highlightText(item.title, r.matches?.filter(m => m.key === 'title'));
-        const subtitle = highlightText(item.subtitle, r.matches?.filter(m => m.key === 'subtitle'));
-        html += `<a href="../${item.url}" class="result-card">
-            <div class="result-icon">${getTypeIcon(item.type)}</div>
-            <div class="result-body">
-                <div class="result-title">${title} <span class="result-type">${getTypeLabel(item.type)}</span></div>
-                <div class="result-meta">${subtitle ? subtitle + ' · ' : ''}💰 ${item.cost} · 🛡️ ${item.safety} · 🌐 ${item.internet}Mbps${item.tags ? ' · ' + item.tags : ''}</div>
+    <footer class="footer" style="margin-top: 0;">
+        <div class="footer-main">
+            <div class="footer-brand"><span class="logo-icon">◈</span><span class="logo-text">数字游民指南</span><p>42 国数据、50+ 签证、34 城市，全部开源。</p></div>
+            <div class="footer-links">
+                <div class="footer-col"><h4>核心内容</h4><a href="../country/">国家数据库</a><a href="../visa/">签证数据库</a><a href="../city/">城市数据库</a><a href="../compare/">国家对比</a></div>
+                <div class="footer-col"><h4>社区</h4><a href="https://github.com/kfat77/digital-nomad-cn" target="_blank">GitHub</a></div>
             </div>
-            <div class="result-score">${item.score}</div>
-        </a>`;
+        </div>
+        <div class="footer-bottom"><p>CC BY-NC-SA 4.0 | 内容仅供学习交流</p></div>
+    </footer>
+
+    <script>
+    const SEARCH_INDEX = [
+{"id": "denmark", "title": "丹麦", "subtitle": "Denmark", "type": "country", "url": "country/denmark/index.html", "score": 77, "tags": "北欧, 申根, 自行车, 乐高, hygge", "region": "europe", "visa": "visa_required", "cost": 82, "safety": 84, "internet": 150},
+{"id": "croatia", "title": "克罗地亚", "subtitle": "Croatia", "type": "country", "url": "country/croatia/index.html", "score": 75, "tags": "申根区, 地中海, 数字游民签证, 海滨生活, 欧盟", "region": "europe", "visa": "evisa", "cost": 48, "safety": 78, "internet": 55},
+{"id": "iceland", "title": "冰岛", "subtitle": "Iceland", "type": "country", "url": "country/iceland/index.html", "score": 78, "tags": "北欧, 数字游民签证, 极光, 火山, 温泉", "region": "europe", "visa": "visa_required", "cost": 85, "safety": 88, "internet": 200},
+{"id": "canada", "title": "加拿大", "subtitle": "Canada", "type": "country", "url": "country/canada/index.html", "score": 77, "tags": "english, immigration_friendly, nature, americas, high_quality", "region": "americas_north", "visa": "visa_required", "cost": 75.0, "safety": 65.0, "internet": 170},
+{"id": "indonesia", "title": "印度尼西亚", "subtitle": "Indonesia", "type": "country", "url": "country/indonesia/index.html", "score": 76, "tags": "东南亚, 海岛, 低成本, 数字游民签证, 冲浪", "region": "asia", "visa": "evisa", "cost": 32, "safety": 58, "internet": 25},
+{"id": "kazakhstan", "title": "哈萨克斯坦", "subtitle": "Kazakhstan", "type": "country", "url": "country/kazakhstan/index.html", "score": 75, "tags": "中亚, 免签, 丝绸之路, 草原, 航天", "region": "asia", "visa": "visa_free", "cost": 30, "safety": 72, "internet": 40},
+{"id": "turkey", "title": "土耳其", "subtitle": "Turkey", "type": "country", "url": "country/turkey/index.html", "score": 74, "tags": "欧亚, 数字游民签证, 历史, 美食, 海滩", "region": "europe", "visa": "evisa", "cost": 32, "safety": 50, "internet": 35},
+{"id": "cyprus", "title": "塞浦路斯", "subtitle": "Cyprus", "type": "country", "url": "country/cyprus/index.html", "score": 80, "tags": "欧盟, 地中海, 数字游民签证, 税务优惠, 海岛", "region": "europe", "visa": "evisa", "cost": 55, "safety": 82, "internet": 50},
+{"id": "mexico", "title": "墨西哥", "subtitle": "Mexico", "type": "country", "url": "country/mexico/index.html", "score": 72, "tags": "北美, 低成本, 数字游民社区, 海滨生活, 美食", "region": "americas_north", "visa": "evisa", "cost": 38, "safety": 45, "internet": 40},
+{"id": "austria", "title": "奥地利", "subtitle": "Austria", "type": "country", "url": "country/austria/index.html", "score": 76, "tags": "欧洲, 申根, 数字游民签证, 阿尔卑斯, 音乐", "region": "europe", "visa": "visa_required", "cost": 70, "safety": 83, "internet": 80},
+{"id": "nepal", "title": "尼泊尔", "subtitle": "Nepal", "type": "country", "url": "country/nepal/index.html", "score": 71, "tags": "南亚, 免签, 喜马拉雅, 徒步, 佛教", "region": "asia", "visa": "visa_free", "cost": 22, "safety": 65, "internet": 15},
+{"id": "brazil", "title": "巴西", "subtitle": "Brazil", "type": "country", "url": "country/brazil/index.html", "score": 70, "tags": "南美, 数字游民签证, 海滩, 桑巴, 足球", "region": "americas_south", "visa": "visa_required", "cost": 40, "safety": 42, "internet": 55},
+{"id": "greece", "title": "希腊", "subtitle": "Greece", "type": "country", "url": "country/greece/index.html", "score": 78, "tags": "申根区, 地中海, 数字游民签证, 欧盟, 海岛", "region": "europe", "visa": "visa_required", "cost": 52, "safety": 76, "internet": 45},
+{"id": "germany", "title": "德国", "subtitle": "Germany", "type": "country", "url": "country/germany/index.html", "score": 78, "tags": "eu, high_quality, startup, strong_economy, europe", "region": "europe", "visa": "visa_required", "cost": 72.0, "safety": 75.0, "internet": 120},
+{"id": "norway", "title": "挪威", "subtitle": "Norway", "type": "country", "url": "country/norway/index.html", "score": 80, "tags": "北欧, 数字游民签证, 极光, 峡湾, 高福利", "region": "europe", "visa": "visa_required", "cost": 88, "safety": 85, "internet": 180},
+{"id": "morocco", "title": "摩洛哥", "subtitle": "Morocco", "type": "country", "url": "country/morocco/index.html", "score": 76, "tags": "非洲, 免签, 撒哈拉, 古城, 冲浪", "region": "africa", "visa": "visa_free", "cost": 30, "safety": 58, "internet": 25},
+{"id": "srilanka", "title": "斯里兰卡", "subtitle": "Sri Lanka", "type": "country", "url": "country/srilanka/index.html", "score": 73, "tags": "南亚, 数字游民签证, 茶园, 佛教, 海滩", "region": "asia", "visa": "evisa", "cost": 25, "safety": 60, "internet": 20},
+{"id": "singapore", "title": "新加坡", "subtitle": "Singapore", "type": "country", "url": "country/singapore/index.html", "score": 88, "tags": "financial_hub, startup_hub, asia, safe, english", "region": "asia", "visa": "visa_required", "cost": 95.0, "safety": 91.0, "internet": 280},
+{"id": "newzealand", "title": "新西兰", "subtitle": "New Zealand", "type": "country", "url": "country/newzealand/index.html", "score": 76, "tags": "english, nature, whv, oceania, work_life_balance", "region": "oceania", "visa": "visa_required", "cost": 78.0, "safety": 70.0, "internet": 150},
+{"id": "japan", "title": "日本", "subtitle": "Japan", "type": "country", "url": "country/japan/index.html", "score": 87, "tags": "culture, safe, high_quality, nomad_visa, asia", "region": "asia", "visa": "visa_required", "cost": 85.0, "safety": 92.0, "internet": 185},
+{"id": "chile", "title": "智利", "subtitle": "Chile", "type": "country", "url": "country/chile/index.html", "score": 72, "tags": "南美, 数字游民签证, 葡萄酒, 安第斯山脉, 滑雪", "region": "americas_south", "visa": "visa_required", "cost": 45, "safety": 55, "internet": 80},
+{"id": "georgia", "title": "格鲁吉亚", "subtitle": "Georgia", "type": "country", "url": "country/georgia/index.html", "score": 82, "tags": "免签, 低成本, 欧洲风情, 高加索, 葡萄酒", "region": "asia", "visa": "visa_free", "cost": 28, "safety": 72, "internet": 35},
+{"id": "france", "title": "法国", "subtitle": "France", "type": "country", "url": "country/france/index.html", "score": 77, "tags": "eu, culture, art, startup, europe", "region": "europe", "visa": "visa_required", "cost": 75.0, "safety": 65.0, "internet": 130},
+{"id": "thailand", "title": "泰国", "subtitle": "Thailand", "type": "country", "url": "country/thailand/index.html", "score": 85, "tags": "cheap, friendly, nomad_hub, tropical, nomad_visa", "region": "asia", "visa": "visa_free", "cost": 45.0, "safety": 65.0, "internet": 200},
+{"id": "australia", "title": "澳大利亚", "subtitle": "Australia", "type": "country", "url": "country/australia/index.html", "score": 78, "tags": "english, high_quality, nature, whv, oceania", "region": "oceania", "visa": "visa_required", "cost": 82.0, "safety": 75.0, "internet": 80},
+{"id": "macao", "title": "澳门", "subtitle": "Macao", "type": "country", "url": "country/macao/index.html", "score": 65, "tags": "casino, tax_haven, asia, free_port", "region": "asia", "visa": "visa_required", "cost": 70.0, "safety": 85.0, "internet": 180},
+{"id": "ireland", "title": "爱尔兰", "subtitle": "Ireland", "type": "country", "url": "country/ireland/index.html", "score": 76, "tags": "欧洲, 数字游民签证, 英语, 翡翠岛, 啤酒", "region": "europe", "visa": "visa_required", "cost": 78, "safety": 82, "internet": 120},
+{"id": "estonia", "title": "爱沙尼亚", "subtitle": "Estonia", "type": "country", "url": "country/estonia/index.html", "score": 80, "tags": "digital, e_residency, eu, nomad_visa, startup, europe", "region": "europe", "visa": "evisa", "cost": 60.0, "safety": 78.0, "internet": 100},
+{"id": "switzerland", "title": "瑞士", "subtitle": "Switzerland", "type": "country", "url": "country/switzerland/index.html", "score": 75, "tags": "欧洲, 申根, 阿尔卑斯, 滑雪, 高福利", "region": "europe", "visa": "visa_required", "cost": 95, "safety": 88, "internet": 170},
+{"id": "usa", "title": "美国", "subtitle": "United States", "type": "country", "url": "country/usa/index.html", "score": 72, "tags": "startup_hub, high_salary, diverse, americas", "region": "americas_north", "visa": "visa_required", "cost": 88.0, "safety": 50.0, "internet": 250},
+{"id": "uk", "title": "英国", "subtitle": "United Kingdom", "type": "country", "url": "country/uk/index.html", "score": 75, "tags": "english, financial_hub, culture, europe", "region": "europe", "visa": "visa_required", "cost": 80.0, "safety": 60.0, "internet": 110},
+{"id": "netherlands", "title": "荷兰", "subtitle": "Netherlands", "type": "country", "url": "country/netherlands/index.html", "score": 82, "tags": "eu, english_friendly, startup, bike, europe", "region": "europe", "visa": "visa_required", "cost": 78.0, "safety": 72.0, "internet": 180},
+{"id": "philippines", "title": "菲律宾", "subtitle": "Philippines", "type": "country", "url": "country/philippines/index.html", "score": 74, "tags": "东南亚, 英语, 低成本, 海岛, 潜水", "region": "asia", "visa": "visa_required", "cost": 35, "safety": 55, "internet": 30},
+{"id": "portugal", "title": "葡萄牙", "subtitle": "Portugal", "type": "country", "url": "country/portugal/index.html", "score": 88, "tags": "cheap, eu, nomad_visa, sunny, safe, europe", "region": "europe", "visa": "visa_required", "cost": 55.0, "safety": 72.0, "internet": 150},
+{"id": "mongolia", "title": "蒙古", "subtitle": "Mongolia", "type": "country", "url": "country/mongolia/index.html", "score": 72, "tags": "东亚, 免签, 数字游民签证, 草原, 游牧文化", "region": "asia", "visa": "visa_free", "cost": 28, "safety": 70, "internet": 20},
+{"id": "spain", "title": "西班牙", "subtitle": "Spain", "type": "country", "url": "country/spain/index.html", "score": 86, "tags": "cheap, eu, nomad_visa, sunny, culture, europe", "region": "europe", "visa": "visa_required", "cost": 58.0, "safety": 70.0, "internet": 170},
+{"id": "vietnam", "title": "越南", "subtitle": "Vietnam", "type": "country", "url": "country/vietnam/index.html", "score": 75, "tags": "cheap, startup_hub, growing, asia", "region": "asia", "visa": "evisa", "cost": 35.0, "safety": 60.0, "internet": 120},
+{"id": "argentina", "title": "阿根廷", "subtitle": "Argentina", "type": "country", "url": "country/argentina/index.html", "score": 68, "tags": "南美, 探戈, 低成本, 牛排, 足球", "region": "americas_south", "visa": "evisa", "cost": 35, "safety": 45, "internet": 30},
+{"id": "uae", "title": "阿联酋", "subtitle": "United Arab Emirates", "type": "country", "url": "country/uae/index.html", "score": 85, "tags": "tax_free, luxury, modern, nomad_visa, middle_east", "region": "middle_east", "visa": "visa_free", "cost": 70.0, "safety": 88.0, "internet": 300},
+{"id": "southkorea", "title": "韩国", "subtitle": "South Korea", "type": "country", "url": "country/southkorea/index.html", "score": 80, "tags": "technology, fast_internet, culture, nomad_visa, asia", "region": "asia", "visa": "visa_required", "cost": 78.0, "safety": 88.0, "internet": 220},
+{"id": "hongkong", "title": "香港", "subtitle": "Hong Kong", "type": "country", "url": "country/hongkong/index.html", "score": 82, "tags": "financial_hub, asia, gateway, no_tax_on_foreign_income", "region": "asia", "visa": "visa_required", "cost": 85.0, "safety": 78.3, "internet": 250},
+{"id": "malaysia", "title": "马来西亚", "subtitle": "Malaysia", "type": "country", "url": "country/malaysia/index.html", "score": 78, "tags": "cheap, english, multicultural, mm2h, asia", "region": "asia", "visa": "visa_free", "cost": 40.0, "safety": 55.0, "internet": 150},
+{"id": "armenia", "title": "亚美尼亚", "subtitle": "Armenia", "type": "country", "url": "country/armenia/index.html", "score": 71, "tags": "asia, cheap, history, mountains, culture", "region": "asia", "visa": "visa_free", "cost": 38.0, "safety": 70.0, "internet": 60},
+{"id": "azerbaijan", "title": "阿塞拜疆", "subtitle": "Azerbaijan", "type": "country", "url": "country/azerbaijan/index.html", "score": 69, "tags": "asia, cheap, oil, modern, culture", "region": "asia", "visa": "evisa", "cost": 42.0, "safety": 68.0, "internet": 55},
+{"id": "bulgaria", "title": "保加利亚", "subtitle": "Bulgaria", "type": "country", "url": "country/bulgaria/index.html", "score": 73, "tags": "cheap, eu, nature, history, mountains, europe", "region": "europe", "visa": "visa_required", "cost": 40.0, "safety": 65.0, "internet": 90},
+{"id": "colombia", "title": "哥伦比亚", "subtitle": "Colombia", "type": "country", "url": "country/colombia/index.html", "score": 70, "tags": "americas, cheap, coffee, nature, nomad_hub", "region": "americas_south", "visa": "visa_required", "cost": 40.0, "safety": 50.0, "internet": 65},
+{"id": "czech", "title": "捷克", "subtitle": "Czech Republic", "type": "country", "url": "country/czech/index.html", "score": 78, "tags": "cheap, eu, culture, history, beer, europe", "region": "europe", "visa": "visa_required", "cost": 55.0, "safety": 75.0, "internet": 120},
+{"id": "egypt", "title": "埃及", "subtitle": "Egypt", "type": "country", "url": "country/egypt/index.html", "score": 63, "tags": "africa, history, ancient, cheap, culture", "region": "africa", "visa": "evisa", "cost": 30.0, "safety": 52.0, "internet": 45},
+{"id": "ghana", "title": "加纳", "subtitle": "Ghana", "type": "country", "url": "country/ghana/index.html", "score": 62, "tags": "africa, culture, friendly, beach, gold", "region": "africa", "visa": "visa_required", "cost": 38.0, "safety": 60.0, "internet": 35},
+{"id": "hungary", "title": "匈牙利", "subtitle": "Hungary", "type": "country", "url": "country/hungary/index.html", "score": 80, "tags": "cheap, eu, culture, thermal_baths, nomad_visa, europe", "region": "europe", "visa": "visa_required", "cost": 48.0, "safety": 70.0, "internet": 110},
+{"id": "india", "title": "印度", "subtitle": "India", "type": "country", "url": "country/india/index.html", "score": 64, "tags": "asia, cheap, tech, culture, food", "region": "asia", "visa": "evisa", "cost": 28.0, "safety": 55.0, "internet": 50},
+{"id": "israel", "title": "以色列", "subtitle": "Israel", "type": "country", "url": "country/israel/index.html", "score": 75, "tags": "middle_east, startup, tech, beach, innovation", "region": "middle_east", "visa": "visa_required", "cost": 80.0, "safety": 65.0, "internet": 130},
+{"id": "kenya", "title": "肯尼亚", "subtitle": "Kenya", "type": "country", "url": "country/kenya/index.html", "score": 65, "tags": "africa, nature, safari, wildlife, adventure", "region": "africa", "visa": "evisa", "cost": 35.0, "safety": 50.0, "internet": 40},
+{"id": "peru", "title": "秘鲁", "subtitle": "Peru", "type": "country", "url": "country/peru/index.html", "score": 68, "tags": "americas, cheap, history, mountains, food", "region": "americas_south", "visa": "visa_required", "cost": 38.0, "safety": 55.0, "internet": 55},
+{"id": "poland", "title": "波兰", "subtitle": "Poland", "type": "country", "url": "country/poland/index.html", "score": 76, "tags": "cheap, eu, culture, history, startup, europe", "region": "europe", "visa": "visa_required", "cost": 45.0, "safety": 72.0, "internet": 100},
+{"id": "qatar", "title": "卡塔尔", "subtitle": "Qatar", "type": "country", "url": "country/qatar/index.html", "score": 72, "tags": "middle_east, luxury, modern, desert, safe", "region": "middle_east", "visa": "visa_free", "cost": 78.0, "safety": 82.0, "internet": 120},
+{"id": "romania", "title": "罗马尼亚", "subtitle": "Romania", "type": "country", "url": "country/romania/index.html", "score": 74, "tags": "cheap, eu, nature, history, mountains, europe", "region": "europe", "visa": "visa_required", "cost": 42.0, "safety": 68.0, "internet": 95},
+{"id": "south_africa", "title": "南非", "subtitle": "South Africa", "type": "country", "url": "country/south_africa/index.html", "score": 68, "tags": "africa, nature, beach, wine, adventure", "region": "africa", "visa": "visa_required", "cost": 45.0, "safety": 55.0, "internet": 50},
+{"id": "sweden", "title": "瑞典", "subtitle": "Sweden", "type": "country", "url": "country/sweden/index.html", "score": 79, "tags": "high_quality, eu, nature, innovation, safe, europe", "region": "europe", "visa": "visa_required", "cost": 85.0, "safety": 80.0, "internet": 140},
+{"id": "uzbekistan", "title": "乌兹别克斯坦", "subtitle": "Uzbekistan", "type": "country", "url": "country/uzbekistan/index.html", "score": 66, "tags": "asia, cheap, silk_road, history, culture", "region": "asia", "visa": "visa_free", "cost": 32.0, "safety": 72.0, "internet": 45}
+];
+    const fuseOptions = {
+        keys: [{ name: 'title', weight: 0.5 }, { name: 'subtitle', weight: 0.3 }, { name: 'tags', weight: 0.15 }, { name: 'region', weight: 0.05 }],
+        threshold: 0.4, includeScore: true, includeMatches: true,
+    };
+    let fuse = null; let currentFilter = 'all';
+    function initFuse() {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js';
+        script.onload = () => {
+            fuse = new Fuse(SEARCH_INDEX, fuseOptions);
+            const urlParams = new URLSearchParams(window.location.search);
+            const q = urlParams.get('q');
+            if (q) { document.getElementById('searchInput').value = q; doSearch(q); }
+        };
+        document.head.appendChild(script);
     }
-    resultsDiv.innerHTML = html || '<div class="no-results">当前筛选条件下无匹配结果</div>';
-}
-document.getElementById('searchInput').addEventListener('input', (e) => { doSearch(e.target.value); });
-document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentFilter = btn.dataset.filter;
-        doSearch(document.getElementById('searchInput').value);
+    function getTypeIcon(type) { return type === 'country' ? '🌍' : '🏙️'; }
+    function getTypeLabel(type) { return type === 'country' ? '国家' : '城市'; }
+    function highlightText(text, matches) {
+        if (!matches || matches.length === 0) return text;
+        let result = text;
+        const indices = [,
+{"id": "aarhus", "title": "奥胡斯", "subtitle": "Aarhus", "type": "city", "url": "city/aarhus.html", "score": 80, "tags": "丹麦, 温带海洋, 极高", "region": "", "visa": "", "cost": 75, "safety": 90, "internet": 85},
+{"id": "abudhabi", "title": "阿布扎比", "subtitle": "Abu Dhabi", "type": "city", "url": "city/abudhabi.html", "score": 78, "tags": "阿联酋, 热带沙漠, 极高", "region": "", "visa": "", "cost": 72, "safety": 92, "internet": 250},
+{"id": "accra", "title": "阿克拉", "subtitle": "Accra", "type": "city", "url": "city/accra.html", "score": 72, "tags": "加纳, 热带, 高", "region": "", "visa": "", "cost": 35, "safety": 60, "internet": 45},
+{"id": "akureyri", "title": "阿克雷里", "subtitle": "Akureyri", "type": "city", "url": "city/akureyri.html", "score": 74, "tags": "冰岛, 亚极地海洋, 极高", "region": "", "visa": "", "cost": 85, "safety": 95, "internet": 60},
+{"id": "almaty", "title": "阿拉木图", "subtitle": "Almaty", "type": "city", "url": "city/almaty.html", "score": 75, "tags": "哈萨克斯坦, 大陆性, 中等", "region": "", "visa": "", "cost": 35, "safety": 75, "internet": 60},
+{"id": "amsterdam", "title": "阿姆斯特丹", "subtitle": "Amsterdam", "type": "city", "url": "city/amsterdam.html", "score": 85, "tags": "荷兰, 温带海洋, 极高（几乎人人会说英语）", "region": "", "visa": "", "cost": 85, "safety": 72, "internet": 180},
+{"id": "antalya", "title": "安塔利亚", "subtitle": "Antalya", "type": "city", "url": "city/antalya.html", "score": 80, "tags": "土耳其, 地中海, 低", "region": "", "visa": "", "cost": 35, "safety": 80, "internet": 55},
+{"id": "astana", "title": "阿斯塔纳", "subtitle": "Astana", "type": "city", "url": "city/astana.html", "score": 72, "tags": "哈萨克斯坦, 极端大陆, 低", "region": "", "visa": "", "cost": 38, "safety": 80, "internet": 60},
+{"id": "athens", "title": "雅典", "subtitle": "Athens", "type": "city", "url": "city/athens.html", "score": 85, "tags": "希腊, 地中海, 高", "region": "", "visa": "", "cost": 52, "safety": 75, "internet": 65},
+{"id": "auckland", "title": "奥克兰", "subtitle": "Auckland", "type": "city", "url": "city/auckland.html", "score": 78, "tags": "新西兰, 温带海洋, 极高", "region": "", "visa": "", "cost": 82, "safety": 72, "internet": 140},
+{"id": "austin", "title": "奥斯汀", "subtitle": "Austin", "type": "city", "url": "city/austin.html", "score": 84, "tags": "美国, 亚热带, 极高", "region": "", "visa": "", "cost": 72, "safety": 70, "internet": 85},
+{"id": "baku", "title": "巴库", "subtitle": "Baku", "type": "city", "url": "city/baku.html", "score": 76, "tags": "阿塞拜疆, 半干旱, 低", "region": "", "visa": "", "cost": 40, "safety": 75, "internet": 55},
+{"id": "bali", "title": "巴厘岛", "subtitle": "Bali", "type": "city", "url": "city/bali.html", "score": 90, "tags": "印尼, 热带, 中等", "region": "", "visa": "", "cost": 40, "safety": 75, "internet": 50},
+{"id": "bangalore", "title": "班加罗尔", "subtitle": "Bangalore", "type": "city", "url": "city/bangalore.html", "score": 78, "tags": "印度, 热带, 高", "region": "", "visa": "", "cost": 30, "safety": 60, "internet": 70},
+{"id": "bangkok", "title": "曼谷", "subtitle": "Bangkok", "type": "city", "url": "city/bangkok.html", "score": 88, "tags": "泰国, 热带季风, 中等", "region": "", "visa": "", "cost": 48, "safety": 65, "internet": 200},
+{"id": "barcelona", "title": "巴塞罗那", "subtitle": "Barcelona", "type": "city", "url": "city/barcelona.html", "score": 88, "tags": "西班牙, 地中海, 高", "region": "", "visa": "", "cost": 62, "safety": 70, "internet": 170},
+{"id": "batumi", "title": "巴统", "subtitle": "Batumi", "type": "city", "url": "city/batumi.html", "score": 78, "tags": "格鲁吉亚, 亚热带湿润, 低", "region": "", "visa": "", "cost": 28, "safety": 82, "internet": 55},
+{"id": "bergen", "title": "卑尔根", "subtitle": "Bergen", "type": "city", "url": "city/bergen.html", "score": 78, "tags": "挪威, 温带海洋, 极高", "region": "", "visa": "", "cost": 85, "safety": 90, "internet": 80},
+{"id": "berlin", "title": "柏林", "subtitle": "Berlin", "type": "city", "url": "city/berlin.html", "score": 88, "tags": "德国, 温带大陆, 极高", "region": "", "visa": "", "cost": 68, "safety": 72, "internet": 130},
+{"id": "bogota", "title": "波哥大", "subtitle": "Bogotá", "type": "city", "url": "city/bogota.html", "score": 76, "tags": "哥伦比亚, 温带高原, 中等", "region": "", "visa": "", "cost": 38, "safety": 55, "internet": 60},
+{"id": "brisbane", "title": "布里斯班", "subtitle": "Brisbane", "type": "city", "url": "city/brisbane.html", "score": 80, "tags": "澳大利亚, 亚热带, 极高", "region": "", "visa": "", "cost": 72, "safety": 85, "internet": 75},
+{"id": "brno", "title": "布尔诺", "subtitle": "Brno", "type": "city", "url": "city/brno.html", "score": 82, "tags": "捷克, 温带大陆, 高", "region": "", "visa": "", "cost": 38, "safety": 88, "internet": 70},
+{"id": "bucharest", "title": "布加勒斯特", "subtitle": "Bucharest", "type": "city", "url": "city/bucharest.html", "score": 82, "tags": "罗马尼亚, 温带大陆, 中等", "region": "", "visa": "", "cost": 38, "safety": 75, "internet": 75},
+{"id": "budapest", "title": "布达佩斯", "subtitle": "Budapest", "type": "city", "url": "city/budapest.html", "score": 88, "tags": "匈牙利, 温带大陆, 高", "region": "", "visa": "", "cost": 45, "safety": 82, "internet": 80},
+{"id": "buenos_aires", "title": "布宜诺斯艾利斯", "subtitle": "Buenos Aires", "type": "city", "url": "city/buenos_aires.html", "score": 82, "tags": "阿根廷, 温带湿润, 中等", "region": "", "visa": "", "cost": 38, "safety": 55, "internet": 50},
+{"id": "busan", "title": "釜山", "subtitle": "Busan", "type": "city", "url": "city/busan.html", "score": 78, "tags": "韩国, 温带海洋, 低", "region": "", "visa": "", "cost": 65, "safety": 85, "internet": 180},
+{"id": "cairo", "title": "开罗", "subtitle": "Cairo", "type": "city", "url": "city/cairo.html", "score": 70, "tags": "埃及, 沙漠, 中等", "region": "", "visa": "", "cost": 25, "safety": 50, "internet": 40},
+{"id": "cape_town", "title": "开普敦", "subtitle": "Cape Town", "type": "city", "url": "city/cape_town.html", "score": 85, "tags": "南非, 地中海, 极高", "region": "", "visa": "", "cost": 45, "safety": 50, "internet": 55},
+{"id": "casablanca", "title": "卡萨布兰卡", "subtitle": "Casablanca", "type": "city", "url": "city/casablanca.html", "score": 74, "tags": "摩洛哥, 地中海, 中等", "region": "", "visa": "", "cost": 42, "safety": 65, "internet": 50},
+{"id": "cebu", "title": "宿务", "subtitle": "Cebu", "type": "city", "url": "city/cebu.html", "score": 76, "tags": "菲律宾, 热带, 极高", "region": "", "visa": "", "cost": 32, "safety": 60, "internet": 50},
+{"id": "chiangmai", "title": "清迈", "subtitle": "Chiang Mai", "type": "city", "url": "city/chiangmai.html", "score": 90, "tags": "泰国, 热带季风, 高（数字游民社区）", "region": "", "visa": "", "cost": 38, "safety": 70, "internet": 150},
+{"id": "colombo", "title": "科伦坡", "subtitle": "Colombo", "type": "city", "url": "city/colombo.html", "score": 76, "tags": "斯里兰卡, 热带, 高", "region": "", "visa": "", "cost": 28, "safety": 70, "internet": 45},
+{"id": "copenhagen", "title": "哥本哈根", "subtitle": "Copenhagen", "type": "city", "url": "city/copenhagen.html", "score": 85, "tags": "丹麦, 温带海洋, 极高", "region": "", "visa": "", "cost": 85, "safety": 92, "internet": 90},
+{"id": "cusco", "title": "库斯科", "subtitle": "Cusco", "type": "city", "url": "city/cusco.html", "score": 75, "tags": "秘鲁, 高原, 中等", "region": "", "visa": "", "cost": 28, "safety": 65, "internet": 40},
+{"id": "danang", "title": "岘港", "subtitle": "Da Nang", "type": "city", "url": "city/danang.html", "score": 82, "tags": "越南, 热带季风, 中等", "region": "", "visa": "", "cost": 28, "safety": 80, "internet": 55},
+{"id": "debrecen", "title": "德布勒森", "subtitle": "Debrecen", "type": "city", "url": "city/debrecen.html", "score": 76, "tags": "匈牙利, 温带大陆, 中等", "region": "", "visa": "", "cost": 32, "safety": 85, "internet": 70},
+{"id": "delhi", "title": "新德里", "subtitle": "New Delhi", "type": "city", "url": "city/delhi.html", "score": 70, "tags": "印度, 半干旱, 高", "region": "", "visa": "", "cost": 32, "safety": 50, "internet": 60},
+{"id": "dilijan", "title": "迪利然", "subtitle": "Dilijan", "type": "city", "url": "city/dilijan.html", "score": 72, "tags": "亚美尼亚, 温带山地, 低", "region": "", "visa": "", "cost": 28, "safety": 85, "internet": 50},
+{"id": "doha", "title": "多哈", "subtitle": "Doha", "type": "city", "url": "city/doha.html", "score": 75, "tags": "卡塔尔, 沙漠, 高", "region": "", "visa": "", "cost": 70, "safety": 90, "internet": 80},
+{"id": "dubai", "title": "迪拜", "subtitle": "Dubai", "type": "city", "url": "city/dubai.html", "score": 85, "tags": "阿联酋, 热带沙漠, 极高", "region": "", "visa": "", "cost": 78, "safety": 90, "internet": 300},
+{"id": "dublin", "title": "都柏林", "subtitle": "Dublin", "type": "city", "url": "city/dublin.html", "score": 80, "tags": "爱尔兰, 温带海洋, 极高", "region": "", "visa": "", "cost": 80, "safety": 82, "internet": 80},
+{"id": "fukuoka", "title": "福冈", "subtitle": "Fukuoka", "type": "city", "url": "city/fukuoka.html", "score": 82, "tags": "日本, 亚热带, 中等", "region": "", "visa": "", "cost": 58, "safety": 92, "internet": 85},
+{"id": "geneva", "title": "日内瓦", "subtitle": "Geneva", "type": "city", "url": "city/geneva.html", "score": 78, "tags": "瑞士, 温带大陆, 极高", "region": "", "visa": "", "cost": 92, "safety": 92, "internet": 90},
+{"id": "gothenburg", "title": "哥德堡", "subtitle": "Gothenburg", "type": "city", "url": "city/gothenburg.html", "score": 80, "tags": "瑞典, 温带海洋, 极高", "region": "", "visa": "", "cost": 72, "safety": 88, "internet": 85},
+{"id": "guadalajara", "title": "瓜达拉哈拉", "subtitle": "Guadalajara", "type": "city", "url": "city/guadalajara.html", "score": 78, "tags": "墨西哥, 亚热带, 中等", "region": "", "visa": "", "cost": 35, "safety": 60, "internet": 55},
+{"id": "haifa", "title": "海法", "subtitle": "Haifa", "type": "city", "url": "city/haifa.html", "score": 78, "tags": "以色列, 地中海, 高", "region": "", "visa": "", "cost": 65, "safety": 75, "internet": 80},
+{"id": "hamburg", "title": "汉堡", "subtitle": "Hamburg", "type": "city", "url": "city/hamburg.html", "score": 82, "tags": "德国, 温带海洋, 高", "region": "", "visa": "", "cost": 68, "safety": 85, "internet": 80},
+{"id": "hanoi", "title": "河内", "subtitle": "Hanoi", "type": "city", "url": "city/hanoi.html", "score": 78, "tags": "越南, 热带季风, 中等", "region": "", "visa": "", "cost": 35, "safety": 65, "internet": 110},
+{"id": "hochiminh", "title": "胡志明市", "subtitle": "Ho Chi Minh City", "type": "city", "url": "city/hochiminh.html", "score": 82, "tags": "越南, 热带, 中等（服务业）", "region": "", "visa": "", "cost": 38, "safety": 60, "internet": 130},
+{"id": "hongkong-city", "title": "香港", "subtitle": "Hong Kong", "type": "city", "url": "city/hongkong-city.html", "score": 82, "tags": "香港, 亚热带季风, 高", "region": "", "visa": "", "cost": 85, "safety": 78, "internet": 250},
+{"id": "istanbul", "title": "伊斯坦布尔", "subtitle": "Istanbul", "type": "city", "url": "city/istanbul.html", "score": 88, "tags": "土耳其, 地中海, 中等", "region": "", "visa": "", "cost": 42, "safety": 65, "internet": 65},
+{"id": "jakarta", "title": "雅加达", "subtitle": "Jakarta", "type": "city", "url": "city/jakarta.html", "score": 72, "tags": "印尼, 热带, 中等", "region": "", "visa": "", "cost": 38, "safety": 60, "internet": 60},
+{"id": "jeju", "title": "济州岛", "subtitle": "Jeju", "type": "city", "url": "city/jeju.html", "score": 76, "tags": "韩国, 亚热带, 低", "region": "", "visa": "", "cost": 45, "safety": 90, "internet": 80},
+{"id": "johannesburg", "title": "约翰内斯堡", "subtitle": "Johannesburg", "type": "city", "url": "city/johannesburg.html", "score": 72, "tags": "南非, 亚热带高原, 极高", "region": "", "visa": "", "cost": 40, "safety": 45, "internet": 60},
+{"id": "kathmandu", "title": "加德满都", "subtitle": "Kathmandu", "type": "city", "url": "city/kathmandu.html", "score": 72, "tags": "尼泊尔, 亚热带高原, 中等", "region": "", "visa": "", "cost": 22, "safety": 70, "internet": 40},
+{"id": "krakow", "title": "克拉科夫", "subtitle": "Kraków", "type": "city", "url": "city/krakow.html", "score": 85, "tags": "波兰, 温带大陆, 高", "region": "", "visa": "", "cost": 42, "safety": 88, "internet": 75},
+{"id": "kualalumpur", "title": "吉隆坡", "subtitle": "Kuala Lumpur", "type": "city", "url": "city/kualalumpur.html", "score": 82, "tags": "马来西亚, 热带雨林, 高", "region": "", "visa": "", "cost": 42, "safety": 55, "internet": 150},
+{"id": "kyoto", "title": "京都", "subtitle": "Kyoto", "type": "city", "url": "city/kyoto.html", "score": 80, "tags": "日本, 温带, 中等", "region": "", "visa": "", "cost": 75, "safety": 93, "internet": 170},
+{"id": "lima", "title": "利马", "subtitle": "Lima", "type": "city", "url": "city/lima.html", "score": 78, "tags": "秘鲁, 亚热带沙漠, 中等", "region": "", "visa": "", "cost": 38, "safety": 55, "internet": 55},
+{"id": "limassol", "title": "利马索尔", "subtitle": "Limassol", "type": "city", "url": "city/limassol.html", "score": 82, "tags": "塞浦路斯, 地中海, 高", "region": "", "visa": "", "cost": 60, "safety": 85, "internet": 60},
+{"id": "lisbon", "title": "里斯本", "subtitle": "Lisbon", "type": "city", "url": "city/lisbon.html", "score": 90, "tags": "葡萄牙, 地中海, 高（数字游民社区）", "region": "", "visa": "", "cost": 58, "safety": 75, "internet": 150},
+{"id": "london", "title": "伦敦", "subtitle": "London", "type": "city", "url": "city/london.html", "score": 85, "tags": "英国, 温带海洋, 极高", "region": "", "visa": "", "cost": 90, "safety": 65, "internet": 120},
+{"id": "luxor", "title": "卢克索", "subtitle": "Luxor", "type": "city", "url": "city/luxor.html", "score": 70, "tags": "埃及, 沙漠, 中等", "region": "", "visa": "", "cost": 20, "safety": 60, "internet": 35},
+{"id": "lyon", "title": "里昂", "subtitle": "Lyon", "type": "city", "url": "city/lyon.html", "score": 82, "tags": "法国, 温带大陆, 高", "region": "", "visa": "", "cost": 60, "safety": 82, "internet": 75},
+{"id": "macao-city", "title": "澳门", "subtitle": "Macao", "type": "city", "url": "city/macao-city.html", "score": 65, "tags": "澳门, 亚热带, 中等", "region": "", "visa": "", "cost": 70, "safety": 85, "internet": 180},
+{"id": "madeira", "title": "马德拉", "subtitle": "Madeira", "type": "city", "url": "city/madeira.html", "score": 82, "tags": "葡萄牙, 亚热带, 高", "region": "", "visa": "", "cost": 50, "safety": 88, "internet": 60},
+{"id": "madrid", "title": "马德里", "subtitle": "Madrid", "type": "city", "url": "city/madrid.html", "score": 85, "tags": "西班牙, 温带大陆, 高", "region": "", "visa": "", "cost": 60, "safety": 72, "internet": 160},
+{"id": "malacca", "title": "马六甲", "subtitle": "Malacca", "type": "city", "url": "city/malacca.html", "score": 76, "tags": "马来西亚, 热带, 高", "region": "", "visa": "", "cost": 32, "safety": 80, "internet": 55},
+{"id": "manchester", "title": "曼彻斯特", "subtitle": "Manchester", "type": "city", "url": "city/manchester.html", "score": 80, "tags": "英国, 温带海洋, 极高", "region": "", "visa": "", "cost": 62, "safety": 75, "internet": 80},
+{"id": "manila", "title": "马尼拉", "subtitle": "Manila", "type": "city", "url": "city/manila.html", "score": 72, "tags": "菲律宾, 热带, 极高", "region": "", "visa": "", "cost": 35, "safety": 50, "internet": 55},
+{"id": "marrakech", "title": "马拉喀什", "subtitle": "Marrakech", "type": "city", "url": "city/marrakech.html", "score": 80, "tags": "摩洛哥, 半干旱, 中等", "region": "", "visa": "", "cost": 35, "safety": 70, "internet": 45},
+{"id": "medellin", "title": "麦德林", "subtitle": "Medellín", "type": "city", "url": "city/medellin.html", "score": 85, "tags": "哥伦比亚, 热带高原, 中等", "region": "", "visa": "", "cost": 35, "safety": 60, "internet": 55},
+{"id": "melbourne", "title": "墨尔本", "subtitle": "Melbourne", "type": "city", "url": "city/melbourne.html", "score": 82, "tags": "澳大利亚, 温带海洋, 极高", "region": "", "visa": "", "cost": 85, "safety": 75, "internet": 85},
+{"id": "mendoza", "title": "门多萨", "subtitle": "Mendoza", "type": "city", "url": "city/mendoza.html", "score": 75, "tags": "阿根廷, 干旱大陆性, 低", "region": "", "visa": "", "cost": 30, "safety": 70, "internet": 40},
+{"id": "mexico_city", "title": "墨西哥城", "subtitle": "Mexico City", "type": "city", "url": "city/mexico_city.html", "score": 85, "tags": "墨西哥, 亚热带高原, 中等", "region": "", "visa": "", "cost": 42, "safety": 55, "internet": 65},
+{"id": "montreal", "title": "蒙特利尔", "subtitle": "Montreal", "type": "city", "url": "city/montreal.html", "score": 82, "tags": "加拿大, 温带大陆, 高", "region": "", "visa": "", "cost": 65, "safety": 85, "internet": 75},
+{"id": "munich", "title": "慕尼黑", "subtitle": "Munich", "type": "city", "url": "city/munich.html", "score": 80, "tags": "德国, 温带大陆, 极高", "region": "", "visa": "", "cost": 82, "safety": 80, "internet": 140},
+{"id": "nairobi", "title": "内罗毕", "subtitle": "Nairobi", "type": "city", "url": "city/nairobi.html", "score": 75, "tags": "肯尼亚, 热带高原, 高", "region": "", "visa": "", "cost": 38, "safety": 55, "internet": 50},
+{"id": "newyork", "title": "纽约", "subtitle": "New York", "type": "city", "url": "city/newyork.html", "score": 82, "tags": "美国, 温带大陆, 极高", "region": "", "visa": "", "cost": 100, "safety": 55, "internet": 250},
+{"id": "nicosia", "title": "尼科西亚", "subtitle": "Nicosia", "type": "city", "url": "city/nicosia.html", "score": 75, "tags": "塞浦路斯, 地中海, 高", "region": "", "visa": "", "cost": 55, "safety": 85, "internet": 65},
+{"id": "osaka", "title": "大阪", "subtitle": "Osaka", "type": "city", "url": "city/osaka.html", "score": 85, "tags": "日本, 温带季风, 中等", "region": "", "visa": "", "cost": 78, "safety": 92, "internet": 180},
+{"id": "oslo", "title": "奥斯陆", "subtitle": "Oslo", "type": "city", "url": "city/oslo.html", "score": 80, "tags": "挪威, 温带海洋, 极高", "region": "", "visa": "", "cost": 90, "safety": 92, "internet": 90},
+{"id": "paris", "title": "巴黎", "subtitle": "Paris", "type": "city", "url": "city/paris.html", "score": 82, "tags": "法国, 温带海洋, 高", "region": "", "visa": "", "cost": 85, "safety": 60, "internet": 140},
+{"id": "pattaya", "title": "芭提雅", "subtitle": "Pattaya", "type": "city", "url": "city/pattaya.html", "score": 72, "tags": "泰国, 热带, 中等", "region": "", "visa": "", "cost": 35, "safety": 60, "internet": 50},
+{"id": "penang", "title": "槟城", "subtitle": "Penang", "type": "city", "url": "city/penang.html", "score": 78, "tags": "马来西亚, 热带雨林, 高", "region": "", "visa": "", "cost": 35, "safety": 60, "internet": 120},
+{"id": "phuket", "title": "普吉岛", "subtitle": "Phuket", "type": "city", "url": "city/phuket.html", "score": 80, "tags": "泰国, 热带, 高（旅游区）", "region": "", "visa": "", "cost": 55, "safety": 60, "internet": 120},
+{"id": "plovdiv", "title": "普罗夫迪夫", "subtitle": "Plovdiv", "type": "city", "url": "city/plovdiv.html", "score": 74, "tags": "保加利亚, 温带大陆, 低", "region": "", "visa": "", "cost": 30, "safety": 80, "internet": 60},
+{"id": "porto", "title": "波尔图", "subtitle": "Porto", "type": "city", "url": "city/porto.html", "score": 85, "tags": "葡萄牙, 地中海, 高", "region": "", "visa": "", "cost": 50, "safety": 78, "internet": 130},
+{"id": "prague", "title": "布拉格", "subtitle": "Prague", "type": "city", "url": "city/prague.html", "score": 88, "tags": "捷克, 温带大陆, 高", "region": "", "visa": "", "cost": 50, "safety": 85, "internet": 75},
+{"id": "queenstown", "title": "皇后镇", "subtitle": "Queenstown", "type": "city", "url": "city/queenstown.html", "score": 78, "tags": "新西兰, 温带海洋, 极高", "region": "", "visa": "", "cost": 75, "safety": 88, "internet": 60},
+{"id": "reykjavik", "title": "雷克雅未克", "subtitle": "Reykjavik", "type": "city", "url": "city/reykjavik.html", "score": 78, "tags": "冰岛, 亚极地海洋, 极高", "region": "", "visa": "", "cost": 90, "safety": 95, "internet": 75},
+{"id": "rio_de_janeiro", "title": "里约热内卢", "subtitle": "Rio de Janeiro", "type": "city", "url": "city/rio_de_janeiro.html", "score": 78, "tags": "巴西, 热带, 中等", "region": "", "visa": "", "cost": 42, "safety": 45, "internet": 55},
+{"id": "rotterdam", "title": "鹿特丹", "subtitle": "Rotterdam", "type": "city", "url": "city/rotterdam.html", "score": 80, "tags": "荷兰, 温带海洋, 高", "region": "", "visa": "", "cost": 68, "safety": 85, "internet": 80},
+{"id": "salzburg", "title": "萨尔茨堡", "subtitle": "Salzburg", "type": "city", "url": "city/salzburg.html", "score": 72, "tags": "奥地利, 温带大陆, 高", "region": "", "visa": "", "cost": 65, "safety": 92, "internet": 70},
+{"id": "sanfrancisco", "title": "旧金山", "subtitle": "San Francisco", "type": "city", "url": "city/sanfrancisco.html", "score": 78, "tags": "美国, 地中海, 极高", "region": "", "visa": "", "cost": 105, "safety": 50, "internet": 280},
+{"id": "santiago", "title": "圣地亚哥", "subtitle": "Santiago", "type": "city", "url": "city/santiago.html", "score": 78, "tags": "智利, 地中海型, 中等", "region": "", "visa": "", "cost": 48, "safety": 65, "internet": 65},
+{"id": "sao_paulo", "title": "圣保罗", "subtitle": "São Paulo", "type": "city", "url": "city/sao_paulo.html", "score": 80, "tags": "巴西, 亚热带, 中等", "region": "", "visa": "", "cost": 45, "safety": 50, "internet": 70},
+{"id": "seoul", "title": "首尔", "subtitle": "Seoul", "type": "city", "url": "city/seoul.html", "score": 85, "tags": "韩国, 温带季风, 中等", "region": "", "visa": "", "cost": 78, "safety": 88, "internet": 220},
+{"id": "seville", "title": "塞维利亚", "subtitle": "Seville", "type": "city", "url": "city/seville.html", "score": 84, "tags": "西班牙, 地中海, 中等", "region": "", "visa": "", "cost": 45, "safety": 82, "internet": 60},
+{"id": "sharjah", "title": "沙迦", "subtitle": "Sharjah", "type": "city", "url": "city/sharjah.html", "score": 70, "tags": "阿联酋, 沙漠, 中等", "region": "", "visa": "", "cost": 45, "safety": 88, "internet": 65},
+{"id": "sheki", "title": "舍基", "subtitle": "Sheki", "type": "city", "url": "city/sheki.html", "score": 68, "tags": "阿塞拜疆, 温带, 低", "region": "", "visa": "", "cost": 22, "safety": 80, "internet": 35},
+{"id": "singapore-city", "title": "新加坡", "subtitle": "Singapore", "type": "city", "url": "city/singapore-city.html", "score": 88, "tags": "新加坡, 热带雨林, 极高", "region": "", "visa": "", "cost": 95, "safety": 91, "internet": 280},
+{"id": "sofia", "title": "索非亚", "subtitle": "Sofia", "type": "city", "url": "city/sofia.html", "score": 80, "tags": "保加利亚, 温带大陆, 中等", "region": "", "visa": "", "cost": 35, "safety": 75, "internet": 70},
+{"id": "split", "title": "斯普利特", "subtitle": "Split", "type": "city", "url": "city/split.html", "score": 80, "tags": "克罗地亚, 地中海, 高", "region": "", "visa": "", "cost": 50, "safety": 88, "internet": 60},
+{"id": "stockholm", "title": "斯德哥尔摩", "subtitle": "Stockholm", "type": "city", "url": "city/stockholm.html", "score": 82, "tags": "瑞典, 温带大陆, 极高", "region": "", "visa": "", "cost": 80, "safety": 90, "internet": 90},
+{"id": "sydney", "title": "悉尼", "subtitle": "Sydney", "type": "city", "url": "city/sydney.html", "score": 80, "tags": "澳大利亚, 亚热带, 极高", "region": "", "visa": "", "cost": 88, "safety": 78, "internet": 90},
+{"id": "tallinn", "title": "塔林", "subtitle": "Tallinn", "type": "city", "url": "city/tallinn.html", "score": 82, "tags": "爱沙尼亚, 温带海洋, 极高", "region": "", "visa": "", "cost": 55, "safety": 82, "internet": 100},
+{"id": "tartu", "title": "塔尔图", "subtitle": "Tartu", "type": "city", "url": "city/tartu.html", "score": 76, "tags": "爱沙尼亚, 温带大陆, 高", "region": "", "visa": "", "cost": 42, "safety": 88, "internet": 80},
+{"id": "tashkent", "title": "塔什干", "subtitle": "Tashkent", "type": "city", "url": "city/tashkent.html", "score": 70, "tags": "乌兹别克斯坦, 大陆性, 低", "region": "", "visa": "", "cost": 28, "safety": 80, "internet": 50},
+{"id": "tbilisi", "title": "第比利斯", "subtitle": "Tbilisi", "type": "city", "url": "city/tbilisi.html", "score": 85, "tags": "格鲁吉亚, 温带大陆, 中等", "region": "", "visa": "", "cost": 32, "safety": 80, "internet": 65},
+{"id": "tel_aviv", "title": "特拉维夫", "subtitle": "Tel Aviv", "type": "city", "url": "city/tel_aviv.html", "score": 82, "tags": "以色列, 地中海, 高", "region": "", "visa": "", "cost": 75, "safety": 70, "internet": 90},
+{"id": "thessaloniki", "title": "塞萨洛尼基", "subtitle": "Thessaloniki", "type": "city", "url": "city/thessaloniki.html", "score": 80, "tags": "希腊, 地中海, 高", "region": "", "visa": "", "cost": 42, "safety": 80, "internet": 60},
+{"id": "tokyo", "title": "东京", "subtitle": "Tokyo", "type": "city", "url": "city/tokyo.html", "score": 90, "tags": "日本, 温带季风, 中等（服务业较好）", "region": "", "visa": "", "cost": 88, "safety": 95, "internet": 200},
+{"id": "toronto", "title": "多伦多", "subtitle": "Toronto", "type": "city", "url": "city/toronto.html", "score": 80, "tags": "加拿大, 温带大陆, 极高", "region": "", "visa": "", "cost": 80, "safety": 70, "internet": 160},
+{"id": "ulaanbaatar", "title": "乌兰巴托", "subtitle": "Ulaanbaatar", "type": "city", "url": "city/ulaanbaatar.html", "score": 68, "tags": "蒙古, 极端大陆, 低", "region": "", "visa": "", "cost": 30, "safety": 70, "internet": 45},
+{"id": "valparaiso", "title": "瓦尔帕莱索", "subtitle": "Valparaíso", "type": "city", "url": "city/valparaiso.html", "score": 72, "tags": "智利, 地中海型, 低", "region": "", "visa": "", "cost": 35, "safety": 60, "internet": 50},
+{"id": "vancouver", "title": "温哥华", "subtitle": "Vancouver", "type": "city", "url": "city/vancouver.html", "score": 82, "tags": "加拿大, 温带海洋, 极高", "region": "", "visa": "", "cost": 85, "safety": 72, "internet": 150},
+{"id": "vienna", "title": "维也纳", "subtitle": "Vienna", "type": "city", "url": "city/vienna.html", "score": 85, "tags": "奥地利, 温带大陆, 高", "region": "", "visa": "", "cost": 70, "safety": 90, "internet": 80},
+{"id": "warsaw", "title": "华沙", "subtitle": "Warsaw", "type": "city", "url": "city/warsaw.html", "score": 82, "tags": "波兰, 温带大陆, 高", "region": "", "visa": "", "cost": 48, "safety": 85, "internet": 80},
+{"id": "yerevan", "title": "埃里温", "subtitle": "Yerevan", "type": "city", "url": "city/yerevan.html", "score": 78, "tags": "亚美尼亚, 大陆性, 中等", "region": "", "visa": "", "cost": 35, "safety": 80, "internet": 60},
+{"id": "zagreb", "title": "萨格勒布", "subtitle": "Zagreb", "type": "city", "url": "city/zagreb.html", "score": 78, "tags": "克罗地亚, 温带大陆, 高", "region": "", "visa": "", "cost": 45, "safety": 85, "internet": 70},
+{"id": "zurich", "title": "苏黎世", "subtitle": "Zurich", "type": "city", "url": "city/zurich.html", "score": 80, "tags": "瑞士, 温带大陆, 极高", "region": "", "visa": "", "cost": 95, "safety": 92, "internet": 95}
+,
+{"id": "australia-vs-newzealand", "title": "澳大利亚 vs 新西兰", "subtitle": "国家对比", "type": "compare", "url": "compare/country/australia-vs-newzealand.html", "score": 78, "tags": "澳大利亚 新西兰 对比 oceania", "region": "", "visa": "", "cost": 80, "safety": 73, "internet": NaN},
+{"id": "brazil-vs-argentina", "title": "巴西 vs 阿根廷", "subtitle": "国家对比", "type": "compare", "url": "compare/country/brazil-vs-argentina.html", "score": 70, "tags": "巴西 阿根廷 对比 americas_south", "region": "", "visa": "", "cost": 38, "safety": 44, "internet": NaN},
+{"id": "canada-vs-usa", "title": "加拿大 vs 美国", "subtitle": "国家对比", "type": "compare", "url": "compare/country/canada-vs-usa.html", "score": 77, "tags": "加拿大 美国 对比 americas_north", "region": "", "visa": "", "cost": 82, "safety": 58, "internet": NaN},
+{"id": "croatia-vs-greece", "title": "克罗地亚 vs 希腊", "subtitle": "国家对比", "type": "compare", "url": "compare/country/croatia-vs-greece.html", "score": 78, "tags": "克罗地亚 希腊 对比 europe", "region": "", "visa": "", "cost": 50, "safety": 77, "internet": NaN},
+{"id": "czech-vs-hungary", "title": "捷克 vs 匈牙利", "subtitle": "国家对比", "type": "compare", "url": "compare/country/czech-vs-hungary.html", "score": 80, "tags": "捷克 匈牙利 对比 europe", "region": "", "visa": "", "cost": 52, "safety": 73, "internet": NaN},
+{"id": "denmark-vs-germany", "title": "丹麦 vs 德国", "subtitle": "国家对比", "type": "compare", "url": "compare/country/denmark-vs-germany.html", "score": 78, "tags": "丹麦 德国 对比 europe", "region": "", "visa": "", "cost": 77, "safety": 80, "internet": NaN},
+{"id": "georgia-vs-armenia", "title": "格鲁吉亚 vs 亚美尼亚", "subtitle": "国家对比", "type": "compare", "url": "compare/country/georgia-vs-armenia.html", "score": 82, "tags": "格鲁吉亚 亚美尼亚 对比 asia", "region": "", "visa": "", "cost": 33, "safety": 71, "internet": NaN},
+{"id": "germany-vs-france", "title": "德国 vs 法国", "subtitle": "国家对比", "type": "compare", "url": "compare/country/germany-vs-france.html", "score": 78, "tags": "德国 法国 对比 europe", "region": "", "visa": "", "cost": 74, "safety": 70, "internet": NaN},
+{"id": "hongkong-vs-macao", "title": "香港 vs 澳门", "subtitle": "国家对比", "type": "compare", "url": "compare/country/hongkong-vs-macao.html", "score": 82, "tags": "香港 澳门 对比 asia", "region": "", "visa": "", "cost": 78, "safety": 82, "internet": NaN},
+{"id": "india-vs-srilanka", "title": "印度 vs 斯里兰卡", "subtitle": "国家对比", "type": "compare", "url": "compare/country/india-vs-srilanka.html", "score": 73, "tags": "印度 斯里兰卡 对比 asia", "region": "", "visa": "", "cost": 27, "safety": 58, "internet": NaN},
+{"id": "japan-vs-singapore", "title": "日本 vs 新加坡", "subtitle": "国家对比", "type": "compare", "url": "compare/country/japan-vs-singapore.html", "score": 88, "tags": "日本 新加坡 对比 asia", "region": "", "visa": "", "cost": 90, "safety": 92, "internet": NaN},
+{"id": "japan-vs-southkorea", "title": "日本 vs 韩国", "subtitle": "国家对比", "type": "compare", "url": "compare/country/japan-vs-southkorea.html", "score": 87, "tags": "日本 韩国 对比 asia", "region": "", "visa": "", "cost": 82, "safety": 90, "internet": NaN},
+{"id": "kenya-vs-south_africa", "title": "肯尼亚 vs 南非", "subtitle": "国家对比", "type": "compare", "url": "compare/country/kenya-vs-south_africa.html", "score": 68, "tags": "肯尼亚 南非 对比 africa", "region": "", "visa": "", "cost": 40, "safety": 53, "internet": NaN},
+{"id": "malaysia-vs-singapore", "title": "马来西亚 vs 新加坡", "subtitle": "国家对比", "type": "compare", "url": "compare/country/malaysia-vs-singapore.html", "score": 88, "tags": "马来西亚 新加坡 对比 asia", "region": "", "visa": "", "cost": 68, "safety": 73, "internet": NaN},
+{"id": "mexico-vs-colombia", "title": "墨西哥 vs 哥伦比亚", "subtitle": "国家对比", "type": "compare", "url": "compare/country/mexico-vs-colombia.html", "score": 72, "tags": "墨西哥 哥伦比亚 对比 americas_north", "region": "", "visa": "", "cost": 39, "safety": 48, "internet": NaN},
+{"id": "morocco-vs-egypt", "title": "摩洛哥 vs 埃及", "subtitle": "国家对比", "type": "compare", "url": "compare/country/morocco-vs-egypt.html", "score": 76, "tags": "摩洛哥 埃及 对比 africa", "region": "", "visa": "", "cost": 30, "safety": 55, "internet": NaN},
+{"id": "peru-vs-chile", "title": "秘鲁 vs 智利", "subtitle": "国家对比", "type": "compare", "url": "compare/country/peru-vs-chile.html", "score": 72, "tags": "秘鲁 智利 对比 americas_south", "region": "", "visa": "", "cost": 42, "safety": 55, "internet": NaN},
+{"id": "philippines-vs-indonesia", "title": "菲律宾 vs 印度尼西亚", "subtitle": "国家对比", "type": "compare", "url": "compare/country/philippines-vs-indonesia.html", "score": 76, "tags": "菲律宾 印度尼西亚 对比 asia", "region": "", "visa": "", "cost": 34, "safety": 57, "internet": NaN},
+{"id": "poland-vs-czech", "title": "波兰 vs 捷克", "subtitle": "国家对比", "type": "compare", "url": "compare/country/poland-vs-czech.html", "score": 78, "tags": "波兰 捷克 对比 europe", "region": "", "visa": "", "cost": 50, "safety": 74, "internet": NaN},
+{"id": "portugal-vs-spain", "title": "葡萄牙 vs 西班牙", "subtitle": "国家对比", "type": "compare", "url": "compare/country/portugal-vs-spain.html", "score": 88, "tags": "葡萄牙 西班牙 对比 europe", "region": "", "visa": "", "cost": 57, "safety": 71, "internet": NaN},
+{"id": "qatar-vs-uae", "title": "卡塔尔 vs 阿联酋", "subtitle": "国家对比", "type": "compare", "url": "compare/country/qatar-vs-uae.html", "score": 85, "tags": "卡塔尔 阿联酋 对比 middle_east", "region": "", "visa": "", "cost": 74, "safety": 85, "internet": NaN},
+{"id": "romania-vs-bulgaria", "title": "罗马尼亚 vs 保加利亚", "subtitle": "国家对比", "type": "compare", "url": "compare/country/romania-vs-bulgaria.html", "score": 74, "tags": "罗马尼亚 保加利亚 对比 europe", "region": "", "visa": "", "cost": 41, "safety": 67, "internet": NaN},
+{"id": "sweden-vs-norway", "title": "瑞典 vs 挪威", "subtitle": "国家对比", "type": "compare", "url": "compare/country/sweden-vs-norway.html", "score": 80, "tags": "瑞典 挪威 对比 europe", "region": "", "visa": "", "cost": 87, "safety": 83, "internet": NaN},
+{"id": "switzerland-vs-austria", "title": "瑞士 vs 奥地利", "subtitle": "国家对比", "type": "compare", "url": "compare/country/switzerland-vs-austria.html", "score": 76, "tags": "瑞士 奥地利 对比 europe", "region": "", "visa": "", "cost": 83, "safety": 86, "internet": NaN},
+{"id": "thailand-vs-indonesia", "title": "泰国 vs 印度尼西亚", "subtitle": "国家对比", "type": "compare", "url": "compare/country/thailand-vs-indonesia.html", "score": 85, "tags": "泰国 印度尼西亚 对比 asia", "region": "", "visa": "", "cost": 39, "safety": 62, "internet": NaN},
+{"id": "thailand-vs-malaysia", "title": "泰国 vs 马来西亚", "subtitle": "国家对比", "type": "compare", "url": "compare/country/thailand-vs-malaysia.html", "score": 85, "tags": "泰国 马来西亚 对比 asia", "region": "", "visa": "", "cost": 43, "safety": 60, "internet": NaN},
+{"id": "thailand-vs-philippines", "title": "泰国 vs 菲律宾", "subtitle": "国家对比", "type": "compare", "url": "compare/country/thailand-vs-philippines.html", "score": 85, "tags": "泰国 菲律宾 对比 asia", "region": "", "visa": "", "cost": 40, "safety": 60, "internet": NaN},
+{"id": "turkey-vs-georgia", "title": "土耳其 vs 格鲁吉亚", "subtitle": "国家对比", "type": "compare", "url": "compare/country/turkey-vs-georgia.html", "score": 82, "tags": "土耳其 格鲁吉亚 对比 europe", "region": "", "visa": "", "cost": 30, "safety": 61, "internet": NaN},
+{"id": "uae-vs-singapore", "title": "阿联酋 vs 新加坡", "subtitle": "国家对比", "type": "compare", "url": "compare/country/uae-vs-singapore.html", "score": 88, "tags": "阿联酋 新加坡 对比 middle_east", "region": "", "visa": "", "cost": 83, "safety": 90, "internet": NaN},
+{"id": "uk-vs-ireland", "title": "英国 vs 爱尔兰", "subtitle": "国家对比", "type": "compare", "url": "compare/country/uk-vs-ireland.html", "score": 76, "tags": "英国 爱尔兰 对比 europe", "region": "", "visa": "", "cost": 79, "safety": 71, "internet": NaN},
+{"id": "vietnam-vs-thailand", "title": "越南 vs 泰国", "subtitle": "国家对比", "type": "compare", "url": "compare/country/vietnam-vs-thailand.html", "score": 85, "tags": "越南 泰国 对比 asia", "region": "", "visa": "", "cost": 40, "safety": 63, "internet": NaN},
+{"id": "amsterdam-vs-berlin", "title": "阿姆斯特丹 vs 柏林", "subtitle": "城市对比", "type": "compare", "url": "compare/city/amsterdam-vs-berlin.html", "score": 88, "tags": "阿姆斯特丹 柏林 对比 荷兰", "region": "", "visa": "", "cost": 77, "safety": 72, "internet": 155},
+{"id": "athens-vs-thessaloniki", "title": "雅典 vs 塞萨洛尼基", "subtitle": "城市对比", "type": "compare", "url": "compare/city/athens-vs-thessaloniki.html", "score": 85, "tags": "雅典 塞萨洛尼基 对比 希腊", "region": "", "visa": "", "cost": 47, "safety": 78, "internet": 63},
+{"id": "bali-vs-phuket", "title": "巴厘岛 vs 普吉岛", "subtitle": "城市对比", "type": "compare", "url": "compare/city/bali-vs-phuket.html", "score": 90, "tags": "巴厘岛 普吉岛 对比 印尼", "region": "", "visa": "", "cost": 48, "safety": 68, "internet": 85},
+{"id": "bangkok-vs-bali", "title": "曼谷 vs 巴厘岛", "subtitle": "城市对比", "type": "compare", "url": "compare/city/bangkok-vs-bali.html", "score": 90, "tags": "曼谷 巴厘岛 对比 泰国", "region": "", "visa": "", "cost": 44, "safety": 70, "internet": 125},
+{"id": "bangkok-vs-hochiminh", "title": "曼谷 vs 胡志明市", "subtitle": "城市对比", "type": "compare", "url": "compare/city/bangkok-vs-hochiminh.html", "score": 88, "tags": "曼谷 胡志明市 对比 泰国", "region": "", "visa": "", "cost": 43, "safety": 63, "internet": 165},
+{"id": "berlin-vs-munich", "title": "柏林 vs 慕尼黑", "subtitle": "城市对比", "type": "compare", "url": "compare/city/berlin-vs-munich.html", "score": 88, "tags": "柏林 慕尼黑 对比 德国", "region": "", "visa": "", "cost": 75, "safety": 76, "internet": 135},
+{"id": "cape_town-vs-johannesburg", "title": "开普敦 vs 约翰内斯堡", "subtitle": "城市对比", "type": "compare", "url": "compare/city/cape_town-vs-johannesburg.html", "score": 85, "tags": "开普敦 约翰内斯堡 对比 南非", "region": "", "visa": "", "cost": 43, "safety": 48, "internet": 58},
+{"id": "chiangmai-vs-bali", "title": "清迈 vs 巴厘岛", "subtitle": "城市对比", "type": "compare", "url": "compare/city/chiangmai-vs-bali.html", "score": 90, "tags": "清迈 巴厘岛 对比 泰国", "region": "", "visa": "", "cost": 39, "safety": 73, "internet": 100},
+{"id": "chiangmai-vs-bangkok", "title": "清迈 vs 曼谷", "subtitle": "城市对比", "type": "compare", "url": "compare/city/chiangmai-vs-bangkok.html", "score": 90, "tags": "清迈 曼谷 对比 泰国", "region": "", "visa": "", "cost": 43, "safety": 68, "internet": 175},
+{"id": "chiangmai-vs-kualalumpur", "title": "清迈 vs 吉隆坡", "subtitle": "城市对比", "type": "compare", "url": "compare/city/chiangmai-vs-kualalumpur.html", "score": 90, "tags": "清迈 吉隆坡 对比 泰国", "region": "", "visa": "", "cost": 40, "safety": 63, "internet": 150},
+{"id": "copenhagen-vs-aarhus", "title": "哥本哈根 vs 奥胡斯", "subtitle": "城市对比", "type": "compare", "url": "compare/city/copenhagen-vs-aarhus.html", "score": 85, "tags": "哥本哈根 奥胡斯 对比 丹麦", "region": "", "visa": "", "cost": 80, "safety": 91, "internet": 88},
+{"id": "dubai-vs-abudhabi", "title": "迪拜 vs 阿布扎比", "subtitle": "城市对比", "type": "compare", "url": "compare/city/dubai-vs-abudhabi.html", "score": 85, "tags": "迪拜 阿布扎比 对比 阿联酋", "region": "", "visa": "", "cost": 75, "safety": 91, "internet": 275},
+{"id": "istanbul-vs-antalya", "title": "伊斯坦布尔 vs 安塔利亚", "subtitle": "城市对比", "type": "compare", "url": "compare/city/istanbul-vs-antalya.html", "score": 88, "tags": "伊斯坦布尔 安塔利亚 对比 土耳其", "region": "", "visa": "", "cost": 39, "safety": 73, "internet": 60},
+{"id": "lisbon-vs-barcelona", "title": "里斯本 vs 巴塞罗那", "subtitle": "城市对比", "type": "compare", "url": "compare/city/lisbon-vs-barcelona.html", "score": 90, "tags": "里斯本 巴塞罗那 对比 葡萄牙", "region": "", "visa": "", "cost": 60, "safety": 73, "internet": 160},
+{"id": "lisbon-vs-porto", "title": "里斯本 vs 波尔图", "subtitle": "城市对比", "type": "compare", "url": "compare/city/lisbon-vs-porto.html", "score": 90, "tags": "里斯本 波尔图 对比 葡萄牙", "region": "", "visa": "", "cost": 54, "safety": 77, "internet": 140},
+{"id": "london-vs-paris", "title": "伦敦 vs 巴黎", "subtitle": "城市对比", "type": "compare", "url": "compare/city/london-vs-paris.html", "score": 85, "tags": "伦敦 巴黎 对比 英国", "region": "", "visa": "", "cost": 88, "safety": 63, "internet": 130},
+{"id": "marrakech-vs-casablanca", "title": "马拉喀什 vs 卡萨布兰卡", "subtitle": "城市对比", "type": "compare", "url": "compare/city/marrakech-vs-casablanca.html", "score": 80, "tags": "马拉喀什 卡萨布兰卡 对比 摩洛哥", "region": "", "visa": "", "cost": 39, "safety": 68, "internet": 48},
+{"id": "medellin-vs-bogota", "title": "麦德林 vs 波哥大", "subtitle": "城市对比", "type": "compare", "url": "compare/city/medellin-vs-bogota.html", "score": 85, "tags": "麦德林 波哥大 对比 哥伦比亚", "region": "", "visa": "", "cost": 37, "safety": 58, "internet": 58},
+{"id": "melbourne-vs-sydney", "title": "墨尔本 vs 悉尼", "subtitle": "城市对比", "type": "compare", "url": "compare/city/melbourne-vs-sydney.html", "score": 82, "tags": "墨尔本 悉尼 对比 澳大利亚", "region": "", "visa": "", "cost": 87, "safety": 77, "internet": 88},
+{"id": "mexico_city-vs-guadalajara", "title": "墨西哥城 vs 瓜达拉哈拉", "subtitle": "城市对比", "type": "compare", "url": "compare/city/mexico_city-vs-guadalajara.html", "score": 85, "tags": "墨西哥城 瓜达拉哈拉 对比 墨西哥", "region": "", "visa": "", "cost": 39, "safety": 58, "internet": 60},
+{"id": "newyork-vs-sanfrancisco", "title": "纽约 vs 旧金山", "subtitle": "城市对比", "type": "compare", "url": "compare/city/newyork-vs-sanfrancisco.html", "score": 82, "tags": "纽约 旧金山 对比 美国", "region": "", "visa": "", "cost": 103, "safety": 53, "internet": 265},
+{"id": "prague-vs-budapest", "title": "布拉格 vs 布达佩斯", "subtitle": "城市对比", "type": "compare", "url": "compare/city/prague-vs-budapest.html", "score": 88, "tags": "布拉格 布达佩斯 对比 捷克", "region": "", "visa": "", "cost": 48, "safety": 84, "internet": 78},
+{"id": "split-vs-zagreb", "title": "斯普利特 vs 萨格勒布", "subtitle": "城市对比", "type": "compare", "url": "compare/city/split-vs-zagreb.html", "score": 80, "tags": "斯普利特 萨格勒布 对比 克罗地亚", "region": "", "visa": "", "cost": 48, "safety": 87, "internet": 65},
+{"id": "stockholm-vs-gothenburg", "title": "斯德哥尔摩 vs 哥德堡", "subtitle": "城市对比", "type": "compare", "url": "compare/city/stockholm-vs-gothenburg.html", "score": 82, "tags": "斯德哥尔摩 哥德堡 对比 瑞典", "region": "", "visa": "", "cost": 76, "safety": 89, "internet": 88},
+{"id": "tbilisi-vs-yerevan", "title": "第比利斯 vs 埃里温", "subtitle": "城市对比", "type": "compare", "url": "compare/city/tbilisi-vs-yerevan.html", "score": 85, "tags": "第比利斯 埃里温 对比 格鲁吉亚", "region": "", "visa": "", "cost": 34, "safety": 80, "internet": 63},
+{"id": "tokyo-vs-osaka", "title": "东京 vs 大阪", "subtitle": "城市对比", "type": "compare", "url": "compare/city/tokyo-vs-osaka.html", "score": 90, "tags": "东京 大阪 对比 日本", "region": "", "visa": "", "cost": 83, "safety": 94, "internet": 190},
+{"id": "tokyo-vs-seoul", "title": "东京 vs 首尔", "subtitle": "城市对比", "type": "compare", "url": "compare/city/tokyo-vs-seoul.html", "score": 90, "tags": "东京 首尔 对比 日本", "region": "", "visa": "", "cost": 83, "safety": 92, "internet": 210},
+{"id": "toronto-vs-vancouver", "title": "多伦多 vs 温哥华", "subtitle": "城市对比", "type": "compare", "url": "compare/city/toronto-vs-vancouver.html", "score": 82, "tags": "多伦多 温哥华 对比 加拿大", "region": "", "visa": "", "cost": 83, "safety": 71, "internet": 155},
+{"id": "warsaw-vs-krakow", "title": "华沙 vs 克拉科夫", "subtitle": "城市对比", "type": "compare", "url": "compare/city/warsaw-vs-krakow.html", "score": 85, "tags": "华沙 克拉科夫 对比 波兰", "region": "", "visa": "", "cost": 45, "safety": 87, "internet": 78}
+];
+        for (const m of matches) { for (const [start, end] of m.indices) { indices.push({start, end}); } }
+        indices.sort((a,b) => b.start - a.start);
+        for (const {start, end} of indices) {
+            result = result.slice(0, start) + '<mark class="highlight">' + result.slice(start, end + 1) + '</mark>' + result.slice(end + 1);
+        }
+        return result;
+    }
+    function doSearch(query) {
+        const resultsDiv = document.getElementById('results');
+        if (!query.trim()) { resultsDiv.innerHTML = '<div class="no-results">输入关键词开始搜索</div>'; return; }
+        if (!fuse) return;
+        const results = fuse.search(query).slice(0, 20);
+        if (results.length === 0) { resultsDiv.innerHTML = '<div class="no-results">未找到匹配结果，尝试其他关键词</div>'; return; }
+        let html = '';
+        for (const r of results) {
+            const item = r.item;
+            if (currentFilter !== 'all' && item.type !== currentFilter) continue;
+            const title = highlightText(item.title, r.matches?.filter(m => m.key === 'title'));
+            const subtitle = highlightText(item.subtitle, r.matches?.filter(m => m.key === 'subtitle'));
+            html += `<a href="../${item.url}" class="result-card">
+                <div class="result-icon">${getTypeIcon(item.type)}</div>
+                <div class="result-body">
+                    <div class="result-title">${title} <span class="result-type">${getTypeLabel(item.type)}</span></div>
+                    <div class="result-meta">${subtitle ? subtitle + ' · ' : ''}💰 ${item.cost} · 🛡️ ${item.safety} · 🌐 ${item.internet}Mbps${item.tags ? ' · ' + item.tags : ''}</div>
+                </div>
+                <div class="result-score">${item.score}</div>
+            </a>`;
+        }
+        resultsDiv.innerHTML = html || '<div class="no-results">当前筛选条件下无匹配结果</div>';
+    }
+    document.getElementById('searchInput').addEventListener('input', (e) => { doSearch(e.target.value); });
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentFilter = btn.dataset.filter;
+            doSearch(document.getElementById('searchInput').value);
+        });
     });
-});
-initFuse();
-</script>
+    initFuse();
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('../sw.js').catch(() => {});
+        });
+    }
+    </script>
 </body>
 </html>

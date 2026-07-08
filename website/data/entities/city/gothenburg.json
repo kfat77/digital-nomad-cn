@@ -1,0 +1,33 @@
+{
+  "id": "gothenburg",
+  "name": "哥德堡",
+  "name_en": "Gothenburg",
+  "country_id": "sweden",
+  "country_name": "瑞典",
+  "digital_nomad_score": 80,
+  "cost_of_living_index": 72,
+  "rent_index": 40,
+  "safety_index": 88,
+  "internet_speed_avg_mbps": 85,
+  "coworking_spaces": 35,
+  "coworking_score": 78,
+  "climate": "温带海洋",
+  "avg_temp_c": 8,
+  "rainy_season": "全年",
+  "english_level": "极高",
+  "chinese_community_size": "小",
+  "neighborhoods": [
+    "Haga",
+    "Linnéstaden",
+    "Majorna"
+  ],
+  "food_scene": "海鲜、瑞典菜、fika",
+  "nightlife": "Andra Långgatan、Linné",
+  "transportation": "电车/巴士",
+  "walkability": 85,
+  "bike_friendly": 85,
+  "description": "西海岸门户，瑞典第二城，港口文化，Liseberg 游乐园。",
+  "status": "published",
+  "updated_at": "2026-07-06T00:00:00Z",
+  "source": "Numbeo 2026, Nomad List, Local Research"
+}

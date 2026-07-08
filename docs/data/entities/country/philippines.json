@@ -10,10 +10,32 @@
   "is_special_admin_region": false,
   "is_digital_nomad_friendly": true,
   "has_digital_nomad_visa": false,
-  "coordinates": {"lat": 12.8797, "lon": 121.7740},
-  "timezone": ["Asia/Manila"],
-  "currency": [{"code": "PHP", "name": "菲律宾比索", "is_primary": true}],
-  "languages": [{"code": "tl", "name": "他加禄语", "is_official": true}, {"code": "en", "name": "英语", "is_official": true}],
+  "coordinates": {
+    "lat": 12.8797,
+    "lon": 121.774
+  },
+  "timezone": [
+    "Asia/Manila"
+  ],
+  "currency": [
+    {
+      "code": "PHP",
+      "name": "菲律宾比索",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "tl",
+      "name": "他加禄语",
+      "is_official": true
+    },
+    {
+      "code": "en",
+      "name": "英语",
+      "is_official": true
+    }
+  ],
   "population": 114000000,
   "area_km2": 343448,
   "gdp_per_capita_usd": 3500,
@@ -25,8 +47,16 @@
   "china_passport_visa_status": "visa_required",
   "china_passport_visa_note": "需提前申请签证，可停留30天。持有美国/日本/申根/澳洲/加拿大签证者可免签7天",
   "digital_nomad_score": 74,
-  "tags": ["东南亚", "英语", "低成本", "海岛", "潜水"],
+  "tags": [
+    "东南亚",
+    "英语",
+    "低成本",
+    "海岛",
+    "潜水"
+  ],
   "status": "published",
-  "updated_at": "2026-01-15",
-  "source": "Numbeo, World Bank, 菲律宾移民局"
+  "updated_at": "2026-07-05T00:00:00Z",
+  "source": "Numbeo, World Bank, 菲律宾移民局",
+  "flag_emoji": "🇵🇭",
+  "chinese_passport_visa_status": "需签证"
 }

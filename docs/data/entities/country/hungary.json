@@ -1,0 +1,57 @@
+{
+  "id": "hungary",
+  "name": "匈牙利",
+  "name_en": "Hungary",
+  "name_local": "Magyarország",
+  "code_iso_3166_1": "HU",
+  "code_iso_3166_3": "HUN",
+  "region": "europe",
+  "sub_region": "central_europe",
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": true,
+  "coordinates": {
+    "lat": 47.4979,
+    "lon": 19.0402
+  },
+  "timezone": [
+    "Europe/Budapest"
+  ],
+  "currency": [
+    {
+      "code": "HUF",
+      "name": "匈牙利福林",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "hu",
+      "name": "匈牙利语",
+      "is_official": true
+    }
+  ],
+  "population": 9600000,
+  "area_km2": 93028,
+  "gdp_per_capita_usd": 20000,
+  "hdi": 0.851,
+  "safety_index": 70,
+  "internet_speed_avg_mbps": 110,
+  "cost_of_living_index": 48,
+  "rent_index": 22,
+  "china_passport_visa_status": "visa_required",
+  "china_passport_visa_note": "申根签证；White Card数字游民签证",
+  "digital_nomad_score": 80,
+  "tags": [
+    "cheap",
+    "eu",
+    "culture",
+    "thermal_baths",
+    "nomad_visa",
+    "europe"
+  ],
+  "status": "published",
+  "updated_at": "2026-07-05T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025",
+  "flag_emoji": "🇭🇺",
+  "chinese_passport_visa_status": "需签证（申根）"
+}

@@ -65,6 +65,8 @@
     "高福利"
   ],
   "status": "published",
-  "updated_at": "2026-01-15",
-  "source": "Numbeo, World Bank"
+  "updated_at": "2026-07-05T00:00:00Z",
+  "source": "Numbeo, World Bank",
+  "flag_emoji": "🇨🇭",
+  "chinese_passport_visa_status": "需签证（申根）"
 }

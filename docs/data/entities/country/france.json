@@ -34,10 +34,10 @@
   "area_km2": 551695,
   "gdp_per_capita_usd": 43000,
   "hdi": 0.903,
-  "safety_index": 65.0,
+  "safety_index": 65,
   "internet_speed_avg_mbps": 130,
-  "cost_of_living_index": 75.0,
-  "rent_index": 45.0,
+  "cost_of_living_index": 75,
+  "rent_index": 45,
   "china_passport_visa_status": "visa_required",
   "china_passport_visa_note": "申根签证C类；工作签证需雇主担保",
   "digital_nomad_score": 77,
@@ -49,6 +49,8 @@
     "europe"
   ],
   "status": "published",
-  "updated_at": "2026-01-15T00:00:00Z",
-  "source": "Numbeo 2026, World Bank 2025, French Immigration"
+  "updated_at": "2026-07-05T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025, French Immigration",
+  "flag_emoji": "🇫🇷",
+  "chinese_passport_visa_status": "需签证（申根）"
 }

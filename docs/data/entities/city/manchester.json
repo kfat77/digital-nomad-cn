@@ -1,0 +1,33 @@
+{
+  "id": "manchester",
+  "name": "曼彻斯特",
+  "name_en": "Manchester",
+  "country_id": "uk",
+  "country_name": "英国",
+  "digital_nomad_score": 80,
+  "cost_of_living_index": 62,
+  "rent_index": 32,
+  "safety_index": 75,
+  "internet_speed_avg_mbps": 80,
+  "coworking_spaces": 40,
+  "coworking_score": 82,
+  "climate": "温带海洋",
+  "avg_temp_c": 10,
+  "rainy_season": "全年",
+  "english_level": "极高",
+  "chinese_community_size": "中等",
+  "neighborhoods": [
+    "Northern Quarter",
+    "Ancoats",
+    "Didsbury"
+  ],
+  "food_scene": "英式早餐、咖喱、精酿啤酒",
+  "nightlife": "Northern Quarter、Deansgate",
+  "transportation": "电车/巴士/火车",
+  "walkability": 85,
+  "bike_friendly": 75,
+  "description": "北方工业之都，足球文化，音乐历史，比伦敦更实惠。",
+  "status": "published",
+  "updated_at": "2026-07-06T00:00:00Z",
+  "source": "Numbeo 2026, Nomad List, Local Research"
+}

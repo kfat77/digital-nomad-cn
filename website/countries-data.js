@@ -1,84 +1,136 @@
-// 数字游民指南 - 国家/地区数据
-// 用于3D地球交互和弹窗显示
-
 const COUNTRY_DATA = {
-  hongkong: {
-    name: "香港",
-    nameEn: "Hong Kong",
-    lat: 22.3193,
-    lon: 114.1694,
-    color: 0x2563eb,
-    info: {
-      bank: {
-        title: "银行卡",
-        items: [
-          { text: "汇丰银行 - 无管理费，支持全球ATM", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/bank-cards/hong-kong.md" },
-          { text: "中银香港 - 港陆互转零手续费", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/bank-cards/hong-kong.md" },
-          { text: "众安银行 - 纯线上开户，无需赴港", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/bank-cards/hong-kong.md" },
-          { text: "蚂蚁银行 - 无管理费，支持内地", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/bank-cards/hong-kong.md" }
-        ]
-      },
-      phone: {
-        title: "电话卡",
-        items: [
-          { text: "Club SIM - 6港币/年保号", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/phone-cards/hong-kong.md" },
-          { text: "SoSIM - 33港币/月无限流量", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/phone-cards/hong-kong.md" }
-        ]
-      },
-      visa: {
-        title: "签证",
-        items: [
-          { text: "港澳通行证 - 内地居民必备", link: null },
-          { text: "高才通计划 - 1-2个月获批身份", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/hong-kong.md" }
-        ]
-      },
-      identity: {
-        title: "身份规划",
-        items: [
-          { text: "香港优才计划 - 12项评核准则，满足6项即可申请", link: "https://zhuanlan.zhihu.com/p/687695809" },
-          { text: "高才通计划 - 百强名校或年收入250万+", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/hong-kong.md" },
-          { text: "专才计划 - 需先获香港雇主聘用", link: "https://zhuanlan.zhihu.com/p/697122836" },
-          { text: "IANG留学进修 - 毕业后留港2年", link: "https://zhuanlan.zhihu.com/p/697122836" },
-          { text: "7大合法赴港工作途径", link: "https://zhuanlan.zhihu.com/p/697122836" }
-        ]
-      },
-      securities: {
-        title: "证券账户",
-        items: [
-          { text: "香港券商 - 富途/老虎/长桥政策变动", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/securities/hong-kong-broker.md" }
-        ]
-      }
-    }
+  denmark: {
+    name: "丹麦",
+    nameEn: "Denmark",
+    lat: 56.2639,
+    lon: 9.5018,
+    color: 0x3b82f6
   },
-  macao: {
-    name: "澳门",
-    nameEn: "Macao",
-    lat: 22.1987,
-    lon: 113.5439,
+  croatia: {
+    name: "克罗地亚",
+    nameEn: "Croatia",
+    lat: 45.1,
+    lon: 15.2,
+    color: 0x3b82f6
+  },
+  iceland: {
+    name: "冰岛",
+    nameEn: "Iceland",
+    lat: 64.9631,
+    lon: -19.0208,
+    color: 0x3b82f6
+  },
+  canada: {
+    name: "加拿大",
+    nameEn: "Canada",
+    lat: 56.1304,
+    lon: -106.3468,
     color: 0xe11d48,
     info: {
-      bank: {
-        title: "银行卡",
-        items: [
-          { text: "蚂蚁银行 - 0门槛开户，送阿里股票，报销路费", link: "https://zhuanlan.zhihu.com/p/2043115647786386108" },
-          { text: "澳门国际银行 - 无保险即可开户", link: null },
-          { text: "立桥银行 - 线上预约开户", link: null }
-        ]
-      },
       identity: {
         title: "身份规划",
         items: [
-          { text: "澳门人才引进计划 - 高端人才/优秀人才/高级专业人才", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/macao.md" }
+          { text: "EE快速通道 - 技术移民打分制", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/other-pathways.md" },
+          { text: "SUV创业签证 - 无资产要求", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/other-pathways.md" }
         ]
       },
-      tools: {
-        title: "免税购物",
-        items: [
-          { text: "澳门买Mac - 立省3000块，顺手开蚂蚁银行", link: "https://zhuanlan.zhihu.com/p/2032459435319235404" },
-          { text: "蚂蚁银行开户礼 - 2股阿里+路费报销+半年免佣", link: "https://zhuanlan.zhihu.com/p/2032459435319235404" }
-        ]
-      }
-    }
+  indonesia: {
+    name: "印度尼西亚",
+    nameEn: "Indonesia",
+    lat: -0.7893,
+    lon: 113.9213,
+    color: 0x3b82f6
+  },
+  indonesia: {
+    name: "印度尼西亚",
+    nameEn: "Indonesia",
+    lat: -0.7893,
+    lon: 113.9213,
+    color: 0x3b82f6
+  },
+  kazakhstan: {
+    name: "哈萨克斯坦",
+    nameEn: "Kazakhstan",
+    lat: 48.0196,
+    lon: 66.9237,
+    color: 0x3b82f6
+  },
+  turkey: {
+    name: "土耳其",
+    nameEn: "Turkey",
+    lat: 38.9637,
+    lon: 35.2433,
+    color: 0x3b82f6
+  },
+  cyprus: {
+    name: "塞浦路斯",
+    nameEn: "Cyprus",
+    lat: 35.1264,
+    lon: 33.4299,
+    color: 0x3b82f6
+  },
+  mexico: {
+    name: "墨西哥",
+    nameEn: "Mexico",
+    lat: 23.6345,
+    lon: -102.5528,
+    color: 0x3b82f6
+  },
+  austria: {
+    name: "奥地利",
+    nameEn: "Austria",
+    lat: 47.5162,
+    lon: 14.5501,
+    color: 0x3b82f6
+  },
+  nepal: {
+    name: "尼泊尔",
+    nameEn: "Nepal",
+    lat: 28.3949,
+    lon: 84.124,
+    color: 0x3b82f6
+  },
+  brazil: {
+    name: "巴西",
+    nameEn: "Brazil",
+    lat: -14.235,
+    lon: -51.9253,
+    color: 0x3b82f6
+  },
+  greece: {
+    name: "希腊",
+    nameEn: "Greece",
+    lat: 39.0742,
+    lon: 21.8243,
+    color: 0x3b82f6
+  },
+  germany: {
+    name: "德国",
+    nameEn: "Germany",
+    lat: 51.1657,
+    lon: 10.4515,
+    color: 0x3b82f6
+  },
+  norway: {
+    name: "挪威",
+    nameEn: "Norway",
+    lat: 60.472,
+    lon: 8.4689,
+    color: 0x3b82f6
+  },
+  morocco: {
+    name: "摩洛哥",
+    nameEn: "Morocco",
+    lat: 31.7917,
+    lon: -7.0926,
+    color: 0x3b82f6
+  },
+  srilanka: {
+    name: "斯里兰卡",
+    nameEn: "Sri Lanka",
+    lat: 7.8731,
+    lon: 80.7718,
+    color: 0x3b82f6
   },
   singapore: {
     name: "新加坡",
@@ -94,22 +146,20 @@ const COUNTRY_DATA = {
           { text: "iFAST - 数字银行，支持多币种", link: null }
         ]
       },
-      phone: {
-        title: "电话卡",
+  newzealand: {
+    name: "新西兰",
+    nameEn: "New Zealand",
+    lat: -40.9006,
+    lon: 174.8869,
+    color: 0x059669,
+    info: {
+      visa: {
+        title: "签证",
         items: [
-          { text: "StarHub - 游客预付费卡", link: null },
-          { text: "Singtel - 本地主流运营商", link: null }
+          { text: "WHV - 1000名额/年，先到先得，高中学历即可", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/visa/new-zealand-whv.md" },
+          { text: "工作签证 - AEWV认证雇主", link: null }
         ]
       },
-      identity: {
-        title: "身份规划",
-        items: [
-          { text: "EP工作签证 - 薪资门槛提高", link: null },
-          { text: "GIP全球投资者计划", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/southeast-asia.md" }
-        ]
-      }
-    }
-  },
   japan: {
     name: "日本",
     nameEn: "Japan",
@@ -125,36 +175,62 @@ const COUNTRY_DATA = {
           { text: "工作签证 - 人文知识·国际业务", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/japan.md" }
         ]
       },
+  chile: {
+    name: "智利",
+    nameEn: "Chile",
+    lat: -35.6751,
+    lon: -71.543,
+    color: 0x3b82f6
+  },
+  newzealand: {
+    name: "新西兰",
+    nameEn: "New Zealand",
+    lat: -40.9006,
+    lon: 174.8869,
+    color: 0x3b82f6
+  },
+  japan: {
+    name: "日本",
+    nameEn: "Japan",
+    lat: 36.2048,
+    lon: 138.2529,
+    color: 0x3b82f6
+  },
+  chile: {
+    name: "智利",
+    nameEn: "Chile",
+    lat: -35.6751,
+    lon: -71.543,
+    color: 0x3b82f6
+  },
+  georgia: {
+    name: "格鲁吉亚",
+    nameEn: "Georgia",
+    lat: 42.3154,
+    lon: 43.3569,
+    color: 0x3b82f6
+  },
+  france: {
+    name: "法国",
+    nameEn: "France",
+    lat: 46.2276,
+    lon: 2.2137,
+    color: 0x3b82f6
+  },
+  thailand: {
+    name: "泰国",
+    nameEn: "Thailand",
+    lat: 15.8700,
+    lon: 100.9925,
+    color: 0xf59e0b,
+    info: {
       visa: {
         title: "签证",
         items: [
-          { text: "旅游签证 - 单次/三年多次/五年多次", link: null }
-        ]
-      }
-    }
-  },
-  southkorea: {
-    name: "韩国",
-    nameEn: "South Korea",
-    lat: 35.9078,
-    lon: 127.7669,
-    color: 0x2563eb,
-    info: {
-      identity: {
-        title: "身份规划",
-        items: [
-          { text: "存款移民 - 15亿韩元直接拿永居", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/southeast-asia.md" },
-          { text: "工作签证 - E-7专业人才", link: null }
+          { text: "旅游签证 - 60天免签/落地签", link: null },
+          { text: "精英签证 - 5-20年长期居留", link: null }
         ]
       },
-      visa: {
-        title: "签证",
-        items: [
-          { text: "旅游签证 - 单次/多次", link: null }
-        ]
-      }
-    }
-  },
   australia: {
     name: "澳大利亚",
     nameEn: "Australia",
@@ -170,30 +246,75 @@ const COUNTRY_DATA = {
           { text: "旅游签证 - 600类别", link: null }
         ]
       },
-      phone: {
-        title: "电话卡",
-        items: [
-          { text: "Telstra - 覆盖最广，价格较高", link: null },
-          { text: "Optus - 性价比较高", link: null }
-        ]
-      }
-    }
-  },
-  newzealand: {
-    name: "新西兰",
-    nameEn: "New Zealand",
-    lat: -40.9006,
-    lon: 174.8869,
-    color: 0x059669,
+  macao: {
+    name: "澳门",
+    nameEn: "Macao",
+    lat: 22.1987,
+    lon: 113.5439,
+    color: 0xe11d48,
     info: {
-      visa: {
-        title: "签证",
+      bank: {
+        title: "银行卡",
         items: [
-          { text: "WHV - 1000名额/年，先到先得，高中学历即可", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/visa/new-zealand-whv.md" },
-          { text: "工作签证 - AEWV认证雇主", link: null }
+          { text: "蚂蚁银行 - 0门槛开户，送阿里股票，报销路费", link: "https://zhuanlan.zhihu.com/p/2043115647786386108" },
+          { text: "澳门国际银行 - 无保险即可开户", link: null },
+          { text: "立桥银行 - 线上预约开户", link: null }
         ]
-      }
-    }
+      },
+  ireland: {
+    name: "爱尔兰",
+    nameEn: "Ireland",
+    lat: 53.1424,
+    lon: -7.6921,
+    color: 0x3b82f6
+  },
+  australia: {
+    name: "澳大利亚",
+    nameEn: "Australia",
+    lat: -25.2744,
+    lon: 133.7751,
+    color: 0x3b82f6
+  },
+  macao: {
+    name: "澳门",
+    nameEn: "Macao",
+    lat: 22.1987,
+    lon: 113.5439,
+    color: 0x3b82f6
+  },
+  ireland: {
+    name: "爱尔兰",
+    nameEn: "Ireland",
+    lat: 53.1424,
+    lon: -7.6921,
+    color: 0x3b82f6
+  },
+  estonia: {
+    name: "爱沙尼亚",
+    nameEn: "Estonia",
+    lat: 58.5953,
+    lon: 25.0136,
+    color: 0x2563eb,
+    info: {
+      tools: {
+        title: "数字工具",
+        items: [
+          { text: "e-Residency - 数字公民身份，可远程开公司", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/tools/e-residency.md" }
+        ]
+      },
+  switzerland: {
+    name: "瑞士",
+    nameEn: "Switzerland",
+    lat: 46.8182,
+    lon: 8.2275,
+    color: 0x3b82f6
+  },
+  switzerland: {
+    name: "瑞士",
+    nameEn: "Switzerland",
+    lat: 46.8182,
+    lon: 8.2275,
+    color: 0x3b82f6
   },
   usa: {
     name: "美国",
@@ -210,22 +331,6 @@ const COUNTRY_DATA = {
           { text: "AT&T - 覆盖最广", link: null }
         ]
       },
-      securities: {
-        title: "证券账户",
-        items: [
-          { text: "盈透证券 IBKR - 全球开户，支持中国", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/securities/ibkr.md" },
-          { text: "嘉信理财 Schwab - 无最低存款，支持中文", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/securities/schwab.md" }
-        ]
-      },
-      visa: {
-        title: "签证",
-        items: [
-          { text: "B1/B2旅游签证 - 10年多次", link: null },
-          { text: "H1B工作签证 - 抽签制", link: null }
-        ]
-      }
-    }
-  },
   uk: {
     name: "英国",
     nameEn: "United Kingdom",
@@ -241,14 +346,33 @@ const COUNTRY_DATA = {
           { text: "Three - 价格较低", link: null }
         ]
       },
-      visa: {
-        title: "签证",
-        items: [
-          { text: "旅游签证 - 2年/5年/10年多次", link: null },
-          { text: "工作签证 - Skilled Worker", link: null }
-        ]
-      }
-    }
+  netherlands: {
+    name: "荷兰",
+    nameEn: "Netherlands",
+    lat: 52.1326,
+    lon: 5.2913,
+    color: 0x3b82f6
+  },
+  uk: {
+    name: "英国",
+    nameEn: "United Kingdom",
+    lat: 55.3781,
+    lon: -3.436,
+    color: 0x3b82f6
+  },
+  netherlands: {
+    name: "荷兰",
+    nameEn: "Netherlands",
+    lat: 52.1326,
+    lon: 5.2913,
+    color: 0x3b82f6
+  },
+  philippines: {
+    name: "菲律宾",
+    nameEn: "Philippines",
+    lat: 12.8797,
+    lon: 121.774,
+    color: 0x3b82f6
   },
   portugal: {
     name: "葡萄牙",
@@ -263,8 +387,20 @@ const COUNTRY_DATA = {
           { text: "D7签证 - 被动收入移民，五年拿欧盟护照", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/other-pathways.md" },
           { text: "黄金签证 - 50万欧元基金投资", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/other-pathways.md" }
         ]
-      }
-    }
+      },
+  mongolia: {
+    name: "蒙古",
+    nameEn: "Mongolia",
+    lat: 46.8625,
+    lon: 103.8467,
+    color: 0x3b82f6
+  },
+  mongolia: {
+    name: "蒙古",
+    nameEn: "Mongolia",
+    lat: 46.8625,
+    lon: 103.8467,
+    color: 0x3b82f6
   },
   spain: {
     name: "西班牙",
@@ -279,55 +415,7 @@ const COUNTRY_DATA = {
           { text: "非盈利签证 - 被动收入，无投资要求", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/other-pathways.md" },
           { text: "黄金签证 - 50万欧元房产投资", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/other-pathways.md" }
         ]
-      }
-    }
-  },
-  estonia: {
-    name: "爱沙尼亚",
-    nameEn: "Estonia",
-    lat: 58.5953,
-    lon: 25.0136,
-    color: 0x2563eb,
-    info: {
-      tools: {
-        title: "数字工具",
-        items: [
-          { text: "e-Residency - 数字公民身份，可远程开公司", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/tools/e-residency.md" }
-        ]
-      }
-    }
-  },
-  malaysia: {
-    name: "马来西亚",
-    nameEn: "Malaysia",
-    lat: 4.2105,
-    lon: 101.9758,
-    color: 0x059669,
-    info: {
-      identity: {
-        title: "身份规划",
-        items: [
-          { text: "MM2H - 第二家园计划，存款即可", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/southeast-asia.md" }
-        ]
-      }
-    }
-  },
-  thailand: {
-    name: "泰国",
-    nameEn: "Thailand",
-    lat: 15.8700,
-    lon: 100.9925,
-    color: 0xf59e0b,
-    info: {
-      visa: {
-        title: "签证",
-        items: [
-          { text: "旅游签证 - 60天免签/落地签", link: null },
-          { text: "精英签证 - 5-20年长期居留", link: null }
-        ]
-      }
-    }
-  },
+      },
   vietnam: {
     name: "越南",
     nameEn: "Vietnam",
@@ -340,44 +428,227 @@ const COUNTRY_DATA = {
         items: [
           { text: "电子签证 - 90天单次/多次", link: null }
         ]
-      }
-    }
+      },
+  argentina: {
+    name: "阿根廷",
+    nameEn: "Argentina",
+    lat: -38.4161,
+    lon: -63.6167,
+    color: 0x3b82f6
   },
-  canada: {
-    name: "加拿大",
-    nameEn: "Canada",
-    lat: 56.1304,
-    lon: -106.3468,
-    color: 0xe11d48,
+  vietnam: {
+    name: "越南",
+    nameEn: "Vietnam",
+    lat: 14.0583,
+    lon: 108.2772,
+    color: 0x3b82f6
+  },
+  argentina: {
+    name: "阿根廷",
+    nameEn: "Argentina",
+    lat: -38.4161,
+    lon: -63.6167,
+    color: 0x3b82f6
+  },
+  uae: {
+    name: "阿联酋",
+    nameEn: "United Arab Emirates",
+    lat: 23.4241,
+    lon: 53.8478,
+    color: 0x3b82f6
+  },
+  southkorea: {
+    name: "韩国",
+    nameEn: "South Korea",
+    lat: 35.9078,
+    lon: 127.7669,
+    color: 0x2563eb,
     info: {
       identity: {
         title: "身份规划",
         items: [
-          { text: "EE快速通道 - 技术移民打分制", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/other-pathways.md" },
-          { text: "SUV创业签证 - 无资产要求", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/other-pathways.md" }
+          { text: "存款移民 - 15亿韩元直接拿永居", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/southeast-asia.md" },
+          { text: "工作签证 - E-7专业人才", link: null }
         ]
-      }
-    }
-  },
-  schengen: {
-    name: "欧洲申根",
-    nameEn: "Schengen Area",
-    lat: 48.8566,
-    lon: 2.3522,
-    color: 0x7c3aed,
+      },
+  hongkong: {
+    name: "香港",
+    nameEn: "Hong Kong",
+    lat: 22.3193,
+    lon: 114.1694,
+    color: 0x2563eb,
     info: {
-      visa: {
-        title: "签证",
+      bank: {
+        title: "银行卡",
         items: [
-          { text: "申根签证 - 27国通用，C类短期", link: null },
-          { text: "数字游民签证 - 多国已推出", link: null }
+          { text: "汇丰银行 - 无管理费，支持全球ATM", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/bank-cards/hong-kong.md" },
+          { text: "中银香港 - 港陆互转零手续费", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/bank-cards/hong-kong.md" },
+          { text: "众安银行 - 纯线上开户，无需赴港", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/bank-cards/hong-kong.md" },
+          { text: "蚂蚁银行 - 无管理费，支持内地", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/bank-cards/hong-kong.md" }
         ]
-      }
-    }
+      },
+  malaysia: {
+    name: "马来西亚",
+    nameEn: "Malaysia",
+    lat: 4.2105,
+    lon: 101.9758,
+    color: 0x059669,
+    info: {
+      identity: {
+        title: "身份规划",
+        items: [
+          { text: "MM2H - 第二家园计划，存款即可", link: "https://github.com/kfat77/digital-nomad-cn/blob/main/docs/identity/southeast-asia.md" }
+        ]
+      },
+  armenia: {
+    name: "亚美尼亚",
+    nameEn: "Armenia",
+    lat: 40.1792,
+    lon: 44.4991,
+    color: 0x3b82f6
+  },
+  hongkong: {
+    name: "香港",
+    nameEn: "Hong Kong",
+    lat: 22.3193,
+    lon: 114.1694,
+    color: 0x3b82f6
+  },
+  malaysia: {
+    name: "马来西亚",
+    nameEn: "Malaysia",
+    lat: 4.2105,
+    lon: 101.9758,
+    color: 0x3b82f6
+  },
+  armenia: {
+    name: "亚美尼亚",
+    nameEn: "Armenia",
+    lat: 40.1792,
+    lon: 44.4991,
+    color: 0x3b82f6
+  },
+  azerbaijan: {
+    name: "阿塞拜疆",
+    nameEn: "Azerbaijan",
+    lat: 40.4093,
+    lon: 49.8671,
+    color: 0x3b82f6
+  },
+  bulgaria: {
+    name: "保加利亚",
+    nameEn: "Bulgaria",
+    lat: 42.6977,
+    lon: 23.3219,
+    color: 0x3b82f6
+  },
+  colombia: {
+    name: "哥伦比亚",
+    nameEn: "Colombia",
+    lat: 6.2442,
+    lon: -75.5812,
+    color: 0x3b82f6
+  },
+  czech: {
+    name: "捷克",
+    nameEn: "Czech Republic",
+    lat: 50.0755,
+    lon: 14.4378,
+    color: 0x3b82f6
+  },
+  egypt: {
+    name: "埃及",
+    nameEn: "Egypt",
+    lat: 30.0444,
+    lon: 31.2357,
+    color: 0x3b82f6
+  },
+  ghana: {
+    name: "加纳",
+    nameEn: "Ghana",
+    lat: 5.6037,
+    lon: -0.187,
+    color: 0x3b82f6
+  },
+  hungary: {
+    name: "匈牙利",
+    nameEn: "Hungary",
+    lat: 47.4979,
+    lon: 19.0402,
+    color: 0x3b82f6
+  },
+  india: {
+    name: "印度",
+    nameEn: "India",
+    lat: 28.6139,
+    lon: 77.209,
+    color: 0x3b82f6
+  },
+  israel: {
+    name: "以色列",
+    nameEn: "Israel",
+    lat: 32.0853,
+    lon: 34.7818,
+    color: 0x3b82f6
+  },
+  kenya: {
+    name: "肯尼亚",
+    nameEn: "Kenya",
+    lat: -1.2921,
+    lon: 36.8219,
+    color: 0x3b82f6
+  },
+  peru: {
+    name: "秘鲁",
+    nameEn: "Peru",
+    lat: -12.0464,
+    lon: -77.0428,
+    color: 0x3b82f6
+  },
+  poland: {
+    name: "波兰",
+    nameEn: "Poland",
+    lat: 52.2297,
+    lon: 21.0122,
+    color: 0x3b82f6
+  },
+  qatar: {
+    name: "卡塔尔",
+    nameEn: "Qatar",
+    lat: 25.2854,
+    lon: 51.531,
+    color: 0x3b82f6
+  },
+  romania: {
+    name: "罗马尼亚",
+    nameEn: "Romania",
+    lat: 44.4268,
+    lon: 26.1025,
+    color: 0x3b82f6
+  },
+  south_africa: {
+    name: "南非",
+    nameEn: "South Africa",
+    lat: -33.9249,
+    lon: 18.4241,
+    color: 0x3b82f6
+  },
+  sweden: {
+    name: "瑞典",
+    nameEn: "Sweden",
+    lat: 59.3293,
+    lon: 18.0686,
+    color: 0x3b82f6
+  },
+  uzbekistan: {
+    name: "乌兹别克斯坦",
+    nameEn: "Uzbekistan",
+    lat: 41.2995,
+    lon: 69.2401,
+    color: 0x3b82f6
   }
 };
 
-// 签证官网链接
 const VISA_OFFICIAL_LINKS = {
   asia: {
     title: "亚洲",
@@ -418,7 +689,6 @@ const VISA_OFFICIAL_LINKS = {
   }
 };
 
-// 导出（兼容模块和全局）
 if (typeof window !== 'undefined') {
   window.COUNTRY_DATA = COUNTRY_DATA;
   window.VISA_OFFICIAL_LINKS = VISA_OFFICIAL_LINKS;

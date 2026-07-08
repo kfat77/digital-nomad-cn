@@ -1,0 +1,33 @@
+{
+  "id": "accra",
+  "name": "阿克拉",
+  "name_en": "Accra",
+  "country_id": "ghana",
+  "country_name": "加纳",
+  "digital_nomad_score": 72,
+  "cost_of_living_index": 35,
+  "rent_index": 20,
+  "safety_index": 60,
+  "internet_speed_avg_mbps": 45,
+  "coworking_spaces": 25,
+  "coworking_score": 65,
+  "climate": "热带",
+  "avg_temp_c": 27,
+  "rainy_season": "4-6月,10-11月",
+  "english_level": "高",
+  "chinese_community_size": "小",
+  "neighborhoods": [
+    "Osu",
+    "East Legon",
+    "Airport"
+  ],
+  "food_scene": "jollof rice、banku、kelewele",
+  "nightlife": "Osu、Labadi 海滩",
+  "transportation": "trotro/出租车/Uber",
+  "walkability": 50,
+  "bike_friendly": 40,
+  "description": "西非门户，英语国家，创业生态增长，适合非洲探索者。",
+  "status": "published",
+  "updated_at": "2026-07-06T00:00:00Z",
+  "source": "Numbeo 2026, Nomad List, Local Research"
+}

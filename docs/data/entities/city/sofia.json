@@ -1,0 +1,33 @@
+{
+  "id": "sofia",
+  "name": "索非亚",
+  "name_en": "Sofia",
+  "country_id": "bulgaria",
+  "country_name": "保加利亚",
+  "digital_nomad_score": 80,
+  "cost_of_living_index": 35,
+  "rent_index": 15,
+  "safety_index": 75,
+  "internet_speed_avg_mbps": 70,
+  "coworking_spaces": 35,
+  "coworking_score": 78,
+  "climate": "温带大陆",
+  "avg_temp_c": 10,
+  "rainy_season": "5-6月",
+  "english_level": "中等",
+  "chinese_community_size": "小",
+  "neighborhoods": [
+    "市中心",
+    "Lozenets",
+    "Ivan Vazov"
+  ],
+  "food_scene": "shkembe、 banitsa、保加利亚酸奶",
+  "nightlife": "Vitosha 大道、俱乐部",
+  "transportation": "地铁/巴士/电车",
+  "walkability": 80,
+  "bike_friendly": 65,
+  "description": "巴尔干半岛明珠，生活成本极低，IT产业发达，适合远程工作。",
+  "status": "published",
+  "updated_at": "2026-07-06T00:00:00Z",
+  "source": "Numbeo 2026, Nomad List, Local Research"
+}

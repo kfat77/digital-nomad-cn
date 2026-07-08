@@ -237,26 +237,25 @@ function initGlobe() {
     const earthGroup = new THREE.Group();
     scene.add(earthGroup);
 
-    // Earth sphere (using wireframe + dot pattern for stylized look)
     const earthRadius = 1;
 
-    // 1. Wireframe sphere (main globe outline)
+    // 1. Wireframe sphere
     const wireGeo = new THREE.IcosahedronGeometry(earthRadius, 3);
     const wireMat = new THREE.MeshBasicMaterial({
         color: 0xd0d5dd,
         wireframe: true,
         transparent: true,
-        opacity: 0.4
+        opacity: 0.3
     });
     const wireMesh = new THREE.Mesh(wireGeo, wireMat);
     earthGroup.add(wireMesh);
 
-    // 2. Inner solid sphere (slightly smaller, subtle fill)
+    // 2. Inner solid sphere
     const innerGeo = new THREE.SphereGeometry(earthRadius * 0.98, 64, 64);
     const innerMat = new THREE.MeshBasicMaterial({
         color: 0xf5f7fa,
         transparent: true,
-        opacity: 0.6
+        opacity: 0.5
     });
     const innerMesh = new THREE.Mesh(innerGeo, innerMat);
     earthGroup.add(innerMesh);
@@ -264,7 +263,7 @@ function initGlobe() {
     // 3. Outer glow ring
     const ringGeo = new THREE.TorusGeometry(earthRadius * 1.15, 0.008, 16, 128);
     const ringMat = new THREE.MeshBasicMaterial({
-        color: 0x2563eb,
+        color: 0x000000,
         transparent: true,
         opacity: 0.2
     });
@@ -272,34 +271,85 @@ function initGlobe() {
     ringMesh.rotation.x = Math.PI / 2;
     earthGroup.add(ringMesh);
 
-    // 4. Atmosphere glow
-    const atmosGeo = new THREE.SphereGeometry(earthRadius * 1.08, 64, 64);
-    const atmosMat = new THREE.MeshBasicMaterial({
-        color: 0x2563eb,
-        transparent: true,
-        opacity: 0.08,
-        side: THREE.BackSide
-    });
-    const atmosMesh = new THREE.Mesh(atmosGeo, atmosMat);
-    earthGroup.add(atmosMesh);
+    // Country meshes storage
+    const countryMeshes = {};
+    const countryMeshList = [];
+    let geoLoaded = false;
 
-    // 5. Country markers
+    // Load world-geo.json and create country meshes
+    fetch('world-geo.json')
+        .then(r => r.json())
+        .then(geoData => {
+            Object.entries(geoData).forEach(([key, data]) => {
+                const hasData = !!(window.COUNTRY_DATA && window.COUNTRY_DATA[key]);
+                const countryColor = hasData ? (window.COUNTRY_DATA[key].color || 0x2563eb) : 0xcccccc;
+                const colorObj = new THREE.Color(countryColor);
+
+                // Create triangle mesh (fill)
+                if (data.triangles && data.triangles.length > 0) {
+                    const triGeo = new THREE.BufferGeometry();
+                    const positions = new Float32Array(data.triangles);
+                    triGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+                    const triMat = new THREE.MeshBasicMaterial({
+                        color: colorObj,
+                        transparent: true,
+                        opacity: hasData ? 0.1 : 0.05,
+                        side: THREE.DoubleSide,
+                        depthWrite: false
+                    });
+
+                    const triMesh = new THREE.Mesh(triGeo, triMat);
+                    triMesh.userData = { country: key, type: 'fill', hasData: hasData, originalOpacity: hasData ? 0.1 : 0.05, originalColor: colorObj.clone() };
+                    earthGroup.add(triMesh);
+                    countryMeshList.push(triMesh);
+
+                    if (!countryMeshes[key]) countryMeshes[key] = {};
+                    countryMeshes[key].mesh = triMesh;
+                }
+
+                // Create line mesh (outline)
+                if (data.lines && data.lines.length > 0) {
+                    const lineGeo = new THREE.BufferGeometry();
+                    const positions = new Float32Array(data.lines);
+                    lineGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+                    const lineMat = new THREE.LineBasicMaterial({
+                        color: hasData ? 0x8899aa : 0xbbbbbb,
+                        transparent: true,
+                        opacity: hasData ? 0.4 : 0.25
+                    });
+
+                    const lineMesh = new THREE.Line(lineGeo, lineMat);
+                    lineMesh.userData = { country: key, type: 'outline', hasData: hasData };
+                    earthGroup.add(lineMesh);
+
+                    if (!countryMeshes[key]) countryMeshes[key] = {};
+                    countryMeshes[key].lines = lineMesh;
+                }
+            });
+            geoLoaded = true;
+        })
+        .catch(err => {
+            console.warn('Failed to load world-geo.json:', err);
+        });
+
+    // Also create markers from COUNTRY_DATA
     const markers = [];
     const markerGroup = new THREE.Group();
     earthGroup.add(markerGroup);
 
     const countryData = window.COUNTRY_DATA || {};
-    const markerMap = {}; // key -> marker mesh mapping
+    const markerMap = {};
 
     Object.entries(countryData).forEach(([key, country]) => {
         const pos = latLonToVector3(country.lat, country.lon, earthRadius * 1.02);
 
-        // Marker dot
-        const dotGeo = new THREE.SphereGeometry(0.025, 16, 16);
+        const dotGeo = new THREE.SphereGeometry(0.018, 16, 16);
         const dotMat = new THREE.MeshBasicMaterial({
             color: country.color || 0x2563eb,
             transparent: true,
-            opacity: 0.85
+            opacity: 0.6
         });
         const dot = new THREE.Mesh(dotGeo, dotMat);
         dot.position.copy(pos);
@@ -308,12 +358,11 @@ function initGlobe() {
         markers.push(dot);
         markerMap[key] = dot;
 
-        // Glow ring around marker
-        const glowGeo = new THREE.RingGeometry(0.035, 0.05, 16);
+        const glowGeo = new THREE.RingGeometry(0.025, 0.035, 16);
         const glowMat = new THREE.MeshBasicMaterial({
             color: country.color || 0x2563eb,
             transparent: true,
-            opacity: 0.3,
+            opacity: 0.25,
             side: THREE.DoubleSide
         });
         const glow = new THREE.Mesh(glowGeo, glowMat);
@@ -321,26 +370,11 @@ function initGlobe() {
         glow.lookAt(new THREE.Vector3(0, 0, 0));
         markerGroup.add(glow);
         dot.userData.glow = glow;
-
-        // Connection line to surface
-        const lineGeo = new THREE.BufferGeometry().setFromPoints([
-            pos.clone().multiplyScalar(0.98),
-            pos.clone().multiplyScalar(1.08)
-        ]);
-        const lineMat = new THREE.LineBasicMaterial({
-            color: country.color || 0x2563eb,
-            transparent: true,
-            opacity: 0.35
-        });
-        const line = new THREE.Line(lineGeo, lineMat);
-        markerGroup.add(line);
-        dot.userData.line = line;
     });
 
     // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
-
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
     directionalLight.position.set(5, 3, 5);
     scene.add(directionalLight);
@@ -348,13 +382,12 @@ function initGlobe() {
     // Interaction
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2(-10, -10);
-    let hoveredMarker = null;
+    let hoveredCountry = null;
     let isDragging = false;
     let previousMousePosition = { x: 0, y: 0 };
     let autoRotate = true;
     const rotationSpeed = 0.001;
 
-    // Mouse move for raycasting
     wrapper.addEventListener('mousemove', (e) => {
         const rect = wrapper.getBoundingClientRect();
         mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
@@ -376,17 +409,13 @@ function initGlobe() {
         previousMousePosition = { x: e.clientX, y: e.clientY };
     });
 
-    wrapper.addEventListener('mouseup', () => {
-        isDragging = false;
-    });
-
+    wrapper.addEventListener('mouseup', () => { isDragging = false; });
     wrapper.addEventListener('mouseleave', () => {
         isDragging = false;
-        mouse.x = -10;
-        mouse.y = -10;
+        mouse.x = -10; mouse.y = -10;
     });
 
-    // Click to navigate to country page
+    // Click handler
     wrapper.addEventListener('click', (e) => {
         if (!isDragging) {
             const rect = wrapper.getBoundingClientRect();
@@ -395,11 +424,35 @@ function initGlobe() {
                 -((e.clientY - rect.top) / rect.height) * 2 + 1
             );
             raycaster.setFromCamera(clickMouse, camera);
-            const intersects = raycaster.intersectObjects(markers);
-            if (intersects.length > 0) {
-                const marker = intersects[0].object;
+
+            // Check country meshes first
+            if (geoLoaded && countryMeshList.length > 0) {
+                const meshIntersects = raycaster.intersectObjects(countryMeshList);
+                if (meshIntersects.length > 0) {
+                    const countryKey = meshIntersects[0].object.userData.country;
+                    const hasData = meshIntersects[0].object.userData.hasData;
+                    if (countryKey) {
+                        if (hasData) {
+                            window.location.href = 'country/' + countryKey + '/';
+                        } else {
+                            // Show tooltip for no-data countries
+                            if (tooltip) {
+                                tooltip.textContent = '数据准备中';
+                                tooltip.classList.add('visible');
+                                setTimeout(() => tooltip.classList.remove('visible'), 1500);
+                            }
+                        }
+                        return;
+                    }
+                }
+            }
+
+            // Fallback to markers
+            const markerIntersects = raycaster.intersectObjects(markers);
+            if (markerIntersects.length > 0) {
+                const marker = markerIntersects[0].object;
                 if (marker.userData && marker.userData.country) {
-                    window.location.href = `country/${marker.userData.country}.html`;
+                    window.location.href = 'country/' + marker.userData.country + '/';
                 }
             }
         }
@@ -424,122 +477,162 @@ function initGlobe() {
         }
     }, { passive: true });
 
-    wrapper.addEventListener('touchend', () => {
-        isDragging = false;
-    });
+    wrapper.addEventListener('touchend', () => { isDragging = false; });
 
-    // Tooltip element
+    // Tooltip
     const tooltip = document.getElementById('globeTooltip');
-    let tooltipTimeout = null;
+
+    function resetHighlight(key) {
+        if (!key) return;
+        const prev = countryMeshes[key];
+        if (prev) {
+            if (prev.mesh) {
+                prev.mesh.material.opacity = prev.mesh.userData.originalOpacity;
+                prev.mesh.material.color.copy(prev.mesh.userData.originalColor);
+            }
+            if (prev.lines) {
+                const hasData = prev.mesh && prev.mesh.userData.hasData;
+                prev.lines.material.color.setHex(hasData ? 0x8899aa : 0xbbbbbb);
+                prev.lines.material.opacity = hasData ? 0.4 : 0.25;
+            }
+        }
+        const prevMarker = markerMap[key];
+        if (prevMarker) {
+            prevMarker.scale.setScalar(1);
+            prevMarker.material.opacity = 0.6;
+            if (prevMarker.userData.glow) {
+                prevMarker.userData.glow.scale.setScalar(1);
+                prevMarker.userData.glow.material.opacity = 0.25;
+            }
+        }
+        const prevItem = document.querySelector('.globe-sidebar-item[data-country="' + key + '"]');
+        if (prevItem) prevItem.classList.remove('active');
+    }
+
+    function setHighlight(key) {
+        if (!key) return;
+        const curr = countryMeshes[key];
+        const hasData = curr && curr.mesh && curr.mesh.userData.hasData;
+        if (curr) {
+            if (curr.mesh) {
+                curr.mesh.material.opacity = hasData ? 0.5 : 0.15;
+                curr.mesh.material.color.setHex(hasData ? 0x3b82f6 : 0x999999);
+            }
+            if (curr.lines) {
+                curr.lines.material.color.setHex(hasData ? 0xffffff : 0xdddddd);
+                curr.lines.material.opacity = hasData ? 0.9 : 0.5;
+            }
+        }
+        const marker = markerMap[key];
+        if (marker) {
+            marker.scale.setScalar(2.0);
+            marker.material.opacity = 1;
+            if (marker.userData.glow) {
+                marker.userData.glow.scale.setScalar(1.8);
+                marker.userData.glow.material.opacity = 0.7;
+            }
+        }
+        wrapper.style.cursor = hasData ? 'pointer' : 'not-allowed';
+        const countryInfo = window.COUNTRY_DATA && window.COUNTRY_DATA[key];
+        if (tooltip) {
+            if (countryInfo) {
+                tooltip.textContent = countryInfo.name + ' (' + countryInfo.nameEn + ')';
+            } else {
+                tooltip.textContent = '数据准备中';
+            }
+            tooltip.classList.add('visible');
+        }
+        const item = document.querySelector('.globe-sidebar-item[data-country="' + key + '"]');
+        if (item) {
+            item.classList.add('active');
+            item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    }
 
     // Animation loop
     let frameId;
     function animate() {
         frameId = requestAnimationFrame(animate);
 
-        // Auto rotate
         if (autoRotate && !isDragging) {
             earthGroup.rotation.y += rotationSpeed;
         }
 
-        // Hover detection
-        raycaster.setFromCamera(mouse, camera);
-        const intersects = raycaster.intersectObjects(markers);
-
-        if (intersects.length > 0) {
-            const marker = intersects[0].object;
-            if (hoveredMarker !== marker) {
-                // Reset previous
-                if (hoveredMarker) {
-                    hoveredMarker.scale.setScalar(1);
-                    hoveredMarker.material.opacity = 0.85;
-                    if (hoveredMarker.userData.glow) {
-                        hoveredMarker.userData.glow.scale.setScalar(1);
-                        hoveredMarker.userData.glow.material.opacity = 0.3;
-                    }
-                    // Reset sidebar active
-                    const prevKey = hoveredMarker.userData.country;
-                    const prevItem = document.querySelector(`.globe-sidebar-item[data-country="${prevKey}"]`);
-                    if (prevItem) prevItem.classList.remove('active');
+        // Hover detection - country meshes first
+        let foundHover = false;
+        if (geoLoaded && countryMeshList.length > 0) {
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(countryMeshList);
+            if (intersects.length > 0) {
+                const hitMesh = intersects[0].object;
+                const countryKey = hitMesh.userData.country;
+                if (countryKey && hoveredCountry !== countryKey) {
+                    resetHighlight(hoveredCountry);
+                    hoveredCountry = countryKey;
+                    setHighlight(countryKey);
                 }
-                // Highlight new
-                hoveredMarker = marker;
-                hoveredMarker.scale.setScalar(2.0);
-                hoveredMarker.material.opacity = 1;
-                if (hoveredMarker.userData.glow) {
-                    hoveredMarker.userData.glow.scale.setScalar(1.8);
-                    hoveredMarker.userData.glow.material.opacity = 0.7;
+                foundHover = true;
+                if (tooltip && !isDragging) {
+                    const wrapperRect = wrapper.getBoundingClientRect();
+                    const hitPos = hitMesh.position.clone();
+                    hitPos.applyMatrix4(earthGroup.matrixWorld);
+                    hitPos.project(camera);
+                    const x = (hitPos.x * 0.5 + 0.5) * wrapperRect.width;
+                    const y = (-hitPos.y * 0.5 + 0.5) * wrapperRect.height;
+                    tooltip.style.left = x + 'px';
+                    tooltip.style.top = (y - 12) + 'px';
                 }
-                wrapper.style.cursor = 'pointer';
-
-                // Show tooltip
-                const data = marker.userData.data;
-                if (tooltip) {
-                    tooltip.textContent = `${data.name} (${data.nameEn})`;
-                    tooltip.classList.add('visible');
-                }
-                // Highlight sidebar item
-                const key = marker.userData.country;
-                const item = document.querySelector(`.globe-sidebar-item[data-country="${key}"]`);
-                if (item) {
-                    item.classList.add('active');
-                    item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
-            }
-
-            // Update tooltip position
-            if (tooltip && !isDragging) {
-                const wrapperRect = wrapper.getBoundingClientRect();
-                // Project marker position to screen
-                const markerPos = marker.position.clone();
-                markerPos.applyMatrix4(earthGroup.matrixWorld);
-                markerPos.project(camera);
-                const x = (markerPos.x * 0.5 + 0.5) * wrapperRect.width;
-                const y = (-markerPos.y * 0.5 + 0.5) * wrapperRect.height;
-                tooltip.style.left = x + 'px';
-                tooltip.style.top = (y - 12) + 'px';
-            }
-        } else {
-            if (hoveredMarker) {
-                hoveredMarker.scale.setScalar(1);
-                hoveredMarker.material.opacity = 0.85;
-                if (hoveredMarker.userData.glow) {
-                    hoveredMarker.userData.glow.scale.setScalar(1);
-                    hoveredMarker.userData.glow.material.opacity = 0.3;
-                }
-                // Reset sidebar active
-                const key = hoveredMarker.userData.country;
-                const item = document.querySelector(`.globe-sidebar-item[data-country="${key}"]`);
-                if (item) item.classList.remove('active');
-                hoveredMarker = null;
-                wrapper.style.cursor = 'grab';
-            }
-            if (tooltip) {
-                tooltip.classList.remove('visible');
             }
         }
 
-        // Gentle pulse animation for markers
+        // Fallback to markers
+        if (!foundHover) {
+            raycaster.setFromCamera(mouse, camera);
+            const markerIntersects = raycaster.intersectObjects(markers);
+            if (markerIntersects.length > 0) {
+                const marker = markerIntersects[0].object;
+                const countryKey = marker.userData.country;
+                if (countryKey && hoveredCountry !== countryKey) {
+                    resetHighlight(hoveredCountry);
+                    hoveredCountry = countryKey;
+                    setHighlight(countryKey);
+                }
+                foundHover = true;
+                if (tooltip && !isDragging) {
+                    const wrapperRect = wrapper.getBoundingClientRect();
+                    const markerPos = marker.position.clone();
+                    markerPos.applyMatrix4(earthGroup.matrixWorld);
+                    markerPos.project(camera);
+                    const x = (markerPos.x * 0.5 + 0.5) * wrapperRect.width;
+                    const y = (-markerPos.y * 0.5 + 0.5) * wrapperRect.height;
+                    tooltip.style.left = x + 'px';
+                    tooltip.style.top = (y - 12) + 'px';
+                }
+            }
+        }
+
+        if (!foundHover && hoveredCountry) {
+            resetHighlight(hoveredCountry);
+            hoveredCountry = null;
+            wrapper.style.cursor = 'grab';
+            if (tooltip) tooltip.classList.remove('visible');
+        }
+
+        // Gentle pulse for markers
         const time = Date.now() * 0.001;
         markers.forEach((m, i) => {
-            if (m !== hoveredMarker && m.userData.glow) {
-                const pulse = Math.sin(time * 2 + i) * 0.1 + 0.3;
+            if (m !== markerMap[hoveredCountry] && m.userData.glow) {
+                const pulse = Math.sin(time * 2 + i) * 0.1 + 0.25;
                 m.userData.glow.material.opacity = pulse;
             }
         });
 
-        // Ring rotation
         ringMesh.rotation.z += 0.0005;
-
-        // Atmosphere subtle rotation
-        atmosMesh.rotation.y += 0.0002;
-
         renderer.render(scene, camera);
     }
 
     animate();
 
-    // Generate sidebar country list
     generateGlobeSidebar(markerMap, countryData);
 
     // Resize handler
@@ -554,7 +647,7 @@ function initGlobe() {
     });
     resizeObserver.observe(wrapper);
 
-    // IntersectionObserver for performance (pause when not visible)
+    // IntersectionObserver for performance
     const globeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -635,6 +728,12 @@ function generateGlobeSidebar(markerMap, countryData) {
 
     // Bind click events
     sidebar.querySelectorAll('.globe-sidebar-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const key = item.dataset.country;
+            if (key) {
+                window.location.href = 'country/' + key + '/';
+            }
+        });
         item.addEventListener('click', () => {
             const key = item.dataset.country;
             if (key) {

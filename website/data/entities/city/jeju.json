@@ -1,0 +1,32 @@
+{
+  "id": "jeju",
+  "name": "济州岛",
+  "name_en": "Jeju",
+  "country_id": "southkorea",
+  "country_name": "韩国",
+  "digital_nomad_score": 76,
+  "cost_of_living_index": 45,
+  "rent_index": 20,
+  "safety_index": 90,
+  "internet_speed_avg_mbps": 80,
+  "coworking_spaces": 20,
+  "coworking_score": 68,
+  "climate": "亚热带",
+  "avg_temp_c": 15,
+  "rainy_season": "6-7月",
+  "english_level": "低",
+  "chinese_community_size": "中等",
+  "neighborhoods": [
+    "济州市",
+    "西归浦"
+  ],
+  "food_scene": "黑猪肉、海鲜、济州橘子",
+  "nightlife": "济州市、酒吧",
+  "transportation": "巴士/出租车/租车",
+  "walkability": 60,
+  "bike_friendly": 60,
+  "description": "韩国夏威夷，火山岛，免签30天， Koreans 数字游民热门。",
+  "status": "published",
+  "updated_at": "2026-07-06T00:00:00Z",
+  "source": "Numbeo 2026, Nomad List, Local Research"
+}

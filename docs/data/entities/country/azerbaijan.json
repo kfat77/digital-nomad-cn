@@ -1,0 +1,56 @@
+{
+  "id": "azerbaijan",
+  "name": "阿塞拜疆",
+  "name_en": "Azerbaijan",
+  "name_local": "Azərbaycan",
+  "code_iso_3166_1": "AZ",
+  "code_iso_3166_3": "AZE",
+  "region": "asia",
+  "sub_region": "west_asia",
+  "is_digital_nomad_friendly": true,
+  "has_digital_nomad_visa": false,
+  "coordinates": {
+    "lat": 40.4093,
+    "lon": 49.8671
+  },
+  "timezone": [
+    "Asia/Baku"
+  ],
+  "currency": [
+    {
+      "code": "AZN",
+      "name": "阿塞拜疆马纳特",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "az",
+      "name": "阿塞拜疆语",
+      "is_official": true
+    }
+  ],
+  "population": 10000000,
+  "area_km2": 86600,
+  "gdp_per_capita_usd": 5300,
+  "hdi": 0.745,
+  "safety_index": 68,
+  "internet_speed_avg_mbps": 55,
+  "cost_of_living_index": 42,
+  "rent_index": 16,
+  "china_passport_visa_status": "evisa",
+  "china_passport_visa_note": "电子签可在线申请，也可落地签",
+  "digital_nomad_score": 69,
+  "tags": [
+    "asia",
+    "cheap",
+    "oil",
+    "modern",
+    "culture"
+  ],
+  "status": "published",
+  "updated_at": "2026-07-05T00:00:00Z",
+  "source": "Numbeo 2026, World Bank 2025",
+  "flag_emoji": "🇦🇿",
+  "chinese_passport_visa_status": "电子签（30天）"
+}

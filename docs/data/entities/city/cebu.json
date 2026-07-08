@@ -1,0 +1,32 @@
+{
+  "id": "cebu",
+  "name": "宿务",
+  "name_en": "Cebu",
+  "country_id": "philippines",
+  "country_name": "菲律宾",
+  "digital_nomad_score": 76,
+  "cost_of_living_index": 32,
+  "rent_index": 15,
+  "safety_index": 60,
+  "internet_speed_avg_mbps": 50,
+  "coworking_spaces": 30,
+  "coworking_score": 72,
+  "climate": "热带",
+  "avg_temp_c": 28,
+  "rainy_season": "6-10月",
+  "english_level": "极高",
+  "chinese_community_size": "中等",
+  "neighborhoods": [
+    "IT Park",
+    "Lahug"
+  ],
+  "food_scene": "lechon、海鲜、菲律宾菜",
+  "nightlife": "IT Park、Mactan",
+  "transportation": "出租车/jeepney",
+  "walkability": 55,
+  "bike_friendly": 45,
+  "description": "南方皇后城，潜水胜地，比马尼拉更悠闲，生活成本低。",
+  "status": "published",
+  "updated_at": "2026-07-06T00:00:00Z",
+  "source": "Numbeo 2026, Nomad List, Local Research"
+}

@@ -10,10 +10,32 @@
   "is_special_admin_region": false,
   "is_digital_nomad_friendly": true,
   "has_digital_nomad_visa": true,
-  "coordinates": {"lat": -0.7893, "lon": 113.9213},
-  "timezone": ["Asia/Jakarta"],
-  "currency": [{"code": "IDR", "name": "印尼盾", "is_primary": true}],
-  "languages": [{"code": "id", "name": "印尼语", "is_official": true}, {"code": "en", "name": "英语", "is_official": false}],
+  "coordinates": {
+    "lat": -0.7893,
+    "lon": 113.9213
+  },
+  "timezone": [
+    "Asia/Jakarta"
+  ],
+  "currency": [
+    {
+      "code": "IDR",
+      "name": "印尼盾",
+      "is_primary": true
+    }
+  ],
+  "languages": [
+    {
+      "code": "id",
+      "name": "印尼语",
+      "is_official": true
+    },
+    {
+      "code": "en",
+      "name": "英语",
+      "is_official": false
+    }
+  ],
   "population": 275000000,
   "area_km2": 1904569,
   "gdp_per_capita_usd": 4700,
@@ -25,8 +47,16 @@
   "china_passport_visa_status": "evisa",
   "china_passport_visa_note": "可申请电子签证（B211A），有效期60天，可延期。第二家园签证（Second Home Visa）可停留5-10年",
   "digital_nomad_score": 76,
-  "tags": ["东南亚", "海岛", "低成本", "数字游民签证", "冲浪"],
+  "tags": [
+    "东南亚",
+    "海岛",
+    "低成本",
+    "数字游民签证",
+    "冲浪"
+  ],
   "status": "published",
-  "updated_at": "2026-01-15",
-  "source": "Numbeo, World Bank, 印尼移民局"
+  "updated_at": "2026-07-05T00:00:00Z",
+  "source": "Numbeo, World Bank, 印尼移民局",
+  "flag_emoji": "🇮🇩",
+  "chinese_passport_visa_status": "免签（30天）"
 }

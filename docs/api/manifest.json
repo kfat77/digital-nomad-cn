@@ -1,0 +1,98 @@
+{
+  "name": "Digital Nomad CN Data API",
+  "description": "面向中国用户的全球数字游民结构化数据基础设施，覆盖42个国家、34个城市、签证政策、生活成本、安全指数、网速评分等维度。",
+  "version": "1.0",
+  "base_url": "https://kfat77.github.io/digital-nomad-cn/api/",
+  "updated_at": "2026-07-05T00:00:00Z",
+  "license": "CC BY-NC-SA 4.0",
+  "source_repo": "https://github.com/kfat77/digital-nomad-cn",
+  "endpoints": {
+    "countries": {
+      "url": "countries.json",
+      "method": "GET",
+      "description": "获取所有国家数据",
+      "count": 42,
+      "fields": [
+        "id",
+        "name",
+        "name_en",
+        "region",
+        "digital_nomad_score",
+        "cost_of_living_index",
+        "safety_index",
+        "internet_speed_avg_mbps",
+        "rent_index",
+        "hdi",
+        "gdp_per_capita_usd",
+        "china_passport_visa_status",
+        "has_digital_nomad_visa",
+        "coordinates",
+        "currency",
+        "languages",
+        "timezone",
+        "population",
+        "area_km2",
+        "tags"
+      ]
+    },
+    "cities": {
+      "url": "cities.json",
+      "method": "GET",
+      "description": "获取所有城市数据",
+      "count": 34,
+      "fields": [
+        "id",
+        "name",
+        "name_en",
+        "country_id",
+        "country_name",
+        "digital_nomad_score",
+        "cost_of_living_index",
+        "rent_index",
+        "safety_index",
+        "internet_speed_avg_mbps",
+        "coworking_spaces",
+        "coworking_score",
+        "climate",
+        "avg_temp_c",
+        "rainy_season",
+        "english_level",
+        "chinese_community_size",
+        "neighborhoods",
+        "food_scene",
+        "nightlife",
+        "transportation",
+        "walkability",
+        "bike_friendly",
+        "description"
+      ]
+    },
+    "visas": {
+      "url": "visas.json",
+      "method": "GET",
+      "description": "获取所有签证数据",
+      "count": 20,
+      "fields": [
+        "id",
+        "country_id",
+        "country_name",
+        "visa_types",
+        "updated_at",
+        "source"
+      ]
+    }
+  },
+  "schemas": {
+    "country": "https://raw.githubusercontent.com/kfat77/digital-nomad-cn/main/website/data/schemas/country-detail.json",
+    "city": "https://raw.githubusercontent.com/kfat77/digital-nomad-cn/main/website/data/schemas/city-detail.json",
+    "visa": "https://raw.githubusercontent.com/kfat77/digital-nomad-cn/main/website/data/schemas/visa-detail.json"
+  },
+  "ai_usage": {
+    "prompt_for_query": "You are an AI agent. Use the Digital Nomad CN API to retrieve real-time data about digital nomad destinations. The base URL is https://kfat77.github.io/digital-nomad-cn/api/.",
+    "example_requests": [
+      "GET https://kfat77.github.io/digital-nomad-cn/api/countries.json → 获取42个国家完整数据",
+      "GET https://kfat77.github.io/digital-nomad-cn/api/cities.json → 获取34个城市完整数据",
+      "GET https://kfat77.github.io/digital-nomad-cn/api/visas.json → 获取签证数据"
+    ]
+  }
+}

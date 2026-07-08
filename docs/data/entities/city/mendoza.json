@@ -1,0 +1,32 @@
+{
+  "id": "mendoza",
+  "name": "门多萨",
+  "name_en": "Mendoza",
+  "country_id": "argentina",
+  "country_name": "阿根廷",
+  "digital_nomad_score": 75,
+  "cost_of_living_index": 30,
+  "rent_index": 12,
+  "safety_index": 70,
+  "internet_speed_avg_mbps": 40,
+  "coworking_spaces": 15,
+  "coworking_score": 60,
+  "climate": "干旱大陆性",
+  "avg_temp_c": 16,
+  "rainy_season": "极少",
+  "english_level": "低",
+  "chinese_community_size": "极小",
+  "neighborhoods": [
+    "市中心",
+    "奇亚尼塔"
+  ],
+  "food_scene": "葡萄酒、阿根廷烤肉、橄榄",
+  "nightlife": "葡萄酒庄体验、酒吧",
+  "transportation": "巴士/出租车",
+  "walkability": 70,
+  "bike_friendly": 80,
+  "description": "葡萄酒之都，安第斯山脚下，适合户外爱好者和远程工作者。",
+  "status": "published",
+  "updated_at": "2026-07-06T00:00:00Z",
+  "source": "Numbeo 2026, Nomad List, Local Research"
+}
