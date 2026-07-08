@@ -118,6 +118,28 @@
         },
         "extractionNote": { "type": "string" }
       }
+    },
+    "data_sources": {
+      "type": "object",
+      "description": "数据来源与验证信息",
+      "properties": {
+        "visa_policy": {
+          "type": "object",
+          "properties": {
+            "source": { "type": "string", "description": "数据来源名称" },
+            "url": { "type": "string", "format": "uri", "description": "官方链接" },
+            "last_verified": { "type": "string", "format": "date", "description": "最后验证日期 (YYYY-MM-DD)" }
+          }
+        },
+        "cost_of_living": {
+          "type": "object",
+          "properties": {
+            "source": { "type": "string", "description": "数据来源名称" },
+            "url": { "type": "string", "format": "uri", "description": "官方链接" },
+            "last_verified": { "type": "string", "format": "date", "description": "最后验证日期 (YYYY-MM-DD)" }
+          }
+        }
+      }
     }
   }
 }
