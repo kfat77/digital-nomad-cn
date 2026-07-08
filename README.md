@@ -52,6 +52,7 @@
 | 💳 银行卡 | [出海银行卡完整指南](https://kfat77.github.io/digital-nomad-cn/articles/digital-nomad-banking-guide/) | 香港汇丰/中银/众安/蚂蚁四卡策略 + OCBC 远程开户 |
 | 📱 电话卡 | [海外电话卡与 eSIM 攻略](https://kfat77.github.io/digital-nomad-cn/articles/giffgaff-guide-2026/) | Giffgaff/Club SIM/Ultra Mobile 保号 + eSIM 全球流量 |
 | 📈 证券账户 | [全球证券账户开户指南](https://kfat77.github.io/digital-nomad-cn/articles/securities-guide/) | 盈透/嘉信/FSMOne 开户 + 入金路径 + CRS 合规 |
+| 🆕 **跨境投资综合指南** | [**guides-x-posts-us-stock-cn.md**](guides-x-posts-us-stock-cn.md) | **16 个 X 帖子 + chinese-buy-us-stock-guide 整合**：香港银行开户、美股券商、跨境支付、数字游民工具 |
 
 👉 **[点击访问完整网站](https://kfat77.github.io/digital-nomad-cn/)**
 
