@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: [['html'], ['list']],
   use: {
-    baseURL: 'http://localhost:8080',
+    baseURL: 'file://' + process.cwd() + '/docs',
     trace: 'on-first-retry',
   },
 
@@ -18,11 +18,4 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
   ],
-
-  webServer: {
-    command: 'python3 -m http.server 8080 --directory docs || python -m http.server 8080 --directory docs || npx serve docs -p 8080',
-    url: 'http://localhost:8080',
-    reuseExistingServer: !process.env.CI,
-    timeout: 120000,
-  },
 });
