@@ -101,7 +101,22 @@
         .freshness-badge.aging::before { background: #ca8a04; }
         .freshness-badge.warning::before { background: #ea580c; }
         .freshness-badge.stale::before { background: #dc2626; }
-    </style>
+    
+        .data-missing { color: #8b8b8b; font-style: italic; }
+
+        .score-tooltip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            font-size: 12px;
+            cursor: help;
+            margin-left: 4px;
+        }
+</style>
 </head>
 <body>
     <nav class="breadcrumb">
@@ -257,22 +272,22 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="icon">🍜</div>
-                <div class="value">$7</div>
+                <div class="value">MOP$7</div>
                 <div class="label">普通餐厅一餐</div>
             </div>
             <div class="stat-card">
                 <div class="icon">🏠</div>
-                <div class="value">$1200</div>
+                <div class="value">MOP$1200</div>
                 <div class="label">市中心一居室月租</div>
             </div>
             <div class="stat-card">
                 <div class="icon">☕</div>
-                <div class="value">$3.5</div>
+                <div class="value">MOP$3.5</div>
                 <div class="label">一杯咖啡</div>
             </div>
             <div class="stat-card">
                 <div class="icon">🚌</div>
-                <div class="value">$30</div>
+                <div class="value">MOP$30</div>
                 <div class="label">公共交通月票</div>
             </div>
         </div>

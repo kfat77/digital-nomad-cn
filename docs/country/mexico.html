@@ -101,7 +101,22 @@
         .freshness-badge.aging::before { background: #ca8a04; }
         .freshness-badge.warning::before { background: #ea580c; }
         .freshness-badge.stale::before { background: #dc2626; }
-    </style>
+    
+        .data-missing { color: #8b8b8b; font-style: italic; }
+
+        .score-tooltip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            font-size: 12px;
+            cursor: help;
+            margin-left: 4px;
+        }
+</style>
 </head>
 <body>
     <nav class="breadcrumb">
