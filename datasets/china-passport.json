@@ -1,0 +1,542 @@
+[
+  {
+    "id": "thailand",
+    "name": { "zh": "泰国", "en": "Thailand" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "180天内累计不超过90天",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "singapore",
+    "name": { "zh": "新加坡", "en": "Singapore" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "自2024年2月9日起恢复互免",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "malaysia",
+    "name": { "zh": "马来西亚", "en": "Malaysia" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "indonesia",
+    "name": { "zh": "印度尼西亚", "en": "Indonesia" },
+    "visa_type": "落地签",
+    "stay_days": 30,
+    "notes": "可办理落地签或电子签，费用约35美元",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "vietnam",
+    "name": { "zh": "越南", "en": "Vietnam" },
+    "visa_type": "落地签/电子签",
+    "stay_days": 30,
+    "notes": "富国岛可免签30天；落地签需提前申请批文",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "philippines",
+    "name": { "zh": "菲律宾", "en": "Philippines" },
+    "visa_type": "条件免签",
+    "stay_days": 7,
+    "notes": "需持美/加/英/澳/申根有效签证",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "turkey",
+    "name": { "zh": "土耳其", "en": "Turkey" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "2026年1月起变为单方面免签",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "georgia",
+    "name": { "zh": "格鲁吉亚", "en": "Georgia" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "仅对旅游目的施行免签",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "uae",
+    "name": { "zh": "阿联酋", "en": "United Arab Emirates" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "互免签证",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "serbia",
+    "name": { "zh": "塞尔维亚", "en": "Serbia" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "互免签证",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "bosnia-herzegovina",
+    "name": { "zh": "波黑", "en": "Bosnia and Herzegovina" },
+    "visa_type": "免签",
+    "stay_days": 90,
+    "notes": "互免签证",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "belarus",
+    "name": { "zh": "白俄罗斯", "en": "Belarus" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "互免签证",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "morocco",
+    "name": { "zh": "摩洛哥", "en": "Morocco" },
+    "visa_type": "免签",
+    "stay_days": 90,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "tunisia",
+    "name": { "zh": "突尼斯", "en": "Tunisia" },
+    "visa_type": "免签",
+    "stay_days": 90,
+    "notes": "适用于自中国境内或境外入境的中国个人或团体游客",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "mauritius",
+    "name": { "zh": "毛里求斯", "en": "Mauritius" },
+    "visa_type": "免签",
+    "stay_days": 60,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "seychelles",
+    "name": { "zh": "塞舌尔", "en": "Seychelles" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "fiji",
+    "name": { "zh": "斐济", "en": "Fiji" },
+    "visa_type": "免签",
+    "stay_days": 120,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "armenia",
+    "name": { "zh": "亚美尼亚", "en": "Armenia" },
+    "visa_type": "免签",
+    "stay_days": 90,
+    "notes": "互免签证",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "kazakhstan",
+    "name": { "zh": "哈萨克斯坦", "en": "Kazakhstan" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "互免签证",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "maldives",
+    "name": { "zh": "马尔代夫", "en": "Maldives" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "qatar",
+    "name": { "zh": "卡塔尔", "en": "Qatar" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "互免签证",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "uzbekistan",
+    "name": { "zh": "乌兹别克斯坦", "en": "Uzbekistan" },
+    "visa_type": "免签",
+    "stay_days": 10,
+    "notes": "经国际机场可持10日内回国或赴第三国机票免签入境",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "iran",
+    "name": { "zh": "伊朗", "en": "Iran" },
+    "visa_type": "免签",
+    "stay_days": 21,
+    "notes": "护照不能有以色列签证或出入境记录",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "azerbaijan",
+    "name": { "zh": "阿塞拜疆", "en": "Azerbaijan" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "2024年7月起单方面免签",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "oman",
+    "name": { "zh": "阿曼", "en": "Oman" },
+    "visa_type": "免签",
+    "stay_days": 14,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "sri-lanka",
+    "name": { "zh": "斯里兰卡", "en": "Sri Lanka" },
+    "visa_type": "电子签",
+    "stay_days": 30,
+    "notes": "2025年由落地签变为电子签",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "cambodia",
+    "name": { "zh": "柬埔寨", "en": "Cambodia" },
+    "visa_type": "电子签/落地签",
+    "stay_days": 30,
+    "notes": "2026年6月15日-10月15日期间免签",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "laos",
+    "name": { "zh": "老挝", "en": "Laos" },
+    "visa_type": "落地签/电子签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "nepal",
+    "name": { "zh": "尼泊尔", "en": "Nepal" },
+    "visa_type": "落地签/电子签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "egypt",
+    "name": { "zh": "埃及", "en": "Egypt" },
+    "visa_type": "落地签",
+    "stay_days": 30,
+    "notes": "可办理落地签或电子签",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "jordan",
+    "name": { "zh": "约旦", "en": "Jordan" },
+    "visa_type": "落地签/电子签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "bahrain",
+    "name": { "zh": "巴林", "en": "Bahrain" },
+    "visa_type": "落地签/电子签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "bangladesh",
+    "name": { "zh": "孟加拉国", "en": "Bangladesh" },
+    "visa_type": "落地签",
+    "stay_days": 30,
+    "notes": "限公务旅行、商务投资、旅游目的",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "saudi-arabia",
+    "name": { "zh": "沙特阿拉伯", "en": "Saudi Arabia" },
+    "visa_type": "电子签",
+    "stay_days": 90,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "tanzania",
+    "name": { "zh": "坦桑尼亚", "en": "Tanzania" },
+    "visa_type": "落地签",
+    "stay_days": 90,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "lebanon",
+    "name": { "zh": "黎巴嫩", "en": "Lebanon" },
+    "visa_type": "落地签",
+    "stay_days": 30,
+    "notes": "护照上无以色列签证或出入境记录",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "myanmar",
+    "name": { "zh": "缅甸", "en": "Myanmar" },
+    "visa_type": "落地签/电子签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "timor-leste",
+    "name": { "zh": "东帝汶", "en": "Timor-Leste" },
+    "visa_type": "落地签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "iraq",
+    "name": { "zh": "伊拉克", "en": "Iraq" },
+    "visa_type": "落地签",
+    "stay_days": 60,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "peru",
+    "name": { "zh": "秘鲁", "en": "Peru" },
+    "visa_type": "免签",
+    "stay_days": 183,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "ecuador",
+    "name": { "zh": "厄瓜多尔", "en": "Ecuador" },
+    "visa_type": "免签",
+    "stay_days": 90,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "suriname",
+    "name": { "zh": "苏里南", "en": "Suriname" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "barbados",
+    "name": { "zh": "巴巴多斯", "en": "Barbados" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "bahamas",
+    "name": { "zh": "巴哈马", "en": "Bahamas" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "dominica",
+    "name": { "zh": "多米尼克", "en": "Dominica" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "grenada",
+    "name": { "zh": "格林纳达", "en": "Grenada" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "antigua-barbuda",
+    "name": { "zh": "安提瓜和巴布达", "en": "Antigua and Barbuda" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "saint-kitts-nevis",
+    "name": { "zh": "圣基茨和尼维斯", "en": "Saint Kitts and Nevis" },
+    "visa_type": "免签",
+    "stay_days": 90,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "saint-lucia",
+    "name": { "zh": "圣卢西亚", "en": "Saint Lucia" },
+    "visa_type": "免签",
+    "stay_days": 42,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "jamaica",
+    "name": { "zh": "牙买加", "en": "Jamaica" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "以旅游目的来牙",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "samoa",
+    "name": { "zh": "萨摩亚", "en": "Samoa" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "需有返程或前往第三国机票",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "tonga",
+    "name": { "zh": "汤加", "en": "Tonga" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "solomon-islands",
+    "name": { "zh": "所罗门群岛", "en": "Solomon Islands" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "kiribati",
+    "name": { "zh": "基里巴斯", "en": "Kiribati" },
+    "visa_type": "免签",
+    "stay_days": 90,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "vanuatu",
+    "name": { "zh": "瓦努阿图", "en": "Vanuatu" },
+    "visa_type": "落地签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "palau",
+    "name": { "zh": "帕劳", "en": "Palau" },
+    "visa_type": "落地签",
+    "stay_days": 30,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "bolivia",
+    "name": { "zh": "玻利维亚", "en": "Bolivia" },
+    "visa_type": "落地签",
+    "stay_days": 90,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "cuba",
+    "name": { "zh": "古巴", "en": "Cuba" },
+    "visa_type": "落地签/旅游卡",
+    "stay_days": 30,
+    "notes": "需旅游卡",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "russia",
+    "name": { "zh": "俄罗斯", "en": "Russia" },
+    "visa_type": "免签",
+    "stay_days": 30,
+    "notes": "2025年12月起互免签证",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  },
+  {
+    "id": "albania",
+    "name": { "zh": "阿尔巴尼亚", "en": "Albania" },
+    "visa_type": "免签",
+    "stay_days": 90,
+    "notes": "",
+    "official_url": "https://cs.mfa.gov.cn/zggmcg/cgqz/qzxx_660462/202110/t20211030_10404169.shtml",
+    "last_verified": "2026-06-17"
+  }
+]

@@ -1,7 +1,7 @@
 {
   "name": "digital-nomad-cn",
   "version": "2.0.0",
-  "description": "全球最大的中文 Global Mobility Open Infrastructure — Data First / API First / AI First / Open Source First",
+  "description": "中文数字游民信息平台 — 数据优先 / 开源优先",
   "homepage": "https://kfat77.github.io/digital-nomad-cn/",
   "repository": {
     "type": "git",
@@ -17,8 +17,6 @@
     "bump:sw": "node scripts/bump-sw-cache.js",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit"
@@ -39,7 +37,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
-    "@playwright/test": "^1.61.1",
     "@types/node": "^22.20.1",
     "@vitest/coverage-v8": "^2.1.9",
     "ajv": "^8.20.0",
@@ -47,7 +44,7 @@
     "earcut": "^3.2.3",
     "eslint": "^9.39.4",
     "globals": "^16.1.0",
-    "typescript": "^5.9.3",
+    "typescript": "^5.8.3",
     "vitest": "^2.1.9"
   }
 }
