@@ -1,5 +1,19 @@
 [
   {
+    "slug": "china-passport",
+    "title": "🇨🇳 中国护照出行指南",
+    "description": "55个签证友好国家完整列表：免签、落地签、电子签分类，含停留天数、官方链接与验证时间",
+    "date": "2026-07-10",
+    "tags": [
+      "中国护照",
+      "免签",
+      "落地签",
+      "电子签",
+      "签证政策"
+    ],
+    "image": "/images/og/china-passport-guide.png"
+  },
+  {
     "slug": "cross-border-investment-guide",
     "title": "数字游民跨境投资与银行开户综合指南",
     "description": "整合16个X优质帖与chinese-buy-us-stock-guide：香港银行开户、美股券商选择、跨境支付、数字游民工具一站式指南",

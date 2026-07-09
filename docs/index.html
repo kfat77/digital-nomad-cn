@@ -1709,6 +1709,7 @@
             <nav class="header-nav" aria-label="主导航">
                 <a href="country/">国家</a>
                 <a href="visa/">签证</a>
+                <a href="china-passport/">🇨🇳 中国护照</a>
                 <a href="articles/">文章</a>
                 <a href="compare/">对比</a>
                 <a href="search/">搜索</a>
@@ -1728,6 +1729,7 @@
     <nav class="mobile-menu" id="mobileMenu" aria-label="移动端菜单">
         <a href="country/">国家数据库</a>
         <a href="visa/">签证数据库</a>
+        <a href="china-passport/">🇨🇳 中国护照指南</a>
         <a href="articles/">文章</a>
         <a href="compare/">国家对比</a>
         <a href="search/">搜索</a>
@@ -1743,6 +1745,7 @@
             <div class="quick-start-links">
                 <a href="country/" class="quick-start-btn primary">🌏 国家数据库</a>
                 <a href="visa/" class="quick-start-btn primary">🛂 签证数据库</a>
+                <a href="china-passport/" class="quick-start-btn primary">🇨🇳 中国护照</a>
                 <a href="compare/" class="quick-start-btn secondary">📊 国家对比</a>
                 <a href="search/" class="quick-start-btn secondary">🔍 搜索</a>
                 <a href="articles/" class="quick-start-btn secondary">📚 文章</a>
@@ -1849,6 +1852,20 @@
                         <li>券商入金最优路径</li>
                     </ul>
                     <span class="infra-card-link">查看攻略 →</span>
+                </a>
+                <a href="china-passport/" class="infra-card glass-card reveal reveal-delay-2">
+                    <div class="infra-card-icon" style="background:#dcfce7;color:#166534;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                    </div>
+                    <h3>🇨🇳 中国护照</h3>
+                    <p>免签、落地签、电子签国家完整列表，55 个目的地说走就走。</p>
+                    <ul class="infra-card-list">
+                        <li>55 个签证友好国家</li>
+                        <li>免签 / 落地签 / 电子签分类</li>
+                        <li>停留天数与官方链接</li>
+                        <li>数据来源于领事服务网</li>
+                    </ul>
+                    <span class="infra-card-link">查看列表 →</span>
                 </a>
             </div>
         </div>
@@ -2326,105 +2343,4 @@
     }
 
     // READING PROGRESS
-    function initReadingProgress() {
-        const progress = document.querySelector('.reading-progress');
-        if (!progress) return;
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const pct = (scrollTop / docHeight) * 100;
-            progress.style.width = pct + '%';
-        }, { passive: true });
-    }
-
-    // DATA FRESHNESS
-    (async function() {
-        try {
-            const res = await fetch('api/stats.json', { cache: 'no-cache' });
-            const data = await res.json();
-            const updated = data.updated_at || data.last_updated;
-            if (updated) {
-                const date = new Date(updated);
-                const str = date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
-                const el = document.getElementById('dataFreshness');
-                if (el) el.textContent = '数据更新于 ' + str;
-            }
-        } catch (e) {
-            const el = document.getElementById('dataFreshness');
-            if (el) {
-                const now = new Date();
-                const str = now.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
-                el.textContent = '数据更新于 ' + str;
-            }
-        }
-    })();
-
-    // COUNTRY FILTERS
-    (function() {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const regionTabs = document.querySelectorAll('.region-tab');
-        const allCards = document.querySelectorAll('.country-card');
-        const regionSections = document.querySelectorAll('.region-section');
-        let activeFilter = 'all', activeRegion = 'all';
-        function applyFilters() {
-            allCards.forEach(card => {
-                const visa = card.dataset.visa;
-                const region = card.dataset.region;
-                card.style.display = (activeFilter === 'all' || visa === activeFilter) && (activeRegion === 'all' || region === activeRegion) ? '' : 'none';
-            });
-            regionSections.forEach(section => {
-                section.style.display = section.querySelectorAll('.country-card:not([style*="display: none"])').length > 0 ? '' : 'none';
-            });
-        }
-        filterBtns.forEach(btn => btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            activeFilter = btn.dataset.filter;
-            applyFilters();
-        }));
-        regionTabs.forEach(tab => tab.addEventListener('click', () => {
-            regionTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            activeRegion = tab.dataset.region;
-            applyFilters();
-        }));
-    })();
-
-    // LOAD ARTICLES
-    (async function() {
-        try {
-            const res = await fetch('articles/articles.json');
-            const data = await res.json();
-            const articles = data.slice(0, 3);
-            const grid = document.getElementById('home-articles-grid');
-            if (!grid) return;
-            grid.innerHTML = articles.map(a => `
-                <a href="articles/${a.slug}/index.html" class="article-card glass-card">
-                    <div class="article-tags">
-                        ${a.tags.map(t => '<span class="article-tag">' + t + '</span>').join('')}
-                    </div>
-                    <h3>${a.title}</h3>
-                    <p>${a.description || a.summary || ""}</p>
-                    <span class="article-date">${a.date}</span>
-                </a>
-            `).join('');
-        } catch (e) {
-            const grid = document.getElementById('home-articles-grid');
-            if (grid) grid.innerHTML = '<p style="color: var(--text-tertiary); text-align: center; padding: 24px;">暂无文章</p>';
-        }
-    })();
-
-    // Initialize all
-    document.addEventListener('DOMContentLoaded', () => {
-        initScrollReveal();
-        initCountUp();
-        initHeaderScroll();
-        initMobileMenu();
-        initReadingProgress();
-    });
-})();
-</script>
-<script src="motion.js" defer=""></script>
-<div class="reading-progress"></div>
-</body>
-</html>
+    f
