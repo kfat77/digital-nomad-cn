@@ -6356,3 +6356,120 @@ summary:hover {
         grid-template-columns: 1fr;
     }
 }
+
+/* ============================================
+   Mobile Optimization — Globe, Cards, Bars, Loading
+   ============================================ */
+
+/* Task 6: 移动端地球动效缩小 */
+@media (max-width: 768px) {
+    .globe-container {
+        height: 40vh !important;
+    }
+    
+    .scene-entries {
+        padding: var(--space-8) 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .globe-container {
+        height: 35vh !important;
+    }
+}
+
+/* Task 7: 国家卡片移动端简化 */
+@media (max-width: 768px) {
+    .country-card .country-region,
+    .country-card .country-metric,
+    .country-card .country-visa {
+        display: none;
+    }
+    
+    .country-card {
+        padding: var(--space-4);
+    }
+    
+    .country-card .country-flag {
+        font-size: 2.5rem;
+    }
+    
+    .country-card .country-meta h4 {
+        font-size: var(--text-base);
+    }
+    
+    .country-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: var(--space-3);
+    }
+}
+
+@media (max-width: 480px) {
+    .country-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Task 9: 进度条动画 */
+.metric-bar-fill,
+.bar-fill,
+.compare-bar-fill {
+    transition: width 1s ease-out;
+}
+
+.bar-fill-animated {
+    animation: barGrow 1s ease-out forwards;
+}
+
+@keyframes barGrow {
+    from { width: 0%; }
+}
+
+/* staggered animation delay */
+.metric-bar-fill:nth-child(1),
+.bar-item:nth-child(1) .bar-fill { animation-delay: 0s; }
+.metric-bar-fill:nth-child(2),
+.bar-item:nth-child(2) .bar-fill { animation-delay: 0.1s; }
+.metric-bar-fill:nth-child(3),
+.bar-item:nth-child(3) .bar-fill { animation-delay: 0.2s; }
+.metric-bar-fill:nth-child(4),
+.bar-item:nth-child(4) .bar-fill { animation-delay: 0.3s; }
+.metric-bar-fill:nth-child(5),
+.bar-item:nth-child(5) .bar-fill { animation-delay: 0.4s; }
+.metric-bar-fill:nth-child(6),
+.bar-item:nth-child(6) .bar-fill { animation-delay: 0.5s; }
+
+/* Task 10: 数字滚动动画 */
+@keyframes countUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animated-number {
+    animation: countUp 0.5s ease-out forwards;
+}
+
+/* Task 11: 加载状态（骨架屏） */
+@keyframes skeleton-pulse {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton-text {
+    height: 1em;
+    margin-bottom: 0.5em;
+}
+
+.skeleton-card {
+    height: 120px;
+    margin-bottom: var(--space-4);
+}
+
+.loading-state {
+    padding: var(--space-8) 0;
+    display: none;
+}
+
+.loading-state.visible {
+    display: block;
+}

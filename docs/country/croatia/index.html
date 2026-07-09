@@ -73,7 +73,22 @@
         .freshness-badge.aging::before { background: #ca8a04; }
         .freshness-badge.warning::before { background: #ea580c; }
         .freshness-badge.stale::before { background: #dc2626; }
-    </style>
+    
+        .data-missing { color: #8b8b8b; font-style: italic; }
+
+        .score-tooltip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            font-size: 12px;
+            cursor: help;
+            margin-left: 4px;
+        }
+</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Country","name":"克罗地亚","alternateName":"Croatia","description":"克罗地亚数字游民完整攻略","geo":{"@type":"GeoCoordinates","latitude":0,"longitude":0},"additionalProperty":[{"@type":"PropertyValue","name":"数字游民评分","value":75},{"@type":"PropertyValue","name":"生活成本指数","value":48},{"@type":"PropertyValue","name":"安全指数","value":78},{"@type":"PropertyValue","name":"平均网速","value":"55 Mbps"}]}</script>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -108,7 +123,7 @@
                 <h1>克罗地亚</h1>
                 <div class="country-hero-meta">Croatia | europe</div>
                 <div class="country-hero-badges">
-                    <span class="country-hero-score">数字游民评分 <span class="score">75</span>/100</span>
+                    <span class="country-hero-score">数字游民评分 <span class="score">75</span><span class="score-tooltip" title="综合评分 = 签证便利性(30%) + 生活成本(25%) + 网速/基础设施(20%) + 安全指数(15%) + 社区活跃度(10%)">?</span>/100</span>
                     <span class="badge badge-danger">需签证</span>
                     <span class="badge badge-info">💰 中等</span>
                     <span class="badge badge-success">🛡️ 非常安全</span>
@@ -122,7 +137,7 @@
             <div class="country-stat-card"><div class="value">387万</div><div class="label">人口</div></div>
             <div class="country-stat-card"><div class="value">5.6万</div><div class="label">面积 (km²)</div></div>
             <div class="country-stat-card"><div class="value">$24,050美元</div><div class="label">人均 GDP</div></div>
-            <div class="country-stat-card"><div class="value">undefined</div><span class="badge badge-danger">低</span></div>
+            <div class="country-stat-card"><div class="value"><span class="data-missing">暂无数据</span></div><span class="badge badge-danger">低</span></div>
         </div>
     </section>
 
@@ -149,7 +164,7 @@
                 <div class="compare-bar"><span class="compare-bar-label">生活成本</span><div class="compare-bar-track"><div class="compare-bar-fill" style="width: 48%"></div></div><span class="compare-bar-value">48</span></div>
                 <div class="compare-bar"><span class="compare-bar-label">安全指数</span><div class="compare-bar-track"><div class="compare-bar-fill" style="width: 78%"></div></div><span class="compare-bar-value">78</span></div>
                 <div class="compare-bar"><span class="compare-bar-label">网速</span><div class="compare-bar-track"><div class="compare-bar-fill" style="width: 18.333333333333332%"></div></div><span class="compare-bar-value">55</span></div>
-                <div class="compare-bar"><span class="compare-bar-label">HDI</span><div class="compare-bar-track"><div class="compare-bar-fill" style="width: NaN%"></div></div><span class="compare-bar-value">undefined</span></div>
+                <div class="compare-bar"><span class="compare-bar-label">HDI</span><div class="compare-bar-track"><div class="compare-bar-fill" style="width: 0%"></div></div><span class="compare-bar-value"><span class="data-missing">暂无数据</span></span></div>
                 <div class="compare-bar"><span class="compare-bar-label">租金指数</span><div class="compare-bar-track"><div class="compare-bar-fill" style="width: 48%"></div></div><span class="compare-bar-value">48</span></div>
             </div>
         </div>
@@ -172,7 +187,7 @@
             <div class="info-card"><h4>总体安全</h4><div class="value">78</div><span class="badge badge-success">非常安全</span></div>
             <div class="info-card"><h4>时区</h4><div class="value">UTC+1~+2</div></div>
             <div class="info-card"><h4>语言</h4><div class="value">N/A</div></div>
-            <div class="info-card"><h4>货币</h4><div class="value">USD</div></div>
+            <div class="info-card"><h4>货币</h4><div class="value">EUR</div></div>
         </div>
         <p class="text-muted" style="margin-top: 24px; line-height: 1.7;">克罗地亚总体安全，大部分地区治安良好，但在某些区域夜间出行需保持基本警惕。</p>
     </section>
@@ -228,17 +243,17 @@
                 <div class="info-card">
                     <h4>🏠 月租金</h4>
                     <div class="value">450 – 900</div>
-                    <p style="font-size: 12px; color: var(--muted); margin-top: 4px;">USD/月</p>
+                    <p style="font-size: 12px; color: var(--muted); margin-top: 4px;">EUR/月</p>
                 </div>
                 <div class="info-card">
                     <h4>🍜 日均餐饮</h4>
                     <div class="value">15</div>
-                    <p style="font-size: 12px; color: var(--muted); margin-top: 4px;">USD/天</p>
+                    <p style="font-size: 12px; color: var(--muted); margin-top: 4px;">EUR/天</p>
                 </div>
                 <div class="info-card">
                     <h4>🚌 月交通</h4>
                     <div class="value">30</div>
-                    <p style="font-size: 12px; color: var(--muted); margin-top: 4px;">USD/月</p>
+                    <p style="font-size: 12px; color: var(--muted); margin-top: 4px;">EUR/月</p>
                 </div>
                 <div class="info-card">
                     <h4>🏢 共享办公</h4>
@@ -263,19 +278,19 @@
                     <div style="flex: 1; min-width: 200px;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;">
                             <span style="color: var(--muted);">租金</span>
-                            <span style="font-weight: 600;">$450 – $900</span>
+                            <span style="font-weight: 600;">€450 – €900</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;">
                             <span style="color: var(--muted);">餐饮</span>
-                            <span style="font-weight: 600;">$450</span>
+                            <span style="font-weight: 600;">€450</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;">
                             <span style="color: var(--muted);">交通</span>
-                            <span style="font-weight: 600;">$30</span>
+                            <span style="font-weight: 600;">€30</span>
                         </div>
                         <div style="border-top: 1px solid var(--border); padding-top: 8px; display: flex; justify-content: space-between; font-size: 16px; font-weight: 700;">
                             <span>总计</span>
-                            <span style="color: var(--accent);">$930 – $1380</span>
+                            <span style="color: var(--accent);">€930 – €1380</span>
                         </div>
                     </div>
                     <div style="flex: 1; min-width: 200px;">
@@ -375,7 +390,7 @@
             series: [{
                 type: 'radar',
                 data: [{
-                    value: [75, 48, 78, 55, , 48, ],
+                    value: [75, 48, 78, 55, null, 48, ],
                     name: '克罗地亚',
                     areaStyle: { color: 'rgba(37, 99, 235, 0.15)' },
                     lineStyle: { color: '#2563eb', width: 2 },

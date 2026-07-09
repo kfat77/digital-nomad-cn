@@ -88,7 +88,22 @@
             .country-nav ul { overflow-x: auto; }
             .country-nav li { flex: 0 0 auto; min-width: 100px; }
         }
-    </style>
+    
+        .data-missing { color: #8b8b8b; font-style: italic; }
+
+        .score-tooltip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            font-size: 12px;
+            cursor: help;
+            margin-left: 4px;
+        }
+</style>
 </head>
 <body>
     <nav class="breadcrumb">
@@ -244,22 +259,22 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="icon">🍜</div>
-                <div class="value">$5</div>
+                <div class="value">₾5</div>
                 <div class="label">普通餐厅一餐</div>
             </div>
             <div class="stat-card">
                 <div class="icon">🏠</div>
-                <div class="value">$300</div>
+                <div class="value">₾300</div>
                 <div class="label">市中心一居室月租</div>
             </div>
             <div class="stat-card">
                 <div class="icon">☕</div>
-                <div class="value">$1.5</div>
+                <div class="value">₾1.5</div>
                 <div class="label">一杯咖啡</div>
             </div>
             <div class="stat-card">
                 <div class="icon">🚌</div>
-                <div class="value">$15</div>
+                <div class="value">₾15</div>
                 <div class="label">公共交通月票</div>
             </div>
         </div>

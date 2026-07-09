@@ -1,35 +1,5 @@
 [
   {
-    "slug": "china-passport",
-    "title": "🇨🇳 中国护照出行指南",
-    "description": "55个签证友好国家完整列表：免签、落地签、电子签分类，含停留天数、官方链接与验证时间",
-    "date": "2026-07-10",
-    "tags": [
-      "中国护照",
-      "免签",
-      "落地签",
-      "电子签",
-      "签证政策"
-    ],
-    "image": "/images/og/china-passport-guide.png"
-  },
-  {
-    "slug": "cross-border-investment-guide",
-    "title": "数字游民跨境投资与银行开户综合指南",
-    "description": "整合16个X优质帖与chinese-buy-us-stock-guide：香港银行开户、美股券商选择、跨境支付、数字游民工具一站式指南",
-    "date": "2026-07-10",
-    "tags": [
-      "数字游民",
-      "美股",
-      "港股",
-      "银行开户",
-      "券商",
-      "跨境投资",
-      "CRS"
-    ],
-    "image": "/images/og/cross-border-investment-guide.png"
-  },
-  {
     "slug": "giffgaff-guide-2026",
     "title": "Giffgaff 激活充值保号防坑指南（2026最新版）",
     "description": "英国神卡 giffgaff 从购买到保号的完整避坑攻略：激活流程、5道钱包锁、最低成本保号方式，一年仅需6元",

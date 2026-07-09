@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全球数字游民签证目的地 — 数字游民指南</title>
+    <meta name="description" content="共 20 个国家/地区提供数字游民签证或类似远程工作签证">
+    <link rel="stylesheet" href="../style.css?v=7">
+    <style>
+        .page-hero { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 120px 0 60px; text-align: center; }
+        .page-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 12px; color: var(--text-primary); }
+        .page-hero p { color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 18px; }
+        .page-section { padding: 60px 0; max-width: var(--container-max); margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+        .data-table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 14px; }
+        .data-table th, .data-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        .data-table th { background: var(--bg-surface); font-weight: 600; font-size: 12px; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.05em; }
+        .data-table tr:hover { background: var(--bg-surface); }
+        .data-table td { color: var(--text-primary); }
+        .data-missing { color: #8b8b8b; font-style: italic; }
+        .country-cell { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+        .country-flag { font-size: 20px; }
+        .rank-num { font-size: 20px; font-weight: 800; color: var(--brand); width: 40px; text-align: center; }
+        .badge-visa { display: inline-flex; padding: 4px 10px; border-radius: var(--radius-full); font-size: 12px; font-weight: 600; }
+        .badge-visa-free { background: #dcfce7; color: #166534; }
+        .badge-visa-on-arrival { background: #fef3c7; color: #92400e; }
+        .badge-visa-required { background: #fee2e2; color: #991b1b; }
+        .badge-visa-eta { background: #dbeafe; color: #1e40af; }
+        .btn-compare { display: inline-flex; padding: 6px 14px; background: var(--brand); color: white; border-radius: var(--radius-full); font-size: 12px; font-weight: 600; text-decoration: none; transition: all 0.2s ease-out; }
+        .btn-compare:hover { background: var(--brand-hover); transform: translateY(-1px); }
+        .cost-card { display: flex; align-items: center; gap: 16px; padding: 16px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-xl); margin-bottom: 12px; transition: all 0.2s ease-out; }
+        .cost-card:hover { border-color: var(--brand); box-shadow: var(--shadow-card-hover); }
+        .cost-rank { font-size: 28px; font-weight: 800; color: var(--brand); width: 48px; text-align: center; flex-shrink: 0; }
+        .cost-info { flex: 1; }
+        .cost-info h4 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+        .cost-info p { font-size: 14px; color: var(--text-secondary); margin: 0; }
+        .cost-index { font-size: 24px; font-weight: 700; color: var(--text-primary); }
+        .footer-note { margin-top: 40px; padding: 20px; background: var(--bg-surface); border-radius: var(--radius-lg); font-size: 14px; color: var(--text-secondary); text-align: center; }
+        .footer-note a { color: var(--brand); text-decoration: underline; }
+        .hero-label { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--brand); background: var(--brand-soft); padding: 6px 14px; border-radius: var(--radius-full); margin-bottom: 16px; }
+        @media (max-width: 768px) {
+            .page-hero { padding: 100px 0 40px; }
+            .page-hero h1 { font-size: 28px; }
+            .data-table { font-size: 12px; }
+            .data-table th, .data-table td { padding: 10px 8px; }
+            .data-table { display: block; overflow-x: auto; }
+            .cost-card { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .cost-rank { width: auto; font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../" class="logo"><span class="logo-icon">🌍</span><span>数字游民指南</span></a>
+            <nav class="main-nav">
+                <a href="../country/">国家</a>
+                <a href="../visa/">签证</a>
+                <a href="../compare/">对比</a>
+                <a href="../search/">搜索</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="page-hero">
+        <div class="hero-label">📊 数据驱动</div>
+        <h1>全球数字游民签证目的地</h1>
+        <p>共 20 个国家/地区提供数字游民签证或类似远程工作签证</p>
+    </section>
+    
+    <section class="page-section">
+        <table class="data-table"><thead><tr><th>国家</th><th>签证名称</th><th>最低收入要求</th><th>申请周期</th><th>费用</th><th>备注</th><th>操作</th></tr></thead><tbody><tr><td><div class="country-cell"><span class="country-flag">🇭🇷</span>克罗地亚</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">需提前申请申根签证（克罗地亚已加入申根区），有效期90天</small></td><td><a href="../compare/?preselect=croatia" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇮🇸</span>冰岛</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">需提前申请申根签证。冰岛提供数字游民签证（长期远程工作者签证）</small></td><td><a href="../compare/?preselect=iceland" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇮🇩</span>印度尼西亚</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">可申请电子签证（B211A），有效期60天，可延期。第二家园签证（Second Home Visa）可停留5-10年</small></td><td><a href="../compare/?preselect=indonesia" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇹🇷</span>土耳其</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">可申请电子签证（e-Visa），有效期30天。也可申请数字游民签证</small></td><td><a href="../compare/?preselect=turkey" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇨🇾</span>塞浦路斯</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">需提前申请签证，可在塞浦路斯外交部官网申请电子签证</small></td><td><a href="../compare/?preselect=cyprus" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇦🇹</span>奥地利</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">需提前申请申根签证。奥地利提供数字游民签证（Rot-Weiß-Rot Karte für Selbstständige）</small></td><td><a href="../compare/?preselect=austria" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇧🇷</span>巴西</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">需提前申请签证，可申请数字游民签证（临时签证VITEM XIV）</small></td><td><a href="../compare/?preselect=brazil" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇬🇷</span>希腊</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">需提前申请申根签证，可停留90天</small></td><td><a href="../compare/?preselect=greece" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇳🇴</span>挪威</div></td><td>独立承包商签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">需提前申请申根签证。挪威提供独立承包商签证（Independent Contractor Visa）</small></td><td><a href="../compare/?preselect=norway" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇱🇰</span>斯里兰卡</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">可申请电子签证（ETA），有效期30天。也可申请数字游民签证（有效期1年）</small></td><td><a href="../compare/?preselect=srilanka" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇯🇵</span>日本</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">旅游签证需通过指定旅行社申请，单次/多次可选</small></td><td><a href="../compare/?preselect=japan" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇨🇱</span>智利</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">需提前申请签证，智利提供数字游民签证（Visa de Transitoria para Trabajadores Remotos）</small></td><td><a href="../compare/?preselect=chile" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇹🇭</span>泰国</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">免签60天，可延期30天</small></td><td><a href="../compare/?preselect=thailand" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇮🇪</span>爱尔兰</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">需提前申请签证。爱尔兰提供数字游民签证（Stamp 1A）</small></td><td><a href="../compare/?preselect=ireland" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇪🇪</span>爱沙尼亚</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">电子签申根入境；e-Residency数字公民；数字游民签证</small></td><td><a href="../compare/?preselect=estonia" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇵🇹</span>葡萄牙</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">D7数字游民签证、黄金签证</small></td><td><a href="../compare/?preselect=portugal" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇲🇳</span>蒙古</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">中国公民免签入境，可停留30天。也可申请数字游民签证（有效期1年）</small></td><td><a href="../compare/?preselect=mongolia" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇪🇸</span>西班牙</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">数字游民签证、非盈利签证、黄金签证</small></td><td><a href="../compare/?preselect=spain" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇦🇪</span>阿联酋</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">免签30天；可延期</small></td><td><a href="../compare/?preselect=uae" class="btn-compare">一键对比</a></td></tr>
+<tr><td><div class="country-cell"><span class="country-flag">🇰🇷</span>韩国</div></td><td>数字游民签证</td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><span class="data-missing">暂无数据</span></td><td><small style="color:var(--text-secondary)">济州岛免签30天，其余需申请签证</small></td><td><a href="../compare/?preselect=southkorea" class="btn-compare">一键对比</a></td></tr>
+</tbody></table>
+<div class="footer-note"><p>📌 数据持续更新中。详细申请条件、收入门槛和费用请以各国外交部/移民局官网为准。</p></div>
+    </section>
+    
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <div class="footer-brand-name">
+                    <span>🌍</span>
+                    <span>数字游民指南</span>
+                </div>
+                <p>面向中国国内用户的数字游民基础设施一站式攻略。100 国数据、50+ 签证、122 城市，全部开源。</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>数据</h4>
+                    <a href="../country/">国家数据库</a>
+                    <a href="../visa/">签证数据库</a>
+                    <a href="../compare/">国家对比</a>
+                    <a href="../search/">搜索</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>本内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议共享</p>
+            <p>内容仅供学习交流，不构成投资、法律或移民建议</p>
+        </div>
+    </footer>
+</body>
+</html>
