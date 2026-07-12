@@ -46,7 +46,7 @@
     "ajv-formats": "^3.0.1",
     "earcut": "^3.2.3",
     "eslint": "^9.39.4",
-    "globals": "^16.1.0",
+    "globals": "^17.7.0",
     "typescript": "^5.9.3",
     "vitest": "^2.1.9"
   }
