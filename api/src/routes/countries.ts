@@ -1,5 +1,6 @@
 import { jsonResponse } from '../index';
 import countriesData from '../../../datasets/countries.json';
+import reviewedCountriesData from '../../../datasets/reviewed-countries.json';
 
 // Type for country data
 interface Country {
@@ -15,6 +16,30 @@ interface Country {
 }
 
 const countries: Country[] = countriesData as Country[];
+const reviews = new Map(reviewedCountriesData.map((review) => [review.country_id, review]));
+
+function withVerification(country: Country): Country {
+  const review = reviews.get(country.id);
+  if (!review) return country;
+
+  return {
+    ...country,
+    metadata: {
+      ...country.metadata,
+      verification: {
+        reviewedFields: review.reviewed_fields,
+        lastReviewedAt: review.last_reviewed_at,
+        sources: review.sources.map((source) => ({
+          field: source.field,
+          name: source.name,
+          url: source.url,
+          sourceType: source.source_type,
+        })),
+        note: review.review_note,
+      },
+    },
+  };
+}
 
 export const countriesRoute = {
   // GET /v1/countries
@@ -37,7 +62,7 @@ export const countriesRoute = {
     result = result.slice(offset, offset + limit);
 
     return jsonResponse({
-      data: result,
+      data: result.map(withVerification),
       meta: {
         version: '1.0.0',
         total,
@@ -61,7 +86,7 @@ export const countriesRoute = {
     }
 
     return jsonResponse({
-      data: country,
+      data: withVerification(country),
       meta: {
         version: '1.0.0',
         lastUpdated: country.metadata?.lastUpdated

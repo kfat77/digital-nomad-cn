@@ -48,6 +48,7 @@ ppt_extract/
 qz_edna_analysis/
 
 # Build artifacts
+api/dist/
 build-backup/
 build-deploy/
 build-liquid-glass/
