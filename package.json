@@ -13,15 +13,13 @@
   "license": "MIT",
   "author": "Digital Nomad Guide Contributors",
   "scripts": {
-    "sync:docs": "node scripts/sync-to-docs.js",
-    "bump:sw": "node scripts/bump-sw-cache.js",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "tsc --noEmit"
+    "check": "npm run lint && npm test"
   },
   "keywords": [
     "digital-nomad",

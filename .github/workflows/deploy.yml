@@ -31,13 +31,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Run all tests
-        run: npm test
+      - name: Run repository checks
+        run: npm run check
 
   # ─────────────────────────────────────────
   # 2. Deploy to GitHub Pages

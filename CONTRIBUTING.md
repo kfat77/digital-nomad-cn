@@ -59,37 +59,33 @@
    - 数据错误 → 编辑 `datasets/countries.json`
    - 新国家数据 → 在 `datasets/countries.json` 中添加
    - 翻译问题 → 编辑 `website/en/` 下的对应文件
-3. **校验数据**：运行 `npm run validate`
-4. **同步到网站**：运行 `npm run sync:data`
-5. **提交 PR**：编辑完成后点击 "Propose changes" → "Create pull request"
+3. **运行检查**：运行 `npm run check`
+4. **提交 PR**：编辑完成后点击 "Propose changes" → "Create pull request"
 6. **等待 Review**：GitHub Actions 会自动校验你的数据
 
 ---
 
 ## V2 架构说明
 
-### 数据是唯一的真相源
+### 数据与 Schema 是核心资产
 
 ```
-datasets/countries.json    ←── 你在这里修改数据
+datasets/countries.json + schemas/country.schema.json
          │
-         │ npm run sync:data
+         │ npm run check
          ▼
-website/countries-data.js  ←── 自动生成，禁止手动编辑
+数据与 Schema 契约测试
 ```
 
 **重要规则**：
 - 所有数据修改必须在 `datasets/` 目录进行
-- `website/` 中的数据文件由脚本自动生成
-- 提交 PR 时必须同时包含 `datasets/` 和 `website/` 的变更
+- 提交 PR 前运行 `npm run check`
 
 ### 数据校验
 
 ```bash
 npm install
-npm run validate        # 校验数据是否符合 Schema
-npm run sync:data       # 同步到 website/
-npm run build           # 完整构建
+npm run check           # 运行与 CI 相同的 lint 和测试
 ```
 
 ---
@@ -135,9 +131,8 @@ npm run build           # 完整构建
 
 1. 在 `datasets/countries.json` 中添加新国家数据（参考现有格式）
 2. 确保数据符合 `schemas/country.schema.json`
-3. 运行 `npm run validate`
-4. 运行 `npm run sync:data`
-5. 提交 PR
+3. 运行 `npm run check`
+4. 提交 PR
 
 ### 数据更新
 
@@ -145,7 +140,7 @@ npm run build           # 完整构建
 1. 编辑 `datasets/countries.json` 中对应国家的字段
 2. 更新 `metadata.lastUpdated`
 3. 添加数据来源到 `metadata.sources`
-4. 运行 `npm run validate && npm run sync:data`
+4. 运行 `npm run check`
 5. 提交 PR
 
 ---
@@ -209,8 +204,7 @@ seo: add structured data for city pages
 
 1. **Fork** 仓库并创建 feature 分支
 2. **修改数据**：编辑 `datasets/countries.json`
-3. **校验**：`npm run validate`
-4. **同步**：`npm run sync:data`
+3. **校验**：`npm run check`
 5. **提交 PR** 到 `main` 分支
 6. **CI 自动校验**：GitHub Actions 会运行 Schema 校验
 7. **合并后**：你的名字会出现在 CONTRIBUTORS.md 中！
