@@ -32,7 +32,6 @@ labels: ['data-update']
 
 ## 自检清单
 
-- [ ] 我已运行 `npm run validate` 校验数据
-- [ ] 我已运行 `npm run sync:data` 同步到网站
+- [ ] 我已运行 `npm run check`
 - [ ] 数据符合 `schemas/country.schema.json`
 - [ ] 我注明了信息来源
