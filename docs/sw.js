@@ -1,7 +1,7 @@
 // Service Worker for Digital Nomad Guide PWA
-// Cache-first strategy with network fallback + offline page + background sync
+// Cached static assets with fresh navigations, offline fallback, and background sync
 
-const CACHE_VERSION = 'v98';
+const CACHE_VERSION = 'v99';
 const STATIC_CACHE = `dn-static-${CACHE_VERSION}`;
 const DATA_CACHE = `dn-data-${CACHE_VERSION}`;
 const API_CACHE = `dn-api-${CACHE_VERSION}`;
@@ -123,10 +123,11 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // HTML pages: cache-first with offline fallback
+  // HTML pages: network-first so deployments do not leave visitors on stale markup.
+  // The cached page remains available when the network is unavailable.
   if (request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html')) {
     event.respondWith(
-      cacheFirstWithOfflineFallback(request, STATIC_CACHE)
+      networkFirstWithOfflineFallback(request, STATIC_CACHE)
     );
     return;
   }
@@ -158,20 +159,17 @@ async function cacheFirst(request, cacheName) {
   }
 }
 
-async function cacheFirstWithOfflineFallback(request, cacheName) {
+async function networkFirstWithOfflineFallback(request, cacheName) {
   const cache = await caches.open(cacheName);
-  const cached = await cache.match(request);
-  if (cached) return cached;
   try {
     const response = await fetch(request);
     if (response.ok) cache.put(request, response.clone());
     return response;
   } catch (e) {
-    // Return offline page for HTML requests
+    const cached = await cache.match(request);
+    if (cached) return cached;
     const offlinePage = await cache.match('/digital-nomad-cn/offline.html');
-    if (offlinePage) return offlinePage;
-    const fallback = await cache.match('/digital-nomad-cn/index.html');
-    return fallback || new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain' } });
+    return offlinePage || new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain' } });
   }
 }
 

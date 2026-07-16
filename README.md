@@ -193,12 +193,8 @@ digital-nomad-cn/
 │
 ├── 📁 .github/workflows/    # CI/CD
 │   ├── data-validation.yml  # PR 自动数据校验
-│   └── build-deploy.yml     # 自动构建部署
-│
-├── 📁 scripts/              # 自动化脚本
-│   ├── extract-data.js      # 提取数据
-│   ├── validate-data.js     # Schema 校验
-│   └── sync-data-to-website.js
+│   ├── test.yml             # 代码质量与测试
+│   └── deploy.yml           # 自动部署
 │
 ├── CITATION.cff             # 学术引用
 ├── datapackage.json         # 数据包标准
@@ -207,18 +203,14 @@ digital-nomad-cn/
 └── LICENSE
 ```
 
-### 数据流
+### 验证流程
 
 ```
-datasets/countries.json  ←── 唯一真相源
+datasets/ + schemas/ + docs/ + packages/
          │
-         │ npm run sync:data
+         │ npm run check
          ▼
-website/countries-data.js ←── 自动生成，禁止手动编辑
-         │
-         │ npm run build
-         ▼
-docs/                     ←── GitHub Pages 部署
+lint + Vitest 测试（包括数据与 Schema 契约）
 ```
 
 ---
@@ -239,14 +231,8 @@ cd digital-nomad-cn
 # 2. 安装依赖
 npm install
 
-# 3. 校验数据
-npm run validate
-
-# 4. 同步数据到网站
-npm run sync:data
-
-# 5. 构建
-npm run build
+# 3. 运行与 CI 相同的质量检查
+npm run check
 ```
 
 ### 直接读取数据
@@ -295,13 +281,10 @@ const results = await client.search('东南亚 签证');
 # 编辑 datasets/countries.json
 # （数据必须符合 schemas/country.schema.json）
 
-# 3. 校验数据
-npm run validate
+# 3. 运行与 CI 相同的检查
+npm run check
 
-# 4. 同步到网站
-npm run sync:data
-
-# 5. 提交 PR
+# 4. 提交 PR
 git add datasets/ website/countries-data.js
 git commit -m "data: update Thailand visa info"
 git push origin your-branch
@@ -310,8 +293,7 @@ git push origin your-branch
 ### 数据规范
 
 - 所有数据必须符合国家 JSON Schema
-- 数据变更必须通过 `npm run validate` 校验
-- 网站文件由脚本自动生成，**禁止手动编辑**
+- 数据变更必须通过 `npm run check` 校验
 
 完整贡献指南：[CONTRIBUTING.md](CONTRIBUTING.md)
 
