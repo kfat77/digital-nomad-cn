@@ -173,19 +173,22 @@ describe('NomadClient', () => {
     
     vi.useFakeTimers({ shouldAdvanceTime: true });
     
-    (global.fetch as any).mockImplementationOnce(() => 
+    (global.fetch as any).mockImplementationOnce((_url: string, init?: RequestInit) =>
       new Promise((_, reject) => {
-        setTimeout(() => reject(new Error('Timeout')), 100000);
+        init?.signal?.addEventListener('abort', () => {
+          reject(new DOMException('The operation was aborted.', 'AbortError'));
+        });
       })
     );
 
     const timeoutClient = new NomadClient({ baseUrl: 'http://test', timeout: 100 });
     const promise = timeoutClient.health();
+    const assertion = expect(promise).rejects.toThrow();
     
     // Advance timers and run pending timers
     await vi.advanceTimersByTimeAsync(150);
     
-    await expect(promise).rejects.toThrow();
+    await assertion;
     
     vi.useRealTimers();
   }, 15000);
