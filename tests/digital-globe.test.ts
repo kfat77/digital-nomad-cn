@@ -9,6 +9,9 @@ describe('digital globe', () => {
     expect(globeSource).not.toContain('earth-blue-marble');
     expect(globeSource).toContain('createLatitudeLongitudeGrid');
     expect(globeSource).toContain('createDataRoutes');
+    expect(globeSource).toContain('createContinentalOutlines');
+    expect(globeSource).toContain('createStarField');
+    expect(globeSource).toContain('createOrbitLine');
   });
 
   it('respects the user preference for reduced motion', () => {
