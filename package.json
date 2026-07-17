@@ -44,16 +44,17 @@
     "node": ">=20.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.4",
+    "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.61.1",
-    "@types/node": "^22.20.1",
-    "@vitest/coverage-v8": "^2.1.9",
+    "@types/node": "^26.1.1",
+    "@vitest/coverage-v8": "^4.1.10",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
     "earcut": "^3.2.3",
-    "eslint": "^9.39.4",
-    "globals": "^16.1.0",
-    "typescript": "^5.9.3",
-    "vitest": "^2.1.9"
+    "esbuild": "^0.28.1",
+    "eslint": "^10.7.0",
+    "globals": "^17.7.0",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
   }
 }
