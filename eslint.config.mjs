@@ -20,6 +20,7 @@ export default [
   {
     ignores: [
       'dist/**',
+      'api/dist/**',
       'node_modules/**',
       'coverage/**',
       'playwright-report/**',
