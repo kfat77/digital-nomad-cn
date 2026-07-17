@@ -1,0 +1,11 @@
+{
+  "status_labels": {
+    "official_visa_reviewed": "签证入口已由官方来源复核；不代表生活成本、网速、安全或金融信息已经官方复核。",
+    "reference_only": "条目可用于探索，但必须在出行或开户前自行核对官方信息。"
+  },
+  "official_visa_reviewed": {
+    "count": 10,
+    "dataset": "https://github.com/kfat77/digital-nomad-cn/blob/main/datasets/reviewed-countries.json",
+    "last_reviewed_at": "2026-07-17T00:00:00Z"
+  }
+}

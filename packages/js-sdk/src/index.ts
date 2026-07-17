@@ -23,6 +23,14 @@ export interface CountryMetadata {
   sources: Array<{ name: string; url?: string; type?: string }>;
   dataQuality: { completeness: number; accuracy: number; freshness: number };
   extractionNote?: string;
+  verification?: CountryVerification;
+}
+
+export interface CountryVerification {
+  reviewedFields: Array<'visa_entry' | 'digital_nomad_visa' | 'banking' | 'securities'>;
+  lastReviewedAt: string;
+  sources: Array<{ field: string; name: string; url: string; sourceType: 'official' }>;
+  note?: string;
 }
 
 export interface ApiResponse<T> {

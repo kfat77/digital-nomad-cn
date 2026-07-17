@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "lastUpdated": "2026-07-07T00:00:00Z",
+  "lastUpdated": "2026-07-17T00:00:00Z",
   "description": "Digital Nomad CN 数据集总索引",
   "datasets": {
     "countries": {
@@ -15,11 +15,19 @@
       "schema": null,
       "lastUpdated": "2026-07-07T00:00:00Z",
       "description": "各国签证官方链接"
+    },
+    "reviewed-countries": {
+      "file": "reviewed-countries.json",
+      "count": 10,
+      "schema": "reviewed-country.schema.json",
+      "lastUpdated": "2026-07-17T00:00:00Z",
+      "description": "按字段记录官方来源与复核日期的高频国家清单"
     }
   },
   "coverage": {
     "totalCountries": 100,
-    "withDetailedInfo": 11,
+    "withDetailedInfo": 0,
+    "withOfficialVisaReview": 10,
     "byRegion": {
       "africa": 12,
       "middle-east": 10,

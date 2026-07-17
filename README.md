@@ -102,8 +102,8 @@
 |------|------|------|
 | **GitHub Releases** | [Releases](https://github.com/kfat77/digital-nomad-cn/releases) | 版本化数据集下载 |
 | **Raw JSON** | `datasets/countries.json` | 直接读取 |
-| **REST API** | `https://api.digital-nomad.cn/v1/countries` | 实时 API |
-| **GraphQL** | `https://api.digital-nomad.cn/graphql` | 灵活查询 |
+| **REST API** | `https://api.digital-nomad.cn/v1/countries` | Worker 端点；以健康检查通过为准 |
+| **GraphQL** | `https://api.digital-nomad.cn/graphql` | Worker 端点；以健康检查通过为准 |
 | **npm SDK** | `@digital-nomad-cn/sdk` | TypeScript SDK |
 | **MCP Server** | `@digital-nomad-cn/mcp` | Claude/Cursor AI Agent |
 

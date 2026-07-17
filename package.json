@@ -12,6 +12,10 @@
   },
   "license": "MIT",
   "author": "Digital Nomad Guide Contributors",
+  "workspaces": [
+    "api",
+    "packages/*"
+  ],
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
@@ -19,7 +23,11 @@
     "test:e2e:ui": "playwright test --ui",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "check": "npm run lint && npm test"
+    "check": "npm run lint && npm test",
+    "typecheck:workspaces": "npm run typecheck --workspaces --if-present",
+    "build:workspaces": "npm run build --workspaces --if-present",
+    "check:workspaces": "npm run typecheck:workspaces && npm run build:workspaces",
+    "verify:api": "node scripts/verify-api-deployment.mjs"
   },
   "keywords": [
     "digital-nomad",
