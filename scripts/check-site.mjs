@@ -25,8 +25,8 @@ if (homepage.includes('hero-actions') || !homepage.includes('id="random-quote"')
 }
 const tools = homepage.match(/class="module-card tool-card/g) ?? [];
 const externalLinks = homepage.match(/target="_blank"/g) ?? [];
-if (tools.length !== 21 || externalLinks.length < 21 || !homepage.includes('id="ai-subscriptions"')) {
-  throw new Error('Tool directory must contain 21 externally linked cards including AI subscriptions');
+if (tools.length !== 22 || externalLinks.length < 16 || !homepage.includes('id="ai-subscriptions"')) {
+  throw new Error('Tool directory must contain 22 cards, including the link-free AI subscription cards');
 }
 
 const styles = await readFile(resolve('docs/styles.css'), 'utf8');
