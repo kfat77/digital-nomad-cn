@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 
 const pages = [
   ['docs/index.html', '出海前，先把'],
+  ['docs/legal.html', '最新跨境法律法规'],
 ];
 
 for (const [file, expectedText] of pages) {
@@ -35,5 +36,13 @@ for (const legacySelector of ['[data-reveal]', '.is-visible', 'hero-enter']) {
 }
 if (!app.includes('const quotes = [') || !app.includes('Math.random() * quotes.length')) {
   throw new Error('Random quote functionality is missing');
+}
+const legalPage = await readFile(resolve('docs/legal.html'), 'utf8');
+const legalCards = legalPage.match(/class="module-card tool-card card-securities legal-card"/g) ?? [];
+if (legalCards.length !== 10 || (legalPage.match(/官网直达 ↗/g) ?? []).length !== 10) {
+  throw new Error('Legal page must contain 10 official-link cards');
+}
+if (!legalPage.includes('vanilla-tilt') || !legalPage.includes('ScrollTrigger.min.js') || legalPage.includes('<img')) {
+  throw new Error('Legal page animation resources or pure-text title rules are invalid');
 }
 console.log(`Checked ${pages.length} pages and shared navigation.`);
