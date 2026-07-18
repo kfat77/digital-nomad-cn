@@ -2,26 +2,17 @@ name: CI / Test
 
 on:
   push:
-    branches: [main, clean-main]
-  pull_request:
     branches: [main]
-
-permissions:
-  contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  pull_request:
 
 jobs:
-  check:
+  test:
     name: Run repository checks
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      - run: npm ci
-      - run: npm run check
-      - run: npm run check:workspaces
+          node-version: 22
+      - run: node scripts/check-site.mjs
+
