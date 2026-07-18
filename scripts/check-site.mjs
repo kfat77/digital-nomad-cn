@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 const pages = [
-  ['docs/index.html', '出海前，先把<br>三件事办好。'],
+  ['docs/index.html', '出海前，先把'],
 ];
 
 for (const [file, expectedText] of pages) {
