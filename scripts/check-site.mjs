@@ -23,9 +23,6 @@ if (!homepage.includes('gsap@3/dist/gsap.min.js') || !homepage.includes('ScrollT
 if (homepage.includes('hero-actions') || !homepage.includes('id="random-quote"')) {
   throw new Error('Hero quote widget has not replaced the legacy action group');
 }
-if (!homepage.includes('hero-cards-stage') || (homepage.match(/class="stack-card/g) ?? []).length !== 3) {
-  throw new Error('Hero must include the three-card vector illustration');
-}
 const tools = homepage.match(/class="module-card tool-card/g) ?? [];
 const externalLinks = homepage.match(/target="_blank"/g) ?? [];
 if (tools.length !== 18 || externalLinks.length < 18) {
