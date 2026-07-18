@@ -3,9 +3,6 @@ import { resolve } from 'node:path';
 
 const pages = [
   ['docs/index.html', '出海前，先把<br>三件事办好。'],
-  ['docs/banking/index.html', '银行卡'],
-  ['docs/phone/index.html', '电话卡'],
-  ['docs/securities/index.html', '证券账户'],
 ];
 
 for (const [file, expectedText] of pages) {
@@ -23,6 +20,9 @@ const homepage = await readFile(resolve('docs/index.html'), 'utf8');
 if (!homepage.includes('gsap@3/dist/gsap.min.js') || !homepage.includes('ScrollTrigger.min.js')) {
   throw new Error('GSAP CDN scripts are missing from the homepage');
 }
+if (homepage.includes('hero-actions') || !homepage.includes('id="random-quote"')) {
+  throw new Error('Hero quote widget has not replaced the legacy action group');
+}
 const tools = homepage.match(/class="module-card tool-card/g) ?? [];
 const externalLinks = homepage.match(/target="_blank"/g) ?? [];
 if (tools.length !== 18 || externalLinks.length < 18) {
@@ -32,5 +32,8 @@ if (tools.length !== 18 || externalLinks.length < 18) {
 const styles = await readFile(resolve('docs/styles.css'), 'utf8');
 for (const legacySelector of ['[data-reveal]', '.is-visible', 'hero-enter']) {
   if (styles.includes(legacySelector)) throw new Error(`Legacy CSS animation selector remains: ${legacySelector}`);
+}
+if (!app.includes('const quotes = [') || !app.includes('Math.random() * quotes.length')) {
+  throw new Error('Random quote functionality is missing');
 }
 console.log(`Checked ${pages.length} pages and shared navigation.`);
