@@ -89,42 +89,7 @@ mm.add({
     .from('.hero .eyebrow', { autoAlpha: 0, y: 18 })
     .from('.hero h1', { autoAlpha: 0, y: 34 }, '-=0.42')
     .from('.hero-copy', { autoAlpha: 0, y: 22 }, '-=0.42')
-    .from('.hero-quote-container', { autoAlpha: 0, y: 16 }, '-=0.36')
-    .from('.hero-cards-stage', { autoAlpha: 0, x: 28, rotation: 2, duration: 0.78 }, '-=0.64');
-
-  const cardsStage = document.querySelector('.hero-cards-stage');
-  if (cardsStage && desktop && window.matchMedia('(pointer: fine)').matches) {
-    const klineCard = cardsStage.querySelector('.card-kline');
-    const bankCard = cardsStage.querySelector('.card-bank');
-    const simCard = cardsStage.querySelector('.card-sim');
-    const stackCards = [klineCard, bankCard, simCard].filter(Boolean);
-
-    gsap.set(stackCards, { transformOrigin: 'right bottom' });
-    gsap.set(klineCard, { x: 0, y: 0, rotation: -2 });
-    gsap.set(bankCard, { x: 0, y: 0, rotation: 1 });
-    gsap.set(simCard, { x: 0, y: 0, rotation: -1 });
-
-    const fanOut = gsap.timeline({
-      paused: true,
-      defaults: { duration: 0.45, ease: 'power2.out', overwrite: 'auto' },
-    })
-      .addLabel('fan', 0)
-      .to(simCard, { x: -40, y: -20, rotation: -8 }, 'fan')
-      .to(bankCard, { x: -20, y: -5, rotation: -3 }, 'fan')
-      .to(klineCard, { x: 8, y: 6, rotation: -2.5 }, 'fan');
-
-    const expandCards = () => fanOut.restart();
-    const stackCardsBack = () => {
-      fanOut.pause();
-      gsap.to(simCard, { x: 0, y: 0, rotation: -1, duration: 0.45, ease: 'power3.out', overwrite: 'auto' });
-      gsap.to(bankCard, { x: 0, y: 0, rotation: 1, duration: 0.45, ease: 'power3.out', overwrite: 'auto' });
-      gsap.to(klineCard, { x: 0, y: 0, rotation: -2, duration: 0.45, ease: 'power3.out', overwrite: 'auto' });
-    };
-
-    cardsStage.addEventListener('pointerenter', expandCards);
-    cardsStage.addEventListener('pointerleave', stackCardsBack);
-
-  }
+    .from('.hero-quote-container', { autoAlpha: 0, y: 16 }, '-=0.36');
 
   gsap.from('.section-heading', {
     autoAlpha: 0,
