@@ -23,4 +23,14 @@ const homepage = await readFile(resolve('docs/index.html'), 'utf8');
 if (!homepage.includes('gsap@3/dist/gsap.min.js') || !homepage.includes('ScrollTrigger.min.js')) {
   throw new Error('GSAP CDN scripts are missing from the homepage');
 }
+const tools = homepage.match(/class="module-card tool-card/g) ?? [];
+const externalLinks = homepage.match(/target="_blank"/g) ?? [];
+if (tools.length !== 18 || externalLinks.length < 18) {
+  throw new Error('Tool directory must contain 18 externally linked cards');
+}
+
+const styles = await readFile(resolve('docs/styles.css'), 'utf8');
+for (const legacySelector of ['[data-reveal]', '.is-visible', 'hero-enter']) {
+  if (styles.includes(legacySelector)) throw new Error(`Legacy CSS animation selector remains: ${legacySelector}`);
+}
 console.log(`Checked ${pages.length} pages and shared navigation.`);
