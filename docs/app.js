@@ -11,6 +11,7 @@ document.querySelector('[data-notice-close]')?.addEventListener('click', () => {
   notice?.remove();
 });
 
+if (window.gsap && window.ScrollTrigger) {
 gsap.registerPlugin(ScrollTrigger);
 
 const mm = gsap.matchMedia();
@@ -106,3 +107,4 @@ mm.add({
 
   document.fonts?.ready?.then(() => ScrollTrigger.refresh());
 });
+}
