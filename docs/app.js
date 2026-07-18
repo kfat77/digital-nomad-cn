@@ -56,7 +56,7 @@ if (quoteTarget) quoteTarget.textContent = quotes[Math.floor(Math.random() * quo
 
 const categoryIds = ['banking', 'phone', 'securities'];
 document.querySelectorAll('.tool-category').forEach((category, index) => {
-  category.id = categoryIds[index] ?? category.id;
+  if (!category.id) category.id = categoryIds[index] ?? category.id;
 });
 
 const menuButton = document.querySelector('[data-menu-toggle]');
