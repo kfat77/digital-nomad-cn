@@ -16,4 +16,11 @@ for (const [file, expectedText] of pages) {
 
 const app = await readFile(resolve('docs/app.js'), 'utf8');
 if (!app.includes('data-menu-toggle')) throw new Error('Shared navigation behavior is missing');
+if (!app.includes('gsap.registerPlugin(ScrollTrigger)')) throw new Error('GSAP ScrollTrigger setup is missing');
+if (app.includes('IntersectionObserver')) throw new Error('Legacy IntersectionObserver animation remains');
+
+const homepage = await readFile(resolve('docs/index.html'), 'utf8');
+if (!homepage.includes('gsap@3/dist/gsap.min.js') || !homepage.includes('ScrollTrigger.min.js')) {
+  throw new Error('GSAP CDN scripts are missing from the homepage');
+}
 console.log(`Checked ${pages.length} pages and shared navigation.`);
