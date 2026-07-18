@@ -26,7 +26,3 @@
 
 /* Unified service directory cards. */
 .tool-category{margin-top:70px}.category-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;padding-bottom:18px;border-bottom:1px solid var(--line)}.category-heading .card-index{margin:0}.category-heading h3{margin:0;font-size:clamp(26px,3vw,38px);letter-spacing:-.055em}.tool-grid{grid-template-columns:repeat(3,1fr);margin-top:20px}.tool-card{min-height:212px;padding:25px}.tool-card h3{font-size:25px}.tool-card>p{max-width:30ch}.tool-card a{display:inline-flex;gap:8px;align-items:center;color:inherit}.tool-card a:hover{text-decoration-thickness:2px}@media(max-width:700px){.tool-category{margin-top:52px}.category-heading{align-items:flex-start;flex-direction:column;gap:4px}.tool-grid{grid-template-columns:1fr}.tool-card{min-height:185px}}
-
-/* Inline card-title logos inherit the title colour and track its font size exactly. */
-.tool-card h3{display:flex;align-items:center}.company-logo{display:inline-block;width:auto;height:1em;margin-left:8px;flex:0 0 auto;fill:currentColor;vertical-align:middle}.logo-wise{width:1.2em}.logo-hsbc,.logo-za,.logo-ant,.logo-plasma,.logo-bbae,.logo-gigamoney{width:1em}.logo-n26{width:1.05em}.logo-starryblu{width:1.05em}.logo-mastercard{width:1.2em}.logo-bybit{width:1.1em}
-
