@@ -21,7 +21,7 @@
 🌐 在线网站
 </a>
 
-&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp; | &nbsp;&nbsp;
 
 <a href="https://github.com/kfat77/digital-nomad-cn">
 ⭐ GitHub仓库
@@ -30,7 +30,7 @@
 </p>
 
 
----
+
 
 ##  项目定位
 
