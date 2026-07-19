@@ -1,101 +1,90 @@
 # 🌏 Digital Nomad CN
 
-## Global Mobility Open Infrastructure
+## 中国数字游民出海实用指南
 
-> 面向中文用户的全球流动开放数据基础设施。
+> 面向中文用户的海外生活、远程工作与全球化工具导航。
+
 
 <p align="center">
 
-<img src="https://img.shields.io/github/stars/kfat77/digital-nomad-cn?style=flat&color=3b82f6&label=Stars">
-
-<img src="https://img.shields.io/github/license/kfat77/digital-nomad-cn?style=flat&color=22c55e&label=License">
-
-<img src="https://img.shields.io/badge/GitHub%20Pages-Online-blue?style=flat">
+![GitHub Stars](https://img.shields.io/github/stars/kfat77/digital-nomad-cn?style=flat)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Online-blue)
 
 </p>
 
 
-## 🌍 项目介绍
-
-Digital Nomad CN 致力于构建一个开放的中文 Global Mobility 数据平台。
-
-通过结构化数据、自动验证和静态网站，为用户提供全球流动信息。
-
-帮助中文用户探索：
-
-- 💳 海外银行卡与支付工具
-- 📱 全球通信与 eSIM
-- 🌍 签证与长期居留
-- 🏙️ 数字游民城市指南
-- 📊 Global Mobility 数据
-
-
----
-
 ## 🌐 在线访问
 
-| 项目 | 链接 |
-| --- | --- |
-| 🌐 网站 | https://kfat77.github.io/digital-nomad-cn/ |
-| ⭐ GitHub 仓库 | https://github.com/kfat77/digital-nomad-cn |
+https://kfat77.github.io/digital-nomad-cn/
+
+
+## 📖 项目介绍
+
+Digital Nomad CN 是一个面向中国用户的数字游民与海外生活信息站。
+
+帮助用户了解和整理：
+
+- 💳 海外银行卡与支付工具
+- 📱 海外电话卡与 eSIM
+- 📈 海外证券账户基础信息
+- 🌍 出境生活相关资料
+- 🧭 数字游民入门指南
 
 
 ---
 
-## ✨ 核心功能
-
-### 💳 全球金融工具
-
-整理：
-
-- 海外银行卡
-- 支付方案
-- 国际金融工具
+## ✨ 当前内容
 
 
-### 📱 全球通信
+### 💳 海外银行卡
+
+整理不同地区银行卡、支付工具以及开户相关信息。
+
+帮助用户了解：
+
+- 开户条件
+- 使用场景
+- 注意事项
+
+
+### 📱 通信工具
 
 整理：
 
 - 海外电话卡
-- eSIM
-- 网络服务
+- eSIM 服务
+- 网络连接方案
 
 
-### 🌍 全球流动数据
+### 📈 海外投资工具
 
 整理：
 
-- 国家信息
-- 签证政策
-- 居留方案
-- 城市数据库
+- 海外证券账户信息
+- 基础投资工具介绍
 
 
-### 📊 开放数据基础设施
+### 🌍 出海生活指南
 
-项目包含：
+整理：
 
-- 数据集（Datasets）
-- 数据结构（Schemas）
-- API 接口
-- 自动化验证
+- 国家与地区信息
+- 长期居住参考
+- 数字游民相关资料
 
 
 ---
 
 ## 🏗️ 项目结构
 
-```text
+```
 digital-nomad-cn
-│
-├── docs/              网站页面
-├── datasets/          全球流动数据
-├── schemas/           数据结构定义
-├── api/               API 服务
-├── packages/          SDK 与工具
-├── tests/             自动化测试
-└── scripts/           数据处理脚本
+
+├── docs/        网站页面
+├── articles/    文章内容
+├── datasets/    数据文件
+├── scripts/     自动化脚本
+└── README.md
 ```
 
 
@@ -109,7 +98,7 @@ digital-nomad-cn
 python -m http.server 4173 --directory docs
 ```
 
-打开：
+访问：
 
 ```
 http://localhost:4173
@@ -118,7 +107,7 @@ http://localhost:4173
 
 ---
 
-## 🔍 项目检查
+## 🔍 网站检查
 
 运行：
 
@@ -129,36 +118,19 @@ node scripts/check-site.mjs
 
 ---
 
-## 🛠️ 技术栈
-
-- HTML
-- CSS
-- JavaScript
-- GitHub Pages
-- GitHub Actions
-- Structured Data
-
-
----
-
-## 🤝 开源贡献
+## 🤝 贡献
 
 欢迎：
 
 - 提交 Issue
-- 提交 Pull Request
-- Star 支持项目 ⭐
-
-
-GitHub：
-
-https://github.com/kfat77/digital-nomad-cn
+- 提供信息修正
+- 改进网站内容
 
 
 ---
 
 ## ⚠️ 免责声明
 
-网站不提供开户、投资、税务或法律建议。
+本站内容仅用于信息整理和学习参考。
 
-所有外部申请均应以服务商官网及所在地最新规则为准。
+涉及开户、投资、税务、法律等事项，请以相关机构官方网站及所在地最新政策为准。
