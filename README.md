@@ -12,6 +12,7 @@
 
 </p>
 
+<img width="1280" height="646" alt="屏幕截图 2026-07-19 141513" src="https://github.com/user-attachments/assets/29f568dd-2c81-4646-9d02-8b0f968f1c25" />
 
 ## 🌐 在线访问
 
