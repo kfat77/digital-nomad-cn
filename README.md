@@ -18,13 +18,13 @@
 <p align="center">
 
 <a href="https://kfat77.github.io/digital-nomad-cn/">
-  🌐 在线网站
+🌐 在线网站
 </a>
 
-&nbsp;&nbsp; | &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
 
 <a href="https://github.com/kfat77/digital-nomad-cn">
-  ⭐ GitHub Repository
+⭐ GitHub仓库
 </a>
 
 </p>
