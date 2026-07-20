@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="giffgaff 电话卡在线下单，填写收货信息提交订单，获取订单号与查询码。"
+    />
+    <title>下单 · giffgaff 电话卡 · Nomad Essentials</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      .order-wrap{max-width:680px;margin:0 auto;padding:0 32px 80px}
+      .order-section{margin-top:48px}
+      .order-section h3{margin:0 0 20px;font-size:clamp(22px,3vw,30px);letter-spacing:-.04em}
+      .product-confirm{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px;border:1.5px solid var(--line);border-radius:20px;background:#fff}
+      .product-confirm h4{margin:0 0 4px;font-size:20px}
+      .product-confirm p{margin:0;color:var(--muted);font-size:14px}
+      .product-price{font-size:28px;font-weight:750;color:var(--ink);white-space:nowrap}
+      .qty-row{display:flex;align-items:center;gap:16px;margin-top:20px;flex-wrap:wrap}
+      .qty-row label{font-weight:650;font-size:14px}
+      .qty-control{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;overflow:hidden}
+      .qty-control button{width:44px;height:44px;border:0;background:#fff;color:var(--ink);font-size:20px;cursor:pointer;font-weight:700}
+      .qty-control button:hover{background:var(--mint)}
+      .qty-control input{width:56px;height:44px;border:0;text-align:center;font-size:16px;font-weight:650;background:#fff;color:var(--ink);-moz-appearance:textfield}
+      .qty-control input::-webkit-inner-spin-button{display:none}
+      .order-total{margin-left:auto;font-size:18px;font-weight:750}
+      .order-total span{color:var(--ink)}
+      .form-row{margin-bottom:20px}
+      .form-row label{display:block;margin-bottom:8px;font-weight:650;font-size:14px}
+      .form-row label .req{color:#d85a30}
+      .form-row input,.form-row textarea{width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-size:15px;font-family:inherit;transition:border-color .2s ease,box-shadow .2s ease}
+      .form-row input:focus,.form-row textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(22,51,0,.08)}
+      .form-row textarea{resize:vertical;min-height:80px}
+      .submit-row{margin-top:8px}
+      .submit-row .button{width:100%;font-size:16px}
+      .order-error{margin-top:16px;padding:14px 18px;border-radius:12px;background:#fcebeb;color:#a32d2d;font-size:14px;display:none}
+      .order-success{display:none;text-align:center}
+      .order-success h3{margin:0 0 32px}
+      .code-card{display:inline-block;padding:28px 40px;border:1.5px solid var(--line);border-radius:20px;background:#fff;margin-bottom:16px;min-width:260px}
+      .code-card p.label{margin:0 0 8px;color:var(--muted);font-size:13px;font-weight:650;letter-spacing:.04em}
+      .code-card p.code{margin:0;font-size:28px;font-weight:750;letter-spacing:.06em;color:var(--ink);font-family:"SF Mono",Consolas,monospace}
+      .code-pair{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+      .success-hint{margin:24px 0 32px;color:var(--muted);font-size:15px;line-height:1.7}
+      .cs-block{margin-top:48px;padding:24px;border:1.5px solid var(--line);border-radius:20px;background:var(--mint)}
+      .cs-block h4{margin:0 0 8px;font-size:16px}
+      .cs-block p{margin:0;color:var(--muted);font-size:14px}
+      .cs-block .cs-id{display:inline-block;margin-top:8px;padding:6px 14px;border-radius:999px;background:#fff;border:1.5px solid var(--line);font-weight:650;font-size:14px}
+      @media(max-width:700px){.order-wrap{padding:0 20px 60px}.product-confirm{flex-direction:column;align-items:flex-start}.product-price{font-size:24px}.code-pair{flex-direction:column}.code-card{width:100%;box-sizing:border-box}}
+    </style>
+  </head>
+  <body>
+    <div class="notice" data-notice>
+      <p>下单后请保存订单号与查询码，用于查询物流状态。</p>
+      <button type="button" aria-label="关闭提示" data-notice-close>×</button>
+    </div>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Nomad Essentials 首页"
+        ><span class="brand-mark">N</span><span>nomad essentials</span></a
+      ><button
+        class="menu-toggle"
+        type="button"
+        data-menu-toggle
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        菜单
+      </button>
+      <nav id="site-nav" class="site-nav" data-menu>
+        <a href="../index.html">首页</a><a href="../index.html#banking">银行卡</a
+        ><a href="../index.html#phone">电话卡</a
+        ><a class="nav-cta" href="./" aria-current="page">giffgaff 电话卡</a
+        ><a href="../index.html#securities">海外证券</a
+        ><a href="../index.html#ai-subscriptions">AI 订阅</a
+        ><a href="../legal.html">法律法规</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <p class="eyebrow" data-reveal>giffgaff 电话卡 · 在线下单</p>
+        <h1 data-reveal>确认订单<br />填写收货信息</h1>
+        <p class="hero-copy" data-reveal>
+          填写收货信息并提交订单，系统将生成订单号与查询码，请妥善保存用于查询物流。
+        </p>
+      </section>
+
+      <section class="order-wrap">
+        <!-- 商品确认 -->
+        <div class="order-section" data-reveal id="order-form-area">
+          <div class="category-heading">
+            <p class="card-index">01 / 商品确认</p>
+            <h3>确认商品与数量</h3>
+          </div>
+          <div class="product-confirm">
+            <div>
+              <h4 id="product-name">giffgaff 电话卡</h4>
+              <p id="product-desc">英国 +44 号码 · 实体 SIM 卡 · 跨境邮寄</p>
+            </div>
+            <div class="product-price" id="product-price">¥58</div>
+          </div>
+          <div class="qty-row">
+            <label>数量</label>
+            <div class="qty-control">
+              <button type="button" data-qty-minus aria-label="减少">−</button>
+              <input type="number" value="1" min="1" max="10" data-qty-input readonly />
+              <button type="button" data-qty-plus aria-label="增加">+</button>
+            </div>
+            <div class="order-total">合计 <span id="total-price">¥58</span></div>
+          </div>
+        </div>
+
+        <!-- 收货信息 -->
+        <div class="order-section" data-reveal>
+          <div class="category-heading">
+            <p class="card-index">02 / 收货信息</p>
+            <h3>填写收货地址</h3>
+          </div>
+          <form class="order-form" data-order-form>
+            <div class="form-row">
+              <label>姓名 <span class="req">*</span></label>
+              <input type="text" name="customer_name" required maxlength="50" placeholder="收货人姓名" />
+            </div>
+            <div class="form-row">
+              <label>手机号 <span class="req">*</span></label>
+              <input type="tel" name="customer_phone" required maxlength="20" placeholder="联系电话" />
+            </div>
+            <div class="form-row">
+              <label>收货地址 <span class="req">*</span></label>
+              <textarea name="shipping_address" required maxlength="500" placeholder="省/市/区/详细地址"></textarea>
+            </div>
+            <div class="form-row">
+              <label>邮箱（选填）</label>
+              <input type="email" name="customer_email" maxlength="100" placeholder="用于接收订单通知" />
+            </div>
+            <div class="order-error" data-order-error></div>
+            <div class="submit-row">
+              <button type="submit" class="button button-primary" data-submit-btn>提交订单</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- 提交成功 -->
+        <div class="order-success" data-order-success>
+          <div class="category-heading">
+            <p class="card-index">订单已创建</p>
+            <h3>请保存以下信息</h3>
+          </div>
+          <div class="code-pair">
+            <div class="code-card">
+              <p class="label">订单号</p>
+              <p class="code" data-order-number>—</p>
+            </div>
+            <div class="code-card">
+              <p class="label">查询码</p>
+              <p class="code" data-tracking-code>—</p>
+            </div>
+          </div>
+          <p class="success-hint">
+            订单已提交成功，请保存订单号与查询码。<br />
+            我们确认订单后将尽快安排发货，届时可凭订单号与查询码查询物流状态。
+          </p>
+          <div class="hero-actions" style="margin:0 0 32px">
+            <a class="button button-primary" href="./track.html">查询物流 →</a>
+          </div>
+        </div>
+
+        <!-- 客服联系 -->
+        <div class="cs-block" data-reveal id="cs-block">
+          <h4>联系客服</h4>
+          <p id="cs-desc">如有疑问，请联系客服</p>
+          <span class="cs-id" id="cs-wechat">微信客服</span>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a class="brand" href="../index.html"
+        ><span class="brand-mark">N</span><span>nomad essentials</span></a
+      >
+      <p>giffgaff 电话卡代购服务 · 资费与政策以运营商最新公告为准。</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+    <script src="../app.js" defer></script>
+    <script src="../js/config.js" defer></script>
+    <script src="../js/supabase-client.js" defer></script>
+    <script src="../js/order.js" defer></script>
+  </body>
+</html>
