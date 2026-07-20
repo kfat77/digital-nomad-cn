@@ -20,20 +20,20 @@ window.SITE_CONFIG = {
   // Supabase 配置
   // 获取方式：Supabase Dashboard → Project Settings → API
   SUPABASE: {
-    url: 'YOUR_SUPABASE_URL',
-    anonKey: 'YOUR_SUPABASE_ANON_KEY'
+    url: 'https://xbeboxgghyjtwqoxes.supabase.co',
+    anonKey: 'sb_publishable_yAwFFu09wZGS_L_3w_YCbQ_68D3Id4_'
   },
 
   // 客服联系方式
   CUSTOMER_SERVICE: {
-    wechat: 'YOUR_WECHAT_ID',
+    wechat: 'BCI1277',
     description: '如有疑问，扫码或搜索微信号添加客服'
   },
 
   // 管理员邮箱白名单（前端双重校验，后端 RLS 也会检查）
   // 部署时：替换为实际管理员邮箱，需与 Supabase Auth 注册邮箱 + admin_users 表一致
   ADMIN: {
-    emails: ['admin@example.com']
+    emails: ['kfat750@gmail.com']
   },
 
   // 订单状态中文映射
