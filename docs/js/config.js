@@ -21,7 +21,7 @@ window.SITE_CONFIG = {
   // 获取方式：Supabase Dashboard → Project Settings → API
   SUPABASE: {
     url: 'https://xbeboxgghyjtwqoxes.supabase.co',
-    anonKey: 'sb_publishable_yAwFFu09wZGS_L_3w_YCbQ_68D3Id4_'
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhiZWJ4b3hnZ2h5anR3YXF4b2VzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ1NzM3MzYsImV4cCI6MjEwMDE0OTczNn0.VrWAG3Q_gW2gax5svroCEuhAEOgV9cGknxv1iObh_C8'
   },
 
   // 客服联系方式
