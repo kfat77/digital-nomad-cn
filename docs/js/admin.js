@@ -391,7 +391,8 @@
             alert('请输入有效的' + s.name + '（价格>0，库存: -1=无限/0=售罄/正数=有限）');
             saveSettingsBtn.disabled = false; return;
           }
-          await sb.rpc('admin_update_settings', { p_key: s.key, p_value: val });
+          var r = await sb.rpc('admin_update_settings', { p_key: s.key, p_value: val });
+          if (r.error) throw new Error('保存 ' + s.name + ' 失败：' + r.error.message);
         }
         settingsSaved.style.display = 'block';
         setTimeout(function () { settingsSaved.style.display = 'none'; }, 2000);
