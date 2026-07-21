@@ -46,6 +46,14 @@
       .cs-block h4{margin:0 0 8px;font-size:16px}
       .cs-block p{margin:0;color:var(--muted);font-size:14px}
       .cs-block .cs-id{display:inline-block;margin-top:8px;padding:6px 14px;border-radius:999px;background:#fff;border:1.5px solid var(--line);font-weight:650;font-size:14px}
+      .product-type-selector{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+      .pt-option{flex:1;min-width:180px;padding:18px 20px;border:2px solid var(--line);border-radius:16px;background:#fff;cursor:pointer;transition:all .2s;text-align:left}
+      .pt-option:hover{border-color:#aac}
+      .pt-option.active{border-color:var(--ink);background:var(--mint)}
+      .pt-option h4{margin:0 0 4px;font-size:16px;font-weight:700}
+      .pt-option p{margin:0;font-size:13px;color:var(--muted)}
+      .sold-out-tag{display:none;margin-left:12px;padding:3px 10px;border-radius:999px;background:#fcebeb;color:#a32d2d;font-size:12px;font-weight:700;vertical-align:middle}
+      .qty-control.disabled{opacity:.35;pointer-events:none}
       @media(max-width:700px){.order-wrap{padding:0 20px 60px}.product-confirm{flex-direction:column;align-items:flex-start}.product-price{font-size:24px}.code-pair{flex-direction:column}.code-card{width:100%;box-sizing:border-box}}
     </style>
   </head>
@@ -85,10 +93,29 @@
       </section>
 
       <section class="order-wrap">
-        <!-- 商品确认 -->
+        <div id="order-form-area">
+        <!-- 商品类型选择 -->
         <div class="order-section" data-reveal id="order-form-area">
           <div class="category-heading">
-            <p class="card-index">01 / 商品确认</p>
+            <p class="card-index">01 / 选择商品</p>
+            <h3>请选择你要购买的商品</h3>
+          </div>
+          <div class="product-type-selector" id="product-type-selector">
+            <div class="pt-option active" data-pt="card">
+              <h4>giffgaff 电话卡</h4>
+              <p>实体 SIM 卡 · 跨境邮寄 · 英国 +44 号码</p>
+            </div>
+            <div class="pt-option" data-pt="recharge">
+              <h4>10英镑充值券（不含白卡）</h4>
+              <p>充值码在线发送 · 不含实体卡 · 10英镑额度</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 商品确认 -->
+        <div class="order-section" data-reveal>
+          <div class="category-heading">
+            <p class="card-index">02 / 商品确认</p>
             <h3>确认商品与数量</h3>
           </div>
           <div class="product-confirm">
@@ -98,11 +125,12 @@
             </div>
             <div class="product-price" id="product-price">¥58</div>
           </div>
+          <div style="margin-top:10px"><span class="sold-out-tag" id="sold-out-tag">售罄</span></div>
           <div class="qty-row">
             <label>数量</label>
             <div class="qty-control">
               <button type="button" data-qty-minus aria-label="减少">−</button>
-              <input type="number" value="1" min="1" max="10" data-qty-input readonly />
+              <input type="number" value="1" min="1" max="99" data-qty-input readonly />
               <button type="button" data-qty-plus aria-label="增加">+</button>
             </div>
             <div class="order-total">合计 <span id="total-price">¥58</span></div>
@@ -112,7 +140,7 @@
         <!-- 收货信息 -->
         <div class="order-section" data-reveal>
           <div class="category-heading">
-            <p class="card-index">02 / 收货信息</p>
+            <p class="card-index">03 / 收货信息</p>
             <h3>填写收货地址</h3>
           </div>
           <form class="order-form" data-order-form>
@@ -138,6 +166,8 @@
             </div>
           </form>
         </div>
+
+        </div><!-- /order-form-area -->
 
         <!-- 提交成功 -->
         <div class="order-success" data-order-success>

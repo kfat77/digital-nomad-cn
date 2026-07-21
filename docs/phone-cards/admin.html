@@ -51,6 +51,17 @@
       .save-msg.ok{color:#085041;display:block}
       .save-msg.err{color:#a32d2d;display:block}
       .empty-state{text-align:center;padding:60px 20px;color:var(--muted);font-size:15px}
+      .tab-bar{display:flex;gap:4px;margin-bottom:24px;border-bottom:2px solid var(--line)}
+      .tab-btn{padding:10px 24px;border:0;background:none;color:var(--muted);font-weight:650;font-size:15px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s}
+      .tab-btn.active{color:var(--ink);border-bottom-color:var(--ink)}
+      .settings-form{max-width:400px;padding:28px;border:1.5px solid var(--line);border-radius:16px;background:#fff}
+      .settings-form .form-row{margin-bottom:20px}
+      .settings-form .form-row label{display:block;margin-bottom:8px;font-weight:650;font-size:14px}
+      .settings-form .form-row input{width:100%;padding:12px 16px;border:1.5px solid var(--line);border-radius:10px;font-size:15px;font-family:inherit}
+      .settings-form .form-row input:focus{outline:none;border-color:var(--ink)}
+      .settings-form .hint{margin-top:6px;color:var(--muted);font-size:12px}
+      .settings-form .button{width:100%}
+      .settings-saved{margin-top:12px;font-size:13px;font-weight:650;color:#085041;display:none}
       @media(max-width:700px){.admin-wrap{padding:0 16px 60px}.detail-grid{grid-template-columns:1fr}.admin-table{font-size:12px}.admin-table th,.admin-table td{padding:8px 10px}}
     </style>
   </head>
@@ -97,19 +108,58 @@
       <!-- 管理区域（登录后显示） -->
       <section class="admin-wrap" id="admin-section" style="display:none">
         <div class="admin-header">
-          <h2>订单管理</h2>
+          <h2>管理后台</h2>
           <button class="logout-btn" id="logout-btn">退出登录</button>
         </div>
-        <div class="filter-bar" id="filter-bar">
-          <button class="filter-btn active" data-filter="all">全部</button>
-          <button class="filter-btn" data-filter="pending">待处理</button>
-          <button class="filter-btn" data-filter="confirmed">已确认</button>
-          <button class="filter-btn" data-filter="shipped">已发货</button>
-          <button class="filter-btn" data-filter="completed">已完成</button>
-          <button class="filter-btn" data-filter="cancelled">已取消</button>
+        <!-- 标签切换 -->
+        <div class="tab-bar" id="tab-bar">
+          <button class="tab-btn active" data-tab="orders">订单管理</button>
+          <button class="tab-btn" data-tab="settings">产品设置</button>
         </div>
-        <div id="table-container"></div>
-        <div class="detail-panel" id="detail-panel"></div>
+        <!-- 订单管理面板 -->
+        <div id="orders-panel">
+          <div class="filter-bar" id="filter-bar">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="pending">待处理</button>
+            <button class="filter-btn" data-filter="confirmed">已确认</button>
+            <button class="filter-btn" data-filter="shipped">已发货</button>
+            <button class="filter-btn" data-filter="completed">已完成</button>
+            <button class="filter-btn" data-filter="cancelled">已取消</button>
+          </div>
+          <div id="table-container"></div>
+          <div class="detail-panel" id="detail-panel"></div>
+        </div>
+        <!-- 产品设置面板 -->
+        <div id="settings-panel" style="display:none">
+          <div class="settings-form" style="margin-bottom:24px">
+            <h4 style="margin:0 0 16px;font-size:18px">giffgaff 电话卡（实体SIM卡）</h4>
+            <div class="form-row">
+              <label>单价（¥）</label>
+              <input type="number" id="set-card-price" min="1" step="1" placeholder="电话卡售价" />
+              <p class="hint">giffgaff 实体 SIM 卡售价，单位：人民币元</p>
+            </div>
+            <div class="form-row">
+              <label>库存数量</label>
+              <input type="number" id="set-card-stock" min="-1" step="1" placeholder="库存数量" />
+              <p class="hint">-1 表示无限库存，0 表示售罄，正数为有限库存</p>
+            </div>
+          </div>
+          <div class="settings-form">
+            <h4 style="margin:0 0 16px;font-size:18px">10英镑充值券（不含白卡）</h4>
+            <div class="form-row">
+              <label>单价（¥）</label>
+              <input type="number" id="set-recharge-price" min="1" step="1" placeholder="充值券售价" />
+              <p class="hint">充值券售价，单位：人民币元</p>
+            </div>
+            <div class="form-row">
+              <label>库存数量</label>
+              <input type="number" id="set-recharge-stock" min="-1" step="1" placeholder="库存数量" />
+              <p class="hint">-1 表示无限库存，0 表示售罄，正数为有限库存</p>
+            </div>
+          </div>
+          <button class="button button-primary" id="save-settings-btn" style="margin-top:16px">保存设置</button>
+          <div class="settings-saved" id="settings-saved">已保存</div>
+        </div>
       </section>
     </main>
     <footer>
