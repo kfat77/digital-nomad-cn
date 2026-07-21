@@ -21,6 +21,17 @@
   var tableContainer = document.getElementById('table-container');
   var detailPanel = document.getElementById('detail-panel');
   var filterBar = document.getElementById('filter-bar');
+  var tabBar = document.getElementById('tab-bar');
+  var ordersPanel = document.getElementById('orders-panel');
+  var settingsPanel = document.getElementById('settings-panel');
+  var setCardPrice = document.getElementById('set-card-price');
+  var setCardStock = document.getElementById('set-card-stock');
+  var setRechargePrice = document.getElementById('set-recharge-price');
+  var setRechargeStock = document.getElementById('set-recharge-stock');
+  var saveSettingsBtn = document.getElementById('save-settings-btn');
+  var settingsSaved = document.getElementById('settings-saved');
+
+  var productNameMap = { card: 'giffgaff 电话卡', recharge: '10英镑充值券' };
 
   // -- 工具函数 --
   function statusBadge(status) {
@@ -128,17 +139,14 @@
     });
   }
 
-  // -- 加载订单列表 --
+  // -- 加载订单列表（通过 admin_get_orders RPC，绕过 RLS）--
   async function loadOrders() {
     if (!sb) return;
     tableContainer.innerHTML = '<div class="empty-state">加载中…</div>';
 
     try {
-      var query = sb.from('orders').select('*').order('created_at', { ascending: false });
-      if (currentFilter !== 'all') {
-        query = query.eq('status', currentFilter);
-      }
-      var result = await query;
+      var filter = currentFilter === 'all' ? undefined : currentFilter;
+      var result = await sb.rpc('admin_get_orders', { p_filter: filter });
       if (result.error) throw result.error;
 
       currentOrders = result.data || [];
@@ -164,7 +172,7 @@
       var selected = o.id === selectedOrderId ? ' selected' : '';
       html += '<tr data-order-id="' + escapeHtml(o.id) + '"' + selected + '>' +
         '<td>' + escapeHtml(o.order_number) + '</td>' +
-        '<td>giffgaff 电话卡</td>' +
+        '<td>' + escapeHtml(productNameMap[o.product_type] || 'giffgaff 电话卡') + '</td>' +
         '<td>' + escapeHtml(o.customer_name) + '</td>' +
         '<td>' + escapeHtml(o.quantity) + '</td>' +
         '<td>¥' + escapeHtml(o.total_price) + '</td>' +
@@ -288,7 +296,13 @@
     }
 
     try {
-      var result = await sb.from('orders').update(updateData).eq('id', orderId);
+      var result = await sb.rpc('admin_update_order', {
+        p_order_id: orderId,
+        p_status: updateData.status || undefined,
+        p_courier_company: updateData.courier_company || undefined,
+        p_tracking_number: updateData.tracking_number || undefined,
+        p_admin_remark: updateData.admin_remark || undefined
+      });
       if (result.error) throw result.error;
 
       if (msgEl) { msgEl.className = 'save-msg ok'; msgEl.textContent = '操作成功'; }
@@ -307,7 +321,6 @@
       if (e.target.classList.contains('filter-btn')) {
         var filter = e.target.getAttribute('data-filter');
         currentFilter = filter;
-        // 更新按钮状态
         filterBar.querySelectorAll('.filter-btn').forEach(function (b) {
           b.classList.toggle('active', b === e.target);
         });
@@ -315,6 +328,77 @@
         detailPanel.style.display = 'none';
         loadOrders();
       }
+    });
+  }
+
+  // -- 标签切换 --
+  if (tabBar) {
+    tabBar.addEventListener('click', function (e) {
+      if (!e.target.classList.contains('tab-btn')) return;
+      var tab = e.target.getAttribute('data-tab');
+      tabBar.querySelectorAll('.tab-btn').forEach(function (b) {
+        b.classList.toggle('active', b === e.target);
+      });
+      if (tab === 'orders') {
+        ordersPanel.style.display = 'block';
+        settingsPanel.style.display = 'none';
+      } else {
+        ordersPanel.style.display = 'none';
+        settingsPanel.style.display = 'block';
+        loadSettings();
+      }
+    });
+  }
+
+  // -- 加载产品设置 --
+  async function loadSettings() {
+    if (!sb) return;
+    try {
+      var result = await sb.rpc('admin_get_settings');
+      if (result.error) throw result.error;
+      var data = result.data || [];
+      data.forEach(function (row) {
+        var el;
+        if (row.key === 'card_price') { el = setCardPrice; }
+        else if (row.key === 'card_stock') { el = setCardStock; }
+        else if (row.key === 'recharge_price') { el = setRechargePrice; }
+        else if (row.key === 'recharge_stock') { el = setRechargeStock; }
+        if (el) el.value = row.value;
+      });
+    } catch (err) {
+      console.error('[Admin] 加载设置失败:', err);
+    }
+  }
+
+  // -- 保存产品设置 --
+  if (saveSettingsBtn) {
+    saveSettingsBtn.addEventListener('click', async function () {
+      if (!sb) return;
+      saveSettingsBtn.disabled = true;
+      settingsSaved.style.display = 'none';
+      try {
+        var settings = [
+          { key: 'card_price',     el: setCardPrice,     name: '电话卡价格' },
+          { key: 'card_stock',     el: setCardStock,     name: '电话卡库存' },
+          { key: 'recharge_price', el: setRechargePrice, name: '充值券价格' },
+          { key: 'recharge_stock', el: setRechargeStock, name: '充值券库存' }
+        ];
+        for (var i = 0; i < settings.length; i++) {
+          var s = settings[i];
+          var val = (s.el ? s.el.value : '').trim();
+          var isStock = (s.key.indexOf('_stock') !== -1);
+          if (!val || isNaN(val) || (isStock ? Number(val) < -1 : Number(val) <= 0)) {
+            alert('请输入有效的' + s.name + '（价格>0，库存: -1=无限/0=售罄/正数=有限）');
+            saveSettingsBtn.disabled = false; return;
+          }
+          await sb.rpc('admin_update_settings', { p_key: s.key, p_value: val });
+        }
+        settingsSaved.style.display = 'block';
+        setTimeout(function () { settingsSaved.style.display = 'none'; }, 2000);
+      } catch (err) {
+        alert('保存失败：' + (err.message || '未知错误'));
+      }
+      saveSettingsBtn.disabled = false;
     });
   }
 })();

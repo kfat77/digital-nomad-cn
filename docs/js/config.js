@@ -8,7 +8,23 @@
  * 4. PRODUCT.price → 商品单价（如需调整）
  */
 window.SITE_CONFIG = {
-  // 商品配置（单品，写死在前端）
+  // 商品配置（双产品，DB 优先，此处为 fallback）
+  PRODUCTS: {
+    card: {
+      name: 'giffgaff 电话卡',
+      description: '英国 +44 号码 · 实体 SIM 卡 · 跨境邮寄',
+      price: 58,
+      stockKey: 'card_stock',
+      priceKey: 'card_price'
+    },
+    recharge: {
+      name: 'giffgaff 10英镑充值券（不含白卡）',
+      description: '10英镑充值额度 · 不含实体SIM卡 · 充值码在线发送',
+      price: 80,
+      stockKey: 'recharge_stock',
+      priceKey: 'recharge_price'
+    }
+  },
   PRODUCT: {
     name: 'giffgaff 电话卡',
     description: '英国 +44 号码 · 实体 SIM 卡 · 跨境邮寄',
@@ -20,7 +36,7 @@ window.SITE_CONFIG = {
   // Supabase 配置
   // 获取方式：Supabase Dashboard → Project Settings → API
   SUPABASE: {
-    url: 'https://xbeboxgghyjtwqoxes.supabase.co',
+    url: 'https://xbebxoxgghyjtwaqxoes.supabase.co',
     anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhiZWJ4b3hnZ2h5anR3YXF4b2VzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ1NzM3MzYsImV4cCI6MjEwMDE0OTczNn0.VrWAG3Q_gW2gax5svroCEuhAEOgV9cGknxv1iObh_C8'
   },
 
