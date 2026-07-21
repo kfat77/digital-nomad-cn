@@ -54,6 +54,18 @@
       .pt-option p{margin:0;font-size:13px;color:var(--muted)}
       .sold-out-tag{display:none;margin-left:12px;padding:3px 10px;border-radius:999px;background:#fcebeb;color:#a32d2d;font-size:12px;font-weight:700;vertical-align:middle}
       .qty-control.disabled{opacity:.35;pointer-events:none}
+      .pay-section{margin:32px 0;padding:28px;border:1.5px solid var(--line);border-radius:20px;background:#fff}
+      .pay-section h4{margin:0 0 8px;font-size:18px;font-weight:700}
+      .pay-amount{font-size:15px;color:var(--muted);margin:0 0 20px}
+      .pay-amount strong{color:var(--ink);font-size:22px;font-weight:750}
+      .qr-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:24px}
+      .qr-wrap img{width:220px;height:220px;border:1.5px solid var(--line);border-radius:16px;object-fit:contain;background:#fff}
+      .qr-hint{font-size:13px;color:var(--muted);text-align:center;line-height:1.6}
+      .pay-btn{display:inline-block;padding:14px 40px;border-radius:999px;border:0;background:var(--lime);color:#142d02;font-weight:700;font-size:16px;cursor:pointer;transition:transform .15s}
+      .pay-btn:active{transform:scale(.97)}
+      .pay-btn:disabled{opacity:.5;cursor:not-allowed}
+      .pay-done{margin-top:20px;padding:16px 20px;border-radius:12px;background:#e9f8dd;color:#085041;font-size:14px;font-weight:650;display:none}
+      .pay-done.show{display:block}
       @media(max-width:700px){.order-wrap{padding:0 20px 60px}.product-confirm{flex-direction:column;align-items:flex-start}.product-price{font-size:24px}.code-pair{flex-direction:column}.code-card{width:100%;box-sizing:border-box}}
     </style>
   </head>
@@ -187,8 +199,24 @@
           </div>
           <p class="success-hint">
             订单已提交成功，请保存订单号与查询码。<br />
-            我们确认订单后将尽快安排发货，届时可凭订单号与查询码查询物流状态。
+            请在下方扫码完成支付，支付后点击「我已完成支付」，我们将尽快确认并安排发货。
           </p>
+
+          <!-- 支付宝扫码支付 -->
+          <div class="pay-section" id="pay-section">
+            <h4>扫码支付</h4>
+            <p class="pay-amount">应付金额 <strong id="pay-amount">¥—</strong></p>
+            <div class="qr-wrap">
+              <img src="images/alipay-qr.png" alt="支付宝收款码" id="alipay-qr" />
+              <p class="qr-hint">请用支付宝扫码支付<br />支付时请核对金额，备注订单号后四位</p>
+            </div>
+            <button type="button" class="pay-btn" id="mark-paid-btn">我已完成支付</button>
+            <div class="pay-done" id="pay-done">
+              ✓ 已提交支付确认，我们核对到账后将尽快安排发货。<br />
+              可凭订单号与查询码在「查询物流」页面跟踪进度。
+            </div>
+          </div>
+
           <div class="hero-actions" style="margin:0 0 32px">
             <a class="button button-primary" href="./track.html">查询物流 →</a>
           </div>

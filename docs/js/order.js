@@ -14,6 +14,8 @@
   var unitPrice = 0;
   var maxQty = 10;
   var sym = '¥';
+  // 当前订单信息（提交成功后保存，供"我已支付"使用）
+  var currentOrder = { orderNumber: '', trackingCode: '', totalPrice: 0 };
 
   // ── DIAG 诊断日志 ──
   console.log('[DIAG] sb 可用:', !!sb);
@@ -35,6 +37,9 @@
   var successBox = document.querySelector('[data-order-success]');
   var formArea = document.getElementById('order-form-area');
   var ptSelector = document.getElementById('product-type-selector');
+  var markPaidBtn = document.getElementById('mark-paid-btn');
+  var payAmountEl = document.getElementById('pay-amount');
+  var payDoneEl = document.getElementById('pay-done');
 
   // -- 产品套餐数据 --
   function getProductCfg() {
@@ -246,6 +251,14 @@
         if (elON) elON.textContent = orderResult.order_number;
         if (elTC) elTC.textContent = orderResult.tracking_code;
 
+        // 保存当前订单信息，供"我已支付"按钮使用
+        currentOrder.orderNumber = orderResult.order_number;
+        currentOrder.trackingCode = orderResult.tracking_code;
+        currentOrder.totalPrice = qty * unitPrice;
+
+        // 显示应付金额
+        if (payAmountEl) payAmountEl.textContent = sym + currentOrder.totalPrice;
+
         // 切换视图
         if (formArea) formArea.style.display = 'none';
         var secondSection = formArea.nextElementSibling;
@@ -259,6 +272,41 @@
           submitBtn.disabled = false;
           submitBtn.textContent = '提交订单';
         }
+      }
+    });
+  }
+
+  // -- "我已完成支付"按钮：调用 user_mark_paid RPC --
+  if (markPaidBtn) {
+    markPaidBtn.addEventListener('click', async function () {
+      if (!sb) {
+        alert('系统未就绪，请联系客服。');
+        return;
+      }
+      if (!currentOrder.orderNumber || !currentOrder.trackingCode) {
+        alert('订单信息缺失，请刷新页面重试或联系客服。');
+        return;
+      }
+
+      markPaidBtn.disabled = true;
+      markPaidBtn.textContent = '提交中…';
+
+      try {
+        var result = await sb.rpc('user_mark_paid', {
+          p_order_number: currentOrder.orderNumber,
+          p_tracking_code: currentOrder.trackingCode
+        });
+
+        if (result.error) throw result.error;
+
+        // 成功：显示确认提示，隐藏按钮
+        if (payDoneEl) payDoneEl.classList.add('show');
+        markPaidBtn.style.display = 'none';
+      } catch (err) {
+        console.error('[Order] 标记支付失败:', err);
+        alert('提交失败：' + (err.message || '未知错误') + '\n请确认已扫码支付，或联系客服。');
+        markPaidBtn.disabled = false;
+        markPaidBtn.textContent = '我已完成支付';
       }
     });
   }

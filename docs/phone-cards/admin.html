@@ -28,6 +28,8 @@
       .admin-table tbody tr.selected{background:#e9f8dd}
       .status-badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:650}
       .s-pending{background:#ffd9a3;color:#854f0b}
+      .s-pending-payment{background:#ffd9a3;color:#854f0b}
+      .s-user-paid{background:#fff3c4;color:#7a5c00}
       .s-confirmed{background:#d5efff;color:#0c447c}
       .s-shipped{background:#e9f8dd;color:#085041}
       .s-completed{background:#dff6d0;color:#234b13}
@@ -120,7 +122,8 @@
         <div id="orders-panel">
           <div class="filter-bar" id="filter-bar">
             <button class="filter-btn active" data-filter="all">全部</button>
-            <button class="filter-btn" data-filter="pending">待处理</button>
+            <button class="filter-btn" data-filter="pending_payment">待支付</button>
+            <button class="filter-btn" data-filter="user_paid">待确认收款</button>
             <button class="filter-btn" data-filter="confirmed">已确认</button>
             <button class="filter-btn" data-filter="shipped">已发货</button>
             <button class="filter-btn" data-filter="completed">已完成</button>

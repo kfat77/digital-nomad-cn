@@ -206,9 +206,9 @@
     var order = currentOrders.find(function (o) { return o.id === orderId; });
     if (!order) return;
 
-    var canEdit = (order.status === 'pending' || order.status === 'confirmed');
+    var canEdit = (order.status === 'pending_payment' || order.status === 'user_paid' || order.status === 'confirmed');
     var canShip = (order.status === 'confirmed');
-    var canConfirm = (order.status === 'pending');
+    var canConfirm = (order.status === 'user_paid');
     var canCancel = (order.status !== 'completed' && order.status !== 'cancelled');
 
     var html = '<h3>订单详情 · ' + escapeHtml(order.order_number) + '</h3>';

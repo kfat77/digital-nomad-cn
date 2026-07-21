@@ -54,6 +54,8 @@ window.SITE_CONFIG = {
 
   // 订单状态中文映射
   ORDER_STATUS: {
+    pending_payment: '待支付',
+    user_paid: '待确认收款',
     pending: '待处理',
     confirmed: '已确认',
     shipped: '已发货',
