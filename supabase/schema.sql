@@ -134,10 +134,9 @@ CREATE OR REPLACE FUNCTION create_order(
   tracking_code TEXT
 ) AS $$
 DECLARE
-  v_order_number  TEXT;
-  v_tracking_code TEXT;
-  v_stock_key     TEXT;
-  v_stock         INT;
+  _rec       RECORD;
+  _stock_key TEXT;
+  _stock     INT;
 BEGIN
   -- 基本参数校验
   IF p_quantity IS NULL OR p_quantity < 1 THEN
@@ -157,12 +156,12 @@ BEGIN
   END IF;
 
   -- 库存检查：-1=无限库存, 0=售罄, >0=有限库存
-  v_stock_key := CASE WHEN p_product_type = 'recharge' THEN 'recharge_stock' ELSE 'card_stock' END;
-  SELECT value::INT INTO v_stock FROM product_settings WHERE key = v_stock_key;
-  IF v_stock = 0 THEN
+  _stock_key := CASE WHEN p_product_type = 'recharge' THEN 'recharge_stock' ELSE 'card_stock' END;
+  SELECT value::INT INTO _stock FROM product_settings WHERE key = _stock_key;
+  IF _stock = 0 THEN
     RAISE EXCEPTION '该商品已售罄';
-  ELSIF v_stock > 0 AND p_quantity > v_stock THEN
-    RAISE EXCEPTION '库存不足，当前剩余 % 张', v_stock;
+  ELSIF _stock > 0 AND p_quantity > _stock THEN
+    RAISE EXCEPTION '库存不足，当前剩余 % 张', _stock;
   END IF;
 
   INSERT INTO orders (
@@ -174,15 +173,18 @@ BEGIN
     p_customer_name, p_customer_phone, NULLIF(TRIM(p_customer_email), ''),
     p_shipping_address, 'pending', p_product_type
   )
-  RETURNING order_number, tracking_code INTO v_order_number, v_tracking_code;
+  RETURNING * INTO _rec;
 
   -- 有限库存才扣减（-1 和 0 不扣减）
-  IF v_stock > 0 THEN
-    UPDATE product_settings SET value = (v_stock - p_quantity)::TEXT, updated_at = now()
-    WHERE key = v_stock_key;
+  IF _stock > 0 THEN
+    UPDATE product_settings SET value = (_stock - p_quantity)::TEXT, updated_at = now()
+    WHERE key = _stock_key;
   END IF;
 
-  RETURN QUERY SELECT v_order_number, v_tracking_code;
+  -- RETURN NEXT 赋值输出参数，避免 RETURN QUERY 中 AS 别名歧义
+  order_number  := _rec.order_number;
+  tracking_code := _rec.tracking_code;
+  RETURN NEXT;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public, pg_temp;
 
