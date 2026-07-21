@@ -20,12 +20,21 @@
   console.log('[DIAG] currentProduct:', currentProduct);
   console.log('[DIAG] fallback price:', getProductCfg().price);
 
-  // -- DOM 元素 --
+  // -- DOM 元素（必须在同步初始化之前查询，防止 undefined 崩溃）--
   var elName = document.getElementById('product-name');
   var elDesc = document.getElementById('product-desc');
   var elPrice = document.getElementById('product-price');
   var elTotal = document.getElementById('total-price');
   var soldOutTag = document.getElementById('sold-out-tag');
+  var qtyInput = document.querySelector('[data-qty-input]');
+  var btnMinus = document.querySelector('[data-qty-minus]');
+  var btnPlus = document.querySelector('[data-qty-plus]');
+  var submitBtn = document.querySelector('[data-submit-btn]');
+  var form = document.querySelector('[data-order-form]');
+  var errorBox = document.querySelector('[data-order-error]');
+  var successBox = document.querySelector('[data-order-success]');
+  var formArea = document.getElementById('order-form-area');
+  var ptSelector = document.getElementById('product-type-selector');
 
   // -- 产品套餐数据 --
   function getProductCfg() {
@@ -33,7 +42,6 @@
   }
 
   // -- 产品类型切换 --
-  var ptSelector = document.getElementById('product-type-selector');
   if (ptSelector) {
     ptSelector.addEventListener('click', function (e) {
       var option = e.target.closest('.pt-option');
@@ -55,6 +63,13 @@
     if (elDesc) elDesc.textContent = p.description || '';
     if (elPrice) elPrice.textContent = sym + unitPrice;
     updateTotal();
+  }
+
+  // -- 更新总价（防御性 null 检查）--
+  function updateTotal() {
+    if (!qtyInput) { console.warn('[DIAG] qtyInput 不存在，跳过 updateTotal'); return; }
+    var qty = parseInt(qtyInput.value, 10) || 1;
+    if (elTotal) elTotal.textContent = sym + (qty * unitPrice);
   }
 
   // 初始化默认值
@@ -105,15 +120,17 @@
     var isSoldOut = (stock === 0);
     var isUnlimited = (stock === -1);
 
-    if (isSoldOut) {
-      maxQty = 0;
-      qtyInput.max = 0;
-      qtyInput.value = 0;
-    } else {
-      maxQty = isUnlimited ? 99 : Math.min(stock, 99);
-      qtyInput.max = maxQty;
-      if (parseInt(qtyInput.value, 10) < 1) qtyInput.value = 1;
-      if (parseInt(qtyInput.value, 10) > maxQty) qtyInput.value = maxQty;
+    if (qtyInput) {
+      if (isSoldOut) {
+        maxQty = 0;
+        qtyInput.max = 0;
+        qtyInput.value = 0;
+      } else {
+        maxQty = isUnlimited ? 99 : Math.min(stock, 99);
+        qtyInput.max = maxQty;
+        if (parseInt(qtyInput.value, 10) < 1) qtyInput.value = 1;
+        if (parseInt(qtyInput.value, 10) > maxQty) qtyInput.value = maxQty;
+      }
     }
 
     updateProductUI();
@@ -142,31 +159,19 @@
     elCsWechat.textContent = '微信: ' + cs.wechat;
   }
 
-  // -- 数量控制 --
-  var qtyInput = document.querySelector('[data-qty-input]');
-  var btnMinus = document.querySelector('[data-qty-minus]');
-  var btnPlus = document.querySelector('[data-qty-plus]');
-
-  function updateTotal() {
-    var qty = parseInt(qtyInput.value, 10) || 1;
-    if (elTotal) elTotal.textContent = sym + (qty * unitPrice);
-  }
-
+  // -- 数量控制（事件绑定）--
   if (btnMinus) btnMinus.addEventListener('click', function () {
+    if (!qtyInput) return;
     var v = parseInt(qtyInput.value, 10) || 1;
     if (v > 1) { qtyInput.value = v - 1; updateTotal(); }
   });
   if (btnPlus) btnPlus.addEventListener('click', function () {
+    if (!qtyInput) return;
     var v = parseInt(qtyInput.value, 10) || 1;
     if (v < maxQty) { qtyInput.value = v + 1; updateTotal(); }
   });
 
   // -- 表单提交 --
-  var form = document.querySelector('[data-order-form]');
-  var errorBox = document.querySelector('[data-order-error]');
-  var submitBtn = document.querySelector('[data-submit-btn]');
-  var successBox = document.querySelector('[data-order-success]');
-  var formArea = document.getElementById('order-form-area');
 
   function showError(msg) {
     if (errorBox) {
