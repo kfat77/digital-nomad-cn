@@ -15,6 +15,11 @@
   var maxQty = 10;
   var sym = '¥';
 
+  // ── DIAG 诊断日志 ──
+  console.log('[DIAG] sb 可用:', !!sb);
+  console.log('[DIAG] currentProduct:', currentProduct);
+  console.log('[DIAG] fallback price:', getProductCfg().price);
+
   // -- DOM 元素 --
   var elName = document.getElementById('product-name');
   var elDesc = document.getElementById('product-desc');
@@ -59,11 +64,14 @@
 
   // -- 从 Supabase 读取最新价格和库存 --
   async function loadProductInfo() {
-    if (!sb) return;
+    if (!sb) { console.warn('[DIAG] sb 为 null，跳过加载'); return; }
     try {
+      console.log('[DIAG] 正在调用 get_product_info...');
       var result = await sb.rpc('get_product_info');
-      if (result.error) return;
+      console.log('[DIAG] RPC 返回:', result);
+      if (result.error) { console.error('[DIAG] RPC 错误:', result.error); return; }
       var data = result.data || [];
+      console.log('[DIAG] RPC data:', JSON.stringify(data));
       var dbPrices = {};
       var dbStocks = {};
       data.forEach(function (row) {
@@ -72,12 +80,16 @@
         if (row.key === 'recharge_price') dbPrices.recharge = Number(row.value);
         if (row.key === 'recharge_stock') dbStocks.recharge = Number(row.value) || 0;
       });
+      console.log('[DIAG] dbPrices:', dbPrices);
+      console.log('[DIAG] dbStocks:', dbStocks);
       // 写入全局缓存
       window._dbPrices = dbPrices;
       window._dbStocks = dbStocks;
       applyCurrentProduct();
+      console.log('[DIAG] 应用后 unitPrice:', unitPrice, 'maxQty:', maxQty);
     } catch (e) {
       console.warn('[Order] 加载产品信息失败，使用默认配置:', e);
+      console.error('[DIAG] catch 捕获异常:', e);
     }
   }
 
