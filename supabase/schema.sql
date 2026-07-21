@@ -277,11 +277,14 @@ INSERT INTO product_settings(key, value) VALUES('recharge_price', '80') ON CONFL
 INSERT INTO product_settings(key, value) VALUES('recharge_stock', '-1')  ON CONFLICT(key) DO NOTHING;
 
 -- 公开 RPC：前端读取价格和库存（下单页用）
+-- SECURITY DEFINER：以函数所有者权限运行，绕过 RLS 和 anon 缺少表权限的问题
 CREATE OR REPLACE FUNCTION get_product_info()
-RETURNS TABLE(key TEXT, value TEXT) AS $$
+RETURNS TABLE(key TEXT, value TEXT)
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path = public, pg_temp
+AS $$
   SELECT ps.key, ps.value FROM product_settings ps
   WHERE ps.key IN ('card_price', 'card_stock', 'recharge_price', 'recharge_stock');
-$$ LANGUAGE sql STABLE;
+$$;
 
 GRANT EXECUTE ON FUNCTION get_product_info() TO anon, authenticated;
 
