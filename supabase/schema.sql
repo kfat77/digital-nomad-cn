@@ -27,8 +27,8 @@ CREATE TABLE IF NOT EXISTS orders (
   customer_phone  TEXT NOT NULL,
   customer_email  TEXT,
   shipping_address TEXT NOT NULL,
-  status          TEXT NOT NULL DEFAULT 'pending'
-                  CHECK (status IN ('pending','confirmed','shipped','completed','cancelled')),
+  status          TEXT NOT NULL DEFAULT 'pending_payment'
+                  CHECK (status IN ('pending_payment','user_paid','confirmed','shipped','completed','cancelled')),
   courier_company TEXT,
   tracking_number TEXT,
   admin_remark    TEXT,
@@ -171,7 +171,7 @@ BEGIN
   ) VALUES (
     p_quantity, p_unit_price, p_total_price,
     p_customer_name, p_customer_phone, NULLIF(TRIM(p_customer_email), ''),
-    p_shipping_address, 'pending', p_product_type
+    p_shipping_address, 'pending_payment', p_product_type
   )
   RETURNING * INTO _rec;
 
@@ -191,6 +191,48 @@ $$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public, pg_temp;
 -- 允许匿名调用 create_order（下单）
 GRANT EXECUTE ON FUNCTION create_order(INT, NUMERIC, NUMERIC, TEXT, TEXT, TEXT, TEXT, TEXT) TO anon;
 GRANT EXECUTE ON FUNCTION create_order(INT, NUMERIC, NUMERIC, TEXT, TEXT, TEXT, TEXT, TEXT) TO authenticated;
+
+-- ------------------------------------------------------------
+-- 6.5 用户标记已支付 RPC（匿名调用）
+--     用户在下单成功页扫码支付后点"我已支付"按钮触发
+--     通过 order_number + tracking_code 双重验证，防止越权
+--     仅 pending_payment 状态可调用，改为 user_paid 待 admin 确认
+-- ------------------------------------------------------------
+CREATE OR REPLACE FUNCTION user_mark_paid(
+  p_order_number  TEXT,
+  p_tracking_code TEXT
+) RETURNS VOID
+LANGUAGE plpgsql SECURITY DEFINER SET search_path = public, pg_temp
+AS $$
+DECLARE
+  _order_id UUID;
+  _status   TEXT;
+BEGIN
+  IF p_order_number IS NULL OR p_tracking_code IS NULL THEN
+    RAISE EXCEPTION '订单号和查询码不能为空';
+  END IF;
+
+  -- 验证订单号 + 查询码匹配
+  SELECT id, status INTO _order_id, _status
+  FROM public.orders
+  WHERE order_number = p_order_number AND tracking_code = p_tracking_code;
+
+  IF _order_id IS NULL THEN
+    RAISE EXCEPTION '订单号或查询码不正确';
+  END IF;
+
+  IF _status <> 'pending_payment' THEN
+    RAISE EXCEPTION '当前订单状态不支持此操作（%）', _status;
+  END IF;
+
+  UPDATE public.orders
+  SET status = 'user_paid', updated_at = now()
+  WHERE id = _order_id AND status = 'pending_payment';
+END;
+$$;
+
+GRANT EXECUTE ON FUNCTION user_mark_paid(TEXT, TEXT) TO anon;
+GRANT EXECUTE ON FUNCTION user_mark_paid(TEXT, TEXT) TO authenticated;
 
 -- ------------------------------------------------------------
 -- 7. RLS — 行级安全策略
