@@ -361,7 +361,7 @@ GRANT EXECUTE ON FUNCTION admin_update_order(UUID, TEXT, TEXT, TEXT, TEXT) TO au
 CREATE OR REPLACE FUNCTION admin_get_settings()
 RETURNS TABLE(key TEXT, value TEXT, updated_at TIMESTAMPTZ)
 LANGUAGE plpgsql SECURITY DEFINER
-SET search_path = ''
+SET search_path = public, pg_temp
 AS $$
 BEGIN
   IF NOT EXISTS (
@@ -378,7 +378,7 @@ GRANT EXECUTE ON FUNCTION admin_get_settings() TO authenticated;
 CREATE OR REPLACE FUNCTION admin_update_settings(p_key TEXT, p_value TEXT)
 RETURNS VOID
 LANGUAGE plpgsql SECURITY DEFINER
-SET search_path = ''
+SET search_path = public, pg_temp
 AS $$
 BEGIN
   IF NOT EXISTS (
