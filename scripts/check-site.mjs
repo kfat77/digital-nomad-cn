@@ -34,7 +34,7 @@ const styles = await readFile(resolve('docs/styles.css'), 'utf8');
 for (const legacySelector of ['[data-reveal]', '.is-visible', 'hero-enter']) {
   if (styles.includes(legacySelector)) throw new Error(`Legacy CSS animation selector remains: ${legacySelector}`);
 }
-if (!app.includes('const quotes = [') || !app.includes('Math.random() * quotes.length')) {
+if (!app.includes("fetch('./data/quotes.json')") || !app.includes('Math.random() * quotes.length')) {
   throw new Error('Random quote functionality is missing');
 }
 const legalPage = await readFile(resolve('docs/legal.html'), 'utf8');
