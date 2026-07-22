@@ -58,6 +58,8 @@ node scripts/check-site.mjs
 
 GitHub Actions 每天 09:00（北京时间）读取 Simpanda Giffgaff 的公开库存接口，并同步更新电话卡库存。首次配置仅需在仓库 Actions Secrets 中设置 `SUPABASE_SERVICE_ROLE_KEY`；库存接口不需要 Simpanda 登录信息。
 
+首次启用时，还需在 Supabase SQL Editor 执行 [`supabase/inventory-sync.sql`](./supabase/inventory-sync.sql)，授权服务端密钥更新库存。
+
 ## 参与贡献
 
 欢迎通过 Issue 提供工具建议、内容修正或使用经验。所有涉及开户、投资、税务与法律的内容，请以相关机构的最新官方说明为准。
