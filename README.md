@@ -130,7 +130,7 @@ node scripts/check-site.mjs
 
 ### 社区讨论初始化
 
-首页每张工具卡均支持匿名留言和「有用 / 没用」评价。首次启用前，请在对应 Supabase 项目的 SQL Editor 中执行 [`supabase/community.sql`](./supabase/community.sql)。该脚本会创建留言、投票及仅允许调用的安全 RPC 接口；无需在浏览器端新增密钥。
+社区论坛支持匿名发布跨境生活经验。首次启用前，请在对应 Supabase 项目的 SQL Editor 中执行 [`supabase/community.sql`](./supabase/community.sql)。该脚本会创建论坛话题及仅允许调用的安全 RPC 接口；无需在浏览器端新增密钥。
 
 
 ---
