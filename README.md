@@ -1,160 +1,60 @@
-# 🌏 Digital Nomad CN
+# Nomad Essentials · 出海基础准备
 
-## 中国数字游民出海实用指南
+面向中文用户的跨境生活基础设施指南。网站聚焦真正影响出发体验的三件事：收付、连接与投资账户；用清晰的工具目录替代信息焦虑。
 
-> 面向中文用户的海外生活、远程工作与出海工具信息站。
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Online-2f6b1c)](https://kfat77.github.io/digital-nomad-cn/)
+[![License](https://img.shields.io/github/license/kfat77/digital-nomad-cn)](./LICENSE)
 
+## 在线访问
 
-![GitHub Stars](https://img.shields.io/github/stars/kfat77/digital-nomad-cn?style=flat)
-![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Online-blue)
-![License](https://img.shields.io/github/license/kfat77/digital-nomad-cn)
+<https://kfat77.github.io/digital-nomad-cn/>
 
+## 首页预览
 
----
+![Nomad Essentials 首页](./docs/assets/homepage-preview.png)
 
-## 🌐 在线访问
+## 目前包含
 
-👉 https://kfat77.github.io/digital-nomad-cn/
+- 银行卡：跨境收付、多币种资金管理与海外支付工具。
+- 电话卡：号码、保号、漫游与 eSIM 方案；包含 giffgaff 电话卡的介绍、下单和物流查询入口。
+- 海外证券：海外投资服务的信息整理与合规提醒。
+- AI 订阅：常见订阅方式与风险提示。
+- 法律法规：跨境资金、税务与投资相关的官方资料入口。
+- 社区论坛：匿名分享跨境生活经验、按主题浏览讨论。
 
+网站右上角的“导航栏”收纳 AI 订阅、法律法规和社区论坛；电话卡下单页提供 Telegram 客服联系入口。
 
----
-
-## 📸 网站预览
-
-<!-- 网站截图放这里 -->
-
-![Digital Nomad CN Preview](./docs/assets/screenshot.png)
-
-
----
-
-## 📖 项目介绍
-
-Digital Nomad CN 是一个面向中国用户的数字游民信息整理网站。
-
-目标是帮助用户更方便地了解海外生活相关信息，包括：
-
-- 💳 海外银行卡与支付工具
-- 📱 海外电话卡与 eSIM
-- 📈 海外金融工具与证券平台信息
-- 🌍 出境生活资料整理
-
-
----
-
-## ✨ 内容模块
-
-
-### 💳 海外银行卡
-
-整理海外银行卡相关信息：
-
-- 开户条件
-- 使用场景
-- 注意事项
-
-
-### 📱 全球通信
-
-整理：
-
-- 海外电话卡
-- eSIM 服务
-- 网络连接方案
-
-
-### 📈 海外金融工具
-
-整理：
-
-- 海外金融平台信息
-- 基础资料整理
-- 使用注意事项
-
-
-### 🌍 出海生活指南
-
-整理：
-
-- 国家与地区信息
-- 长期居住参考
-- 数字游民相关资料
-
-
----
-
-## 📂 项目结构
-
+## 项目结构
 
 ```text
-digital-nomad-cn
-
-├── docs/          网站页面
-├── articles/      内容文章
-├── datasets/      数据文件
-├── scripts/       自动化脚本
-├── tests/         测试文件
+digital-nomad-cn/
+├── docs/                 # GitHub Pages 站点文件
+│   ├── phone-cards/      # giffgaff 电话卡介绍、下单与查询
+│   ├── community.html    # 社区论坛页面
+│   └── legal.html        # 法律法规页面
+├── supabase/             # 订单与社区论坛的数据库脚本
+├── scripts/              # 数据和站点检查脚本
 └── README.md
 ```
 
-
----
-
-## 🚀 本地运行
-
-
-启动网站：
+## 本地运行
 
 ```powershell
 python -m http.server 4173 --directory docs
 ```
 
+然后访问 <http://localhost:4173>。
 
-访问：
+## 社区论坛初始化
 
-```
-http://localhost:4173
-```
+首次启用社区论坛时，在对应 Supabase 项目的 SQL Editor 中执行 [`supabase/community.sql`](./supabase/community.sql)。该脚本会创建匿名发帖需要的表与安全 RPC 接口。
 
-
----
-
-## 🔍 项目检查
-
-
-运行：
+## 检查
 
 ```powershell
 node scripts/check-site.mjs
 ```
 
-### 社区讨论初始化
+## 参与贡献
 
-社区论坛支持匿名发布跨境生活经验。首次启用前，请在对应 Supabase 项目的 SQL Editor 中执行 [`supabase/community.sql`](./supabase/community.sql)。该脚本会创建论坛话题及仅允许调用的安全 RPC 接口；无需在浏览器端新增密钥。
-
-
----
-
-## 🤝 参与贡献
-
-
-欢迎：
-
-- 提交 Issue
-- 提供内容建议
-- 改进网站功能
-
-
-GitHub：
-
-https://github.com/kfat77/digital-nomad-cn
-
-
----
-
-## ⚠️ 免责声明
-
-
-本站内容仅用于信息整理和学习参考。
-
-涉及开户、投资、税务、法律等事项，请以相关机构官方网站及所在地最新规则为准。
+欢迎通过 Issue 提供工具建议、内容修正或使用经验。所有涉及开户、投资、税务与法律的内容，请以相关机构的最新官方说明为准。
