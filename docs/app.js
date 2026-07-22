@@ -23,6 +23,20 @@ menuButton?.addEventListener('click', () => {
   const isOpen = menu.classList.toggle('is-open');
   menuButton.setAttribute('aria-expanded', String(isOpen));
 });
+document.querySelectorAll('.nav-dropdown-toggle').forEach((button) => {
+  button.addEventListener('click', () => {
+    const dropdown = button.closest('.nav-dropdown');
+    const isOpen = dropdown.classList.toggle('is-open');
+    button.setAttribute('aria-expanded', String(isOpen));
+  });
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape') return;
+  document.querySelectorAll('.nav-dropdown.is-open').forEach((dropdown) => {
+    dropdown.classList.remove('is-open');
+    dropdown.querySelector('.nav-dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+  });
+});
 const notice = document.querySelector('[data-notice]');
 if (localStorage.getItem('nomad-notice-dismissed') === 'true') notice?.remove();
 document.querySelector('[data-notice-close]')?.addEventListener('click', () => {
