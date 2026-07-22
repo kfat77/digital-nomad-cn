@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Digital Nomad CN 社区论坛：分享跨境生活的真实经验。" />
+    <title>社区论坛 · Nomad Essentials</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="forum-page">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Nomad Essentials 首页"><span class="brand-mark">N</span><span>nomad essentials</span></a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav">菜单</button>
+      <nav id="site-nav" class="site-nav" data-menu>
+        <a href="./#banking">银行卡</a><a href="./#phone">电话卡</a><a href="./#securities">海外证券</a><a href="./#ai-subscriptions">AI 订阅</a><a href="./community.html" aria-current="page">社区论坛</a><a class="nav-cta" href="./">工具目录</a>
+      </nav>
+    </header>
+    <main>
+      <section class="forum-hero section-wrap">
+        <p class="eyebrow">NOMAD COMMUNITY</p>
+        <h1>经验不该只停留在<br />一个人的备忘录里。</h1>
+        <p>这里讨论真实的跨境生活：办卡、保号、支付、居住，以及每一个出发前本该知道的细节。</p>
+      </section>
+      <section class="forum-layout section-wrap" aria-label="社区帖子">
+        <aside class="forum-sidebar">
+          <p class="card-index">浏览话题</p>
+          <button class="forum-filter is-active" type="button" data-category="all">全部讨论</button>
+          <button class="forum-filter" type="button" data-category="银行卡">银行卡</button>
+          <button class="forum-filter" type="button" data-category="电话卡">电话卡</button>
+          <button class="forum-filter" type="button" data-category="海外证券">海外证券</button>
+          <button class="forum-filter" type="button" data-category="出海生活">出海生活</button>
+        </aside>
+        <div class="forum-main">
+          <form class="new-topic" data-topic-form>
+            <div class="new-topic-head"><div><p class="card-index">发起讨论</p><h2>你想和大家聊什么？</h2></div><span>匿名发布</span></div>
+            <input name="title" maxlength="80" required placeholder="一句话说清你的问题或经验" aria-label="帖子标题" />
+            <div class="new-topic-controls"><select name="category" aria-label="话题分类"><option>银行卡</option><option>电话卡</option><option>海外证券</option><option>出海生活</option></select><button type="submit">发布话题 ↗</button></div>
+            <textarea name="content" maxlength="1200" required placeholder="写下背景、你的经验或具体问题。请勿发布联系方式、账号或其他敏感个人信息。"></textarea>
+          </form>
+          <div class="forum-list-head"><h2>最新讨论</h2><span data-topic-count></span></div>
+          <div class="topic-list" data-topic-list aria-live="polite"><p class="forum-loading">正在加载讨论…</p></div>
+        </div>
+      </section>
+    </main>
+    <footer><a class="brand" href="./"><span class="brand-mark">N</span><span>nomad essentials</span></a><p>仅作信息整理与社区交流，不构成开户、投资、法律或税务建议。</p></footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="js/config.js" defer></script><script src="js/supabase-client.js" defer></script>
+    <script src="js/forum.js" defer></script><script src="app.js" defer></script>
+  </body>
+</html>

@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 const pages = [
   ['docs/index.html', '出海前，先把'],
   ['docs/legal.html', '最新跨境法律法规'],
+  ['docs/community.html', '经验不该只停留'],
 ];
 
 for (const [file, expectedText] of pages) {
@@ -44,5 +45,9 @@ if (legalCards.length !== 10 || (legalPage.match(/官网直达 ↗/g) ?? []).len
 }
 if (!legalPage.includes('vanilla-tilt') || !legalPage.includes('ScrollTrigger.min.js') || legalPage.includes('<img')) {
   throw new Error('Legal page animation resources or pure-text title rules are invalid');
+}
+const forumPage = await readFile(resolve('docs/community.html'), 'utf8');
+if (!forumPage.includes('data-topic-form') || !forumPage.includes('js/forum.js')) {
+  throw new Error('Community forum page is missing its publishing flow');
 }
 console.log(`Checked ${pages.length} pages and shared navigation.`);
