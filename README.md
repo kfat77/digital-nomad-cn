@@ -3,7 +3,6 @@
 面向中文用户的跨境生活基础设施指南。网站聚焦真正影响出发体验的三件事：收付、连接与投资账户；用清晰的工具目录替代信息焦虑。
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Online-2f6b1c)](https://kfat77.github.io/digital-nomad-cn/)
-[![License](https://img.shields.io/github/license/kfat77/digital-nomad-cn)](./LICENSE)
 
 ## 在线访问
 
