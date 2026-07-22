@@ -54,6 +54,10 @@ python -m http.server 4173 --directory docs
 node scripts/check-site.mjs
 ```
 
+## 库存同步
+
+GitHub Actions 每天 09:00（北京时间）读取 Simpanda Giffgaff 的公开库存接口，并同步更新电话卡库存。首次配置仅需在仓库 Actions Secrets 中设置 `SUPABASE_SERVICE_ROLE_KEY`；库存接口不需要 Simpanda 登录信息。
+
 ## 参与贡献
 
 欢迎通过 Issue 提供工具建议、内容修正或使用经验。所有涉及开户、投资、税务与法律的内容，请以相关机构的最新官方说明为准。
