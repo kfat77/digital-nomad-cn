@@ -331,6 +331,8 @@ AS $$
 $$;
 
 GRANT EXECUTE ON FUNCTION get_product_info() TO anon, authenticated;
+-- GitHub Actions 使用 service_role 同步供应商库存。
+GRANT SELECT, UPDATE ON public.product_settings TO service_role;
 
 -- ------------------------------------------------------------
 -- 10. Admin RPC：管理员查询所有订单（SECURITY DEFINER 绕过 RLS）
