@@ -43,7 +43,7 @@ window.SITE_CONFIG = {
   // 客服联系方式
   CUSTOMER_SERVICE: {
     wechat: 'BCI1277',
-    telegramUrl: 'https://t.me/BCI1277',
+    telegramUrl: 'https://t.me/FZYoffical',
     description: '如有疑问，请通过 Telegram 联系客服'
   },
 
