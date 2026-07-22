@@ -158,10 +158,10 @@
 
   // -- 填充客服信息 --
   var elCsDesc = document.getElementById('cs-desc');
-  var elCsWechat = document.getElementById('cs-wechat');
+  var elCsTelegram = document.getElementById('cs-telegram');
   if (elCsDesc) elCsDesc.textContent = cs.description || '如有疑问请联系客服';
-  if (elCsWechat && cs.wechat && cs.wechat !== 'YOUR_WECHAT_ID') {
-    elCsWechat.textContent = '微信: ' + cs.wechat;
+  if (elCsTelegram && cs.telegramUrl && cs.telegramUrl !== 'YOUR_TELEGRAM_URL') {
+    elCsTelegram.href = cs.telegramUrl;
   }
 
   // -- 数量控制（事件绑定）--

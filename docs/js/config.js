@@ -43,7 +43,8 @@ window.SITE_CONFIG = {
   // 客服联系方式
   CUSTOMER_SERVICE: {
     wechat: 'BCI1277',
-    description: '如有疑问，扫码或搜索微信号添加客服'
+    telegramUrl: 'https://t.me/BCI1277',
+    description: '如有疑问，请通过 Telegram 联系客服'
   },
 
   // 管理员邮箱白名单（前端双重校验，后端 RLS 也会检查）
