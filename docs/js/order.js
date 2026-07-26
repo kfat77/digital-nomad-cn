@@ -14,6 +14,7 @@
   var unitPrice = 0;
   var maxQty = 10;
   var sym = '¥';
+  var productInfoLoaded = false;
   // 当前订单信息（提交成功后保存，供"我已支付"使用）
   var currentOrder = { orderNumber: '', trackingCode: '', totalPrice: 0 };
 
@@ -57,17 +58,25 @@
       ptSelector.querySelectorAll('.pt-option').forEach(function (o) {
         o.classList.toggle('active', o === option);
       });
-      applyCurrentProduct();
+      if (productInfoLoaded) {
+        applyCurrentProduct();
+      } else {
+        updateProductDetails();
+      }
     });
   }
 
   // -- 填充商品信息 --
   function updateProductUI() {
+    updateProductDetails();
+    if (elPrice) elPrice.textContent = sym + unitPrice;
+    updateTotal();
+  }
+
+  function updateProductDetails() {
     var p = getProductCfg();
     if (elName) elName.textContent = p.name || '';
     if (elDesc) elDesc.textContent = p.description || '';
-    if (elPrice) elPrice.textContent = sym + unitPrice;
-    updateTotal();
   }
 
   // -- 更新总价（防御性 null 检查）--
@@ -77,19 +86,37 @@
     if (elTotal) elTotal.textContent = sym + (qty * unitPrice);
   }
 
-  // 初始化默认值
-  var defaultP = getProductCfg();
-  unitPrice = defaultP.price || 0;
-  updateProductUI();
+  // 价格以后台为准。加载期间不展示备用价，避免旧价短暂闪现。
+  function setProductInfoLoading() {
+    if (elPrice) elPrice.textContent = '加载中…';
+    if (elTotal) elTotal.textContent = '加载中…';
+    if (btnMinus) btnMinus.disabled = true;
+    if (btnPlus) btnPlus.disabled = true;
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = '价格加载中…';
+      submitBtn.style.opacity = '0.6';
+      submitBtn.style.cursor = 'wait';
+    }
+  }
+  setProductInfoLoading();
 
   // -- 从 Supabase 读取最新价格和库存 --
   async function loadProductInfo() {
-    if (!sb) { console.warn('[DIAG] sb 为 null，跳过加载'); return; }
+    if (!sb) {
+      console.warn('[DIAG] sb 为 null，使用备用配置');
+      applyCurrentProduct();
+      return;
+    }
     try {
       console.log('[DIAG] 正在调用 get_product_info...');
       var result = await sb.rpc('get_product_info');
       console.log('[DIAG] RPC 返回:', result);
-      if (result.error) { console.error('[DIAG] RPC 错误:', result.error); return; }
+      if (result.error) {
+        console.error('[DIAG] RPC 错误:', result.error);
+        applyCurrentProduct();
+        return;
+      }
       var data = result.data || [];
       console.log('[DIAG] RPC data:', JSON.stringify(data));
       var dbPrices = {};
@@ -110,6 +137,7 @@
     } catch (e) {
       console.warn('[Order] 加载产品信息失败，使用默认配置:', e);
       console.error('[DIAG] catch 捕获异常:', e);
+      applyCurrentProduct();
     }
   }
 
@@ -139,6 +167,7 @@
     }
 
     updateProductUI();
+    productInfoLoaded = true;
     updateSoldOutUI(isSoldOut);
   }
   loadProductInfo();
