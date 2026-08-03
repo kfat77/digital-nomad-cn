@@ -1,24 +1,19 @@
 # Scripts
 
-Automation for data validation and GitHub Pages (`docs/`) derived assets.
+Small, dependency-free utilities for validating and maintaining the GitHub Pages site in `docs/`.
 
 | Script | Purpose |
 |--------|---------|
-| `validate-data.js` | Schema + ISO uniqueness + index consistency |
-| `update-dataset-stats.js` | Regenerate `datasets/index.json` coverage and `_stats.json` |
-| `generate-countries-data.js` | `datasets/countries.json` → `docs/countries-data.js` |
-| `sync-to-docs.js` | Run generate + stats (deploy-root sync) |
+| `check-site.mjs` | Validate page structure, navigation, content and animation dependencies |
 | `bump-sw-cache.js` | Bump `docs/sw.js` `CACHE_VERSION` |
 | `generate-sitemap.js` | Scan `docs/**/*.html` → `docs/sitemap.xml` |
 
 ## Common commands
 
 ```bash
-npm run validate
-npm run sync:data
-npm run sync:docs
+npm run check
+npm run sitemap
 npm run bump:sw
-npm test
 ```
 
-**Deploy root:** `docs/` (GitHub Pages). Do not reintroduce a required `website/` tree.
+**Deploy root:** `docs/` (GitHub Pages). Keep generated site output and source pages under this single tree.
