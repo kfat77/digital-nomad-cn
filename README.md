@@ -12,7 +12,7 @@
 
 ![Nomad Essentials 首页](./docs/assets/homepage-preview.png)
 
-## 目前包含
+## 内容范围
 
 - 银行卡：跨境收付、多币种资金管理与海外支付工具。
 - 电话卡：号码、保号、漫游与 eSIM 方案；包含 giffgaff 电话卡的介绍、下单和物流查询入口。
@@ -21,18 +21,19 @@
 - 法律法规：跨境资金、税务与投资相关的官方资料入口。
 - 社区论坛：匿名分享跨境生活经验、按主题浏览讨论。
 
-网站右上角的“导航栏”收纳 AI 订阅、法律法规和社区论坛；电话卡下单页提供 Telegram 客服联系入口。
+网站右上角的导航栏收纳 AI 订阅、法律法规和社区论坛；电话卡下单页提供 Telegram 客服联系入口。
 
 ## 项目结构
 
 ```text
 digital-nomad-cn/
-├── docs/                 # GitHub Pages 站点文件
-│   ├── phone-cards/      # giffgaff 电话卡介绍、下单与查询
-│   ├── community.html    # 社区论坛页面
-│   └── legal.html        # 法律法规页面
-├── supabase/             # 订单与社区论坛的数据库脚本
-├── scripts/              # 数据和站点检查脚本
+├── docs/                 # GitHub Pages 部署根目录
+│   ├── phone-cards/      # 电话卡介绍、下单与物流查询
+│   ├── assets/           # 站点预览与静态资源
+│   └── js/               # 页面交互脚本
+├── supabase/             # 数据库结构与安全 RPC
+├── scripts/              # 本地检查与站点生成脚本
+├── .github/              # CI 工作流与仓库协作配置
 └── README.md
 ```
 
@@ -44,21 +45,19 @@ python -m http.server 4173 --directory docs
 
 然后访问 <http://localhost:4173>。
 
+## 检查与生成
+
+```powershell
+npm install
+npm run check
+npm run sitemap
+```
+
+`npm run check` 会验证关键页面、共享导航、动画依赖和内容目录；`npm run sitemap` 会根据 `docs/` 下的页面生成站点地图。
+
 ## 社区论坛初始化
 
 首次启用社区论坛时，在对应 Supabase 项目的 SQL Editor 中执行 [`supabase/community.sql`](./supabase/community.sql)。该脚本会创建匿名发帖需要的表与安全 RPC 接口。
-
-## 检查
-
-```powershell
-node scripts/check-site.mjs
-```
-
-## 库存同步
-
-GitHub Actions 每天 UTC 00:00（北京时间 08:00）读取 Simpanda 的公开库存接口，并同步更新 Giffgaff 电话卡与 10 英镑充值券库存。首次配置仅需在仓库 Actions Secrets 中设置 `SUPABASE_SERVICE_ROLE_KEY`；库存接口不需要 Simpanda 登录信息。
-
-首次启用时，还需在 Supabase SQL Editor 执行 [`supabase/inventory-sync.sql`](./supabase/inventory-sync.sql)，授权服务端密钥更新库存。
 
 ## 参与贡献
 

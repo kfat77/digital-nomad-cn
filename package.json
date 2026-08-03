@@ -1,0 +1,15 @@
+{
+  "name": "digital-nomad-cn",
+  "version": "1.0.0",
+  "private": true,
+  "description": "跨境生活基础设施指南与静态站点",
+  "scripts": {
+    "check": "node scripts/check-site.mjs",
+    "sitemap": "node scripts/generate-sitemap.js",
+    "bump:sw": "node scripts/bump-sw-cache.js",
+    "serve": "python -m http.server 4173 --directory docs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
