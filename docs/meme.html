@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Meme 雷达：用公开只读接口扫描多链 Meme 候选，展示合约风险与流动性证据，把不能碰的先划掉。不连接钱包，不构成投资建议。"
+    />
+    <title>Meme 雷达 · 多链候选与合约风险筛选 · Nomad Essentials</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="notice" data-notice>
+      <p>本页只做公开数据的筛选与证据展示，不构成投资建议，也不代客下单。</p>
+      <button type="button" aria-label="关闭提示" data-notice-close>×</button>
+    </div>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Nomad Essentials 首页"
+        ><span class="brand-mark">N</span><span>nomad essentials</span></a
+      ><button
+        class="menu-toggle"
+        type="button"
+        data-menu-toggle
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        菜单
+      </button>
+      <nav id="site-nav" class="site-nav" data-menu>
+        <a href="./index.html">首页</a>
+        <a href="./banking.html">银行卡</a>
+        <a href="./phone.html">电话卡</a>
+        <a href="./securities.html">海外证券</a>
+        <a href="./calendar.html">钱进日历</a>
+        <a href="./community.html">论坛</a>
+        <div class="nav-dropdown">
+          <button class="nav-cta nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="more-nav">
+            更多
+          </button>
+          <div id="more-nav" class="nav-dropdown-menu">
+            <a href="./meme.html" aria-current="page">Meme 雷达</a>
+            <a href="./ai-subscriptions.html">AI 订阅</a>
+            <a href="./phone-cards/">giffgaff</a>
+            <a href="./legal.html">法律法规</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="radar-hero section-wrap">
+        <p class="eyebrow">07 / Meme 雷达</p>
+        <h1>新币每天都在出，<br />先把不能碰的划掉。</h1>
+        <p class="radar-hero-copy">
+          只用公开的只读接口：GeckoTerminal 看行情、深度和买卖笔数，GoPlus 查合约权限与税率。
+          页面不连接钱包、不签名、不下单，也不替你决定买什么 —— 它只把证据摊开，让「不碰」这件事变得容易。
+        </p>
+        <ul class="radar-stats">
+          <li><b data-radar-scanned>—</b><span>个候选</span></li>
+          <li><b data-radar-pass>—</b><span>个关键检查全通过</span></li>
+          <li><b data-radar-veto>—</b><span>个被一票否决</span></li>
+          <li><b data-radar-updated>—</b><span>本轮取数时间</span></li>
+        </ul>
+      </section>
+
+      <section class="section-wrap radar-board" aria-labelledby="radar-board-title">
+        <h2 class="radar-visually-hidden" id="radar-board-title">候选扫描结果</h2>
+
+        <div class="radar-toolbar">
+          <div class="radar-group">
+            <p class="radar-label">扫描链</p>
+            <div class="radar-chips">
+              <button class="radar-chip" type="button" data-chain="solana">
+                <i style="background: #7a5bd0"></i>Solana
+              </button>
+              <button class="radar-chip" type="button" data-chain="bsc">
+                <i style="background: #c99a00"></i>BNB Chain
+              </button>
+              <button class="radar-chip" type="button" data-chain="base">
+                <i style="background: #2563c9"></i>Base
+              </button>
+              <button class="radar-chip" type="button" data-chain="eth">
+                <i style="background: #5b6fd6"></i>Ethereum
+              </button>
+            </div>
+          </div>
+          <div class="radar-group">
+            <p class="radar-label">榜单</p>
+            <div class="radar-chips">
+              <button class="radar-chip" type="button" data-mode="trending">活跃榜</button>
+              <button class="radar-chip" type="button" data-mode="new">新池</button>
+            </div>
+          </div>
+          <div class="radar-group">
+            <p class="radar-label">排序</p>
+            <div class="radar-chips">
+              <button class="radar-chip" type="button" data-radar-sort="score">综合评分</button>
+              <button class="radar-chip" type="button" data-radar-sort="volume">24h 成交额</button>
+              <button class="radar-chip" type="button" data-radar-sort="change">24h 涨幅</button>
+              <button class="radar-chip" type="button" data-radar-sort="liquidity">池子深度</button>
+              <button class="radar-chip" type="button" data-radar-sort="age">上新时间</button>
+            </div>
+          </div>
+          <div class="radar-actions">
+            <label class="radar-depth"
+              >每轮深审
+              <select data-radar-depth>
+                <option value="4">4 个</option>
+                <option value="6">6 个</option>
+                <option value="8">8 个</option>
+                <option value="12">12 个</option>
+              </select>
+            </label>
+            <button class="radar-toggle" type="button" data-radar-auto aria-pressed="false">自动更新：关</button>
+            <button class="radar-toggle" type="button" data-radar-cross aria-pressed="false">交叉校验：关</button>
+            <button class="radar-refresh" type="button" data-radar-refresh>刷新这一轮</button>
+          </div>
+        </div>
+
+        <div class="radar-readout">
+          <p class="radar-status" data-radar-status role="status"></p>
+          <p class="radar-countdown" data-radar-countdown>手动刷新</p>
+        </div>
+        <p class="radar-verdict-line" data-radar-verdict-line></p>
+
+        <div class="radar-filters" data-radar-filters data-radar-counts>
+          <button class="radar-filter is-active" type="button" data-filter="all">全部<b data-count="all">0</b></button>
+          <button class="radar-filter" type="button" data-filter="pass">可看<b data-count="pass">0</b></button>
+          <button class="radar-filter" type="button" data-filter="review">待复核<b data-count="review">0</b></button>
+          <button class="radar-filter" type="button" data-filter="unknown">数据不足<b data-count="unknown">0</b></button>
+          <button class="radar-filter" type="button" data-filter="veto">别碰<b data-count="veto">0</b></button>
+        </div>
+
+        <div class="radar-list" data-radar-list>
+          <p class="radar-empty">正在读取公开行情接口…</p>
+        </div>
+        <p class="radar-source" data-radar-source></p>
+      </section>
+
+      <section class="section-wrap radar-guide" aria-labelledby="radar-guide-title">
+        <div class="section-heading">
+          <p class="eyebrow">怎么看这一页</p>
+          <h2 id="radar-guide-title">分数不是推荐，只是把证据摆平</h2>
+          <p class="section-copy">
+            榜单按「先排除、再看证据、最后才谈分数」的顺序组织。下面四条是读法，看懂了就不需要信任何人。
+          </p>
+        </div>
+        <div class="radar-guide-grid">
+          <article class="radar-guide-card">
+            <p class="card-index">01 / 先划掉</p>
+            <h3>命中一票否决的，直接出局</h3>
+            <p>
+              蜜罐、禁止卖出、能改余额、税率超过 5%、权限没放弃、前 10 持仓过半、池子深度不足 8,000 美元
+              —— 任意一条命中就归入「别碰」，涨幅再好看也不看。
+            </p>
+          </article>
+          <article class="radar-guide-card">
+            <p class="card-index">02 / 未核验 ≠ 通过</p>
+            <h3>查不到的项一律不给分</h3>
+            <p>
+              接口没返回的字段标成「未核验」，既不算通过也不算不通过。未核验超过 4 项、或覆盖率低于 70%，
+              这个币直接归入「数据不足」；关键项没查到的，最高只能到「待复核」—— 不会拿沉默冒充通过。
+            </p>
+          </article>
+          <article class="radar-guide-card">
+            <p class="card-index">03 / 分数怎么算</p>
+            <h3>通过项 ÷ 总检查项</h3>
+            <p>
+              分子只算真正查到并且通过的项，所以分数要连覆盖率一起看：90 分但覆盖率 60%，
+              说明有大片盲区，比 75 分覆盖率 100% 更不可靠。
+            </p>
+          </article>
+          <article class="radar-guide-card">
+            <p class="card-index">04 / 颜色与口径</p>
+            <h3>涨红跌绿，按国内习惯</h3>
+            <p>
+              涨跌颜色只表示现状，不参与评分，也不代表好坏 —— 新币涨 200% 和跌 80% 都可能是同一个原因：
+              池子太浅。数字旁都标了取数时间，请自己对时。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-wrap radar-caveat" aria-labelledby="radar-caveat-title">
+        <div class="radar-caveat-card">
+          <p class="card-index">边界与缺口</p>
+          <h2 id="radar-caveat-title">这些事，这一页做不到</h2>
+          <ul class="radar-caveat-list">
+            <li>只查得到接口里有的字段。GoPlus 没收录的链或代币会显示「未核验」，不代表安全，也不代表危险。</li>
+            <li>深审按顺序排队，每轮默认 8 个。没轮到的只做行情检查，结论停在「数据不足」。</li>
+            <li>数据是每次打开的链上快照，不是实时推送。限流时页面会直说，不会用缓存或演示数据撑场面。</li>
+            <li>不连接钱包、不需要任何密钥、不发起交易。你的地址和私钥都不会出现在这一页。</li>
+            <li>「可看」的意思是「值得自己去核一遍」，不是「可以买」。真正的风险永远在合约之外。</li>
+          </ul>
+          <p class="disclaimer">
+            免责声明：以上内容基于公开数据和量化分析，仅供参考，不构成投资建议。市场有风险，投资需谨慎。任何投资决策应结合个人风险承受能力、资金状况和投资目标独立判断，必要时咨询持牌专业机构。过往表现不预示未来收益。
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a class="brand" href="./index.html"
+        ><span class="brand-mark">N</span><span>nomad essentials</span></a
+      >
+      <p>仅作信息整理，不构成开户、投资、法律或税务建议。</p>
+    </footer>
+    <script src="app.js" defer></script>
+    <script src="js/meme.js" defer></script>
+  </body>
+</html>

@@ -10,6 +10,7 @@ const NAV = [
   './community.html',
   './ai-subscriptions.html',
   './legal.html',
+  './meme.html',
 ];
 
 const PAGES = [
@@ -21,6 +22,7 @@ const PAGES = [
   'docs/calendar.html',
   'docs/community.html',
   'docs/legal.html',
+  'docs/meme.html',
 ];
 
 const fail = (message) => {
@@ -57,13 +59,13 @@ for (const file of PAGES) {
 // Homepage is a module hub: no stacked tool cards, no leftover roadmap section.
 const homepage = sources.get('docs/index.html');
 const hubCards = homepage.match(/class="hub-card[^"]*"/g) ?? [];
-if (hubCards.length !== 6) fail(`Homepage must expose 6 module hub cards (found ${hubCards.length})`);
+if (hubCards.length !== 7) fail(`Homepage must expose 7 module hub cards (found ${hubCards.length})`);
 if (homepage.includes('module-card tool-card')) fail('Homepage still stacks the legacy tool cards');
 if (homepage.includes('id="roadmap"') || homepage.includes('roadmap-node')) {
   fail('The removed roadmap module is still present on the homepage');
 }
 if (!hubCards.every((card) => card.includes('hub-card'))) fail('Hub cards must use the shared hub-card class');
-for (const target of ['./banking.html', './phone.html', './securities.html', './ai-subscriptions.html', './calendar.html', './legal.html']) {
+for (const target of ['./banking.html', './phone.html', './securities.html', './ai-subscriptions.html', './calendar.html', './legal.html', './meme.html']) {
   if (!homepage.includes(`href="${target}"`)) fail(`Homepage hub is missing an entry for ${target}`);
 }
 if (!homepage.includes('gsap@3/dist/gsap.min.js') || !homepage.includes('ScrollTrigger.min.js')) {
@@ -154,6 +156,41 @@ if (!forumPage.includes('data-account-note') || !forumPage.includes('登录')) {
   fail('Forum account band must explain that no login is required');
 }
 
+// Meme 雷达：多链候选扫描，只做证据展示，不连接钱包、不下单。
+const memePage = sources.get('docs/meme.html');
+for (const marker of ['js/meme.js', 'data-radar-list', 'data-radar-status', 'data-radar-source',
+  'data-radar-scanned', 'data-radar-updated', 'data-radar-depth', 'data-radar-refresh',
+  'data-radar-auto', 'data-radar-cross', 'data-radar-filters']) {
+  if (!memePage.includes(marker)) fail(`Meme radar page is missing ${marker}`);
+}
+for (const chain of ['solana', 'bsc', 'base', 'eth']) {
+  if (!memePage.includes(`data-chain="${chain}"`)) fail(`Meme radar page is missing the ${chain} scan target`);
+}
+for (const filter of ['all', 'pass', 'review', 'veto', 'unknown']) {
+  if (!memePage.includes(`data-filter="${filter}"`)) fail(`Meme radar page is missing the ${filter} filter`);
+}
+// 任何买卖判断都必须带固定免责声明，且「未核验」的读法必须写在页面上。
+if (!memePage.includes('不构成投资建议。市场有风险，投资需谨慎。') || !memePage.includes('过往表现不预示未来收益。')) {
+  fail('Meme radar page must carry the fixed investment disclaimer');
+}
+if (!memePage.includes('未核验')) fail('Meme radar page must explain the unverified state');
+
+const memeScript = await readFile(resolve('docs/js/meme.js'), 'utf8');
+if (!memeScript.includes('escapeHtml')) fail('Meme radar must escape every upstream field before rendering');
+if (memeScript.includes('IntersectionObserver')) fail('Meme radar must not rely on IntersectionObserver');
+if (!memeScript.includes('geckoterminal.com/api/v2')) fail('Meme radar lost its market data source');
+if (!memeScript.includes('gopluslabs.io')) fail('Meme radar lost its contract risk source');
+// GMGN 在国内被 DNS 污染，不能作为主链路或复核入口。
+if (/gmgn/i.test(memeScript)) fail('Meme radar must not depend on GMGN, which is unreachable from the target audience');
+if (/signTransaction|sendTransaction|privateKey|seedPhrase|ethereum\.request/i.test(memeScript)) {
+  fail('Meme radar must never touch wallets or transactions');
+}
+// 未取到的字段必须留空并标未核验，不能兜底成通过或塞演示数据。
+if (!memeScript.includes("'unknown'")) fail('Meme radar must keep a distinct unverified state');
+if (/(mockData|DEMO_POOLS|sampleData\s*=|fakePools)/.test(memeScript)) {
+  fail('Meme radar must not fall back to demo data');
+}
+
 // Legal page keeps its 10 official-link cards.
 const legalPage = sources.get('docs/legal.html');
 const legalCards = legalPage.match(/class="module-card tool-card card-securities legal-card"/g) ?? [];
@@ -179,7 +216,7 @@ const styles = await readFile(resolve('docs/styles.css'), 'utf8');
 for (const legacySelector of ['[data-reveal]', '.is-visible', 'hero-enter', '.roadmap-']) {
   if (styles.includes(legacySelector)) fail(`Legacy CSS selector remains: ${legacySelector}`);
 }
-for (const required of ['.hub-grid', '.hub-card', '.cal-cell', '.cal-pop', '.forum-stats', '.topic-toggle', '.account-card', '.account-form-row', '.nav-dropdown-menu']) {
+for (const required of ['.hub-grid', '.hub-card', '.cal-cell', '.cal-pop', '.forum-stats', '.topic-toggle', '.account-card', '.account-form-row', '.card-radar', '.radar-card', '.radar-check', '.radar-metrics dd.is-up', '.nav-dropdown-menu']) {
   if (!styles.includes(required)) fail(`Shared stylesheet is missing ${required}`);
 }
 
@@ -190,4 +227,4 @@ for (const file of PAGES) {
   if (!sitemap.includes(`/digital-nomad-cn/${slug}`)) fail(`Sitemap is missing ${file}`);
 }
 
-console.log(`Checked ${PAGES.length} pages, shared navigation, calendar data, forum script and stylesheet.`);
+console.log(`Checked ${PAGES.length} pages, shared navigation, calendar data, forum script, meme radar and stylesheet.`);
