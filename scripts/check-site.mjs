@@ -140,6 +140,20 @@ if (!forumScript.includes('get_forum_topics') || !forumScript.includes('create_f
 }
 if (forumScript.includes('IntersectionObserver')) fail('Forum page must not rely on IntersectionObserver');
 
+// Forum accounts are derived from the network address: no login, no sign-up, rename only.
+for (const marker of ['data-account-card', 'data-account-form', 'data-account-name', 'data-account-status', 'data-post-as']) {
+  if (!forumPage.includes(marker)) fail(`Community forum page is missing the address-based account marker ${marker}`);
+}
+if (!forumScript.includes('forum_whoami')) fail('Forum must resolve the caller identity from the network address');
+if (!forumScript.includes('set_forum_name')) fail('Forum must let each visitor rename their own account');
+if (forumScript.includes('signUp') || forumScript.includes('signInWithPassword')) {
+  fail('Forum must not offer sign-up or password sign-in');
+}
+if (/type=("|')password\1/.test(forumPage)) fail('Forum must not render a password field');
+if (!forumPage.includes('data-account-note') || !forumPage.includes('登录')) {
+  fail('Forum account band must explain that no login is required');
+}
+
 // Legal page keeps its 10 official-link cards.
 const legalPage = sources.get('docs/legal.html');
 const legalCards = legalPage.match(/class="module-card tool-card card-securities legal-card"/g) ?? [];
@@ -165,7 +179,7 @@ const styles = await readFile(resolve('docs/styles.css'), 'utf8');
 for (const legacySelector of ['[data-reveal]', '.is-visible', 'hero-enter', '.roadmap-']) {
   if (styles.includes(legacySelector)) fail(`Legacy CSS selector remains: ${legacySelector}`);
 }
-for (const required of ['.hub-grid', '.hub-card', '.cal-cell', '.cal-pop', '.forum-stats', '.topic-toggle', '.nav-dropdown-menu']) {
+for (const required of ['.hub-grid', '.hub-card', '.cal-cell', '.cal-pop', '.forum-stats', '.topic-toggle', '.account-card', '.account-form-row', '.nav-dropdown-menu']) {
   if (!styles.includes(required)) fail(`Shared stylesheet is missing ${required}`);
 }
 

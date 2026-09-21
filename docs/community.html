@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Digital Nomad CN 社区论坛：分享跨境生活的真实经验。" />
+    <meta name="description" content="Digital Nomad CN 社区论坛：按网络地址自动生成账户，不用注册也不用登录，分享跨境生活的真实经验。" />
     <title>社区论坛 · Nomad Essentials</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -49,9 +49,37 @@
         <ul class="forum-stats">
           <li><b data-stat-topics>—</b><span>个话题</span></li>
           <li><b>4</b><span>个分类</span></li>
-          <li><b>匿名</b><span>发布，不收集手机号</span></li>
+          <li><b>免注册</b><span>按网络地址自动建账户</span></li>
         </ul>
       </section>
+
+      <section class="section-wrap account-band" aria-labelledby="account-title">
+        <div class="account-card" data-account-card hidden>
+          <div class="account-identity">
+            <p class="card-index">你的账户</p>
+            <h2 id="account-title" data-account-name>识别中…</h2>
+            <p class="account-meta" data-account-meta></p>
+          </div>
+          <form class="account-form" data-account-form>
+            <label for="account-name-input">给它取个名字</label>
+            <div class="account-form-row">
+              <input
+                id="account-name-input"
+                name="display_name"
+                maxlength="16"
+                autocomplete="off"
+                placeholder="2 到 16 个字符"
+              />
+              <button type="submit">保存名字</button>
+            </div>
+            <p class="account-status" data-account-status role="status"></p>
+          </form>
+        </div>
+        <p class="account-note" data-account-note hidden>
+          账户按你的网络地址自动生成：不用注册，也没有登录入口。同一个网络地址永远是同一个账户，所以没法换个名字重复发言。换网络（换 Wi-Fi、开代理、切移动数据）会变成另一个账户，想留住名字就先把它取好。数据库只保存加盐哈希，不保存你的原始 IP。
+        </p>
+      </section>
+
       <section class="forum-layout section-wrap" aria-label="社区帖子">
         <aside class="forum-sidebar">
           <p class="card-index">浏览话题</p>
@@ -79,7 +107,7 @@
             出海生活<span data-count="出海生活">0</span>
           </button>
           <p class="forum-sidebar-note">
-            发帖匿名，但请勿发布联系方式、账户信息或任何可识别个人身份的内容。看到可疑的交易邀约，直接忽略即可。
+            请勿发布联系方式、账户信息或任何可识别个人身份的内容。看到可疑的交易邀约，直接忽略即可。
           </p>
         </aside>
         <div class="forum-main">
@@ -89,7 +117,7 @@
                 <p class="card-index">发起讨论</p>
                 <h2>你想和大家聊什么？</h2>
               </div>
-              <span>匿名发布</span>
+              <span data-post-as>正在识别账户…</span>
             </div>
             <input
               name="title"

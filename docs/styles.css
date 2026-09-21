@@ -200,3 +200,31 @@
 .forum-sort{padding:5px 11px}
 .new-topic-foot{flex-wrap:wrap}
 }
+
+/* Forum account: 账户按网络地址自动生成,取名字与改名都在这条卡片里完成。 */
+.account-band{padding-bottom:6px}
+.account-card{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:34px;align-items:start;padding:28px 30px;border-radius:var(--radius);background:var(--mint)}
+.account-card[hidden]{display:none}
+.account-identity .card-index{margin:0 0 8px}
+.account-identity h2{margin:0;font-size:clamp(26px,3.2vw,36px);letter-spacing:-.055em;word-break:break-word}
+.account-meta{margin:10px 0 0;color:#4f6b3d;font-size:13.5px}
+.account-form label{display:block;margin-bottom:8px;font-size:12.5px;font-weight:800;color:#3f6b16}
+.account-form-row{display:flex;gap:9px}
+.account-form-row input{flex:1;min-width:0;padding:11px 13px;border:1px solid #b7cbb0;border-radius:13px;background:#fff;color:var(--ink);font:inherit;font-size:14px}
+.account-form-row input:focus{outline:3px solid rgba(159,232,112,.8);border-color:#71ae48}
+.account-form-row button{border:0;border-radius:999px;padding:10px 17px;background:var(--ink);color:#fff;font:inherit;font-size:13px;font-weight:800;white-space:nowrap;cursor:pointer}
+.account-form-row button:disabled{opacity:.6;cursor:wait}
+.account-status{margin:10px 0 0;font-size:12.5px;font-weight:700;color:#3f6b16}
+.account-status:empty{display:none}
+.account-status.is-error{color:#b4442a}
+.account-note{margin:16px 0 0;color:#6f7d67;font-size:12.5px;line-height:1.72}
+.account-note[hidden]{display:none}
+.new-topic-head>[data-post-as]{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.64);font-size:12px;font-weight:800;color:#3f6b16}
+.new-topic-head>[data-post-as].is-error{color:#b4442a}
+.topic-meta .topic-author{background:#f2f5ee;color:#5d6f53}
+.topic-meta .topic-author.is-mine{background:var(--lime);color:#142d02}
+@media(max-width:700px){.account-card{grid-template-columns:1fr;gap:22px;padding:22px 18px}
+.account-form-row{flex-wrap:wrap}
+.account-form-row input,.account-form-row button{flex:1 1 100%}
+.account-form-row button{padding:11px 17px}
+}

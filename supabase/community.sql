@@ -1,4 +1,8 @@
 -- 社区论坛：匿名发帖。请在 Supabase SQL Editor 中执行一次。
+--
+-- 已被 supabase/forum-identity.sql 取代：论坛现在按网络地址自动生成账户，
+-- 不再是无差别匿名发帖。新建部署请直接执行 forum-identity.sql，
+-- 已经执行过本文件的项目再执行一次 forum-identity.sql 即可完成升级。
 
 CREATE TABLE IF NOT EXISTS public.forum_topics (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
