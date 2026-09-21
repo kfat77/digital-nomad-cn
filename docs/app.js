@@ -63,16 +63,18 @@ mm.add({
     .from('.hero-copy', { autoAlpha: 0, y: 22 }, '-=0.42')
     .from('.hero-quote-container', { autoAlpha: 0, y: 16 }, '-=0.36');
 
-  gsap.from('.section-heading', {
-    autoAlpha: 0,
-    y: 30,
-    duration: 0.7,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '#modules',
-      start: 'top 78%',
-      toggleActions: 'play none none reverse',
-    },
+  gsap.utils.toArray('.section-heading').forEach((heading) => {
+    gsap.from(heading, {
+      autoAlpha: 0,
+      y: 30,
+      duration: 0.7,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: heading,
+        start: 'top 78%',
+        toggleActions: 'play none none reverse',
+      },
+    });
   });
 
   ScrollTrigger.batch('.module-card', {
@@ -87,6 +89,21 @@ mm.add({
       duration: 0.7,
       ease: 'power3.out',
       stagger: 0.12,
+      overwrite: 'auto',
+    }),
+  });
+
+  ScrollTrigger.batch('.roadmap-step', {
+    start: 'top 82%',
+    once: true,
+    interval: 0.1,
+    batchMax: 3,
+    onEnter: (steps) => gsap.from(steps, {
+      autoAlpha: 0,
+      y: 40,
+      duration: 0.68,
+      ease: 'power3.out',
+      stagger: 0.1,
       overwrite: 'auto',
     }),
   });
