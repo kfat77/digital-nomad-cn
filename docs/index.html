@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="出海前，先把银行卡、电话卡与证券账户三件事办好。"
+      content="出海前，先把银行卡、电话卡与证券账户三件事办好。按模块进入，每个模块一个独立页面。"
     />
     <title>Nomad Essentials · 出海基础准备</title>
     <link rel="stylesheet" href="styles.css" />
@@ -28,19 +28,20 @@
         菜单
       </button>
       <nav id="site-nav" class="site-nav" data-menu>
-        <a href="#banking">银行卡</a><a href="#phone">电话卡</a>
-        <a href="#securities">海外证券</a>
-        <a href="#roadmap">学习路线</a>
-        <a href="#calendar">重大事项</a>
+        <a href="./index.html" aria-current="page">首页</a>
+        <a href="./banking.html">银行卡</a>
+        <a href="./phone.html">电话卡</a>
+        <a href="./securities.html">海外证券</a>
+        <a href="./calendar.html">重大事项</a>
+        <a href="./community.html">论坛</a>
         <div class="nav-dropdown">
           <button class="nav-cta nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="more-nav">
-            导航栏
+            更多
           </button>
           <div id="more-nav" class="nav-dropdown-menu">
-            <a href="#ai-subscriptions">AI 订阅</a>
+            <a href="./ai-subscriptions.html">AI 订阅</a>
             <a href="./phone-cards/">giffgaff</a>
             <a href="./legal.html">法律法规</a>
-            <a href="./community.html">社区论坛</a>
           </div>
         </div>
       </nav>
@@ -50,7 +51,7 @@
         <p class="eyebrow" data-reveal>为下一段生活，先建立基础设施</p>
         <h1 data-reveal>出海前，先把<br />三件事办好。</h1>
         <p class="hero-copy" data-reveal>
-          不堆国家清单，不制造焦虑。只用清晰的路径，帮你处理跨境生活最先遇到的三个账户问题。
+          不堆国家清单，不制造焦虑。按模块进入，每个模块一个独立页面，需要哪一块就看哪一块。
         </p>
         <div
           class="hero-quote-container"
@@ -70,477 +71,65 @@
         </div>
       </section>
       <section
-        id="roadmap"
-        class="roadmap section-wrap"
-        aria-labelledby="roadmap-title"
-      >
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">学习路线</p>
-          <h2 id="roadmap-title">从想清楚到能运转，六步走完。</h2>
-          <p class="section-copy">
-            不用一次做完，也不必跳步。每一步都以前一步为前提：先有收入形态，才谈得上收款通道；先有可验证的身份，才谈得上开户。
-          </p>
-        </div>
-        <ol class="roadmap-path">
-          <li class="roadmap-node">
-            <span class="roadmap-dot">01</span>
-            <p class="roadmap-label">定位</p>
-            <h3>想清楚为什么出去</h3>
-            <ul class="roadmap-actions">
-              <li>列出未来 12 个月的收入来源</li>
-              <li>判断是否需要跨境收款</li>
-              <li>理清常驻地与税务身份的关系</li>
-            </ul>
-            <p class="roadmap-output">产出一条说得清的收入路径</p>
-          </li>
-          <li class="roadmap-node">
-            <span class="roadmap-dot">02</span>
-            <p class="roadmap-label">收款</p>
-            <h3>先解决「能收到钱」</h3>
-            <ul class="roadmap-actions">
-              <li>确认付款方习惯用什么通道</li>
-              <li>准备可接收商业款项的账户</li>
-              <li>先做一笔小额测试到账</li>
-            </ul>
-            <p class="roadmap-output">产出验证过的收款通道</p>
-          </li>
-          <li class="roadmap-node">
-            <span class="roadmap-dot">03</span>
-            <p class="roadmap-label">身份</p>
-            <h3>建立可验证的身份与联系</h3>
-            <ul class="roadmap-actions">
-              <li>独立邮箱，不与旧账号混用</li>
-              <li>独立号码，先确认保号规则</li>
-              <li>一个能收到信件的地址</li>
-            </ul>
-            <p class="roadmap-output">产出一套能通过审核的信息</p>
-          </li>
-          <li class="roadmap-node">
-            <span class="roadmap-dot">04</span>
-            <p class="roadmap-label">账户</p>
-            <h3>搭好收付与多币种账户</h3>
-            <ul class="roadmap-actions">
-              <li>确定一个主账户</li>
-              <li>另配一条通道做备份</li>
-              <li>备齐地址证明等常用材料</li>
-            </ul>
-            <p class="roadmap-output">产出两条以上可用通道</p>
-          </li>
-          <li class="roadmap-node">
-            <span class="roadmap-dot">05</span>
-            <p class="roadmap-label">配置</p>
-            <h3>处理资产与长期配置</h3>
-            <ul class="roadmap-actions">
-              <li>确认税务居民身份</li>
-              <li>了解 CRS 与 CARF 的交换范围</li>
-              <li>再考虑海外证券账户</li>
-            </ul>
-            <p class="roadmap-output">产出能解释清楚的资产结构</p>
-          </li>
-          <li class="roadmap-node">
-            <span class="roadmap-dot">06</span>
-            <p class="roadmap-label">维护</p>
-            <h3>合规与长期维护</h3>
-            <ul class="roadmap-actions">
-              <li>设置保号与续费提醒</li>
-              <li>每年做一次税务申报</li>
-              <li>定期回查官方规则是否变动</li>
-            </ul>
-            <p class="roadmap-output">产出一份可维护的清单</p>
-          </li>
-        </ol>
-      </section>
-      <section
         id="modules"
         class="modules section-wrap"
         aria-labelledby="modules-title"
       >
         <div class="section-heading" data-reveal>
-          <p class="eyebrow">选择一条路径</p>
-          <h2 id="modules-title">把出海基础设施，整理成三个工具目录。</h2>
+          <p class="eyebrow">六个模块</p>
+          <h2 id="modules-title">选一个模块进去，不用在一屏里翻找。</h2>
+          <p class="section-copy">
+            工具目录、事件日历、法规指引和社区论坛各自独立成页。首页只负责带你走到正确的入口。
+          </p>
         </div>
-        <section class="tool-category" id="banking">
-          <div class="category-heading">
+        <div class="hub-grid">
+          <a class="hub-card card-bank" href="./banking.html" data-tilt>
             <p class="card-index">01 / 银行卡</p>
             <h3>跨境收付与多币种管理</h3>
-          </div>
-          <div class="module-grid tool-grid">
-            <article
-              class="module-card tool-card card-bank"
-              data-reveal
-              data-tilt
-            >
-              <h3>
-                Wise
-                <img src="https://api.iconify.design/simple-icons:wise.svg" alt="" aria-hidden="true" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-                <img src="https://api.iconify.design/mingcute:openai-fill.svg" alt="" aria-hidden="true" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-              </h3>
-              <p>多币种资金管理与国际汇款服务；可用功能、支持币种和费用因居住地与服务规则而异。</p>
-              <a
-                href="https://wise.com/register"
-                target="_blank"
-                rel="noopener noreferrer"
-                >官网直达 ↗</a
-              >
-            </article>
-            <article
-              class="module-card tool-card card-bank"
-              data-reveal
-              data-tilt
-            >
-              <h3>
-                汇丰香港
-                <img src="https://api.iconify.design/simple-icons:hsbc.svg" alt="" aria-hidden="true" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-
-                <img src="https://api.iconify.design/twemoji:flag-hong-kong-sar-china.svg" alt="香港特别行政区区旗" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-              </h3>
-              <p>香港综合银行账户与数字银行服务。开户资格、所需文件和是否需要亲临办理，以官方审核要求为准。</p>
-              <a
-                href="https://www.hsbc.com.hk/accounts/products/one/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >官网直达 ↗</a
-              >
-            </article>
-            <article
-              class="module-card tool-card card-bank"
-              data-reveal
-              data-tilt
-            >
-              <h3>
-                ZA Bank
-
-                <img src="https://api.iconify.design/twemoji:flag-hong-kong-sar-china.svg" alt="香港特别行政区区旗" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-              </h3>
-              <p>香港持牌数字银行，提供线上银行服务与全天候客户支持；账户资格和可用产品以官方说明为准。</p>
-              <a
-                href="https://bank.za.group/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >官网直达 ↗</a
-              >
-            </article>
-            <article
-              class="module-card tool-card card-bank"
-              data-reveal
-              data-tilt
-            >
-              <h3>
-                N26
-                <img src="https://api.iconify.design/simple-icons:n26.svg" alt="" aria-hidden="true" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-                <img src="https://api.iconify.design/mingcute:openai-fill.svg" alt="" aria-hidden="true" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-              </h3>
-              <p>以移动端为主的数字银行服务，覆盖消费、储蓄等功能；开户地区与账户功能取决于居住地及官方支持范围。</p>
-              <a
-                href="https://n26.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >官网直达 ↗</a
-              >
-            </article>
-            <article
-              class="module-card tool-card card-bank"
-              data-reveal
-              data-tilt
-            >
-              <h3>
-                Starryblu
-              </h3>
-              <p>提供多币种管理、国际汇款与消费相关服务；资费、监管实体和可用地区应以开户页及条款为准。</p>
-              <a
-                href="https://www.starryblu.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >官网直达 ↗</a
-              >
-            </article>
-            <article
-              class="module-card tool-card card-bank"
-              data-reveal
-              data-tilt
-            >
-              <h3>
-                招行万事达
-                <img src="https://api.iconify.design/logos:mastercard.svg" alt="" aria-hidden="true" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-                <img src="https://api.iconify.design/mingcute:openai-fill.svg" alt="" aria-hidden="true" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-              </h3>
-              <p>国内银行卡与信用卡服务，可用于符合发卡行规则的境外支付场景；外币交易、额度和费用请以发卡行说明为准。</p>
-              <a
-                href="https://www.cmbchina.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >官网直达 ↗</a
-              >
-            </article>
-            <article
-              class="module-card tool-card card-bank"
-              data-reveal
-              data-tilt
-            >
-              <h3>
-                蚂蚁银行
-                <img src="https://api.iconify.design/simple-icons:alipay.svg" alt="" aria-hidden="true" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-
-                <img src="https://api.iconify.design/twemoji:flag-hong-kong-sar-china.svg" alt="香港特别行政区区旗" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-              </h3>
-              <p>香港数字银行服务，适合有本地金融服务需求的用户；开户资格、资料要求和跨境服务范围以官方审核为准。</p>
-              <a
-                href="https://www.antbank.hk/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >官网直达 ↗</a
-              >
-            </article>
-            <article
-              class="module-card tool-card card-bank"
-              data-reveal
-              data-tilt
-            >
-              <h3>
-                Plasma One
-              </h3>
-              <p>隐私网络与数据安全工具，用于保护跨境运营中的设备和数据；它不是银行账户或支付服务的替代方案。</p>
-              <a
-                href="https://plasma1.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >官网直达 ↗</a
-              >
-            </article>
-            <article
-              class="module-card tool-card card-bank"
-              data-reveal
-              data-tilt
-            >
-              <h3>
-                Bybit
-                <img src="https://api.iconify.design/token-branded:bybit.svg" alt="" aria-hidden="true" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-              </h3>
-              <p>数字资产交易平台；不同司法辖区的产品、准入与限制不同，不应将其视作常规跨境资金通道。</p>
-              <a
-                href="https://www.bybit.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >官网直达 ↗</a
-              >
-            </article>
-          </div>
-        </section>
-        <section class="tool-category" id="phone">
-          <div class="category-heading">
+            <p>先解决钱能不能收进来、能不能花出去。覆盖香港数字银行、国际数字银行与国内卡。</p>
+            <span class="hub-count">9 个入口</span>
+            <b>进入模块 ↗</b>
+          </a>
+          <a class="hub-card card-phone" href="./phone.html" data-tilt>
             <p class="card-index">02 / 电话卡</p>
             <h3>连接、号码维护与验证码</h3>
-          </div>
-          <div class="module-grid tool-grid">
-            <article
-              class="module-card tool-card card-phone"
-              data-reveal
-              data-tilt
-            >
-              <h3>giffgaff</h3>
-              <p>英国预付费号码与套餐；适合需要独立号码的长期通信场景。使用前请核对漫游地区、账户要求与保号规则。</p>
-              <a
-                href="https://www.giffgaff.com/free-sim-cards"
-                target="_blank"
-                rel="noopener noreferrer"
-                >官网直达 ↗</a
-              >
-              <a href="./phone-cards/">直接购买 ↗</a>
-            </article>
-            <article
-              class="module-card tool-card card-phone"
-              data-reveal
-              data-tilt
-            >
-              <h3>Club SIM</h3>
-              <p>香港流动通信服务，适合本地连接与号码需求。选购时请先确认套餐是否含本地号码，而非仅提供流量。</p>
-              <a
-                href="https://www.clubsim.com.hk/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >官网直达 ↗</a
-              >
-            </article>
-            <article
-              class="module-card tool-card card-phone"
-              data-reveal
-              data-tilt
-            >
-              <h3>Ultra Mobile</h3>
-              <p>美国预付费移动通信服务，覆盖日常通话、短信与流量；跨境使用前请核对目的地漫游和资费说明。</p>
-              <a
-                href="https://www.ultramobile.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >官网直达 ↗</a
-              >
-            </article>
-            <article
-              class="module-card tool-card card-phone"
-              data-reveal
-              data-tilt
-            >
-              <h3>德国沃达丰</h3>
-              <p>欧洲通信服务，适合有当地连接需求的用户。号码维护、验证码可用性与境外漫游均以运营商最新规则为准。</p>
-              <a
-                href="https://www.vodafone.de/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >官网直达 ↗</a
-              >
-            </article>
-          </div>
-        </section>
-        <section class="tool-category" id="securities">
-          <div class="category-heading">
+            <p>号码是大多数账户的验证入口，也最容易被回收。看清保号条件再下单。</p>
+            <span class="hub-count">4 个入口</span>
+            <b>进入模块 ↗</b>
+          </a>
+          <a class="hub-card card-securities" href="./securities.html" data-tilt>
             <p class="card-index">03 / 海外证券</p>
-            <h3>海外证券与资产配置<small>仅作信息目录，不构成开户、投资、税务或法律建议。账户资格、可交易产品、税务义务与资金安排取决于居住地、税务身份及当地规则；请优先使用合法合规渠道，并以持牌机构和监管部门的最新说明为准。</small></h3>
-          </div>
-          <div class="module-grid tool-grid">
-
-            <article
-              class="module-card tool-card card-securities"
-              data-reveal
-              data-tilt
-            >
-              <h3>Charles Schwab International</h3>
-              <p>面向国际客户的证券服务入口；开户资格、账户类型和可交易产品需按居住地、税务身份及官方审核确认。</p>
-              <a
-                href="https://international.schwab.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >官网直达 ↗</a
-              >
-            </article>
-
-            <article
-              class="module-card tool-card card-securities"
-              data-reveal
-              data-tilt
-            >
-              <h3>
-                uSMART 盈立证券
-                <img src="https://api.iconify.design/ant-design:stock-outlined.svg" alt="uSMART" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-                <img src="https://api.iconify.design/twemoji:flag-hong-kong-sar-china.svg" alt="香港特别行政区区旗" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-              </h3>
-              <p>香港证券服务，覆盖港美股等市场与交易工具；开户资格、服务地区与跨境推广限制以持牌机构和当地规则为准。</p>
-            </article>
-
-            <article
-              class="module-card tool-card card-securities"
-              data-reveal
-              data-tilt
-            >
-              <h3>
-                BBAE
-              </h3>
-              <p>美国证券服务与投资工具入口；佣金、功能、开户资格和投资风险披露应以其官方文件及适用监管规则为准。</p>
-              <a
-                href="https://www.bbae.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >官网直达 ↗</a
-              >
-            </article>
-            <article
-              class="module-card tool-card card-securities"
-              data-reveal
-              data-tilt
-            >
-              <h3>
-                GigaMoney
-              </h3>
-              <p>多币种与跨境收付服务；支持地区、币种、收费和合规要求应在使用前通过官方渠道逐项确认。</p>
-              <a
-                href="https://www.gigamoney.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >官网直达 ↗</a
-              >
-            </article>
-          </div>
-        </section>
-        <section class="tool-category" id="ai-subscriptions">
-          <div class="category-heading">
+            <h3>海外证券与资产配置</h3>
+            <p>只做入口整理，不做推荐。资格、可交易产品与税务义务取决于居住地和税务身份。</p>
+            <span class="hub-count">4 个入口</span>
+            <b>进入模块 ↗</b>
+          </a>
+          <a class="hub-card card-bank" href="./ai-subscriptions.html" data-tilt>
             <p class="card-index">04 / AI 订阅</p>
-            <h3>AI 订阅<small>免责声明：本板块内容仅供技术研究与科普参考。鉴于跨境支付合规性及第三方欺诈风险，本站不为任何订阅渠道背书，请投资者提高防范意识，自行甄别。</small></h3>
-          </div>
-          <div class="module-grid tool-grid">
-            <article class="module-card tool-card card-securities" data-reveal data-tilt>
-              <h3>
-                代充服务
-                <img src="https://api.iconify.design/mingcute:openai-fill.svg" alt="OpenAI" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-              </h3>
-              <p>出海小白最省心的选择，包含代充与原号升级方案对比，避开繁琐的开卡审核。</p>
-            </article>
-            <article class="module-card tool-card card-securities" data-reveal data-tilt>
-              <h3>
-                iOS Apple Gift Card 内购
-                <img src="https://api.iconify.design/logos:apple.svg" alt="Apple" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-              </h3>
-              <p>通过美区/港区礼品卡充值 App Store 余额，走手机端 ChatGPT App 内购通道，不想折腾用户的最佳首选。</p>
-            </article>
-            <article class="module-card tool-card card-securities" data-reveal data-tilt>
-              <h3>
-                虚拟卡 / U卡支付
-                <img src="https://api.iconify.design/logos:mastercard.svg" alt="Mastercard" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-              </h3>
-              <p>支持加密货币充值的虚拟 U 卡实测订阅方案，包含详细的防风控账单地址与 IP 伪装注意事项。</p>
-            </article>
-            <article class="module-card tool-card card-securities" data-reveal data-tilt>
-              <h3>
-                Google Play / 安卓绑定
-                <img src="https://api.iconify.design/logos:google-play.svg" alt="Google Play" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
-              </h3>
-              <p>解决安卓生态下 Google Play 订阅报错的痛点，教你如何正确配置海外基础支付方式。</p>
-            </article>
-            <article class="module-card tool-card card-securities" data-reveal data-tilt>
-              <h3>合租/共享与促销</h3>
-              <p>聚合全网最火的热门促销五折福利与账号平台，提供高性价比的共享与合租避坑指南。</p>
-            </article>
-          </div>
-        </section>
-      </section>
-      <section
-        id="calendar"
-        class="calendar section-wrap"
-        aria-labelledby="calendar-title"
-      >
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">重大事项日历</p>
-          <h2 id="calendar-title">哪几天不适合动钱，提前知道。</h2>
-          <p class="section-copy">
-            议息决议、法案生效、申报截止与结算窗口。只收录官方已公布确切日期的事项，并按当天自动区分「待发生」与「已发生」。
-          </p>
+            <h3>订阅付不了款的几条路径</h3>
+            <p>按支付路径而非按服务整理：代充、礼品卡内购、虚拟卡、安卓绑定。</p>
+            <span class="hub-count">5 条路径</span>
+            <b>进入模块 ↗</b>
+          </a>
+          <a class="hub-card card-phone" href="./calendar.html" data-tilt>
+            <p class="card-index">05 / 重大事项日历</p>
+            <h3>哪几天不适合动钱</h3>
+            <p>议息决议、法案生效、申报截止与结算窗口，按日期排好并自动区分已发生与待发生。</p>
+            <span class="hub-count">25 条事项</span>
+            <b>进入模块 ↗</b>
+          </a>
+          <a class="hub-card card-securities" href="./legal.html" data-tilt>
+            <p class="card-index">06 / 法律法规</p>
+            <h3>以官方原文为准的合规入口</h3>
+            <p>外汇管理、境外所得申报、CRS 与反洗钱规则，全部指回官方来源，不用二手信息替代判断。</p>
+            <span class="hub-count">10 项制度</span>
+            <b>进入模块 ↗</b>
+          </a>
         </div>
-        <div
-          class="calendar-filters"
-          data-calendar-filters
-          role="group"
-          aria-label="按类别筛选事项"
-        ></div>
-        <div class="calendar-list" data-calendar-list>
-          <p class="calendar-loading">日历数据加载中…</p>
-        </div>
-        <details class="calendar-archive" hidden>
-          <summary>已发生 / 已生效的事项</summary>
-          <div class="calendar-list" data-calendar-archive></div>
-        </details>
-        <div class="calendar-watch">
-          <h3>没有确切日期，但要一直盯着</h3>
-          <p>
-            这几类事项不会提前排期，但一旦发生，会直接改变资金通道的可用性。
-          </p>
-          <ul class="calendar-watchlist" data-calendar-watchlist></ul>
-        </div>
-        <p class="calendar-foot" data-calendar-updated></p>
-        <p class="disclaimer">
-          本日历仅整理公开的机构日程与法规生效信息，不构成投资、税务或法律建议；决议与发布的具体时间以各机构最新公告为准。日期按所在辖区当地时间。
-        </p>
       </section>
       <section class="forum-promo section-wrap" aria-labelledby="forum-promo-title">
-        <a class="forum-promo-card" href="./community.html" data-reveal>
-          <div><p class="eyebrow">05 / 社区论坛</p><h2 id="forum-promo-title">把真实经验，留给下一位出发的人。</h2></div>
+        <a class="forum-promo-card" href="./community.html">
+          <div><p class="eyebrow">07 / 社区论坛</p><h2 id="forum-promo-title">把真实经验，留给下一位出发的人。</h2></div>
           <div class="forum-promo-action"><span>交流开户、保号与跨境生活的真实经验</span><b>进入论坛 ↗</b></div>
         </a>
       </section>
@@ -564,6 +153,5 @@
       defer
     ></script>
     <script src="app.js" defer></script>
-    <script src="js/calendar.js" defer></script>
   </body>
 </html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="海外证券与资产配置的信息目录：开户入口、资格口径与合规提醒，不构成投资建议。"
+    />
+    <title>海外证券 · 海外证券与资产配置 · Nomad Essentials</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="notice" data-notice>
+      <p>本页仅为信息目录，不构成开户、投资、税务或法律建议。</p>
+      <button type="button" aria-label="关闭提示" data-notice-close>×</button>
+    </div>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Nomad Essentials 首页"
+        ><span class="brand-mark">N</span><span>nomad essentials</span></a
+      ><button
+        class="menu-toggle"
+        type="button"
+        data-menu-toggle
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        菜单
+      </button>
+      <nav id="site-nav" class="site-nav" data-menu>
+        <a href="./index.html">首页</a>
+        <a href="./banking.html">银行卡</a>
+        <a href="./phone.html">电话卡</a>
+        <a href="./securities.html" aria-current="page">海外证券</a>
+        <a href="./calendar.html">重大事项</a>
+        <a href="./community.html">论坛</a>
+        <div class="nav-dropdown">
+          <button class="nav-cta nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="more-nav">
+            更多
+          </button>
+          <div id="more-nav" class="nav-dropdown-menu">
+            <a href="./ai-subscriptions.html">AI 订阅</a>
+            <a href="./phone-cards/">giffgaff</a>
+            <a href="./legal.html">法律法规</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="modules section-wrap" aria-labelledby="securities-title">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">03 / 海外证券</p>
+          <h2 id="securities-title">海外证券与资产配置</h2>
+          <p class="section-copy">
+            这里只做入口整理，不做推荐。账户资格、可交易产品、税务义务与资金安排取决于居住地、税务身份及当地规则，请优先使用合法合规渠道。
+          </p>
+        </div>
+        <div class="module-grid tool-grid">
+          <article class="module-card tool-card card-securities" data-tilt>
+            <h3>Charles Schwab International</h3>
+            <p>面向国际客户的证券服务入口；开户资格、账户类型和可交易产品需按居住地、税务身份及官方审核确认。</p>
+            <a href="https://international.schwab.com/" target="_blank" rel="noopener noreferrer">官网直达 ↗</a>
+          </article>
+          <article class="module-card tool-card card-securities" data-tilt>
+            <h3>
+              uSMART 盈立证券
+              <img src="https://api.iconify.design/ant-design:stock-outlined.svg" alt="uSMART" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
+              <img src="https://api.iconify.design/twemoji:flag-hong-kong-sar-china.svg" alt="香港特别行政区区旗" style="display: inline-block; height: 1em !important; width: 1em !important; vertical-align: middle; margin-left: 8px; flex-shrink: 0; object-fit: contain;" />
+            </h3>
+            <p>香港证券服务，覆盖港美股等市场与交易工具；开户资格、服务地区与跨境推广限制以持牌机构和当地规则为准。</p>
+          </article>
+          <article class="module-card tool-card card-securities" data-tilt>
+            <h3>BBAE</h3>
+            <p>美国证券服务与投资工具入口；佣金、功能、开户资格和投资风险披露应以其官方文件及适用监管规则为准。</p>
+            <a href="https://www.bbae.com/" target="_blank" rel="noopener noreferrer">官网直达 ↗</a>
+          </article>
+          <article class="module-card tool-card card-securities" data-tilt>
+            <h3>GigaMoney</h3>
+            <p>多币种与跨境收付服务；支持地区、币种、收费和合规要求应在使用前通过官方渠道逐项确认。</p>
+            <a href="https://www.gigamoney.com/" target="_blank" rel="noopener noreferrer">官网直达 ↗</a>
+          </article>
+        </div>
+        <p class="disclaimer">
+          仅作信息目录，不构成开户、投资、税务或法律建议。账户资格、可交易产品、税务义务与资金安排取决于居住地、税务身份及当地规则；请优先使用合法合规渠道，并以持牌机构和监管部门的最新说明为准。
+        </p>
+      </section>
+    </main>
+    <footer>
+      <a class="brand" href="./index.html"
+        ><span class="brand-mark">N</span><span>nomad essentials</span></a
+      >
+      <p>仅作信息整理，不构成开户、投资、法律或税务建议。</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>

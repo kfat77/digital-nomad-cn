@@ -93,12 +93,12 @@ mm.add({
     }),
   });
 
-  ScrollTrigger.batch('.roadmap-node', {
+  ScrollTrigger.batch('.hub-card', {
     start: 'top 82%',
     once: true,
     interval: 0.1,
     batchMax: 3,
-    onEnter: (steps) => gsap.from(steps, {
+    onEnter: (cards) => gsap.from(cards, {
       autoAlpha: 0,
       y: 40,
       duration: 0.68,

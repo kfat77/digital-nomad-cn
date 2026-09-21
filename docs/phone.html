@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="号码、保号与验证码工具目录：英国、香港、美国与欧洲预付费号码方案，以及保号规则提醒。"
+    />
+    <title>电话卡 · 连接、号码维护与验证码 · Nomad Essentials</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="notice" data-notice>
+      <p>保号规则与漫游资费以运营商最新说明为准，办卡前请先确认号码归属地。</p>
+      <button type="button" aria-label="关闭提示" data-notice-close>×</button>
+    </div>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Nomad Essentials 首页"
+        ><span class="brand-mark">N</span><span>nomad essentials</span></a
+      ><button
+        class="menu-toggle"
+        type="button"
+        data-menu-toggle
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        菜单
+      </button>
+      <nav id="site-nav" class="site-nav" data-menu>
+        <a href="./index.html">首页</a>
+        <a href="./banking.html">银行卡</a>
+        <a href="./phone.html" aria-current="page">电话卡</a>
+        <a href="./securities.html">海外证券</a>
+        <a href="./calendar.html">重大事项</a>
+        <a href="./community.html">论坛</a>
+        <div class="nav-dropdown">
+          <button class="nav-cta nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="more-nav">
+            更多
+          </button>
+          <div id="more-nav" class="nav-dropdown-menu">
+            <a href="./ai-subscriptions.html">AI 订阅</a>
+            <a href="./phone-cards/">giffgaff</a>
+            <a href="./legal.html">法律法规</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="modules section-wrap" aria-labelledby="phone-title">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">02 / 电话卡</p>
+          <h2 id="phone-title">连接、号码维护与验证码</h2>
+          <p class="section-copy">
+            号码是大多数账户的验证入口，也是最容易被回收的一环。选购时先看清三件事：是不是本地号码、保号需要什么条件、漫游是否可用，而不是只看流量多少。
+          </p>
+        </div>
+        <div class="module-grid tool-grid">
+          <article class="module-card tool-card card-phone" data-tilt>
+            <h3>giffgaff</h3>
+            <p>英国预付费号码与套餐；适合需要独立号码的长期通信场景。使用前请核对漫游地区、账户要求与保号规则。</p>
+            <a href="https://www.giffgaff.com/free-sim-cards" target="_blank" rel="noopener noreferrer">官网直达 ↗</a>
+            <a href="./phone-cards/">直接购买 ↗</a>
+          </article>
+          <article class="module-card tool-card card-phone" data-tilt>
+            <h3>Club SIM</h3>
+            <p>香港流动通信服务，适合本地连接与号码需求。选购时请先确认套餐是否含本地号码，而非仅提供流量。</p>
+            <a href="https://www.clubsim.com.hk/" target="_blank" rel="noopener noreferrer">官网直达 ↗</a>
+          </article>
+          <article class="module-card tool-card card-phone" data-tilt>
+            <h3>Ultra Mobile</h3>
+            <p>美国预付费移动通信服务，覆盖日常通话、短信与流量；跨境使用前请核对目的地漫游和资费说明。</p>
+            <a href="https://www.ultramobile.com/" target="_blank" rel="noopener noreferrer">官网直达 ↗</a>
+          </article>
+          <article class="module-card tool-card card-phone" data-tilt>
+            <h3>德国沃达丰</h3>
+            <p>欧洲通信服务，适合有当地连接需求的用户。号码维护、验证码可用性与境外漫游均以运营商最新规则为准。</p>
+            <a href="https://www.vodafone.de/" target="_blank" rel="noopener noreferrer">官网直达 ↗</a>
+          </article>
+        </div>
+      </section>
+      <section class="principle section-wrap" data-reveal>
+        <p>号码失效往往没有提前通知，只有扣款失败或验证码收不到的时候才会发现。</p>
+        <p>把保号周期和续费方式记下来，比多办一张卡更重要。</p>
+      </section>
+    </main>
+    <footer>
+      <a class="brand" href="./index.html"
+        ><span class="brand-mark">N</span><span>nomad essentials</span></a
+      >
+      <p>仅作信息整理，不构成开户、投资、法律或税务建议。</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>

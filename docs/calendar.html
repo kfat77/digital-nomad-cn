@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="重大事项日历：议息决议、法案生效、申报截止与资金结算窗口，只收录官方已公布确切日期的事项。"
+    />
+    <title>重大事项日历 · 议息、法案与结算窗口 · Nomad Essentials</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="notice" data-notice>
+      <p>日期以各机构最新公告为准，本页不构成投资、税务或法律建议。</p>
+      <button type="button" aria-label="关闭提示" data-notice-close>×</button>
+    </div>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Nomad Essentials 首页"
+        ><span class="brand-mark">N</span><span>nomad essentials</span></a
+      ><button
+        class="menu-toggle"
+        type="button"
+        data-menu-toggle
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        菜单
+      </button>
+      <nav id="site-nav" class="site-nav" data-menu>
+        <a href="./index.html">首页</a>
+        <a href="./banking.html">银行卡</a>
+        <a href="./phone.html">电话卡</a>
+        <a href="./securities.html">海外证券</a>
+        <a href="./calendar.html" aria-current="page">重大事项</a>
+        <a href="./community.html">论坛</a>
+        <div class="nav-dropdown">
+          <button class="nav-cta nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="more-nav">
+            更多
+          </button>
+          <div id="more-nav" class="nav-dropdown-menu">
+            <a href="./ai-subscriptions.html">AI 订阅</a>
+            <a href="./phone-cards/">giffgaff</a>
+            <a href="./legal.html">法律法规</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="modules section-wrap" aria-labelledby="calendar-title">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">05 / 重大事项日历</p>
+          <h2 id="calendar-title">哪几天不适合动钱，提前知道。</h2>
+          <p class="section-copy">
+            议息决议、法案生效、申报截止与结算窗口。只收录官方已公布确切日期的事项，并按当天自动区分「待发生」与「已发生」。
+          </p>
+        </div>
+        <div
+          class="calendar-filters"
+          data-calendar-filters
+          role="group"
+          aria-label="按类别筛选事项"
+        ></div>
+        <div class="calendar-list" data-calendar-list>
+          <p class="calendar-loading">日历数据加载中…</p>
+        </div>
+        <details class="calendar-archive" hidden>
+          <summary>已发生 / 已生效的事项</summary>
+          <div class="calendar-list" data-calendar-archive></div>
+        </details>
+        <div class="calendar-watch">
+          <h3>没有确切日期，但要一直盯着</h3>
+          <p>这几类事项不会提前排期，但一旦发生，会直接改变资金通道的可用性。</p>
+          <ul class="calendar-watchlist" data-calendar-watchlist></ul>
+        </div>
+        <p class="calendar-foot" data-calendar-updated></p>
+        <p class="disclaimer">
+          本日历仅整理公开的机构日程与法规生效信息，不构成投资、税务或法律建议；决议与发布的具体时间以各机构最新公告为准。日期按所在辖区当地时间。
+        </p>
+      </section>
+    </main>
+    <footer>
+      <a class="brand" href="./index.html"
+        ><span class="brand-mark">N</span><span>nomad essentials</span></a
+      >
+      <p>仅作信息整理，不构成开户、投资、法律或税务建议。</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="app.js" defer></script>
+    <script src="js/calendar.js" defer></script>
+  </body>
+</html>
