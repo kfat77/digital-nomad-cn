@@ -43,6 +43,7 @@ for (const file of PAGES) {
   const current = (html.match(/aria-current="page"/g) ?? []).length;
   if (current !== 1) fail(`${file} must mark exactly one current navigation item (found ${current})`);
   if (!html.includes('class="site-nav"')) fail(`${file} is missing the shared site navigation`);
+  if (html.includes('重大事项')) fail(`${file} still uses the old calendar module name`);
 }
 
 for (const file of PAGES) {
@@ -88,15 +89,25 @@ for (const [file, expected, label] of MODULES) {
   if (!html.includes('section-wrap')) fail(`${file} must use the shared section layout`);
 }
 
-// Calendar page renders from local JSON only, and keeps past events collapsed.
+// 钱进日历 must be a month-grid board driven by local JSON, with both past and future dates.
 const calendarPage = sources.get('docs/calendar.html');
 if (!calendarPage.includes('js/calendar.js')) fail('Calendar page does not load its renderer');
-if (!calendarPage.includes('data-calendar-list') || !calendarPage.includes('data-calendar-watchlist')) {
-  fail('Calendar page is missing its list containers');
+for (const marker of ['data-calendar-grid', 'data-calendar-month', 'data-calendar-filters',
+  'data-calendar-watchlist', 'data-calendar-legend', 'data-calendar-today']) {
+  if (!calendarPage.includes(marker)) fail(`Calendar page is missing ${marker}`);
 }
+if (/class="calendar-item/.test(calendarPage)) fail('Calendar page must not fall back to the old list layout');
+if (!calendarPage.includes('钱进日历')) fail('Calendar page must carry its renamed title');
+
+const calendarScript = await readFile(resolve('docs/js/calendar.js'), 'utf8');
+for (const marker of ['cal-cell', 'renderMonth', 'pop-up', 'data-calendar-grid']) {
+  if (!calendarScript.includes(marker)) fail(`Calendar renderer is missing ${marker}`);
+}
+if (calendarScript.includes('calendar-item')) fail('Calendar renderer still builds the removed list items');
+
 const calendarData = JSON.parse(await readFile(resolve('docs/data/calendar.json'), 'utf8'));
 const events = Array.isArray(calendarData.items) ? calendarData.items : [];
-if (events.length < 20) fail(`Calendar data looks too thin (${events.length} events)`);
+if (events.length < 60) fail(`Calendar data looks too thin (${events.length} events)`);
 for (const event of events) {
   for (const key of ['date', 'title', 'category', 'region', 'detail', 'impact']) {
     if (!event[key]) fail(`Calendar event is missing "${key}": ${JSON.stringify(event).slice(0, 80)}`);
@@ -108,6 +119,14 @@ for (const event of events) {
 if (!Array.isArray(calendarData.watchlist) || calendarData.watchlist.length < 3) {
   fail('Calendar watchlist must describe the undated risk items');
 }
+// The schedule must run well past the publication year, not just list past events.
+const dates = events.map((event) => event.date).sort();
+if (dates[0] > '2026-01-31') fail(`Calendar starts too late: ${dates[0]}`);
+if (dates[dates.length - 1] < '2027-12-01') {
+  fail(`Calendar must carry the confirmed next-year schedule (ends ${dates[dates.length - 1]})`);
+}
+const futureCount = events.filter((event) => event.date > '2026-12-31').length;
+if (futureCount < 40) fail(`Calendar needs a full next-year schedule (found ${futureCount} items)`);
 
 // Forum page keeps its publishing flow plus the new browsing tools.
 const forumPage = sources.get('docs/community.html');
@@ -146,7 +165,7 @@ const styles = await readFile(resolve('docs/styles.css'), 'utf8');
 for (const legacySelector of ['[data-reveal]', '.is-visible', 'hero-enter', '.roadmap-']) {
   if (styles.includes(legacySelector)) fail(`Legacy CSS selector remains: ${legacySelector}`);
 }
-for (const required of ['.hub-grid', '.hub-card', '.calendar-item', '.forum-stats', '.topic-toggle', '.nav-dropdown-menu']) {
+for (const required of ['.hub-grid', '.hub-card', '.cal-cell', '.cal-pop', '.forum-stats', '.topic-toggle', '.nav-dropdown-menu']) {
   if (!styles.includes(required)) fail(`Shared stylesheet is missing ${required}`);
 }
 

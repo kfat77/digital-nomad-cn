@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="重大事项日历：议息决议、法案生效、申报截止与资金结算窗口，只收录官方已公布确切日期的事项。"
+      content="钱进日历：议息决议、法案生效、申报截止与资金结算窗口，覆盖 2026 与 2027 全年官方日程，整年月历视图，把鼠标停在日期方块上即可展开当天全部事项。"
     />
-    <title>重大事项日历 · 议息、法案与结算窗口 · Nomad Essentials</title>
+    <title>钱进日历 · 议息、法案与结算窗口 · Nomad Essentials</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="calendar-page">
     <div class="notice" data-notice>
       <p>日期以各机构最新公告为准，本页不构成投资、税务或法律建议。</p>
       <button type="button" aria-label="关闭提示" data-notice-close>×</button>
@@ -32,7 +32,7 @@
         <a href="./banking.html">银行卡</a>
         <a href="./phone.html">电话卡</a>
         <a href="./securities.html">海外证券</a>
-        <a href="./calendar.html" aria-current="page">重大事项</a>
+        <a href="./calendar.html" aria-current="page">钱进日历</a>
         <a href="./community.html">论坛</a>
         <div class="nav-dropdown">
           <button class="nav-cta nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="more-nav">
@@ -47,13 +47,27 @@
       </nav>
     </header>
     <main>
-      <section class="modules section-wrap" aria-labelledby="calendar-title">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">05 / 重大事项日历</p>
-          <h2 id="calendar-title">哪几天不适合动钱，提前知道。</h2>
-          <p class="section-copy">
-            议息决议、法案生效、申报截止与结算窗口。只收录官方已公布确切日期的事项，并按当天自动区分「待发生」与「已发生」。
-          </p>
+      <section class="calendar-hero section-wrap" aria-labelledby="calendar-hero-title">
+        <p class="eyebrow">05 / 钱进日历</p>
+        <h1 id="calendar-hero-title">哪天不适合动钱，<br />翻一眼就知道。</h1>
+        <p class="calendar-hero-copy">
+          议息决议、法案生效、申报截止与结算窗口，覆盖 2026 与 2027 全年已由官方机构公布确切日期的日程。
+          把鼠标停在任意日期方块上，那块会放大并展开当天全部事项。
+        </p>
+        <ul class="calendar-stats">
+          <li><b data-calendar-total>—</b><span>条已排期事项</span></li>
+          <li><b data-calendar-span>—</b><span>覆盖区间</span></li>
+          <li><b data-calendar-next>—</b><span>下一条待发生</span></li>
+        </ul>
+      </section>
+      <section class="calendar-board section-wrap" aria-labelledby="calendar-month">
+        <div class="calendar-toolbar">
+          <div class="calendar-nav">
+            <button class="calendar-nav-btn" type="button" data-calendar-prev aria-label="上一个月">←</button>
+            <p class="calendar-month" id="calendar-month" data-calendar-month>—</p>
+            <button class="calendar-nav-btn" type="button" data-calendar-next aria-label="下一个月">→</button>
+          </div>
+          <button class="calendar-jump" type="button" data-calendar-today>回到今天</button>
         </div>
         <div
           class="calendar-filters"
@@ -61,13 +75,18 @@
           role="group"
           aria-label="按类别筛选事项"
         ></div>
-        <div class="calendar-list" data-calendar-list>
+        <div class="calendar-weekdays" aria-hidden="true">
+          <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+        </div>
+        <div class="calendar-grid" data-calendar-grid>
           <p class="calendar-loading">日历数据加载中…</p>
         </div>
-        <details class="calendar-archive" hidden>
-          <summary>已发生 / 已生效的事项</summary>
-          <div class="calendar-list" data-calendar-archive></div>
-        </details>
+        <div class="calendar-legend" data-calendar-legend></div>
+        <p class="calendar-hint">
+          方块里的圆点代表事项类别，圆点越多说明那天越挤。电脑上把鼠标停在方块上，手机上点一下方块。
+        </p>
+      </section>
+      <section class="section-wrap calendar-aside">
         <div class="calendar-watch">
           <h3>没有确切日期，但要一直盯着</h3>
           <p>这几类事项不会提前排期，但一旦发生，会直接改变资金通道的可用性。</p>
