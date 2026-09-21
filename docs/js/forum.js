@@ -192,30 +192,31 @@
     if (accountCard) accountCard.hidden = true;
     if (accountNote) {
       accountNote.hidden = false;
-      accountNote.textContent = message || ACCOUNT_NOTE;
+      // 面向访客只说明现状,不给部署指引;排查线索留给控制台。
+      accountNote.textContent = ACCOUNT_NOTE;
     }
+    if (message) console.warn('[forum] ' + message);
     setPostAs('匿名发言', isError);
   }
 
   async function loadIdentity() {
     if (!window.sb) {
-      degradeIdentity('论坛服务暂未连接，现在只能浏览，无法发言。', true);
+      degradeIdentity('未找到 Supabase 客户端,论坛只能浏览。', true);
       return;
     }
     const { data, error } = await window.sb.rpc('forum_whoami');
     if (error) {
       if (isMissingFunction(error)) {
-        degradeIdentity('账户服务还没启用（数据库里缺少 forum_whoami 函数），现在退回匿名发言。'
-          + '把 supabase/forum-identity.sql 放进 Supabase SQL Editor 执行一次即可启用。');
+        degradeIdentity('数据库里缺少 forum_whoami 函数。把 supabase/forum-identity.sql '
+          + '放进 Supabase SQL Editor 执行一次即可启用按地址自动建账户。');
       } else {
-        degradeIdentity('暂时无法识别你的网络地址：' + (error.message || '请稍后重试。')
-          + ' 现在退回匿名发言。', true);
+        degradeIdentity('识别网络地址失败:' + (error.message || '未知错误'), true);
       }
       return;
     }
     const row = Array.isArray(data) ? data[0] : data;
     if (!row) {
-      degradeIdentity('暂时无法识别你的网络地址，现在退回匿名发言。', true);
+      degradeIdentity('forum_whoami 返回空结果,已退回匿名发言。', true);
       return;
     }
     identity = row;
