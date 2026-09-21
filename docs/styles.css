@@ -39,18 +39,20 @@
 /* Section intro copy shared by the roadmap and calendar modules. */
 .section-copy{max-width:62ch;margin:18px 0 0;color:var(--muted);font-size:17px}
 
-/* Learning roadmap: six ordered steps, same card language as the tool directory. */
+/* Learning roadmap: a connected node path, each step a bubble joined by a dashed rail. */
 .roadmap{padding-top:110px;padding-bottom:110px}
-.roadmap-list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:45px 0 0;padding:0;list-style:none}
-.roadmap-step{display:flex;flex-direction:column;min-height:340px;padding:26px 26px 24px;border-radius:var(--radius);border:1px solid var(--line);background:#fff;transition:box-shadow .28s ease}
-.roadmap-step:hover{box-shadow:0 22px 35px rgba(29,74,37,.14)}
-.roadmap-index{margin:0 0 14px;font-size:13px;font-weight:800;color:#588145;letter-spacing:.06em}
-.roadmap-step h3{margin:0 0 11px;font-size:24px;letter-spacing:-.05em}
-.roadmap-goal{margin:0 0 18px;color:#42604c;font-size:14.5px}
-.roadmap-actions{margin:0 0 18px;padding:0;list-style:none;display:grid;gap:9px}
-.roadmap-actions li{position:relative;padding-left:17px;font-size:14px;color:var(--muted)}
-.roadmap-actions li:before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--lime)}
-.roadmap-output{margin:auto 0 0;padding-top:16px;border-top:1px solid var(--line);font-size:13px;font-weight:700;color:#3f6b16}
+.roadmap-path{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin:56px 0 0;padding:0;list-style:none}
+.roadmap-node{position:relative;display:flex;flex-direction:column;padding:0 6px}
+.roadmap-dot{position:relative;z-index:1;display:grid;place-items:center;width:78px;height:78px;margin:0 auto 16px;border:2px solid var(--line);border-radius:50%;background:#fff;color:#102a00;font-size:23px;font-weight:800;letter-spacing:-.05em;transition:border-color .25s ease,background .25s ease,transform .25s ease}
+.roadmap-node:first-child .roadmap-dot{border-color:#8fd45f;background:var(--lime)}
+.roadmap-node:hover .roadmap-dot{border-color:#8fd45f;background:var(--mint);transform:translateY(-3px)}
+.roadmap-node:not(:last-child):after{content:"";position:absolute;top:38px;left:calc(50% + 48px);width:calc(100% - 96px);border-top:2px dashed #c3d7b9}
+.roadmap-label{margin:0 0 7px;color:#588145;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-align:center}
+.roadmap-node h3{margin:0 0 14px;font-size:19px;line-height:1.2;letter-spacing:-.04em;text-align:center}
+.roadmap-actions{margin:0 0 16px;padding:0;list-style:none;display:grid;gap:8px}
+.roadmap-actions li{position:relative;padding-left:15px;font-size:13px;line-height:1.45;color:var(--muted)}
+.roadmap-actions li:before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--lime)}
+.roadmap-output{margin:auto 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;font-weight:700;line-height:1.4;color:#3f6b16}
 
 /* Major events calendar: official release dates and rule effective dates only. */
 .calendar{padding-top:0;padding-bottom:110px}
@@ -97,8 +99,12 @@
 .calendar-loading,.calendar-error{margin:0;padding:30px;border:1px dashed var(--line);border-radius:20px;color:var(--muted);font-size:14px}
 
 @media(max-width:700px){.roadmap{padding-top:75px;padding-bottom:75px}
-.roadmap-list{grid-template-columns:1fr;margin-top:30px}
-.roadmap-step{min-height:0}
+.roadmap-path{grid-template-columns:1fr;gap:26px;margin-top:34px}
+.roadmap-node{padding:0}
+.roadmap-dot{width:66px;height:66px;margin:0 0 14px;font-size:20px}
+.roadmap-node:not(:last-child):after{top:76px;left:32px;bottom:-20px;width:0;height:auto;border-top:0;border-left:2px dashed #c3d7b9}
+.roadmap-label,.roadmap-node h3{text-align:left}
+.roadmap-node h3{font-size:21px}
 .calendar{padding-bottom:75px}
 .calendar-item{grid-template-columns:1fr;gap:14px;padding:22px}
 .calendar-date{flex-direction:row;align-items:baseline;gap:9px}

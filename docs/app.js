@@ -93,7 +93,7 @@ mm.add({
     }),
   });
 
-  ScrollTrigger.batch('.roadmap-step', {
+  ScrollTrigger.batch('.roadmap-node', {
     start: 'top 82%',
     once: true,
     interval: 0.1,
