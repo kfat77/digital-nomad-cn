@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="X Premium 与 Telegram Premium 订阅代购：选平台、挑套餐、填目标账号即可下单，订单与进度可在本站查询。"
+    />
+    <title>订阅商城 · X / TG Premium · Nomad Essentials</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="notice" data-notice>
+      <p>下单只需公开用户名，任何时候都不要把密码或验证码交给别人。</p>
+      <button type="button" aria-label="关闭提示" data-notice-close>×</button>
+    </div>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Nomad Essentials 首页"
+        ><span class="brand-mark">N</span><span>nomad essentials</span></a
+      ><button
+        class="menu-toggle"
+        type="button"
+        data-menu-toggle
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        菜单
+      </button>
+      <nav id="site-nav" class="site-nav" data-menu>
+        <a href="./index.html">首页</a>
+        <a href="./banking.html">银行卡</a>
+        <a href="./phone.html">电话卡</a>
+        <a href="./securities.html">海外证券</a>
+        <a href="./calendar.html">钱进日历</a>
+        <a href="./community.html">论坛</a>
+        <div class="nav-dropdown">
+          <button class="nav-cta nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="more-nav">
+            更多
+          </button>
+          <div id="more-nav" class="nav-dropdown-menu">
+            <a href="./meme.html">Meme 雷达</a>
+            <a href="./ai-subscriptions.html">AI 订阅</a>
+            <a href="./subscriptions.html" aria-current="page">订阅商城</a>
+            <a href="./phone-cards/">giffgaff</a>
+            <a href="./legal.html">法律法规</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="hero subs-hero">
+        <p class="eyebrow" data-reveal>08 / 订阅商城</p>
+        <h1 data-reveal>订阅买不到，<br />先把路径理顺。</h1>
+        <p class="hero-copy" data-reveal>
+          X Premium 与 Telegram Premium 两个平台，按月份挑套餐，填公开用户名即可下单。
+          价格实时取自后台配置，提交后拿到订单号与查询码，进度随时可查。
+        </p>
+        <ul class="subs-stats" data-reveal>
+          <li>接单状态<b data-subs-accepting aria-live="polite">读取中…</b></li>
+          <li>在售套餐<b data-subs-plan-count aria-live="polite">—</b></li>
+          <li>价格来源<b data-subs-price-source>后台配置</b></li>
+          <li>取数时间<b data-subs-updated aria-live="polite">—</b></li>
+        </ul>
+      </section>
+
+      <section class="section-wrap subs-board" aria-labelledby="subs-choose-title">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">01 / 选择平台与套餐</p>
+          <h2 id="subs-choose-title">先定平台，再看周期。</h2>
+          <p class="section-copy">
+            同一平台不同周期的单价差别很大，周期越长通常越划算，但也意味着更长的等待成本。
+            标价与是否支持人民币结算，都以这里显示的为准。
+          </p>
+        </div>
+
+        <div class="subs-platforms" role="tablist" aria-label="选择平台" data-subs-platforms>
+          <button
+            type="button"
+            class="subs-platform is-active"
+            role="tab"
+            aria-selected="true"
+            data-subs-platform="x"
+          >
+            <span class="subs-platform-mark" aria-hidden="true">X</span>
+            <span class="subs-platform-copy">
+              <small>01 / 02</small>
+              <strong>X Premium</strong>
+              <span>蓝标、长文、编辑与更少广告</span>
+            </span>
+          </button>
+          <button
+            type="button"
+            class="subs-platform"
+            role="tab"
+            aria-selected="false"
+            data-subs-platform="tg"
+          >
+            <span class="subs-platform-mark subs-platform-mark-tg" aria-hidden="true">✈</span>
+            <span class="subs-platform-copy">
+              <small>02 / 02</small>
+              <strong>TG Premium</strong>
+              <span>更大上传、更快下载与专属表情</span>
+            </span>
+          </button>
+        </div>
+
+        <div class="subs-currency-row" data-reveal>
+          <span class="subs-currency-label">结算币种</span>
+          <div class="subs-currency" role="group" aria-label="结算币种" data-subs-currency-group>
+            <button type="button" class="subs-currency-btn is-active" data-subs-currency="cny">人民币 ¥</button>
+            <button type="button" class="subs-currency-btn" data-subs-currency="usdt">USDT</button>
+          </div>
+          <span class="subs-currency-hint" data-subs-currency-hint aria-live="polite"></span>
+        </div>
+
+        <div class="subs-plans" data-subs-plans aria-live="polite">
+          <div class="subs-loading">正在读取套餐配置…</div>
+        </div>
+      </section>
+
+      <section class="section-wrap subs-order" aria-labelledby="subs-order-title">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">02 / 填写信息</p>
+          <h2 id="subs-order-title">只需要公开用户名。</h2>
+          <p class="section-copy">
+            需要开通的账号写公开用户名就行，任何情况下都不需要密码、验证码或二次验证授权。
+            联系方式用于进度沟通，填你能收到消息的那个即可。
+          </p>
+        </div>
+
+        <div class="subs-selection" data-reveal>
+          <div>
+            <p class="subs-selection-label">当前选择</p>
+            <h3 data-subs-selection>请先在上方选一个套餐</h3>
+          </div>
+          <div class="subs-selection-price">
+            <p class="subs-selection-label">应付金额</p>
+            <strong data-subs-total aria-live="polite">—</strong>
+          </div>
+        </div>
+
+        <form class="subs-form" data-subs-form novalidate>
+          <div class="form-row">
+            <label for="subs-account">目标账号 <span class="req">*</span></label>
+            <input
+              type="text"
+              id="subs-account"
+              name="service_account"
+              autocomplete="off"
+              maxlength="64"
+              placeholder="例如 @yourname（仅公开用户名，不要填密码）"
+              required
+            />
+          </div>
+          <div class="form-row">
+            <label for="subs-contact">联系方式 <span class="req">*</span></label>
+            <input
+              type="text"
+              id="subs-contact"
+              name="customer_contact"
+              autocomplete="off"
+              maxlength="80"
+              placeholder="Telegram / 邮箱 / 手机号，任选其一"
+              required
+            />
+          </div>
+          <div class="form-row">
+            <label for="subs-email">常用邮箱（选填）</label>
+            <input
+              type="email"
+              id="subs-email"
+              name="customer_email"
+              autocomplete="off"
+              maxlength="100"
+              placeholder="用于接收订单进度"
+            />
+          </div>
+          <div class="form-row">
+            <label>数量</label>
+            <div class="qty-row">
+              <div class="qty-control">
+                <button type="button" data-subs-qty-minus aria-label="减少">−</button>
+                <input type="number" value="1" min="1" max="10" data-subs-qty readonly />
+                <button type="button" data-subs-qty-plus aria-label="增加">+</button>
+              </div>
+              <span class="subs-qty-hint">同一账号多份请分开下单，便于逐个处理</span>
+            </div>
+          </div>
+          <div class="subs-error" data-subs-error role="alert"></div>
+          <div class="submit-row">
+            <button type="submit" class="button button-primary" data-subs-submit>提交订单</button>
+          </div>
+        </form>
+
+        <div class="subs-success" data-subs-success>
+          <div class="category-heading">
+            <p class="card-index">订单已创建</p>
+            <h3>请保存以下信息</h3>
+          </div>
+          <div class="code-pair">
+            <div class="code-card">
+              <p class="label">订单号</p>
+              <p class="code" data-subs-order-number>—</p>
+            </div>
+            <div class="code-card">
+              <p class="label">查询码</p>
+              <p class="code" data-subs-tracking-code>—</p>
+            </div>
+          </div>
+          <p class="success-hint" data-subs-success-hint>
+            订单已进入后台，接下来会有人核对信息并联系你完成支付。
+          </p>
+          <div class="subs-pay-note" data-subs-pay-note hidden></div>
+        </div>
+      </section>
+
+      <section class="section-wrap subs-lookup" aria-labelledby="subs-lookup-title">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">03 / 查询进度</p>
+          <h2 id="subs-lookup-title">订单号和查询码，都在你手上。</h2>
+          <p class="section-copy">
+            两个都对得上才会返回结果。这里只返回状态与交付信息，不返回联系方式等隐私字段。
+          </p>
+        </div>
+        <form class="subs-lookup-form" data-subs-lookup-form>
+          <div class="form-row">
+            <label for="subs-lookup-number">订单号</label>
+            <input type="text" id="subs-lookup-number" name="order_number" autocomplete="off" maxlength="40" placeholder="例如 X-20260924-0001" required />
+          </div>
+          <div class="form-row">
+            <label for="subs-lookup-code">查询码</label>
+            <input type="text" id="subs-lookup-code" name="tracking_code" autocomplete="off" maxlength="12" placeholder="下单时生成的 6 位查询码" required />
+          </div>
+          <div class="submit-row">
+            <button type="submit" class="button button-primary" data-subs-lookup-submit>查询</button>
+          </div>
+        </form>
+        <div class="subs-lookup-result" data-subs-lookup-result aria-live="polite">
+          <p class="subs-lookup-empty">查询结果会显示在这里。</p>
+        </div>
+      </section>
+
+      <section class="section-wrap subs-direct" aria-labelledby="subs-direct-title">
+        <div class="subs-direct-card" data-reveal>
+          <div>
+            <p class="eyebrow">04 / 自助下单</p>
+            <h2 id="subs-direct-title">想自己走完全程，也可以。</h2>
+            <p class="subs-direct-copy">
+              本站只做信息整理与订单中转，不承诺任何第三方服务方的处理时效。
+              如果更愿意在服务方页面自助完成，下面这个入口带返佣参数，价格与你直接访问一致。
+            </p>
+          </div>
+          <div class="subs-direct-action">
+            <a class="button button-primary" data-subs-direct href="https://ronvip.pages.dev/?ref=RP39040825423J2A5C" target="_blank" rel="noopener noreferrer"
+              >前往服务方页面 ↗</a
+            >
+            <span>第三方页面，资质与条款以其实际规则为准</span>
+          </div>
+        </div>
+        <p class="disclaimer">
+          免责声明：本模块仅提供订单登记与信息整理，不代任何平台销售官方资格，也不构成对第三方服务的担保或推荐。
+          X Premium 与 Telegram Premium 均为对应平台方提供的付费服务，最终资格、功能与风控判定以平台实际规则为准。
+          任何以「客服」名义索要账号密码、登录验证码或要求远程控制设备的行为，都应直接拒绝。
+          下单前请自行确认第三方服务方的可靠性与退款条款。
+        </p>
+      </section>
+    </main>
+    <footer>
+      <a class="brand" href="./index.html"
+        ><span class="brand-mark">N</span><span>nomad essentials</span></a
+      >
+      <p>仅作信息整理，不构成开户、投资、法律或税务建议。</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+    <script src="app.js" defer></script>
+    <script src="js/config.js" defer></script>
+    <script src="js/supabase-client.js" defer></script>
+    <script src="js/subscriptions.js" defer></script>
+  </body>
+</html>

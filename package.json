@@ -7,9 +7,13 @@
     "check": "node scripts/check-site.mjs",
     "sitemap": "node scripts/generate-sitemap.js",
     "bump:sw": "node scripts/bump-sw-cache.js",
-    "serve": "python -m http.server 4173 --directory docs"
+    "serve": "python -m http.server 4173 --directory docs",
+    "verify": "node scripts/verify-behaviour.mjs"
   },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "jsdom": "^27.0.0"
   }
 }

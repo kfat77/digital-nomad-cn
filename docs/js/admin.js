@@ -31,7 +31,82 @@
   var saveSettingsBtn = document.getElementById('save-settings-btn');
   var settingsSaved = document.getElementById('settings-saved');
 
-  var productNameMap = { card: 'giffgaff 电话卡', recharge: '10英镑充值券' };
+  var productNameMap = {
+    card: 'giffgaff 电话卡',
+    recharge: '10英镑充值券',
+    x_premium: 'X Premium',
+    tg_premium: 'TG Premium'
+  };
+
+  // 订阅类套餐代码 -> 可读周期
+  var planLabelMap = {
+    x_3m: '3 个月',
+    x_6m: '6 个月',
+    x_12m: '12 个月',
+    x_12m_plus: 'Premium+ 12 个月',
+    tg_3m: '3 个月',
+    tg_6m: '6 个月',
+    tg_12m: '12 个月'
+  };
+
+  // 订阅类产品没有实物，交付方式是「开通账号」而不是寄快递
+  function isDigital(order) {
+    return order && (order.product_type === 'x_premium' || order.product_type === 'tg_premium');
+  }
+
+  function productLabel(order) {
+    if (!order) return '';
+    var base = productNameMap[order.product_type] || order.product_type || '订单';
+    var plan = planLabelMap[order.plan_code];
+    return plan ? base + ' · ' + plan : base;
+  }
+
+  // 金额带币种：用 USDT 结算的订单不能标成人民币
+  function moneyText(order, amount) {
+    if (amount === null || amount === undefined) return '—';
+    if (order && order.pay_currency === 'usdt') return amount + ' USDT';
+    return '¥' + amount;
+  }
+
+  // -- 设置项清单：订单页的四个字段 + 订阅商城的价格与开关 --
+  var PLAN_FIELDS = [
+    ['x_3m', 'X Premium · 3 个月'],
+    ['x_6m', 'X Premium · 6 个月'],
+    ['x_12m', 'X Premium · 12 个月'],
+    ['x_12m_plus', 'X Premium+ · 12 个月'],
+    ['tg_3m', 'TG Premium · 3 个月'],
+    ['tg_6m', 'TG Premium · 6 个月'],
+    ['tg_12m', 'TG Premium · 12 个月']
+  ];
+
+  var SETTINGS_FIELDS = [
+    { key: 'card_price', name: '电话卡价格', kind: 'price' },
+    { key: 'card_stock', name: '电话卡库存', kind: 'stock' },
+    { key: 'recharge_price', name: '充值券价格', kind: 'price' },
+    { key: 'recharge_stock', name: '充值券库存', kind: 'stock' },
+    { key: 'sub_accepting', name: '接单状态', kind: 'accepting' },
+    { key: 'sub_pay_note', name: '支付说明', kind: 'text' },
+    { key: 'sub_direct_url', name: '自助下单入口', kind: 'text' }
+  ];
+  PLAN_FIELDS.forEach(function (pair) {
+    var code = pair[0];
+    var label = pair[1];
+    SETTINGS_FIELDS.push({ key: 'sub_' + code + '_cny', name: label + ' 人民币价', kind: 'plan' });
+    SETTINGS_FIELDS.push({ key: 'sub_' + code + '_usdt', name: label + ' USDT 价', kind: 'plan' });
+  });
+
+  function settingEl(key) {
+    if (key === 'card_price') return setCardPrice;
+    if (key === 'card_stock') return setCardStock;
+    if (key === 'recharge_price') return setRechargePrice;
+    if (key === 'recharge_stock') return setRechargeStock;
+    if (key === 'sub_accepting') return document.getElementById('set-sub-accepting');
+    if (key === 'sub_pay_note') return document.getElementById('set-sub-pay-note');
+    if (key === 'sub_direct_url') return document.getElementById('set-sub-direct-url');
+    var m = /^sub_(.+)_(cny|usdt)$/.exec(key);
+    if (m) return document.getElementById('set-sub-' + m[1] + '-' + m[2]);
+    return null;
+  }
 
   // -- 工具函数 --
   function statusBadge(status) {
@@ -76,6 +151,20 @@
     loginSection.style.display = 'none';
     adminSection.style.display = 'block';
     loadOrders();
+    startNotifier();
+  }
+
+  // -- 新订单提醒：登录后开始轮询，有人下单就出横幅 + 提示音 + 系统通知 --
+  function startNotifier() {
+    if (!window.AdminNotify) return;
+    window.AdminNotify.start({
+      onChange: function () { loadOrders(); },
+      onSelect: function (orderId) {
+        var tab = document.querySelector('[data-tab="orders"]');
+        if (tab && !tab.classList.contains('active')) tab.click();
+        selectOrder(orderId);
+      }
+    });
   }
 
   if (sb) {
@@ -151,6 +240,10 @@
 
       currentOrders = result.data || [];
       renderTable();
+      // 提醒游标以实际最新一单为起点，既不漏新单也不重刷历史
+      if (window.AdminNotify && window.AdminNotify.seedFromOrders) {
+        window.AdminNotify.seedFromOrders(currentOrders);
+      }
     } catch (err) {
       tableContainer.innerHTML = '<div class="empty-state">加载失败：' + escapeHtml(err.message || '未知错误') + '</div>';
     }
@@ -164,18 +257,19 @@
     }
 
     var html = '<table class="admin-table"><thead><tr>' +
-      '<th>订单号</th><th>商品</th><th>收货人</th><th>数量</th><th>总价</th>' +
+      '<th>订单号</th><th>商品</th><th>客户 / 账号</th><th>数量</th><th>总价</th>' +
       '<th>状态</th><th>下单时间</th>' +
       '</tr></thead><tbody>';
 
     currentOrders.forEach(function (o) {
       var selected = o.id === selectedOrderId ? ' selected' : '';
+      var who = o.service_account || o.customer_name || '';
       html += '<tr data-order-id="' + escapeHtml(o.id) + '"' + selected + '>' +
         '<td>' + escapeHtml(o.order_number) + '</td>' +
-        '<td>' + escapeHtml(productNameMap[o.product_type] || 'giffgaff 电话卡') + '</td>' +
-        '<td>' + escapeHtml(o.customer_name) + '</td>' +
+        '<td>' + escapeHtml(productLabel(o)) + '</td>' +
+        '<td>' + escapeHtml(who) + '</td>' +
         '<td>' + escapeHtml(o.quantity) + '</td>' +
-        '<td>¥' + escapeHtml(o.total_price) + '</td>' +
+        '<td>' + escapeHtml(moneyText(o, o.total_price)) + '</td>' +
         '<td>' + statusBadge(o.status) + '</td>' +
         '<td>' + escapeHtml(fmtTime(o.created_at)) + '</td>' +
         '</tr>';
@@ -210,20 +304,30 @@
     var canShip = (order.status === 'confirmed');
     var canConfirm = (order.status === 'user_paid');
     var canCancel = (order.status !== 'completed' && order.status !== 'cancelled');
+    var digital = isDigital(order);
 
     var html = '<h3>订单详情 · ' + escapeHtml(order.order_number) + '</h3>';
     html += '<div class="detail-grid">';
     html += '<div class="item"><label>状态</label><p>' + statusBadge(order.status) + '</p></div>';
-    html += '<div class="item"><label>数量</label><p>' + escapeHtml(order.quantity) + ' 张</p></div>';
-    html += '<div class="item"><label>单价</label><p>¥' + escapeHtml(order.unit_price) + '</p></div>';
-    html += '<div class="item"><label>总价</label><p>¥' + escapeHtml(order.total_price) + '</p></div>';
-    html += '<div class="item"><label>收货人</label><p>' + escapeHtml(order.customer_name) + '</p></div>';
-    html += '<div class="item"><label>联系电话</label><p>' + escapeHtml(order.customer_phone) + '</p></div>';
-    html += '<div class="item full"><label>收货地址</label><p>' + escapeHtml(order.shipping_address) + '</p></div>';
+    html += '<div class="item"><label>商品</label><p>' + escapeHtml(productLabel(order)) + '</p></div>';
+    html += '<div class="item"><label>数量</label><p>' + escapeHtml(order.quantity) + (digital ? ' 份' : ' 张') + '</p></div>';
+    html += '<div class="item"><label>单价</label><p>' + escapeHtml(moneyText(order, order.unit_price)) + '</p></div>';
+    html += '<div class="item"><label>总价</label><p>' + escapeHtml(moneyText(order, order.total_price)) + '</p></div>';
+    if (digital) {
+      html += '<div class="item full"><label>目标账号（需开通的账号）</label><p>' + escapeHtml(order.service_account || '—') + '</p></div>';
+    }
+    html += '<div class="item"><label>' + (digital ? '客户' : '收货人') + '</label><p>' + escapeHtml(order.customer_name || '—') + '</p></div>';
+    html += '<div class="item"><label>联系方式</label><p>' + escapeHtml(order.customer_contact || order.customer_phone || '—') + '</p></div>';
+    if (!digital) {
+      html += '<div class="item full"><label>收货地址</label><p>' + escapeHtml(order.shipping_address || '—') + '</p></div>';
+    }
     if (order.customer_email) {
       html += '<div class="item"><label>邮箱</label><p>' + escapeHtml(order.customer_email) + '</p></div>';
     }
     html += '<div class="item"><label>下单时间</label><p>' + escapeHtml(fmtTime(order.created_at)) + '</p></div>';
+    if (order.customer_note) {
+      html += '<div class="item full"><label>买家备注</label><p>' + escapeHtml(order.customer_note) + '</p></div>';
+    }
     if (order.courier_company) {
       html += '<div class="item"><label>快递公司</label><p>' + escapeHtml(order.courier_company) + '</p></div>';
     }
@@ -231,7 +335,7 @@
       html += '<div class="item"><label>物流单号</label><p>' + escapeHtml(order.tracking_number) + '</p></div>';
     }
     if (order.admin_remark) {
-      html += '<div class="item full"><label>备注</label><p>' + escapeHtml(order.admin_remark) + '</p></div>';
+      html += '<div class="item full"><label>' + (digital ? '交付备注' : '备注') + '</label><p>' + escapeHtml(order.admin_remark) + '</p></div>';
     }
     html += '</div>';
 
@@ -241,7 +345,15 @@
       if (canConfirm) {
         html += '<button class="action-btn btn-save" data-action="confirm" data-id="' + escapeHtml(order.id) + '">确认收款</button>';
       }
-      if (canShip || order.status === 'shipped') {
+      if (digital) {
+        // 订阅类订单交付的是「开通结果」，不填快递
+        if (canShip || order.status === 'shipped') {
+          html += '<div class="form-row" style="flex:2;min-width:260px"><label>交付备注</label><input type="text" id="edit-remark" value="' + escapeHtml(order.admin_remark || '') + '" placeholder="例如：已开通，12 个月，2026-09-24 起" /></div>';
+          if (canShip) {
+            html += '<button class="action-btn btn-save" data-action="deliver" data-id="' + escapeHtml(order.id) + '">标记已交付</button>';
+          }
+        }
+      } else if (canShip || order.status === 'shipped') {
         html += '<div class="form-row"><label>快递公司</label><input type="text" id="edit-courier" value="' + escapeHtml(order.courier_company || '') + '" placeholder="如：顺丰速运" /></div>';
         html += '<div class="form-row"><label>物流单号</label><input type="text" id="edit-tracking" value="' + escapeHtml(order.tracking_number || '') + '" placeholder="物流单号" /></div>';
         if (canShip) {
@@ -288,6 +400,16 @@
       updateData.status = 'shipped';
       updateData.courier_company = courier;
       updateData.tracking_number = tracking;
+    } else if (action === 'deliver') {
+      // 订阅类订单：以交付备注记录开通结果，状态仍走 shipped
+      var remarkEl = document.getElementById('edit-remark');
+      var remark = remarkEl ? remarkEl.value.trim() : '';
+      if (!remark) {
+        if (msgEl) { msgEl.className = 'save-msg err'; msgEl.textContent = '请填写交付备注，便于日后回溯开通情况'; }
+        return;
+      }
+      updateData.status = 'shipped';
+      updateData.admin_remark = remark;
     } else if (action === 'complete') {
       updateData.status = 'completed';
     } else if (action === 'cancel') {
@@ -358,11 +480,7 @@
       if (result.error) throw result.error;
       var data = result.data || [];
       data.forEach(function (row) {
-        var el;
-        if (row.key === 'card_price') { el = setCardPrice; }
-        else if (row.key === 'card_stock') { el = setCardStock; }
-        else if (row.key === 'recharge_price') { el = setRechargePrice; }
-        else if (row.key === 'recharge_stock') { el = setRechargeStock; }
+        var el = settingEl(row.key);
         if (el) el.value = row.value;
       });
     } catch (err) {
@@ -377,18 +495,21 @@
       saveSettingsBtn.disabled = true;
       settingsSaved.style.display = 'none';
       try {
-        var settings = [
-          { key: 'card_price',     el: setCardPrice,     name: '电话卡价格' },
-          { key: 'card_stock',     el: setCardStock,     name: '电话卡库存' },
-          { key: 'recharge_price', el: setRechargePrice, name: '充值券价格' },
-          { key: 'recharge_stock', el: setRechargeStock, name: '充值券库存' }
-        ];
+        var settings = SETTINGS_FIELDS;
         for (var i = 0; i < settings.length; i++) {
           var s = settings[i];
-          var val = (s.el ? s.el.value : '').trim();
-          var isStock = (s.key.indexOf('_stock') !== -1);
-          if (!val || isNaN(val) || (isStock ? Number(val) < -1 : Number(val) <= 0)) {
-            alert('请输入有效的' + s.name + '（价格>0，库存: -1=无限/0=售罄/正数=有限）');
+          var el = settingEl(s.key);
+          if (!el) continue;
+          var val = String(el.value === null || el.value === undefined ? '' : el.value).trim();
+          var invalid = false;
+
+          if (s.kind === 'price') invalid = !val || isNaN(val) || Number(val) <= 0;
+          else if (s.kind === 'stock') invalid = !val || isNaN(val) || Number(val) < -1;
+          else if (s.kind === 'plan') invalid = !val || isNaN(val) || Number(val) < 0;
+          else if (s.kind === 'accepting') invalid = (val !== '0' && val !== '1');
+
+          if (invalid) {
+            alert('请输入有效的' + s.name + '（实物价格>0，库存 -1=无限/0=售罄，订阅价 0 表示该币种不可用，接单状态只能 0 或 1）');
             saveSettingsBtn.disabled = false; return;
           }
           var r = await sb.rpc('admin_update_settings', { p_key: s.key, p_value: val });

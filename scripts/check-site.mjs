@@ -11,6 +11,7 @@ const NAV = [
   './ai-subscriptions.html',
   './legal.html',
   './meme.html',
+  './subscriptions.html',
 ];
 
 const PAGES = [
@@ -23,6 +24,7 @@ const PAGES = [
   'docs/community.html',
   'docs/legal.html',
   'docs/meme.html',
+  'docs/subscriptions.html',
 ];
 
 const fail = (message) => {
@@ -59,13 +61,13 @@ for (const file of PAGES) {
 // Homepage is a module hub: no stacked tool cards, no leftover roadmap section.
 const homepage = sources.get('docs/index.html');
 const hubCards = homepage.match(/class="hub-card[^"]*"/g) ?? [];
-if (hubCards.length !== 7) fail(`Homepage must expose 7 module hub cards (found ${hubCards.length})`);
+if (hubCards.length !== 8) fail(`Homepage must expose 8 module hub cards (found ${hubCards.length})`);
 if (homepage.includes('module-card tool-card')) fail('Homepage still stacks the legacy tool cards');
 if (homepage.includes('id="roadmap"') || homepage.includes('roadmap-node')) {
   fail('The removed roadmap module is still present on the homepage');
 }
 if (!hubCards.every((card) => card.includes('hub-card'))) fail('Hub cards must use the shared hub-card class');
-for (const target of ['./banking.html', './phone.html', './securities.html', './ai-subscriptions.html', './calendar.html', './legal.html', './meme.html']) {
+for (const target of ['./banking.html', './phone.html', './securities.html', './ai-subscriptions.html', './calendar.html', './legal.html', './meme.html', './subscriptions.html']) {
   if (!homepage.includes(`href="${target}"`)) fail(`Homepage hub is missing an entry for ${target}`);
 }
 if (!homepage.includes('gsap@3/dist/gsap.min.js') || !homepage.includes('ScrollTrigger.min.js')) {
@@ -191,6 +193,74 @@ if (/(mockData|DEMO_POOLS|sampleData\s*=|fakePools)/.test(memeScript)) {
   fail('Meme radar must not fall back to demo data');
 }
 
+// 订阅商城：栏目展示 + 下单登记，价格只认后台配置，不认前端传参。
+const subsPage = sources.get('docs/subscriptions.html');
+for (const marker of ['js/subscriptions.js', 'js/supabase-client.js', 'data-subs-platforms',
+  'data-subs-platform="x"', 'data-subs-platform="tg"', 'data-subs-currency="cny"',
+  'data-subs-currency="usdt"', 'data-subs-plans', 'data-subs-form', 'data-subs-error',
+  'data-subs-success', 'data-subs-order-number', 'data-subs-tracking-code',
+  'data-subs-lookup-form', 'data-subs-lookup-result', 'data-subs-direct',
+  'data-subs-accepting', 'data-subs-total']) {
+  if (!subsPage.includes(marker)) fail(`Subscription page is missing ${marker}`);
+}
+if (!subsPage.includes('不构成')) fail('Subscription page must carry its disclaimer');
+if (/type=("|')password\1/.test(subsPage)) fail('Subscription page must not ask for a password');
+if (!subsPage.includes('公开用户名')) fail('Subscription page must explain that only a public handle is needed');
+
+const subsScript = await readFile(resolve('docs/js/subscriptions.js'), 'utf8');
+if (!subsScript.includes('escapeHtml')) fail('Subscription module must escape its output');
+if (!subsScript.includes('get_subscription_info')) fail('Subscription module lost its plan feed');
+if (!subsScript.includes('create_subscription_order')) fail('Subscription module lost its order RPC');
+if (!subsScript.includes('query_order')) fail('Subscription module lost its order lookup');
+if (subsScript.includes('IntersectionObserver')) fail('Subscription module must not rely on IntersectionObserver');
+// 价格必须由服务端按 plan_code + 币种重算，前端不得把金额当成事实提交。
+for (const forbidden of ['p_unit_price', 'p_total_price']) {
+  if (subsScript.includes(forbidden)) fail(`Subscription module must not post ${forbidden}; price is server-side`);
+}
+if (/(mockData|DEMO_PLANS|samplePlans\s*=|fakePlans)/.test(subsScript)) {
+  fail('Subscription module must not fall back to demo plans');
+}
+
+const subsSql = await readFile(resolve('supabase/subscriptions.sql'), 'utf8');
+for (const marker of ['create_subscription_order', 'get_subscription_info', 'admin_new_orders',
+  'fn_plan_product', 'fn_require_admin', "LIKE 'sub\\_%'"]) {
+  if (!subsSql.includes(marker)) fail(`Subscription SQL is missing ${marker}`);
+}
+if (subsSql.includes('p_unit_price')) {
+  fail('create_subscription_order must not accept a client-supplied price');
+}
+if (!subsSql.includes("'-infinity'")) fail('admin_new_orders must tolerate an empty cursor');
+
+// 后台新订单提醒：轮询增量 + 页内横幅 + 系统通知，缺一不可。
+const adminPage = await readFile(resolve('docs/phone-cards/admin.html'), 'utf8');
+for (const marker of ['js/admin-notify.js', 'data-notify-bar', 'data-notify-title',
+  'data-notify-detail', 'data-notify-open', 'data-notify-sound', 'data-notify-permission',
+  'data-notify-state', 'set-sub-accepting', 'set-sub-pay-note', 'set-sub-direct-url']) {
+  if (!adminPage.includes(marker)) fail(`Admin page is missing ${marker}`);
+}
+for (const code of ['x_3m', 'x_12m_plus', 'tg_12m']) {
+  if (!adminPage.includes(`set-sub-${code}-usdt`)) fail(`Admin settings are missing the ${code} price input`);
+}
+
+const notifyScript = await readFile(resolve('docs/js/admin-notify.js'), 'utf8');
+for (const marker of ['admin_new_orders', 'p_since', 'p_last_id', 'Notification',
+  'AudioContext', 'escapeHtml', 'seedFromOrders']) {
+  if (!notifyScript.includes(marker)) fail(`Admin notify module is missing ${marker}`);
+}
+// 提醒不能凭空造单，也不能把订单数据写进别处。
+if (/(mockOrders|demoOrders|sampleOrders\s*=)/.test(notifyScript)) {
+  fail('Admin notify module must not fabricate orders');
+}
+
+const adminScript = await readFile(resolve('docs/js/admin.js'), 'utf8');
+for (const marker of ['AdminNotify.start', 'startNotifier', 'isDigital', 'productLabel',
+  'moneyText', "'deliver'", 'set-sub-accepting']) {
+  if (!adminScript.includes(marker)) fail(`Admin script is missing ${marker}`);
+}
+if (!adminScript.includes("'deliver'")) {
+  fail('Admin script must let subscription orders be marked as delivered');
+}
+
 // Legal page keeps its 10 official-link cards.
 const legalPage = sources.get('docs/legal.html');
 const legalCards = legalPage.match(/class="module-card tool-card card-securities legal-card"/g) ?? [];
@@ -216,7 +286,7 @@ const styles = await readFile(resolve('docs/styles.css'), 'utf8');
 for (const legacySelector of ['[data-reveal]', '.is-visible', 'hero-enter', '.roadmap-']) {
   if (styles.includes(legacySelector)) fail(`Legacy CSS selector remains: ${legacySelector}`);
 }
-for (const required of ['.hub-grid', '.hub-card', '.cal-cell', '.cal-pop', '.forum-stats', '.topic-toggle', '.account-card', '.account-form-row', '.card-radar', '.radar-card', '.radar-check', '.radar-metrics dd.is-up', '.nav-dropdown-menu']) {
+for (const required of ['.hub-grid', '.hub-card', '.cal-cell', '.cal-pop', '.forum-stats', '.topic-toggle', '.account-card', '.account-form-row', '.card-radar', '.radar-card', '.radar-check', '.radar-metrics dd.is-up', '.nav-dropdown-menu', '.card-subs', '.subs-platform', '.subs-plan', '.subs-selection', '.subs-lookup-card', '.subs-direct-card', '.subs-price-table', '.admin-notify']) {
   if (!styles.includes(required)) fail(`Shared stylesheet is missing ${required}`);
 }
 
@@ -227,4 +297,4 @@ for (const file of PAGES) {
   if (!sitemap.includes(`/digital-nomad-cn/${slug}`)) fail(`Sitemap is missing ${file}`);
 }
 
-console.log(`Checked ${PAGES.length} pages, shared navigation, calendar data, forum script, meme radar and stylesheet.`);
+console.log(`Checked ${PAGES.length} pages, shared navigation, calendar data, forum script, meme radar, subscription module, admin notify and stylesheet.`);

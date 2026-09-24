@@ -89,6 +89,7 @@
           <button class="nav-cta nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="more-nav">导航栏</button>
           <div id="more-nav" class="nav-dropdown-menu">
             <a href="../index.html#ai-subscriptions">AI 订阅</a>
+            <a href="../subscriptions.html">订阅商城</a>
             <a href="../legal.html">法律法规</a>
             <a href="../community.html">社区论坛</a>
           </div>
@@ -117,6 +118,21 @@
           <h2>管理后台</h2>
           <button class="logout-btn" id="logout-btn">退出登录</button>
         </div>
+        <!-- 新订单提醒（登录后由 admin-notify.js 驱动） -->
+        <div class="admin-notify" data-notify-bar hidden>
+          <span class="admin-notify-pulse" aria-hidden="true"></span>
+          <div class="admin-notify-main">
+            <strong data-notify-title>有新订单</strong>
+            <p data-notify-detail></p>
+          </div>
+          <div class="admin-notify-actions">
+            <button type="button" class="admin-notify-btn is-primary" data-notify-open hidden>查看</button>
+            <button type="button" class="admin-notify-btn" data-notify-sound aria-pressed="true">提示音 开</button>
+            <button type="button" class="admin-notify-btn" data-notify-permission>开启浏览器通知</button>
+            <button type="button" class="admin-notify-btn" data-notify-dismiss>忽略</button>
+          </div>
+        </div>
+        <p class="admin-notify-state" data-notify-state>提醒准备中…</p>
         <!-- 标签切换 -->
         <div class="tab-bar" id="tab-bar">
           <button class="tab-btn active" data-tab="orders">订单管理</button>
@@ -164,6 +180,41 @@
               <p class="hint">-1 表示无限库存，0 表示售罄，正数为有限库存</p>
             </div>
           </div>
+          <div class="settings-form" style="margin-top:24px;max-width:640px">
+            <h4 style="margin:0 0 6px;font-size:18px">订阅商城（X Premium / TG Premium）</h4>
+            <p class="hint" style="margin:0 0 18px">价格填 0 表示该币种不可用；改完保存，前台会立即按新价下单。</p>
+            <div class="form-row">
+              <label>接单状态</label>
+              <select id="set-sub-accepting">
+                <option value="1">接单中</option>
+                <option value="0">暂停接单</option>
+              </select>
+              <p class="hint">暂停后前台会提示「当前暂停接单」，已提交的订单不受影响</p>
+            </div>
+            <table class="subs-price-table">
+              <thead>
+                <tr><th>套餐</th><th>人民币 ¥</th><th>USDT</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>X Premium · 3 个月</td><td><input type="number" min="0" step="1" id="set-sub-x_3m-cny" /></td><td><input type="number" min="0" step="1" id="set-sub-x_3m-usdt" /></td></tr>
+                <tr><td>X Premium · 6 个月</td><td><input type="number" min="0" step="1" id="set-sub-x_6m-cny" /></td><td><input type="number" min="0" step="1" id="set-sub-x_6m-usdt" /></td></tr>
+                <tr><td>X Premium · 12 个月</td><td><input type="number" min="0" step="1" id="set-sub-x_12m-cny" /></td><td><input type="number" min="0" step="1" id="set-sub-x_12m-usdt" /></td></tr>
+                <tr><td>X Premium+ · 12 个月</td><td><input type="number" min="0" step="1" id="set-sub-x_12m_plus-cny" /></td><td><input type="number" min="0" step="1" id="set-sub-x_12m_plus-usdt" /></td></tr>
+                <tr><td>TG Premium · 3 个月</td><td><input type="number" min="0" step="1" id="set-sub-tg_3m-cny" /></td><td><input type="number" min="0" step="1" id="set-sub-tg_3m-usdt" /></td></tr>
+                <tr><td>TG Premium · 6 个月</td><td><input type="number" min="0" step="1" id="set-sub-tg_6m-cny" /></td><td><input type="number" min="0" step="1" id="set-sub-tg_6m-usdt" /></td></tr>
+                <tr><td>TG Premium · 12 个月</td><td><input type="number" min="0" step="1" id="set-sub-tg_12m-cny" /></td><td><input type="number" min="0" step="1" id="set-sub-tg_12m-usdt" /></td></tr>
+              </tbody>
+            </table>
+            <div class="form-row">
+              <label>支付说明（显示在下单成功页）</label>
+              <input type="text" id="set-sub-pay-note" placeholder="留空则不显示，例如：请联系客服获取收款方式" />
+            </div>
+            <div class="form-row">
+              <label>自助下单入口</label>
+              <input type="text" id="set-sub-direct-url" placeholder="https://…" />
+              <p class="hint">前台「想自己走完全程」按钮的跳转地址</p>
+            </div>
+          </div>
           <button class="button button-primary" id="save-settings-btn" style="margin-top:16px">保存设置</button>
           <div class="settings-saved" id="settings-saved">已保存</div>
         </div>
@@ -178,6 +229,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
     <script src="../js/config.js" defer></script>
     <script src="../js/supabase-client.js" defer></script>
+    <script src="../js/admin-notify.js" defer></script>
     <script src="../js/admin.js" defer></script>
     <script src="../app.js" defer></script>
   </body>
